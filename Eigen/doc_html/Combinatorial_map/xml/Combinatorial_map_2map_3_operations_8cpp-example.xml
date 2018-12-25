@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Combinatorial_map_2map_3_operations_8cpp-example" kind="example">
+    <compoundname>Combinatorial_map/map_3_operations.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Combinatorial_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Combinatorial__map" kindref="compound">CGAL::Combinatorial_map&lt;3&gt;</ref><sp/>CMap_3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CMap_3::Dart_handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Dart_handle;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CMap_3<sp/>cm;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>one<sp/>combinatorial<sp/>hexahedron.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Dart_handle<sp/>dh1<sp/>=<sp/>cm.make_combinatorial_hexahedron();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>two<sp/>edges<sp/>along<sp/>two<sp/>opposite<sp/>facets.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_insertable_cell_1_in_cell_2</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(cm.beta(dh1,1),cm.beta(dh1,0))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.insert_cell_1_in_cell_2(cm.beta(dh1,1),<sp/>cm.beta(dh1,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Dart_handle<sp/>dh2=cm.beta(dh1,2,1,1,2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_insertable_cell_1_in_cell_2</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(dh2,cm.beta(dh2,1,1))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.insert_cell_1_in_cell_2(dh2,<sp/>cm.beta(dh2,1,1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>facet<sp/>along<sp/>these<sp/>two<sp/>new<sp/>edges<sp/>plus<sp/>two<sp/>initial<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>the<sp/>hexahedron.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::vector&lt;Dart_handle&gt;<sp/>path;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path.push_back(cm.beta(dh1,1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path.push_back(cm.beta(dh1,0,2,1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path.push_back(cm.beta(dh2,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path.push_back(cm.beta(dh2,2,1));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>(cm.is_insertable_cell_2_in_cell_3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(path.begin(),path.end()))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Dart_handle<sp/>dh3=cm.insert_cell_2_in_cell_3(path.begin(),path.end());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>the<sp/>combinatorial<sp/>map<sp/>characteristics.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.display_characteristics(std::cout)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>valid=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cm.is_valid()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>use<sp/>the<sp/>removal<sp/>operations<sp/>to<sp/>get<sp/>back<sp/>to<sp/>the<sp/>initial<sp/>hexahedron.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>(cm.is_removable&lt;2&gt;(dh3))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.remove_cell&lt;2&gt;(dh3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>(cm.is_removable&lt;1&gt;(cm.beta(dh1,1)))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.remove_cell&lt;1&gt;(cm.beta(dh1,1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>(cm.is_removable&lt;1&gt;(cm.beta(dh2,0)))<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.remove_cell&lt;1&gt;(cm.beta(dh2,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(<sp/>cm.is_valid()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>the<sp/>combinatorial<sp/>map<sp/>characteristics.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cm.display_characteristics(std::cout)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>valid=&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>cm.is_valid()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

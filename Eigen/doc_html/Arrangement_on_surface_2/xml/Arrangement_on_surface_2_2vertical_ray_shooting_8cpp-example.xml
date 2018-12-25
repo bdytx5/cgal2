@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2vertical_ray_shooting_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/vertical_ray_shooting.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Answering<sp/>vertical<sp/>ray-shooting<sp/>queries.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MP__Float_8h" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL/MP_Float.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_segment_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_walk_along_line_point_location.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_trapezoid_ric_point_location.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;point_location_utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1MP__Float" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL::MP_Float</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Number_type;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Cartesian&lt;Number_type&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound">CGAL::Arr_segment_traits_2&lt;Kernel&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__walk__along__line__point__location" kindref="compound">CGAL::Arr_walk_along_line_point_location&lt;Arrangement_2&gt;</ref><sp/>Walk_pl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__trapezoid__ric__point__location" kindref="compound">CGAL::Arr_trapezoid_ric_point_location&lt;Arrangement_2&gt;</ref><sp/><sp/><sp/>Trap_pl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Construct<sp/>the<sp/>arrangement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/><sp/>arr;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Walk_pl<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>walk_pl<sp/>(arr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Trap_pl<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trap_pl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>construct_segments_arr<sp/>(arr);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>some<sp/>vertical<sp/>ray-shooting<sp/>queries<sp/>using<sp/>the<sp/>walk<sp/>strategy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q1<sp/>(1,<sp/>4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q2<sp/>(4,<sp/>3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q3<sp/>(6,<sp/>3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(walk_pl,<sp/>q1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(walk_pl,<sp/>q2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(walk_pl,<sp/>q3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Attach<sp/>the<sp/>trapezoid-RIC<sp/>object<sp/>to<sp/>the<sp/>arrangement<sp/>and<sp/>perform<sp/>queries.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q4<sp/>(3,<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q5<sp/>(5,<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q6<sp/>(1,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>trap_pl.attach<sp/>(arr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(trap_pl,<sp/>q4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(trap_pl,<sp/>q5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertical_ray_shooting_query<sp/>(trap_pl,<sp/>q6);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

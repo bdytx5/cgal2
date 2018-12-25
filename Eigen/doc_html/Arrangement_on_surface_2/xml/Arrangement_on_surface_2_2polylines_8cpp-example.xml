@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2polylines_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/polylines.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Constructing<sp/>an<sp/>arrangement<sp/>of<sp/>polylines.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_exact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_segment_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_polyline_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;arr_print.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>Define<sp/>the<sp/>Arrangement<sp/>traits<sp/>class<sp/>to<sp/>be<sp/>used.<sp/>You<sp/>can<sp/>either<sp/>use<sp/>some<sp/>user</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>defined<sp/>kernel<sp/>and<sp/>Segment_traits_2<sp/>or<sp/>the<sp/>defaults.</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Instantiate<sp/>the<sp/>traits<sp/>class<sp/>using<sp/>a<sp/>user-defined<sp/>kernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>Segment_traits_2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__exact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_exact_constructions_kernel</ref><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound">CGAL::Arr_segment_traits_2&lt;Kernel&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Segment_traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__polyline__traits__2" kindref="compound">CGAL::Arr_polyline_traits_2&lt;Segment_traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/>Geom_traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Identical<sp/>instantiation<sp/>can<sp/>be<sp/>achieved<sp/>using<sp/>the<sp/>default<sp/>Kernel:</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>typedef<sp/>CGAL::Arr_polyline_traits_2&lt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Geom_traits_2;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Geom_traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Geom_traits_2::Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Segment_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Geom_traits_2::Curve_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Polyline_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Geom_traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Geom_traits_2<sp/>traits;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/>arr(&amp;traits);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Geom_traits_2::Construct_curve_2<sp/>polyline_construct<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>traits.construct_curve_2_object();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/>points1[5];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points1[0]<sp/>=<sp/>Point_2(0,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points1[1]<sp/>=<sp/>Point_2(2,<sp/>4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points1[2]<sp/>=<sp/>Point_2(3,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points1[3]<sp/>=<sp/>Point_2(4,<sp/>4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points1[4]<sp/>=<sp/>Point_2(6,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polyline_2<sp/>pi1<sp/>=<sp/>polyline_construct(&amp;points1[0],<sp/>&amp;points1[5]);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::list&lt;Point_2&gt;<sp/>points2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(1,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(0,<sp/>2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(1,<sp/>0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(2,<sp/>1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(3,<sp/>0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(4,<sp/>1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(5,<sp/>0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(6,<sp/>2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(5,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>points2.push_back(Point_2(4,<sp/>2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polyline_2<sp/>pi2<sp/>=<sp/>polyline_construct(points2.begin(),<sp/>points2.end());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::vector&lt;Segment_2&gt;<sp/>segs;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>segs.push_back(Segment_2(Point_2(0,<sp/>2),<sp/>Point_2(1,<sp/>2)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>segs.push_back(Segment_2(Point_2(1,<sp/>2),<sp/>Point_2(3,<sp/>6)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>segs.push_back(Segment_2(Point_2(3,<sp/>6),<sp/>Point_2(5,<sp/>2)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polyline_2<sp/>pi3<sp/>=<sp/>polyline_construct(segs.begin(),<sp/>segs.end());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref>(arr,<sp/>pi1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref>(arr,<sp/>pi2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref>(arr,<sp/>pi3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>print_arrangement(arr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

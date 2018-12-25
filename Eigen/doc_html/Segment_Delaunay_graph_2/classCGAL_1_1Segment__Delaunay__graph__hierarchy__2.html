@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Segment_Delaunay_graph_2/classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Segment Delaunay Graphs: CGAL::Segment_Delaunay_graph_hierarchy_2&lt; Gt, STag, DS &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Segment Delaunay Graphs
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2-members.html">List of all members</a> |
+<a href="#related">Related Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Segment_Delaunay_graph_hierarchy_2&lt; Gt, STag, DS &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgSegmentDelaunayGraph2.html">2D Segment Delaunay Graphs Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Segment_Delaunay_graph_hierarchy_2.h&gt;</code></p>
+
+<a name="details" id="details"></a><h2 class="groupheader">Inherits from</h2><p><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">CGAL::Segment_Delaunay_graph_2&lt; Gt, DS &gt;</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>We provide an alternative to the class <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> for the incremental construction of the segment Delaunay graph. </p>
+<p>The <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html" title="We provide an alternative to the class Segment_Delaunay_graph_2&lt;Gt,DS&gt; for the incremental constructi...">Segment_Delaunay_graph_hierarchy_2</a></code> class maintains a hierarchy of Delaunay graphs. There are two possibilities as to how this hierarchy is constructed.</p>
+<p>In the first case the bottom-most level of the hierarchy contains the full segment Delaunay graph. The upper levels of the hierarchy contain only points that are either point sites or endpoints of segment sites in the bottom-most Delaunay graph. A point that is in level \( i\) (either as an individdual point or as the endpoint of a segment), is inserted in level \( i+1\) with probability \( 1/\alpha\) where \( \alpha&gt;1\) is some constant. In the second case the upper levels of the hierarchy contains not only points but also segments. A site that is in level \( i\), is in level \( i+1\) with probability \( 1/\beta\) where \( \beta &gt; 1\) is some constant.</p>
+<p>The difference between the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> class and the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html" title="We provide an alternative to the class Segment_Delaunay_graph_2&lt;Gt,DS&gt; for the incremental constructi...">Segment_Delaunay_graph_hierarchy_2</a></code> class (both versions of it) is on how the nearest neighbor location is done. Given a point \( p\) the location is done as follows: at the top most level we find the nearest neighbor of \( p\) as in the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> class. At every subsequent level \( i\) we use the nearest neighbor found at level \( i+1\) to find the nearest neighbor at level \( i\). This is a variant of the corresponding hierarchy for points found in <a class="el" href="citelist.html#CITEREF_cgal:d-dh-02">[3]</a>. The details are described in <a class="el" href="citelist.html#CITEREF_cgal:k-reisv-04">[4]</a>.</p>
+<p>The class has three template parameters. The first and third have essentially the same semantics as in the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> class.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Gt</td><td>must be a model of the <code><a class="el" href="classSegmentDelaunayGraphTraits__2.html">SegmentDelaunayGraphTraits_2</a></code> concept.</td></tr>
+    <tr><td class="paramname">STag</td><td>The second template parameter controls whether or not segments are added in the upper levels of the hierarchy. It's possible values are <code>Tag_true</code> and <code>Tag_false</code>. If it is set to <code>Tag_true</code>, segments are also inserted in the upper levels of the hierarchy. The value <code>Tag_false</code> indicates that only points are to be inserted in the upper levels of the hierarchy. The default value for the second template parameter is <code>Tag_false</code>.</td></tr>
+    <tr><td class="paramname">DS</td><td>must be a model of the <code><a class="el" href="classSegmentDelaunayGraphDataStructure__2.html" title="The concept SegmentDelaunayGraphDataStructure_2 refines the concept ApolloniusGraphDataStructure_2. In addition it provides two methods for the merging of two vertices joined by an edge of the data structure, and the splitting of a vertex into two. The method that merges two vertices, called join_vertices() identifies the two vertices and deletes their common two faces. The method that splits a vertex, called split_vertex() introduces a new vertex that shares an edge and two faces with the old vertex (see figure below). Notice that the join_vertices() and split_vertex() operations are complementary, in the sense that one reverses the action of the other. ">SegmentDelaunayGraphDataStructure_2</a></code> concept. However, the vertex base class that is to be used in the segment Delaunay graph data structure must be a model of the <code><a class="el" href="classSegmentDelaunayGraphHierarchyVertexBase__2.html" title="The vertex of a segment Delaunay graph included in a segment Delaunay graph hierarchy has to provide ...">SegmentDelaunayGraphHierarchyVertexBase_2</a></code> concept. The third template parameter defaults to <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/TDS_2.tag:../TDS_2/" href="../TDS_2/classCGAL_1_1Triangulation__data__structure__2.html">Triangulation_data_structure_2</a>&lt; <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__vertex__base__2.html" title="The class Segment_Delaunay_graph_hierarchy_vertex_base_2 provides a model for the SegmentDelaunayGrap...">Segment_Delaunay_graph_hierarchy_vertex_base_2</a>&lt; <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__vertex__base__2.html" title="The class Segment_Delaunay_graph_vertex_base_2 provides a model for the SegmentDelaunayGraphVertexBas...">Segment_Delaunay_graph_vertex_base_2</a>&lt;Gt&gt; &gt;, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Triangulation__face__base__2.html">Triangulation_face_base_2</a>&lt;Gt&gt; &gt;</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html" title="We provide an alternative to the class Segment_Delaunay_graph_2&lt;Gt,DS&gt; for the incremental constructi...">Segment_Delaunay_graph_hierarchy_2</a></code> class derives publicly from the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> class. The interface is the same with its base class. In the sequel only additional types and methods defined are documented.</p>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000004">Is Model Of:</a></b></dt><dd><p class="startdd"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classDefaultConstructible.html">DefaultConstructible</a></code> </p>
+<p><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classCopyConstructible.html">CopyConstructible</a></code> </p>
+<p class="enddd"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAssignable.html">Assignable</a></code></p>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classSegmentDelaunayGraphDataStructure__2.html" title="The concept SegmentDelaunayGraphDataStructure_2 refines the concept ApolloniusGraphDataStructure_2. In addition it provides two methods for the merging of two vertices joined by an edge of the data structure, and the splitting of a vertex into two. The method that merges two vertices, called join_vertices() identifies the two vertices and deletes their common two faces. The method that splits a vertex, called split_vertex() introduces a new vertex that shares an edge and two faces with the old vertex (see figure below). Notice that the join_vertices() and split_vertex() operations are complementary, in the sense that one reverses the action of the other. ">SegmentDelaunayGraphDataStructure_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classSegmentDelaunayGraphTraits__2.html">SegmentDelaunayGraphTraits_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classSegmentDelaunayGraphHierarchyVertexBase__2.html" title="The vertex of a segment Delaunay graph included in a segment Delaunay graph hierarchy has to provide ...">SegmentDelaunayGraphHierarchyVertexBase_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">CGAL::Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/TDS_2.tag:../TDS_2/" href="../TDS_2/classCGAL_1_1Triangulation__data__structure__2.html">CGAL::Triangulation_data_structure_2</a>&lt;Vb,Fb&gt;</code> </dd>
+<dd>
+<code><a class="el" href="structCGAL_1_1Segment__Delaunay__graph__traits__2.html" title="The class Segment_Delaunay_graph_traits_2 provides a model for the SegmentDelaunayGraphTraits_2 conce...">CGAL::Segment_Delaunay_graph_traits_2</a>&lt;K,MTag&gt;</code> </dd>
+<dd>
+<code><a class="el" href="structCGAL_1_1Segment__Delaunay__graph__traits__without__intersections__2.html" title="The class Segment_Delaunay_graph_traits_without_intersections_2 provides a model for the SegmentDelau...">CGAL::Segment_Delaunay_graph_traits_without_intersections_2</a>&lt;K,MTag&gt;</code> </dd>
+<dd>
+<code><a class="el" href="structCGAL_1_1Segment__Delaunay__graph__filtered__traits__2.html" title="The class Segment_Delaunay_graph_filtered_traits_2 provides a model for the SegmentDelaunayGraphTrait...">CGAL::Segment_Delaunay_graph_filtered_traits_2</a>&lt;CK,CM,EK,EM,FK,FM&gt;</code> </dd>
+<dd>
+<code><a class="el" href="structCGAL_1_1Segment__Delaunay__graph__filtered__traits__without__intersections__2.html" title="The class Segment_Delaunay_graph_filtered_traits_without_intersections_2 provides a model for the Seg...">CGAL::Segment_Delaunay_graph_filtered_traits_without_intersections_2</a>&lt;CK,CM,EK,EM,FK,FM&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__vertex__base__2.html" title="The class Segment_Delaunay_graph_hierarchy_vertex_base_2 provides a model for the SegmentDelaunayGrap...">CGAL::Segment_Delaunay_graph_hierarchy_vertex_base_2</a>&lt;Vbb&gt;</code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Segment_Delaunay_graph_2_2sdg-filtered-traits_8cpp-example.html#_a2">Segment_Delaunay_graph_2/sdg-filtered-traits.cpp</a>, and <a class="el" href="Segment_Delaunay_graph_2_2sdg-info-set_8cpp-example.html#_a3">Segment_Delaunay_graph_2/sdg-info-set.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related" id="related"></a>
+Related Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
+</td></tr>
+<tr class="memitem:ae088d82d5937cfc9019ebb2dc77802e3"><td class="memItemLeft" align="right" valign="top">std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#ae088d82d5937cfc9019ebb2dc77802e3">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">Segment_Delaunay_graph_hierarchy_2</a>&lt; Gt, STag, DS &gt; svdh)</td></tr>
+<tr class="memdesc:ae088d82d5937cfc9019ebb2dc77802e3"><td class="mdescLeft"> </td><td class="mdescRight">Writes the current state of the segment Delaunay graph hierarchy to an output stream.  <a href="#ae088d82d5937cfc9019ebb2dc77802e3">More...</a><br /></td></tr>
+<tr class="separator:ae088d82d5937cfc9019ebb2dc77802e3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af3618c9387185cd1c2885c43376505a6"><td class="memItemLeft" align="right" valign="top"><a id="af3618c9387185cd1c2885c43376505a6"></a>
+std::istream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#af3618c9387185cd1c2885c43376505a6">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">Segment_Delaunay_graph_hierarchy_2</a>&lt; Gt, STag, DS &gt; svdh)</td></tr>
+<tr class="memdesc:af3618c9387185cd1c2885c43376505a6"><td class="mdescLeft"> </td><td class="mdescRight">Reads the state of the segment Delaunay graph hierarchy from an input stream. <br /></td></tr>
+<tr class="separator:af3618c9387185cd1c2885c43376505a6"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpf2d346b1bb7c1c85ab6f7f21e3666b9f"></a><code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html" title="We provide an alternative to the class Segment_Delaunay_graph_2&lt;Gt,DS&gt; for the incremental constructi...">Segment_Delaunay_graph_hierarchy_2</a></code> introduces the following types in addition to those introduced by its base class <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a>&lt;Gt,DS&gt;</code>. </p>
+</td></tr>
+<tr class="memitem:a49cb931dfbb2ceebf8e632ef62f05a2d"><td class="memItemLeft" align="right" valign="top"><a id="a49cb931dfbb2ceebf8e632ef62f05a2d"></a>
+typedef STag </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#a49cb931dfbb2ceebf8e632ef62f05a2d">Segments_in_hierarchy_tag</a></td></tr>
+<tr class="memdesc:a49cb931dfbb2ceebf8e632ef62f05a2d"><td class="mdescLeft"> </td><td class="mdescRight">A type for the <code>STag</code> template parameter. <br /></td></tr>
+<tr class="separator:a49cb931dfbb2ceebf8e632ef62f05a2d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af8231c81192787966ac7d0ef7a2d8a6d"><td class="memItemLeft" align="right" valign="top"><a id="af8231c81192787966ac7d0ef7a2d8a6d"></a>
+typedef <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">CGAL::Segment_Delaunay_graph_2</a>&lt; Gt, DS &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#af8231c81192787966ac7d0ef7a2d8a6d">Base</a></td></tr>
+<tr class="memdesc:af8231c81192787966ac7d0ef7a2d8a6d"><td class="mdescLeft"> </td><td class="mdescRight">A type for the base class. <br /></td></tr>
+<tr class="separator:af8231c81192787966ac7d0ef7a2d8a6d"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp67d5168b4f2b5424a3d118ea9ef99372"></a>In addition to the default and copy constructors, the following constructors are defined: </p>
+</td></tr>
+<tr class="memitem:a2900d1bec1cbff5c755ccf32c7a47b9e"><td class="memItemLeft" align="right" valign="top"><a id="a2900d1bec1cbff5c755ccf32c7a47b9e"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#a2900d1bec1cbff5c755ccf32c7a47b9e">Segment_Delaunay_graph_hierarchy_2</a> (Gt gt=Gt())</td></tr>
+<tr class="memdesc:a2900d1bec1cbff5c755ccf32c7a47b9e"><td class="mdescLeft"> </td><td class="mdescRight">Creates a hierarchy of segment Delaunay graphs using <code>gt</code> as geometric traits. <br /></td></tr>
+<tr class="separator:a2900d1bec1cbff5c755ccf32c7a47b9e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8b73b32ce980bf7a91c039cb968d7603"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:a8b73b32ce980bf7a91c039cb968d7603"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html#a8b73b32ce980bf7a91c039cb968d7603">Segment_Delaunay_graph_hierarchy_2</a> (Input_iterator first, Input_iterator beyond, Gt gt=Gt())</td></tr>
+<tr class="memdesc:a8b73b32ce980bf7a91c039cb968d7603"><td class="mdescLeft"> </td><td class="mdescRight">Creates a segment Delaunay graph hierarchy using <code>gt</code> as geometric traits and inserts all sites in the range [<code>first</code>, <code>beyond</code>).  <a href="#a8b73b32ce980bf7a91c039cb968d7603">More...</a><br /></td></tr>
+<tr class="separator:a8b73b32ce980bf7a91c039cb968d7603"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited" id="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCGAL_1_1Segment__Delaunay__graph__2')"><img src="closed.png" alt="-" /> Public Types inherited from <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">CGAL::Segment_Delaunay_graph_2&lt; Gt, DS &gt;</a></td></tr>
+<tr class="memitem:ac213b5aad9965839be0fff52b69d34d4 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ac213b5aad9965839be0fff52b69d34d4"></a>
+typedef Gt </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac213b5aad9965839be0fff52b69d34d4">Geom_traits</a></td></tr>
+<tr class="memdesc:ac213b5aad9965839be0fff52b69d34d4 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for the geometric traits. <br /></td></tr>
+<tr class="separator:ac213b5aad9965839be0fff52b69d34d4 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af639aab32b5a90fa4fb7005d11c16217 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af639aab32b5a90fa4fb7005d11c16217"></a>
+typedef DS </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af639aab32b5a90fa4fb7005d11c16217">Data_structure</a></td></tr>
+<tr class="memdesc:af639aab32b5a90fa4fb7005d11c16217 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for the underlying data structure. <br /></td></tr>
+<tr class="separator:af639aab32b5a90fa4fb7005d11c16217 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a227c79525504f690874f195670f72380 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a227c79525504f690874f195670f72380"></a>
+typedef <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af639aab32b5a90fa4fb7005d11c16217">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a227c79525504f690874f195670f72380">Triangulation_data_structure</a></td></tr>
+<tr class="memdesc:a227c79525504f690874f195670f72380 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">This type has been added so that the <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html" title="The class Segment_Delaunay_graph_2 represents the segment Delaunay graph (which is the dual graph of ...">Segment_Delaunay_graph_2</a></code> class is a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Voronoi_diagram_2.tag:../Voronoi_diagram_2/" href="../Voronoi_diagram_2/classDelaunayGraph__2.html">DelaunayGraph_2</a></code> concept. <br /></td></tr>
+<tr class="separator:a227c79525504f690874f195670f72380 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a03f02766675dfa47468637acbd1a77b6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a03f02766675dfa47468637acbd1a77b6"></a>
+typedef DS::size_type </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a></td></tr>
+<tr class="memdesc:a03f02766675dfa47468637acbd1a77b6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Size type (an unsigned integral type) <br /></td></tr>
+<tr class="separator:a03f02766675dfa47468637acbd1a77b6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abab21a11598a33292ee5ce54187c20fd inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="abab21a11598a33292ee5ce54187c20fd"></a>
+typedef Gt::Point_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a></td></tr>
+<tr class="memdesc:abab21a11598a33292ee5ce54187c20fd inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for the point defined in the geometric traits. <br /></td></tr>
+<tr class="separator:abab21a11598a33292ee5ce54187c20fd inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a464f8d172e95d94b08908168baf43fe6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a464f8d172e95d94b08908168baf43fe6"></a>
+typedef Gt::Site_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a464f8d172e95d94b08908168baf43fe6">Site_2</a></td></tr>
+<tr class="memdesc:a464f8d172e95d94b08908168baf43fe6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for the segment Delaunay graph site, defined in the geometric traits. <br /></td></tr>
+<tr class="separator:a464f8d172e95d94b08908168baf43fe6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adfaada3e31c1ad8a33b867ddc3c97597 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="adfaada3e31c1ad8a33b867ddc3c97597"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#adfaada3e31c1ad8a33b867ddc3c97597">Point_container</a></td></tr>
+<tr class="memdesc:adfaada3e31c1ad8a33b867ddc3c97597 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for the container of points. <br /></td></tr>
+<tr class="separator:adfaada3e31c1ad8a33b867ddc3c97597 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac15d2c0f26b0c37562d22b10df736798 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ac15d2c0f26b0c37562d22b10df736798"></a>
+typedef Point_container::iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac15d2c0f26b0c37562d22b10df736798">Point_handle</a></td></tr>
+<tr class="memdesc:ac15d2c0f26b0c37562d22b10df736798 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A handle for points in the point container. <br /></td></tr>
+<tr class="separator:ac15d2c0f26b0c37562d22b10df736798 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a112903406281a8d1998b1bd96bfc8c81 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top">typedef DS::Edge </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a112903406281a8d1998b1bd96bfc8c81">Edge</a></td></tr>
+<tr class="memdesc:a112903406281a8d1998b1bd96bfc8c81 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">The edge type.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a112903406281a8d1998b1bd96bfc8c81">More...</a><br /></td></tr>
+<tr class="separator:a112903406281a8d1998b1bd96bfc8c81 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5bf45c6e3d733a2d75022b4a9c336fc9 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a5bf45c6e3d733a2d75022b4a9c336fc9"></a>
+typedef DS::Vertex </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a5bf45c6e3d733a2d75022b4a9c336fc9">Vertex</a></td></tr>
+<tr class="memdesc:a5bf45c6e3d733a2d75022b4a9c336fc9 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a vertex. <br /></td></tr>
+<tr class="separator:a5bf45c6e3d733a2d75022b4a9c336fc9 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac90bdf9eb0881f1f0ac45d170f594d5d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ac90bdf9eb0881f1f0ac45d170f594d5d"></a>
+typedef DS::Face </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac90bdf9eb0881f1f0ac45d170f594d5d">Face</a></td></tr>
+<tr class="memdesc:ac90bdf9eb0881f1f0ac45d170f594d5d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a face. <br /></td></tr>
+<tr class="separator:ac90bdf9eb0881f1f0ac45d170f594d5d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa51c4a31bbe849ae542224838af33751 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="aa51c4a31bbe849ae542224838af33751"></a>
+typedef DS::Vertex_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a></td></tr>
+<tr class="memdesc:aa51c4a31bbe849ae542224838af33751 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a handle to a vertex. <br /></td></tr>
+<tr class="separator:aa51c4a31bbe849ae542224838af33751 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af60551c2de9b4609c5844c355d8971f8 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af60551c2de9b4609c5844c355d8971f8"></a>
+typedef DS::Face_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a></td></tr>
+<tr class="memdesc:af60551c2de9b4609c5844c355d8971f8 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a handle to a face. <br /></td></tr>
+<tr class="separator:af60551c2de9b4609c5844c355d8971f8 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abedee331aa46aa1a1842629a6999b40f inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="abedee331aa46aa1a1842629a6999b40f"></a>
+typedef DS::Vertex_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abedee331aa46aa1a1842629a6999b40f">Vertex_circulator</a></td></tr>
+<tr class="memdesc:abedee331aa46aa1a1842629a6999b40f inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over vertices incident to a given vertex. <br /></td></tr>
+<tr class="separator:abedee331aa46aa1a1842629a6999b40f inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acd21a88fb1a591c5b49c09df77ad81cb inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="acd21a88fb1a591c5b49c09df77ad81cb"></a>
+typedef DS::Face_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#acd21a88fb1a591c5b49c09df77ad81cb">Face_circulator</a></td></tr>
+<tr class="memdesc:acd21a88fb1a591c5b49c09df77ad81cb inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over faces incident to a given vertex. <br /></td></tr>
+<tr class="separator:acd21a88fb1a591c5b49c09df77ad81cb inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abad7776b0d43930d7b6fe3f02d22aeb6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="abad7776b0d43930d7b6fe3f02d22aeb6"></a>
+typedef DS::Edge_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abad7776b0d43930d7b6fe3f02d22aeb6">Edge_circulator</a></td></tr>
+<tr class="memdesc:abad7776b0d43930d7b6fe3f02d22aeb6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over edges incident to a given vertex. <br /></td></tr>
+<tr class="separator:abad7776b0d43930d7b6fe3f02d22aeb6 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a59c5cfcab60bd1dc6cf66b2e976448a0 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a59c5cfcab60bd1dc6cf66b2e976448a0"></a>
+typedef DS::Vertex_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a59c5cfcab60bd1dc6cf66b2e976448a0">All_vertices_iterator</a></td></tr>
+<tr class="memdesc:a59c5cfcab60bd1dc6cf66b2e976448a0 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all vertices. <br /></td></tr>
+<tr class="separator:a59c5cfcab60bd1dc6cf66b2e976448a0 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae87f4235600032d5b21687c2cf941d9d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ae87f4235600032d5b21687c2cf941d9d"></a>
+typedef DS::Face_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae87f4235600032d5b21687c2cf941d9d">All_faces_iterator</a></td></tr>
+<tr class="memdesc:ae87f4235600032d5b21687c2cf941d9d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all faces. <br /></td></tr>
+<tr class="separator:ae87f4235600032d5b21687c2cf941d9d inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5976a5ba125545d991d1943655b5a785 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a5976a5ba125545d991d1943655b5a785"></a>
+typedef DS::Edge_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a5976a5ba125545d991d1943655b5a785">All_edges_iterator</a></td></tr>
+<tr class="memdesc:a5976a5ba125545d991d1943655b5a785 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all edges. <br /></td></tr>
+<tr class="separator:a5976a5ba125545d991d1943655b5a785 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a01a4b228dbe052fd2fad0ad0815edaba inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a01a4b228dbe052fd2fad0ad0815edaba"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a01a4b228dbe052fd2fad0ad0815edaba">Finite_vertices_iterator</a></td></tr>
+<tr class="memdesc:a01a4b228dbe052fd2fad0ad0815edaba inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite vertices. <br /></td></tr>
+<tr class="separator:a01a4b228dbe052fd2fad0ad0815edaba inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a279e707ebde34acd8ca850a9395973b7 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a279e707ebde34acd8ca850a9395973b7"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a279e707ebde34acd8ca850a9395973b7">Finite_faces_iterator</a></td></tr>
+<tr class="memdesc:a279e707ebde34acd8ca850a9395973b7 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite faces. <br /></td></tr>
+<tr class="separator:a279e707ebde34acd8ca850a9395973b7 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab8639d98b552ad20e00adfcc31202345 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ab8639d98b552ad20e00adfcc31202345"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab8639d98b552ad20e00adfcc31202345">Finite_edges_iterator</a></td></tr>
+<tr class="memdesc:ab8639d98b552ad20e00adfcc31202345 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite edges. <br /></td></tr>
+<tr class="separator:ab8639d98b552ad20e00adfcc31202345 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab54d191c261821a451eebc9a9040a3f1 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ab54d191c261821a451eebc9a9040a3f1"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab54d191c261821a451eebc9a9040a3f1">Input_sites_iterator</a></td></tr>
+<tr class="memdesc:ab54d191c261821a451eebc9a9040a3f1 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a bidirectional iterator over all input sites. <br /></td></tr>
+<tr class="separator:ab54d191c261821a451eebc9a9040a3f1 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a64fe4cd7690beed8dec73477df08acb2 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a64fe4cd7690beed8dec73477df08acb2"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a64fe4cd7690beed8dec73477df08acb2">Output_sites_iterator</a></td></tr>
+<tr class="memdesc:a64fe4cd7690beed8dec73477df08acb2 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">A type for a bidirectional iterator over all output sites (the sites in the Delaunay graph). <br /></td></tr>
+<tr class="separator:a64fe4cd7690beed8dec73477df08acb2 inherit pub_types_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="inherit_header pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCGAL_1_1Segment__Delaunay__graph__2')"><img src="closed.png" alt="-" /> Public Member Functions inherited from <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">CGAL::Segment_Delaunay_graph_2&lt; Gt, DS &gt;</a></td></tr>
+<tr class="memitem:af8b64b37badb55a71c6f817a45022ce5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af8b64b37badb55a71c6f817a45022ce5"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab54d191c261821a451eebc9a9040a3f1">Input_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af8b64b37badb55a71c6f817a45022ce5">input_sites_begin</a> ()</td></tr>
+<tr class="memdesc:af8b64b37badb55a71c6f817a45022ce5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary input site. <br /></td></tr>
+<tr class="separator:af8b64b37badb55a71c6f817a45022ce5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac8cf123a0c3e14cacac9abf4f4ada95f inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ac8cf123a0c3e14cacac9abf4f4ada95f"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab54d191c261821a451eebc9a9040a3f1">Input_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac8cf123a0c3e14cacac9abf4f4ada95f">input_sites_end</a> ()</td></tr>
+<tr class="memdesc:ac8cf123a0c3e14cacac9abf4f4ada95f inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:ac8cf123a0c3e14cacac9abf4f4ada95f inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8fffb3acf2f62f9d5e96f236fe14a06b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a8fffb3acf2f62f9d5e96f236fe14a06b"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a64fe4cd7690beed8dec73477df08acb2">Output_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a8fffb3acf2f62f9d5e96f236fe14a06b">output_sites_begin</a> ()</td></tr>
+<tr class="memdesc:a8fffb3acf2f62f9d5e96f236fe14a06b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary output site. <br /></td></tr>
+<tr class="separator:a8fffb3acf2f62f9d5e96f236fe14a06b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab0c6347f2de1c6760170ca5db0aef667 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ab0c6347f2de1c6760170ca5db0aef667"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a64fe4cd7690beed8dec73477df08acb2">Output_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab0c6347f2de1c6760170ca5db0aef667">output_sites_end</a> ()</td></tr>
+<tr class="memdesc:ab0c6347f2de1c6760170ca5db0aef667 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:ab0c6347f2de1c6760170ca5db0aef667 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af841e89e77d63c62ec4d1eb05be614b5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af841e89e77d63c62ec4d1eb05be614b5"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af841e89e77d63c62ec4d1eb05be614b5">Segment_Delaunay_graph_2</a> (Gt gt=Gt())</td></tr>
+<tr class="memdesc:af841e89e77d63c62ec4d1eb05be614b5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Creates the segment Delaunay graph using <code>gt</code> as geometric traits. <br /></td></tr>
+<tr class="separator:af841e89e77d63c62ec4d1eb05be614b5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a67dff2495b4aa1cbceff834570fca4f6 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:a67dff2495b4aa1cbceff834570fca4f6 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a67dff2495b4aa1cbceff834570fca4f6">Segment_Delaunay_graph_2</a> (Input_iterator first, Input_iterator beyond, Gt gt=Gt())</td></tr>
+<tr class="memdesc:a67dff2495b4aa1cbceff834570fca4f6 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Creates the segment Delaunay graph using <code>gt</code> as geometric traits and inserts all sites in the range [<code>first</code>, <code>beyond</code>).  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a67dff2495b4aa1cbceff834570fca4f6">More...</a><br /></td></tr>
+<tr class="separator:a67dff2495b4aa1cbceff834570fca4f6 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad0821b3ee71540a57d02023d16685477 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ad0821b3ee71540a57d02023d16685477"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac213b5aad9965839be0fff52b69d34d4">Geom_traits</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ad0821b3ee71540a57d02023d16685477">geom_traits</a> ()</td></tr>
+<tr class="memdesc:ad0821b3ee71540a57d02023d16685477 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the segment Delaunay graph traits object. <br /></td></tr>
+<tr class="separator:ad0821b3ee71540a57d02023d16685477 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a06c22e8d5ae9317c7ed68450ed3cc6db inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a06c22e8d5ae9317c7ed68450ed3cc6db">dimension</a> ()</td></tr>
+<tr class="memdesc:a06c22e8d5ae9317c7ed68450ed3cc6db inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns the dimension of the segment Delaunay graph.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a06c22e8d5ae9317c7ed68450ed3cc6db">More...</a><br /></td></tr>
+<tr class="separator:a06c22e8d5ae9317c7ed68450ed3cc6db inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae16dd0cd6a1f3a1cd8d5e0b24f490fdf inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ae16dd0cd6a1f3a1cd8d5e0b24f490fdf"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae16dd0cd6a1f3a1cd8d5e0b24f490fdf">number_of_vertices</a> ()</td></tr>
+<tr class="memdesc:ae16dd0cd6a1f3a1cd8d5e0b24f490fdf inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of finite vertices of the segment Delaunay graph. <br /></td></tr>
+<tr class="separator:ae16dd0cd6a1f3a1cd8d5e0b24f490fdf inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aeddacb651eed113b77d8288928958e2a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="aeddacb651eed113b77d8288928958e2a"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aeddacb651eed113b77d8288928958e2a">number_of_faces</a> ()</td></tr>
+<tr class="memdesc:aeddacb651eed113b77d8288928958e2a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of faces (both finite and infinite) of the segment Delaunay graph. <br /></td></tr>
+<tr class="separator:aeddacb651eed113b77d8288928958e2a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa8f2601357e35de3b1f060ed49706aee inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="aa8f2601357e35de3b1f060ed49706aee"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa8f2601357e35de3b1f060ed49706aee">number_of_input_sites</a> ()</td></tr>
+<tr class="memdesc:aa8f2601357e35de3b1f060ed49706aee inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Return the number of input sites. <br /></td></tr>
+<tr class="separator:aa8f2601357e35de3b1f060ed49706aee inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7d8d61a258231c2acf4ee6d13659ac60 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a7d8d61a258231c2acf4ee6d13659ac60">number_of_output_sites</a> ()</td></tr>
+<tr class="memdesc:a7d8d61a258231c2acf4ee6d13659ac60 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Return the number of output sites.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a7d8d61a258231c2acf4ee6d13659ac60">More...</a><br /></td></tr>
+<tr class="separator:a7d8d61a258231c2acf4ee6d13659ac60 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afb2d3fb442abf5c15774708fce9534d9 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="afb2d3fb442abf5c15774708fce9534d9"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#afb2d3fb442abf5c15774708fce9534d9">infinite_face</a> ()</td></tr>
+<tr class="memdesc:afb2d3fb442abf5c15774708fce9534d9 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a face incident to the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:afb2d3fb442abf5c15774708fce9534d9 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abc148f209c8c72af29789d243e815a40 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="abc148f209c8c72af29789d243e815a40"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abc148f209c8c72af29789d243e815a40">infinite_vertex</a> ()</td></tr>
+<tr class="memdesc:abc148f209c8c72af29789d243e815a40 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:abc148f209c8c72af29789d243e815a40 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae70d8855cce79d3a136fc75a0a1c713a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae70d8855cce79d3a136fc75a0a1c713a">finite_vertex</a> ()</td></tr>
+<tr class="memdesc:ae70d8855cce79d3a136fc75a0a1c713a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a vertex distinct from the <code>infinite_vertex</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae70d8855cce79d3a136fc75a0a1c713a">More...</a><br /></td></tr>
+<tr class="separator:ae70d8855cce79d3a136fc75a0a1c713a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af6d4d3e2ffdf5136c4df827e466f0aca inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af6d4d3e2ffdf5136c4df827e466f0aca"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af639aab32b5a90fa4fb7005d11c16217">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af6d4d3e2ffdf5136c4df827e466f0aca">data_structure</a> ()</td></tr>
+<tr class="memdesc:af6d4d3e2ffdf5136c4df827e466f0aca inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the segment Delaunay graph data structure object. <br /></td></tr>
+<tr class="separator:af6d4d3e2ffdf5136c4df827e466f0aca inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a494732b111b7c4e5931aa70e8e701140 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af639aab32b5a90fa4fb7005d11c16217">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a494732b111b7c4e5931aa70e8e701140">tds</a> ()</td></tr>
+<tr class="memdesc:a494732b111b7c4e5931aa70e8e701140 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Same as <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af6d4d3e2ffdf5136c4df827e466f0aca" title="Returns a reference to the segment Delaunay graph data structure object. ">data_structure()</a></code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a494732b111b7c4e5931aa70e8e701140">More...</a><br /></td></tr>
+<tr class="separator:a494732b111b7c4e5931aa70e8e701140 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8f5fd8b28a4ba694f70474f1ea17665c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a8f5fd8b28a4ba694f70474f1ea17665c"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#adfaada3e31c1ad8a33b867ddc3c97597">Point_container</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a8f5fd8b28a4ba694f70474f1ea17665c">point_container</a> ()</td></tr>
+<tr class="memdesc:a8f5fd8b28a4ba694f70474f1ea17665c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the point container object. <br /></td></tr>
+<tr class="separator:a8f5fd8b28a4ba694f70474f1ea17665c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4c6ac77722e4c3e9483182b4a0ef8747 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a4c6ac77722e4c3e9483182b4a0ef8747"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a01a4b228dbe052fd2fad0ad0815edaba">Finite_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a4c6ac77722e4c3e9483182b4a0ef8747">finite_vertices_begin</a> ()</td></tr>
+<tr class="memdesc:a4c6ac77722e4c3e9483182b4a0ef8747 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite vertex. <br /></td></tr>
+<tr class="separator:a4c6ac77722e4c3e9483182b4a0ef8747 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a01f108d9b76d3daaebaea950140a1717 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a01f108d9b76d3daaebaea950140a1717"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a01a4b228dbe052fd2fad0ad0815edaba">Finite_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a01f108d9b76d3daaebaea950140a1717">finite_vertices_end</a> ()</td></tr>
+<tr class="memdesc:a01f108d9b76d3daaebaea950140a1717 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a01f108d9b76d3daaebaea950140a1717 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac0e1cbef1ec65ae5a37db3664510510d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ac0e1cbef1ec65ae5a37db3664510510d"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab8639d98b552ad20e00adfcc31202345">Finite_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac0e1cbef1ec65ae5a37db3664510510d">finite_edges_begin</a> ()</td></tr>
+<tr class="memdesc:ac0e1cbef1ec65ae5a37db3664510510d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite edge. <br /></td></tr>
+<tr class="separator:ac0e1cbef1ec65ae5a37db3664510510d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3e430c0419c72dab0607cfdbd86ed4c2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a3e430c0419c72dab0607cfdbd86ed4c2"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab8639d98b552ad20e00adfcc31202345">Finite_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a3e430c0419c72dab0607cfdbd86ed4c2">finite_edges_end</a> ()</td></tr>
+<tr class="memdesc:a3e430c0419c72dab0607cfdbd86ed4c2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a3e430c0419c72dab0607cfdbd86ed4c2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adb8e77b0231306f1ba717656a74b6f9b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="adb8e77b0231306f1ba717656a74b6f9b"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a279e707ebde34acd8ca850a9395973b7">Finite_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#adb8e77b0231306f1ba717656a74b6f9b">finite_faces_begin</a> ()</td></tr>
+<tr class="memdesc:adb8e77b0231306f1ba717656a74b6f9b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite face. <br /></td></tr>
+<tr class="separator:adb8e77b0231306f1ba717656a74b6f9b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a82aeeb79bc4e1e0159b3def5ca69a29a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a82aeeb79bc4e1e0159b3def5ca69a29a"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a279e707ebde34acd8ca850a9395973b7">Finite_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a82aeeb79bc4e1e0159b3def5ca69a29a">finite_faces_end</a> () const</td></tr>
+<tr class="memdesc:a82aeeb79bc4e1e0159b3def5ca69a29a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a82aeeb79bc4e1e0159b3def5ca69a29a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a58ee3df636e03b99c54b8bd76006840d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a58ee3df636e03b99c54b8bd76006840d"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a59c5cfcab60bd1dc6cf66b2e976448a0">All_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a58ee3df636e03b99c54b8bd76006840d">all_vertices_begin</a> ()</td></tr>
+<tr class="memdesc:a58ee3df636e03b99c54b8bd76006840d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary vertex. <br /></td></tr>
+<tr class="separator:a58ee3df636e03b99c54b8bd76006840d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a14d1db7eb3bf54539c35fdbc2231248c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a14d1db7eb3bf54539c35fdbc2231248c"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a59c5cfcab60bd1dc6cf66b2e976448a0">All_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a14d1db7eb3bf54539c35fdbc2231248c">all_vertices_end</a> ()</td></tr>
+<tr class="memdesc:a14d1db7eb3bf54539c35fdbc2231248c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a14d1db7eb3bf54539c35fdbc2231248c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2eefacf97614effcd0f70c129fff0691 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a2eefacf97614effcd0f70c129fff0691"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a5976a5ba125545d991d1943655b5a785">All_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a2eefacf97614effcd0f70c129fff0691">all_edges_begin</a> ()</td></tr>
+<tr class="memdesc:a2eefacf97614effcd0f70c129fff0691 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary edge. <br /></td></tr>
+<tr class="separator:a2eefacf97614effcd0f70c129fff0691 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1a6ea7dd3c8f65dffeb2387df749c570 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a1a6ea7dd3c8f65dffeb2387df749c570"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a5976a5ba125545d991d1943655b5a785">All_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a1a6ea7dd3c8f65dffeb2387df749c570">all_edges_end</a> ()</td></tr>
+<tr class="memdesc:a1a6ea7dd3c8f65dffeb2387df749c570 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a1a6ea7dd3c8f65dffeb2387df749c570 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a32c0425bdd835e3df56aad0278392c0b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a32c0425bdd835e3df56aad0278392c0b"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae87f4235600032d5b21687c2cf941d9d">All_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a32c0425bdd835e3df56aad0278392c0b">all_faces_begin</a> ()</td></tr>
+<tr class="memdesc:a32c0425bdd835e3df56aad0278392c0b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary face. <br /></td></tr>
+<tr class="separator:a32c0425bdd835e3df56aad0278392c0b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa927f46ef1eaadd86c5d6521cb0f265d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="aa927f46ef1eaadd86c5d6521cb0f265d"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ae87f4235600032d5b21687c2cf941d9d">All_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa927f46ef1eaadd86c5d6521cb0f265d">all_faces_end</a> ()</td></tr>
+<tr class="memdesc:aa927f46ef1eaadd86c5d6521cb0f265d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:aa927f46ef1eaadd86c5d6521cb0f265d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9713cc7f78502f695cb2b60690c31d45 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a9713cc7f78502f695cb2b60690c31d45"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#acd21a88fb1a591c5b49c09df77ad81cb">Face_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a9713cc7f78502f695cb2b60690c31d45">incident_faces</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:a9713cc7f78502f695cb2b60690c31d45 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary face incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:a9713cc7f78502f695cb2b60690c31d45 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a58bb07ea528dc6f9ac84c91666a0cb3a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#acd21a88fb1a591c5b49c09df77ad81cb">Face_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a58bb07ea528dc6f9ac84c91666a0cb3a">incident_faces</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> f)</td></tr>
+<tr class="memdesc:a58bb07ea528dc6f9ac84c91666a0cb3a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at face <code>f</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a58bb07ea528dc6f9ac84c91666a0cb3a">More...</a><br /></td></tr>
+<tr class="separator:a58bb07ea528dc6f9ac84c91666a0cb3a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afb27655a91c29b0becd47feaeb9bb843 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="afb27655a91c29b0becd47feaeb9bb843"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abad7776b0d43930d7b6fe3f02d22aeb6">Edge_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#afb27655a91c29b0becd47feaeb9bb843">incident_edges</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:afb27655a91c29b0becd47feaeb9bb843 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary edge incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:afb27655a91c29b0becd47feaeb9bb843 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a40f7c8d156f0e7ffa3497bb1d9ab8d1a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abad7776b0d43930d7b6fe3f02d22aeb6">Edge_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a40f7c8d156f0e7ffa3497bb1d9ab8d1a">incident_edges</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> f)</td></tr>
+<tr class="memdesc:a40f7c8d156f0e7ffa3497bb1d9ab8d1a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at the first edge of <code>f</code> incident to <code>v</code>, in counterclockwise order around <code>v</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a40f7c8d156f0e7ffa3497bb1d9ab8d1a">More...</a><br /></td></tr>
+<tr class="separator:a40f7c8d156f0e7ffa3497bb1d9ab8d1a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a19e9b371726f474aa63bb93527adc70c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a19e9b371726f474aa63bb93527adc70c"></a>
+<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abedee331aa46aa1a1842629a6999b40f">Vertex_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a19e9b371726f474aa63bb93527adc70c">incident_vertices</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:a19e9b371726f474aa63bb93527adc70c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary vertex incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:a19e9b371726f474aa63bb93527adc70c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ace4d3b29a350addbbdda06b243903722 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abedee331aa46aa1a1842629a6999b40f">Vertex_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ace4d3b29a350addbbdda06b243903722">incident_vertices</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> f)</td></tr>
+<tr class="memdesc:ace4d3b29a350addbbdda06b243903722 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Starts at the first vertex of <code>f</code> adjacent to <code>v</code> in counterclockwise order around <code>v</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ace4d3b29a350addbbdda06b243903722">More...</a><br /></td></tr>
+<tr class="separator:ace4d3b29a350addbbdda06b243903722 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a219e7330d04342073d766c9532233a9a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a219e7330d04342073d766c9532233a9a"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a219e7330d04342073d766c9532233a9a">is_infinite</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> v) const</td></tr>
+<tr class="memdesc:a219e7330d04342073d766c9532233a9a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff <code>v</code> is the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:a219e7330d04342073d766c9532233a9a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afdb5fb5ff0d84ba5ab4a41ce0d2ade53 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="afdb5fb5ff0d84ba5ab4a41ce0d2ade53"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#afdb5fb5ff0d84ba5ab4a41ce0d2ade53">is_infinite</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> f) const</td></tr>
+<tr class="memdesc:afdb5fb5ff0d84ba5ab4a41ce0d2ade53 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff face <code>f</code> is infinite. <br /></td></tr>
+<tr class="separator:afdb5fb5ff0d84ba5ab4a41ce0d2ade53 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4a12781c33b334caabe00c14b83a0007 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a4a12781c33b334caabe00c14b83a0007"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a4a12781c33b334caabe00c14b83a0007">is_infinite</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af60551c2de9b4609c5844c355d8971f8">Face_handle</a> f, int i) const</td></tr>
+<tr class="memdesc:a4a12781c33b334caabe00c14b83a0007 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>(f,i)</code> is infinite. <br /></td></tr>
+<tr class="separator:a4a12781c33b334caabe00c14b83a0007 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a00c4870549835232079388b420de5453 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a00c4870549835232079388b420de5453"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a00c4870549835232079388b420de5453">is_infinite</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a112903406281a8d1998b1bd96bfc8c81">Edge</a> e) const</td></tr>
+<tr class="memdesc:a00c4870549835232079388b420de5453 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>e</code> is infinite. <br /></td></tr>
+<tr class="separator:a00c4870549835232079388b420de5453 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a359ef44158dca2e0c4dbc91e0dcdc54a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a359ef44158dca2e0c4dbc91e0dcdc54a"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a359ef44158dca2e0c4dbc91e0dcdc54a">is_infinite</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abad7776b0d43930d7b6fe3f02d22aeb6">Edge_circulator</a> ec) const</td></tr>
+<tr class="memdesc:a359ef44158dca2e0c4dbc91e0dcdc54a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>*ec</code> is infinite. <br /></td></tr>
+<tr class="separator:a359ef44158dca2e0c4dbc91e0dcdc54a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab85d442bcbdfee8e610496300fcc5043 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:ab85d442bcbdfee8e610496300fcc5043 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab85d442bcbdfee8e610496300fcc5043">insert</a> (Input_iterator first, Input_iterator beyond)</td></tr>
+<tr class="memdesc:ab85d442bcbdfee8e610496300fcc5043 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the sites in the range [<code>first</code>,<code>beyond</code>).  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab85d442bcbdfee8e610496300fcc5043">More...</a><br /></td></tr>
+<tr class="separator:ab85d442bcbdfee8e610496300fcc5043 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa06d1c13aebfe2c9ac0dc690a90e3020 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:aa06d1c13aebfe2c9ac0dc690a90e3020 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa06d1c13aebfe2c9ac0dc690a90e3020">insert</a> (Input_iterator first, Input_iterator beyond, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/group__PkgStlExtensionUtilities.html#ga89d5ecf1540b2ec0a2bf5dd003e186d0">Tag_false</a>)</td></tr>
+<tr class="memdesc:aa06d1c13aebfe2c9ac0dc690a90e3020 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Same as the previous method.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa06d1c13aebfe2c9ac0dc690a90e3020">More...</a><br /></td></tr>
+<tr class="separator:aa06d1c13aebfe2c9ac0dc690a90e3020 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac7c5d319764a8a6b4a98f39dc139087e inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:ac7c5d319764a8a6b4a98f39dc139087e inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a03f02766675dfa47468637acbd1a77b6">size_type</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac7c5d319764a8a6b4a98f39dc139087e">insert</a> (Input_iterator first, Input_iterator beyond, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/group__PkgStlExtensionUtilities.html#gab3e2296107b5d26c32c8183028a217f1">Tag_true</a>)</td></tr>
+<tr class="memdesc:ac7c5d319764a8a6b4a98f39dc139087e inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Decomposes the range [first,beyond) into a range of input points and a range of input segments that are respectively passed to <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a896a91e35dabbeb3463ae428e21da5a5" title="Inserts the segments in the range [first,beyond) as sites. ">insert_segments()</a></code> and <code><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af190978a7ec3bdc26e96566548c11f63" title="Inserts the points in the range [first,beyond) as sites. ">insert_points()</a></code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac7c5d319764a8a6b4a98f39dc139087e">More...</a><br /></td></tr>
+<tr class="separator:ac7c5d319764a8a6b4a98f39dc139087e inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af190978a7ec3bdc26e96566548c11f63 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class PointIterator &gt; </td></tr>
+<tr class="memitem:af190978a7ec3bdc26e96566548c11f63 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af190978a7ec3bdc26e96566548c11f63">insert_points</a> (PointIterator first, PointIterator beyond)</td></tr>
+<tr class="memdesc:af190978a7ec3bdc26e96566548c11f63 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the points in the range [first,beyond) as sites.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#af190978a7ec3bdc26e96566548c11f63">More...</a><br /></td></tr>
+<tr class="separator:af190978a7ec3bdc26e96566548c11f63 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a896a91e35dabbeb3463ae428e21da5a5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class SegmentIterator &gt; </td></tr>
+<tr class="memitem:a896a91e35dabbeb3463ae428e21da5a5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a896a91e35dabbeb3463ae428e21da5a5">insert_segments</a> (SegmentIterator first, SegmentIterator beyond)</td></tr>
+<tr class="memdesc:a896a91e35dabbeb3463ae428e21da5a5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the segments in the range [first,beyond) as sites.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a896a91e35dabbeb3463ae428e21da5a5">More...</a><br /></td></tr>
+<tr class="separator:a896a91e35dabbeb3463ae428e21da5a5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acf5a5dba09344ac2593377a33c8f5c80 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class PointIterator , class IndicesIterator &gt; </td></tr>
+<tr class="memitem:acf5a5dba09344ac2593377a33c8f5c80 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#acf5a5dba09344ac2593377a33c8f5c80">insert_segments</a> (PointIterator points_first, PointIterator points_beyond, IndicesIterator indices_first, IndicesIterator indices_beyond)</td></tr>
+<tr class="memdesc:acf5a5dba09344ac2593377a33c8f5c80 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Same as above except that each segment is given as a pair of indices of the points in the range [points_first, points_beyond).  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#acf5a5dba09344ac2593377a33c8f5c80">More...</a><br /></td></tr>
+<tr class="separator:acf5a5dba09344ac2593377a33c8f5c80 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af99c31ec787a1d0a9022b191282a3af4 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af99c31ec787a1d0a9022b191282a3af4">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p)</td></tr>
+<tr class="memdesc:af99c31ec787a1d0a9022b191282a3af4 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the point <code>p</code> in the segment Delaunay graph.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#af99c31ec787a1d0a9022b191282a3af4">More...</a><br /></td></tr>
+<tr class="separator:af99c31ec787a1d0a9022b191282a3af4 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af7412d4a559cb7f322c53de46848271a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af7412d4a559cb7f322c53de46848271a">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:af7412d4a559cb7f322c53de46848271a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts <code>p</code> in the segment Delaunay graph using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>p</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#af7412d4a559cb7f322c53de46848271a">More...</a><br /></td></tr>
+<tr class="separator:af7412d4a559cb7f322c53de46848271a inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a536961ebd7a0f8c17e38011f82b6eb14 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a536961ebd7a0f8c17e38011f82b6eb14">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p1, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p2)</td></tr>
+<tr class="memdesc:a536961ebd7a0f8c17e38011f82b6eb14 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the closed segment with endpoints <code>p1</code> and <code>p2</code> in the segment Delaunay graph.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a536961ebd7a0f8c17e38011f82b6eb14">More...</a><br /></td></tr>
+<tr class="separator:a536961ebd7a0f8c17e38011f82b6eb14 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a51736283c72b6b5ee029e612bf022803 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a51736283c72b6b5ee029e612bf022803">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p1, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p2, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:a51736283c72b6b5ee029e612bf022803 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the segment whose endpoints are <code>p1</code> and <code>p2</code> in the segment Delaunay graph using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>p1</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a51736283c72b6b5ee029e612bf022803">More...</a><br /></td></tr>
+<tr class="separator:a51736283c72b6b5ee029e612bf022803 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a23745bc116ba3fc00c026a640db6eb4c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a23745bc116ba3fc00c026a640db6eb4c">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a464f8d172e95d94b08908168baf43fe6">Site_2</a> s)</td></tr>
+<tr class="memdesc:a23745bc116ba3fc00c026a640db6eb4c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the site <code>s</code> in the segment Delaunay graph.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a23745bc116ba3fc00c026a640db6eb4c">More...</a><br /></td></tr>
+<tr class="separator:a23745bc116ba3fc00c026a640db6eb4c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad34ee70f4c82ef775519db58e68bbd7b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ad34ee70f4c82ef775519db58e68bbd7b">insert</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a464f8d172e95d94b08908168baf43fe6">Site_2</a> s, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:ad34ee70f4c82ef775519db58e68bbd7b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts <code>s</code> in the segment Delaunay graph using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>s</code>, if <code>s</code> is a point, or the first endpoint of <code>s</code>, if <code>s</code> is a segment.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ad34ee70f4c82ef775519db58e68bbd7b">More...</a><br /></td></tr>
+<tr class="separator:ad34ee70f4c82ef775519db58e68bbd7b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a637bb82a23f2dcd1c9150101f94d9c62 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a637bb82a23f2dcd1c9150101f94d9c62">nearest_neighbor</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p)</td></tr>
+<tr class="memdesc:a637bb82a23f2dcd1c9150101f94d9c62 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Finds the nearest neighbor of the point <code>p</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a637bb82a23f2dcd1c9150101f94d9c62">More...</a><br /></td></tr>
+<tr class="separator:a637bb82a23f2dcd1c9150101f94d9c62 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a16995bc6569d5342acba5b555da76f23 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a16995bc6569d5342acba5b555da76f23">nearest_neighbor</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abab21a11598a33292ee5ce54187c20fd">Point_2</a> p, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aa51c4a31bbe849ae542224838af33751">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:a16995bc6569d5342acba5b555da76f23 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Finds the nearest neighbor of the point <code>p</code> using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>p</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a16995bc6569d5342acba5b555da76f23">More...</a><br /></td></tr>
+<tr class="separator:a16995bc6569d5342acba5b555da76f23 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a140bb7cf97051f7de78de0e0778ff3ea inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a140bb7cf97051f7de78de0e0778ff3ea inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a140bb7cf97051f7de78de0e0778ff3ea">draw_dual</a> (Stream &amp;str)</td></tr>
+<tr class="memdesc:a140bb7cf97051f7de78de0e0778ff3ea inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the segment Voronoi diagram to the stream <code>str</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a140bb7cf97051f7de78de0e0778ff3ea">More...</a><br /></td></tr>
+<tr class="separator:a140bb7cf97051f7de78de0e0778ff3ea inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac0154a38d21854c78292902256124a18 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:ac0154a38d21854c78292902256124a18 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac0154a38d21854c78292902256124a18">draw_skeleton</a> (Stream &amp;str)</td></tr>
+<tr class="memdesc:ac0154a38d21854c78292902256124a18 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the segment Voronoi diagram to the stream <code>str</code>, except the edges of the diagram corresponding to a segment and its endpoints.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#ac0154a38d21854c78292902256124a18">More...</a><br /></td></tr>
+<tr class="separator:ac0154a38d21854c78292902256124a18 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a030c3d6ab217328c16df3466d626a0d5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a030c3d6ab217328c16df3466d626a0d5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a030c3d6ab217328c16df3466d626a0d5">draw_dual_edge</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a112903406281a8d1998b1bd96bfc8c81">Edge</a> e, Stream &amp;str)</td></tr>
+<tr class="memdesc:a030c3d6ab217328c16df3466d626a0d5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the edge <code>e</code> of the segment Voronoi diagram to the stream <code>str</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a030c3d6ab217328c16df3466d626a0d5">More...</a><br /></td></tr>
+<tr class="separator:a030c3d6ab217328c16df3466d626a0d5 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2589402b036001578ecf6241b99c71b7 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a2589402b036001578ecf6241b99c71b7 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a2589402b036001578ecf6241b99c71b7">draw_dual_edge</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#abad7776b0d43930d7b6fe3f02d22aeb6">Edge_circulator</a> ec, Stream &amp;str)</td></tr>
+<tr class="memdesc:a2589402b036001578ecf6241b99c71b7 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the edge <code>*ec</code> of the segment Voronoi diagram to the stream <code>str</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a2589402b036001578ecf6241b99c71b7">More...</a><br /></td></tr>
+<tr class="separator:a2589402b036001578ecf6241b99c71b7 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9237d3db2a55176603f2941c06585228 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a9237d3db2a55176603f2941c06585228 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a9237d3db2a55176603f2941c06585228">draw_dual_edge</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a5976a5ba125545d991d1943655b5a785">All_edges_iterator</a> eit, Stream &amp;str)</td></tr>
+<tr class="memdesc:a9237d3db2a55176603f2941c06585228 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the edge <code>*eit</code> of the segment Voronoi diagram to the stream <code>str</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a9237d3db2a55176603f2941c06585228">More...</a><br /></td></tr>
+<tr class="separator:a9237d3db2a55176603f2941c06585228 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a687074921a63f9d6be5afc3fb3286e7d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a687074921a63f9d6be5afc3fb3286e7d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a687074921a63f9d6be5afc3fb3286e7d">draw_dual_edge</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ab8639d98b552ad20e00adfcc31202345">Finite_edges_iterator</a> eit, Stream &amp;str)</td></tr>
+<tr class="memdesc:a687074921a63f9d6be5afc3fb3286e7d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Draws the edge <code>*eit</code> of the segment Voronoi diagram to the stream <code>str</code>.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a687074921a63f9d6be5afc3fb3286e7d">More...</a><br /></td></tr>
+<tr class="separator:a687074921a63f9d6be5afc3fb3286e7d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0704cf8fdb8792738e50783700a50f1b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a0704cf8fdb8792738e50783700a50f1b">file_output</a> (std::ostream &amp;os)</td></tr>
+<tr class="memdesc:a0704cf8fdb8792738e50783700a50f1b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Writes the current state of the segment Delaunay graph to an output stream.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a0704cf8fdb8792738e50783700a50f1b">More...</a><br /></td></tr>
+<tr class="separator:a0704cf8fdb8792738e50783700a50f1b inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad45c1efe246c012e885d006a55edc903 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ad45c1efe246c012e885d006a55edc903"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ad45c1efe246c012e885d006a55edc903">file_input</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:ad45c1efe246c012e885d006a55edc903 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Reads the state of the segment Delaunay graph from an input stream. <br /></td></tr>
+<tr class="separator:ad45c1efe246c012e885d006a55edc903 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af4edcebc192142581d28be6ae1b4ea4d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="af4edcebc192142581d28be6ae1b4ea4d"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#af4edcebc192142581d28be6ae1b4ea4d">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">Segment_Delaunay_graph_2</a>&lt; Gt, DS &gt; sdg)</td></tr>
+<tr class="memdesc:af4edcebc192142581d28be6ae1b4ea4d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Writes the current state of the segment Delaunay graph to an output stream. <br /></td></tr>
+<tr class="separator:af4edcebc192142581d28be6ae1b4ea4d inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a00688f9fd55c62c4ad82d035204d3513 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="a00688f9fd55c62c4ad82d035204d3513"></a>
+std::istream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a00688f9fd55c62c4ad82d035204d3513">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">Segment_Delaunay_graph_2</a>&lt; Gt, DS &gt; sdg)</td></tr>
+<tr class="memdesc:a00688f9fd55c62c4ad82d035204d3513 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Reads the state of the segment Delaunay graph from an input stream. <br /></td></tr>
+<tr class="separator:a00688f9fd55c62c4ad82d035204d3513 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aef388cb234d5b025cf4d63078df72d8c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#aef388cb234d5b025cf4d63078df72d8c">is_valid</a> (bool verbose=false, int level=1)</td></tr>
+<tr class="memdesc:aef388cb234d5b025cf4d63078df72d8c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Checks the validity of the segment Delaunay graph.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#aef388cb234d5b025cf4d63078df72d8c">More...</a><br /></td></tr>
+<tr class="separator:aef388cb234d5b025cf4d63078df72d8c inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad5134e39a89da4fb9fda41eaae67e875 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top"><a id="ad5134e39a89da4fb9fda41eaae67e875"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#ad5134e39a89da4fb9fda41eaae67e875">clear</a> ()</td></tr>
+<tr class="memdesc:ad5134e39a89da4fb9fda41eaae67e875 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">Clears all contents of the segment Delaunay graph. <br /></td></tr>
+<tr class="separator:ad5134e39a89da4fb9fda41eaae67e875 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1b3562196aff27460d696a4e96b07ab2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html#a1b3562196aff27460d696a4e96b07ab2">swap</a> (<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__2.html">Segment_Delaunay_graph_2</a>&lt; Gt, DS &gt; other)</td></tr>
+<tr class="memdesc:a1b3562196aff27460d696a4e96b07ab2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="mdescLeft"> </td><td class="mdescRight">The segment Delaunay graphs <code>other</code> and <code>*this</code> are swapped.  <a href="classCGAL_1_1Segment__Delaunay__graph__2.html#a1b3562196aff27460d696a4e96b07ab2">More...</a><br /></td></tr>
+<tr class="separator:a1b3562196aff27460d696a4e96b07ab2 inherit pub_methods_classCGAL_1_1Segment__Delaunay__graph__2"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8b73b32ce980bf7a91c039cb968d7603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b73b32ce980bf7a91c039cb968d7603">◆ </a></span>Segment_Delaunay_graph_hierarchy_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt , typename STag , typename DS &gt; </div>
+<div class="memtemplate">
+template&lt;class Input_iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">CGAL::Segment_Delaunay_graph_hierarchy_2</a>&lt; Gt, STag, DS &gt;::<a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">Segment_Delaunay_graph_hierarchy_2</a> </td>
+          <td>(</td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>beyond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Gt </td>
+          <td class="paramname"><em>gt</em> = <code>Gt()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a segment Delaunay graph hierarchy using <code>gt</code> as geometric traits and inserts all sites in the range [<code>first</code>, <code>beyond</code>). </p>
+<p><code>Input_iterator</code> must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code>. The value type of <code>Input_iterator</code> must be either <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__2.html">Point_2</a></code> or <code>Site_2</code>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae088d82d5937cfc9019ebb2dc77802e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae088d82d5937cfc9019ebb2dc77802e3">◆ </a></span>operator
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt , typename STag , typename DS &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp; </td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">Segment_Delaunay_graph_hierarchy_2</a>&lt; Gt, STag, DS &gt; </td>
+          <td class="paramname"><em>svdh</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes the current state of the segment Delaunay graph hierarchy to an output stream. </p>
+<p>In particular, all sites in the diagram are written to the stream (represented through appropriate input sites), as well as the underlying combinatorial hierarchical data structure. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Segment_Delaunay_graph_2_2sdg-red-blue-info_8cpp-example.html#a0">Segment_Delaunay_graph_2/sdg-red-blue-info.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+</h2></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Segment__Delaunay__graph__hierarchy__2.html">Segment_Delaunay_graph_hierarchy_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:49 for CGAL 4.13 - 2D Segment Delaunay Graphs by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

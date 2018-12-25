@@ -1,0 +1,1105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Kernel_d/group__PkgKernelDFunctions.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - dD Geometry Kernel: Global Kernel Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - dD Geometry Kernel
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgKernelDFunctions.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Global Kernel Functions<div class="ingroups"><a class="el" href="group__PkgKernelD.html">dD Geometry Kernel Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga8a25cedf1a9f5d645c511825bc6a1129"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga8a25cedf1a9f5d645c511825bc6a1129"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga8a25cedf1a9f5d645c511825bc6a1129">CGAL::center_of_sphere</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:ga8a25cedf1a9f5d645c511825bc6a1129"><td class="mdescLeft"> </td><td class="mdescRight">returns the center of the sphere spanned by the points in <code>A = tuple[first,last)</code>.  <a href="group__PkgKernelDFunctions.html#ga8a25cedf1a9f5d645c511825bc6a1129">More...</a><br /></td></tr>
+<tr class="separator:ga8a25cedf1a9f5d645c511825bc6a1129"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga9366f250d18454d6d7a2cb2b7239505c"><td class="memItemLeft" align="right" valign="top"><a id="ga9366f250d18454d6d7a2cb2b7239505c"></a>
+<a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga9366f250d18454d6d7a2cb2b7239505c">CGAL::lift_to_paraboloid</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:ga9366f250d18454d6d7a2cb2b7239505c"><td class="mdescLeft"> </td><td class="mdescRight">returns the projection of \( p = (x_0,\ldots,x_{d-1})\) onto the paraboloid of revolution which is the point \( (p_0, \ldots,p_{d-1},\sum_{0 \le i &lt; d}p_i^2)\) in \( (d+1)\)-space. <br /></td></tr>
+<tr class="separator:ga9366f250d18454d6d7a2cb2b7239505c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaea9ec4e90b5d5722d09b561a3985e67e"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator , class OutputIterator &gt; </td></tr>
+<tr class="memitem:gaea9ec4e90b5d5722d09b561a3985e67e"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaea9ec4e90b5d5722d09b561a3985e67e">CGAL::linear_base</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> result)</td></tr>
+<tr class="memdesc:gaea9ec4e90b5d5722d09b561a3985e67e"><td class="mdescLeft"> </td><td class="mdescRight">computes a basis of the linear space spanned by the vectors in <code>A = tuple [first,last)</code> and returns it via an iterator range starting in <code>result</code>.  <a href="group__PkgKernelDFunctions.html#gaea9ec4e90b5d5722d09b561a3985e67e">More...</a><br /></td></tr>
+<tr class="separator:gaea9ec4e90b5d5722d09b561a3985e67e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gae4e9a14c7792c8da1c6a98bd0b378937"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gae4e9a14c7792c8da1c6a98bd0b378937">CGAL::midpoint</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;q)</td></tr>
+<tr class="memdesc:gae4e9a14c7792c8da1c6a98bd0b378937"><td class="mdescLeft"> </td><td class="mdescRight">computes the midpoint of the segment \( pq\).  <a href="group__PkgKernelDFunctions.html#gae4e9a14c7792c8da1c6a98bd0b378937">More...</a><br /></td></tr>
+<tr class="separator:gae4e9a14c7792c8da1c6a98bd0b378937"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaadc6f06918d9dc10b15a27fdea3e0052"><td class="memItemLeft" align="right" valign="top"><a id="gaadc6f06918d9dc10b15a27fdea3e0052"></a>
+<a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaadc6f06918d9dc10b15a27fdea3e0052">CGAL::project_along_d_axis</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:gaadc6f06918d9dc10b15a27fdea3e0052"><td class="mdescLeft"> </td><td class="mdescRight">returns \( p\) projected along the \( d\)-axis onto the hyperspace spanned by the first \( d-1\) standard base vectors. <br /></td></tr>
+<tr class="separator:gaadc6f06918d9dc10b15a27fdea3e0052"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga433853179f3d0e0d2b7929723b584517"><td class="memItemLeft" align="right" valign="top">FT </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga433853179f3d0e0d2b7929723b584517">CGAL::squared_distance</a> (<a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; p, <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; q)</td></tr>
+<tr class="memdesc:ga433853179f3d0e0d2b7929723b584517"><td class="mdescLeft"> </td><td class="mdescRight">computes the square of the Euclidean distance between the two points \( p\) and \( q\).  <a href="group__PkgKernelDFunctions.html#ga433853179f3d0e0d2b7929723b584517">More...</a><br /></td></tr>
+<tr class="separator:ga433853179f3d0e0d2b7929723b584517"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaeb24896ff93503dab57f64b3b6934274"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaeb24896ff93503dab57f64b3b6934274">CGAL::do_intersect</a> (Type1&lt; R &gt; obj1, Type2&lt; R &gt; obj2)</td></tr>
+<tr class="memdesc:gaeb24896ff93503dab57f64b3b6934274"><td class="mdescLeft"> </td><td class="mdescRight">checks whether <code>obj1</code> and <code>obj2</code> intersect.  <a href="group__PkgKernelDFunctions.html#gaeb24896ff93503dab57f64b3b6934274">More...</a><br /></td></tr>
+<tr class="separator:gaeb24896ff93503dab57f64b3b6934274"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga0aa3e8b6bdf1bff509f8e2672ef194d1"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1cpp11_1_1result__of.html">cpp11::result_of</a>&lt; R::Intersect_d(Type1&lt; R &gt;, Type2&lt; R &gt;)&gt;::type </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga0aa3e8b6bdf1bff509f8e2672ef194d1">CGAL::intersection</a> (Type1&lt; R &gt; f1, Type2&lt; R &gt; f2)</td></tr>
+<tr class="memdesc:ga0aa3e8b6bdf1bff509f8e2672ef194d1"><td class="mdescLeft"> </td><td class="mdescRight">returns the intersection between <code>f1</code> and <code>f2</code>.  <a href="group__PkgKernelDFunctions.html#ga0aa3e8b6bdf1bff509f8e2672ef194d1">More...</a><br /></td></tr>
+<tr class="separator:ga0aa3e8b6bdf1bff509f8e2672ef194d1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaaca9c7ee1de7b5694c527a2cb0d2bd99"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:gaaca9c7ee1de7b5694c527a2cb0d2bd99"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaaca9c7ee1de7b5694c527a2cb0d2bd99">CGAL::affinely_independent</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:gaaca9c7ee1de7b5694c527a2cb0d2bd99"><td class="mdescLeft"> </td><td class="mdescRight">returns true iff the points in <code>A = tuple [first,last)</code> are affinely independent.  <a href="group__PkgKernelDFunctions.html#gaaca9c7ee1de7b5694c527a2cb0d2bd99">More...</a><br /></td></tr>
+<tr class="separator:gaaca9c7ee1de7b5694c527a2cb0d2bd99"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga469edbb6a719b355da3eb8a78ad93daf"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga469edbb6a719b355da3eb8a78ad93daf"><td class="memTemplItemLeft" align="right" valign="top">int </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga469edbb6a719b355da3eb8a78ad93daf">CGAL::affine_rank</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:ga469edbb6a719b355da3eb8a78ad93daf"><td class="mdescLeft"> </td><td class="mdescRight">computes the affine rank of the points in <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#ga469edbb6a719b355da3eb8a78ad93daf">More...</a><br /></td></tr>
+<tr class="separator:ga469edbb6a719b355da3eb8a78ad93daf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga7acf561e832f554032b13a756355fc51"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga84351c7e66be00efccd4ab1a61070469">Comparison_result</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga7acf561e832f554032b13a756355fc51">CGAL::compare_lexicographically</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;q)</td></tr>
+<tr class="memdesc:ga7acf561e832f554032b13a756355fc51"><td class="mdescLeft"> </td><td class="mdescRight">Compares the Cartesian coordinates of points <code>p</code> and <code>q</code> lexicographically in ascending order of its Cartesian components <code>p[i]</code> and <code>q[i]</code> for \( i = 0,\ldots,d-1\).  <a href="group__PkgKernelDFunctions.html#ga7acf561e832f554032b13a756355fc51">More...</a><br /></td></tr>
+<tr class="separator:ga7acf561e832f554032b13a756355fc51"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga19451c489a0e60d4be0a7d4f5462962d"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga19451c489a0e60d4be0a7d4f5462962d"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga19451c489a0e60d4be0a7d4f5462962d">CGAL::contained_in_affine_hull</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:ga19451c489a0e60d4be0a7d4f5462962d"><td class="mdescLeft"> </td><td class="mdescRight">determines whether \( p\) is contained in the affine hull of the points in <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#ga19451c489a0e60d4be0a7d4f5462962d">More...</a><br /></td></tr>
+<tr class="separator:ga19451c489a0e60d4be0a7d4f5462962d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaefd117396ced79cbf0399fb3efc0d212"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:gaefd117396ced79cbf0399fb3efc0d212"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaefd117396ced79cbf0399fb3efc0d212">CGAL::contained_in_linear_hull</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, const <a class="el" href="classCGAL_1_1Vector__d.html">Vector_d</a>&lt; R &gt; &amp;v)</td></tr>
+<tr class="memdesc:gaefd117396ced79cbf0399fb3efc0d212"><td class="mdescLeft"> </td><td class="mdescRight">determines whether \( v\) is contained in the linear hull of the vectors in <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#gaefd117396ced79cbf0399fb3efc0d212">More...</a><br /></td></tr>
+<tr class="separator:gaefd117396ced79cbf0399fb3efc0d212"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga47799f4718eeab7474e370943b5b9b6c"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga47799f4718eeab7474e370943b5b9b6c"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga47799f4718eeab7474e370943b5b9b6c">CGAL::contained_in_simplex</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:ga47799f4718eeab7474e370943b5b9b6c"><td class="mdescLeft"> </td><td class="mdescRight">determines whether \( p\) is contained in the simplex of the points in <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#ga47799f4718eeab7474e370943b5b9b6c">More...</a><br /></td></tr>
+<tr class="separator:ga47799f4718eeab7474e370943b5b9b6c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaaf434c87ede524fe801cac1e1ffa6d5f"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaaf434c87ede524fe801cac1e1ffa6d5f">CGAL::lexicographically_smaller</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;q)</td></tr>
+<tr class="memdesc:gaaf434c87ede524fe801cac1e1ffa6d5f"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff <code>p</code> is lexicographically smaller than <code>q</code> with respect to Cartesian lexicographic order of points.  <a href="group__PkgKernelDFunctions.html#gaaf434c87ede524fe801cac1e1ffa6d5f">More...</a><br /></td></tr>
+<tr class="separator:gaaf434c87ede524fe801cac1e1ffa6d5f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga38de0c7326c1028d17ff6ca0df227f6d"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga38de0c7326c1028d17ff6ca0df227f6d">CGAL::lexicographically_smaller_or_equal</a> (const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;q)</td></tr>
+<tr class="memdesc:ga38de0c7326c1028d17ff6ca0df227f6d"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff \( p\) is lexicographically smaller than \( q\) with respect to Cartesian lexicographic order of points or equal to \( q\).  <a href="group__PkgKernelDFunctions.html#ga38de0c7326c1028d17ff6ca0df227f6d">More...</a><br /></td></tr>
+<tr class="separator:ga38de0c7326c1028d17ff6ca0df227f6d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa40d2aab33098605820a8961ebda7f98"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:gaa40d2aab33098605820a8961ebda7f98"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaa40d2aab33098605820a8961ebda7f98">CGAL::linearly_independent</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:gaa40d2aab33098605820a8961ebda7f98"><td class="mdescLeft"> </td><td class="mdescRight">decides whether the vectors in <code>A = tuple [first,last)</code> are linearly independent.  <a href="group__PkgKernelDFunctions.html#gaa40d2aab33098605820a8961ebda7f98">More...</a><br /></td></tr>
+<tr class="separator:gaa40d2aab33098605820a8961ebda7f98"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga51ab7291fd4679a33bec5dd2cd1d5b97"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga51ab7291fd4679a33bec5dd2cd1d5b97"><td class="memTemplItemLeft" align="right" valign="top">int </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga51ab7291fd4679a33bec5dd2cd1d5b97">CGAL::linear_rank</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:ga51ab7291fd4679a33bec5dd2cd1d5b97"><td class="mdescLeft"> </td><td class="mdescRight">computes the linear rank of the vectors in <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#ga51ab7291fd4679a33bec5dd2cd1d5b97">More...</a><br /></td></tr>
+<tr class="separator:ga51ab7291fd4679a33bec5dd2cd1d5b97"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga140039774b89a338321c36e14732b787"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:ga140039774b89a338321c36e14732b787"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga59bee58a806ccde81562ea315ff75525">Orientation</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#ga140039774b89a338321c36e14732b787">CGAL::orientation</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last)</td></tr>
+<tr class="memdesc:ga140039774b89a338321c36e14732b787"><td class="mdescLeft"> </td><td class="mdescRight">determines the orientation of the points of the tuple <code>A = tuple [first,last)</code> where \( A\) consists of \( d+1\) points in \( d\)-space.  <a href="group__PkgKernelDFunctions.html#ga140039774b89a338321c36e14732b787">More...</a><br /></td></tr>
+<tr class="separator:ga140039774b89a338321c36e14732b787"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaec9abb52ce5001e58964d2d57e5b0e3f"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:gaec9abb52ce5001e58964d2d57e5b0e3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#gaf6030e89dadcc1f45369b0cdc5d9e111">Bounded_side</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gaec9abb52ce5001e58964d2d57e5b0e3f">CGAL::side_of_bounded_sphere</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:gaec9abb52ce5001e58964d2d57e5b0e3f"><td class="mdescLeft"> </td><td class="mdescRight">returns the relative position of point <code>p</code> to the sphere defined by <code>A = tuple [first,last)</code>.  <a href="group__PkgKernelDFunctions.html#gaec9abb52ce5001e58964d2d57e5b0e3f">More...</a><br /></td></tr>
+<tr class="separator:gaec9abb52ce5001e58964d2d57e5b0e3f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gac43086d90c589b90f54f2e5532dcc01b"><td class="memTemplParams" colspan="2">template&lt;class ForwardIterator &gt; </td></tr>
+<tr class="memitem:gac43086d90c589b90f54f2e5532dcc01b"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga5006dd2552d97fa577d81bd819c0f979">Oriented_side</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgKernelDFunctions.html#gac43086d90c589b90f54f2e5532dcc01b">CGAL::side_of_oriented_sphere</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> last, const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp;p)</td></tr>
+<tr class="memdesc:gac43086d90c589b90f54f2e5532dcc01b"><td class="mdescLeft"> </td><td class="mdescRight">returns the relative position of point <code>p</code> to the oriented sphere defined by the points in <code>A = tuple [first,last)</code> The order of the points in \( A\) is important, since it determines the orientation of the implicitly constructed sphere.  <a href="group__PkgKernelDFunctions.html#gac43086d90c589b90f54f2e5532dcc01b">More...</a><br /></td></tr>
+<tr class="separator:gac43086d90c589b90f54f2e5532dcc01b"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga469edbb6a719b355da3eb8a78ad93daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga469edbb6a719b355da3eb8a78ad93daf">◆ </a></span>affine_rank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int CGAL::affine_rank </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>computes the affine rank of the points in <code>A = tuple [first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects in \( A\) are of the same dimension. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaaca9c7ee1de7b5694c527a2cb0d2bd99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaca9c7ee1de7b5694c527a2cb0d2bd99">◆ </a></span>affinely_independent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::affinely_independent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>returns true iff the points in <code>A = tuple [first,last)</code> are affinely independent. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects are of the same dimension. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8a25cedf1a9f5d645c511825bc6a1129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a25cedf1a9f5d645c511825bc6a1129">◆ </a></span>center_of_sphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt;R&gt; CGAL::center_of_sphere </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/constructions_d.h&gt;</code></p>
+
+<p>returns the center of the sphere spanned by the points in <code>A = tuple[first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>\( A\) contains \( d+1\) affinely independent points of dimension \( d\). </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7acf561e832f554032b13a756355fc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7acf561e832f554032b13a756355fc51">◆ </a></span>compare_lexicographically()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga84351c7e66be00efccd4ab1a61070469">Comparison_result</a> CGAL::compare_lexicographically </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>Compares the Cartesian coordinates of points <code>p</code> and <code>q</code> lexicographically in ascending order of its Cartesian components <code>p[i]</code> and <code>q[i]</code> for \( i = 0,\ldots,d-1\). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p.dimension() == q.dimension()</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ga19451c489a0e60d4be0a7d4f5462962d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19451c489a0e60d4be0a7d4f5462962d">◆ </a></span>contained_in_affine_hull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::contained_in_affine_hull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>determines whether \( p\) is contained in the affine hull of the points in <code>A = tuple [first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects in <code>A</code> are of the same dimension.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaefd117396ced79cbf0399fb3efc0d212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaefd117396ced79cbf0399fb3efc0d212">◆ </a></span>contained_in_linear_hull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::contained_in_linear_hull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Vector__d.html">Vector_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>v</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>determines whether \( v\) is contained in the linear hull of the vectors in <code>A = tuple [first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects in \( A\) are of the same dimension.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Vector__d.html" title="An instance of data type Vector_d&lt;Kernel&gt; is a vector of Euclidean space in dimension ...">Vector_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga47799f4718eeab7474e370943b5b9b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga47799f4718eeab7474e370943b5b9b6c">◆ </a></span>contained_in_simplex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::contained_in_simplex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>determines whether \( p\) is contained in the simplex of the points in <code>A = tuple [first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects in \( A\) are of the same dimension and affinely independent. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaeb24896ff93503dab57f64b3b6934274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb24896ff93503dab57f64b3b6934274">◆ </a></span>do_intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::do_intersect </td>
+          <td>(</td>
+          <td class="paramtype">Type1&lt; R &gt; </td>
+          <td class="paramname"><em>obj1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Type2&lt; R &gt; </td>
+          <td class="paramname"><em>obj2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/intersections_d.h&gt;</code></p>
+
+<p>checks whether <code>obj1</code> and <code>obj2</code> intersect. </p>
+<p>Two objects <code>obj1</code> and <code>obj2</code> intersect if there is a point <code>p</code> that is part of both <code>obj1</code> and <code>obj2</code>. The intersection region of those two objects is defined as the set of all points <code>p</code> that are part of both <code>obj1</code> and <code>obj2</code>.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects are of the same dimension.</dd></dl>
+<p>The types <code>Type1</code> and <code>Type2</code> can be any of the following:</p>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>&lt;R&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>&lt;R&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>&lt;R&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Hyperplane__d.html" title="An instance of data type Hyperplane_d is an oriented hyperplane in  - dimensional space...">Hyperplane_d</a>&lt;R&gt;</code></li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__intersection__linear__grp.html#gab77f3cd98c4c4ff7acff59c98ab88ff0">intersection</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga0aa3e8b6bdf1bff509f8e2672ef194d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0aa3e8b6bdf1bff509f8e2672ef194d1">◆ </a></span>intersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1cpp11_1_1result__of.html">cpp11::result_of</a>&lt;R::Intersect_d(Type1&lt;R&gt;, Type2&lt;R&gt;)&gt;::type CGAL::intersection </td>
+          <td>(</td>
+          <td class="paramtype">Type1&lt; R &gt; </td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Type2&lt; R &gt; </td>
+          <td class="paramname"><em>f2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/intersections_d.h&gt;</code></p>
+
+<p>returns the intersection between <code>f1</code> and <code>f2</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects are of the same dimension.</dd></dl>
+<p>The same functionality is also available through the functor <code>Kernel::Intersect_d</code>.</p>
+<p>The following table gives the possible values for <code>Type1</code> and <code>Type2</code>.</p>
+<p>The return type can be obtained through <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1cpp11_1_1result__of.html">cpp11::result_of</a>&lt;Kernel::Intersect_d(A, B)&gt;::type</code>. It is equivalent to <code>boost::optional&lt; boost::variant&lt; T... &gt; &gt;</code>, the last column in the table providing the template parameter pack.</p>
+<div align="CENTER"> <table cellpadding="3" border="1">
+<tr>
+<th>Type1  </th><th>Type2  </th><th><code>T...</code>   </th></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Hyperplane__d.html" title="An instance of data type Hyperplane_d is an oriented hyperplane in  - dimensional space...">Hyperplane_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Line__d.html" title="An instance of data type Line_d is an oriented line in -dimensional Euclidean space. ">Line_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Hyperplane__d.html" title="An instance of data type Hyperplane_d is an oriented hyperplane in  - dimensional space...">Hyperplane_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Ray__d.html" title="An instance of data type Ray_d is a ray in -dimensional Euclidean space. ">Ray_d</a> </td></tr>
+</table>
+</td></tr>
+<tr>
+<td valign="CENTER"><a class="el" href="classCGAL_1_1Hyperplane__d.html" title="An instance of data type Hyperplane_d is an oriented hyperplane in  - dimensional space...">Hyperplane_d</a>  </td><td valign="CENTER"><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a>  </td><td><table border="0">
+<tr>
+<td><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a> </td></tr>
+<tr>
+<td><a class="el" href="classCGAL_1_1Segment__d.html" title="An instance  of the data type Segment_d is a directed straight line segment in -dimensional Euclidean...">Segment_d</a> </td></tr>
+</table>
+</td></tr>
+</table>
+</div><p><b>Example</b><br />
+</p>
+<p>The following example demonstrates the most common use of <code>intersection</code> routines.</p>
+<div class="fragment"><div class="line">#include &lt;CGAL/intersections_d.h&gt; </div><div class="line"></div><div class="line">template&lt;typename R&gt;</div><div class="line">struct Intersection_visitor {</div><div class="line">  typedef void result_type;</div><div class="line">  void operator()(const Point_d&lt;R&gt;&amp; p) const { </div><div class="line">  // handle point</div><div class="line">  }</div><div class="line">  void operator()(const Segment_d&lt;R&gt;&amp; s) const { </div><div class="line">  // handle segment </div><div class="line">  }</div><div class="line">};</div><div class="line"></div><div class="line">template &lt;class R&gt; </div><div class="line">void foo(Segment_d&lt;R&gt; seg, Line_d&lt;R&gt; lin) </div><div class="line">{ </div><div class="line">  // with C++11 support</div><div class="line">  // auto result = intersection(seg, lin);</div><div class="line"></div><div class="line">  // without C++11 support</div><div class="line">  typename cpp11::result_of&lt;R::Intersect_d(Segment_d&lt;R&gt;, Line_d&lt;R&gt;)&gt;::type</div><div class="line">    result = intersection(seg, lin);</div><div class="line"></div><div class="line">  if(result) { boost::apply_visitor(Intersection_visitor&lt;R&gt;(), *result); } </div><div class="line">  else { // no intersection  </div><div class="line">  }</div><div class="line">} </div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__do__intersect__linear__grp.html#ga9514a218a097ac392d21775368d3dd0d">do_intersect</a></code> </dd>
+<dd>
+<code><a class="el" href="classKernel__d_1_1Intersect__d.html">Kernel_d::Intersect_d</a></code> </dd>
+<dd>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__intersection__grp.html#ga66850ea839dafff504fbd39e141fcc79">CGAL_INTERSECTION_VERSION</a> </dd>
+<dd>
+<a href="http://www.boost.org/doc/libs/release/libs/optional/index.html"><code>boost::optional</code></a> </dd>
+<dd>
+<a href="http://www.boost.org/doc/html/variant.html"><code>boost::variant</code></a> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1cpp11_1_1result__of.html">cpp11::result_of</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gaaf434c87ede524fe801cac1e1ffa6d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf434c87ede524fe801cac1e1ffa6d5f">◆ </a></span>lexicographically_smaller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::lexicographically_smaller </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>returns <code>true</code> iff <code>p</code> is lexicographically smaller than <code>q</code> with respect to Cartesian lexicographic order of points. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p.dimension() == q.dimension()</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ga38de0c7326c1028d17ff6ca0df227f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38de0c7326c1028d17ff6ca0df227f6d">◆ </a></span>lexicographically_smaller_or_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::lexicographically_smaller_or_equal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>returns <code>true</code> iff \( p\) is lexicographically smaller than \( q\) with respect to Cartesian lexicographic order of points or equal to \( q\). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p.dimension() == q.dimension()</code>. </dd></dl>
+
+</div>
+</div>
+<a id="gaea9ec4e90b5d5722d09b561a3985e67e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaea9ec4e90b5d5722d09b561a3985e67e">◆ </a></span>linear_base()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator , class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::linear_base </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>result</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/constructions_d.h&gt;</code></p>
+
+<p>computes a basis of the linear space spanned by the vectors in <code>A = tuple [first,last)</code> and returns it via an iterator range starting in <code>result</code>. </p>
+<p>The returned iterator marks the end of the output. </p><dl class="section pre"><dt>Precondition</dt><dd>\( A\) contains vectors of the same dimension \( d\).</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Vector__d.html" title="An instance of data type Vector_d&lt;Kernel&gt; is a vector of Euclidean space in dimension ...">Vector_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga51ab7291fd4679a33bec5dd2cd1d5b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51ab7291fd4679a33bec5dd2cd1d5b97">◆ </a></span>linear_rank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int CGAL::linear_rank </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>computes the linear rank of the vectors in <code>A = tuple [first,last)</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects are of the same dimension. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Vector__d.html" title="An instance of data type Vector_d&lt;Kernel&gt; is a vector of Euclidean space in dimension ...">Vector_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa40d2aab33098605820a8961ebda7f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa40d2aab33098605820a8961ebda7f98">◆ </a></span>linearly_independent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::linearly_independent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>decides whether the vectors in <code>A = tuple [first,last)</code> are linearly independent. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The objects in <code>A</code> are of the same dimension. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Vector__d.html" title="An instance of data type Vector_d&lt;Kernel&gt; is a vector of Euclidean space in dimension ...">Vector_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae4e9a14c7792c8da1c6a98bd0b378937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae4e9a14c7792c8da1c6a98bd0b378937">◆ </a></span>midpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt;R&gt; CGAL::midpoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/constructions_d.h&gt;</code></p>
+
+<p>computes the midpoint of the segment \( pq\). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p.dimension() == q.dimension()</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ga140039774b89a338321c36e14732b787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga140039774b89a338321c36e14732b787">◆ </a></span>orientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga59bee58a806ccde81562ea315ff75525">Orientation</a> CGAL::orientation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>determines the orientation of the points of the tuple <code>A = tuple [first,last)</code> where \( A\) consists of \( d+1\) points in \( d\)-space. </p>
+<p>This is the sign of the determinant </p><p class="formulaDsp">
+\[ \left| \begin{array}{cccc} 1 &amp; 1 &amp; 1 &amp; 1 \\ A[0] &amp; A[1] &amp; \dots&amp; A[d] \end{array} \right| \]
+</p>
+<p> where <code>A[i]</code> denotes the Cartesian coordinate vector of the \( i\)-th point in \( A\). </p><dl class="section pre"><dt>Precondition</dt><dd><code>size [first,last) == d+1</code> and <code>A[i].dimension() == d</code> \( \forall0 \leq i \leq d\).</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaec9abb52ce5001e58964d2d57e5b0e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec9abb52ce5001e58964d2d57e5b0e3f">◆ </a></span>side_of_bounded_sphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#gaf6030e89dadcc1f45369b0cdc5d9e111">Bounded_side</a> CGAL::side_of_bounded_sphere </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>returns the relative position of point <code>p</code> to the sphere defined by <code>A = tuple [first,last)</code>. </p>
+<p>The order of the points of \( A\) does not matter.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>orientation(first,last)</code> is not <code>ZERO</code>. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac43086d90c589b90f54f2e5532dcc01b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac43086d90c589b90f54f2e5532dcc01b">◆ </a></span>side_of_oriented_sphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ForwardIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga5006dd2552d97fa577d81bd819c0f979">Oriented_side</a> CGAL::side_of_oriented_sphere </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; &amp; </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/predicates_d.h&gt;</code></p>
+
+<p>returns the relative position of point <code>p</code> to the oriented sphere defined by the points in <code>A = tuple [first,last)</code> The order of the points in \( A\) is important, since it determines the orientation of the implicitly constructed sphere. </p>
+<p>If the points in \( A\) are positively oriented, the positive side is the bounded interior of the sphere.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>A</code> contains \( d+1\) points in \( d\)-space. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></td><td>has <code><a class="el" href="classCGAL_1_1Point__d.html" title="An instance of data type Point_d&lt;Kernel&gt; is a point of Euclidean space in dimension ...">Point_d</a>&lt;R&gt;</code> as value type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga433853179f3d0e0d2b7929723b584517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga433853179f3d0e0d2b7929723b584517">◆ </a></span>squared_distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FT CGAL::squared_distance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__d.html">Point_d</a>&lt; R &gt; </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/constructions_d.h&gt;</code></p>
+
+<p>computes the square of the Euclidean distance between the two points \( p\) and \( q\). </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The dimensions of \( p\) and \( q\) are the same. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:39 for CGAL 4.13 - dD Geometry Kernel by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

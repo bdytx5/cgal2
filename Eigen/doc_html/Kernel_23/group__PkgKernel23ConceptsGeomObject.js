@@ -1,0 +1,28 @@
+var group__PkgKernel23ConceptsGeomObject =
+[
+    [ "Circle_2", "classKernel_1_1Circle__2.html", null ],
+    [ "Circle_3", "classKernel_1_1Circle__3.html", null ],
+    [ "Direction_2", "classKernel_1_1Direction__2.html", null ],
+    [ "Direction_3", "classKernel_1_1Direction__3.html", null ],
+    [ "IsoCuboid_3", "classKernel_1_1IsoCuboid__3.html", null ],
+    [ "IsoRectangle_2", "classKernel_1_1IsoRectangle__2.html", null ],
+    [ "Line_2", "classKernel_1_1Line__2.html", null ],
+    [ "Line_3", "classKernel_1_1Line__3.html", null ],
+    [ "Object_2", "classKernel_1_1Object__2.html", null ],
+    [ "Object_3", "classKernel_1_1Object__3.html", null ],
+    [ "Plane_3", "classKernel_1_1Plane__3.html", null ],
+    [ "Point_2", "classKernel_1_1Point__2.html", null ],
+    [ "Point_3", "classKernel_1_1Point__3.html", null ],
+    [ "Ray_2", "classKernel_1_1Ray__2.html", null ],
+    [ "Ray_3", "classKernel_1_1Ray__3.html", null ],
+    [ "Segment_2", "classKernel_1_1Segment__2.html", null ],
+    [ "Segment_3", "classKernel_1_1Segment__3.html", null ],
+    [ "Sphere_3", "classKernel_1_1Sphere__3.html", null ],
+    [ "Tetrahedron_3", "classKernel_1_1Tetrahedron__3.html", null ],
+    [ "Triangle_2", "classKernel_1_1Triangle__2.html", null ],
+    [ "Triangle_3", "classKernel_1_1Triangle__3.html", null ],
+    [ "Vector_2", "classKernel_1_1Vector__2.html", null ],
+    [ "Vector_3", "classKernel_1_1Vector__3.html", null ],
+    [ "WeightedPoint_2", "classKernel_1_1WeightedPoint__2.html", null ],
+    [ "WeightedPoint_3", "classKernel_1_1WeightedPoint__3.html", null ]
+];

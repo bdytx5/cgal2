@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Minkowski_sum_2/group__PkgMinkowskiSum2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Minkowski Sums: 2D Minkowski Sums Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Minkowski Sums
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgMinkowskiSum2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> |
+<a href="#nested-classes">Classes</a> |
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">2D Minkowski Sums Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<div class="PkgImage"> <div class="image">
+<img src="Minkowski_sum_2.png" alt="Minkowski_sum_2.png" />
+</div>
+ </div> <div class="PkgSummary"> <div class="PkgAuthors">Ron Wein, Alon Baram, Eyal Flato, Efi Fogel, Michael Hemmer, Sebastian Morr</div> <div class="PkgDescription">This package consists of functions that compute the Minkowski sum of two simple straight-edge polygons in the plane. It also contains functions for computing the Minkowski sum of a polygon and a disc, an operation known as <em>offsetting</em> or <em>dilating</em> a polygon. The package can compute the exact representation of the offset polygon, or provide a guaranteed approximation of the offset.</div><p> <br />
+ </p></div> <div class="PkgShortInfo"> <b>Introduced in:</b> <span style="font-variant: small-caps;">CGAL</span> 3.3<br />
+ <b>Depends on:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/packages.html#PkgArrangement2Summary">2D Arrangements</a>, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/packages.html#PkgAABB_treeSummary">3D Fast Intersection and Distance Computation</a>, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/packages.html#PkgTriangulation2Summary">2D Triangulation</a> <br />
+ <b>BibTeX:</b> <a href="../Manual/how_to_cite_cgal.html#cgal:w-rms2-18b">cgal:w-rms2-18b</a><br />
+ <b>License:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/preliminaries.html#licensesGPL">GPL</a> <br />
+ </div><p>This package consist of functions for computing the Minkowksi sum of two polygons in the plane. Namely, given two polygons \( P,Q \in \mathbb{R}^2\) it computes \( P \oplus Q = \left\{ p + q ~|~ p \in P, q \in Q \right\}\).</p>
+<p>In addition, the package also includes functions for offsetting a polygon, namely computing its Minkowski sum with a disc of a given radius, and for insetting a polygon (namely computing its inner offset). It is possible to compute the exact representation of the offset (or the inset), or to approximate it with guaranteed error bounds, in order to speed up the computation time.</p>
+<p> </p><h2 class="groupheader">Classified Reference Pages</h2> 
+<h2>Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#ga5ce6e837bdb4ea8973c8120c38301d7b" title="Computes the Minkowski sum  of two given polygons (which may have holes). ">CGAL::minkowski_sum_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#ga06670e5f096d0fcbf4da539b6148c55f" title="Computes the Minkowski sum  of the two given polygons using the decomposition strategy. ">CGAL::minkowski_sum_by_decomposition_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#ga09275e94b4a9016406f552b612c6335c" title="Computes the Minkowski sum  of the two given polygons. ">CGAL::minkowski_sum_by_full_convolution_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#gad3220ac962eacdaad0c3ad538e7d97af" title="Computes the Minkowski sum  of the two given polygons. ">CGAL::minkowski_sum_by_reduced_convolution_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#gaa5e4e711f2d098e97e6358a669e194aa" title="Provides a guaranteed approximation of the offset of the given polygon P by a given radius r - namely...">CGAL::approximated_offset_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#ga80e273611a4e3568a0208d5fb1551669" title="Provides a guaranteed approximation of the inset, or inner offset, of the given polygon P by a given ...">CGAL::approximated_inset_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#gabda2c65926cde6e2559c4203ae6b31c2" title="Computes the offset of the given polygon P by a given radius r - namely, the function computes the Mi...">CGAL::offset_polygon_2()</a></code></li>
+<li><code><a class="el" href="group__PkgMinkowskiSum2.html#ga6ab5808d9bc7ba5e958b8b5bcb9e9824" title="Computes the inset, or inner offset, of the given polygon P by a given radius r - namely...">CGAL::inset_polygon_2()</a></code></li>
+</ul>
+<h2>Concepts</h2>
+<ul>
+<li><code><a class="el" href="classPolygonConvexDecomposition__2.html" title="A model of the PolygonConvexDecomposition_2 concept is capable of decomposing an input polygon  into ...">PolygonConvexDecomposition_2</a></code></li>
+<li><code><a class="el" href="classPolygonWithHolesConvexDecomposition__2.html" title="A model of the PolygonWithHolesConvexDecomposition_2 concept is capable of decomposing an input polyg...">PolygonWithHolesConvexDecomposition_2</a></code></li>
+</ul>
+<h2>Classes</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Small__side__angle__bisector__decomposition__2.html" title="The Small_side_angle_bisector_decomposition_2 class implements a simple yet efficient heuristic for d...">CGAL::Small_side_angle_bisector_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Optimal__convex__decomposition__2.html" title="The Optimal_convex_decomposition_2 class provides an implementation of Greene's dynamic programming a...">CGAL::Optimal_convex_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Hertel__Mehlhorn__convex__decomposition__2.html" title="The Hertel_Mehlhorn_convex_decomposition_2 class implements the approximation algorithm of Hertel and...">CGAL::Hertel_Mehlhorn_convex_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Greene__convex__decomposition__2.html" title="The Greene_convex_decomposition_2 class implements the approximation algorithm of Greene for the deco...">CGAL::Greene_convex_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polygon__vertical__decomposition__2.html" title="The Polygon_vertical_decomposition_2 class implements a convex decompistion of a polygon or a polygon...">CGAL::Polygon_vertical_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polygon__triangulation__decomposition__2.html" title="The Polygon_triangulation_decomposition_2 class implements a convex decomposition of a polygon or a p...">CGAL::Polygon_triangulation_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polygon__nop__decomposition__2.html" title="The Polygon_nop_decomposition_2 class implements a convex decomposition of a polygon, which merely passes the input polygon to the list of output convex polygons. ">CGAL::Polygon_nop_decomposition_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>,Container&gt;</code> </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups" id="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__PkgMinkowskiSum2Concepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2Concepts.html">Concepts</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Greene__convex__decomposition__2.html">CGAL::Greene_convex_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Greene__convex__decomposition__2.html" title="The Greene_convex_decomposition_2 class implements the approximation algorithm of Greene for the deco...">Greene_convex_decomposition_2</a></code> class implements the approximation algorithm of Greene for the decomposition of an input polygon into convex sub-polygons <a class="el" href="citelist.html#CITEREF_g-dpcp-83">[6]</a>.  <a href="classCGAL_1_1Greene__convex__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Optimal__convex__decomposition__2.html">CGAL::Optimal_convex_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Optimal__convex__decomposition__2.html" title="The Optimal_convex_decomposition_2 class provides an implementation of Greene's dynamic programming a...">Optimal_convex_decomposition_2</a></code> class provides an implementation of Greene's dynamic programming algorithm for optimal decomposition of a polygon into convex sub-polygons <a class="el" href="citelist.html#CITEREF_g-dpcp-83">[6]</a>.  <a href="classCGAL_1_1Optimal__convex__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Polygon__nop__decomposition__2.html">CGAL::Polygon_nop_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Polygon__nop__decomposition__2.html" title="The Polygon_nop_decomposition_2 class implements a convex decomposition of a polygon, which merely passes the input polygon to the list of output convex polygons. ">Polygon_nop_decomposition_2</a></code> class implements a convex decomposition of a polygon, which merely passes the input polygon to the list of output convex polygons.  <a href="classCGAL_1_1Polygon__nop__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Polygon__triangulation__decomposition__2.html">CGAL::Polygon_triangulation_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Polygon__triangulation__decomposition__2.html" title="The Polygon_triangulation_decomposition_2 class implements a convex decomposition of a polygon or a p...">Polygon_triangulation_decomposition_2</a></code> class implements a convex decomposition of a polygon or a polygon with holes into triangles using the Delaunay constrained triangulation functionality of the <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/index.html#Chapter_2D_Triangulations">2D Triangulation</a> package.  <a href="classCGAL_1_1Polygon__triangulation__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Polygon__vertical__decomposition__2.html">CGAL::Polygon_vertical_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Polygon__vertical__decomposition__2.html" title="The Polygon_vertical_decomposition_2 class implements a convex decompistion of a polygon or a polygon...">Polygon_vertical_decomposition_2</a></code> class implements a convex decompistion of a polygon or a polygon with holes into pseudo trapezoids utilizing the <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/group__PkgArrangement2Funcs.html#gae20b2917f6de15db9bf025f83abf8e89">CGAL::decompose()</a> free function of the <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/index.html#chapterArrangement_on_surface_2">2D Arrangements</a> package.  <a href="classCGAL_1_1Polygon__vertical__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Small__side__angle__bisector__decomposition__2.html">CGAL::Small_side_angle_bisector_decomposition_2&lt; Kernel, Container &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The <code><a class="el" href="classCGAL_1_1Small__side__angle__bisector__decomposition__2.html" title="The Small_side_angle_bisector_decomposition_2 class implements a simple yet efficient heuristic for d...">Small_side_angle_bisector_decomposition_2</a></code> class implements a simple yet efficient heuristic for decomposing an input polygon into convex sub-polygons.  <a href="classCGAL_1_1Small__side__angle__bisector__decomposition__2.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga80e273611a4e3568a0208d5fb1551669"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container , class OutputIterator &gt; </td></tr>
+<tr class="memitem:ga80e273611a4e3568a0208d5fb1551669"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga80e273611a4e3568a0208d5fb1551669">CGAL::approximated_inset_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;pgn, const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp;r, const double &amp;eps, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> oi)</td></tr>
+<tr class="memdesc:ga80e273611a4e3568a0208d5fb1551669"><td class="mdescLeft"> </td><td class="mdescRight">Provides a guaranteed approximation of the inset, or inner offset, of the given polygon <code>P</code> by a given radius <code>r</code>.  <a href="group__PkgMinkowskiSum2.html#ga80e273611a4e3568a0208d5fb1551669">More...</a><br /></td></tr>
+<tr class="separator:ga80e273611a4e3568a0208d5fb1551669"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa5e4e711f2d098e97e6358a669e194aa"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:gaa5e4e711f2d098e97e6358a669e194aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gaa5e4e711f2d098e97e6358a669e194aa">CGAL::approximated_offset_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp;r, const double &amp;eps)</td></tr>
+<tr class="memdesc:gaa5e4e711f2d098e97e6358a669e194aa"><td class="mdescLeft"> </td><td class="mdescRight">Provides a guaranteed approximation of the offset of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the Minkowski sum \( P \oplus B_r\), where \( B_r\) is a disc of radius <code>r</code> centered at the origin.  <a href="group__PkgMinkowskiSum2.html#gaa5e4e711f2d098e97e6358a669e194aa">More...</a><br /></td></tr>
+<tr class="separator:gaa5e4e711f2d098e97e6358a669e194aa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gab161e137117c094c5da8eded55fc6fb1"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:gab161e137117c094c5da8eded55fc6fb1"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gab161e137117c094c5da8eded55fc6fb1">CGAL::approximated_offset_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;wh, const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp;r, const double &amp;eps)</td></tr>
+<tr class="memdesc:gab161e137117c094c5da8eded55fc6fb1"><td class="mdescLeft"> </td><td class="mdescRight">Provides a guaranteed approximation of offset the given polygon with holes <code>pwh</code> by a given radius <code>r</code>, such that the approximation error is bounded by <code>eps</code>.  <a href="group__PkgMinkowskiSum2.html#gab161e137117c094c5da8eded55fc6fb1">More...</a><br /></td></tr>
+<tr class="separator:gab161e137117c094c5da8eded55fc6fb1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3ff138a59b668782facd543c9dfacd39"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container , class DecompositionStrategy &gt; </td></tr>
+<tr class="memitem:ga3ff138a59b668782facd543c9dfacd39"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga3ff138a59b668782facd543c9dfacd39">CGAL::approximated_offset_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp;r, const double &amp;eps, const DecompositionStrategy &amp;decomp)</td></tr>
+<tr class="memdesc:ga3ff138a59b668782facd543c9dfacd39"><td class="mdescLeft"> </td><td class="mdescRight">Provides a guaranteed approximation of the offset of the given polygon <code>P</code> by a radius <code>r</code>, as described above.  <a href="group__PkgMinkowskiSum2.html#ga3ff138a59b668782facd543c9dfacd39">More...</a><br /></td></tr>
+<tr class="separator:ga3ff138a59b668782facd543c9dfacd39"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5ce6e837bdb4ea8973c8120c38301d7b"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container &gt; </td></tr>
+<tr class="memitem:ga5ce6e837bdb4ea8973c8120c38301d7b"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga5ce6e837bdb4ea8973c8120c38301d7b">CGAL::minkowski_sum_2</a> (const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q)</td></tr>
+<tr class="memdesc:ga5ce6e837bdb4ea8973c8120c38301d7b"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of two given polygons (which may have holes).  <a href="group__PkgMinkowskiSum2.html#ga5ce6e837bdb4ea8973c8120c38301d7b">More...</a><br /></td></tr>
+<tr class="separator:ga5ce6e837bdb4ea8973c8120c38301d7b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad3220ac962eacdaad0c3ad538e7d97af"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container &gt; </td></tr>
+<tr class="memitem:gad3220ac962eacdaad0c3ad538e7d97af"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gad3220ac962eacdaad0c3ad538e7d97af">CGAL::minkowski_sum_by_reduced_convolution_2</a> (const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q)</td></tr>
+<tr class="memdesc:gad3220ac962eacdaad0c3ad538e7d97af"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of the two given polygons.  <a href="group__PkgMinkowskiSum2.html#gad3220ac962eacdaad0c3ad538e7d97af">More...</a><br /></td></tr>
+<tr class="separator:gad3220ac962eacdaad0c3ad538e7d97af"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga09275e94b4a9016406f552b612c6335c"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container &gt; </td></tr>
+<tr class="memitem:ga09275e94b4a9016406f552b612c6335c"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga09275e94b4a9016406f552b612c6335c">CGAL::minkowski_sum_by_full_convolution_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q)</td></tr>
+<tr class="memdesc:ga09275e94b4a9016406f552b612c6335c"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of the two given polygons.  <a href="group__PkgMinkowskiSum2.html#ga09275e94b4a9016406f552b612c6335c">More...</a><br /></td></tr>
+<tr class="separator:ga09275e94b4a9016406f552b612c6335c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3d764f2e538b3a5965150e277e2ba7b3"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container , typename PolygonConvexDecompositionP_2_ , typename PolygonConvexDecompositionQ_2_ &gt; </td></tr>
+<tr class="memitem:ga3d764f2e538b3a5965150e277e2ba7b3"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga3d764f2e538b3a5965150e277e2ba7b3">CGAL::minkowski_sum_2</a> (const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q, const PolygonConvexDecompositionP_2_ &amp;decomp_P, const PolygonConvexDecompositionQ_2_ &amp;decomp_Q, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp;traits=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;())</td></tr>
+<tr class="memdesc:ga3d764f2e538b3a5965150e277e2ba7b3"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of the two given polygons.  <a href="group__PkgMinkowskiSum2.html#ga3d764f2e538b3a5965150e277e2ba7b3">More...</a><br /></td></tr>
+<tr class="separator:ga3d764f2e538b3a5965150e277e2ba7b3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaf9cef98536af418758a3fb90e74948b5"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container , typename PolygonConvexDecomposition_2_ &gt; </td></tr>
+<tr class="memitem:gaf9cef98536af418758a3fb90e74948b5"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gaf9cef98536af418758a3fb90e74948b5">CGAL::minkowski_sum_2</a> (const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q, const PolygonConvexDecomposition_2_ &amp;decomp, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp;traits=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;())</td></tr>
+<tr class="memdesc:gaf9cef98536af418758a3fb90e74948b5"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of the two given polygons.  <a href="group__PkgMinkowskiSum2.html#gaf9cef98536af418758a3fb90e74948b5">More...</a><br /></td></tr>
+<tr class="separator:gaf9cef98536af418758a3fb90e74948b5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga06670e5f096d0fcbf4da539b6148c55f"><td class="memTemplParams" colspan="2">template&lt;typename Kernel , typename Container , typename PolygonNoHolesConvexDecomposition_2_ , typename PolygonWithHolesConvexDecomposition_2_ &gt; </td></tr>
+<tr class="memitem:ga06670e5f096d0fcbf4da539b6148c55f"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga06670e5f096d0fcbf4da539b6148c55f">CGAL::minkowski_sum_by_decomposition_2</a> (const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;P, const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;Q, const PolygonNoHolesConvexDecomposition_2_ &amp;no_holes_decomp, const PolygonWithHolesConvexDecomposition_2_ &amp;with_holes_decomp, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp;traits=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;())</td></tr>
+<tr class="memdesc:ga06670e5f096d0fcbf4da539b6148c55f"><td class="mdescLeft"> </td><td class="mdescRight">Computes the Minkowski sum \( P \oplus Q\) of the two given polygons using the decomposition strategy.  <a href="group__PkgMinkowskiSum2.html#ga06670e5f096d0fcbf4da539b6148c55f">More...</a><br /></td></tr>
+<tr class="separator:ga06670e5f096d0fcbf4da539b6148c55f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6ab5808d9bc7ba5e958b8b5bcb9e9824"><td class="memTemplParams" colspan="2">template&lt;class ConicTraits , class Container , class OutputIterator &gt; </td></tr>
+<tr class="memitem:ga6ab5808d9bc7ba5e958b8b5bcb9e9824"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga6ab5808d9bc7ba5e958b8b5bcb9e9824">CGAL::inset_polygon_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp;P, const typename ConicTraits::Rat_kernel::FT &amp;r, const ConicTraits &amp;traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> oi)</td></tr>
+<tr class="memdesc:ga6ab5808d9bc7ba5e958b8b5bcb9e9824"><td class="mdescLeft"> </td><td class="mdescRight">Computes the inset, or inner offset, of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the set of points inside the polygon whose distance from \( P\)'s boundary is at least \( r\): \( \{ p \in P \;|\; {\rm dist}(p, \partial P) \geq r \}\).  <a href="group__PkgMinkowskiSum2.html#ga6ab5808d9bc7ba5e958b8b5bcb9e9824">More...</a><br /></td></tr>
+<tr class="separator:ga6ab5808d9bc7ba5e958b8b5bcb9e9824"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gabda2c65926cde6e2559c4203ae6b31c2"><td class="memTemplParams" colspan="2">template&lt;class ConicTraits , class Container &gt; </td></tr>
+<tr class="memitem:gabda2c65926cde6e2559c4203ae6b31c2"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt; ConicTraits &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gabda2c65926cde6e2559c4203ae6b31c2">CGAL::offset_polygon_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp;P, const typename ConicTraits::Rat_kernel::FT &amp;r, const ConicTraits &amp;traits)</td></tr>
+<tr class="memdesc:gabda2c65926cde6e2559c4203ae6b31c2"><td class="mdescLeft"> </td><td class="mdescRight">Computes the offset of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the Minkowski sum \( P \oplus B_r\), where \( B_r\) is a disc of radius <code>r</code> centered at the origin.  <a href="group__PkgMinkowskiSum2.html#gabda2c65926cde6e2559c4203ae6b31c2">More...</a><br /></td></tr>
+<tr class="separator:gabda2c65926cde6e2559c4203ae6b31c2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3acf41e52752bbd9e151fdb089248a5b"><td class="memTemplParams" colspan="2">template&lt;class ConicTraits , class Container &gt; </td></tr>
+<tr class="memitem:ga3acf41e52752bbd9e151fdb089248a5b"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt; ConicTraits &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#ga3acf41e52752bbd9e151fdb089248a5b">CGAL::offset_polygon_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp;pwh, const typename ConicTraits::Rat_kernel::FT &amp;r, const ConicTraits &amp;traits)</td></tr>
+<tr class="memdesc:ga3acf41e52752bbd9e151fdb089248a5b"><td class="mdescLeft"> </td><td class="mdescRight">Computes the offset of the given polygon with holes <code>pwh</code> by a given radius <code>r</code>.  <a href="group__PkgMinkowskiSum2.html#ga3acf41e52752bbd9e151fdb089248a5b">More...</a><br /></td></tr>
+<tr class="separator:ga3acf41e52752bbd9e151fdb089248a5b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaba8578e4be0258877dc447b1c372c3b7"><td class="memTemplParams" colspan="2">template&lt;class ConicTraits , class Container , class DecompositionStrategy &gt; </td></tr>
+<tr class="memitem:gaba8578e4be0258877dc447b1c372c3b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt; ConicTraits &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMinkowskiSum2.html#gaba8578e4be0258877dc447b1c372c3b7">CGAL::offset_polygon_2</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp;P, const typename ConicTraits::Rat_kernel::FT &amp;r, const DecompositionStrategy &amp;decomp, const ConicTraits &amp;traits)</td></tr>
+<tr class="memdesc:gaba8578e4be0258877dc447b1c372c3b7"><td class="mdescLeft"> </td><td class="mdescRight">Computes the exact representation of the offset of the given polygon <code>P</code> by a radius <code>r</code>, as described above.  <a href="group__PkgMinkowskiSum2.html#gaba8578e4be0258877dc447b1c372c3b7">More...</a><br /></td></tr>
+<tr class="separator:gaba8578e4be0258877dc447b1c372c3b7"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga80e273611a4e3568a0208d5fb1551669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80e273611a4e3568a0208d5fb1551669">◆ </a></span>approximated_inset_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container , class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::approximated_inset_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>pgn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp; </td>
+          <td class="paramname"><em>eps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>oi</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/approximated_offset_2.h&gt;</code></p>
+
+<p>Provides a guaranteed approximation of the inset, or inner offset, of the given polygon <code>P</code> by a given radius <code>r</code>. </p>
+<p>Namely, the function computes the set of points inside the polygon whose distance from \( P\)'s boundary is at least \( r\): \( \{ p \in P \;|\; {\rm dist}(p, \partial P) \geq r \}\), with the approximation error bounded by <code>eps</code>. Note that as the input polygon may not be convex, its inset may comprise several disconnected components. The result is therefore represented as a sequence of generalized polygons, whose edges are either line segments or circular arcs. The output sequence is returned via the output iterator <code>oi</code>, whose value-type must be <code>Gps_circle_segment_traits_2::Polygon_2</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Minkowski_sum_2_2approx_inset_8cpp-example.html#a1">Minkowski_sum_2/approx_inset.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gaa5e4e711f2d098e97e6358a669e194aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa5e4e711f2d098e97e6358a669e194aa">◆ </a></span>approximated_offset_2() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::approximated_offset_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp; </td>
+          <td class="paramname"><em>eps</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/approximated_offset_2.h&gt;</code></p>
+
+<p>Provides a guaranteed approximation of the offset of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the Minkowski sum \( P \oplus B_r\), where \( B_r\) is a disc of radius <code>r</code> centered at the origin. </p>
+<p>The function actually outputs a set \( S\) that contains the Minkowski sum, such that the approximation error is bounded by <code>eps</code>. Note that as the input polygon may not be convex, its offset may not be a simple polygon. The result is therefore represented as a polygon with holes, whose edges are either line segments or circular arcs. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Minkowski_sum_2_2approx_offset_8cpp-example.html#a1">Minkowski_sum_2/approx_offset.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gab161e137117c094c5da8eded55fc6fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab161e137117c094c5da8eded55fc6fb1">◆ </a></span>approximated_offset_2() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::approximated_offset_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>wh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp; </td>
+          <td class="paramname"><em>eps</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/approximated_offset_2.h&gt;</code></p>
+
+<p>Provides a guaranteed approximation of offset the given polygon with holes <code>pwh</code> by a given radius <code>r</code>, such that the approximation error is bounded by <code>eps</code>. </p>
+<p>It does so by offsetting outer boundary of <code>pwh</code> and insetting its holes. The result is represented as a generalized polygon with holes, such that the edges of the polygon correspond to line segment and circular arcs. </p><dl class="section pre"><dt>Precondition</dt><dd><code>pwh</code> is <em>not</em> unbounded (it has a valid outer boundary). </dd></dl>
+
+</div>
+</div>
+<a id="ga3ff138a59b668782facd543c9dfacd39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ff138a59b668782facd543c9dfacd39">◆ </a></span>approximated_offset_2() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container , class DecompositionStrategy &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__circle__segment__traits__2.html">Gps_circle_segment_traits_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::approximated_offset_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp; </td>
+          <td class="paramname"><em>eps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DecompositionStrategy &amp; </td>
+          <td class="paramname"><em>decomp</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/approximated_offset_2.h&gt;</code></p>
+
+<p>Provides a guaranteed approximation of the offset of the given polygon <code>P</code> by a radius <code>r</code>, as described above. </p>
+<p>If the input polygon <code>P</code> is not convex, the function decomposes it into convex sub-polygons \( P_1, \ldots, P_k\) and computes the union of the sub-offsets (namely \( \bigcup_{i}{(P_i \oplus B_r)}\)). The decomposition is performed using the given decomposition strategy <code>decomp</code>, which must be an instance of a class that models the concept <code>PolygonConvexDecomposition</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+
+</div>
+</div>
+<a id="ga6ab5808d9bc7ba5e958b8b5bcb9e9824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ab5808d9bc7ba5e958b8b5bcb9e9824">◆ </a></span>inset_polygon_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ConicTraits , class Container , class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::inset_polygon_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename ConicTraits::Rat_kernel::FT &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ConicTraits &amp; </td>
+          <td class="paramname"><em>traits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>oi</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/offset_polygon_2.h&gt;</code></p>
+
+<p>Computes the inset, or inner offset, of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the set of points inside the polygon whose distance from \( P\)'s boundary is at least \( r\): \( \{ p \in P \;|\; {\rm dist}(p, \partial P) \geq r \}\). </p>
+<p>Note that as the input polygon may not be convex, its inset may comprise several disconnected components. The result is therefore represented as a sequence of generalized polygons, such that the edges of each polygon correspond to line segments and circular arcs, both are special types of conic arcs, as represented by the <code>traits</code> class. The output sequence is returned via the output iterator <code>oi</code>, whose value-type must be <code>Gps_traits_2::Polygon_2</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Minkowski_sum_2_2exact_inset_8cpp-example.html#a2">Minkowski_sum_2/exact_inset.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga5ce6e837bdb4ea8973c8120c38301d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5ce6e837bdb4ea8973c8120c38301d7b">◆ </a></span>minkowski_sum_2() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_2 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of two given polygons (which may have holes). </p>
+<p><code>PolygonType1</code> and <code>PolygonType2</code> can be any combination of:</p>
+<ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code></li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code></li>
+</ul>
+<p>This method defaults to the reduced convolution method, see below.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMinkowskiSum2.html#gad3220ac962eacdaad0c3ad538e7d97af" title="Computes the Minkowski sum  of the two given polygons. ">CGAL::minkowski_sum_by_reduced_convolution_2()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMinkowskiSum2.html#ga09275e94b4a9016406f552b612c6335c" title="Computes the Minkowski sum  of the two given polygons. ">CGAL::minkowski_sum_by_full_convolution_2()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Minkowski_sum_2_2sum_by_decomposition_8cpp-example.html#a5">Minkowski_sum_2/sum_by_decomposition.cpp</a>, <a class="el" href="Minkowski_sum_2_2sum_triangle_square_8cpp-example.html#a0">Minkowski_sum_2/sum_triangle_square.cpp</a>, and <a class="el" href="Minkowski_sum_2_2sum_with_holes_8cpp-example.html#a0">Minkowski_sum_2/sum_with_holes.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga3d764f2e538b3a5965150e277e2ba7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d764f2e538b3a5965150e277e2ba7b3">◆ </a></span>minkowski_sum_2() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container , typename PolygonConvexDecompositionP_2_ , typename PolygonConvexDecompositionQ_2_ &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_2 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonConvexDecompositionP_2_ &amp; </td>
+          <td class="paramname"><em>decomp_P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonConvexDecompositionQ_2_ &amp; </td>
+          <td class="paramname"><em>decomp_Q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp; </td>
+          <td class="paramname"><em>traits</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of the two given polygons. </p>
+<p>The function decomposes the summand <code>P</code> into convex sub-polygons \( P_1, \ldots, P_k\) using the given decomposition method <code>decomp_P</code>. If the summand <code>P</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code>, then <code>decomp_P</code> must be an instance of a class template that models the concept <code><a class="el" href="classPolygonConvexDecomposition__2.html" title="A model of the PolygonConvexDecomposition_2 concept is capable of decomposing an input polygon  into ...">PolygonConvexDecomposition_2</a></code>. If <code>P</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code>, then <code>decomp_P</code> must be an instance of a class template that models the concept <code><a class="el" href="classPolygonWithHolesConvexDecomposition__2.html" title="A model of the PolygonWithHolesConvexDecomposition_2 concept is capable of decomposing an input polyg...">PolygonWithHolesConvexDecomposition_2</a></code>. Similarly, the function decomposes the summand <code>Q</code> into convex sub-polygons \( Q_1, \ldots, Q_k\) using the given decomposition method <code>decomp_Q</code>. If the summand <code>Q</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code>, then <code>decomp_Q</code> must be an instance of a class template that models the concept <code><a class="el" href="classPolygonConvexDecomposition__2.html" title="A model of the PolygonConvexDecomposition_2 concept is capable of decomposing an input polygon  into ...">PolygonConvexDecomposition_2</a></code>. If <code>Q</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code>, then <code>decomp_Q</code> must be an instance of a class template that models the concept <code><a class="el" href="classPolygonWithHolesConvexDecomposition__2.html" title="A model of the PolygonWithHolesConvexDecomposition_2 concept is capable of decomposing an input polyg...">PolygonWithHolesConvexDecomposition_2</a></code>. Then, the function computes the union of pairwise sub-sums (namely \( \bigcup_{i,j}{(P_i \oplus Q_j)}\)). </p>
+
+</div>
+</div>
+<a id="gaf9cef98536af418758a3fb90e74948b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9cef98536af418758a3fb90e74948b5">◆ </a></span>minkowski_sum_2() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container , typename PolygonConvexDecomposition_2_ &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_2 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonConvexDecomposition_2_ &amp; </td>
+          <td class="paramname"><em>decomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp; </td>
+          <td class="paramname"><em>traits</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of the two given polygons. </p>
+<p>The function decomposes the summands <code>P</code> and <code>Q</code> into convex sub-polygons \( P_1, \ldots, P_k\) and \( Q_1, \ldots, Q_{\ell}\), respectively. Then, it computes the union of pairwise sub-sums (namely \( \bigcup_{i,j}{(P_i \oplus Q_j)}\)). The decomposition is performed using the given decomposition method <code>decomp</code>. If both summands \( P \oplus Q\) are of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code>, then <code>decomp</code> must be instance of a class template that models the concept <code><a class="el" href="classPolygonConvexDecomposition__2.html" title="A model of the PolygonConvexDecomposition_2 concept is capable of decomposing an input polygon  into ...">PolygonConvexDecomposition_2</a></code>. If both summands are of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code>, then <code>decomp</code> must be a model of the concept <code><a class="el" href="classPolygonWithHolesConvexDecomposition__2.html" title="A model of the PolygonWithHolesConvexDecomposition_2 concept is capable of decomposing an input polyg...">PolygonWithHolesConvexDecomposition_2</a></code>. </p>
+
+</div>
+</div>
+<a id="ga06670e5f096d0fcbf4da539b6148c55f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06670e5f096d0fcbf4da539b6148c55f">◆ </a></span>minkowski_sum_by_decomposition_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container , typename PolygonNoHolesConvexDecomposition_2_ , typename PolygonWithHolesConvexDecomposition_2_ &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_by_decomposition_2 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonNoHolesConvexDecomposition_2_ &amp; </td>
+          <td class="paramname"><em>no_holes_decomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonWithHolesConvexDecomposition_2_ &amp; </td>
+          <td class="paramname"><em>with_holes_decomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a> &amp; </td>
+          <td class="paramname"><em>traits</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__segment__traits__2.html">Gps_segment_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container, Arr_segment_traits &gt;()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of the two given polygons using the decomposition strategy. </p>
+<p>It decomposes the summands <code>P</code> and <code>Q</code> into convex sub-polygons \( P_1, \ldots, P_k\) and \( Q_1, \ldots, Q_{\ell}\), respectively. Then, it computes the union of pairwise sub-sums (namely \( \bigcup_{i,j}{(P_i \oplus Q_j)}\)).</p>
+<p>If the summand <code>P</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code>, then the function first applies the hole filteration on <code>P</code>. If the summand <code>P</code> remains a polygon with holes, then the function decomposes the summand <code>P</code> using the given decomposition method <code>with_holes_decomp</code>. If, however, <code>P</code> turns into a polygon without holes, then the function decomposes the summand <code>P</code> using the given decomposition method <code>no_holes_decomp</code>, unless the result is a convex polygon, in which case the nop strategy is applied; namely, an instance of the class template <code><a class="el" href="classCGAL_1_1Polygon__nop__decomposition__2.html" title="The Polygon_nop_decomposition_2 class implements a convex decomposition of a polygon, which merely passes the input polygon to the list of output convex polygons. ">Polygon_nop_decomposition_2</a></code> is used. If <code>P</code> is a polygon without holes to start with, then only convexity is checked (checking whether the result is convex inccurs a small overhead though). Then depending on the result either <code>no_holes_decomp</code> or the nop strategy is applied. Similarly, if the summand <code>Q</code> is of type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code>, then the function first applies the hole filteration on <code>Q</code>. If the summand <code>Q</code> remains a polygon with holes, then the function decomposes the summand <code>Q</code> using the given decomposition method <code>with_holes_decomp</code>. If, however, <code>Q</code> turns into a polygon without holes, then the function decomposes the summand <code>Q</code> using the given decomposition method <code>no_holes_decomp</code>, unless the result is a convex polygon, in which case the nop strategy is applied. If <code>Q</code> is a polygon without holes to start with, then only convexity is checked and the decomposition strategy is chosen accordingly.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonNoHolesConvexDecomposition_2_</td><td>a model of the concept <code><a class="el" href="classPolygonConvexDecomposition__2.html" title="A model of the PolygonConvexDecomposition_2 concept is capable of decomposing an input polygon  into ...">PolygonConvexDecomposition_2</a></code>. </td></tr>
+    <tr><td class="paramname">PolygonWithHolesConvexDecomposition_2_</td><td>a model of the concept <code><a class="el" href="classPolygonWithHolesConvexDecomposition__2.html" title="A model of the PolygonWithHolesConvexDecomposition_2 concept is capable of decomposing an input polyg...">PolygonWithHolesConvexDecomposition_2</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga09275e94b4a9016406f552b612c6335c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09275e94b4a9016406f552b612c6335c">◆ </a></span>minkowski_sum_by_full_convolution_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_by_full_convolution_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of the two given polygons. </p>
+<p>The function computes the (full) convolution cycles of the two polygons and extract the regions having positive winding number with respect to these cycles. This method work very efficiently, regardless of whether <code>P</code> and <code>Q</code> are convex or non-convex.</p>
+<p><code>PolygonType1</code> and <code>PolygonType2</code> can be any combination of:</p>
+<ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code></li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code> </li>
+</ul>
+
+</div>
+</div>
+<a id="gad3220ac962eacdaad0c3ad538e7d97af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad3220ac962eacdaad0c3ad538e7d97af">◆ </a></span>minkowski_sum_by_reduced_convolution_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel , typename Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container&gt; CGAL::minkowski_sum_by_reduced_convolution_2 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonType1&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonType2&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>Q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/minkowski_sum_2.h&gt;</code></p>
+
+<p>Computes the Minkowski sum \( P \oplus Q\) of the two given polygons. </p>
+<p>The function computes the reduced convolution <a class="el" href="citelist.html#CITEREF_cgal:bl-frmsurc-11">[3]</a> of the two polygons and extracts those loops of the convolution that are part of the Minkowsi sum. This method works very efficiently, regardless of whether <code>P</code> and <code>Q</code> are convex or non-convex. In general, it is more efficient than the full convolution method, except for degenerate cases where the output polygon has many holes.</p>
+<p><code>PolygonType1</code> and <code>PolygonType2</code> can be any combination of:</p>
+<ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></code></li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></code> </li>
+</ul>
+
+</div>
+</div>
+<a id="gabda2c65926cde6e2559c4203ae6b31c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabda2c65926cde6e2559c4203ae6b31c2">◆ </a></span>offset_polygon_2() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ConicTraits , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt;ConicTraits&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::offset_polygon_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename ConicTraits::Rat_kernel::FT &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ConicTraits &amp; </td>
+          <td class="paramname"><em>traits</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/offset_polygon_2.h&gt;</code></p>
+
+<p>Computes the offset of the given polygon <code>P</code> by a given radius <code>r</code> - namely, the function computes the Minkowski sum \( P \oplus B_r\), where \( B_r\) is a disc of radius <code>r</code> centered at the origin. </p>
+<p>Note that as the input polygon may not be convex, its offset may not be a simple polygon. The result is therefore represented as a generalized polygon with holes, such that the edges of the polygon correspond to line segments and circular arcs, both are special types of conic arcs, as represented by the <code>traits</code> class. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Minkowski_sum_2_2exact_offset_8cpp-example.html#a2">Minkowski_sum_2/exact_offset.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga3acf41e52752bbd9e151fdb089248a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3acf41e52752bbd9e151fdb089248a5b">◆ </a></span>offset_polygon_2() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ConicTraits , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt;ConicTraits&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::offset_polygon_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp; </td>
+          <td class="paramname"><em>pwh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename ConicTraits::Rat_kernel::FT &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ConicTraits &amp; </td>
+          <td class="paramname"><em>traits</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/offset_polygon_2.h&gt;</code></p>
+
+<p>Computes the offset of the given polygon with holes <code>pwh</code> by a given radius <code>r</code>. </p>
+<p>It does so by offsetting outer boundary of <code>pwh</code> and insetting its holes. The result is represented as a generalized polygon with holes, such that the edges of the polygon correspond to line segments and circular arcs, both are special types of conic arcs, as represented by the <code>traits</code> class. </p><dl class="section pre"><dt>Precondition</dt><dd><code>pwh</code> is <em>not</em> unbounded (it has a valid outer boundary). </dd></dl>
+
+</div>
+</div>
+<a id="gaba8578e4be0258877dc447b1c372c3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba8578e4be0258877dc447b1c372c3b7">◆ </a></span>offset_polygon_2() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ConicTraits , class Container , class DecompositionStrategy &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Boolean_set_operations_2.tag:../Boolean_set_operations_2/" href="../Boolean_set_operations_2/classCGAL_1_1Gps__traits__2.html">Gps_traits_2</a>&lt;ConicTraits&gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> CGAL::offset_polygon_2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; typename ConicTraits::Rat_kernel, Container &gt; &amp; </td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename ConicTraits::Rat_kernel::FT &amp; </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DecompositionStrategy &amp; </td>
+          <td class="paramname"><em>decomp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ConicTraits &amp; </td>
+          <td class="paramname"><em>traits</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/offset_polygon_2.h&gt;</code></p>
+
+<p>Computes the exact representation of the offset of the given polygon <code>P</code> by a radius <code>r</code>, as described above. </p>
+<p>If <code>P</code> is not convex, the function decomposes it into convex sub-polygons \( P_1, \ldots, P_k\) and computes the union of sub-offsets (namely \( \bigcup_{i}{(P_i \oplus B_r)}\)). The decomposition is performed using the given decomposition strategy <code>decomp</code>, which must be an instance of a class that models the concept <code>PolygonConvexDecomposition</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><code>P</code> is a simple polygon. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:56 for CGAL 4.13 - 2D Minkowski Sums by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

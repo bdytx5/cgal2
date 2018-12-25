@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/BGL/group__PkgBGL.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - CGAL and the Boost Graph Library: CGAL and the Boost Graph Library Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - CGAL and the Boost Graph Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgBGL.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> |
+<a href="#files">Files</a> |
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL and the Boost Graph Library Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<div class="PkgImage"> <div class="image">
+<img src="emst-detail.png" alt="emst-detail.png" />
+</div>
+ </div> <div class="PkgSummary"> <div class="PkgAuthors">Andreas Fabri, Fernando Cacciola, Philipp Moeller, and Ron Wein</div> <div class="PkgDescription">This package provides a framework for interfacing <span style="font-variant: small-caps;">CGAL</span> data structures with the algorithms of the Boost Graph Library, or <span style="font-variant: small-caps;">BGL</span> for short. It allows to run graph algorithms directly on <span style="font-variant: small-caps;">CGAL</span> data structures which are model of the <span style="font-variant: small-caps;">BGL</span> graph concepts, for example the shortest path algorithm on a Delaunay triangulation in order to compute the Euclidean minimum spanning tree. Furthermore, it introduces several new graph concepts describing halfedge data structures.</div><p> <br />
+ </p></div> <div class="PkgShortInfo"> <b>Introduced in:</b> <span style="font-variant: small-caps;">CGAL</span> 3.3<br />
+ <b>BibTeX:</b> <a href="../Manual/how_to_cite_cgal.html#cgal:cfw-cbgl-18b">cgal:cfw-cbgl-18b</a><br />
+ <b>License:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/preliminaries.html#licensesLGPL">LGPL</a> <br />
+ </div><p> </p><h2 class="groupheader">Classified Reference Pages</h2> 
+<h2>Concepts</h2>
+<ul>
+<li><code><a class="el" href="classVertexListGraph.html" title="Concept from the Boost Graph Library. See https://www.boost.org/libs/graph/doc/VertexListGraph.html. ">VertexListGraph</a></code></li>
+<li><code><a class="el" href="classEdgeListGraph.html" title="Concept from the Boost Graph Library. See https://www.boost.org/libs/graph/doc/EdgeListGraph.html. ">EdgeListGraph</a></code></li>
+<li><code><a class="el" href="classHalfedgeGraph.html" title="The concept HalfedgeGraph is a refinement of the Bgl concept IncidenceGraph and adds the notion of a ...">HalfedgeGraph</a></code></li>
+<li><code><a class="el" href="classHalfedgeListGraph.html" title="The concept HalfedgeListGraph refines the concept HalfedgeGraph and adds the requirements for travers...">HalfedgeListGraph</a></code></li>
+<li><code><a class="el" href="classMutableHalfedgeGraph.html" title="The concept MutableHalfedgeGraph refines the concept HalfedgeGraph and adds the requirements for oper...">MutableHalfedgeGraph</a></code></li>
+<li><code><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></code></li>
+<li><code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code></li>
+<li><code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></li>
+</ul>
+<h2>Properties</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGLProperties.html#gaec83b8086dfd0cb99447a6d0d14beeee" title="The constant vertex_index is a property tag which identifies the index property of a vertex of a Bgl ...">boost::vertex_index_t</a></code></li>
+<li><code><a class="el" href="group__PkgBGLProperties.html#gab9975429768c90e61fa06fa88fa11bbf" title="The constant halfedge_index is a property tag which identifies the index property of a halfedge of a ...">boost::halfedge_index_t</a></code></li>
+<li><code><a class="el" href="group__PkgBGLProperties.html#ga982c6c7eef63cee15d1769fd1a8b0d26" title="The constant edge_index is a property tag which identifies the index property of an edge of a Bgl Gra...">boost::edge_index_t</a></code></li>
+<li><code><a class="el" href="group__PkgBGLProperties.html#ga315e5c7e887e2c2937eb411e14115dc6" title="The constant face_index is a property tag which identifies the index property of a face of a FaceGrap...">boost::face_index_t</a></code></li>
+<li><code><a class="el" href="group__PkgBGLProperties.html#ga042b2975580f7e0b507e82bf9d4ae2b6" title="The constant vertex_point is a property tag which refers to the geometric embedding property of a ver...">boost::vertex_point_t</a></code></li>
+</ul>
+<h2>CGAL Classes Adapted for the Graph API</h2>
+<p>Different <span style="font-variant: small-caps;">CGAL</span> types have been adapted as graphs for the <span style="font-variant: small-caps;">Bgl</span>. All adapted types are listed here. The pages document which concepts they model, the properties they support, and any possible caveats that a user might encounter.</p>
+<ul>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLSMGT"><code>boost::graph_traits&lt; CGAL::Surface_mesh&lt;P&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLPolyGT"><code>boost::graph_traits&lt; CGAL::Polyhedron_3&lt;T&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLLCCGT"><code>boost::graph_traits&lt; CGAL::Linear_cell_complex_for_combinatorial_map&lt;...&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLSeam_meshGT"><code>boost::graph_traits&lt; CGAL::Seam_mesh&lt;T&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLT2GT"><code>boost::graph_traits&lt; CGAL::Triangulation_2&lt;GT, TDS&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLArgtGT"><code>boost::graph_traits&lt; CGAL::Arrangement_2&lt;T,DC&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLOMPAK"><code>boost::graph_traits&lt;OpenMesh::PolyMesh_ArrayKernelT&lt;K&gt; &gt;</code> </a></li>
+<li><a class="el" href="group__PkgBGLTraits.html#BGLOMTMAK"><code>boost::graph_traits&lt;OpenMesh::TriMesh_ArrayKernelT&lt;K&gt; &gt;</code> </a></li>
+</ul>
+<h2>Helper Classes</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Triangulation__vertex__base__with__id__2.html" title="The class Triangulation_vertex_base_with_id_2 is a model of the concept TriangulationVertexBase_2, the base vertex of a 2D-triangulation. ">CGAL::Triangulation_vertex_base_with_id_2</a></code></li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arr__vertex__index__map.html">CGAL::Arr_vertex_index_map</a></code></li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arr__face__index__map.html">CGAL::Arr_face_index_map</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1HalfedgeDS__vertex__max__base__with__id.html" title="The class HalfedgeDS_vertex_max_base_with_id is a model of the HalfedgeDSVertex concept. ">CGAL::HalfedgeDS_vertex_max_base_with_id</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1HalfedgeDS__halfedge__max__base__with__id.html" title="The class HalfedgeDS_halfedge_max_base_with_id is a model of the HalfedgeDSHalfedge concept...">CGAL::HalfedgeDS_halfedge_max_base_with_id</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1HalfedgeDS__face__max__base__with__id.html" title="The class HalfedgeDS_face_max_base_with_id is a model of the HalfedgeDSFace concept. ">CGAL::HalfedgeDS_face_max_base_with_id</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Polyhedron__items__with__id__3.html" title="The class Polyhedron_items_with_id_3 is a model of the PolyhedronItems_3 concept. ...">CGAL::Polyhedron_items_with_id_3</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelper.html#ga0660924a1aa87e8be5cccbc261e931c7" title="Given a CGAL::Polyhedron_3, for each simplex type (vertex, halfedge, facet) associates an index from ...">CGAL::set_halfedgeds_items_id()</a></code></li>
+<li><code><a class="el" href="structCGAL_1_1Linear__cell__complex__bgl__min__items.html" title="The class Linear_cell_complex_bgl_min_items defines void as the information associated with darts...">CGAL::Linear_cell_complex_bgl_min_items</a></code></li>
+<li><code><a class="el" href="structCGAL_1_1Linear__cell__complex__for__bgl__combinatorial__map__helper.html" title="The class Linear_cell_complex_for_bgl_combinatorial_map_helper defines a CGAL::Linear_cell_complex_fo...">CGAL::Linear_cell_complex_for_bgl_combinatorial_map_helper</a></code></li>
+</ul>
+<h2>Helper Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gad93e429ad24efeaddeb836c437e719ab" title="returns true if the halfedge hd is on a border. ">CGAL::is_border()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga63695419c5ce7f68949ff2fb4f42d733" title="returns true if the halfedge hd or the opposite halfedge is on a border. ">CGAL::is_border_edge()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gadcd0f7717f833115030b951974837b6c" title="returns true if the target of hd has exactly two incident edges. ">CGAL::is_bivalent()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga7216689879e9ee4d0143054f2bbaf09c" title="returns true if all vertices have exactly two incident edges. ">CGAL::is_bivalent_mesh()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga6c1acedeffc27f41b2959b517f843ae4" title="returns true if the target of hd has exactly three incident edges. ">CGAL::is_trivalent()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga1472e0db19a5232f6ce14287c30eb521" title="returns true if all vertices have exactly three incident edges. ">CGAL::is_trivalent_mesh()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga0aeb3a6e6504032a485af3390dcec998" title="returns true iff the connected component denoted by hd is a triangle. ">CGAL::is_isolated_triangle()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gae04c8044cf1eee6a84baa5b79ab99fef" title="returns true if there are no border edges. ">CGAL::is_closed()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gaa552f609541c09f6d38ce92c19cd60c8" title="returns true iff the face denoted by hd is a triangle, that is it has three incident halfedges...">CGAL::is_triangle()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga11883d231eec1b58f37efe4acedd9588" title="returns true if all faces are triangles. ">CGAL::is_triangle_mesh()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gaefeddba3015a9723bfcacb904709bad0" title="returns true iff the face denoted by hd is a quad, that is it has four incident halfedges. ">CGAL::is_quad()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga092f99b04e99633136d6534e7bb76b0a" title="returns true if all faces are quadrilaterals. ">CGAL::is_quad_mesh()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga36ed1d044899aaeb9dc0e745b5a3d2e4" title="returns true iff the connected component denoted by hd is a quadrilateral. ">CGAL::is_isolated_quad()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b" title="checks the integrity of g. ">CGAL::is_valid_halfedge_graph()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gac164e7e125a766bd4e5d5bacd05f2d4a" title="checks the integrity of g. ">CGAL::is_valid_face_graph()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gafa3bc673513c8750321bf062afd5e6b7" title="checks the integrity of g. ">CGAL::is_valid_polygon_mesh()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gab737aaa204a6bdb8d18b00403f9d35d7" title="returns true iff the connected component denoted by hd is a tetrahedron. ">CGAL::is_tetrahedron()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga6c6e5a51ae08d56082eb4b0667d673d3" title="returns true iff the connected component denoted by hd is a hexahedron. ">CGAL::is_hexahedron()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga81ac0b6fbedf7889e0164aec540bd112" title="Creates an isolated triangle with its vertices initialized to p0, p1 and p2, and adds it to the graph...">CGAL::make_triangle()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gad2e132763721d8e4fd22020c1665c15f" title="Creates an isolated tetrahedron with its vertices initialized to p0, p1, p2, and p3, and adds it to the graph g. ">CGAL::make_tetrahedron()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga94890a756e6c8d96ba91711ade533208" title="Creates an isolated quad with its vertices initialized to p0, p1, p2, and p3, and adds it to the grap...">CGAL::make_quad()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gad9df350e98780f0c213046d8a257358e" title="Creates an isolated hexahedron with its vertices initialized to p0, p1, ... , and p7...">CGAL::make_hexahedron()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gac35ac7a3cb0ca4a5452548a304f3835e" title="Creates an icosahedron, outward oriented, centered in center and adds it to the graph g...">CGAL::make_icosahedron()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga859e3e5e3e40c20eb36807d573dddbb0" title="Creates a triangulated regular prism, outward oriented, having nb_vertices vertices in each of its ba...">CGAL::make_regular_prism()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#gad559ef0cf6a75f905957a3c5b89a03c8" title="Creates a pyramid, outward oriented, having nb_vertices vertices in its base and adds it to the graph...">CGAL::make_pyramid()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga5a41c8f7154516b2f6f58937136e4bb3" title="Creates a row major ordered grid with i cells along the width and j cells along the height and adds i...">CGAL::make_grid()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga4d3b9bb446f55fd37206eeba9d582296" title="removes all vertices, faces and halfedges from a graph. ">CGAL::clear()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLHelperFct.html#ga2d3eb044bfe42eab566779ce32216c11" title="copies a source model of FaceListGraph into a target model of a FaceListGraph. ">CGAL::copy_face_graph()</a></code></li>
+</ul>
+<h2>Iterators</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__source__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all hal...">CGAL::Halfedge_around_source_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all hal...">CGAL::Halfedge_around_target_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__face__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all hal...">CGAL::Halfedge_around_face_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Vertex__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_target_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Vertex__around__face__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_face_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Face__around__face__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::face_descriptor. ">CGAL::Face_around_face_iterator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Face__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::face_descriptor. ">CGAL::Face_around_target_iterator</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#gae1d90234861673d1457922d276b4282b" title="returns an iterator range over all halfedges with vertex source(h,g) as source. ">CGAL::halfedges_around_source()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#ga2be4fd4d24b1e48e00a92f90f0f2923c" title="returns an iterator range over all halfedges with vertex target(h,g) as target. ">CGAL::halfedges_around_target()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#ga37229df31508a78eb4acdaf907e637e5" title="returns an iterator range over all halfedges incident to the same face or border as h...">CGAL::halfedges_around_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#ga5a12f39e74a0667374570d61b859bfb1" title="returns an iterator range over all edge-adjacent faces to the same face face(h,g). ">CGAL::faces_around_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#ga603c8a5526457b2bf54addacc52943a5" title="returns an iterator range over all faces around vertex target(h,g). ">CGAL::faces_around_target()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#ga7746cb7b28520877375dfff6ec7bd32c" title="returns an iterator range over all vertices adjacent to the face face(h,g). ">CGAL::vertices_around_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLIterators.html#gab494736881fb051038dc55e4b49b580a" title="returns an iterator range over all vertices adjacent to the vertex target(h,g). ">CGAL::vertices_around_target()</a></code></li>
+</ul>
+<h2>Circulators</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__source__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all h...">CGAL::Halfedge_around_source_circulator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__target__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all h...">CGAL::Halfedge_around_target_circulator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Halfedge__around__face__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::halfedge_descriptor over all h...">CGAL::Halfedge_around_face_circulator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Vertex__around__target__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all ver...">CGAL::Vertex_around_target_circulator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Face__around__target__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::face_descriptor over all faces...">CGAL::Face_around_target_circulator</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Face__around__face__circulator.html" title="A bidirectional circulator with value type boost::graph_traits&lt;Graph&gt;::face_descriptor. ">CGAL::Face_around_face_circulator</a></code></li>
+</ul>
+<h2>Euler Operations</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce" title="creates a barycentric triangulation of the face incident to h. ">CGAL::Euler::add_center_vertex()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga4661f850bc60686efeae2fc9d2ec3e65" title="adds and returns the edge e connecting s and t halfedge(e, g) has s as source and t as target ...">CGAL::Euler::add_edge()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gaa386d0cdef3b5d6ef43d6b503392dbcd" title="adds a new face defined by a range of vertices (identified by their descriptors, boost::graph_traits&lt;...">CGAL::Euler::add_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga8666be89a7ffa73a5fe82b6b2bdc6f19" title="appends a new face incident to the border halfedge h1 and h2 by connecting the vertex target(h2...">CGAL::Euler::add_face_to_border()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga2bd5538dc0fda2be88770f5fb96c6782" title="appends a new face to the border halfedge h2 by connecting the tip of h2 with the tip of h1 with two ...">CGAL::Euler::add_vertex_and_face_to_border()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga5d15eb83f797b8f91e23e8e9ceec78c9" title="collapses an edge in a graph. ">CGAL::Euler::collapse_edge()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga2d19a3573640a9abb28885425bfd9f40">CGAL::Euler::does_satisfy_link_condition()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga12e0a6376e2755b48356b186e1344fdb" title="fills the hole incident to h. ">CGAL::Euler::fill_hole()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga174af506cebf3def60b56a3501843864" title="performs an edge flip, rotating the edge pointed by h by one vertex in the direction of the face orie...">CGAL::Euler::flip_edge()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga34c26f38b0453d3bad610963da8b24ee" title="joins the two faces incident to h and opposite(h,g). ">CGAL::Euler::join_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga868c3f29a47f516c24953b9b3b18c827" title="glues the cycle of halfedges of h1 and h2 together. ">CGAL::Euler::join_loop()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga585a3324ef493cc1340da5cb364b772c" title="joins the two vertices incident to h, (that is source(h, g) and target(h, g)) and removes source(h...">CGAL::Euler::join_vertex()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gaa305bfc634d2aa7bca376d0550d8363e" title="removes the incident face of h and changes all halfedges incident to the face into border halfedges...">CGAL::Euler::make_hole()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga8ec295610396e837258997c435b7a75f" title="removes the vertex target(h, g) and all incident halfedges thereby merging all incident faces...">CGAL::Euler::remove_center_vertex()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gacfae7ff8e782da55b941e4487e86c738" title="removes the incident face of h and changes all halfedges incident to the face into border halfedges o...">CGAL::Euler::remove_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#ga8a7629a2a0659ca059081eae8cedca3d" title="splits the halfedge h into two halfedges inserting a new vertex that is a copy of vertex(opposite(h...">CGAL::Euler::split_edge()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gac0e8aebb3072d5dd67487ce40205f318" title="splits the face incident to h1 and h2. ">CGAL::Euler::split_face()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gaff8b953d3c70fbfd2ae9db2f59d62bd0" title="cuts the graph along the cycle (h1,h2,h3) changing the genus (halfedge h3 runs on the backside of the...">CGAL::Euler::split_loop()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLEulerOperations.html#gaa60aecdf1aa48b7b3609abddd3b4d38b" title="splits the target vertex v of h1 and h2, and connects the new vertex and v with a new edge...">CGAL::Euler::split_vertex()</a></code></li>
+</ul>
+<h2>Selection</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga569fe26f889e5e4eed27746ac921651b" title="Augments a selection with faces of fg that are adjacent to a face in selection. ">CGAL::expand_face_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#gadeff090826a857c141251ce28bbe1f48" title="Diminishes a selection of faces from faces adjacent to a non-selected face. ">CGAL::reduce_face_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga6f6dd8a92c358a06592b9d481bf7bd74" title="Augments a selection with edges of fg that are adjacent to an edge in selection. ">CGAL::expand_edge_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga0fed4caaddf3fef51b37a64b42ba5fc0" title="Diminishes a selection of edges from edges adjacent to a non-selected edge. ">CGAL::reduce_edge_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga49398c78507f5664b740439a92ca746b" title="Augments a selection with vertices of fg that are adjacent to a vertex in selection. ">CGAL::expand_vertex_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga569127b818c04bfca7a5a5bca5b0bc24" title="Diminishes a selection of vertices from vertices adjacent to a non-selected vertex. ">CGAL::reduce_vertex_selection()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga8c925a29d68613319c31772123755ec7" title="Discovers and puts in out all faces incident to the target vertex of a halfedge in hedges...">CGAL::select_incident_faces()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLSelectionFct.html#ga6f8d338df28c24bbf93677f24f7bcbbe" title="Expands a selection of faces so that their removal does not create any non manifold vertex...">CGAL::expand_face_selection_for_removal()</a></code></li>
+</ul>
+<h2>Conversion Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGL.html#ga99ea6bf193f1194db5e523e713c82fb9" title="splits into polylines the graph g at vertices of degree greater than 2 and at vertices for which is_t...">CGAL::split_graph_into_polylines()</a></code></li>
+</ul>
+<h2>Graph Adaptors</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Dual.html" title="The class template Dual is an adaptor that creates the dual view of a FaceGraph. ">CGAL::Dual</a></code></li>
+<li><code><a class="el" href="structCGAL_1_1Face__filtered__graph.html" title="The class Face_filtered_graph is an adaptor that creates a filtered view of a graph by restricting it...">CGAL::Face_filtered_graph</a></code></li>
+<li><code><a class="el" href="structCGAL_1_1Graph__with__descriptor__with__graph.html" title="The class Graph_with_descriptor_with_graph wraps a graph into another graph in such a way that its de...">CGAL::Graph_with_descriptor_with_graph</a></code></li>
+<li><code><a class="el" href="structCGAL_1_1Graph__with__descriptor__with__graph__property__map.html" title="Graph_with_descriptor_with_graph_property_map enables to forward properties from a Graph to a Graph_w...">CGAL::Graph_with_descriptor_with_graph_property_map</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a></code></li>
+</ul>
+<h2>Partitioning Methods</h2>
+<ul>
+<li><code><a class="el" href="group__PkgBGLPartition.html#gae7e37b6101e63f4c5959f1ae6c6fe7d2" title="Computes a partition of the input triangular mesh into nparts parts, based on the mesh's nodal graph...">CGAL::METIS::partition_graph()</a></code></li>
+<li><code><a class="el" href="group__PkgBGLPartition.html#ga145334c09252126cfc87c6000263eb1d" title="Computes a partition of the input triangular mesh into nparts parts, based on the mesh's dual graph...">CGAL::METIS::partition_dual_graph()</a></code></li>
+</ul>
+<h2>I/O Functions</h2>
+<ul>
+<li><a class="el" href="group__PkgBGLIOFct.html">CGAL::read_off() </a></li>
+<li><a class="el" href="group__PkgBGLIOFct.html">CGAL::write_off() </a> </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups" id="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__PkgBGLTraits"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLTraits.html">Specializations of boost::graph_traits</a></td></tr>
+<tr class="memdesc:group__PkgBGLTraits"><td class="mdescLeft"> </td><td class="mdescRight">The <span style="font-variant: small-caps;">Bgl</span> defines the class template <a href="http://www.boost.org/libs/graph/doc/graph_traits.html"><code>boost::graph_traits</code></a> as a uniform interface to the properties and types of graph types. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__bgl__namedparameters"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__bgl__namedparameters.html">BGL Named Parameters</a></td></tr>
+<tr class="memdesc:group__bgl__namedparameters"><td class="mdescLeft"> </td><td class="mdescRight">The algorithms of the <span style="font-variant: small-caps;">Bgl</span> often have many parameters with default values that are appropriate for most cases. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLConcepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLConcepts.html">Concepts</a></td></tr>
+<tr class="memdesc:group__PkgBGLConcepts"><td class="mdescLeft"> </td><td class="mdescRight">We extend the Boost Graph Library (<span style="font-variant: small-caps;">Bgl</span> for short) with a set of new concepts. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLProperties"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLProperties.html">Properties</a></td></tr>
+<tr class="memdesc:group__PkgBGLProperties"><td class="mdescLeft"> </td><td class="mdescRight">The property tags model of the boost concept <a href="https://www.boost.org/libs/graph/doc/PropertyTag.html"><code>PropertyTag</code></a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLPropertiesDynamic"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLPropertiesDynamic.html">Dynamic Properties</a></td></tr>
+<tr class="memdesc:group__PkgBGLPropertiesDynamic"><td class="mdescLeft"> </td><td class="mdescRight">The dynamic property tags enable to associate information to simplices of a <code><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></code> on the fly. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLHelper"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelper.html">Helper Classes</a></td></tr>
+<tr class="memdesc:group__PkgBGLHelper"><td class="mdescLeft"> </td><td class="mdescRight">Several classes that enable to store ids in vertices/halfedges/faces of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a></code>, as well as adapters such as <code><a class="el" href="classCGAL_1_1Dual.html" title="The class template Dual is an adaptor that creates the dual view of a FaceGraph. ">CGAL::Dual</a></code>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLHelperFct"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html">Helper Functions</a></td></tr>
+<tr class="memdesc:group__PkgBGLHelperFct"><td class="mdescLeft"> </td><td class="mdescRight">Generic convenience functions for testing if an edge is a border edge, if a mesh is triangular, for conversion between models of different <code><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></code> concepts, etc. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLIterators"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLIterators.html">Iterators and Circulators</a></td></tr>
+<tr class="memdesc:group__PkgBGLIterators"><td class="mdescLeft"> </td><td class="mdescRight">Several iterators and circulators are provided that enable, for example, to iterate through the halfedges incident to a given face or vertex. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLSelectionFct"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLSelectionFct.html">Selection Functions</a></td></tr>
+<tr class="memdesc:group__PkgBGLSelectionFct"><td class="mdescLeft"> </td><td class="mdescRight">Several functions to enlarge or reduce a k-ring selection of vertices, edges, or faces. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLAdaptors"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLAdaptors.html">Graph Adaptors</a></td></tr>
+<tr class="memdesc:group__PkgBGLAdaptors"><td class="mdescLeft"> </td><td class="mdescRight">Graph adaptors are classes that build an interface over an existing graph to provide new functionalities. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLEulerOperations"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html">Euler Operations</a></td></tr>
+<tr class="memdesc:group__PkgBGLEulerOperations"><td class="mdescLeft"> </td><td class="mdescRight">We call high level operations that maintain the validity of a halfedge graph <em>Euler Operations</em>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLPartition"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLPartition.html">Partitioning Operations</a></td></tr>
+<tr class="memdesc:group__PkgBGLPartition"><td class="mdescLeft"> </td><td class="mdescRight">Methods to split a mesh into subdomains, using the library <a href="http://glaros.dtc.umn.edu/gkhome/metis/metis/overview">METIS</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgBGLIOFct"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgBGLIOFct.html">I/O Functions</a></td></tr>
+<tr class="memdesc:group__PkgBGLIOFct"><td class="mdescLeft"> </td><td class="mdescRight">Methods to read and write graphs. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files" id="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:partition_8h"><td class="memItemLeft" align="right" valign="top">file  </td><td class="memItemRight" valign="bottom"><a class="el" href="partition_8h.html">partition.h</a></td></tr>
+<tr class="memdesc:partition_8h"><td class="mdescLeft"> </td><td class="mdescRight">Convenience header file including the headers for all the partitioning-related free functions of this package. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga99ea6bf193f1194db5e523e713c82fb9"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename Visitor , typename IsTerminal &gt; </td></tr>
+<tr class="memitem:ga99ea6bf193f1194db5e523e713c82fb9"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGL.html#ga99ea6bf193f1194db5e523e713c82fb9">CGAL::split_graph_into_polylines</a> (const Graph &amp;graph, Visitor &amp;polyline_visitor, IsTerminal is_terminal)</td></tr>
+<tr class="memdesc:ga99ea6bf193f1194db5e523e713c82fb9"><td class="mdescLeft"> </td><td class="mdescRight">splits into polylines the graph <code>g</code> at vertices of degree greater than 2 and at vertices for which <code>is_terminal(v,graph)==true</code>.  <a href="group__PkgBGL.html#ga99ea6bf193f1194db5e523e713c82fb9">More...</a><br /></td></tr>
+<tr class="separator:ga99ea6bf193f1194db5e523e713c82fb9"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga99ea6bf193f1194db5e523e713c82fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99ea6bf193f1194db5e523e713c82fb9">◆ </a></span>split_graph_into_polylines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename Visitor , typename IsTerminal &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::split_graph_into_polylines </td>
+          <td>(</td>
+          <td class="paramtype">const Graph &amp; </td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp; </td>
+          <td class="paramname"><em>polyline_visitor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IsTerminal </td>
+          <td class="paramname"><em>is_terminal</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/split_graph_into_polylines.h&gt;</code></p>
+
+<p>splits into polylines the graph <code>g</code> at vertices of degree greater than 2 and at vertices for which <code>is_terminal(v,graph)==true</code>. </p>
+<p>The polylines are reported using a visitor. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>a model of the <code>boost</code> concepts <code><a class="el" href="classVertexListGraph.html" title="Concept from the Boost Graph Library. See https://www.boost.org/libs/graph/doc/VertexListGraph.html. ">VertexListGraph</a></code> and <code><a class="el" href="classEdgeListGraph.html" title="Concept from the Boost Graph Library. See https://www.boost.org/libs/graph/doc/EdgeListGraph.html. ">EdgeListGraph</a></code>. </td></tr>
+    <tr><td class="paramname">Visitor</td><td>a class that provides:<ul>
+<li><code>void start_new_polyline()</code> called when starting the description of a polyline.</li>
+<li><code>void add_node(typename boost::graph_traits&lt;Graph&gt;::vertex_descriptor v)</code> called for each vertex <code>v</code> of the polyline currently described.</li>
+<li><code>void end_polyline()</code> called when the description of a polyline is finished. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">IsTerminal</td><td>A functor providing <code>bool operator()(boost::graph_traits&lt;Graph&gt;::vertex_descriptor v, const Graph&amp; g) const</code> returning true if the vertex <code>v</code> of degree 2 is a polyline endpoint and false otherwise.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>An overload without <code>is_terminal</code> is provided if no vertices but those of degree different from 2 are polyline endpoints.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Surface_mesh_skeletonization_2simple_mcfskel_example_8cpp-example.html#a4">Surface_mesh_skeletonization/simple_mcfskel_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:01 for CGAL 4.13 - CGAL and the Boost Graph Library by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

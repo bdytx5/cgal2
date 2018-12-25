@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/BGL/group__PkgBGLTraits.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - CGAL and the Boost Graph Library: Specializations of boost::graph_traits</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - CGAL and the Boost Graph Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgBGLTraits.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Specializations of boost::graph_traits<div class="ingroups"><a class="el" href="group__PkgBGL.html">CGAL and the Boost Graph Library Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>The <span style="font-variant: small-caps;">Bgl</span> defines the class template <a href="http://www.boost.org/libs/graph/doc/graph_traits.html"><code>boost::graph_traits</code></a> as a uniform interface to the properties and types of graph types. </p>
+<p>We provide specializations of this class template for several <span style="font-variant: small-caps;">CGAL</span> data structures.</p>
+<h1><a class="anchor" id="BGLSMGT"></a>
+Specialization for the Surface_mesh Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Surface_mesh.h&gt;</code></p>
+<p>We provide partial specialization for the class <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesh.tag:../Surface_mesh/" href="../Surface_mesh/classCGAL_1_1Surface__mesh.html">CGAL::Surface_mesh</a></code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>.</p>
+<p>The const specialization, <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesh.tag:../Surface_mesh/" href="../Surface_mesh/classCGAL_1_1Surface__mesh.html">CGAL::Surface_mesh</a>&lt;Traits&gt; const&gt;</code> is also defined, using the constant handles in the surface mesh.</p>
+<p>The traits class <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesh.tag:../Surface_mesh/" href="../Surface_mesh/classCGAL_1_1Surface__mesh.html">CGAL::Surface_mesh</a>&lt;T&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>Surface_mesh::Vertex_index</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code>Surface_mesh::Edge_index</code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>Surface_mesh::Halfedge_index</code> </td><td align="left">Identify halfedges in the graph. </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code>Surface_mesh::Face_index</code> </td><td align="left">Identify faces in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="el" href="classCGAL_1_1Vertex__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_target_iterator</a>&lt;Surface_mesh&lt;P&gt; &gt;</code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;Surface_mesh&lt;P&gt; &gt;</code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::In_edge_iterator&lt;Surface_mesh&lt;P&gt; &gt;</code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code>Surface_mesh::Vertex_iterator</code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code>Surface_mesh::Edge_iterator</code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code>Surface_mesh::Halfedge_iterator</code> </td><td align="left">An iterator to traverse through the halfedges of the graph. Its value type is <code>halfedge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code>Surface_mesh::Face_iterator</code> </td><td align="left">An iterator to traverse through the faces of the graph. Its value type is <code>face_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>Surface_mesh::vertices_size_type</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>Surface_mesh::edges_size_type</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>Surface_mesh::degree_size_type</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<h1><a class="anchor" id="BGLPolyGT"></a>
+Specialization for the Polyhedron Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Polyhedron_3.h&gt;</code></p>
+<p>We provide partial specialization for the class <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a></code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>.</p>
+<p>The const specialization, <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a>&lt;Traits&gt; const&gt;</code> is also defined, using the constant handles in the polyhedron.</p>
+<p>The traits class <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a>&lt;T&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>Polyhedron_3::Vertex_handle</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>Polyhedron_3::Halfedge_handle</code> </td><td align="left">Identify halfedges in the graph. </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code>Polyhedron_3::Face_handle</code> </td><td align="left">Identify faces in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="el" href="classCGAL_1_1Vertex__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_target_iterator</a>&lt;Polyhedron_3&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;Polyhedron_3&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::In_edge_iterator&lt;Polyhedron_3&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the halfedges of the graph. Its value type is <code>halfedge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the faces of the graph. Its value type is <code>face_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>Polyhedron_3::size_type</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>Polyhedron_3::size_type</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>Polyhedron_3::size_type</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<p>For convenience, the type <code>edge_descriptor</code> is hashable using the functor <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Miscellany.tag:../Miscellany/" href="../Miscellany/structCGAL_1_1Handle__hash__function.html">CGAL::Handle_hash_function</a></code>, which is the default hash functor of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Miscellany.tag:../Miscellany/" href="../Miscellany/classCGAL_1_1Unique__hash__map.html">CGAL::Unique_hash_map</a></code>.</p>
+<h1><a class="anchor" id="BGLLCCGT"></a>
+Specialization for the Linear_cell_complex_for_combinatorial_map Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Linear_cell_complex_for_combinatorial_map.h&gt;</code></p>
+<p>We provide partial specialization for the class <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Linear_cell_complex.tag:../Linear_cell_complex/" href="../Linear_cell_complex/classCGAL_1_1Linear__cell__complex__for__combinatorial__map.html">CGAL::Linear_cell_complex_for_combinatorial_map</a></code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>.</p>
+<p>The const specialization is also defined, using the constant handles in the linear cell complex.</p>
+<p>Let us denote by LCC an instantiation of CGAL::Linear_cell_complex_for_combinatorial_map&lt;...&gt; class. The traits class <code>boost::graph_traits&lt;LCC&gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>LCC::Vertex_attribute_handle</code> </td><td align="left">The vertex descriptor </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">The edge descriptor </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>LCC::Dart_handle</code> </td><td align="left">The halfedge descriptor </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">The face descriptor </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="el" href="classCGAL_1_1Vertex__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_target_iterator</a>&lt;LCC&gt;</code> </td><td align="left">Iterates through adjacent vertices </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;LCC&gt;</code> </td><td align="left">Iterate through the out-edges of a vertex. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;LCC&gt;</code> </td><td align="left">Iterate through the in-edges of a vertex. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Iterate through the vertices of LCC. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Iterate through the edges of LCC. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Iterate through the halfedges of LCC. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Iterate through the faces of LCC. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code> and <code>boost::edge_list_graph_tag</code> </td><td align="left"></td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">Indicates that this graph does not support multiedges </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center"><code>boost::bidirectional_graph_tag</code> </td><td align="left">Indicates that this graph is bidirectional </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>LCC::size_type</code> </td><td align="left">The size type of the vertex list </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>LCC::size_type</code> </td><td align="left">The size type of the edge list </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>LCC::size_type</code> </td><td align="left">The size type of the adjacency list </td></tr>
+</table>
+<p>For convenience, the type <code>edge_descriptor</code> is hashable using the functor <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Miscellany.tag:../Miscellany/" href="../Miscellany/structCGAL_1_1Handle__hash__function.html">CGAL::Handle_hash_function</a></code> that is the default hash functor of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Miscellany.tag:../Miscellany/" href="../Miscellany/classCGAL_1_1Unique__hash__map.html">CGAL::Unique_hash_map</a></code>.</p>
+<h2><a class="anchor" id="Requirements"></a>
+Requirements</h2>
+<ul>
+<li>
+<p class="startli">The item class used by <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Linear_cell_complex.tag:../Linear_cell_complex/" href="../Linear_cell_complex/classCGAL_1_1Linear__cell__complex__for__combinatorial__map.html">CGAL::Linear_cell_complex_for_combinatorial_map</a></code> must have both 0-attributes and 2-attributes enabled.</p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli">No dart is 1-free, nor 2-free. Holes in a mesh are represented by using the same convention than for <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesh.tag:../Surface_mesh/" href="../Surface_mesh/classCGAL_1_1Surface__mesh.html">CGAL::Surface_mesh</a></code>: a dart <code>d</code> belongs to a border if the 2-attribute of <code>beta&lt;2&gt;(d)</code> is NULL.</p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli">All darts of the linear cell complexes must be associated with a 2-attribute, except darts that represent holes.</p>
+<p class="endli"></p>
+</li>
+<li>
+In order to use property maps, darts and types associated with of 0- and 2-attributes must define the two fonctions: <div class="fragment"><div class="line"><span class="keywordtype">int</span> id() <span class="keyword">const</span>; <span class="comment">// Returns the index. </span></div><div class="line"><span class="keywordtype">int</span>&amp; id();      <span class="comment">// Returns a reference to the index stored in the attribute. </span></div></div><!-- fragment --> </li>
+</ul>
+<p>For darts, this can be done by defining <code>Darts_with_id</code> as <code>CGAL::Tag_true</code> in the <code>Dart_wrapper</code> struct of the item class. <br />
+ For attributes, it is possible to use <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classCGAL_1_1Cell__attribute__with__id.html">CGAL::Cell_attribute_with_id</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Linear_cell_complex.tag:../Linear_cell_complex/" href="../Linear_cell_complex/classCGAL_1_1Cell__attribute__with__point__and__id.html">CGAL::Cell_attribute_with_point_and_id</a></code> classes to define your item class using attributes with id.</p>
+<p>You can also use the <code><a class="el" href="structCGAL_1_1Linear__cell__complex__bgl__min__items.html" title="The class Linear_cell_complex_bgl_min_items defines void as the information associated with darts...">CGAL::Linear_cell_complex_bgl_min_items</a></code> item class, or you can use directly the <code><a class="el" href="structCGAL_1_1Linear__cell__complex__for__bgl__combinatorial__map__helper.html" title="The class Linear_cell_complex_for_bgl_combinatorial_map_helper defines a CGAL::Linear_cell_complex_fo...">CGAL::Linear_cell_complex_for_bgl_combinatorial_map_helper</a></code> class.</p>
+<h1><a class="anchor" id="BGLT2GT"></a>
+Specializations for the 2D Triangulation Classes</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Triangulation_2.h&gt;</code>, <code>&lt;CGAL/boost/graph/graph_traits_Delaunay_triangulation_2.h&gt;</code>, <code>&lt;CGAL/boost/graph/graph_traits_Regular_triangulation_2.h&gt;</code>, <code>&lt;CGAL/boost/graph/graph_traits_Constrained_Delaunay_triangulation_2.h&gt;</code>, <code>&lt;CGAL/boost/graph/graph_traits_Constrained_triangulation_2.h&gt;</code>, <code>&lt;CGAL/boost/graph/graph_traits_Constrained_triangulation_plus_2.h&gt;</code>, and <code>&lt;CGAL/boost/graph/graph_traits_Triangulation_hierarchy_2.h&gt;</code>.</p>
+<p>We provide partial specialization for the classes <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Triangulation__2.html">CGAL::Triangulation_2</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Delaunay__triangulation__2.html">CGAL::Delaunay_triangulation_2</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Regular__triangulation__2.html">CGAL::Regular_triangulation_2</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Constrained__triangulation__2.html">CGAL::Constrained_triangulation_2</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Constrained__Delaunay__triangulation__2.html">CGAL::Constrained_Delaunay_triangulation_2</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Constrained__triangulation__plus__2.html">CGAL::Constrained_triangulation_plus_2</a></code>, and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Triangulation__hierarchy__2.html">CGAL::Triangulation_hierarchy_2</a></code> so that they are model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, and <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code>.</p>
+<p>The mapping between vertices and edges of the triangulation and the graph is rather straightforward, but there are some subtleties. The value type of the <span style="font-variant: small-caps;">Bgl</span> iterators is the vertex or edge descriptor, whereas in <span style="font-variant: small-caps;">CGAL</span> all iterators and circulators are also handles and hence have as value type Vertex or Edge.</p>
+<p>The graph traits class for triangulations does not distinguish between finite and infinite vertices and edges. As the edge weight computed with the default property map of <span style="font-variant: small-caps;">Bgl</span> algorithms (obtained with <code>get(t, boost::edge_weight)</code>) is the length of the edge, the edge weight is not well defined for infinite edges. For algorithms that make use of the edge weight, the user must therefore define a <a href="http://www.boost.org/libs/graph/doc/filtered_graph.html"><code>boost::filtered_graph</code></a> or pass a property map to the algorithm that returns "infinity" for infinite edges.</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>Triangulation::Vertex_handle</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Identify edges in the graph. It is constructible from and convertible to <code>Triangulation::Edge</code>. It is not a simple typedef, but a proper class, because in an undirected graph the edges <code>(u,v)</code> and <code>(v,u)</code> must be equal. This is not the case for the Edge type of the triangulation. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::adjacency_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed.. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>Triangulation::size_type</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>Triangulation::size_type</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>Triangulation::size_type</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<h1><a class="anchor" id="BGLArgtGT"></a>
+Specialization for the Arrangement Classes</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Arrangement_2.h&gt;</code></p>
+<p>We provide partial specialization for the class <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a></code> so that it is model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>.</p>
+<p>The const specialization, <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt;Traits, Dcel&gt; const&gt;</code> is also defined, using the constant handles in the arrangement.</p>
+<p>The traits class <code>boost::graph_traits&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt;T, Dcel&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>Arrangement_2::Vertex_handle</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code>Arrangement_2::Halfedge_handle</code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center">Not provided</td><td align="left"></td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An edge iterator which only iterates over the outgoing halfedges around a vertex. It corresponds to a <code>Arrangement_2::Halfedge_around_vertex_circulator</code> with the difference that its value type is an edge descriptor and not <code>Arrangement_2::Halfedge</code> </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An edge iterator which only iterates over the incoming edges around a vertex. It corresponds to a <code>Arrangement_2::Halfedge_around_vertex_circulator</code> with the difference that its value type is an edge descriptor and not <code>Arrangement_2::Halfedge</code> </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator corresponding to <code>Arrangement_2::Vertex_iterator</code>, with the difference that its value type is a vertex descriptor and not <code>Arrangement_2::Vertex</code> </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator corresponding to <code>Arrangement_2::Halfedge_iterator</code> with the difference that its value type is an edge descriptor and not <code>Arrangement_2::Halfedge</code> </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::directed_tag</code> </td><td align="left">This graph is directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::allow_parallel_edge_tag</code> </td><td align="left">This graph supports multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>Arrangement_2::Size</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>Arrangement_2::Size</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>Arrangement_2::Size</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<h1><a class="anchor" id="BGLOMPAK"></a>
+Specialization for the OpenMesh::PolyMesh_ArrayKernelT Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_PolyMesh_ArrayKernelT.h&gt;</code></p>
+<p>We provide partial specialization for the class <code>OpenMesh::PolyMesh_ArrayKernelT</code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>.</p>
+<p>The traits class <code>boost::graph_traits&lt;OpenMesh::PolyMesh_ArrayKernelT&lt;K&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::VertexHandle</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::HalfedgeHandle</code> </td><td align="left">Identify halfedges in the graph. </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::FaceHandle</code> </td><td align="left">Identify faces in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;OpenMesh::PolyMesh_ArrayKernelT&lt;K&gt; &gt;</code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::In_edge_iterator&lt;OpenMesh::PolyMesh_ArrayKernelT&lt;K&gt; &gt;</code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::VertexIter</code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::HalfedgeIter</code> </td><td align="left">An iterator to traverse through the halfedges of the graph. Its value type is <code>halfedge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::FaceIter</code> </td><td align="left">An iterator to traverse through the faces of the graph. Its value type is <code>face_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<h1><a class="anchor" id="BGLOMTMAK"></a>
+Specialization for the OpenMesh::TriMesh_ArrayKernelT Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_TriMesh_ArrayKernelT.h&gt;</code></p>
+<p>We provide partial specialization for the class <code>OpenMesh::TriMesh_ArrayKernelT</code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>.</p>
+<p>The traits class <code>boost::graph_traits&lt;OpenMesh::TriMesh_ArrayKernelT&lt;K&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>OpenMesh::TriMesh_ArrayKernelT::VertexHandle</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>OpenMesh::TriMesh_ArrayKernelT::HalfedgeHandle</code> </td><td align="left">Identify halfedges in the graph. </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code>OpenMesh::TriMesh_ArrayKernelT::FaceHandle</code> </td><td align="left">Identify faces in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;OpenMesh::TriMesh_ArrayKernelT&lt;K&gt; &gt;</code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::In_edge_iterator&lt;OpenMesh::TriMesh_ArrayKernelT&lt;K&gt; &gt;</code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code>OpenMesh::PolyMesh_ArrayKernelT::VertexIter</code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code>OpenMesh::TriMesh_ArrayKernelT::HalfedgeIter</code> </td><td align="left">An iterator to traverse through the halfedges of the graph. Its value type is <code>halfedge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code>OpenMesh::TriMesh_ArrayKernelT::FaceIter</code> </td><td align="left">An iterator to traverse through the faces of the graph. Its value type is <code>face_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>unsigned int</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+<h1><a class="anchor" id="BGLSeam_meshGT"></a>
+Specialization for the Seam_mesh Class</h1>
+<p>Defined in <code>&lt;CGAL/boost/graph/graph_traits_Seam_mesh.h&gt;</code></p>
+<p>We provide partial specialization for the class <code><a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a></code> so that it is a model of the graph concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalGraph.html">BidirectionalGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classVertexAndEdgeListGraph.html">VertexAndEdgeListGraph</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAdjacencyMatrix.html">AdjacencyMatrix</a></code>, and <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code>.</p>
+<p>The traits class <code>boost::graph_traits&lt; <a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a>&lt;T&gt; &gt;</code> provides the following types:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="center">Value </th><th align="left">Description  </th></tr>
+<tr>
+<td align="left"><code>vertex_descriptor</code> </td><td align="center"><code>Seam_mesh::vertex_descriptor</code> </td><td align="left">Identify vertices in the graph. </td></tr>
+<tr>
+<td align="left"><code>edge_descriptor</code> </td><td align="center"><code>Seam_mesh::edge_descriptor</code> </td><td align="left">Identify edges in the graph. </td></tr>
+<tr>
+<td align="left"><code>halfedge_descriptor</code> </td><td align="center"><code>Seam_mesh::halfedge_descriptor</code> </td><td align="left">Identify halfedges in the graph. </td></tr>
+<tr>
+<td align="left"><code>face_descriptor</code> </td><td align="center"><code>Seam_mesh::face_descriptor</code> </td><td align="left">Identify faces in the graph. </td></tr>
+<tr>
+<td align="left"><code>adjacency_iterator</code> </td><td align="center"><code><a class="el" href="classCGAL_1_1Vertex__around__target__iterator.html" title="A bidirectional iterator with value type boost::graph_traits&lt;Graph&gt;::vertex_descriptor over all verti...">CGAL::Vertex_around_target_iterator</a>&lt;<a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a>&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the vertices adjacent to a vertex. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>out_edge_iterator</code> </td><td align="center"><code>CGAL::Out_edge_iterator&lt;<a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a>&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the outgoing edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>in_edge_iterator</code> </td><td align="center"><code>CGAL::In_edge_iterator&lt;<a class="el" href="classCGAL_1_1Seam__mesh.html" title="This class is a data structure that takes a triangle mesh, further refered to as underlying mesh and ...">CGAL::Seam_mesh</a>&lt;T&gt; &gt;</code> </td><td align="left">An iterator to traverse through the incoming edges incident to a vertex. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>vertex_iterator</code> </td><td align="center"><code>Seam_mesh::vertex_iterator</code> </td><td align="left">An iterator to traverse through the vertices of the graph. Its value type is <code>vertex_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>edge_iterator</code> </td><td align="center"><code>Seam_mesh::edge_iterator</code> </td><td align="left">An iterator to traverse through the edges of the graph. Its value type is <code>edge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>halfedge_iterator</code> </td><td align="center"><code>Seam_mesh::halfedge_iterator</code> </td><td align="left">An iterator to traverse through the halfedges of the graph. Its value type is <code>halfedge_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>face_iterator</code> </td><td align="center"><code>Seam_mesh::face_iterator</code> </td><td align="left">An iterator to traverse through the faces of the graph. Its value type is <code>face_descriptor</code>. </td></tr>
+<tr>
+<td align="left"><code>directed_category</code> </td><td align="center"><code>boost::undirected_tag</code> </td><td align="left">This graph is not directed. </td></tr>
+<tr>
+<td align="left"><code>edge_parallel_category</code> </td><td align="center"><code>boost::disallow_parallel_edge_tag</code> </td><td align="left">This graph does not support multiedges. </td></tr>
+<tr>
+<td align="left"><code>traversal_category</code> </td><td align="center">Inherits from <code>boost::bidirectional_graph_tag</code>, <code>boost::vertex_list_graph_tag</code>, and <code>boost::edge_list_graph_tag</code> </td><td align="left">The ways in which the vertices in the graph can be traversed. </td></tr>
+<tr>
+<td align="left"><code>vertices_size_type</code> </td><td align="center"><code>Seam_mesh::vertices_size_type</code> </td><td align="left">The size type of the vertex list. </td></tr>
+<tr>
+<td align="left"><code>edges_size_type</code> </td><td align="center"><code>Seam_mesh::edges_size_type</code> </td><td align="left">The size type of the edge list. </td></tr>
+<tr>
+<td align="left"><code>degree_size_type</code> </td><td align="center"><code>Seam_mesh::degree_size_type</code> </td><td align="left">The size type of the adjacency list. </td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:01 for CGAL 4.13 - CGAL and the Boost Graph Library by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

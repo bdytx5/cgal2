@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2conics_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/conics.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Constructing<sp/>an<sp/>arrangement<sp/>of<sp/>various<sp/>conic<sp/>arcs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/basic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CGAL_USE_CORE</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Sorry,<sp/>this<sp/>example<sp/>needs<sp/>CORE<sp/>...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/CORE_algebraic_number_traits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_conic_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::CORE_algebraic_number_traits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Nt_traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Nt_traits::Rational<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rational;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Nt_traits::Algebraic<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Algebraic;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Cartesian&lt;Rational&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rat_kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Rat_kernel::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rat_point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Rat_kernel::Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rat_segment_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Rat_kernel::Circle_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rat_circle_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Cartesian&lt;Algebraic&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Alg_kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__conic__traits__2" kindref="compound">CGAL::Arr_conic_traits_2&lt;Rat_kernel, Alg_kernel, Nt_traits&gt;</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Curve_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Conic_arc_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/><sp/>arr;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>hyperbolic<sp/>arc,<sp/>supported<sp/>by<sp/>the<sp/>hyperbola<sp/>y<sp/>=<sp/>1/x</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(or:<sp/>xy<sp/>-<sp/>1<sp/>=<sp/>0)<sp/>with<sp/>the<sp/>endpoints<sp/>(1/5,<sp/>4)<sp/>and<sp/>(2,<sp/>1/2).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>the<sp/>arc<sp/>is<sp/>counterclockwise<sp/>oriented.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ps1<sp/>(Rational(1,4),<sp/>4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt1<sp/>(2,<sp/>Rational(1,2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c1<sp/>(0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>-1,<sp/><ref refid="group__kernel__enums_1ga39fcfbab0b0f0ce9139ad1613e21d60d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::COUNTERCLOCKWISE</ref>,<sp/>ps1,<sp/>pt1);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c1);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>full<sp/>ellipse,<sp/>which<sp/>is<sp/>(x/4)^2<sp/>+<sp/>(y/2)^2<sp/>=<sp/>0<sp/>rotated<sp/>by</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>phi=36.87<sp/>degree<sp/>(such<sp/>that<sp/>sin(phi)<sp/>=<sp/>0.6,<sp/>cos(phi)<sp/>=<sp/>0.8),</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>yielding:<sp/>58x^2<sp/>+<sp/>72y^2<sp/>-<sp/>48xy<sp/>-<sp/>360<sp/>=<sp/>0.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c2<sp/>(58,<sp/>72,<sp/>-48,<sp/>0,<sp/>0,<sp/>-360);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>the<sp/>segment<sp/>(1,<sp/>1)<sp/>--<sp/>(0,<sp/>-3).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_point_2<sp/><sp/><sp/>ps3<sp/>(1,<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_point_2<sp/><sp/><sp/>pt3<sp/>(0,<sp/>-3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c3<sp/>(Rat_segment_2<sp/>(ps3,<sp/>pt3));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>circular<sp/>arc<sp/>supported<sp/>by<sp/>the<sp/>circle<sp/>x^2<sp/>+<sp/>y^2<sp/>=<sp/>5^2,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>with<sp/>(-3,<sp/>4)<sp/>and<sp/>(4,<sp/>3)<sp/>as<sp/>its<sp/>endpoints.<sp/>We<sp/>want<sp/>the<sp/>arc<sp/>to<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clockwise<sp/>oriented,<sp/>so<sp/>it<sp/>passes<sp/>through<sp/>(0,<sp/>5)<sp/>as<sp/>well.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_point_2<sp/><sp/><sp/>ps4<sp/>(-3,<sp/>4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_point_2<sp/><sp/><sp/>pm4<sp/>(0,<sp/>5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_point_2<sp/><sp/><sp/>pt4<sp/>(4,<sp/>3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c4<sp/>(ps4,<sp/>pm4,<sp/>pt4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion<sp/>(c4.is_valid());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>full<sp/>unit<sp/>circle<sp/>that<sp/>is<sp/>centered<sp/>at<sp/>(0,<sp/>4).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_circle_2<sp/><sp/>circ5<sp/>(Rat_point_2(0,4),<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c5<sp/>(circ5);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c5);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>a<sp/>parabolic<sp/>arc<sp/>that<sp/>is<sp/>supported<sp/>by<sp/>a<sp/>parabola<sp/>y<sp/>=<sp/>-x^2</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(or:<sp/>x^2<sp/>+<sp/>y<sp/>=<sp/>0)<sp/>and<sp/>whose<sp/>endpoints<sp/>are<sp/>(-sqrt(3),<sp/>-3)<sp/>~<sp/>(-1.73,<sp/>-3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>(sqrt(2),<sp/>-2)<sp/>~<sp/>(1.41,<sp/>-2).<sp/>Notice<sp/>that<sp/>since<sp/>the<sp/>x-coordinates</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>the<sp/>endpoints<sp/>cannot<sp/>be<sp/>accurately<sp/>represented,<sp/>we<sp/>specify<sp/>them</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>as<sp/>the<sp/>intersections<sp/>of<sp/>the<sp/>parabola<sp/>with<sp/>the<sp/>lines<sp/>y<sp/>=<sp/>-3<sp/>and<sp/>y<sp/>=<sp/>-2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>the<sp/>arc<sp/>is<sp/>clockwise<sp/>oriented.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c6<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Conic_arc_2<sp/>(1,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>parabola.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__kernel__enums_1ga5aa0906f2432d414090dd8723c10f304" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::CLOCKWISE</ref>,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2<sp/>(-1.73,<sp/>-3),<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Approximation<sp/>of<sp/>the<sp/>source.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>3,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>line:<sp/>y<sp/>=<sp/>-3.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2<sp/>(1.41,<sp/>-2),<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Approximation<sp/>of<sp/>the<sp/>target.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>2);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>line:<sp/>y<sp/>=<sp/>-2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion<sp/>(c6.is_valid());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c6);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Insert<sp/>the<sp/>right<sp/>half<sp/>of<sp/>the<sp/>circle<sp/>centered<sp/>at<sp/>(4,<sp/>2.5)<sp/>whose<sp/>radius</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>1/2<sp/>(therefore<sp/>its<sp/>squared<sp/>radius<sp/>is<sp/>1/4).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Rat_circle_2<sp/><sp/>circ7<sp/>(Rat_point_2(4,<sp/>Rational(5,2)),<sp/>Rational(1,4));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ps7<sp/>(4,<sp/>3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt7<sp/>(4,<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Conic_arc_2<sp/><sp/><sp/>c7<sp/>(circ7,<sp/><ref refid="group__kernel__enums_1ga5aa0906f2432d414090dd8723c10f304" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::CLOCKWISE</ref>,<sp/>ps7,<sp/>pt7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Insert_1gaf7d5aac2640c2a706f8c5e6adc8a7e94" kindref="member">insert</ref><sp/>(arr,<sp/>c7);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>out<sp/>the<sp/>size<sp/>of<sp/>the<sp/>resulting<sp/>arrangement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>arrangement<sp/>size:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>V<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>arr.number_of_vertices()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/><sp/>E<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>arr.number_of_edges()<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/><sp/>F<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>arr.number_of_faces()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

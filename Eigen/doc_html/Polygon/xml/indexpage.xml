@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_2D_Polygon"/><anchor id="index_1Chapter_Polygon"/> <simplesect kind="authors"><para>Geert-Jan Giezeman and Wieger Wesselink </para></simplesect>
+</para><sect1 id="index_1secPolygonIntroduction">
+<title>Introduction</title>
+<para>A polygon is a closed chain of edges. Several algorithms are available for polygons. For some of those algorithms, it is necessary that the polygon is simple. A polygon is simple if edges don&apos;t intersect, except consecutive edges, which intersect in their common vertex.</para><para>The following algorithms are available:</para><para><itemizedlist>
+<listitem><para>find the leftmost, rightmost, topmost and bottommost vertex.</para></listitem><listitem><para>compute the (signed) area.</para></listitem><listitem><para>check if a polygon is simple.</para></listitem><listitem><para>check if a polygon is convex.</para></listitem><listitem><para>find the orientation (clockwise or counterclockwise)</para></listitem><listitem><para>check if a point lies inside a polygon.</para></listitem></itemizedlist>
+</para><para>All those operations take two forward iterators as parameters in order to describe the polygon. These parameters have a point type as value type.</para><para>The type <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound">Polygon_2</ref></computeroutput> can be used to represent polygons. Polygons are dynamic. Vertices can be modified, inserted and erased. They provide the algorithms described above as member functions. Moreover, they provide ways of iterating over the vertices and edges.</para><para>The <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound">Polygon_2</ref></computeroutput> class is a wrapper around a container of points, but little more. Especially, computed values are not cached. That is, when the <computeroutput><ref refid="classCGAL_1_1Polygon__2_1a5b405ab2d80ac04e197e509996e3cdfc" kindref="member">Polygon_2::is_simple()</ref></computeroutput> member function is called twice or more, the result is computed each time anew.</para></sect1>
+<sect1 id="index_1secPolygonExamples">
+<title>Examples</title>
+<sect2 id="index_1subsecPolygon">
+<title>The Polygon Class</title>
+<para>The following example creates a polygon and illustrates the usage of some member functions.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Polygon_2Polygon_8cpp-example" kindref="compound">Polygon/Polygon.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polygon_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>K::Point_2<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polygon__2" kindref="compound">CGAL::Polygon_2&lt;K&gt;</ref><sp/>Polygon_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::cout;<sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>points[]<sp/>=<sp/>{<sp/>Point(0,0),<sp/>Point(5.1,0),<sp/>Point(1,1),<sp/>Point(0.5,6)};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polygon_2<sp/>pgn(points,<sp/>points+4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>polygon<sp/>is<sp/>simple.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>polygon<sp/>is<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(pgn.is_simple()<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;not<sp/>&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;simple.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>polygon<sp/>is<sp/>convex</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>polygon<sp/>is<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(pgn.is_convex()<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;not<sp/>&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;convex.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><anchor id="index_1fig__polygon2_algo"/><image type="html" name="pgn_algos.png"></image>
+ <image type="latex" name="pgn_algos.png" width="15cm"></image>
+  <ref refid="index_1fig__polygon2_algo" kindref="member">fig__polygon2_algo</ref> A polygon and some points  <linebreak/>
+</para></sect2>
+<sect2 id="index_1subsecPolygonAlgorithms">
+<title>Algorithms Operating on Sequences of Points</title>
+<para>The following example creates a polygon and illustrates the usage of some global functions that operate on sequences of points.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Polygon_2polygon_algorithms_8cpp-example" kindref="compound">Polygon/polygon_algorithms.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polygon_2_algorithms.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>K::Point_2<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::cout;<sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check_inside(Point<sp/>pt,<sp/>Point<sp/>*pgn_begin,<sp/>Point<sp/>*pgn_end,<sp/>K<sp/>traits)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>point<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>pt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(<ref refid="group__PkgPolygon2Functions_1ga0cbb36e051264c152189a057ea385578" kindref="member">CGAL::bounded_side_2</ref>(pgn_begin,<sp/>pgn_end,pt,<sp/>traits))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="group__kernel__enums_1ggaf6030e89dadcc1f45369b0cdc5d9e111ad8333d35d4801c08b3a5ae9e94d7cabe" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::ON_BOUNDED_SIDE</ref><sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>inside<sp/>the<sp/>polygon.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="group__kernel__enums_1ggaf6030e89dadcc1f45369b0cdc5d9e111a060193157c0875fb2e6445a648f3ac1f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::ON_BOUNDARY</ref>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>on<sp/>the<sp/>polygon<sp/>boundary.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="group__kernel__enums_1ggaf6030e89dadcc1f45369b0cdc5d9e111a3a96e6da84164cc8300c9e130be23f71" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::ON_UNBOUNDED_SIDE</ref>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>outside<sp/>the<sp/>polygon.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>points[]<sp/>=<sp/>{<sp/>Point(0,0),<sp/>Point(5.1,0),<sp/>Point(1,1),<sp/>Point(0.5,6)};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>polygon<sp/>is<sp/>simple.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>polygon<sp/>is<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>(<ref refid="group__PkgPolygon2Functions_1ga2ffbb0de6a90657d9ec4e39c82875643" kindref="member">CGAL::is_simple_2</ref>(points,<sp/>points+4,<sp/>K())<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;not<sp/>&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;simple.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>check_inside(Point(0.5,<sp/>0.5),<sp/>points,<sp/>points+4,<sp/>K());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>check_inside(Point(1.5,<sp/>2.5),<sp/>points,<sp/>points+4,<sp/>K());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>check_inside(Point(2.5,<sp/>0),<sp/>points,<sp/>points+4,<sp/>K());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1subsecPolygon3D">
+<title>Polygons in 3D Space</title>
+<para>Sometimes it is useful to run a 2D algorithm on 3D data. Polygons may be contours of a 3D object, where the contours are organized in parallel slices, generated by segmentation of image data from a scanner.</para><para>In order to avoid an explixit projection on the <computeroutput>xy</computeroutput> plane, one can use the traits class <computeroutput><ref refid="classCGAL_1_1Projection__traits__xy__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Projection_traits_xy_3</ref></computeroutput> which is part of the 2D and 3D Linear Geometric Kernel.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Polygon_2projected_polygon_8cpp-example" kindref="compound">Polygon/projected_polygon.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Projection_traits_yz_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polygon_2_algorithms.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>K::Point_3<sp/>Point_3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_3<sp/>points[4]<sp/>=<sp/>{<sp/>Point_3(0,1,1),<sp/>Point_3(0,2,1),<sp/>Point_3(0,2,2),<sp/>Point_3(0,1,2)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>b<sp/>=<sp/><sp/><ref refid="group__PkgPolygon2Functions_1ga2ffbb0de6a90657d9ec4e39c82875643" kindref="member">CGAL::is_simple_2</ref>(points,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>points+4,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCGAL_1_1Projection__traits__yz__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Projection_traits_yz_3&lt;K&gt;</ref>());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!b){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error<sp/>polygon<sp/>is<sp/>not<sp/>simple&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para></sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

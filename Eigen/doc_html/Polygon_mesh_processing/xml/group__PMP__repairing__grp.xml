@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__repairing__grp" kind="group">
+    <compoundname>PMP_repairing_grp</compoundname>
+    <title>Combinatorial Repairing</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__repairing__grp_1ga8b9d12d817b5cc76f5a42d74eac75bf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PolygonRange</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::is_polygon_soup_a_polygon_mesh</definition>
+        <argsstring>(const PolygonRange &amp;polygons)</argsstring>
+        <name>is_polygon_soup_a_polygon_mesh</name>
+        <param>
+          <type>const PolygonRange &amp;</type>
+          <declname>polygons</declname>
+        </param>
+        <briefdescription>
+<para>returns <computeroutput>true</computeroutput> if the soup of polygons defines a valid polygon mesh that can be handled by <computeroutput><ref refid="group__PMP__repairing__grp_1gac8fe80db9800265922ce469c36d97baa" kindref="member">CGAL::Polygon_mesh_processing::polygon_soup_to_polygon_mesh()</ref></computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>It checks that each edge has at most two incident faces and such an edge is visited in opposite direction along the two face boundaries, no polygon has twice the same vertex, and the polygon soup describes a manifold surface. This function does not require a range of points as an argument since the check is purely topological. To each vertex of the mesh is associated an index that is used in the description of the boundaries of the polygons provided in <computeroutput>polygons</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classRandomAccessContainer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessContainer</ref></computeroutput> whose value_type is a model of the concept <computeroutput><ref refid="classRandomAccessContainer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessContainer</ref></computeroutput> whose value_type is <computeroutput>std::size_t</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>polygons</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>each element in the range describes a polygon using the indices of the vertices.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PMP__orientation__grp_1gaadc5bac3072b11d2313e40043c729d0a" kindref="member">orient_polygon_soup()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/polygon_soup_to_polygon_mesh.h" line="145" column="1" bodyfile="CGAL/Polygon_mesh_processing/polygon_soup_to_polygon_mesh.h" bodystart="145" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__repairing__grp_1gac8fe80db9800265922ce469c36d97baa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PolygonMesh</type>
+          </param>
+          <param>
+            <type>class Point</type>
+          </param>
+          <param>
+            <type>class Polygon</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::polygon_soup_to_polygon_mesh</definition>
+        <argsstring>(const std::vector&lt; Point &gt; &amp;points, const std::vector&lt; Polygon &gt; &amp;polygons, PolygonMesh &amp;out)</argsstring>
+        <name>polygon_soup_to_polygon_mesh</name>
+        <param>
+          <type>const std::vector&lt; Point &gt; &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Polygon &gt; &amp;</type>
+          <declname>polygons</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>builds a polygon mesh from a soup of polygons. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>the input polygon soup describes a consistently oriented polygon mesh.</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> with an internal point property map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a point type that has an operator <computeroutput>[]</computeroutput> to access coordinates </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <computeroutput>std::vector&lt;std::size_t&gt;</computeroutput> containing the indices of the points of the face</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>points of the soup of polygons </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>polygons</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>each element in the vector describes a polygon using the index of the points in <computeroutput>points</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be built</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>CGAL::Polygon_mesh_processing::is_polygon_soup_a_polygon_mesh(polygons)</computeroutput></para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PMP__orientation__grp_1gaadc5bac3072b11d2313e40043c729d0a" kindref="member">CGAL::Polygon_mesh_processing::orient_polygon_soup()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PMP__repairing__grp_1ga8b9d12d817b5cc76f5a42d74eac75bf3" kindref="member">CGAL::Polygon_mesh_processing::is_polygon_soup_a_polygon_mesh()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/polygon_soup_to_polygon_mesh.h" line="214" column="1" bodyfile="CGAL/Polygon_mesh_processing/polygon_soup_to_polygon_mesh.h" bodystart="214" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__repairing__grp_1ga91c02ef57e638faf2622eae93e7a25e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PolygonMesh</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Polygon_mesh_processing::remove_isolated_vertices</definition>
+        <argsstring>(PolygonMesh &amp;pmesh)</argsstring>
+        <name>remove_isolated_vertices</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <briefdescription>
+<para>removes the isolated vertices from any polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>A vertex is considered isolated if it is not incident to any simplex of higher dimension.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be repaired</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>number of removed isolated vertices </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/repair.h" line="1364" column="1" bodyfile="CGAL/Polygon_mesh_processing/repair.h" bodystart="1364" bodyend="1381"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__repairing__grp_1gabdf5abc4d0f51055bf12afb00a128abc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename HalfedgePairsRange</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::stitch_borders</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, const HalfedgePairsRange &amp;hedge_pairs_to_stitch)</argsstring>
+        <name>stitch_borders</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const HalfedgePairsRange &amp;</type>
+          <declname>hedge_pairs_to_stitch</declname>
+        </param>
+        <briefdescription>
+<para>Stitches together border halfedges in a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The halfedges to be stitched are provided in <computeroutput>hedge_pairs_to_stitch</computeroutput>. For each pair <computeroutput>p</computeroutput> in this vector, <computeroutput>p.second</computeroutput> and its opposite will be removed from <computeroutput>pmesh</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HalfedgePairsRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput>std::pair&lt;boost::graph_traits&lt;PolygonMesh&gt;::halfedge_descriptor, boost::graph_traits&lt;PolygonMesh&gt;::halfedge_descriptor&gt;</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be modified by stitching </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hedge_pairs_to_stitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput>std::pair</computeroutput> of halfedges to be stitched together </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/stitch_borders.h" line="589" column="1" bodyfile="CGAL/Polygon_mesh_processing/stitch_borders.h" bodystart="589" bodyend="596"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__repairing__grp_1ga15f047f56af2fee3e491120db4dc69a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::stitch_borders</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>stitch_borders</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Same as the other overload but the pairs of halfedges to be stitched are automatically found amongst all border halfedges. </para>        </briefdescription>
+        <detaileddescription>
+<para>Two border halfedges <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are set to be stitched if the points associated to the source and target vertices of <computeroutput>h1</computeroutput> are the same as those of the target and source vertices of <computeroutput>h2</computeroutput> respectively.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be modified by stitching </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_apply_per_connected_component" kindref="member">apply_per_connected_component</ref></para></entry><entry thead="no"><para>specifies if the borders should only be stitched inside their own connected component. In that case, a property map for <computeroutput>CGAL::face_index_t</computeroutput> should be either available as an internal property map to <computeroutput>pmesh</computeroutput> or provided as the <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameter</ref> <computeroutput>face_index_map</computeroutput>. If this is not the case, a default map will be created on the fly. <ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> value is <computeroutput>false</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>pmesh</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/stitch_borders.h" line="625" column="1" bodyfile="CGAL/Polygon_mesh_processing/stitch_borders.h" bodystart="625" bodyend="645"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to orient polygon soups and to stitch geometrically identical boundaries. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

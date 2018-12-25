@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Straight_skeleton_2/classStraightSkeletonBuilder__2__Visitor.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Straight Skeleton and Polygon Offsetting: StraightSkeletonBuilder_2_Visitor Concept Reference</title><!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Straight Skeleton and Polygon Offsetting
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classStraightSkeletonBuilder__2__Visitor.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classStraightSkeletonBuilder__2__Visitor-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">StraightSkeletonBuilder_2_Visitor Concept Reference<div class="ingroups"><a class="el" href="group__PkgStraightSkeleton2.html">2D Straight Skeleton and Polygon Offsetting Reference</a> » <a class="el" href="group__PkgStraightSkeleton2Concepts.html">Concepts</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>The concept <code><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html" title="The concept StraightSkeletonBuilder_2_Visitor describes the requirements of the visitor class require...">StraightSkeletonBuilder_2_Visitor</a></code> describes the requirements of the visitor class required by the algorithm class <code>Straight_skeleton_builder_2&lt;Gt,Ss,Visitor&gt;</code> in its third template parameter. </p>
+  <dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000003">Has Models:</a></b></dt><dd><a class="el" href="structCGAL_1_1Dummy__straight__skeleton__builder__2__visitor.html" title="The class Dummy_straight_skeleton_builder_2_visitor provides a model for the StraightSkeletonBuilder_...">CGAL::Dummy_straight_skeleton_builder_2_visitor</a></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Straight__skeleton__builder__2.html" title="The class Straight_skeleton_builder_2 encapsulates the construction of the 2D straight skeleton in th...">CGAL::Straight_skeleton_builder_2</a>&lt;Gt,Ss&gt;</code> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:accc2de200d15374079bd04110cb9a35f"><td class="memItemLeft" align="right" valign="top"><a id="accc2de200d15374079bd04110cb9a35f"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#accc2de200d15374079bd04110cb9a35f">Halfedge_const_handle</a></td></tr>
+<tr class="memdesc:accc2de200d15374079bd04110cb9a35f"><td class="mdescLeft"> </td><td class="mdescRight">A constant handle to a straight skeleton halfedge. <br /></td></tr>
+<tr class="separator:accc2de200d15374079bd04110cb9a35f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0eb98806f2eacd004d3922dabcc20bd2"><td class="memItemLeft" align="right" valign="top"><a id="a0eb98806f2eacd004d3922dabcc20bd2"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a></td></tr>
+<tr class="memdesc:a0eb98806f2eacd004d3922dabcc20bd2"><td class="mdescLeft"> </td><td class="mdescRight">A constant handle to a straight skeleton vertex. <br /></td></tr>
+<tr class="separator:a0eb98806f2eacd004d3922dabcc20bd2"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:adc4eeff0e3d455f7e597a32eaf2da46e"><td class="memItemLeft" align="right" valign="top"><a id="adc4eeff0e3d455f7e597a32eaf2da46e"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#adc4eeff0e3d455f7e597a32eaf2da46e">on_contour_edge_entered</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#accc2de200d15374079bd04110cb9a35f">Halfedge_const_handle</a> const &amp;) const</td></tr>
+<tr class="memdesc:adc4eeff0e3d455f7e597a32eaf2da46e"><td class="mdescLeft"> </td><td class="mdescRight">Called for each contour halfedge added to the skeleton). <br /></td></tr>
+<tr class="separator:adc4eeff0e3d455f7e597a32eaf2da46e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2f476a005a06582a313666c2ab2ce137"><td class="memItemLeft" align="right" valign="top"><a id="a2f476a005a06582a313666c2ab2ce137"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a2f476a005a06582a313666c2ab2ce137">on_initialization_started</a> (std::size_t number_of_vertices) const</td></tr>
+<tr class="memdesc:a2f476a005a06582a313666c2ab2ce137"><td class="mdescLeft"> </td><td class="mdescRight">Called before the initialization stage (when initial events are discovered) is started. <br /></td></tr>
+<tr class="separator:a2f476a005a06582a313666c2ab2ce137"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0ad30013744c6cd4f2c38c312a14fa15"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0ad30013744c6cd4f2c38c312a14fa15">on_contour_vertex_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;v, bool is_reflex, bool is_degenerate) const</td></tr>
+<tr class="memdesc:a0ad30013744c6cd4f2c38c312a14fa15"><td class="mdescLeft"> </td><td class="mdescRight">Called after the events for contour vertex <code>v</code> have been discovered.  <a href="#a0ad30013744c6cd4f2c38c312a14fa15">More...</a><br /></td></tr>
+<tr class="separator:a0ad30013744c6cd4f2c38c312a14fa15"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8d9675f6b9736b920289983c1e562cde"><td class="memItemLeft" align="right" valign="top"><a id="a8d9675f6b9736b920289983c1e562cde"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a8d9675f6b9736b920289983c1e562cde">on_edge_event_created</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node1) const</td></tr>
+<tr class="memdesc:a8d9675f6b9736b920289983c1e562cde"><td class="mdescLeft"> </td><td class="mdescRight">Called after an edge event for nodes <code>node0</code> and <code>node1</code> has been discovered and put on the queue for later processing. <br /></td></tr>
+<tr class="separator:a8d9675f6b9736b920289983c1e562cde"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acb49f325e7bac4fa93185b5a10d6a963"><td class="memItemLeft" align="right" valign="top"><a id="acb49f325e7bac4fa93185b5a10d6a963"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#acb49f325e7bac4fa93185b5a10d6a963">on_split_event_created</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node) const</td></tr>
+<tr class="memdesc:acb49f325e7bac4fa93185b5a10d6a963"><td class="mdescLeft"> </td><td class="mdescRight">Called after a slipt event for node <code>node</code> has been discovered and put on the queue for later processing. <br /></td></tr>
+<tr class="separator:acb49f325e7bac4fa93185b5a10d6a963"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6adf7b1cb23d367db156a85f9d7e9335"><td class="memItemLeft" align="right" valign="top"><a id="a6adf7b1cb23d367db156a85f9d7e9335"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a6adf7b1cb23d367db156a85f9d7e9335">on_pseudo_split_event_created</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node1) const</td></tr>
+<tr class="memdesc:a6adf7b1cb23d367db156a85f9d7e9335"><td class="mdescLeft"> </td><td class="mdescRight">Called after a pseudo slipt event for nodes <code>node0</code> and <code>node1</code> has been discovered and put on the queue for later processing. <br /></td></tr>
+<tr class="separator:a6adf7b1cb23d367db156a85f9d7e9335"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a50b09b31fcc12b19e2a64d5893c3b8a1"><td class="memItemLeft" align="right" valign="top"><a id="a50b09b31fcc12b19e2a64d5893c3b8a1"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a50b09b31fcc12b19e2a64d5893c3b8a1">on_initialization_finished</a> () const</td></tr>
+<tr class="memdesc:a50b09b31fcc12b19e2a64d5893c3b8a1"><td class="mdescLeft"> </td><td class="mdescRight">Called after all initial events have been discovered. <br /></td></tr>
+<tr class="separator:a50b09b31fcc12b19e2a64d5893c3b8a1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad8c148402f4c8cb72085b7727c48277b"><td class="memItemLeft" align="right" valign="top"><a id="ad8c148402f4c8cb72085b7727c48277b"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#ad8c148402f4c8cb72085b7727c48277b">on_propagation_started</a> () const</td></tr>
+<tr class="memdesc:ad8c148402f4c8cb72085b7727c48277b"><td class="mdescLeft"> </td><td class="mdescRight">Called before the propagation stage (when events are poped off the queue and processed) is started. <br /></td></tr>
+<tr class="separator:ad8c148402f4c8cb72085b7727c48277b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afc0e3ad469e072a4ff4b47cefc72b042"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#afc0e3ad469e072a4ff4b47cefc72b042">on_anihiliation_event_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;node1) const</td></tr>
+<tr class="memdesc:afc0e3ad469e072a4ff4b47cefc72b042"><td class="mdescLeft"> </td><td class="mdescRight">Called after an anhiliation event for nodes <code>node0</code> and <code>node1</code> has been processed.  <a href="#afc0e3ad469e072a4ff4b47cefc72b042">More...</a><br /></td></tr>
+<tr class="separator:afc0e3ad469e072a4ff4b47cefc72b042"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2cc37e461c0bab908437cd549cf968ac"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a2cc37e461c0bab908437cd549cf968ac">on_edge_event_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;seed0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;seed1, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;newnode) const</td></tr>
+<tr class="memdesc:a2cc37e461c0bab908437cd549cf968ac"><td class="mdescLeft"> </td><td class="mdescRight">Called after an edge for nodes <code>seed0</code> and <code>seed1</code> has been processed.  <a href="#a2cc37e461c0bab908437cd549cf968ac">More...</a><br /></td></tr>
+<tr class="separator:a2cc37e461c0bab908437cd549cf968ac"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aee087445946998ab1f5806b54e47df90"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#aee087445946998ab1f5806b54e47df90">on_split_event_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;seed, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;newnode0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;newnode1) const</td></tr>
+<tr class="memdesc:aee087445946998ab1f5806b54e47df90"><td class="mdescLeft"> </td><td class="mdescRight">Called after a split event for node <code>seed</code> has been processed.  <a href="#aee087445946998ab1f5806b54e47df90">More...</a><br /></td></tr>
+<tr class="separator:aee087445946998ab1f5806b54e47df90"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abe50296e07affdc5603114e95d33f61b"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#abe50296e07affdc5603114e95d33f61b">on_pseudo_split_event_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;seed0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;seed1, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;newnode0, <a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;newnode1) const</td></tr>
+<tr class="memdesc:abe50296e07affdc5603114e95d33f61b"><td class="mdescLeft"> </td><td class="mdescRight">Called after a pseudo split event for nodes <code>seed0</code> and <code>seed1</code> has been processed.  <a href="#abe50296e07affdc5603114e95d33f61b">More...</a><br /></td></tr>
+<tr class="separator:abe50296e07affdc5603114e95d33f61b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a60321ea6437cdbd6fdc0ca5d993297be"><td class="memItemLeft" align="right" valign="top"><a id="a60321ea6437cdbd6fdc0ca5d993297be"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a60321ea6437cdbd6fdc0ca5d993297be">on_vertex_processed</a> (<a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp;v) const</td></tr>
+<tr class="memdesc:a60321ea6437cdbd6fdc0ca5d993297be"><td class="mdescLeft"> </td><td class="mdescRight">Called after vertex <code>v</code> has been marked as already processed. <br /></td></tr>
+<tr class="separator:a60321ea6437cdbd6fdc0ca5d993297be"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a40ad77f983dc58a017c8361880b50e59"><td class="memItemLeft" align="right" valign="top"><a id="a40ad77f983dc58a017c8361880b50e59"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a40ad77f983dc58a017c8361880b50e59">on_propagation_finished</a> () const</td></tr>
+<tr class="memdesc:a40ad77f983dc58a017c8361880b50e59"><td class="mdescLeft"> </td><td class="mdescRight">Called after all events have been processed. <br /></td></tr>
+<tr class="separator:a40ad77f983dc58a017c8361880b50e59"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aba47e9ad6b7502ebc0e52109fd3fcaea"><td class="memItemLeft" align="right" valign="top"><a id="aba47e9ad6b7502ebc0e52109fd3fcaea"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#aba47e9ad6b7502ebc0e52109fd3fcaea">on_cleanup_started</a> () const</td></tr>
+<tr class="memdesc:aba47e9ad6b7502ebc0e52109fd3fcaea"><td class="mdescLeft"> </td><td class="mdescRight">Called when the skeleton clean up (when multiple nodes are merged) is started. <br /></td></tr>
+<tr class="separator:aba47e9ad6b7502ebc0e52109fd3fcaea"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac77ff26056c41f91ff91e556d8e36d06"><td class="memItemLeft" align="right" valign="top"><a id="ac77ff26056c41f91ff91e556d8e36d06"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#ac77ff26056c41f91ff91e556d8e36d06">on_cleanup_finished</a> () const</td></tr>
+<tr class="memdesc:ac77ff26056c41f91ff91e556d8e36d06"><td class="mdescLeft"> </td><td class="mdescRight">Called when clean up finished. <br /></td></tr>
+<tr class="separator:ac77ff26056c41f91ff91e556d8e36d06"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6d96e97ed7c37e1815e58f877bf34e37"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a6d96e97ed7c37e1815e58f877bf34e37">on_algorithm_finished</a> (bool finished_ok) const</td></tr>
+<tr class="memdesc:a6d96e97ed7c37e1815e58f877bf34e37"><td class="mdescLeft"> </td><td class="mdescRight">Called when the algorithm terminated.  <a href="#a6d96e97ed7c37e1815e58f877bf34e37">More...</a><br /></td></tr>
+<tr class="separator:a6d96e97ed7c37e1815e58f877bf34e37"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a567e51a40da8e5d73dc47056b97e8e8f"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a567e51a40da8e5d73dc47056b97e8e8f">on_error</a> (char const *msg) const</td></tr>
+<tr class="memdesc:a567e51a40da8e5d73dc47056b97e8e8f"><td class="mdescLeft"> </td><td class="mdescRight">Called whenever an error was detected.  <a href="#a567e51a40da8e5d73dc47056b97e8e8f">More...</a><br /></td></tr>
+<tr class="separator:a567e51a40da8e5d73dc47056b97e8e8f"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6d96e97ed7c37e1815e58f877bf34e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d96e97ed7c37e1815e58f877bf34e37">◆ </a></span>on_algorithm_finished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_algorithm_finished </td>
+          <td>(</td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>finished_ok</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called when the algorithm terminated. </p>
+<p><code>finished_ok</code> is false if it terminated before completion or the resulting skeleton was found to be invalid. </p>
+
+</div>
+</div>
+<a id="afc0e3ad469e072a4ff4b47cefc72b042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0e3ad469e072a4ff4b47cefc72b042">◆ </a></span>on_anihiliation_event_processed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_anihiliation_event_processed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>node0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>node1</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called after an anhiliation event for nodes <code>node0</code> and <code>node1</code> has been processed. </p>
+<p>A new skeleton edge between these nodes has been added. </p>
+
+</div>
+</div>
+<a id="a0ad30013744c6cd4f2c38c312a14fa15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad30013744c6cd4f2c38c312a14fa15">◆ </a></span>on_contour_vertex_processed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_contour_vertex_processed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>is_reflex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>is_degenerate</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called after the events for contour vertex <code>v</code> have been discovered. </p>
+<p><code>is_reflex</code> is true if this vertex has an internal angle \( &gt; \pi\), or <code>is_degenerate</code> is true if the internal angle is \( = \pi\). </p>
+
+</div>
+</div>
+<a id="a2cc37e461c0bab908437cd549cf968ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc37e461c0bab908437cd549cf968ac">◆ </a></span>on_edge_event_processed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_edge_event_processed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>seed0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>seed1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>newnode</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called after an edge for nodes <code>seed0</code> and <code>seed1</code> has been processed. </p>
+<p>Skeleton vertex <code>newnode</code> and edges from <code>node0</code> to <code>newnode</code> and <code>node1</code> to <code>newnode</code> has been added. </p>
+
+</div>
+</div>
+<a id="a567e51a40da8e5d73dc47056b97e8e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a567e51a40da8e5d73dc47056b97e8e8f">◆ </a></span>on_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_error </td>
+          <td>(</td>
+          <td class="paramtype">char const * </td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called whenever an error was detected. </p>
+<p><code>msg</code> is whatever error message accompanies the error. This pointer can be <code>null</code>. </p>
+
+</div>
+</div>
+<a id="abe50296e07affdc5603114e95d33f61b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe50296e07affdc5603114e95d33f61b">◆ </a></span>on_pseudo_split_event_processed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_pseudo_split_event_processed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>seed0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>seed1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>newnode0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>newnode1</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called after a pseudo split event for nodes <code>seed0</code> and <code>seed1</code> has been processed. </p>
+<p>Skeleton vertices <code>newnode0</code> and <code>newnode1</code> have been added. Skeleton edges from <code>seed0</code> to <code>newnode0</code> and <code>seed1</code> to <code>newnode1</code> has been added. </p>
+
+</div>
+</div>
+<a id="aee087445946998ab1f5806b54e47df90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee087445946998ab1f5806b54e47df90">◆ </a></span>on_split_event_processed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightSkeletonBuilder_2_Visitor::on_split_event_processed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>seed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>newnode0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html#a0eb98806f2eacd004d3922dabcc20bd2">Vertex_const_handle</a> const &amp; </td>
+          <td class="paramname"><em>newnode1</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called after a split event for node <code>seed</code> has been processed. </p>
+<p>Skeleton vertices <code>newnode0</code> and <code>newnode1</code> have been added. An skeleton edge from <code>seed</code> to <code>newnode0</code> has been added. In the final skeleton, <code>newnode1</code> is removed and only <code>newnode0</code> remains. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classStraightSkeletonBuilder__2__Visitor.html">StraightSkeletonBuilder_2_Visitor</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:03 for CGAL 4.13 - 2D Straight Skeleton and Polygon Offsetting by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

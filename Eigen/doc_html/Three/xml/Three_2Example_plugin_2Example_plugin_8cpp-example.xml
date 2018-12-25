@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Three_2Example_plugin_2Example_plugin_8cpp-example" kind="example">
+    <compoundname>Three/Example_plugin/Example_plugin.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QAction&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Three/Scene_item.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Three/Viewer_interface.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Three/Scene_group_item.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="comment">//<sp/>The<sp/>special<sp/>Scene_item<sp/>only<sp/>for<sp/>triangles</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//this<sp/>is<sp/>used<sp/>by<sp/>the<sp/>Qt&apos;s<sp/>MOC<sp/>system<sp/>to<sp/>manage<sp/>the<sp/>metadata.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>scene_triangle_item_EXPORTS</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>SCENE_TRIANGLE_ITEM_EXPORT<sp/>Q_DECL_EXPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>SCENE_TRIANGLE_ITEM_EXPORT<sp/>Q_DECL_IMPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Scene_triangle_item<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Scene_triangle_item(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ax,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ay,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>az,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>by,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bz,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cz);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Indicates<sp/>if<sp/>rendering<sp/>mode<sp/>is<sp/>supported</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1a02803633ba4bc72a216cad524d270278" kindref="member">supportsRenderingMode</ref>(<ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref><sp/>m)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Q_DECL_OVERRIDE<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(m<sp/>==<sp/><ref refid="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a5a9e3347876551cd38b961213ff1ccde" kindref="member">Flat</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Displays<sp/>the<sp/>item</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1a884cc1ab209133f3a615ceda7e566a74" kindref="member">draw</ref>(<ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref>*<sp/>viewer)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Q_DECL_OVERRIDE;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Specifies<sp/>that<sp/>the<sp/>buffers<sp/>need<sp/>to<sp/>be<sp/>initialized<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Is<sp/>mostly<sp/>called<sp/>after<sp/>a<sp/>change<sp/>of<sp/>geometry<sp/>in<sp/>the<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" kindref="member">invalidateOpenGLBuffers</ref>()<sp/>Q_DECL_OVERRIDE;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//fills<sp/>the<sp/>std::vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>computeElements(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ax,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ay,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>az,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>by,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bz,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cz)<sp/>const<sp/>Q_DECL_OVERRIDE;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Scene_item*<sp/>clone()<sp/>const<sp/>Q_DECL_OVERRIDE<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>QString<sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1abb15a0d82db8f66786393df61c322b6d" kindref="member">toolTip</ref>()<sp/>const<sp/>Q_DECL_OVERRIDE<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//contains<sp/>the<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::vector&lt;float&gt;<sp/>vertices;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_pos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>QOpenGLShaderProgram<sp/>*program;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">CGAL::Three::Scene_item::initializeBuffers</ref>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Fills<sp/>the<sp/>buffers<sp/>with<sp/>data.<sp/>The<sp/>buffers<sp/>allow<sp/>us<sp/>to<sp/>give<sp/>data<sp/>to<sp/>the<sp/>shaders.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers</ref>(<ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref><sp/>*viewer)</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Q_DECL_OVERRIDE;</highlight></codeline>
+<codeline><highlight class="normal">};<sp/></highlight><highlight class="comment">//end<sp/>of<sp/>class<sp/>Scene_triangle_item</highlight></codeline>
+<codeline><highlight class="comment"></highlight><highlight class="normal">Scene_triangle_item::Scene_triangle_item(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ax,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ay,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>az,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>by,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bz,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cx,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cz)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/><sp/><ref refid="namespaceCGAL" kindref="compound">CGAL</ref>::Three::Scene_item(1,1)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>nb_pos<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>are_buffers_filled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>computeElements(ax,<sp/>ay,<sp/>az,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bx,<sp/>by,<sp/>bz,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cx,<sp/>cy,<sp/>cz);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>invalidateOpenGLBuffers();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="comment">//Fills<sp/>the<sp/>position<sp/>vector<sp/>with<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Scene_triangle_item::computeElements(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ay,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>az,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bx,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>by,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bz,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cx,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cz)</highlight><highlight class="keyword">const</highlight></codeline>
+<codeline><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertices.resize(9);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertices[0]<sp/>=<sp/>ax;<sp/>vertices[1]<sp/>=<sp/>ay;<sp/>vertices[2]<sp/>=<sp/>az;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertices[3]<sp/>=<sp/>bx;<sp/>vertices[4]<sp/>=<sp/>by;<sp/>vertices[5]<sp/>=<sp/>bz;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertices[6]<sp/>=<sp/>cx;<sp/>vertices[7]<sp/>=<sp/>cy;<sp/>vertices[8]<sp/>=<sp/>cz;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__PkgDrawPolyhedron_1ga3ca458ed11c9fb052476b00227d93584" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">Scene_triangle_item::draw</ref>(<ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref>*<sp/>viewer)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//The<sp/>filling<sp/>of<sp/>the<sp/>buffers<sp/>should<sp/>be<sp/>performed<sp/>in<sp/>this<sp/>function,<sp/>because<sp/>it<sp/>needs<sp/>a<sp/>valid<sp/>openGL<sp/>context,<sp/>and<sp/>we<sp/>are<sp/>certain<sp/>to<sp/>have<sp/>one<sp/>in<sp/>this<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!are_buffers_filled)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>computeElements(0,<sp/>0,<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/>0,<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.5,<sp/>0.5,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>initializeBuffers(viewer);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Binds<sp/>the<sp/>vao<sp/>corresponding<sp/>to<sp/>the<sp/>type<sp/>of<sp/>data<sp/>we<sp/>are<sp/>drawing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vaos[0]-&gt;bind();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Gets<sp/>the<sp/>program<sp/>corresponding<sp/>to<sp/>the<sp/>type<sp/>of<sp/>data<sp/>we<sp/>are<sp/>drawing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Here<sp/>we<sp/>want<sp/>triangles<sp/>with<sp/>light<sp/>effects.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>program<sp/>=<sp/>getShaderProgram(PROGRAM_WITH_LIGHT);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Gives<sp/>most<sp/>of<sp/>the<sp/>uniform<sp/>values<sp/>to<sp/>the<sp/>shaders.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>attribBuffers(viewer,<sp/>PROGRAM_WITH_LIGHT);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Binds<sp/>the<sp/>program<sp/>chosen<sp/>before<sp/>to<sp/>use<sp/>the<sp/>right<sp/>shaders.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>program-&gt;bind();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Gives<sp/>the<sp/>wanted<sp/>color<sp/>to<sp/>the<sp/>fragment<sp/>shader<sp/>as<sp/>uniform<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>program-&gt;setAttributeValue(</highlight><highlight class="stringliteral">&quot;colors&quot;</highlight><highlight class="normal">,<sp/>this-&gt;color());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Draws<sp/>the<sp/>items</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>viewer-&gt;glDrawArrays(GL_TRIANGLES,<sp/>0,<sp/>static_cast&lt;GLsizei&gt;(nb_pos/3));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//clean<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vaos[0]-&gt;release();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>program-&gt;release();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="comment">//Specifies<sp/>that<sp/>the<sp/>buffers<sp/>need<sp/>to<sp/>be<sp/>initialized<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//Is<sp/>mostly<sp/>called<sp/>after<sp/>a<sp/>change<sp/>of<sp/>geometry<sp/>in<sp/>the<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Scene_triangle_item::invalidateOpenGLBuffers()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>are_buffers_filled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Scene_triangle_item::initializeBuffers(<ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref><sp/>*viewer)</highlight><highlight class="keyword">const</highlight></codeline>
+<codeline><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vao<sp/>containing<sp/>the<sp/>data<sp/>for<sp/>the<sp/>facets</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>program<sp/>=<sp/>getShaderProgram(PROGRAM_WITH_LIGHT,<sp/>viewer);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>program-&gt;bind();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>vaos[0]-&gt;bind();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>buffers[0].bind();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>buffers[0].allocate(vertices.data(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">GLsizei</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(vertices.size()*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(float)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>program-&gt;enableAttributeArray(</highlight><highlight class="stringliteral">&quot;vertex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>program-&gt;setAttributeBuffer(</highlight><highlight class="stringliteral">&quot;vertex&quot;</highlight><highlight class="normal">,GL_FLOAT,0,3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>buffers[0].release();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>vaos[0]-&gt;release();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>program-&gt;release();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//once<sp/>the<sp/>buffers<sp/>are<sp/>fill,<sp/>we<sp/>can<sp/>empty<sp/>the<sp/>vectors<sp/>to<sp/>optimize<sp/>memory<sp/>consumption</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>nb_pos<sp/>=<sp/>vertices.size();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vertices.resize(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//&quot;Swap<sp/>trick&quot;<sp/>insures<sp/>that<sp/>the<sp/>memory<sp/>is<sp/>indeed<sp/>freed<sp/>and<sp/>not<sp/>kept<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::vector&lt;float&gt;(vertices).swap(vertices);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>are_buffers_filled<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Three/Polyhedron_demo_plugin_helper.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//The<sp/>actual<sp/>plugin</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceCGAL_1_1Three" kindref="compound">CGAL::Three</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Q_DECL_EXPORT<sp/>Polyhedron_demo_example_plugin<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__helper" kindref="compound">Polyhedron_demo_plugin_helper</ref></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Configures<sp/>CMake<sp/>to<sp/>use<sp/>MOC<sp/>correctly</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Q_INTERFACES(<ref refid="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface" kindref="compound">CGAL::Three::Polyhedron_demo_plugin_interface</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Q_PLUGIN_METADATA(IID<sp/></highlight><highlight class="stringliteral">&quot;com.geometryfactory.PolyhedronDemo.PluginInterface/1.0&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">public<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adds<sp/>an<sp/>action<sp/>to<sp/>the<sp/>menu<sp/>and<sp/>configures<sp/>the<sp/>widget</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init(QMainWindow*<sp/>mainWindow,<sp/><ref refid="classCGAL_1_1Three_1_1Scene__interface" kindref="compound">CGAL::Three::Scene_interface</ref>*<sp/>scene_interface,<sp/>Messages_interface*)<sp/>Q_DECL_OVERRIDE{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//get<sp/>the<sp/>references</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;scene<sp/>=<sp/>scene_interface;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;mw<sp/>=<sp/>mainWindow;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//creates<sp/>and<sp/>link<sp/>the<sp/>actions</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QAction*<sp/>actionDrawTriangle=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QAction(</highlight><highlight class="stringliteral">&quot;Draw<sp/>Triangle&quot;</highlight><highlight class="normal">,<sp/>mw);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(actionDrawTriangle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(actionDrawTriangle,<sp/>SIGNAL(triggered()),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(draw_triangle()));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_actions<sp/>&lt;&lt;<sp/>actionDrawTriangle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>applicable(QAction*)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Q_DECL_OVERRIDE</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>QList&lt;QAction*&gt;<sp/>actions()<sp/>const<sp/>Q_DECL_OVERRIDE{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_actions;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Q_SLOTS:</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>draw_triangle()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>triangle<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Scene_triangle_item(0,<sp/>0,<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/>0,<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.5,<sp/>0.5,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>triangle-&gt;setName(QString(</highlight><highlight class="stringliteral">&quot;Basic<sp/>triangle&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>scene-&gt;addItem(triangle);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref>*<sp/>triangle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>QList&lt;QAction*&gt;<sp/>_actions;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">};<sp/></highlight><highlight class="comment">//end<sp/>of<sp/>class<sp/>Polyhedron_demo_example_plugin</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Example_plugin.moc&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

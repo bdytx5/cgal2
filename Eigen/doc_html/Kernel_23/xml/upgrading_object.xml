@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="upgrading_object" kind="page">
+    <compoundname>upgrading_object</compoundname>
+    <title>Upgrading from CGAL::Object to boost::variant</title>
+    <detaileddescription>
+<para>Code can be upgraded by using either <computeroutput>boost::get</computeroutput> or the <computeroutput>boost::static_visitor&lt;T&gt;</computeroutput>.</para><para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;CGAL/intersections.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">template&lt;typename<sp/>R&gt;</highlight></codeline>
+<codeline><highlight class="normal">struct<sp/>Intersection_visitor<sp/>:<sp/>public<sp/>boost::static_visitor&lt;&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>void<sp/>operator()(const<sp/>Point_2&amp;<sp/>p)<sp/>const<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{<sp/>//<sp/>Point_2<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>void<sp/>operator()(const<sp/>Segment_2&amp;<sp/>s)<sp/>const<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{<sp/>//<sp/>Segment_2<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">template<sp/>&lt;class<sp/>R&gt;</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>foo(Segment_2&lt;R&gt;<sp/>seg,<sp/>Line_2&lt;R&gt;<sp/>lin)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL::Object<sp/>obj<sp/>=<sp/>intersection(seg,<sp/>lin);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if(const<sp/>Point_2*<sp/>foo<sp/>=<sp/>object_cast&lt;Point_2&gt;(&amp;obj))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Point_2<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/>else<sp/>if(const<sp/>Segment_2*<sp/>foo<sp/>=<sp/>object_cast&lt;Segment_2&gt;(&amp;obj))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Segment_2<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>empty</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>becomes</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>auto<sp/>result<sp/>=<sp/>intersection(seg,<sp/>lin);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if(result)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if(const<sp/>Point_2*<sp/>foo<sp/>=<sp/>boost::get&lt;Point_2&gt;(&amp;*result))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Point_2<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>else<sp/>if(const<sp/>Segment_2*<sp/>foo<sp/>=<sp/>boost::get&lt;Segment_2&gt;(&amp;*result))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Segment_2<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>empty</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>or<sp/>with<sp/>boost::static_visitor&lt;T&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if(result)<sp/>{<sp/>boost::apply_visitor(Intersection_visitor(),<sp/>*result);<sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{<sp/>//<sp/>empty<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

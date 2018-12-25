@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Point_set_shape_detection_3_2efficient_RANSAC_custom_shape_8h-example" kind="example">
+    <compoundname>Point_set_shape_detection_3/efficient_RANSAC_custom_shape.h</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="preprocessor">#ifndef<sp/>MY_PLANE_SHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MY_PLANE_SHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/number_utils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment">My_Plane<sp/>derives<sp/>from<sp/>Shape_base.<sp/>The<sp/>plane<sp/>is<sp/>represented<sp/>by</highlight></codeline>
+<codeline><highlight class="comment">its<sp/>normal<sp/>vector<sp/>and<sp/>distance<sp/>to<sp/>the<sp/>origin.</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Traits&gt;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">My_Plane<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base" kindref="compound">CGAL::Shape_detection_3::Shape_base</ref>&lt;Traits&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::FT<sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a41676c6cbf09964157e1bc618e97a7f2" kindref="member">FT</ref>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::Point_3<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::Vector_3<sp/>Vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>My_Plane()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="namespaceCGAL" kindref="compound">CGAL</ref>::Shape_detection_3::Shape_base&lt;Traits&gt;()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>Computes<sp/>squared<sp/>Euclidean<sp/>distance<sp/>from<sp/>query<sp/>point<sp/>to<sp/>the<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FT<sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a948956b8efb69599c6001f27a6a7bb78" kindref="member">squared_distance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>&amp;p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT<sp/>sd<sp/>=<sp/>(this-&gt;constr_vec(m_point_on_primitive,<sp/>p))<sp/>*<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sd<sp/>*<sp/>sd;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vector<sp/>plane_normal()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>d()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_d;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>string<sp/>with<sp/>shape<sp/>parameters.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a0fe9112a2d594b1e36ce1116b03b58c1" kindref="member">info</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sstr;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sstr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Type:<sp/>plane<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;get_x(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;get_y(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;get_z(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)x<sp/>-<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_d<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>=<sp/>0&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>#Pts:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;m_indices.size();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sstr.str();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructs<sp/>shape<sp/>based<sp/>on<sp/>minimal<sp/>set<sp/>of<sp/>samples<sp/>from<sp/>the<sp/>input<sp/>data.<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ad0e66e63238d4351392cd4e74d994b61" kindref="member">create_shape</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p1<sp/>=<sp/>this-&gt;<ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">point</ref>(indices[0]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p2<sp/>=<sp/>this-&gt;<ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">point</ref>(indices[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p3<sp/>=<sp/>this-&gt;<ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">point</ref>(indices[2]);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_normal<sp/>=<sp/>this-&gt;cross_pdct(p1<sp/>-<sp/>p2,<sp/>p1<sp/>-<sp/>p3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_normal<sp/>=<sp/>m_normal<sp/>*<sp/>(1.0<sp/>/<sp/>sqrt(this-&gt;sqlen(m_normal)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_d<sp/>=<sp/>-(p1[0]<sp/>*<sp/>m_normal[0]<sp/>+<sp/>p1[1]<sp/>*<sp/>m_normal[1]<sp/>+<sp/>p1[2]<sp/>*<sp/>m_normal[2]);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_point_on_primitive<sp/>=<sp/>p1;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;m_is_valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Computes<sp/>squared<sp/>Euclidean<sp/>distance<sp/>from<sp/>a<sp/>set<sp/>of<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a948956b8efb69599c6001f27a6a7bb78" kindref="member">squared_distance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FT&gt;<sp/>&amp;dists)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>indices.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT<sp/>sd<sp/>=<sp/>(this-&gt;<ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">point</ref>(indices[i])</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>m_point_on_primitive)<sp/>*<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dists[i]<sp/>=<sp/>sd<sp/>*<sp/>sd;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>Computes<sp/>the<sp/>normal<sp/>deviation<sp/>between<sp/>shape<sp/>and</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>a<sp/>set<sp/>of<sp/>points<sp/>with<sp/>normals.</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a94d7c14a713335f4aa00e0b809570d23" kindref="member">cos_to_normal</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FT&gt;<sp/>&amp;angles)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>indices.size();<sp/>i++)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angles[i]<sp/>=<sp/>CGAL::abs(this-&gt;<ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1af9fb14bacb0764bb33666b466b56b739" kindref="member">normal</ref>(indices[i])<sp/>*<sp/>m_normal);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>number<sp/>of<sp/>required<sp/>samples<sp/>for<sp/>construction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::size_t<sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ae466b029cfe3f4100c9b428ad1002fd4" kindref="member">minimum_sample_size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>m_point_on_primitive;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vector<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>m_d;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

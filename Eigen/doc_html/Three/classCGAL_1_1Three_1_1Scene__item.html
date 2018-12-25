@@ -1,0 +1,1778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Three/classCGAL_1_1Three_1_1Scene__item.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Three: CGAL::Three::Scene_item Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Three
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Three_1_1Scene__item.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Three_1_1Scene__item-members.html">List of all members</a> |
+<a href="#nested-classes">Classes</a> |
+<a href="#pub-types">Public Types</a> |
+<a href="#pub-slots">Public Slots</a> |
+<a href="#signals">Signals</a> |
+<a href="#pub-methods">Public Member Functions</a> |
+<a href="#pub-attribs">Public Attributes</a> |
+<a href="#pub-static-attribs">Static Public Attributes</a> |
+<a href="#pro-methods">Protected Member Functions</a> |
+<a href="#pro-attribs">Protected Attributes</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Three::Scene_item Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Three/Scene_item.h&gt;</code></p>
+
+<a name="details" id="details"></a><h2 class="groupheader">Inherits from</h2><p>QObject.</p>
+
+<p>Inherited by <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">CGAL::Three::Scene_group_item</a>, and <a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html">CGAL::Three::Scene_item_rendering_helper</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>This class represents an object in the OpenGL scene. </p>
+<p>It contains all the functions called by the <a class="el" href="classScene.html" title="This class is not supposed to be used by Plugins, but sometimes you may need access to peculiar signa...">Scene</a>. It acts like a mix between an interface and a helper. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Basic_item_plugin_8cpp-example.html#_a5">Three/Example_plugin/Basic_item_plugin.cpp</a>, and <a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#_a0">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct  </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Three_1_1Scene__item_1_1Header__data.html">Header_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">Contains the header for the table in the statistics dialog.  <a href="structCGAL_1_1Three_1_1Scene__item_1_1Header__data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types" id="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:abfdd8a2b0f9b0b62e78ec525dfdf3049"><td class="memItemLeft" align="right" valign="top">enum  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049">OpenGL_program_IDs</a> { , <br />
+  <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049ad3cc138ba3f5eb509249f3df9cdd1beb">PROGRAM_WITHOUT_LIGHT</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049ad057924572470cc1f8725b0189c020ec">PROGRAM_NO_SELECTION</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049afb63348ca981de7316391d1f2b93f48c">PROGRAM_WITH_TEXTURE</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a1798d8107df4d3c6184f8f7eb76ccfbe">PROGRAM_PLANE_TWO_FACES</a>, 
+<br />
+  <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a9ded1faec1c8d6d03fcd1637f5a71b8a">PROGRAM_WITH_TEXTURED_EDGES</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a81d5198857a8341beeaf2acbc4c03686">PROGRAM_INSTANCED</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a7979618e4b419bb40bfe78df679471de">PROGRAM_INSTANCED_WIRE</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a3a0b0f51cbe2d74ca594d90cfbf0c6b4">PROGRAM_C3T3</a>, 
+<br />
+  <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a011adcba5708765b39816c769e06c4b6">PROGRAM_C3T3_EDGES</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049ab53f0e0e7d2ca169a3e9b3dd63000f14">PROGRAM_CUTPLANE_SPHERES</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a16ef2c3b3d195975455313db8c9eb224">PROGRAM_SPHERES</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a4798d0fa62c3ec1884ca76536013336b">PROGRAM_FLAT</a>, 
+<br />
+  <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a08f2b62a5ec9bc6c53c2f4f86b06775c">PROGRAM_OLD_FLAT</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049ad07f0225ed77bbaf7053d8ae095a98ba">PROGRAM_SOLID_WIREFRAME</a>, 
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049a6a9f759b44e9f9a0b1c419ada693aecc">NB_OF_PROGRAMS</a>
+<br />
+ }</td></tr><tr class="memdesc:abfdd8a2b0f9b0b62e78ec525dfdf3049"><td class="mdescLeft"> </td><td class="mdescRight">The OpenGL_program_IDs enum.  <a href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049">More...</a><br /></td></tr>
+
+<tr class="separator:abfdd8a2b0f9b0b62e78ec525dfdf3049"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots" id="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:a90fdc9b1983bf20919a79063e6abb8cd"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a90fdc9b1983bf20919a79063e6abb8cd">invalidateOpenGLBuffers</a> ()</td></tr>
+<tr class="memdesc:a90fdc9b1983bf20919a79063e6abb8cd"><td class="mdescLeft"> </td><td class="mdescRight">Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again.  <a href="#a90fdc9b1983bf20919a79063e6abb8cd">More...</a><br /></td></tr>
+<tr class="separator:a90fdc9b1983bf20919a79063e6abb8cd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa068e79eb544f7ee33a82ede9c91d816"><td class="memItemLeft" align="right" valign="top"><a id="aa068e79eb544f7ee33a82ede9c91d816"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa068e79eb544f7ee33a82ede9c91d816">setColor</a> (QColor c)</td></tr>
+<tr class="memdesc:aa068e79eb544f7ee33a82ede9c91d816"><td class="mdescLeft"> </td><td class="mdescRight">Setter for the color of the item. <br /></td></tr>
+<tr class="separator:aa068e79eb544f7ee33a82ede9c91d816"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6df86c4f76ed2b284ba508d02b6e4ff8"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a6df86c4f76ed2b284ba508d02b6e4ff8">setRbgColor</a> (int r, int g, int b)</td></tr>
+<tr class="memdesc:a6df86c4f76ed2b284ba508d02b6e4ff8"><td class="mdescLeft"> </td><td class="mdescRight">Setter for the RGB color of the item.  <a href="#a6df86c4f76ed2b284ba508d02b6e4ff8">More...</a><br /></td></tr>
+<tr class="separator:a6df86c4f76ed2b284ba508d02b6e4ff8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af8c64b12892a1372a3f253b8be23af8e"><td class="memItemLeft" align="right" valign="top"><a id="af8c64b12892a1372a3f253b8be23af8e"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af8c64b12892a1372a3f253b8be23af8e">setName</a> (QString n)</td></tr>
+<tr class="memdesc:af8c64b12892a1372a3f253b8be23af8e"><td class="mdescLeft"> </td><td class="mdescRight">Sets the name of the item. <br /></td></tr>
+<tr class="separator:af8c64b12892a1372a3f253b8be23af8e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae9ec96b24e4997e9b63ff782a4acf1c7"><td class="memItemLeft" align="right" valign="top"><a id="ae9ec96b24e4997e9b63ff782a4acf1c7"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ae9ec96b24e4997e9b63ff782a4acf1c7">setVisible</a> (bool b)</td></tr>
+<tr class="memdesc:ae9ec96b24e4997e9b63ff782a4acf1c7"><td class="mdescLeft"> </td><td class="mdescRight">Sets the visibility of the item. <br /></td></tr>
+<tr class="separator:ae9ec96b24e4997e9b63ff782a4acf1c7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1a313eea0253c08434f435af178380ea"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a1a313eea0253c08434f435af178380ea">moveToGroup</a> (<a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">Scene_group_item</a> *group)</td></tr>
+<tr class="memdesc:a1a313eea0253c08434f435af178380ea"><td class="mdescLeft"> </td><td class="mdescRight">Set the parent group.  <a href="#a1a313eea0253c08434f435af178380ea">More...</a><br /></td></tr>
+<tr class="separator:a1a313eea0253c08434f435af178380ea"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a54a27fccdfc8b14c6cc3defb17c1a030"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a54a27fccdfc8b14c6cc3defb17c1a030">setRenderingMode</a> (<a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> m)</td></tr>
+<tr class="memdesc:a54a27fccdfc8b14c6cc3defb17c1a030"><td class="mdescLeft"> </td><td class="mdescRight">Sets the rendering mode of the item.  <a href="#a54a27fccdfc8b14c6cc3defb17c1a030">More...</a><br /></td></tr>
+<tr class="separator:a54a27fccdfc8b14c6cc3defb17c1a030"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7f10a2b5850e44b902089e6343d7f380"><td class="memItemLeft" align="right" valign="top"><a id="a7f10a2b5850e44b902089e6343d7f380"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a7f10a2b5850e44b902089e6343d7f380">setPointsMode</a> ()</td></tr>
+<tr class="memdesc:a7f10a2b5850e44b902089e6343d7f380"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to Points. <br /></td></tr>
+<tr class="separator:a7f10a2b5850e44b902089e6343d7f380"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a66ef99b561ff6ca1ba8f0964973e62a1"><td class="memItemLeft" align="right" valign="top"><a id="a66ef99b561ff6ca1ba8f0964973e62a1"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a66ef99b561ff6ca1ba8f0964973e62a1">setShadedPointsMode</a> ()</td></tr>
+<tr class="memdesc:a66ef99b561ff6ca1ba8f0964973e62a1"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to Points. <br /></td></tr>
+<tr class="separator:a66ef99b561ff6ca1ba8f0964973e62a1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2aae6ee022487092f12d7903bd237428"><td class="memItemLeft" align="right" valign="top"><a id="a2aae6ee022487092f12d7903bd237428"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a2aae6ee022487092f12d7903bd237428">setWireframeMode</a> ()</td></tr>
+<tr class="memdesc:a2aae6ee022487092f12d7903bd237428"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to Wireframe. <br /></td></tr>
+<tr class="separator:a2aae6ee022487092f12d7903bd237428"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae47e5cf95029d38b009e2d4e793c71a6"><td class="memItemLeft" align="right" valign="top"><a id="ae47e5cf95029d38b009e2d4e793c71a6"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ae47e5cf95029d38b009e2d4e793c71a6">setFlatMode</a> ()</td></tr>
+<tr class="memdesc:ae47e5cf95029d38b009e2d4e793c71a6"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to Flat. <br /></td></tr>
+<tr class="separator:ae47e5cf95029d38b009e2d4e793c71a6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a033b59036eb7e655799bf5cdf26f5247"><td class="memItemLeft" align="right" valign="top"><a id="a033b59036eb7e655799bf5cdf26f5247"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a033b59036eb7e655799bf5cdf26f5247">setFlatPlusEdgesMode</a> ()</td></tr>
+<tr class="memdesc:a033b59036eb7e655799bf5cdf26f5247"><td class="mdescLeft"> </td><td class="mdescRight">Set the RenderingMode to FlatPlusEdges. <br /></td></tr>
+<tr class="separator:a033b59036eb7e655799bf5cdf26f5247"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae79c04cc7ced1b52d77e4882364d66f2"><td class="memItemLeft" align="right" valign="top"><a id="ae79c04cc7ced1b52d77e4882364d66f2"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ae79c04cc7ced1b52d77e4882364d66f2">setGouraudMode</a> ()</td></tr>
+<tr class="memdesc:ae79c04cc7ced1b52d77e4882364d66f2"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to Gouraud. <br /></td></tr>
+<tr class="separator:ae79c04cc7ced1b52d77e4882364d66f2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afbb564552711a890be5cb8dadf44ef88"><td class="memItemLeft" align="right" valign="top"><a id="afbb564552711a890be5cb8dadf44ef88"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#afbb564552711a890be5cb8dadf44ef88">setPointsPlusNormalsMode</a> ()</td></tr>
+<tr class="memdesc:afbb564552711a890be5cb8dadf44ef88"><td class="mdescLeft"> </td><td class="mdescRight">Sets the RenderingMode to PointsPlusNormals. <br /></td></tr>
+<tr class="separator:afbb564552711a890be5cb8dadf44ef88"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a145adfaf093cbe754250864ad76cd0d3"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a145adfaf093cbe754250864ad76cd0d3">itemAboutToBeDestroyed</a> (<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html">Scene_item</a> *)</td></tr>
+<tr class="memdesc:a145adfaf093cbe754250864ad76cd0d3"><td class="mdescLeft"> </td><td class="mdescRight">Emits an <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4dec9182cf1fdecadb7ca66a0b1ce496" title="Is emitted to notify that the item is about to be deleted. ">aboutToBeDestroyed()</a> signal.  <a href="#a145adfaf093cbe754250864ad76cd0d3">More...</a><br /></td></tr>
+<tr class="separator:a145adfaf093cbe754250864ad76cd0d3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab5be7a8ae424b1e1fe465947d44ba419"><td class="memItemLeft" align="right" valign="top">virtual float </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab5be7a8ae424b1e1fe465947d44ba419">alpha</a> () const</td></tr>
+<tr class="memdesc:ab5be7a8ae424b1e1fe465947d44ba419"><td class="mdescLeft"> </td><td class="mdescRight">Returns the alpha value for the item.  <a href="#ab5be7a8ae424b1e1fe465947d44ba419">More...</a><br /></td></tr>
+<tr class="separator:ab5be7a8ae424b1e1fe465947d44ba419"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a71289ccb01e001579b24ed01c0e43b96"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a71289ccb01e001579b24ed01c0e43b96">setAlpha</a> (int <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab5be7a8ae424b1e1fe465947d44ba419">alpha</a>)</td></tr>
+<tr class="memdesc:a71289ccb01e001579b24ed01c0e43b96"><td class="mdescLeft"> </td><td class="mdescRight">Sets the value of the aplha Slider for this item.  <a href="#a71289ccb01e001579b24ed01c0e43b96">More...</a><br /></td></tr>
+<tr class="separator:a71289ccb01e001579b24ed01c0e43b96"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa99e0d168423b5df529efc38b7749219"><td class="memItemLeft" align="right" valign="top"><a id="aa99e0d168423b5df529efc38b7749219"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa99e0d168423b5df529efc38b7749219">select</a> (double orig_x, double orig_y, double orig_z, double dir_x, double dir_y, double dir_z)</td></tr>
+<tr class="memdesc:aa99e0d168423b5df529efc38b7749219"><td class="mdescLeft"> </td><td class="mdescRight">Selects a point through raycasting. <br /></td></tr>
+<tr class="separator:aa99e0d168423b5df529efc38b7749219"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals" id="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a4512ce8d39b44c8472257852551be09b"><td class="memItemLeft" align="right" valign="top"><a id="a4512ce8d39b44c8472257852551be09b"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4512ce8d39b44c8472257852551be09b">itemChanged</a> ()</td></tr>
+<tr class="memdesc:a4512ce8d39b44c8472257852551be09b"><td class="mdescLeft"> </td><td class="mdescRight">Is emitted to notify a change in the item's data. <br /></td></tr>
+<tr class="separator:a4512ce8d39b44c8472257852551be09b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac2c1d53c8854d997729c8a51be89d3a3"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ac2c1d53c8854d997729c8a51be89d3a3">itemVisibilityChanged</a> ()</td></tr>
+<tr class="memdesc:ac2c1d53c8854d997729c8a51be89d3a3"><td class="mdescLeft"> </td><td class="mdescRight">Is emitted when the item is shown to notify a change in the item's visibility.  <a href="#ac2c1d53c8854d997729c8a51be89d3a3">More...</a><br /></td></tr>
+<tr class="separator:ac2c1d53c8854d997729c8a51be89d3a3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4dec9182cf1fdecadb7ca66a0b1ce496"><td class="memItemLeft" align="right" valign="top"><a id="a4dec9182cf1fdecadb7ca66a0b1ce496"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4dec9182cf1fdecadb7ca66a0b1ce496">aboutToBeDestroyed</a> ()</td></tr>
+<tr class="memdesc:a4dec9182cf1fdecadb7ca66a0b1ce496"><td class="mdescLeft"> </td><td class="mdescRight">Is emitted to notify that the item is about to be deleted. <br /></td></tr>
+<tr class="separator:a4dec9182cf1fdecadb7ca66a0b1ce496"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4c4f967690edf07821421c7170386d57"><td class="memItemLeft" align="right" valign="top"><a id="a4c4f967690edf07821421c7170386d57"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4c4f967690edf07821421c7170386d57">redraw</a> ()</td></tr>
+<tr class="memdesc:a4c4f967690edf07821421c7170386d57"><td class="mdescLeft"> </td><td class="mdescRight">Is emitted to require a new display. <br /></td></tr>
+<tr class="separator:a4c4f967690edf07821421c7170386d57"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a33bf2910f4b9ab7994cb5757c60e4adc"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a33bf2910f4b9ab7994cb5757c60e4adc">Scene_item</a> (int buffers_size=20, int vaos_size=10)</td></tr>
+<tr class="memdesc:a33bf2910f4b9ab7994cb5757c60e4adc"><td class="mdescLeft"> </td><td class="mdescRight">The Constructor.  <a href="#a33bf2910f4b9ab7994cb5757c60e4adc">More...</a><br /></td></tr>
+<tr class="separator:a33bf2910f4b9ab7994cb5757c60e4adc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad2562d11286ae07f5cd871f3a57f5ffd"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad2562d11286ae07f5cd871f3a57f5ffd">setNbIsolatedvertices</a> (std::size_t nb)</td></tr>
+<tr class="memdesc:ad2562d11286ae07f5cd871f3a57f5ffd"><td class="mdescLeft"> </td><td class="mdescRight">Sets the number of isolated vertices.  <a href="#ad2562d11286ae07f5cd871f3a57f5ffd">More...</a><br /></td></tr>
+<tr class="separator:ad2562d11286ae07f5cd871f3a57f5ffd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af9bc0ff2137f0c9bcb96e28986064401"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af9bc0ff2137f0c9bcb96e28986064401">getNbIsolatedvertices</a> () const</td></tr>
+<tr class="memdesc:af9bc0ff2137f0c9bcb96e28986064401"><td class="mdescLeft"> </td><td class="mdescRight">Getter for the number of isolated vertices.  <a href="#af9bc0ff2137f0c9bcb96e28986064401">More...</a><br /></td></tr>
+<tr class="separator:af9bc0ff2137f0c9bcb96e28986064401"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac2bc3874a1d7196482b164b8dd1a05d3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html">Scene_item</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ac2bc3874a1d7196482b164b8dd1a05d3">clone</a> () const =0</td></tr>
+<tr class="memdesc:ac2bc3874a1d7196482b164b8dd1a05d3"><td class="mdescLeft"> </td><td class="mdescRight">Duplicates the item.  <a href="#ac2bc3874a1d7196482b164b8dd1a05d3">More...</a><br /></td></tr>
+<tr class="separator:ac2bc3874a1d7196482b164b8dd1a05d3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a02803633ba4bc72a216cad524d270278"><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a02803633ba4bc72a216cad524d270278">supportsRenderingMode</a> (<a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> m) const =0</td></tr>
+<tr class="memdesc:a02803633ba4bc72a216cad524d270278"><td class="mdescLeft"> </td><td class="mdescRight">Indicates if <code>m</code> is supported.  <a href="#a02803633ba4bc72a216cad524d270278">More...</a><br /></td></tr>
+<tr class="separator:a02803633ba4bc72a216cad524d270278"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a884cc1ab209133f3a615ceda7e566a74"><td class="memItemLeft" align="right" valign="top"><a id="a884cc1ab209133f3a615ceda7e566a74"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a884cc1ab209133f3a615ceda7e566a74">draw</a> () const</td></tr>
+<tr class="memdesc:a884cc1ab209133f3a615ceda7e566a74"><td class="mdescLeft"> </td><td class="mdescRight">Deprecated. Does nothing. <br /></td></tr>
+<tr class="separator:a884cc1ab209133f3a615ceda7e566a74"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab15b29884b66ec4e051fb426db25b344"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab15b29884b66ec4e051fb426db25b344">draw</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *) const</td></tr>
+<tr class="memdesc:ab15b29884b66ec4e051fb426db25b344"><td class="mdescLeft"> </td><td class="mdescRight">The drawing function for faces.  <a href="#ab15b29884b66ec4e051fb426db25b344">More...</a><br /></td></tr>
+<tr class="separator:ab15b29884b66ec4e051fb426db25b344"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9f9c6fbb1eab8b063c083ea61830436c"><td class="memItemLeft" align="right" valign="top"><a id="a9f9c6fbb1eab8b063c083ea61830436c"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a9f9c6fbb1eab8b063c083ea61830436c">drawEdges</a> () const</td></tr>
+<tr class="memdesc:a9f9c6fbb1eab8b063c083ea61830436c"><td class="mdescLeft"> </td><td class="mdescRight">Deprecated. Does nothing. <br /></td></tr>
+<tr class="separator:a9f9c6fbb1eab8b063c083ea61830436c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afe7c0327104e81875de80105a95a158d"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#afe7c0327104e81875de80105a95a158d">drawEdges</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer) const</td></tr>
+<tr class="memdesc:afe7c0327104e81875de80105a95a158d"><td class="mdescLeft"> </td><td class="mdescRight">The drawing function for the edges.  <a href="#afe7c0327104e81875de80105a95a158d">More...</a><br /></td></tr>
+<tr class="separator:afe7c0327104e81875de80105a95a158d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0b5bec42c1569625c42294af492e0a89"><td class="memItemLeft" align="right" valign="top"><a id="a0b5bec42c1569625c42294af492e0a89"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a0b5bec42c1569625c42294af492e0a89">drawPoints</a> () const</td></tr>
+<tr class="memdesc:a0b5bec42c1569625c42294af492e0a89"><td class="mdescLeft"> </td><td class="mdescRight">Deprecated. Does nothing. <br /></td></tr>
+<tr class="separator:a0b5bec42c1569625c42294af492e0a89"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afef30c057b3baaba39ee8642ea2ab3e4"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#afef30c057b3baaba39ee8642ea2ab3e4">drawPoints</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *) const</td></tr>
+<tr class="memdesc:afef30c057b3baaba39ee8642ea2ab3e4"><td class="mdescLeft"> </td><td class="mdescRight">The drawing function for the points.  <a href="#afef30c057b3baaba39ee8642ea2ab3e4">More...</a><br /></td></tr>
+<tr class="separator:afef30c057b3baaba39ee8642ea2ab3e4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6534cdc1df8b9c2483e57d6b0f07e340"><td class="memItemLeft" align="right" valign="top"><a id="a6534cdc1df8b9c2483e57d6b0f07e340"></a>
+virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a6534cdc1df8b9c2483e57d6b0f07e340">selection_changed</a> (bool b)</td></tr>
+<tr class="memdesc:a6534cdc1df8b9c2483e57d6b0f07e340"><td class="mdescLeft"> </td><td class="mdescRight">Called by the scene. If b is true, then this item is currently selected. <br /></td></tr>
+<tr class="separator:a6534cdc1df8b9c2483e57d6b0f07e340"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abb15a0d82db8f66786393df61c322b6d"><td class="memItemLeft" align="right" valign="top">virtual QString </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abb15a0d82db8f66786393df61c322b6d">toolTip</a> () const =0</td></tr>
+<tr class="memdesc:abb15a0d82db8f66786393df61c322b6d"><td class="mdescLeft"> </td><td class="mdescRight">Contains meta-data about the item.  <a href="#abb15a0d82db8f66786393df61c322b6d">More...</a><br /></td></tr>
+<tr class="separator:abb15a0d82db8f66786393df61c322b6d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab104d6a4265f721f7fe6729106e6c6a5"><td class="memItemLeft" align="right" valign="top">virtual QPixmap </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab104d6a4265f721f7fe6729106e6c6a5">graphicalToolTip</a> () const</td></tr>
+<tr class="memdesc:ab104d6a4265f721f7fe6729106e6c6a5"><td class="mdescLeft"> </td><td class="mdescRight">Contains graphical meta-data about the item.  <a href="#ab104d6a4265f721f7fe6729106e6c6a5">More...</a><br /></td></tr>
+<tr class="separator:ab104d6a4265f721f7fe6729106e6c6a5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6e175c307d08d8a4601b67b93db9ee7b"><td class="memItemLeft" align="right" valign="top">virtual QFont </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a6e175c307d08d8a4601b67b93db9ee7b">font</a> () const</td></tr>
+<tr class="memdesc:a6e175c307d08d8a4601b67b93db9ee7b"><td class="mdescLeft"> </td><td class="mdescRight">Contains the font used for the data of the item.  <a href="#a6e175c307d08d8a4601b67b93db9ee7b">More...</a><br /></td></tr>
+<tr class="separator:a6e175c307d08d8a4601b67b93db9ee7b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aacdaacfd1e76887501acb522c61f5aa4"><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aacdaacfd1e76887501acb522c61f5aa4">isFinite</a> () const</td></tr>
+<tr class="memdesc:aacdaacfd1e76887501acb522c61f5aa4"><td class="mdescLeft"> </td><td class="mdescRight">Determines if the item is finite or not.  <a href="#aacdaacfd1e76887501acb522c61f5aa4">More...</a><br /></td></tr>
+<tr class="separator:aacdaacfd1e76887501acb522c61f5aa4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2287a9f901daa16577ba597a4432e284"><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a2287a9f901daa16577ba597a4432e284">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a2287a9f901daa16577ba597a4432e284"><td class="mdescLeft"> </td><td class="mdescRight">Specifies if the item is empty or null.  <a href="#a2287a9f901daa16577ba597a4432e284">More...</a><br /></td></tr>
+<tr class="separator:a2287a9f901daa16577ba597a4432e284"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af9cd9477cc4f11afcdf6e7479c7fbd48"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">Bbox</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af9cd9477cc4f11afcdf6e7479c7fbd48">bbox</a> () const</td></tr>
+<tr class="memdesc:af9cd9477cc4f11afcdf6e7479c7fbd48"><td class="mdescLeft"> </td><td class="mdescRight">The item's bounding box.  <a href="#af9cd9477cc4f11afcdf6e7479c7fbd48">More...</a><br /></td></tr>
+<tr class="separator:af9cd9477cc4f11afcdf6e7479c7fbd48"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab0c8523980da5f86748ad7a69fd11e34"><td class="memItemLeft" align="right" valign="top">virtual double </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab0c8523980da5f86748ad7a69fd11e34">diagonalBbox</a> () const</td></tr>
+<tr class="memdesc:ab0c8523980da5f86748ad7a69fd11e34"><td class="mdescLeft"> </td><td class="mdescRight">the item's bounding box's diagonal length.  <a href="#ab0c8523980da5f86748ad7a69fd11e34">More...</a><br /></td></tr>
+<tr class="separator:ab0c8523980da5f86748ad7a69fd11e34"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a21b7abe6372d6af3c2594d682f486212"><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a21b7abe6372d6af3c2594d682f486212">manipulatable</a> () const</td></tr>
+<tr class="memdesc:a21b7abe6372d6af3c2594d682f486212"><td class="mdescLeft"> </td><td class="mdescRight">Returns true if the item has a ManipulatedFrame.  <a href="#a21b7abe6372d6af3c2594d682f486212">More...</a><br /></td></tr>
+<tr class="separator:a21b7abe6372d6af3c2594d682f486212"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab07d3eadd4cdf4f366dada2e3864c94f"><td class="memItemLeft" align="right" valign="top">virtual ManipulatedFrame * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab07d3eadd4cdf4f366dada2e3864c94f">manipulatedFrame</a> ()</td></tr>
+<tr class="memdesc:ab07d3eadd4cdf4f366dada2e3864c94f"><td class="mdescLeft"> </td><td class="mdescRight">The manipulatedFrame of the item.  <a href="#ab07d3eadd4cdf4f366dada2e3864c94f">More...</a><br /></td></tr>
+<tr class="separator:ab07d3eadd4cdf4f366dada2e3864c94f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4855fcaac2fcf76147e06582508fa7ac"><td class="memItemLeft" align="right" valign="top">virtual QColor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4855fcaac2fcf76147e06582508fa7ac">color</a> () const</td></tr>
+<tr class="memdesc:a4855fcaac2fcf76147e06582508fa7ac"><td class="mdescLeft"> </td><td class="mdescRight">Getter for the item's color.  <a href="#a4855fcaac2fcf76147e06582508fa7ac">More...</a><br /></td></tr>
+<tr class="separator:a4855fcaac2fcf76147e06582508fa7ac"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9875d388ef00bea89d83d6dc2d9a9cfb"><td class="memItemLeft" align="right" valign="top">virtual QString </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a9875d388ef00bea89d83d6dc2d9a9cfb">name</a> () const</td></tr>
+<tr class="memdesc:a9875d388ef00bea89d83d6dc2d9a9cfb"><td class="mdescLeft"> </td><td class="mdescRight">Getter for the item's name.  <a href="#a9875d388ef00bea89d83d6dc2d9a9cfb">More...</a><br /></td></tr>
+<tr class="separator:a9875d388ef00bea89d83d6dc2d9a9cfb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1139cc1cca8d8b1e3088dafc81c70aa1"><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a1139cc1cca8d8b1e3088dafc81c70aa1">visible</a> () const</td></tr>
+<tr class="memdesc:a1139cc1cca8d8b1e3088dafc81c70aa1"><td class="mdescLeft"> </td><td class="mdescRight">If the item is not visible, it is not drawn and its Bbox is ignored in the computation of the scene's.  <a href="#a1139cc1cca8d8b1e3088dafc81c70aa1">More...</a><br /></td></tr>
+<tr class="separator:a1139cc1cca8d8b1e3088dafc81c70aa1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af8611dc5cad9577d661cc0489c2f2ae8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af8611dc5cad9577d661cc0489c2f2ae8">renderingMode</a> () const</td></tr>
+<tr class="memdesc:af8611dc5cad9577d661cc0489c2f2ae8"><td class="mdescLeft"> </td><td class="mdescRight">Getter for the item's rendering mode.  <a href="#af8611dc5cad9577d661cc0489c2f2ae8">More...</a><br /></td></tr>
+<tr class="separator:af8611dc5cad9577d661cc0489c2f2ae8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6264814c331f53f9a9616dca384acd40"><td class="memItemLeft" align="right" valign="top">virtual QString </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a6264814c331f53f9a9616dca384acd40">renderingModeName</a> () const</td></tr>
+<tr class="memdesc:a6264814c331f53f9a9616dca384acd40"><td class="mdescLeft"> </td><td class="mdescRight">The renderingMode's name.  <a href="#a6264814c331f53f9a9616dca384acd40">More...</a><br /></td></tr>
+<tr class="separator:a6264814c331f53f9a9616dca384acd40"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6eaa99ad881582218176a292ec64ea01"><td class="memItemLeft" align="right" valign="top">virtual QMenu * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a6eaa99ad881582218176a292ec64ea01">contextMenu</a> ()</td></tr>
+<tr class="memdesc:a6eaa99ad881582218176a292ec64ea01"><td class="mdescLeft"> </td><td class="mdescRight">Context menu.  <a href="#a6eaa99ad881582218176a292ec64ea01">More...</a><br /></td></tr>
+<tr class="separator:a6eaa99ad881582218176a292ec64ea01"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af724c60e4ec00c09b859599999422400"><td class="memItemLeft" align="right" valign="top"><a id="af724c60e4ec00c09b859599999422400"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af724c60e4ec00c09b859599999422400">setId</a> (int id)</td></tr>
+<tr class="memdesc:af724c60e4ec00c09b859599999422400"><td class="mdescLeft"> </td><td class="mdescRight">setId informs the item of its current index in the scene entries. <br /></td></tr>
+<tr class="separator:af724c60e4ec00c09b859599999422400"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad0e3e3213359af74e18c780af2f60cde"><td class="memItemLeft" align="right" valign="top"><a id="ad0e3e3213359af74e18c780af2f60cde"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad0e3e3213359af74e18c780af2f60cde">getId</a> () const</td></tr>
+<tr class="memdesc:ad0e3e3213359af74e18c780af2f60cde"><td class="mdescLeft"> </td><td class="mdescRight">getId returns the current index of this item in the scene entries. <br /></td></tr>
+<tr class="separator:ad0e3e3213359af74e18c780af2f60cde"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa0e5d2a443b2fdb6ae18889bc3fdcce4"><td class="memItemLeft" align="right" valign="top"><a id="aa0e5d2a443b2fdb6ae18889bc3fdcce4"></a>
+virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa0e5d2a443b2fdb6ae18889bc3fdcce4">keyPressEvent</a> (QKeyEvent *)</td></tr>
+<tr class="memdesc:aa0e5d2a443b2fdb6ae18889bc3fdcce4"><td class="mdescLeft"> </td><td class="mdescRight">Handles key press events. <br /></td></tr>
+<tr class="separator:aa0e5d2a443b2fdb6ae18889bc3fdcce4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa70ed13403cf68538511435a1e5abaa6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">Scene_group_item</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa70ed13403cf68538511435a1e5abaa6">parentGroup</a> () const</td></tr>
+<tr class="memdesc:aa70ed13403cf68538511435a1e5abaa6"><td class="mdescLeft"> </td><td class="mdescRight">The group containing the item.  <a href="#aa70ed13403cf68538511435a1e5abaa6">More...</a><br /></td></tr>
+<tr class="separator:aa70ed13403cf68538511435a1e5abaa6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa4fc99014364a228bed078d91b0afa91"><td class="memItemLeft" align="right" valign="top"><a id="aa4fc99014364a228bed078d91b0afa91"></a>
+virtual <a class="el" href="structCGAL_1_1Three_1_1Scene__item_1_1Header__data.html">Header_data</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa4fc99014364a228bed078d91b0afa91">header</a> () const</td></tr>
+<tr class="memdesc:aa4fc99014364a228bed078d91b0afa91"><td class="mdescLeft"> </td><td class="mdescRight">Returns a <a class="el" href="structCGAL_1_1Three_1_1Scene__item_1_1Header__data.html" title="Contains the header for the table in the statistics dialog. ">Header_data</a> struct containing the header information. <br /></td></tr>
+<tr class="separator:aa4fc99014364a228bed078d91b0afa91"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a15bdbe0d457e44b19895ef3cdbfd0266"><td class="memItemLeft" align="right" valign="top"><a id="a15bdbe0d457e44b19895ef3cdbfd0266"></a>
+virtual bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a15bdbe0d457e44b19895ef3cdbfd0266">has_stats</a> () const</td></tr>
+<tr class="memdesc:a15bdbe0d457e44b19895ef3cdbfd0266"><td class="mdescLeft"> </td><td class="mdescRight">Returns true if the item has statistics. <br /></td></tr>
+<tr class="separator:a15bdbe0d457e44b19895ef3cdbfd0266"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac22d0d3d8bb93498b7b8f843bf3c9afe"><td class="memItemLeft" align="right" valign="top">virtual QString </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ac22d0d3d8bb93498b7b8f843bf3c9afe">computeStats</a> (int i)</td></tr>
+<tr class="memdesc:ac22d0d3d8bb93498b7b8f843bf3c9afe"><td class="mdescLeft"> </td><td class="mdescRight">Returns a QString containing the requested value for the the table in the statistics dialog.  <a href="#ac22d0d3d8bb93498b7b8f843bf3c9afe">More...</a><br /></td></tr>
+<tr class="separator:ac22d0d3d8bb93498b7b8f843bf3c9afe"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1baed34145f0190db6a170a3e48874e6"><td class="memItemLeft" align="right" valign="top"><a id="a1baed34145f0190db6a170a3e48874e6"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a1baed34145f0190db6a170a3e48874e6">has_group</a></td></tr>
+<tr class="memdesc:a1baed34145f0190db6a170a3e48874e6"><td class="mdescLeft"> </td><td class="mdescRight">Contains the number of group and subgroups containing this item. <br /></td></tr>
+<tr class="separator:a1baed34145f0190db6a170a3e48874e6"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs" id="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a9202b7c8773321cbbea3ae4d9e37245b"><td class="memItemLeft" align="right" valign="top">static const QColor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a9202b7c8773321cbbea3ae4d9e37245b">defaultColor</a></td></tr>
+<tr class="memdesc:a9202b7c8773321cbbea3ae4d9e37245b"><td class="mdescLeft"> </td><td class="mdescRight">The default color of a scene_item.  <a href="#a9202b7c8773321cbbea3ae4d9e37245b">More...</a><br /></td></tr>
+<tr class="separator:a9202b7c8773321cbbea3ae4d9e37245b"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods" id="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a86841fd45abdb4e651cd5bc7f9eb79b3"><td class="memItemLeft" align="right" valign="top"><a id="a86841fd45abdb4e651cd5bc7f9eb79b3"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a86841fd45abdb4e651cd5bc7f9eb79b3">addVaos</a> (int i)</td></tr>
+<tr class="memdesc:a86841fd45abdb4e651cd5bc7f9eb79b3"><td class="mdescLeft"> </td><td class="mdescRight">Adds a VAO to the Map. <br /></td></tr>
+<tr class="separator:a86841fd45abdb4e651cd5bc7f9eb79b3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a216833a5b2c7b82e7ae23ad4bd3684cb"><td class="memItemLeft" align="right" valign="top"><a id="a216833a5b2c7b82e7ae23ad4bd3684cb"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb">initializeBuffers</a> ()</td></tr>
+<tr class="memdesc:a216833a5b2c7b82e7ae23ad4bd3684cb"><td class="mdescLeft"> </td><td class="mdescRight">Fills the VBOs with data. <br /></td></tr>
+<tr class="separator:a216833a5b2c7b82e7ae23ad4bd3684cb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa3a870e77d1ed26662e21e79eecc589d"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa3a870e77d1ed26662e21e79eecc589d">attribBuffers</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *, int program_name) const</td></tr>
+<tr class="memdesc:aa3a870e77d1ed26662e21e79eecc589d"><td class="mdescLeft"> </td><td class="mdescRight">Passes all the uniform data to the shaders.  <a href="#aa3a870e77d1ed26662e21e79eecc589d">More...</a><br /></td></tr>
+<tr class="separator:aa3a870e77d1ed26662e21e79eecc589d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a08880a273cf24d89d4e94760e082d72c"><td class="memItemLeft" align="right" valign="top">virtual QOpenGLShaderProgram * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a08880a273cf24d89d4e94760e082d72c">getShaderProgram</a> (int name, <a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer=0) const</td></tr>
+<tr class="memdesc:a08880a273cf24d89d4e94760e082d72c"><td class="mdescLeft"> </td><td class="mdescRight">Compatibility function.  <a href="#a08880a273cf24d89d4e94760e082d72c">More...</a><br /></td></tr>
+<tr class="separator:a08880a273cf24d89d4e94760e082d72c"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs" id="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a895993b355cfc80feb5a12e4b7a60c6f"><td class="memItemLeft" align="right" valign="top"><a id="a895993b355cfc80feb5a12e4b7a60c6f"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">Bbox</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a895993b355cfc80feb5a12e4b7a60c6f">_bbox</a></td></tr>
+<tr class="memdesc:a895993b355cfc80feb5a12e4b7a60c6f"><td class="mdescLeft"> </td><td class="mdescRight">Holds the BBox of the item. <br /></td></tr>
+<tr class="separator:a895993b355cfc80feb5a12e4b7a60c6f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad45ffd8cc920e16032817e01b2430d48"><td class="memItemLeft" align="right" valign="top"><a id="ad45ffd8cc920e16032817e01b2430d48"></a>
+QString </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad45ffd8cc920e16032817e01b2430d48">name_</a></td></tr>
+<tr class="memdesc:ad45ffd8cc920e16032817e01b2430d48"><td class="mdescLeft"> </td><td class="mdescRight">The name of the item. <br /></td></tr>
+<tr class="separator:ad45ffd8cc920e16032817e01b2430d48"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abf21c5e29aced1ea58fa6832a4d0638e"><td class="memItemLeft" align="right" valign="top"><a id="abf21c5e29aced1ea58fa6832a4d0638e"></a>
+QColor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abf21c5e29aced1ea58fa6832a4d0638e">color_</a></td></tr>
+<tr class="memdesc:abf21c5e29aced1ea58fa6832a4d0638e"><td class="mdescLeft"> </td><td class="mdescRight">The color of the item. <br /></td></tr>
+<tr class="separator:abf21c5e29aced1ea58fa6832a4d0638e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:addc8eb3f1cb5a42fa2ed623ae086815a"><td class="memItemLeft" align="right" valign="top"><a id="addc8eb3f1cb5a42fa2ed623ae086815a"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#addc8eb3f1cb5a42fa2ed623ae086815a">visible_</a></td></tr>
+<tr class="memdesc:addc8eb3f1cb5a42fa2ed623ae086815a"><td class="mdescLeft"> </td><td class="mdescRight">The visibility of the item. <br /></td></tr>
+<tr class="separator:addc8eb3f1cb5a42fa2ed623ae086815a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad0156e46b620a6d6dac81f730157d106"><td class="memItemLeft" align="right" valign="top"><a id="ad0156e46b620a6d6dac81f730157d106"></a>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">Scene_group_item</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad0156e46b620a6d6dac81f730157d106">parent_group</a></td></tr>
+<tr class="memdesc:ad0156e46b620a6d6dac81f730157d106"><td class="mdescLeft"> </td><td class="mdescRight">The parent group, or 0 if the item is not in a group. <br /></td></tr>
+<tr class="separator:ad0156e46b620a6d6dac81f730157d106"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae58ed69d17db89110b8472bc556cd95a"><td class="memItemLeft" align="right" valign="top"><a id="ae58ed69d17db89110b8472bc556cd95a"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ae58ed69d17db89110b8472bc556cd95a">is_selected</a></td></tr>
+<tr class="memdesc:ae58ed69d17db89110b8472bc556cd95a"><td class="mdescLeft"> </td><td class="mdescRight">Specifies if the item is currently selected. <br /></td></tr>
+<tr class="separator:ae58ed69d17db89110b8472bc556cd95a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab681df6a98485d5ff2ee037f26548f23"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab681df6a98485d5ff2ee037f26548f23">nb_isolated_vertices</a></td></tr>
+<tr class="memdesc:ab681df6a98485d5ff2ee037f26548f23"><td class="mdescLeft"> </td><td class="mdescRight">Holds the number of vertices that are not linked to the polyhedron from the OFF file.  <a href="#ab681df6a98485d5ff2ee037f26548f23">More...</a><br /></td></tr>
+<tr class="separator:ab681df6a98485d5ff2ee037f26548f23"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac4287b89a2d383abe75fde71aec9eb4d"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ac4287b89a2d383abe75fde71aec9eb4d">are_buffers_filled</a></td></tr>
+<tr class="memdesc:ac4287b89a2d383abe75fde71aec9eb4d"><td class="mdescLeft"> </td><td class="mdescRight">Decides if the draw function must call <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> or not.  <a href="#ac4287b89a2d383abe75fde71aec9eb4d">More...</a><br /></td></tr>
+<tr class="separator:ac4287b89a2d383abe75fde71aec9eb4d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aee23f65dd495763db9c844835c6a4d2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aee23f65dd495763db9c844835c6a4d2d">rendering_mode</a></td></tr>
+<tr class="memdesc:aee23f65dd495763db9c844835c6a4d2d"><td class="mdescLeft"> </td><td class="mdescRight">The rendering mode of the item.  <a href="#aee23f65dd495763db9c844835c6a4d2d">More...</a><br /></td></tr>
+<tr class="separator:aee23f65dd495763db9c844835c6a4d2d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab544502478d9c7ba7092085e27559078"><td class="memItemLeft" align="right" valign="top"><a id="ab544502478d9c7ba7092085e27559078"></a>
+QMenu * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab544502478d9c7ba7092085e27559078">defaultContextMenu</a></td></tr>
+<tr class="memdesc:ab544502478d9c7ba7092085e27559078"><td class="mdescLeft"> </td><td class="mdescRight">The default context menu. <br /></td></tr>
+<tr class="separator:ab544502478d9c7ba7092085e27559078"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a29a686e3b11821c9249d92d50b3782da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a29a686e3b11821c9249d92d50b3782da">prev_shading</a></td></tr>
+<tr class="memdesc:a29a686e3b11821c9249d92d50b3782da"><td class="mdescLeft"> </td><td class="mdescRight">Contains the previous RenderingMode.  <a href="#a29a686e3b11821c9249d92d50b3782da">More...</a><br /></td></tr>
+<tr class="separator:a29a686e3b11821c9249d92d50b3782da"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab6d349f906713609ebae88928536f7aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab6d349f906713609ebae88928536f7aa">cur_shading</a></td></tr>
+<tr class="memdesc:ab6d349f906713609ebae88928536f7aa"><td class="mdescLeft"> </td><td class="mdescRight">Contains the current RenderingMode.  <a href="#ab6d349f906713609ebae88928536f7aa">More...</a><br /></td></tr>
+<tr class="separator:ab6d349f906713609ebae88928536f7aa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aeb7b68ffbf83025742a8b27ba6a9a4e5"><td class="memItemLeft" align="right" valign="top"><a id="aeb7b68ffbf83025742a8b27ba6a9a4e5"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aeb7b68ffbf83025742a8b27ba6a9a4e5">buffersSize</a></td></tr>
+<tr class="memdesc:aeb7b68ffbf83025742a8b27ba6a9a4e5"><td class="mdescLeft"> </td><td class="mdescRight">Contains the size of the vector of VBOs. <br /></td></tr>
+<tr class="separator:aeb7b68ffbf83025742a8b27ba6a9a4e5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad4a9050142bce5fad07ea8ad750848a5"><td class="memItemLeft" align="right" valign="top"><a id="ad4a9050142bce5fad07ea8ad750848a5"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad4a9050142bce5fad07ea8ad750848a5">vaosSize</a></td></tr>
+<tr class="memdesc:ad4a9050142bce5fad07ea8ad750848a5"><td class="mdescLeft"> </td><td class="mdescRight">Contains the size of the map of VAOs. <br /></td></tr>
+<tr class="separator:ad4a9050142bce5fad07ea8ad750848a5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7c3aa5f5008edb8ab4a33b7d3d5b9ca0"><td class="memItemLeft" align="right" valign="top"><a id="a7c3aa5f5008edb8ab4a33b7d3d5b9ca0"></a>
+std::vector&lt; QOpenGLBuffer &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a7c3aa5f5008edb8ab4a33b7d3d5b9ca0">buffers</a></td></tr>
+<tr class="memdesc:a7c3aa5f5008edb8ab4a33b7d3d5b9ca0"><td class="mdescLeft"> </td><td class="mdescRight">Contains the VBOs. <br /></td></tr>
+<tr class="separator:a7c3aa5f5008edb8ab4a33b7d3d5b9ca0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afc812b41ee388b79e981b32cbff82480"><td class="memItemLeft" align="right" valign="top"><a id="afc812b41ee388b79e981b32cbff82480"></a>
+std::vector&lt; QOpenGLVertexArrayObject * &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#afc812b41ee388b79e981b32cbff82480">vaos</a></td></tr>
+<tr class="memdesc:afc812b41ee388b79e981b32cbff82480"><td class="mdescLeft"> </td><td class="mdescRight">Contains the VAOs. <br /></td></tr>
+<tr class="separator:afc812b41ee388b79e981b32cbff82480"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="abfdd8a2b0f9b0b62e78ec525dfdf3049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfdd8a2b0f9b0b62e78ec525dfdf3049">◆ </a></span>OpenGL_program_IDs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#abfdd8a2b0f9b0b62e78ec525dfdf3049">CGAL::Three::Scene_item::OpenGL_program_IDs</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The OpenGL_program_IDs enum. </p>
+<p>This enum holds the OpenGL programs IDs that are given to <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a08880a273cf24d89d4e94760e082d72c" title="Compatibility function. ">getShaderProgram()</a> and <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa3a870e77d1ed26662e21e79eecc589d" title="Passes all the uniform data to the shaders. ">attribBuffers()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a08880a273cf24d89d4e94760e082d72c" title="Compatibility function. ">getShaderProgram</a> </dd>
+<dd>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa3a870e77d1ed26662e21e79eecc589d" title="Passes all the uniform data to the shaders. ">attribBuffers</a> </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049ad3cc138ba3f5eb509249f3df9cdd1beb"></a>PROGRAM_WITHOUT_LIGHT </td><td class="fielddoc"><p>Used to render a surface or edge affected by the light. </p>
+<p>It uses a per fragment lighting model, and renders brighter the selected item. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049ad057924572470cc1f8725b0189c020ec"></a>PROGRAM_NO_SELECTION </td><td class="fielddoc"><p>Used to render a polygon edge or points. </p>
+<p>It renders in a uniform color and is not affected by light. It renders the selected item in black. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049afb63348ca981de7316391d1f2b93f48c"></a>PROGRAM_WITH_TEXTURE </td><td class="fielddoc"><p>Used to render a polyline or a surface that is not affected by light, like a cutting plane. </p>
+<p>It renders in a uniform color that does not change with selection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a1798d8107df4d3c6184f8f7eb76ccfbe"></a>PROGRAM_PLANE_TWO_FACES </td><td class="fielddoc"><p>Used to render a textured polyhedron. </p>
+<p>Affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a9ded1faec1c8d6d03fcd1637f5a71b8a"></a>PROGRAM_WITH_TEXTURED_EDGES </td><td class="fielddoc"><p>Used to render a two-faced plane. </p>
+<p>The two faces have a different color. Not affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a81d5198857a8341beeaf2acbc4c03686"></a>PROGRAM_INSTANCED </td><td class="fielddoc"><p>Used to render the edges of a textured polyhedorn. </p>
+<p>Not affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a7979618e4b419bb40bfe78df679471de"></a>PROGRAM_INSTANCED_WIRE </td><td class="fielddoc"><p>Used to display instanced rendered spheres.Affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a3a0b0f51cbe2d74ca594d90cfbf0c6b4"></a>PROGRAM_C3T3 </td><td class="fielddoc"><p>Used to display instanced rendered wired spheres. </p>
+<p>Not affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a011adcba5708765b39816c769e06c4b6"></a>PROGRAM_C3T3_EDGES </td><td class="fielddoc"><p>Used to render a c3t3_item. </p>
+<p>It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049ab53f0e0e7d2ca169a3e9b3dd63000f14"></a>PROGRAM_CUTPLANE_SPHERES </td><td class="fielddoc"><p>Used to render the edges of a c3t3_item. </p>
+<p>It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Not affected by light. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a16ef2c3b3d195975455313db8c9eb224"></a>PROGRAM_SPHERES </td><td class="fielddoc"><p>Used to render the spheres of an item with a cut plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a4798d0fa62c3ec1884ca76536013336b"></a>PROGRAM_FLAT </td><td class="fielddoc"><p>Used to render one or several spheres. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a08f2b62a5ec9bc6c53c2f4f86b06775c"></a>PROGRAM_OLD_FLAT </td><td class="fielddoc"><p>Used to render flat shading without pre computing normals. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049ad07f0225ed77bbaf7053d8ae095a98ba"></a>PROGRAM_SOLID_WIREFRAME </td><td class="fielddoc"><p>Used to render flat shading without pre computing normals without geometry shader. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfdd8a2b0f9b0b62e78ec525dfdf3049a6a9f759b44e9f9a0b1c419ada693aecc"></a>NB_OF_PROGRAMS </td><td class="fielddoc"><p>Used to render edges with width superior to 1. </p>
+<p>Holds the number of different programs in this enum. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a33bf2910f4b9ab7994cb5757c60e4adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33bf2910f4b9ab7994cb5757c60e4adc">◆ </a></span>Scene_item()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL::Three::Scene_item::Scene_item </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>buffers_size</em> = <code>20</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>vaos_size</em> = <code>10</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Constructor. </p>
+<p>This is where the vectors of VBOs and VAOs are initialized. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab5be7a8ae424b1e1fe465947d44ba419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5be7a8ae424b1e1fe465947d44ba419">◆ </a></span>alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float CGAL::Three::Scene_item::alpha </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the alpha value for the item. </p>
+<p>Must be called within a valid openGl context. </p>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a0b5b8914cc40b6e28a7a46e38d1d3d0a">CGAL::Three::Scene_item_rendering_helper</a>.</p>
+
+</div>
+</div>
+<a id="aa3a870e77d1ed26662e21e79eecc589d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a870e77d1ed26662e21e79eecc589d">◆ </a></span>attribBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Scene_item::attribBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>program_name</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Passes all the uniform data to the shaders. </p>
+<p>According to program_name, this data may change. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a11">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="af9cd9477cc4f11afcdf6e7479c7fbd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9cd9477cc4f11afcdf6e7479c7fbd48">◆ </a></span>bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">Bbox</a> CGAL::Three::Scene_item::bbox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The item's bounding box. </p>
+<p>If the Bbox has never been computed, computes it and saves the result for further calls. </p><dl class="section return"><dt>Returns</dt><dd>the item's bounding box. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a68bec0cc2f3283242e692e8bc517c8e9">CGAL::Three::Scene_item_rendering_helper</a>, and <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a80d07f07bc62b73ef97147a7e8773364">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="ac2bc3874a1d7196482b164b8dd1a05d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2bc3874a1d7196482b164b8dd1a05d3">◆ </a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html">Scene_item</a>* CGAL::Three::Scene_item::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Duplicates the item. </p>
+<p>Creates a new item as a copy of this one. </p>
+
+<p>Implemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#abe75ccb7fe639678ba981991010a17ce">CGAL::Three::Scene_group_item</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a6">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a4855fcaac2fcf76147e06582508fa7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4855fcaac2fcf76147e06582508fa7ac">◆ </a></span>color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QColor CGAL::Three::Scene_item::color </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the item's color. </p>
+<dl class="section return"><dt>Returns</dt><dd>the current color of the item. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a12">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ac22d0d3d8bb93498b7b8f843bf3c9afe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22d0d3d8bb93498b7b8f843bf3c9afe">◆ </a></span>computeStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QString CGAL::Three::Scene_item::computeStats </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a QString containing the requested value for the the table in the statistics dialog. </p>
+<pre class="fragment">* Example :
+*  ____________________________
+* |             |Name   |Cube |
+* |             |_______|_____|
+* |General Info | #Edges|12   |
+* |_____________|_______|_____|
+* compute stats(0) should return "Cube" and computeStats(1) should return QString::number(12);
+* The numbers must be coherent with the order of declaration of the titles in the header.
+* </pre> 
+</div>
+</div>
+<a id="a6eaa99ad881582218176a292ec64ea01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eaa99ad881582218176a292ec64ea01">◆ </a></span>contextMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QMenu* CGAL::Three::Scene_item::contextMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Context menu. </p>
+<p>Contains the list of the supported rendering modes, the Operations menu, actions to save or clone the item if it is supported and any contextual action for the item. </p>
+
+</div>
+</div>
+<a id="ab0c8523980da5f86748ad7a69fd11e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0c8523980da5f86748ad7a69fd11e34">◆ </a></span>diagonalBbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double CGAL::Three::Scene_item::diagonalBbox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the item's bounding box's diagonal length. </p>
+<p>If the diagonal's length has never been computed, computes it and saves the result for further calls. </p><dl class="section return"><dt>Returns</dt><dd>the item's bounding box's diagonal length. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a70c5d0516cdef228b0f3bae3c38ace42">CGAL::Three::Scene_item_rendering_helper</a>.</p>
+
+</div>
+</div>
+<a id="ab15b29884b66ec4e051fb426db25b344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15b29884b66ec4e051fb426db25b344">◆ </a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The drawing function for faces. </p>
+<p>Draws the faces of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a>. </p><dl class="section see"><dt>See also</dt><dd>computeElements() </dd>
+<dd>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a7b84625f39e16fe0ec706b213d919bac">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="afe7c0327104e81875de80105a95a158d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe7c0327104e81875de80105a95a158d">◆ </a></span>drawEdges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::drawEdges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The drawing function for the edges. </p>
+<p>Draws the edges and lines of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a>. </p><dl class="section see"><dt>See also</dt><dd>computeElements() </dd>
+<dd>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#ab6f8be63d81d51c025fd4ffc1b4642d9">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="afef30c057b3baaba39ee8642ea2ab3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef30c057b3baaba39ee8642ea2ab3e4">◆ </a></span>drawPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::drawPoints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The drawing function for the points. </p>
+<p>Draws the points of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a>. </p><dl class="section see"><dt>See also</dt><dd>computeElements() </dd>
+<dd>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a63190b9b7d7663a6510cd4ae660913ae">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="a6e175c307d08d8a4601b67b93db9ee7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e175c307d08d8a4601b67b93db9ee7b">◆ </a></span>font()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QFont CGAL::Three::Scene_item::font </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the font used for the data of the item. </p>
+<dl class="section return"><dt>Returns</dt><dd>a QFont containing the font used for the data of the item. </dd></dl>
+
+</div>
+</div>
+<a id="af9bc0ff2137f0c9bcb96e28986064401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9bc0ff2137f0c9bcb96e28986064401">◆ </a></span>getNbIsolatedvertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CGAL::Three::Scene_item::getNbIsolatedvertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the number of isolated vertices. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ad2562d11286ae07f5cd871f3a57f5ffd" title="Sets the number of isolated vertices. ">setNbIsolatedvertices</a> </dd></dl>
+
+</div>
+</div>
+<a id="a08880a273cf24d89d4e94760e082d72c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08880a273cf24d89d4e94760e082d72c">◆ </a></span>getShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QOpenGLShaderProgram* CGAL::Three::Scene_item::getShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em> = <code>0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compatibility function. </p>
+<p>Calls <code>viewer-&gt;<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a08880a273cf24d89d4e94760e082d72c" title="Compatibility function. ">getShaderProgram()</a></code>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a10">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ab104d6a4265f721f7fe6729106e6c6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab104d6a4265f721f7fe6729106e6c6a5">◆ </a></span>graphicalToolTip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QPixmap CGAL::Three::Scene_item::graphicalToolTip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains graphical meta-data about the item. </p>
+<dl class="section return"><dt>Returns</dt><dd>a QPixmap containing graphical meta-data about the item. </dd></dl>
+
+</div>
+</div>
+<a id="a90fdc9b1983bf20919a79063e6abb8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fdc9b1983bf20919a79063e6abb8cd">◆ </a></span>invalidateOpenGLBuffers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::invalidateOpenGLBuffers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. </p>
+<p>It is important to call this function whenever the internal data is changed, or the displayed item will not be updated. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a5">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a2287a9f901daa16577ba597a4432e284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2287a9f901daa16577ba597a4432e284">◆ </a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGAL::Three::Scene_item::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies if the item is empty or null. </p>
+<p>If true, the BBox is not computed. </p>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a79798257e2fe22f4b7280b5fdb500c20">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="aacdaacfd1e76887501acb522c61f5aa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacdaacfd1e76887501acb522c61f5aa4">◆ </a></span>isFinite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGAL::Three::Scene_item::isFinite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines if the item is finite or not. </p>
+<p>For example, a plane is not finite. If false, the BBox is not computed. </p>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a31ac4b95e5d317fdb475a944b95e60d9">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="a145adfaf093cbe754250864ad76cd0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145adfaf093cbe754250864ad76cd0d3">◆ </a></span>itemAboutToBeDestroyed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::itemAboutToBeDestroyed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html">Scene_item</a> * </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emits an <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a4dec9182cf1fdecadb7ca66a0b1ce496" title="Is emitted to notify that the item is about to be deleted. ">aboutToBeDestroyed()</a> signal. </p>
+<p>Override this function to delete what needs to be deleted on destruction. This might be needed as items are not always deleted right away by Qt and this behaviour may cause a simily memory leak, for example when multiple items are created at the same time. </p>
+
+</div>
+</div>
+<a id="ac2c1d53c8854d997729c8a51be89d3a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c1d53c8854d997729c8a51be89d3a3">◆ </a></span>itemVisibilityChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Scene_item::itemVisibilityChanged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is emitted when the item is shown to notify a change in the item's visibility. </p>
+<p>Typically used to update the scene's bbox; </p>
+
+</div>
+</div>
+<a id="a21b7abe6372d6af3c2594d682f486212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b7abe6372d6af3c2594d682f486212">◆ </a></span>manipulatable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGAL::Three::Scene_item::manipulatable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the item has a ManipulatedFrame. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#ab07d3eadd4cdf4f366dada2e3864c94f" title="The manipulatedFrame of the item. ">manipulatedFrame()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab07d3eadd4cdf4f366dada2e3864c94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07d3eadd4cdf4f366dada2e3864c94f">◆ </a></span>manipulatedFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ManipulatedFrame* CGAL::Three::Scene_item::manipulatedFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The manipulatedFrame of the item. </p>
+<p>A manipulated frame is an independant system that can be translated or rotated using the Ctrl key and the mouse. </p><dl class="section return"><dt>Returns</dt><dd>the manipulatedFrame of the item. </dd></dl>
+
+</div>
+</div>
+<a id="a1a313eea0253c08434f435af178380ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a313eea0253c08434f435af178380ea">◆ </a></span>moveToGroup</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::moveToGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">Scene_group_item</a> * </td>
+          <td class="paramname"><em>group</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the parent group. </p>
+<p>If <code>group==0</code>, then the item has no parent. This function is called by <code>Scene::changeGroup</code> and should not be called manually. </p>
+
+</div>
+</div>
+<a id="a9875d388ef00bea89d83d6dc2d9a9cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9875d388ef00bea89d83d6dc2d9a9cfb">◆ </a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QString CGAL::Three::Scene_item::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the item's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>the current name of the item. </dd></dl>
+
+</div>
+</div>
+<a id="aa70ed13403cf68538511435a1e5abaa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70ed13403cf68538511435a1e5abaa6">◆ </a></span>parentGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html">Scene_group_item</a>* CGAL::Three::Scene_item::parentGroup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The group containing the item. </p>
+<dl class="section return"><dt>Returns</dt><dd>the parent group if the item is in a group </dd>
+<dd>
+0 if the item is not in a group. </dd></dl>
+
+</div>
+</div>
+<a id="af8611dc5cad9577d661cc0489c2f2ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8611dc5cad9577d661cc0489c2f2ae8">◆ </a></span>renderingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> CGAL::Three::Scene_item::renderingMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the item's rendering mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>the current rendering mode of the item. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70" title="The RenderingMode determines which of an item's primitives must be drawn. ">RenderingMode</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6264814c331f53f9a9616dca384acd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6264814c331f53f9a9616dca384acd40">◆ </a></span>renderingModeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QString CGAL::Three::Scene_item::renderingModeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The renderingMode's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>the current rendering mode of the item as a human readable string. </dd></dl>
+
+</div>
+</div>
+<a id="a71289ccb01e001579b24ed01c0e43b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71289ccb01e001579b24ed01c0e43b96">◆ </a></span>setAlpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::setAlpha </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>alpha</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the value of the aplha Slider for this item. </p>
+<p>Must be overriden; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>must be between 0 and 255 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a42b27a48ebc07ae774a16fe342899865">CGAL::Three::Scene_group_item</a>, and <a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a3fcaf2c78e85973aae8116d4047b5d15">CGAL::Three::Scene_item_rendering_helper</a>.</p>
+
+</div>
+</div>
+<a id="ad2562d11286ae07f5cd871f3a57f5ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2562d11286ae07f5cd871f3a57f5ffd">◆ </a></span>setNbIsolatedvertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Scene_item::setNbIsolatedvertices </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>nb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the number of isolated vertices. </p>
+<p>This number will be displayed in a warning box at loading. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#af9bc0ff2137f0c9bcb96e28986064401" title="Getter for the number of isolated vertices. ">getNbIsolatedvertices</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6df86c4f76ed2b284ba508d02b6e4ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df86c4f76ed2b284ba508d02b6e4ff8">◆ </a></span>setRbgColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Scene_item::setRbgColor </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>b</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Setter for the RGB color of the item. </p>
+<p>Calls <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa068e79eb544f7ee33a82ede9c91d816" title="Setter for the color of the item. ">setColor(QColor)</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#aa068e79eb544f7ee33a82ede9c91d816" title="Setter for the color of the item. ">setColor(QColor c)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a54a27fccdfc8b14c6cc3defb17c1a030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a27fccdfc8b14c6cc3defb17c1a030">◆ </a></span>setRenderingMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Scene_item::setRenderingMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the rendering mode of the item. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70" title="The RenderingMode determines which of an item's primitives must be drawn. ">RenderingMode</a> </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#a8febd2a539c080696dc365c6385c0ee7">CGAL::Three::Scene_group_item</a>.</p>
+
+</div>
+</div>
+<a id="a02803633ba4bc72a216cad524d270278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02803633ba4bc72a216cad524d270278">◆ </a></span>supportsRenderingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGAL::Three::Scene_item::supportsRenderingMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> </td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates if <code>m</code> is supported. </p>
+<p>If it is, it will be displayed in the context menu of the item. </p>
+
+<p>Implemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#ac7c860f6e89a12c6e67a7aa25df3dbc7">CGAL::Three::Scene_group_item</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a1">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="abb15a0d82db8f66786393df61c322b6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb15a0d82db8f66786393df61c322b6d">◆ </a></span>toolTip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QString CGAL::Three::Scene_item::toolTip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains meta-data about the item. </p>
+<dl class="section return"><dt>Returns</dt><dd>a QString containing meta-data about the item. </dd></dl>
+
+<p>Implemented in <a class="el" href="classCGAL_1_1Three_1_1Scene__group__item.html#ad666da7d12bcf172e831bac8d081ca7e">CGAL::Three::Scene_group_item</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Three_2Example_plugin_2Example_plugin_8cpp-example.html#a7">Three/Example_plugin/Example_plugin.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a1139cc1cca8d8b1e3088dafc81c70aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1139cc1cca8d8b1e3088dafc81c70aa1">◆ </a></span>visible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool CGAL::Three::Scene_item::visible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If the item is not visible, it is not drawn and its Bbox is ignored in the computation of the scene's. </p>
+<dl class="section return"><dt>Returns</dt><dd>the current visibility of the item. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac4287b89a2d383abe75fde71aec9eb4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4287b89a2d383abe75fde71aec9eb4d">◆ </a></span>are_buffers_filled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::Three::Scene_item::are_buffers_filled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decides if the draw function must call <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> or not. </p>
+<p>It is set to true in the end of <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> and to false in <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a90fdc9b1983bf20919a79063e6abb8cd" title="Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. ">invalidateOpenGLBuffers()</a>. The need of this boolean comes from the need of a context from the OpenGLFunctions used in <a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a216833a5b2c7b82e7ae23ad4bd3684cb" title="Fills the VBOs with data. ">initializeBuffers()</a> </dd>
+<dd>
+<a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a90fdc9b1983bf20919a79063e6abb8cd" title="Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. ">invalidateOpenGLBuffers()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab6d349f906713609ebae88928536f7aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d349f906713609ebae88928536f7aa">◆ </a></span>cur_shading</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> CGAL::Three::Scene_item::cur_shading</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the current RenderingMode. </p>
+<p>This is used to determine if invalidateOpenGLBuffers should be called or not in certain cases. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a90fdc9b1983bf20919a79063e6abb8cd" title="Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. ">invalidateOpenGLBuffers()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a9202b7c8773321cbbea3ae4d9e37245b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9202b7c8773321cbbea3ae4d9e37245b">◆ </a></span>defaultColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QColor CGAL::Three::Scene_item::defaultColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default color of a scene_item. </p>
+<p>This color is the one that will be displayed if none is specified after its creation. </p>
+
+</div>
+</div>
+<a id="ab681df6a98485d5ff2ee037f26548f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab681df6a98485d5ff2ee037f26548f23">◆ </a></span>nb_isolated_vertices</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CGAL::Three::Scene_item::nb_isolated_vertices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the number of vertices that are not linked to the polyhedron from the OFF file. </p>
+
+</div>
+</div>
+<a id="a29a686e3b11821c9249d92d50b3782da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a686e3b11821c9249d92d50b3782da">◆ </a></span>prev_shading</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> CGAL::Three::Scene_item::prev_shading</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the previous RenderingMode. </p>
+<p>This is used to determine if invalidateOpenGLBuffers should be called or not in certain cases. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html#a90fdc9b1983bf20919a79063e6abb8cd" title="Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. ">invalidateOpenGLBuffers()</a> </dd></dl>
+
+</div>
+</div>
+<a id="aee23f65dd495763db9c844835c6a4d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee23f65dd495763db9c844835c6a4d2d">◆ </a></span>rendering_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70">RenderingMode</a> CGAL::Three::Scene_item::rendering_mode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The rendering mode of the item. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__PkgThree.html#ga87cafe63badc45546f2eb940f2a94d70" title="The RenderingMode determines which of an item's primitives must be drawn. ">RenderingMode</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>CGAL</b></li><li class="navelem"><b>Three</b></li><li class="navelem"><a class="el" href="classCGAL_1_1Three_1_1Scene__item.html">Scene_item</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:11 for CGAL 4.13 - Three by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

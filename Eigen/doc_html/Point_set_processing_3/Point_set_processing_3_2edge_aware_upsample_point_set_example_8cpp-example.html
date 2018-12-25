@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Point_set_processing_3/Point_set_processing_3_2edge_aware_upsample_point_set_example_8cpp-example.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Point Set Processing: Point_set_processing_3/edge_aware_upsample_point_set_example.cpp</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Point Set Processing
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Point_set_processing_3_2edge_aware_upsample_point_set_example_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Point_set_processing_3/edge_aware_upsample_point_set_example.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/edge_aware_upsample_point_set.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/IO/read_xyz_points.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/IO/write_xyz_points.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// types</span></div><div class="line"><span class="keyword">typedef</span> <a name="_a0" id="_a0"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Simple__cartesian.html">CGAL::Simple_cartesian&lt;double&gt;</a> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"><span class="keyword">typedef</span> <a name="_a1" id="_a1"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> Point;</div><div class="line"><span class="keyword">typedef</span> <a name="_a2" id="_a2"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Vector__3.html">Kernel::Vector_3</a> Vector;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Point with normal vector stored in a std::pair.</span></div><div class="line"><span class="keyword">typedef</span> std::pair&lt;Point, Vector&gt; PointVectorPair;</div><div class="line"></div><div class="line"><span class="comment">// Concurrency</span></div><div class="line"><span class="preprocessor">#ifdef CGAL_LINKED_WITH_TBB</span></div><div class="line"><span class="keyword">typedef</span> <a name="_a3" id="_a3"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Parallel__tag.html">CGAL::Parallel_tag</a> Concurrency_tag;</div><div class="line"><span class="preprocessor">#else</span></div><div class="line"><span class="keyword">typedef</span> <a name="_a4" id="_a4"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Sequential__tag.html">CGAL::Sequential_tag</a> Concurrency_tag;</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span>* input_filename = (argc&gt;1)?argv[1]:<span class="stringliteral">"data/before_upsample.xyz"</span>;</div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span>* output_filename = (argc&gt;2)?argv[2]:<span class="stringliteral">"data/before_upsample_UPSAMPLED.xyz"</span>;</div><div class="line"></div><div class="line">  <span class="comment">// Reads a .xyz point set file in points[], *with normals*.</span></div><div class="line">  std::vector&lt;PointVectorPair&gt; points;</div><div class="line">  std::ifstream stream(input_filename);</div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (!stream ||</div><div class="line">      !<a name="a5" id="a5"></a><a class="code" href="group__PkgPointSetProcessingIO.html#ga2e8d677def85c5582ba1f01eda030628">CGAL::read_xyz_points</a>(stream,</div><div class="line">                        std::back_inserter(points),</div><div class="line">                        CGAL::parameters::point_map(<a name="_a6" id="_a6"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1First__of__pair__property__map.html">CGAL::First_of_pair_property_map&lt;PointVectorPair&gt;</a>()).</div><div class="line">                        normal_map(<a name="_a7" id="_a7"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1Second__of__pair__property__map.html">CGAL::Second_of_pair_property_map&lt;PointVectorPair&gt;</a>())))</div><div class="line">  {</div><div class="line">    std::cerr &lt;&lt; <span class="stringliteral">"Error: cannot read file "</span> &lt;&lt; input_filename &lt;&lt; std::endl;</div><div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="comment">//Algorithm parameters</span></div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">double</span> sharpness_angle = 25;   <span class="comment">// control sharpness of the result.</span></div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">double</span> edge_sensitivity = 0;    <span class="comment">// higher values will sample more points near the edges          </span></div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">double</span> neighbor_radius = 0.25;  <span class="comment">// initial size of neighborhood.</span></div><div class="line">  <span class="keyword">const</span> std::size_t number_of_output_points = points.size() * 4;</div><div class="line"></div><div class="line">   <span class="comment">//Run algorithm </span></div><div class="line">  CGAL::edge_aware_upsample_point_set&lt;Concurrency_tag&gt;(</div><div class="line">    points,</div><div class="line">    std::back_inserter(points),</div><div class="line">    CGAL::parameters::point_map(<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1First__of__pair__property__map.html">CGAL::First_of_pair_property_map&lt;PointVectorPair&gt;</a>()).</div><div class="line">    normal_map(<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1Second__of__pair__property__map.html">CGAL::Second_of_pair_property_map&lt;PointVectorPair&gt;</a>()).</div><div class="line">    sharpness_angle(sharpness_angle).</div><div class="line">    edge_sensitivity(edge_sensitivity).</div><div class="line">    neighbor_radius(neighbor_radius).</div><div class="line">    number_of_output_points(number_of_output_points));</div><div class="line"></div><div class="line">  <span class="comment">// Saves point set.</span></div><div class="line">  std::ofstream out(output_filename);  </div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (!out ||</div><div class="line">     !<a name="a8" id="a8"></a><a class="code" href="group__PkgPointSetProcessingIO.html#ga63d1f8f5933d843d8a179a1be4b0dd8f">CGAL::write_xyz_points</a>(</div><div class="line">      out, points,</div><div class="line">      CGAL::parameters::point_map(<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1First__of__pair__property__map.html">CGAL::First_of_pair_property_map&lt;PointVectorPair&gt;</a>()).</div><div class="line">      normal_map(<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Property_map.tag:../Property_map/" href="../Property_map/structCGAL_1_1Second__of__pair__property__map.html">CGAL::Second_of_pair_property_map&lt;PointVectorPair&gt;</a>())))</div><div class="line">  {</div><div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:52 for CGAL 4.13 - Point Set Processing by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

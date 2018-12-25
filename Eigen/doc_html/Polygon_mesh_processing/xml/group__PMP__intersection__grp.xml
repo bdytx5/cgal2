@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__intersection__grp" kind="group">
+    <compoundname>PMP_intersection_grp</compoundname>
+    <title>Intersection Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__intersection__grp_1ga0afb9e365a2f16f0591255b8df468885" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::self_intersections</definition>
+        <argsstring>(const TriangleMesh &amp;tmesh, OutputIterator out, const NamedParameters &amp;np)</argsstring>
+        <name>self_intersections</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>detects and records self-intersections of a triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgBoxIntersectionDSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Intersecting Sequences of dD Iso-oriented Boxes</ref> <simplesect kind="pre"><para><computeroutput>CGAL::is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding objects of type <computeroutput>std::pair&lt;boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor, boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor&gt;</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to be checked </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator to be filled with all pairs of non-adjacent faces that intersect. In case <computeroutput>tmesh</computeroutput> contains some degenerate faces, for each degenerate face <computeroutput>f</computeroutput> a pair <computeroutput>(f,f)</computeroutput> will be put in <computeroutput>out</computeroutput> before any other self intersection between non-degenerate faces. These are the only pairs where degenerate faces will be reported. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classPMPSelfIntersectionTraits" kindref="compound">PMPSelfIntersectionTraits</ref></computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>out</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/self_intersections.h" line="271" column="1" bodyfile="CGAL/Polygon_mesh_processing/self_intersections.h" bodystart="271" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__intersection__grp_1ga8a27d056519cc5d2b1a7726bdc5ef0f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class FaceRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::self_intersections</definition>
+        <argsstring>(const FaceRange &amp;face_range, const TriangleMesh &amp;tmesh, OutputIterator out, const NamedParameters &amp;np)</argsstring>
+        <name>self_intersections</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>face_range</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Same as above but the self-intersections reported are only limited to the faces in <computeroutput>face_range</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><computeroutput>CGAL::is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classRandomAccessIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding objects of type <computeroutput>std::pair&lt;boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor, boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor&gt;</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>face_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of faces to check for self-intersection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to be checked </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator to be filled with all pairs of non-adjacent faces that intersect </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classPMPSelfIntersectionTraits" kindref="compound">PMPSelfIntersectionTraits</ref></computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/self_intersections.h" line="326" column="1" bodyfile="CGAL/Polygon_mesh_processing/self_intersections.h" bodystart="326" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__intersection__grp_1ga0beba25d03a16010b20e2c9b6771cd12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::does_self_intersect</definition>
+        <argsstring>(const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>does_self_intersect</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>tests if a triangulated surface mesh self-intersects. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgBoxIntersectionDSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Intersecting Sequences of dD Iso-oriented Boxes</ref> <simplesect kind="pre"><para><computeroutput>CGAL::is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to be tested </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classPMPSelfIntersectionTraits" kindref="compound">PMPSelfIntersectionTraits</ref></computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true if <computeroutput>tmesh</computeroutput> self-intersects </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/self_intersections.h" line="415" column="1" bodyfile="CGAL/Polygon_mesh_processing/self_intersections.h" bodystart="415" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__intersection__grp_1ga31aa7a8c410dba29297afa55fb93a0b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FaceRange</type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::does_self_intersect</definition>
+        <argsstring>(const FaceRange &amp;face_range, const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>does_self_intersect</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>face_range</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>tests if a set of faces of a triangulated surface mesh self-intersects. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgBoxIntersectionDSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Intersecting Sequences of dD Iso-oriented Boxes</ref> <simplesect kind="pre"><para><computeroutput>CGAL::is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput>face_descriptor</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>face_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the set of faces to test for self-intersection </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to be tested </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput>SelfIntersectionTraits</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true if the faces in <computeroutput>face_range</computeroutput> self-intersect </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/self_intersections.h" line="458" column="1" bodyfile="CGAL/Polygon_mesh_processing/self_intersections.h" bodystart="458" bodyend="473"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to test if there are self intersections, and to report faces that do intersect. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

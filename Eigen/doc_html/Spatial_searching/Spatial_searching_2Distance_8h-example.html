@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Spatial_searching/Spatial_searching_2Distance_8h-example.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - dD Spatial Searching: Spatial_searching/Distance.h</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - dD Spatial Searching
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Spatial_searching_2Distance_8h-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Spatial_searching/Distance.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><span class="keyword">struct </span>Distance {</div><div class="line">  <span class="keyword">typedef</span> Point Query_item;</div><div class="line">  <span class="keyword">typedef</span> <span class="keywordtype">double</span> FT;</div><div class="line">  <span class="keyword">typedef</span> <a name="_a0" id="_a0"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Dimension__tag.html">CGAL::Dimension_tag&lt;3&gt;</a> D;</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> transformed_distance(<span class="keyword">const</span> Point&amp; p1, <span class="keyword">const</span> Point&amp; p2)<span class="keyword"> const </span>{</div><div class="line">    <span class="keywordtype">double</span> distx= p1.x()-p2.x();</div><div class="line">    <span class="keywordtype">double</span> disty= p1.y()-p2.y();</div><div class="line">    <span class="keywordtype">double</span> distz= p1.z()-p2.z();</div><div class="line">    <span class="keywordflow">return</span> distx*distx+disty*disty+distz*distz;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> min_distance_to_rectangle(<span class="keyword">const</span> Point&amp; p,</div><div class="line">                   <span class="keyword">const</span> <a name="_a1" id="_a1"></a><a class="code" href="classCGAL_1_1Kd__tree__rectangle.html">CGAL::Kd_tree_rectangle&lt;FT,D&gt;</a>&amp; b)<span class="keyword"> const </span>{</div><div class="line">    <span class="keywordtype">double</span> distance(0.0), h = p.x();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a name="a2" id="a2"></a><a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)) distance += (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)-h);</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a name="a3" id="a3"></a><a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0)) distance += (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0));</div><div class="line">    h=p.y();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)) distance += (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)-h);</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1)) distance += (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1));</div><div class="line">    h=p.z();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)) distance += (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)-h);</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2)) distance += (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2));</div><div class="line">    <span class="keywordflow">return</span> distance;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> min_distance_to_rectangle(<span class="keyword">const</span> Point&amp; p,</div><div class="line">                   <span class="keyword">const</span> <a class="code" href="classCGAL_1_1Kd__tree__rectangle.html">CGAL::Kd_tree_rectangle&lt;FT,D&gt;</a>&amp; b,std::vector&lt;double&gt;&amp; dists){   </div><div class="line">    <span class="keywordtype">double</span> distance(0.0), h = p.x();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)){</div><div class="line">      dists[0] = (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)-h);</div><div class="line">      distance += dists[0]*dists[0];</div><div class="line">    }</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0)){</div><div class="line">      dists[0] = (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0));</div><div class="line">      distance += dists[0]*dists[0];</div><div class="line">    }</div><div class="line">    h=p.y();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)){</div><div class="line">      dists[1] = (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)-h);</div><div class="line">      distance += dists[1]*dists[1];</div><div class="line">    }</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1)){</div><div class="line">      dists[1] = (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1));</div><div class="line">      distance += dists[1]*dists[1];</div><div class="line">    }</div><div class="line">    h=p.z();</div><div class="line">    <span class="keywordflow">if</span> (h &lt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)){</div><div class="line">      dists[2] = (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)-h);</div><div class="line">      distance += dists[2]*dists[2];</div><div class="line">    }</div><div class="line">    <span class="keywordflow">if</span> (h &gt; b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2)){</div><div class="line">      dists[2] = (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2));</div><div class="line">      distance += dists[2]*dists[2];</div><div class="line">    }</div><div class="line">    <span class="keywordflow">return</span> distance;</div><div class="line">  }</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> max_distance_to_rectangle(<span class="keyword">const</span> Point&amp; p,</div><div class="line">                   <span class="keyword">const</span> <a class="code" href="classCGAL_1_1Kd__tree__rectangle.html">CGAL::Kd_tree_rectangle&lt;FT,D&gt;</a>&amp; b)<span class="keyword"> const </span>{</div><div class="line">    <span class="keywordtype">double</span> h = p.x();</div><div class="line"></div><div class="line">    <span class="keywordtype">double</span> d0 = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0)-h);</div><div class="line"></div><div class="line">    h=p.y();</div><div class="line">    <span class="keywordtype">double</span> d1 = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1)-h);</div><div class="line">    h=p.z();</div><div class="line">    <span class="keywordtype">double</span> d2 = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2))*(h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2)-h)*(b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2)-h);</div><div class="line">    <span class="keywordflow">return</span> d0 + d1 + d2;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> max_distance_to_rectangle(<span class="keyword">const</span> Point&amp; p,</div><div class="line">                   <span class="keyword">const</span> <a class="code" href="classCGAL_1_1Kd__tree__rectangle.html">CGAL::Kd_tree_rectangle&lt;FT,D&gt;</a>&amp; b,std::vector&lt;double&gt;&amp; dists){   </div><div class="line">    <span class="keywordtype">double</span> h = p.x();</div><div class="line"></div><div class="line">    dists[0] = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(0)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(0)-h);</div><div class="line">    </div><div class="line">    h=p.y();</div><div class="line">    dists[1] = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(1)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(1)-h);</div><div class="line">    h=p.z();</div><div class="line">    dists[2] = (h &gt;= (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)+b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2))/2.0) ?</div><div class="line">                (h-b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#ac23671b8977b090392b945483d788389">min_coord</a>(2)) : (b.<a class="code" href="classCGAL_1_1Kd__tree__rectangle.html#a7e2867b92e3f31a934c485b4a80f0156">max_coord</a>(2)-h);</div><div class="line">    <span class="keywordflow">return</span> dists[0] * dists[0] + dists[1] * dists[1] + dists[2] * dists[2];</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> new_distance(<span class="keywordtype">double</span>&amp; dist, <span class="keywordtype">double</span> old_off, <span class="keywordtype">double</span> new_off,</div><div class="line">              <span class="keywordtype">int</span> <span class="comment">/* cutting_dimension */</span>)<span class="keyword">  const </span>{</div><div class="line">    <span class="keywordflow">return</span> dist + new_off*new_off - old_off*old_off;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> transformed_distance(<span class="keywordtype">double</span> d)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> d*d; }</div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> inverse_of_transformed_distance(<span class="keywordtype">double</span> d) { <span class="keywordflow">return</span> <a name="a4" id="a4"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Algebraic_foundations.tag:../Algebraic_foundations/" href="../Algebraic_foundations/group__PkgAlgebraicFoundations.html#gab922269072ee9ee99ba8c541418b2e11">std::sqrt</a>(d); }</div><div class="line"></div><div class="line">}; <span class="comment">// end of struct Distance</span></div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:08 for CGAL 4.13 - dD Spatial Searching by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

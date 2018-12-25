@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Classification_1_1Evaluation" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Classification::Evaluation</compoundname>
+    <includes local="no">CGAL/Classification/Evaluation.h</includes>
+      <sectiondef kind="user-defined">
+      <header>Constructor</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1a4d4ab0b23e524796c05bd5ed5a7a6a7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename GroundTruthIndexRange</type>
+          </param>
+          <param>
+            <type>typename ResultIndexRange</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CGAL::Classification::Evaluation::Evaluation</definition>
+        <argsstring>(const Label_set &amp;labels, const GroundTruthIndexRange &amp;ground_truth, const ResultIndexRange &amp;result)</argsstring>
+        <name>Evaluation</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Classification_1_1Label__set" kindref="compound">Label_set</ref> &amp;</type>
+          <declname>labels</declname>
+        </param>
+        <param>
+          <type>const GroundTruthIndexRange &amp;</type>
+          <declname>ground_truth</declname>
+        </param>
+        <param>
+          <type>const ResultIndexRange &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Instantiates an evaluation object and computes all measurements. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>labels used.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ground_truth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of label indices: it should contain the index of the corresponding label in the <computeroutput><ref refid="classCGAL_1_1Classification_1_1Label__set" kindref="compound">Label_set</ref></computeroutput> provided in the constructor. Input items that do not have a ground truth information should be given the value <computeroutput>-1</computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>similar to <computeroutput>ground_truth</computeroutput> but contained the result of a classification. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="75" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="75" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Label Evaluation</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1a040d137ec34590b2e2364d42264a901e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::precision</definition>
+        <argsstring>(Label_handle label) const</argsstring>
+        <name>precision</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Label__handle" kindref="compound">Label_handle</ref></type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+<para>Returns the precision of the training for the given label. </para>        </briefdescription>
+        <detaileddescription>
+<para>Precision is the number of true positives divided by the sum of the true positives and the false positives. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="148" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1a40cd95adcd26d7b16cd6daaf56dfba27" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::recall</definition>
+        <argsstring>(Label_handle label) const</argsstring>
+        <name>recall</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Label__handle" kindref="compound">Label_handle</ref></type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+<para>Returns the recall of the training for the given label. </para>        </briefdescription>
+        <detaileddescription>
+<para>Recall is the number of true positives divided by the sum of the true positives and the false negatives. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="161" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1a8de98452ad8bafc018b18d75e1e55a47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::f1_score</definition>
+        <argsstring>(Label_handle label) const</argsstring>
+        <name>f1_score</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Label__handle" kindref="compound">Label_handle</ref></type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <formula id="24">$F_1$</formula> score of the training for the given label. </para>        </briefdescription>
+        <detaileddescription>
+<para><formula id="24">$F_1$</formula> score is the harmonic mean of <computeroutput><ref refid="classCGAL_1_1Classification_1_1Evaluation_1a040d137ec34590b2e2364d42264a901e" kindref="member">precision()</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Classification_1_1Evaluation_1a40cd95adcd26d7b16cd6daaf56dfba27" kindref="member">recall()</ref></computeroutput>:</para><para><formula id="25">\[ F_1 = 2 \times \frac{precision \times recall}{precision + recall} \]</formula> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="177" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="177" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1a2d4513d5a5256fda156d5b4fd1ddfbe7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::intersection_over_union</definition>
+        <argsstring>(Label_handle label) const</argsstring>
+        <name>intersection_over_union</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Label__handle" kindref="compound">Label_handle</ref></type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+<para>Returns the intersection over union of the training for the given label. </para>        </briefdescription>
+        <detaileddescription>
+<para>Intersection over union is the number of true positives divided by the sum of the true positives, of the false positives and of the false negatives. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="192" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="192" bodyend="195"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Global Evaluation</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1ac2c9a217607e34f38541d10adc77b336" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::accuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>accuracy</name>
+        <briefdescription>
+<para>Returns the accuracy of the training. </para>        </briefdescription>
+        <detaileddescription>
+<para>Accuracy is the total number of true positives divided by the total number of provided inliers. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="209" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="209" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1aca8eaa6bf226fc44a3740b376acce804" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::mean_f1_score</definition>
+        <argsstring>() const</argsstring>
+        <name>mean_f1_score</name>
+        <briefdescription>
+<para>Returns the mean <formula id="24">$F_1$</formula> score of the training over all labels (see <computeroutput><ref refid="classCGAL_1_1Classification_1_1Evaluation_1a8de98452ad8bafc018b18d75e1e55a47" kindref="member">f1_score()</ref></computeroutput>). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="215" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Evaluation_1aae3761d28e2b0585c8715edbff790c14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::mean_intersection_over_union</definition>
+        <argsstring>() const</argsstring>
+        <name>mean_intersection_over_union</name>
+        <briefdescription>
+<para>Returns the mean intersection over union of the training over all labels (see <computeroutput><ref refid="classCGAL_1_1Classification_1_1Evaluation_1a2d4513d5a5256fda156d5b4fd1ddfbe7" kindref="member">intersection_over_union()</ref></computeroutput>). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="221" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="221" bodyend="221"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1aaca9e8d75d17d776b02f6177460b5790" prot="private" static="no" mutable="yes">
+        <type>std::map&lt; <ref refid="classCGAL_1_1Classification_1_1Label__handle" kindref="compound">Label_handle</ref>, std::size_t &gt;</type>
+        <definition>std::map&lt;Label_handle, std::size_t&gt; CGAL::Classification::Evaluation::m_map_labels</definition>
+        <argsstring></argsstring>
+        <name>m_map_labels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="43" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1a3bd342da27b15d16a559007216d40f5f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; CGAL::Classification::Evaluation::m_precision</definition>
+        <argsstring></argsstring>
+        <name>m_precision</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="45" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1ab78bd700eb949d3e3cdba25bf327c194" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; CGAL::Classification::Evaluation::m_recall</definition>
+        <argsstring></argsstring>
+        <name>m_recall</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="46" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1ae8d938da0b1fde8958f406a17b2f8874" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; CGAL::Classification::Evaluation::m_iou</definition>
+        <argsstring></argsstring>
+        <name>m_iou</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="47" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1af91015d5432d118b2178eec17d32f03b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::m_accuracy</definition>
+        <argsstring></argsstring>
+        <name>m_accuracy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="48" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1a430cfde68cdeb9e38bcf7e8ca08088dc" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::m_mean_iou</definition>
+        <argsstring></argsstring>
+        <name>m_mean_iou</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="49" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Evaluation_1a6bba276a8322b4a93d1c1e618e54646e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CGAL::Classification::Evaluation::m_mean_f1</definition>
+        <argsstring></argsstring>
+        <name>m_mean_f1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Evaluation.h" line="50" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to compute several measurements to evaluate the quality of a classification output. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CGAL/Classification/Evaluation.h" line="42" column="1" bodyfile="CGAL/Classification/Evaluation.h" bodystart="41" bodyend="225"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1ac2c9a217607e34f38541d10adc77b336" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>accuracy</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a4d4ab0b23e524796c05bd5ed5a7a6a7b" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>Evaluation</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a8de98452ad8bafc018b18d75e1e55a47" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>f1_score</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a2d4513d5a5256fda156d5b4fd1ddfbe7" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>intersection_over_union</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1af91015d5432d118b2178eec17d32f03b" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_accuracy</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1ae8d938da0b1fde8958f406a17b2f8874" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_iou</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1aaca9e8d75d17d776b02f6177460b5790" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_map_labels</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a6bba276a8322b4a93d1c1e618e54646e" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_mean_f1</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a430cfde68cdeb9e38bcf7e8ca08088dc" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_mean_iou</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a3bd342da27b15d16a559007216d40f5f" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_precision</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1ab78bd700eb949d3e3cdba25bf327c194" prot="private" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>m_recall</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1aca8eaa6bf226fc44a3740b376acce804" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>mean_f1_score</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1aae3761d28e2b0585c8715edbff790c14" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>mean_intersection_over_union</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a040d137ec34590b2e2364d42264a901e" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>precision</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Evaluation_1a40cd95adcd26d7b16cd6daaf56dfba27" prot="public" virt="non-virtual"><scope>CGAL::Classification::Evaluation</scope><name>recall</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Mesh_2/group__PkgMesh2Functions.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Conforming Triangulations and Meshes: Mesh Generation Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Conforming Triangulations and Meshes
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgMesh2Functions.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Mesh Generation Functions<div class="ingroups"><a class="el" href="group__PkgMesh2.html">2D Conforming Triangulations and Meshes Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>The main function to generate a mesh is <code><a class="el" href="group__PkgMesh2Functions.html#gafd0e61cd3bf931e55298ad9b1523f9a7" title="Refines the default domain defined by a constrained Delaunay triangulation without seeds into a mesh ...">refine_Delaunay_mesh_2()</a></code>. </p>
+<p>The function <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> allows to optimize an existing mesh. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gafd0e61cd3bf931e55298ad9b1523f9a7"><td class="memTemplParams" colspan="2">template&lt;class CDT , class Criteria &gt; </td></tr>
+<tr class="memitem:gafd0e61cd3bf931e55298ad9b1523f9a7"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMesh2Functions.html#gafd0e61cd3bf931e55298ad9b1523f9a7">CGAL::refine_Delaunay_mesh_2</a> (CDT &amp;t, const Criteria &amp;criteria=Criteria())</td></tr>
+<tr class="memdesc:gafd0e61cd3bf931e55298ad9b1523f9a7"><td class="mdescLeft"> </td><td class="mdescRight">Refines the default domain defined by a constrained Delaunay triangulation without seeds into a mesh satisfying the criteria defined by the traits <code>criteria</code>.  <a href="group__PkgMesh2Functions.html#gafd0e61cd3bf931e55298ad9b1523f9a7">More...</a><br /></td></tr>
+<tr class="separator:gafd0e61cd3bf931e55298ad9b1523f9a7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga55c3e585b93a0fd91c6094d4763f9c01"><td class="memTemplParams" colspan="2">template&lt;class CDT , class Criteria , class InputIterator &gt; </td></tr>
+<tr class="memitem:ga55c3e585b93a0fd91c6094d4763f9c01"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMesh2Functions.html#ga55c3e585b93a0fd91c6094d4763f9c01">CGAL::refine_Delaunay_mesh_2</a> (CDT &amp;t, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> begin, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> end, const Criteria &amp;criteria=Criteria(), bool mark=false)</td></tr>
+<tr class="memdesc:ga55c3e585b93a0fd91c6094d4763f9c01"><td class="mdescLeft"> </td><td class="mdescRight">Refines the default domain defined by a constrained Delaunay triangulation into a mesh satisfying the criteria defined by the traits <code>criteria</code>.The sequence <code>[begin, end)</code> gives a set of seeds points, that defines the domain to be meshed as follows.  <a href="group__PkgMesh2Functions.html#ga55c3e585b93a0fd91c6094d4763f9c01">More...</a><br /></td></tr>
+<tr class="separator:ga55c3e585b93a0fd91c6094d4763f9c01"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5903d196ab84ecf1c1596c8892f7a6d4"><td class="memTemplParams" colspan="2">template&lt;typename CDT , typename PointIterator &gt; </td></tr>
+<tr class="memitem:ga5903d196ab84ecf1c1596c8892f7a6d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="group__PkgMesh2Enum.html#gab9fe60482a45120b3c061a8a4ec9018d">CGAL::Mesh_optimization_return_code</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4">CGAL::lloyd_optimize_mesh_2</a> (CDT &amp;cdt, double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.001, double parameters::freeze_bound=0.001, PointIterator parameters::seeds_begin=PointIterator(), PointIterator parameters::seeds_end=PointIterator(), bool parameters::mark=false)</td></tr>
+<tr class="memdesc:ga5903d196ab84ecf1c1596c8892f7a6d4"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> is a mesh optimization process based on the minimization of a global energy function.  <a href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4">More...</a><br /></td></tr>
+<tr class="separator:ga5903d196ab84ecf1c1596c8892f7a6d4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gafbe2b6b96e7c8ce9a2816d50cd9bfacf"><td class="memTemplParams" colspan="2">template&lt;class CDT &gt; </td></tr>
+<tr class="memitem:gafbe2b6b96e7c8ce9a2816d50cd9bfacf"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMesh2Functions.html#gafbe2b6b96e7c8ce9a2816d50cd9bfacf">CGAL::make_conforming_Delaunay_2</a> (CDT &amp;t)</td></tr>
+<tr class="memdesc:gafbe2b6b96e7c8ce9a2816d50cd9bfacf"><td class="mdescLeft"> </td><td class="mdescRight">Refines the constrained Delaunay triangulation <code>t</code> into a conforming Delaunay triangulation.  <a href="group__PkgMesh2Functions.html#gafbe2b6b96e7c8ce9a2816d50cd9bfacf">More...</a><br /></td></tr>
+<tr class="separator:gafbe2b6b96e7c8ce9a2816d50cd9bfacf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga05bf108ffbea1545b99a8b899ec5e2dc"><td class="memTemplParams" colspan="2">template&lt;class CDT &gt; </td></tr>
+<tr class="memitem:ga05bf108ffbea1545b99a8b899ec5e2dc"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgMesh2Functions.html#ga05bf108ffbea1545b99a8b899ec5e2dc">CGAL::make_conforming_Gabriel_2</a> (CDT &amp;t)</td></tr>
+<tr class="memdesc:ga05bf108ffbea1545b99a8b899ec5e2dc"><td class="mdescLeft"> </td><td class="mdescRight">Refines the constrained Delaunay triangulation <code>t</code> into a conforming Gabriel triangulation.  <a href="group__PkgMesh2Functions.html#ga05bf108ffbea1545b99a8b899ec5e2dc">More...</a><br /></td></tr>
+<tr class="separator:ga05bf108ffbea1545b99a8b899ec5e2dc"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga5903d196ab84ecf1c1596c8892f7a6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5903d196ab84ecf1c1596c8892f7a6d4">◆ </a></span>lloyd_optimize_mesh_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CDT , typename PointIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__PkgMesh2Enum.html#gab9fe60482a45120b3c061a8a4ec9018d">CGAL::Mesh_optimization_return_code</a> CGAL::lloyd_optimize_mesh_2 </td>
+          <td>(</td>
+          <td class="paramtype">CDT &amp; </td>
+          <td class="paramname"><em>cdt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t parameters::max_iteration_number </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::convergence </td>
+          <td class="paramname"> = <code>0.001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::freeze_bound </td>
+          <td class="paramname"> = <code>0.001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PointIterator parameters::seeds_begin </td>
+          <td class="paramname"> = <code>PointIterator()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PointIterator parameters::seeds_end </td>
+          <td class="paramname"> = <code>PointIterator()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool parameters::mark </td>
+          <td class="paramname"> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/lloyd_optimize_mesh_2.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> is a mesh optimization process based on the minimization of a global energy function. </p>
+<p>In <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code>, the minimized global energy may be interpreted as the \( L^1\)-norm of the error achieved when the function \( x^2\) is interpolated on the mesh domain using a piecewise linear function which is linear in each cell of the Voronoi diagram of the mesh vertices.</p>
+<p>The optimizer <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> works in iterative steps. At each iteration, mesh vertices are moved into positions that bring to zero the energy gradient and the Delaunay triangulation is updated. Vertices on the mesh boundaries are not moved.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CDT</td><td>is required to be or derive from <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Constrained__Delaunay__triangulation__2.html">CGAL::Constrained_Delaunay_triangulation_2</a></code>, with vertex base and face base of its underlying <code>TriangulationDataStructure_2</code> respectively implementing the concepts <code><a class="el" href="classDelaunayMeshFaceBase__2.html" title="The concept DelaunayMeshFaceBase_2 refines the concept TriangulationFaceBase_2. It adds two functions...">DelaunayMeshFaceBase_2</a></code> and <code><a class="el" href="classDelaunayMeshVertexBase__2.html" title="The concept DelaunayMeshVertexBase_2 refines the concept TriangulationVertexBase_2. It adds two functions giving access to a double marker, that is useful for the mesh optimizers to keep the mesh density everywhere while modifying the mesh. ">DelaunayMeshVertexBase_2</a></code>. The argument <code>cdt</code>, passed by reference, provides the initial mesh and is modified by the algorithm to represent the final optimized mesh.</td></tr>
+    <tr><td class="paramname">PointIterator</td><td>must be an iterator with value type <code>CGAL::Kernel::Point_2</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The function has several optional parameters which are named parameters (we use the Boost.Parameter library). Therefore, when calling the function, the parameters can be provided in any order provided that the names of the parameters are used (see example at the bottom of this page).</p>
+<p><b>Named Parameters</b><br />
+</p>
+<ul>
+<li><b><code>parameters::time_limit</code></b> is used to set up, in seconds, a CPU time limit after which the optimization process is stopped. This time is measured using <code>CGAL::Timer</code>. The default value is 0 and means that there is no time limit. <dl class="section pre"><dt>Precondition</dt><dd><code>time_limit</code> \( \geq\) 0</dd></dl>
+</li>
+<li><b><code>parameters::max_iteration_number</code></b> sets a limit on the number of performed iterations. The default value of 0 means that there is no limit on the number of performed iterations. <dl class="section pre"><dt>Precondition</dt><dd><code>max_iteration_number</code> \( \geq\) 0</dd></dl>
+</li>
+<li><b><code>parameters::convergence</code></b> is a stopping criterion based on convergence: the optimization process is stopped, when at the last iteration, the displacement of any vertex is less than a given fraction of the length of the shortest edge incident to that vertex. The parameter <code>convergence</code> gives the threshold ratio. <dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq\) <code>convergence</code> \( \leq\) 1</dd></dl>
+</li>
+<li><b><code>parameters::freeze_bound</code></b> is designed to reduce running time of each optimization iteration. Any vertex that has a displacement less than a given fraction of the length of its shortest incident edge, is frozen (i.e. is not relocated). The parameter <code>freeze_bound</code> gives the threshold ratio. The default value is 0.001. If it is set to 0, freezing of vertices is disabled. <dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq\) <code>freeze_bound</code> \( \leq\) 1</dd></dl>
+</li>
+<li><b><code>parameters::seeds_begin</code></b> and <b><code>parameters::seeds_end</code></b> are begin and end input iterators to iterate on seed points. The sequence [<code>parameters::seeds_begin</code>, <code>parameters::seeds_end</code>) defines the domain in which the mesh was generated, and should be optimized.</li>
+<li><b><code>parameters::mark</code></b>. If <code>mark</code> is set to true, the mesh domain is the union of the bounded connected components including at least one seed. If <code>mark</code> is false, the domain is the union of the bounded components including no seed. Note that the unbounded component of the plane is never optimized. The default value is false.</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>The function <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> returns a value of type <code><a class="el" href="group__PkgMesh2Enum.html#gab9fe60482a45120b3c061a8a4ec9018d" title="The enum Mesh_optimization_return_code is the output of the global mesh optimization functions...">CGAL::Mesh_optimization_return_code</a></code> which is: <ul>
+<li>
+<code><a class="el" href="group__PkgMesh2Enum.html#ggab9fe60482a45120b3c061a8a4ec9018dae51c3b06e2ee9b31f5b812cc86cbd229" title="The given time limit is reached. ">CGAL::TIME_LIMIT_REACHED</a></code> when the time limit is reached. </li>
+<li>
+<code><a class="el" href="group__PkgMesh2Enum.html#ggab9fe60482a45120b3c061a8a4ec9018da058b57a483e13d1ed274217b75ca0afc" title="The given maximum iteration number is reached. ">CGAL::MAX_ITERATION_NUMBER_REACHED</a></code> when <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> stops because it has performed <code>max_iteration_number</code> iterations. </li>
+<li>
+<code><a class="el" href="group__PkgMesh2Enum.html#ggab9fe60482a45120b3c061a8a4ec9018da19d4b9484d2ed90e8fec7e1194d25df2" title="The given convergence bound is reached. ">CGAL::CONVERGENCE_REACHED</a></code> when <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> stops because the convergence criterion is met. </li>
+<li>
+<code><a class="el" href="group__PkgMesh2Enum.html#ggab9fe60482a45120b3c061a8a4ec9018dab191e538b64f19bb21b00eadae3934b7" title="All vertices have been frozen. ">CGAL::ALL_VERTICES_FROZEN</a></code> when all vertices have been frozen, when the <code>freeze_bound</code> parameter is set to a positive value. </li>
+<li>
+<code><a class="el" href="group__PkgMesh2Enum.html#ggab9fe60482a45120b3c061a8a4ec9018da9c7c2f09314491da054f3f5d7d7ab3b9" title="Mesh could not be improved anymore. ">CGAL::CANT_IMPROVE_ANYMORE</a></code> when <code><a class="el" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4" title="The function lloyd_optimize_mesh_2() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_2()</a></code> stops because most vertices have been frozen, and no better convergence can be reached. </li>
+</ul>
+</dd></dl>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Lloyd-smoothing until convergence reaches 0.01, freezing vertices which </span></div><div class="line"><span class="comment">// move less than 0.001*shortest_incident_edge_length </span></div><div class="line"><a class="code" href="group__PkgMesh2Functions.html#ga5903d196ab84ecf1c1596c8892f7a6d4">lloyd_optimize_mesh_2</a>(cdt,</div><div class="line">                      parameters::convergence=0.01, </div><div class="line">                      parameters::freeze_bound=0.001); </div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh2Enum.html#gab9fe60482a45120b3c061a8a4ec9018d" title="The enum Mesh_optimization_return_code is the output of the global mesh optimization functions...">CGAL::Mesh_optimization_return_code</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh2Functions.html#gafd0e61cd3bf931e55298ad9b1523f9a7" title="Refines the default domain defined by a constrained Delaunay triangulation without seeds into a mesh ...">CGAL::refine_Delaunay_mesh_2()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_2_2mesh_optimization_8cpp-example.html#a6">Mesh_2/mesh_optimization.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gafbe2b6b96e7c8ce9a2816d50cd9bfacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafbe2b6b96e7c8ce9a2816d50cd9bfacf">◆ </a></span>make_conforming_Delaunay_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CDT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::make_conforming_Delaunay_2 </td>
+          <td>(</td>
+          <td class="paramtype">CDT &amp; </td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Triangulation_conformer_2.h&gt;</code></p>
+
+<p>Refines the constrained Delaunay triangulation <code>t</code> into a conforming Delaunay triangulation. </p>
+<p>After a call to this function, all edges of <code>t</code> are Delaunay edges.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CDT</td><td>must be a 2D constrained Delaunay triangulation and its geometric traits class must be a model of <code><a class="el" href="classConformingDelaunayTriangulationTraits__2.html" title="The concept ConformingDelaunayTriangulationTraits_2 refines the concept ConstrainedDelaunayTriangulat...">ConformingDelaunayTriangulationTraits_2</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_2_2conforming_8cpp-example.html#a3">Mesh_2/conforming.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga05bf108ffbea1545b99a8b899ec5e2dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga05bf108ffbea1545b99a8b899ec5e2dc">◆ </a></span>make_conforming_Gabriel_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CDT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::make_conforming_Gabriel_2 </td>
+          <td>(</td>
+          <td class="paramtype">CDT &amp; </td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Triangulation_conformer_2.h&gt;</code></p>
+
+<p>Refines the constrained Delaunay triangulation <code>t</code> into a conforming Gabriel triangulation. </p>
+<p>After a call to this function, all constrained edges of <code>t</code> have the <em>Gabriel property</em>: the circle that has \( e\) as diameter does not contain any vertex from the triangulation.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CDT</td><td>must be a 2D constrained Delaunay triangulation and its geometric traits class must be a model of <code><a class="el" href="classConformingDelaunayTriangulationTraits__2.html" title="The concept ConformingDelaunayTriangulationTraits_2 refines the concept ConstrainedDelaunayTriangulat...">ConformingDelaunayTriangulationTraits_2</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_2_2conforming_8cpp-example.html#a4">Mesh_2/conforming.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gafd0e61cd3bf931e55298ad9b1523f9a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd0e61cd3bf931e55298ad9b1523f9a7">◆ </a></span>refine_Delaunay_mesh_2() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CDT , class Criteria &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::refine_Delaunay_mesh_2 </td>
+          <td>(</td>
+          <td class="paramtype">CDT &amp; </td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Criteria &amp; </td>
+          <td class="paramname"><em>criteria</em> = <code>Criteria()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Delaunay_mesher_2.h&gt;</code></p>
+
+<p>Refines the default domain defined by a constrained Delaunay triangulation without seeds into a mesh satisfying the criteria defined by the traits <code>criteria</code>. </p>
+<p>The domain of the mesh covers all the connected components of the plane defined by the constrained edges of <code>t</code>, except for the unbounded component.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CDT</td><td>must be 2D constrained Delaunay triangulation and its geometric traits class must be a model of <code><a class="el" href="classDelaunayMeshTraits__2.html" title="The concept DelaunayMeshTraits_2 refines the concept ConformingDelaunayTriangulationTraits_2. It provides a construction object Construct_circumcenter_2. ">DelaunayMeshTraits_2</a></code>. The face of the constrained Delaunay triangulation must be a model of the concept <code><a class="el" href="classDelaunayMeshFaceBase__2.html" title="The concept DelaunayMeshFaceBase_2 refines the concept TriangulationFaceBase_2. It adds two functions...">DelaunayMeshFaceBase_2</a></code>.</td></tr>
+    <tr><td class="paramname">Criteria</td><td>must be a model of the concept <code><a class="el" href="classMeshingCriteria__2.html" title="The concept MeshingCriteria_2 defines the meshing criteria to be used in the algorithm. It provides a predicate Is_bad that tests a triangle according to criteria. The return type of Is_bad is an enum Mesh_2::Face_badness. ">MeshingCriteria_2</a></code>. <code>Criteria::Face_handle</code> must be the same as <code>CDT::Face_handle</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_2_2mesh_global_8cpp-example.html#a5">Mesh_2/mesh_global.cpp</a>, and <a class="el" href="Mesh_2_2mesh_with_seeds_8cpp-example.html#a5">Mesh_2/mesh_with_seeds.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga55c3e585b93a0fd91c6094d4763f9c01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga55c3e585b93a0fd91c6094d4763f9c01">◆ </a></span>refine_Delaunay_mesh_2() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CDT , class Criteria , class InputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::refine_Delaunay_mesh_2 </td>
+          <td>(</td>
+          <td class="paramtype">CDT &amp; </td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Criteria &amp; </td>
+          <td class="paramname"><em>criteria</em> = <code>Criteria()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>mark</em> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Delaunay_mesher_2.h&gt;</code></p>
+
+<p>Refines the default domain defined by a constrained Delaunay triangulation into a mesh satisfying the criteria defined by the traits <code>criteria</code>.The sequence <code>[begin, end)</code> gives a set of seeds points, that defines the domain to be meshed as follows. </p>
+<p>The constrained edges of <code>t</code> partition the plane into connected components. If <code>mark==true</code>, the mesh domain is the union of the bounded connected components including at least one seed. If <code>mark==false</code>, the domain is the union of the bounded components including no seed. Note that the unbounded component of the plane is never meshed.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CDT</td><td>must be 2D constrained Delaunay triangulation and its geometric traits class must be a model of <code><a class="el" href="classDelaunayMeshTraits__2.html" title="The concept DelaunayMeshTraits_2 refines the concept ConformingDelaunayTriangulationTraits_2. It provides a construction object Construct_circumcenter_2. ">DelaunayMeshTraits_2</a></code>. The face of the constrained Delaunay triangulation must be a model of the concept <code><a class="el" href="classDelaunayMeshFaceBase__2.html" title="The concept DelaunayMeshFaceBase_2 refines the concept TriangulationFaceBase_2. It adds two functions...">DelaunayMeshFaceBase_2</a></code>.</td></tr>
+    <tr><td class="paramname">Criteria</td><td>must be a model of the concept <code><a class="el" href="classMeshingCriteria__2.html" title="The concept MeshingCriteria_2 defines the meshing criteria to be used in the algorithm. It provides a predicate Is_bad that tests a triangle according to criteria. The return type of Is_bad is an enum Mesh_2::Face_badness. ">MeshingCriteria_2</a></code>. <code>Criteria::Face_handle</code> must be the same as <code>CDT::Face_handle</code>. </td></tr>
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></td><td>must be an input iterator with value type <code>CDT::Geom_traits::Point_2</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:47 for CGAL 4.13 - 2D Conforming Triangulations and Meshes by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

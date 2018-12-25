@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Surface_mesh_parameterization/classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Planar Parameterization of Triangulated Surface Meshes: CGAL::Surface_mesh_parameterization::Discrete_authalic_parameterizer_3&lt; TriangleMesh_, BorderParameterizer_, SolverTraits_ &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Planar Parameterization of Triangulated Surface Meshes
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3-members.html">List of all members</a> |
+<a href="#pub-types">Public Types</a> |
+<a href="#pub-methods">Public Member Functions</a> |
+<a href="#pro-methods">Protected Member Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Surface_mesh_parameterization::Discrete_authalic_parameterizer_3&lt; TriangleMesh_, BorderParameterizer_, SolverTraits_ &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgSurfaceParameterization.html">Triangulated Surface Mesh Parameterization Reference</a> » <a class="el" href="group__PkgSurfaceParameterizationMethods.html">Surface Parameterization Methods</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Surface_mesh_parameterization/Discrete_authalic_parameterizer_3.h&gt;</code></p>
+
+<a name="details" id="details"></a><h2 class="groupheader">Inherits from</h2><p><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><h3>template&lt;class TriangleMesh_, class BorderParameterizer_ = Default, class SolverTraits_ = Default&gt;<br />
+class CGAL::Surface_mesh_parameterization::Discrete_authalic_parameterizer_3&lt; TriangleMesh_, BorderParameterizer_, SolverTraits_ &gt;</h3>
+
+<p>The class <code><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html" title="The class Discrete_authalic_parameterizer_3 implements the Discrete Authalic Parameterization algorit...">Discrete_authalic_parameterizer_3</a></code> implements the <em>Discrete Authalic Parameterization</em> algorithm. </p>
+<p>This method is sometimes called <em>DAP</em> or just <em>Authalic parameterization</em> <a class="el" href="citelist.html#CITEREF_cgal:dma-ipsm-02">[2]</a>.</p>
+<p>DAP is a weak area-preserving parameterization. It is a compromise between area-preserving and angle-preserving.</p>
+<p>A one-to-one mapping is guaranteed if the surface's border is mapped onto a convex polygon.</p>
+<p>This class is a strategy called by the main parameterization algorithm <code><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#aa39cf2dc5854812d6051b1a59cbf1773" title="Compute a one-to-one mapping from a triangular 3D surface mesh to a piece of the 2D space...">Fixed_border_parameterizer_3::parameterize()</a></code> and it:</p><ul>
+<li>provides the template parameters <code>BorderParameterizer_</code> and <code>SolverTraits_</code>.</li>
+<li>implements <code><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html#a85d6362634ebc4d3ee1a29d78509b9e5" title="Compute w_ij = (i, j), coefficient of matrix A for j neighbor vertex of i. ">compute_w_ij()</a></code> to compute w_ij = (i, j), coefficient of the matrix A for j neighbor vertex of i, based on Discrete Authalic Parameterization algorithm.</li>
+</ul>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000001">Is Model Of:</a></b></dt><dd><code><a class="el" href="classParameterizer__3.html" title="Parameterizer_3 is a concept of parameterization object for a given type of mesh, TriangleMesh...">Parameterizer_3</a></code></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TriangleMesh_</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classFaceGraph.html">FaceGraph</a></code>.</td></tr>
+    <tr><td class="paramname">BorderParameterizer_</td><td>is a Strategy to parameterize the surface border and must be a model of <code><a class="el" href="classParameterizer__3.html" title="Parameterizer_3 is a concept of parameterization object for a given type of mesh, TriangleMesh...">Parameterizer_3</a></code>.<br />
+ <b>Default:</b> <div class="fragment"><div class="line">Circular_border_arc_length_parameterizer_3&lt;TriangleMesh_&gt;</div></div><!-- fragment --></td></tr>
+    <tr><td class="paramname">SolverTraits_</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Solver_interface.tag:../Solver_interface/" href="../Solver_interface/classSparseLinearAlgebraTraits__d.html">SparseLinearAlgebraTraits_d</a></code>.<br />
+ Note that the system is <em>not</em> symmetric because <code><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html" title="The class Fixed_border_parameterizer_3 is the base class of fixed border parameterization methods (Tu...">Fixed_border_parameterizer_3</a></code> does not remove border vertices from the system.<br />
+ <b>Default:</b> If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/installation.html#thirdpartyEigen">Eigen</a> 3.1 (or greater) is available and <code>CGAL_EIGEN3_ENABLED</code> is defined, then an overload of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Solver_interface.tag:../Solver_interface/" href="../Solver_interface/classCGAL_1_1Eigen__solver__traits.html">Eigen_solver_traits</a></code> is provided as default parameter: <div class="fragment"><div class="line"><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Solver_interface.tag:../Solver_interface/" href="../Solver_interface/classCGAL_1_1Eigen__solver__traits.html">CGAL::Eigen_solver_traits</a>&lt;</div><div class="line">        Eigen::BiCGSTAB&lt;Eigen_sparse_matrix&lt;double&gt;::EigenType,</div><div class="line">                        Eigen::IncompleteLUT&lt; double &gt; &gt; &gt;</div></div><!-- fragment --></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html" title="The class Fixed_border_parameterizer_3 is the base class of fixed border parameterization methods (Tu...">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3</a>&lt;TriangleMesh, BorderParameterizer, SolverTraits&gt;</code> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types" id="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af8db3e325a170cbbb16a77ab50a55664"><td class="memItemLeft" align="right" valign="top"><a id="af8db3e325a170cbbb16a77ab50a55664"></a>
+typedef Border_parameterizer_ </td><td class="memItemRight" valign="bottom"><b>Border_parameterizer</b></td></tr>
+<tr class="separator:af8db3e325a170cbbb16a77ab50a55664"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4ff208b7c8e6643ee054d92bc893be84"><td class="memItemLeft" align="right" valign="top"><a id="a4ff208b7c8e6643ee054d92bc893be84"></a>
+typedef SolverTraits_ </td><td class="memItemRight" valign="bottom"><b>Solver_traits</b></td></tr>
+<tr class="separator:a4ff208b7c8e6643ee054d92bc893be84"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2a6896a2f04a4c63d766ea950d8c8a5c"><td class="memItemLeft" align="right" valign="top"><a id="a2a6896a2f04a4c63d766ea950d8c8a5c"></a>
+typedef TriangleMesh_ </td><td class="memItemRight" valign="bottom"><b>TriangleMesh</b></td></tr>
+<tr class="separator:a2a6896a2f04a4c63d766ea950d8c8a5c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="inherit_header pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3')"><img src="closed.png" alt="-" /> Public Types inherited from <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a></td></tr>
+<tr class="memitem:a94d1dd31f1bb40444f24c28d257afc81 inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a94d1dd31f1bb40444f24c28d257afc81"></a>
+typedef Border_parameterizer_ </td><td class="memItemRight" valign="bottom"><b>Border_parameterizer</b></td></tr>
+<tr class="separator:a94d1dd31f1bb40444f24c28d257afc81 inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a801c1161ac85bfcb98baf692c96bc979 inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a801c1161ac85bfcb98baf692c96bc979"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Default_1_1Get.html">Default::Get</a>&lt; SolverTraits_, SolverTraits_ &gt;::type </td><td class="memItemRight" valign="bottom"><b>Solver_traits</b></td></tr>
+<tr class="separator:a801c1161ac85bfcb98baf692c96bc979 inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1fbfa6a9dca2317c52d3fce315a2a5bc inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a1fbfa6a9dca2317c52d3fce315a2a5bc"></a>
+typedef TriangleMesh_ </td><td class="memItemRight" valign="bottom"><b>TriangleMesh</b></td></tr>
+<tr class="separator:a1fbfa6a9dca2317c52d3fce315a2a5bc inherit pub_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af0371cf59904314f86546f16012c0e9b"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html#af0371cf59904314f86546f16012c0e9b">Discrete_authalic_parameterizer_3</a> (Border_parameterizer border_param=Border_parameterizer(), Solver_traits sparse_la=Solver_traits())</td></tr>
+<tr class="memdesc:af0371cf59904314f86546f16012c0e9b"><td class="mdescLeft"> </td><td class="mdescRight">Constructor.  <a href="#af0371cf59904314f86546f16012c0e9b">More...</a><br /></td></tr>
+<tr class="separator:af0371cf59904314f86546f16012c0e9b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="inherit_header pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3')"><img src="closed.png" alt="-" /> Public Member Functions inherited from <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a></td></tr>
+<tr class="memitem:a4419f2fd8165db3e357acff848c705fa inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#a4419f2fd8165db3e357acff848c705fa">Fixed_border_parameterizer_3</a> (Border_parameterizer border_param=Border_parameterizer(), <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Solver_traits</a> sparse_la=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Solver_traits</a>())</td></tr>
+<tr class="memdesc:a4419f2fd8165db3e357acff848c705fa inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Constructor.  <a href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#a4419f2fd8165db3e357acff848c705fa">More...</a><br /></td></tr>
+<tr class="separator:a4419f2fd8165db3e357acff848c705fa inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae310fbbf17605ac130e357e6e2c46200 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="ae310fbbf17605ac130e357e6e2c46200"></a>
+virtual </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#ae310fbbf17605ac130e357e6e2c46200">~Fixed_border_parameterizer_3</a> ()</td></tr>
+<tr class="memdesc:ae310fbbf17605ac130e357e6e2c46200 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Destructor of base class should be virtual. <br /></td></tr>
+<tr class="separator:ae310fbbf17605ac130e357e6e2c46200 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa39cf2dc5854812d6051b1a59cbf1773 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__PkgSurfaceParameterizationEnums.html#gaee614329039ca5fdba0e1059cd7d3e94">Error_code</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#aa39cf2dc5854812d6051b1a59cbf1773">parameterize</a> (TriangleMesh &amp;mesh, halfedge_descriptor bhd, VertexUVmap uvmap, VertexIndexMap vimap, VertexParameterizedMap vpmap)</td></tr>
+<tr class="memdesc:aa39cf2dc5854812d6051b1a59cbf1773 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Compute a one-to-one mapping from a triangular 3D surface mesh to a piece of the 2D space.  <a href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#aa39cf2dc5854812d6051b1a59cbf1773">More...</a><br /></td></tr>
+<tr class="separator:aa39cf2dc5854812d6051b1a59cbf1773 inherit pub_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods" id="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a85d6362634ebc4d3ee1a29d78509b9e5"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">NT</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html#a85d6362634ebc4d3ee1a29d78509b9e5">compute_w_ij</a> (const TriangleMesh &amp;mesh, vertex_descriptor main_vertex_v_i, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classCGAL_1_1Vertex__around__target__circulator.html">vertex_around_target_circulator</a> neighbor_vertex_v_j) const</td></tr>
+<tr class="memdesc:a85d6362634ebc4d3ee1a29d78509b9e5"><td class="mdescLeft"> </td><td class="mdescRight">Compute w_ij = (i, j), coefficient of matrix A for j neighbor vertex of i.  <a href="#a85d6362634ebc4d3ee1a29d78509b9e5">More...</a><br /></td></tr>
+<tr class="separator:a85d6362634ebc4d3ee1a29d78509b9e5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="inherit_header pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3')"><img src="closed.png" alt="-" /> Protected Member Functions inherited from <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a></td></tr>
+<tr class="memitem:a3d221e1e76e261a37eebd306108bfffe inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#a3d221e1e76e261a37eebd306108bfffe">initialize_system_from_mesh_border</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classMatrix.html">Matrix</a> &amp;A, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classVector.html">Vector</a> &amp;Bu, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classVector.html">Vector</a> &amp;Bv, const TriangleMesh &amp;mesh, halfedge_descriptor bhd, VertexUVmap uvmap, VertexIndexMap vimap) const</td></tr>
+<tr class="memdesc:a3d221e1e76e261a37eebd306108bfffe inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Initialize A, Bu and Bv after border parameterization.  <a href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#a3d221e1e76e261a37eebd306108bfffe">More...</a><br /></td></tr>
+<tr class="separator:a3d221e1e76e261a37eebd306108bfffe inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad21829d9a038f0d6aabba8b604bc0486 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__PkgSurfaceParameterizationEnums.html#gaee614329039ca5fdba0e1059cd7d3e94">Error_code</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#ad21829d9a038f0d6aabba8b604bc0486">setup_inner_vertex_relations</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classMatrix.html">Matrix</a> &amp;A, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classVector.html">Vector</a> &amp;, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classVector.html">Vector</a> &amp;, const TriangleMesh &amp;mesh, vertex_descriptor vertex, VertexIndexMap vimap) const</td></tr>
+<tr class="memdesc:ad21829d9a038f0d6aabba8b604bc0486 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Compute the line i of matrix A for i inner vertex:  <a href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#ad21829d9a038f0d6aabba8b604bc0486">More...</a><br /></td></tr>
+<tr class="separator:ad21829d9a038f0d6aabba8b604bc0486 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa3c60680ccd35b8bf14f4885b1cd735f inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="aa3c60680ccd35b8bf14f4885b1cd735f"></a>
+Border_parameterizer &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#aa3c60680ccd35b8bf14f4885b1cd735f">get_border_parameterizer</a> ()</td></tr>
+<tr class="memdesc:aa3c60680ccd35b8bf14f4885b1cd735f inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Get the object that maps the surface's border onto a 2D space. <br /></td></tr>
+<tr class="separator:aa3c60680ccd35b8bf14f4885b1cd735f inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab3f53a9fc3dc7b5b70b5d4cd061abbd2 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="ab3f53a9fc3dc7b5b70b5d4cd061abbd2"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Solver_traits</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#ab3f53a9fc3dc7b5b70b5d4cd061abbd2">get_linear_algebra_traits</a> ()</td></tr>
+<tr class="memdesc:ab3f53a9fc3dc7b5b70b5d4cd061abbd2 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="mdescLeft"> </td><td class="mdescRight">Get the sparse linear algebra (traits object to access the linear system). <br /></td></tr>
+<tr class="separator:ab3f53a9fc3dc7b5b70b5d4cd061abbd2 inherit pro_methods_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited" id="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3')"><img src="closed.png" alt="-" /> Protected Types inherited from <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a></td></tr>
+<tr class="memitem:a1334884fe949f0eb198808b9b3c3d39f inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a1334884fe949f0eb198808b9b3c3d39f"></a>
+typedef internal::Kernel_traits&lt; TriangleMesh &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> </td><td class="memItemRight" valign="bottom"><b>Kernel</b></td></tr>
+<tr class="separator:a1334884fe949f0eb198808b9b3c3d39f inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2c7dd53b1b63bffd62e72415bf96f6c7 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a2c7dd53b1b63bffd62e72415bf96f6c7"></a>
+typedef internal::Kernel_traits&lt; TriangleMesh &gt;::PPM </td><td class="memItemRight" valign="bottom"><b>PPM</b></td></tr>
+<tr class="separator:a2c7dd53b1b63bffd62e72415bf96f6c7 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae8d3dca2ccea7c5e6fcd9aac1b850cb1 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="ae8d3dca2ccea7c5e6fcd9aac1b850cb1"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td><td class="memItemRight" valign="bottom"><b>NT</b></td></tr>
+<tr class="separator:ae8d3dca2ccea7c5e6fcd9aac1b850cb1 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7b192a2b937831a0b83502d1a8b84646 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a7b192a2b937831a0b83502d1a8b84646"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__2.html">Kernel::Point_2</a> </td><td class="memItemRight" valign="bottom"><b>Point_2</b></td></tr>
+<tr class="separator:a7b192a2b937831a0b83502d1a8b84646 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a744e504b8a6f32873bfd39b362c0848b inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a744e504b8a6f32873bfd39b362c0848b"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> </td><td class="memItemRight" valign="bottom"><b>Point_3</b></td></tr>
+<tr class="separator:a744e504b8a6f32873bfd39b362c0848b inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3a7b58aa5d75309d07558d198b278c9d inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a3a7b58aa5d75309d07558d198b278c9d"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Vector__3.html">Kernel::Vector_3</a> </td><td class="memItemRight" valign="bottom"><b>Vector_3</b></td></tr>
+<tr class="separator:a3a7b58aa5d75309d07558d198b278c9d inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1aba06418007b8842bb98d4e451daa8b inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="a1aba06418007b8842bb98d4e451daa8b"></a>
+typedef Solver_traits::Vector </td><td class="memItemRight" valign="bottom"><b>Vector</b></td></tr>
+<tr class="separator:a1aba06418007b8842bb98d4e451daa8b inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad5f32f3835d4341cbc02671bdb9064b3 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memItemLeft" align="right" valign="top"><a id="ad5f32f3835d4341cbc02671bdb9064b3"></a>
+typedef Solver_traits::Matrix </td><td class="memItemRight" valign="bottom"><b>Matrix</b></td></tr>
+<tr class="separator:ad5f32f3835d4341cbc02671bdb9064b3 inherit pro_types_classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af0371cf59904314f86546f16012c0e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0371cf59904314f86546f16012c0e9b">◆ </a></span>Discrete_authalic_parameterizer_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TriangleMesh_ , class BorderParameterizer_  = Default, class SolverTraits_  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Discrete_authalic_parameterizer_3</a>&lt; TriangleMesh_, BorderParameterizer_, SolverTraits_ &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html">Discrete_authalic_parameterizer_3</a> </td>
+          <td>(</td>
+          <td class="paramtype">Border_parameterizer </td>
+          <td class="paramname"><em>border_param</em> = <code>Border_parameterizer()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Solver_traits </td>
+          <td class="paramname"><em>sparse_la</em> = <code>Solver_traits()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">border_param</td><td>Object that maps the surface's border to 2D space. </td></tr>
+    <tr><td class="paramname">sparse_la</td><td>Traits object to access a sparse linear system. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a85d6362634ebc4d3ee1a29d78509b9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d6362634ebc4d3ee1a29d78509b9e5">◆ </a></span>compute_w_ij()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TriangleMesh_ , class BorderParameterizer_  = Default, class SolverTraits_  = Default&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">NT</a> <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html">CGAL::Surface_mesh_parameterization::Discrete_authalic_parameterizer_3</a>&lt; TriangleMesh_, BorderParameterizer_, SolverTraits_ &gt;::compute_w_ij </td>
+          <td>(</td>
+          <td class="paramtype">const TriangleMesh &amp; </td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vertex_descriptor </td>
+          <td class="paramname"><em>main_vertex_v_i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classCGAL_1_1Vertex__around__target__circulator.html">vertex_around_target_circulator</a> </td>
+          <td class="paramname"><em>neighbor_vertex_v_j</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute w_ij = (i, j), coefficient of matrix A for j neighbor vertex of i. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mesh</td><td>a triangulated surface. </td></tr>
+    <tr><td class="paramname">main_vertex_v_i</td><td>the vertex of <code>mesh</code> with index <code>i</code> </td></tr>
+    <tr><td class="paramname">neighbor_vertex_v_j</td><td>the vertex of <code>mesh</code> with index <code>j</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Fixed__border__parameterizer__3.html#aaf93bf6cb81a4572c1e2c1b9813dd889">CGAL::Surface_mesh_parameterization::Fixed_border_parameterizer_3&lt; TriangleMesh_, Default::Get&lt; BorderParameterizer_, Circular_border_arc_length_parameterizer_3&lt; TriangleMesh_ &gt; &gt;::type, Default::Get&lt; SolverTraits_, SolverTraits_ &gt;::type &gt;</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>CGAL</b></li><li class="navelem"><b>Surface_mesh_parameterization</b></li><li class="navelem"><a class="el" href="classCGAL_1_1Surface__mesh__parameterization_1_1Discrete__authalic__parameterizer__3.html">Discrete_authalic_parameterizer_3</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:04 for CGAL 4.13 - Planar Parameterization of Triangulated Surface Meshes by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Arrangement_on_surface_2/classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Arrangements: CGAL::Arr_linear_traits_2&lt; Kernel &gt;::Curve_2 Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Arrangements
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Arr_linear_traits_2&lt; Kernel &gt;::Curve_2 Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Arr_linear_traits_2.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The <code><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html" title="The Curve_2 (and the X_monotone_curve_2) class nested within the linear-traits can represent all type...">Curve_2</a></code> (and the <code>X_monotone_curve_2</code>) class nested within the linear-traits can represent all types of linear objects. </p>
+<p>The class supports the copy and default constructor and the assignment operator. In addition, the <a class="el" href="group__PkgArrangement2op__left__shift.html"><code>operator&lt;&lt;</code> </a> and <a class="el" href="group__PkgArrangement2op__right__shift.html"><code>operator&gt;&gt;</code> </a> for linear objects are defined for standard output and input streams. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a161d15ad7898f36d12d44b40100c5feb"><td class="memItemLeft" align="right" valign="top"><a id="a161d15ad7898f36d12d44b40100c5feb"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__2.html">Kernel::Point_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a161d15ad7898f36d12d44b40100c5feb">Point_2</a></td></tr>
+<tr class="separator:a161d15ad7898f36d12d44b40100c5feb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af4006482b2d13951a7717d4a9aa9347f"><td class="memItemLeft" align="right" valign="top"><a id="af4006482b2d13951a7717d4a9aa9347f"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Segment__2.html">Kernel::Segment_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#af4006482b2d13951a7717d4a9aa9347f">Segment_2</a></td></tr>
+<tr class="separator:af4006482b2d13951a7717d4a9aa9347f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aac3a7b65193fe59b5e6911b01f2267d1"><td class="memItemLeft" align="right" valign="top"><a id="aac3a7b65193fe59b5e6911b01f2267d1"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Ray__2.html">Kernel::Ray_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#aac3a7b65193fe59b5e6911b01f2267d1">Ray_2</a></td></tr>
+<tr class="separator:aac3a7b65193fe59b5e6911b01f2267d1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a734ad2a86e97db22137e75fd507a5459"><td class="memItemLeft" align="right" valign="top"><a id="a734ad2a86e97db22137e75fd507a5459"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Line__2.html">Kernel::Line_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a></td></tr>
+<tr class="separator:a734ad2a86e97db22137e75fd507a5459"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:a1a40c908783e5040ecf1e2b14d6243dc"><td class="memItemLeft" align="right" valign="top"><a id="a1a40c908783e5040ecf1e2b14d6243dc"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a1a40c908783e5040ecf1e2b14d6243dc">Curve_2</a> (const <a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#af4006482b2d13951a7717d4a9aa9347f">Segment_2</a> &amp;seg)</td></tr>
+<tr class="memdesc:a1a40c908783e5040ecf1e2b14d6243dc"><td class="mdescLeft"> </td><td class="mdescRight">constructs an line segment. <br /></td></tr>
+<tr class="separator:a1a40c908783e5040ecf1e2b14d6243dc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a94bc70b41fed442045ca1473d136f298"><td class="memItemLeft" align="right" valign="top"><a id="a94bc70b41fed442045ca1473d136f298"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a94bc70b41fed442045ca1473d136f298">Curve_2</a> (const <a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#aac3a7b65193fe59b5e6911b01f2267d1">Ray_2</a> &amp;<a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a7832fb8ca9a442927619227e49377988">ray</a>)</td></tr>
+<tr class="memdesc:a94bc70b41fed442045ca1473d136f298"><td class="mdescLeft"> </td><td class="mdescRight">constructs a ray. <br /></td></tr>
+<tr class="separator:a94bc70b41fed442045ca1473d136f298"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4e706387fc297006b32dd61b27c5a725"><td class="memItemLeft" align="right" valign="top"><a id="a4e706387fc297006b32dd61b27c5a725"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a4e706387fc297006b32dd61b27c5a725">Curve_2</a> (const <a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a> &amp;ln)</td></tr>
+<tr class="memdesc:a4e706387fc297006b32dd61b27c5a725"><td class="mdescLeft"> </td><td class="mdescRight">constructs a line. <br /></td></tr>
+<tr class="separator:a4e706387fc297006b32dd61b27c5a725"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Functions</h2></td></tr>
+<tr class="memitem:a4235cdf706a3171591f6d03be6d077da"><td class="memItemLeft" align="right" valign="top"><a id="a4235cdf706a3171591f6d03be6d077da"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a4235cdf706a3171591f6d03be6d077da">is_segment</a> () const</td></tr>
+<tr class="memdesc:a4235cdf706a3171591f6d03be6d077da"><td class="mdescLeft"> </td><td class="mdescRight">returns whether <code>c</code> is a segment (has two bounded endpoints). <br /></td></tr>
+<tr class="separator:a4235cdf706a3171591f6d03be6d077da"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a36ec905ea6b39c4e3c20f25a611a2700"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#af4006482b2d13951a7717d4a9aa9347f">Segment_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a36ec905ea6b39c4e3c20f25a611a2700">segment</a> () const</td></tr>
+<tr class="memdesc:a36ec905ea6b39c4e3c20f25a611a2700"><td class="mdescLeft"> </td><td class="mdescRight">returns a segment object equivalent to <code>c</code>.  <a href="#a36ec905ea6b39c4e3c20f25a611a2700">More...</a><br /></td></tr>
+<tr class="separator:a36ec905ea6b39c4e3c20f25a611a2700"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a36fcc76bf32b8d3b7ad42c01910df976"><td class="memItemLeft" align="right" valign="top"><a id="a36fcc76bf32b8d3b7ad42c01910df976"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a36fcc76bf32b8d3b7ad42c01910df976">is_ray</a> () const</td></tr>
+<tr class="memdesc:a36fcc76bf32b8d3b7ad42c01910df976"><td class="mdescLeft"> </td><td class="mdescRight">returns whether <code>c</code> is a ray (has a bounded source point and its other end is unbounded). <br /></td></tr>
+<tr class="separator:a36fcc76bf32b8d3b7ad42c01910df976"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7832fb8ca9a442927619227e49377988"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#aac3a7b65193fe59b5e6911b01f2267d1">Ray_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a7832fb8ca9a442927619227e49377988">ray</a> () const</td></tr>
+<tr class="memdesc:a7832fb8ca9a442927619227e49377988"><td class="mdescLeft"> </td><td class="mdescRight">returns a ray object equivalent to <code>c</code>.  <a href="#a7832fb8ca9a442927619227e49377988">More...</a><br /></td></tr>
+<tr class="separator:a7832fb8ca9a442927619227e49377988"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae91b3f85fd5bd1c749d53d984a22c757"><td class="memItemLeft" align="right" valign="top"><a id="ae91b3f85fd5bd1c749d53d984a22c757"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#ae91b3f85fd5bd1c749d53d984a22c757">is_line</a> () const</td></tr>
+<tr class="memdesc:ae91b3f85fd5bd1c749d53d984a22c757"><td class="mdescLeft"> </td><td class="mdescRight">returns whether <code>c</code> is a line (has only unbounded ends). <br /></td></tr>
+<tr class="separator:ae91b3f85fd5bd1c749d53d984a22c757"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a488875c41fef72b3d0631e43807145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a6a488875c41fef72b3d0631e43807145">line</a> () const</td></tr>
+<tr class="memdesc:a6a488875c41fef72b3d0631e43807145"><td class="mdescLeft"> </td><td class="mdescRight">returns a line object equivalent to <code>c</code>.  <a href="#a6a488875c41fef72b3d0631e43807145">More...</a><br /></td></tr>
+<tr class="separator:a6a488875c41fef72b3d0631e43807145"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acb41d94cf62f592a032c79699116c178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#acb41d94cf62f592a032c79699116c178">supporting_line</a> () const</td></tr>
+<tr class="memdesc:acb41d94cf62f592a032c79699116c178"><td class="mdescLeft"> </td><td class="mdescRight">returns the supporting line of <code>c</code>.  <a href="#acb41d94cf62f592a032c79699116c178">More...</a><br /></td></tr>
+<tr class="separator:acb41d94cf62f592a032c79699116c178"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3ff302491abbf44374fba6e7014fb21c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a161d15ad7898f36d12d44b40100c5feb">Point_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a3ff302491abbf44374fba6e7014fb21c">source</a> () const</td></tr>
+<tr class="memdesc:a3ff302491abbf44374fba6e7014fb21c"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>c</code>'s source point.  <a href="#a3ff302491abbf44374fba6e7014fb21c">More...</a><br /></td></tr>
+<tr class="separator:a3ff302491abbf44374fba6e7014fb21c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa39c0b86087d41ab59de3d80e788340c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a161d15ad7898f36d12d44b40100c5feb">Point_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#aa39c0b86087d41ab59de3d80e788340c">target</a> () const</td></tr>
+<tr class="memdesc:aa39c0b86087d41ab59de3d80e788340c"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>c</code>'s target point.  <a href="#aa39c0b86087d41ab59de3d80e788340c">More...</a><br /></td></tr>
+<tr class="separator:aa39c0b86087d41ab59de3d80e788340c"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6a488875c41fef72b3d0631e43807145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a488875c41fef72b3d0631e43807145">◆ </a></span>line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a line object equivalent to <code>c</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is a line. </dd></dl>
+
+</div>
+</div>
+<a id="a7832fb8ca9a442927619227e49377988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7832fb8ca9a442927619227e49377988">◆ </a></span>ray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#aac3a7b65193fe59b5e6911b01f2267d1">Ray_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::ray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a ray object equivalent to <code>c</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is a ray. </dd></dl>
+
+</div>
+</div>
+<a id="a36ec905ea6b39c4e3c20f25a611a2700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ec905ea6b39c4e3c20f25a611a2700">◆ </a></span>segment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#af4006482b2d13951a7717d4a9aa9347f">Segment_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::segment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a segment object equivalent to <code>c</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is a segment. </dd></dl>
+
+</div>
+</div>
+<a id="a3ff302491abbf44374fba6e7014fb21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff302491abbf44374fba6e7014fb21c">◆ </a></span>source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a161d15ad7898f36d12d44b40100c5feb">Point_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::source </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns <code>c</code>'s source point. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is a point, a segment or a ray. </dd></dl>
+
+</div>
+</div>
+<a id="acb41d94cf62f592a032c79699116c178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb41d94cf62f592a032c79699116c178">◆ </a></span>supporting_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a734ad2a86e97db22137e75fd507a5459">Line_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::supporting_line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the supporting line of <code>c</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is not a point (a degenerate curve). </dd></dl>
+
+</div>
+</div>
+<a id="aa39c0b86087d41ab59de3d80e788340c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39c0b86087d41ab59de3d80e788340c">◆ </a></span>target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html#a161d15ad7898f36d12d44b40100c5feb">Point_2</a> <a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">CGAL::Arr_linear_traits_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::Curve_2::target </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns <code>c</code>'s target point. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is a point or a segment. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Arr__linear__traits__2.html">Arr_linear_traits_2</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Arr__linear__traits__2_1_1Curve__2.html">Curve_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:47 for CGAL 4.13 - 2D Arrangements by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

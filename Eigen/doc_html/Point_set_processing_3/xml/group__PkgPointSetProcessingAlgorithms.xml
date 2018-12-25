@@ -1,0 +1,1796 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgPointSetProcessingAlgorithms" kind="group">
+    <compoundname>PkgPointSetProcessingAlgorithms</compoundname>
+    <title>Algorithms</title>
+    <innerclass refid="classCGAL_1_1Point__set__with__structure" prot="public">CGAL::Point_set_with_structure</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga8e6ef56bbe013f5cfdb955f592918807" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class VCMTraits</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::vcm_is_on_feature_edge</definition>
+        <argsstring>(cpp11::array&lt; FT, 6 &gt; &amp;cov, double threshold, VCMTraits)</argsstring>
+        <name>vcm_is_on_feature_edge</name>
+        <param>
+          <type>cpp11::array&lt; FT, 6 &gt; &amp;</type>
+          <declname>cov</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>VCMTraits</type>
+        </param>
+        <briefdescription>
+<para>determines if a point is on a sharp feature edge from a point set for which the Voronoi covariance Measures have been computed. </para>        </briefdescription>
+        <detaileddescription>
+<para>The sharpness of the edge, specified by parameter <computeroutput>threshold</computeroutput>, is used to filtered points according to the external angle around a sharp feature.</para><para>A point is considered to be on a sharp feature if the external angle <computeroutput>alpha</computeroutput> at the edge is such that <computeroutput>alpha &gt;= 2 / sqrt(3) * sqrt(threshold)</computeroutput>. In particular this means that if the input contains sharp features with different external angles, the one with the smallest external angle should be considered, which however would result in selecting more points on sharper regions. More details are provided in <ref refid="citelist_1CITEREF_cgal:mog-vbcfe-11" kindref="member">[7]</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VCMTraits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput>. It can be omitted: if Eigen 3 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined then an overload using <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">Eigen_diagonalize_traits</ref></computeroutput> is provided. Otherwise, the internal implementation <computeroutput>Diagonalize_traits</computeroutput> is used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__PkgPointSetProcessingAlgorithms_1ga6094c666830a87b4bb6ea0ed4c846dd3" kindref="member">CGAL::compute_vcm()</ref>` </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/vcm_estimate_edges.h" line="56" column="1" bodyfile="CGAL/vcm_estimate_edges.h" bodystart="56" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga6094c666830a87b4bb6ea0ed4c846dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::compute_vcm</definition>
+        <argsstring>(const PointRange &amp;points, std::vector&lt; cpp11::array&lt; double, 6 &gt; &gt; &amp;ccov, double offset_radius, double convolution_radius, const NamedParameters &amp;np)</argsstring>
+        <name>compute_vcm</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; cpp11::array&lt; double, 6 &gt; &gt; &amp;</type>
+          <declname>ccov</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>offset_radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>convolution_radius</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the Voronoi Covariance Measure (VCM) of a point cloud, a construction that can be used for normal estimation and sharp feature detection. </para>        </briefdescription>
+        <detaileddescription>
+<para>The VCM associates to each point the covariance matrix of its Voronoi cell intersected with the ball of radius <computeroutput>offset_radius</computeroutput>. In addition, if the second radius <computeroutput>convolution_radius</computeroutput> is positive, the covariance matrices are smoothed via a convolution process. More specifically, each covariance matrix is replaced by the average of the matrices of the points located at a distance at most <computeroutput>convolution_radius</computeroutput>. The choice for parameter <computeroutput>offset_radius</computeroutput> should refer to the geometry of the underlying surface while the choice for parameter <computeroutput>convolution_radius</computeroutput> should refer to the noise level in the point cloud. For example, if the point cloud is a uniform and noise-free sampling of a smooth surface, <computeroutput>offset_radius</computeroutput> should be set to the minimum local feature size of the surface, while <computeroutput>convolution_radius</computeroutput> can be set to zero.</para><para>The Voronoi covariance matrix of each vertex is stored in an array <computeroutput>a</computeroutput> of length 6 and is as follow:</para><para><center> <formula id="13">$ \begin{bmatrix} a[0] &amp; a[1] &amp; a[2] \\ a[1] &amp; a[3] &amp; a[4] \\ a[2] &amp; a[4] &amp; a[5] \\ \end{bmatrix}$</formula> </center></para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ccov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output range of covariance matrices. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset_radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>offset_radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>convolution_radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>convolution_radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1ga8e6ef56bbe013f5cfdb955f592918807" kindref="member">CGAL::vcm_is_on_feature_edge()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1ga020a2ee77849fc70cbbee93358222dff" kindref="member">CGAL::vcm_estimate_normals()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/vcm_estimate_normals.h" line="262" column="1" bodyfile="CGAL/vcm_estimate_normals.h" bodystart="262" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga020a2ee77849fc70cbbee93358222dff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::vcm_estimate_normals</definition>
+        <argsstring>(PointRange &amp;points, double offset_radius, double convolution_radius, const NamedParameters &amp;np)</argsstring>
+        <name>vcm_estimate_normals</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>offset_radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>convolution_radius</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates normal directions of the range of <computeroutput>points</computeroutput> using the Voronoi Covariance Measure with a radius for the convolution. </para>        </briefdescription>
+        <detaileddescription>
+<para>The output normals are randomly oriented.</para><para>See <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1ga6094c666830a87b4bb6ea0ed4c846dd3" kindref="member">compute_vcm()</ref></computeroutput> for a detailed description of the parameters <computeroutput>offset_radius</computeroutput> and <computeroutput>convolution_radius</computeroutput> and of the Voronoi Covariance Measure.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset_radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>offset_radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>convolution_radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>convolution_radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_diagonalize_traits" kindref="member">diagonalize_traits</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput>. It can be omitted: if Eigen 3 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined then an overload using <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">Eigen_diagonalize_traits</ref></computeroutput> is provided. Otherwise, the internal implementation <computeroutput>CGAL::Diagonalize_traits</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/vcm_estimate_normals.h" line="447" column="1" bodyfile="CGAL/vcm_estimate_normals.h" bodystart="447" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga6c0104e0562c13b009bc698b20f378c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::vcm_estimate_normals</definition>
+        <argsstring>(PointRange &amp;points, double offset_radius, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>vcm_estimate_normals</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>offset_radius</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates normal directions of the range of <computeroutput>points</computeroutput> using the Voronoi Covariance Measure with a number of neighbors for the convolution. </para>        </briefdescription>
+        <detaileddescription>
+<para>The output normals are randomly oriented.</para><para>See <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1ga6094c666830a87b4bb6ea0ed4c846dd3" kindref="member">compute_vcm()</ref></computeroutput> for a detailed description of the parameter <computeroutput>offset_radius</computeroutput> and of the Voronoi Covariance Measure.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset_radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>offset_radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbor points used for convolution. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_diagonalize_traits" kindref="member">diagonalize_traits</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput>. It can be omitted: if Eigen 3 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined then an overload using <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">Eigen_diagonalize_traits</ref></computeroutput> is provided. Otherwise, the internal implementation <computeroutput>CGAL::Diagonalize_traits</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/vcm_estimate_normals.h" line="532" column="1" bodyfile="CGAL/vcm_estimate_normals.h" bodystart="532" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gaebbc04909dfd575a94f932c8d3bacdce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename PlaneRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::structure_point_set</definition>
+        <argsstring>(const PointRange &amp;points, const PlaneRange &amp;planes, OutputIterator output, double epsilon, const NamedParameters &amp;np)</argsstring>
+        <name>structure_point_set</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const PlaneRange &amp;</type>
+          <declname>planes</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>This is an implementation of the Point Set Structuring algorithm. </para>        </briefdescription>
+        <detaileddescription>
+<para>This algorithm takes advantage of a set of detected planes: it detects adjacency relationships between planes and resamples the detected planes, edges and corners to produce a structured point set.</para><para>The size parameter <computeroutput>epsilon</computeroutput> is used both for detecting adjacencies and for setting the sampling density of the structured point set.</para><para>For more details, please refer to <ref refid="citelist_1CITEREF_cgal:la-srpss-13" kindref="member">[6]</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PlaneRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>plane_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the output iterator. The type of the objects put in it is <computeroutput>std::pair&lt;<ref refid="classKernel_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Point_3</ref>, <ref refid="classKernel_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Vector_3</ref>&gt;</computeroutput>. Note that the user may use a <ulink url="http://www.boost.org/libs/iterator/doc/function_output_iterator.html">function_output_iterator</ulink> to match specific needs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>planes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input plane range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator where output points are written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size parameter. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="6" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_plane_index_map" kindref="member">plane_index_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>int</computeroutput>. Associates the index of a point in the input range to the index of plane (-1 if point does is not assigned to a plane). </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_plane_map" kindref="member">plane_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Plane_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Plane_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_attraction_factor" kindref="member">attraction_factor</ref></para></entry><entry thead="no"><para>multiple of <computeroutput>epsilon</computeroutput> used to connect simplices. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/structure_point_set.h" line="1550" column="1" bodyfile="CGAL/structure_point_set.h" bodystart="1550" bodyend="1566"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga50c98d5c5ae5535bce6f32eddbd03f33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>PointRange::iterator</type>
+        <definition>PointRange::iterator CGAL::mst_orient_normals</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>mst_orient_normals</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Orients the normals of the range of <computeroutput>points</computeroutput> using the propagation of a seed orientation through a minimum spanning tree of the Riemannian graph. </para>        </briefdescription>
+        <detaileddescription>
+<para>This method modifies the order of input points so as to pack all sucessfully oriented points first, and returns an iterator over the first point with an unoriented normal (see erase-remove idiom). For this reason it should not be called on sorted containers. It is based on <ref refid="citelist_1CITEREF_cgal:hddms-srup-92" kindref="member">[3]</ref>.</para><para><simplesect kind="warning"><para>This function may fail when Boost version 1.54 is used, because of the following bug: <ulink url="https://svn.boost.org/trac/boost/ticket/9012">https://svn.boost.org/trac/boost/ticket/9012</ulink></para></simplesect>
+<simplesect kind="pre"><para>Normals must be unit vectors </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>k &gt;= 2</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>iterator over the first point with an unoriented normal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/mst_orient_normals.h" line="537" column="1" bodyfile="CGAL/mst_orient_normals.h" bodystart="537" bodyend="646"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gacbddbfa4e9c4c32c42d981a6a050d8cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::wlop_simplify_and_regularize_point_set</definition>
+        <argsstring>(PointRange &amp;points, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>wlop_simplify_and_regularize_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>This is an implementation of the Weighted Locally Optimal Projection (WLOP) simplification algorithm. </para>        </briefdescription>
+        <detaileddescription>
+<para>The WLOP simplification algorithm can produce a set of denoised, outlier-free and evenly distributed particles over the original dense point cloud. The core of the algorithm is a Weighted Locally Optimal Projection operator with a density uniformization term. For more details, please refer to <ref refid="citelist_1CITEREF_wlop-2009" kindref="member">[4]</ref>.</para><para>A parallel version of WLOP is provided and requires the executable to be linked against the <ulink url="http://www.threadingbuildingblocks.org">Intel TBB library</ulink>. To control the number of threads used, the user may use the tbb::task_scheduler_init class. See the <ulink url="http://www.threadingbuildingblocks.org/documentation">TBB documentation</ulink> for more details.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the output iterator. It must accept objects of type <computeroutput>geom_traits::Point_3</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator where output points are put. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="8" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_select_percentage" kindref="member">select_percentage</ref></para></entry><entry thead="no"><para>percentage of points to retain. The default value is set to 5 (%). </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_neighbor_radius" kindref="member">neighbor_radius</ref></para></entry><entry thead="no"><para>spherical neighborhood radius. This is a key parameter that needs to be finely tuned. The result will be irregular if too small, but a larger value will impact the runtime. In practice, choosing a radius such that the neighborhood of each sample point includes at least two rings of neighboring sample points gives satisfactory result. The default value is set to 8 times the average spacing of the point set. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_number_of_iterations" kindref="member">number_of_iterations</ref></para></entry><entry thead="no"><para>number of iterations to solve the optimsation problem. The default value is 35. More iterations give a more regular result but increase the runtime. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_require_uniform_sampling" kindref="member">require_uniform_sampling</ref></para></entry><entry thead="no"><para>an optional preprocessing, which will give better result if the distribution of the input points is highly non-uniform. The default value is <computeroutput>false</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped, no output points are generated. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/wlop_simplify_and_regularize_point_set.h" line="469" column="1" bodyfile="CGAL/wlop_simplify_and_regularize_point_set.h" bodystart="469" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga4f82723e2f0bb33f3677e29e0208a256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CGAL::bilateral_smooth_point_set</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>bilateral_smooth_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>This function smooths an input point set by iteratively projecting each point onto the implicit surface patch fitted over its k nearest neighbors. </para>        </briefdescription>
+        <detaileddescription>
+<para>Bilateral projection preserves sharp features according to the normal (gradient) information. Both point positions and normals will be modified. For more details, please see section 4 in <ref refid="citelist_1CITEREF_ear-2013" kindref="member">[5]</ref>.</para><para>A parallel version of this function is provided and requires the executable to be linked against the <ulink url="http://www.threadingbuildingblocks.org">Intel TBB library</ulink>. To control the number of threads used, the user may use the tbb::task_scheduler_init class. See the <ulink url="http://www.threadingbuildingblocks.org/documentation">TBB documentation</ulink> for more details.</para><para><simplesect kind="pre"><para>Normals must be unit vectors </para></simplesect>
+<simplesect kind="pre"><para>k &gt;= 2</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> And <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the neighborhood for the implicit surface patch fitting. The larger the value is, the smoother the result will be. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="5" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_sharpness_angle" kindref="member">sharpness_angle</ref></para></entry><entry thead="no"><para>controls the sharpness of the result. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped, all points are left unchanged and the function return <computeroutput>NaN</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>Average point movement error. It&apos;s a convergence criterium for the algorithm. This value can help the user to decide how many iterations are sufficient. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/bilateral_smooth_point_set.h" line="442" column="1" bodyfile="CGAL/bilateral_smooth_point_set.h" bodystart="442" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga128b4cd2445490a0f1c3f573216ac477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::edge_aware_upsample_point_set</definition>
+        <argsstring>(const PointRange &amp;points, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>edge_aware_upsample_point_set</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>This method progressively upsamples the point set while approaching the edge singularities (detected by normal variation), which generates a denser point set from an input point set. </para>        </briefdescription>
+        <detaileddescription>
+<para>This has applications in point-based rendering, hole filling, and sparse surface reconstruction. Normals of points are required as input. For more details, please refer to <ref refid="citelist_1CITEREF_ear-2013" kindref="member">[5]</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel versions of <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gabb9a90622271869b3f2393314075fa0e" kindref="member">compute_average_spacing()</ref></computeroutput> (called internally). Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the output iterator. The type of the objects put in it is <computeroutput>std::pair&lt;geom_traits::Point_3, geom_traits::Vector_3&gt;</computeroutput>. Note that the user may use a <ulink url="http://www.boost.org/libs/iterator/doc/function_output_iterator.html">function_output_iterator</ulink> to match specific needs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator where output points and normals are put. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="7" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_sharpness_angle" kindref="member">sharpness_angle</ref></para></entry><entry thead="no"><para>controls the sharpness of the result. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_edge_sensitivity" kindref="member">edge_sensitivity</ref></para></entry><entry thead="no"><para>controls the priority of points inserted along sharp features. See section <ref refid="index_1Point_set_processing_3Upsample_Parameter1" kindref="member">Parameter: edge_sensitivity</ref> for an example. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_neighbor_radius" kindref="member">neighbor_radius</ref></para></entry><entry thead="no"><para>spherical neighborhood radius. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_number_of_output_points" kindref="member">number_of_output_points</ref></para></entry><entry thead="no"><para>is the number of output points to generate. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/edge_aware_upsample_point_set.h" line="326" column="1" bodyfile="CGAL/edge_aware_upsample_point_set.h" bodystart="326" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga149ceecc075a180669bde3e65742fdf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>PointRange::iterator</type>
+        <definition>PointRange::iterator CGAL::hierarchy_simplify_point_set</definition>
+        <argsstring>(PointRange &amp;points, const NamedParameters &amp;np)</argsstring>
+        <name>hierarchy_simplify_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Recursively split the point set in smaller clusters until the clusters have less than <computeroutput>size</computeroutput> elements or until their variation factor is below <computeroutput>var_max</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This method modifies the order of input points so as to pack all remaining points first, and returns an iterator over the first point to remove (see erase-remove idiom). For this reason it should not be called on sorted containers.</para><para><simplesect kind="pre"><para><computeroutput>0 &lt; maximum_variation &lt; 1/3</computeroutput> </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>size &gt; 0</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="6" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_size" kindref="member">size</ref></para></entry><entry thead="no"><para>maximum cluster size. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_maximum_variation" kindref="member">maximum_variation</ref></para></entry><entry thead="no"><para>maximum cluster variation value. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_diagonalize_traits" kindref="member">diagonalize_traits</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput>. It can be omitted: if Eigen 3 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined then an overload using <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">Eigen_diagonalize_traits</ref></computeroutput> is provided. Otherwise, the internal implementation <computeroutput>CGAL::Diagonalize_traits</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and simplification stops with no guarantee on the output. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>iterator over the first point to remove. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/hierarchy_simplify_point_set.h" line="161" column="1" bodyfile="CGAL/hierarchy_simplify_point_set.h" bodystart="161" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga4be2d94f1791d24b8ba0107bc33ad6dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+        </templateparamlist>
+        <type>PointRange::iterator</type>
+        <definition>PointRange::iterator CGAL::random_simplify_point_set</definition>
+        <argsstring>(PointRange &amp;points, double removed_percentage)</argsstring>
+        <name>random_simplify_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>removed_percentage</declname>
+        </param>
+        <briefdescription>
+<para>Randomly deletes a user-specified fraction of the input points. </para>        </briefdescription>
+        <detaileddescription>
+<para>This method modifies the order of input points so as to pack all remaining points first, and returns an iterator over the first point to remove (see erase-remove idiom). For this reason it should not be called on sorted containers.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>removed_percentage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percentage of points to remove.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>iterator over the first point to remove. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/random_simplify_point_set.h" line="61" column="1" bodyfile="CGAL/random_simplify_point_set.h" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga549402c0a8a8b6b71875181e93961521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::jet_smooth_point_set</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>jet_smooth_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Smoothes the range of <computeroutput>points</computeroutput> using jet fitting on the k nearest neighbors and reprojection onto the jet. </para>        </briefdescription>
+        <detaileddescription>
+<para>As this method relocates the points, it should not be called on containers sorted w.r.t. point locations.</para><para><simplesect kind="pre"><para><computeroutput>k &gt;= 2</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="6" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_degree_fitting" kindref="member">degree_fitting</ref></para></entry><entry thead="no"><para>degree of jet fitting. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_degree_monge" kindref="member">degree_monge</ref></para></entry><entry thead="no"><para>Monge degree. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_svd_traits" kindref="member">svd_traits</ref></para></entry><entry thead="no"><para>template parameter for the class <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">Monge_via_jet_fitting</ref></computeroutput>. If <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> 3.2 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined, then <computeroutput><ref refid="classCGAL_1_1Eigen__svd" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">CGAL::Eigen_svd</ref></computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and the remaining points are left unchanged. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/jet_smooth_point_set.h" line="214" column="1" bodyfile="CGAL/jet_smooth_point_set.h" bodystart="214" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gabb9a90622271869b3f2393314075fa0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::compute_average_spacing</definition>
+        <argsstring>(const PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>compute_average_spacing</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Computes average spacing from k nearest neighbors. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><computeroutput>k &gt;= 2.</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and the average spacing value estimated on the processed subset is returned. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>average spacing (scalar). The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>points</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/compute_average_spacing.h" line="194" column="1" bodyfile="CGAL/compute_average_spacing.h" bodystart="194" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga0cd0f87de690d4edf82740e856efa491" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::jet_estimate_normals</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>jet_estimate_normals</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates normal directions of the range of <computeroutput>points</computeroutput> using jet fitting on the k nearest neighbors. </para>        </briefdescription>
+        <detaileddescription>
+<para>The output normals are randomly oriented.</para><para><simplesect kind="pre"><para><computeroutput>k &gt;= 2</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="6" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_degree_fitting" kindref="member">degree_fitting</ref></para></entry><entry thead="no"><para>degree of jet fitting. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_svd_traits" kindref="member">svd_traits</ref></para></entry><entry thead="no"><para>template parameter for the class <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">Monge_via_jet_fitting</ref></computeroutput>. If <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> 3.2 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined, then <computeroutput><ref refid="classCGAL_1_1Eigen__svd" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">CGAL::Eigen_svd</ref></computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and the remaining normals are left unchanged. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/jet_estimate_normals.h" line="210" column="1" bodyfile="CGAL/jet_estimate_normals.h" bodystart="210" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gab8b8b073db1b79e1cc482114044fd76c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename QueryPointRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::estimate_local_k_neighbor_scales</definition>
+        <argsstring>(const PointRange &amp;points, const QueryPointRange &amp;queries, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>estimate_local_k_neighbor_scales</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const QueryPointRange &amp;</type>
+          <declname>queries</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates the local scale in a K nearest neighbors sense on a set of user-defined query points. </para>        </briefdescription>
+        <detaileddescription>
+<para>The computed scales correspond to the smallest scales such that the K subsets of points have the appearance of a surface in 3D or the appearance of a curve in 2D (see <ref refid="index_1Point_set_processing_3Scale" kindref="member">Automatic Scale Estimation</ref>).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>QueryPointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>query_point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is used to store the computed scales. It accepts values of type <computeroutput>std::size_t</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of locations where scale must be estimated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator to store the computed scales </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_query_point_map" kindref="member">query_point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="note"><para>This function accepts both 2D and 3D points, but sample points and query must have the same dimension. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/estimate_scale.h" line="491" column="1" bodyfile="CGAL/estimate_scale.h" bodystart="491" bodyend="518"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga7a0e851fd41f7ea2c640eff9f5a3fc2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::estimate_global_k_neighbor_scale</definition>
+        <argsstring>(const PointRange &amp;points, const NamedParameters &amp;np)</argsstring>
+        <name>estimate_global_k_neighbor_scale</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates the global scale in a K nearest neighbors sense. </para>        </briefdescription>
+        <detaileddescription>
+<para>The computed scale corresponds to the smallest scale such that the K subsets of points have the appearance of a surface in 3D or the appearance of a curve in 2D (see <ref refid="index_1Point_set_processing_3Scale" kindref="member">Automatic Scale Estimation</ref>).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="note"><para>This function accepts both 2D and 3D points.</para></simplesect>
+<simplesect kind="return"><para>The estimated scale in the K nearest neighbors sense. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/estimate_scale.h" line="569" column="1" bodyfile="CGAL/estimate_scale.h" bodystart="569" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gacc9353050636f6c746585639a282a7b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename QueryPointRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::estimate_local_range_scales</definition>
+        <argsstring>(const PointRange &amp;points, const QueryPointRange &amp;queries, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>estimate_local_range_scales</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const QueryPointRange &amp;</type>
+          <declname>queries</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates the local scale in a range sense on a set of user-defined query points. </para>        </briefdescription>
+        <detaileddescription>
+<para>The computed scales correspond to the smallest scales such that the subsets of points included in the sphere range have the appearance of a surface in 3D or the appearance of a curve in 2D (see <ref refid="index_1Point_set_processing_3Scale" kindref="member">Automatic Scale Estimation</ref>).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>QueryPointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>query_point_map</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is used to store the computed scales. It accepts values of type <computeroutput>geom_traits::FT</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of locations where scale must be estimated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator to store the computed scales </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_query_point_map" kindref="member">query_point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="note"><para>This function accepts both 2D and 3D points, but sample points and query must have the same dimension. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/estimate_scale.h" line="640" column="1" bodyfile="CGAL/estimate_scale.h" bodystart="640" bodyend="666"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga8b8e7e8e694d746cfa0bca11f87fb527" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::estimate_global_range_scale</definition>
+        <argsstring>(const PointRange &amp;points, const NamedParameters &amp;np)</argsstring>
+        <name>estimate_global_range_scale</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates the global scale in a range sense. </para>        </briefdescription>
+        <detaileddescription>
+<para>The computed scale corresponds to the smallest scale such that the subsets of points inside the sphere range have the appearance of a surface in 3D or the appearance of a curve in 2D (see <ref refid="index_1Point_set_processing_3Scale" kindref="member">Automatic Scale Estimation</ref>).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput> (or <computeroutput>geom_traits::Point_2</computeroutput>). If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> (or <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_2&gt;</computeroutput>) is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="note"><para>This function accepts both 2D and 3D points.</para></simplesect>
+<simplesect kind="return"><para>The estimated scale in the range sense. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>points</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/estimate_scale.h" line="725" column="1" bodyfile="CGAL/estimate_scale.h" bodystart="725" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1ga8c642da96a025ab32445aeb6cc219b0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConcurrencyTag</type>
+          </param>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::pca_estimate_normals</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>pca_estimate_normals</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Estimates normal directions of the range of <computeroutput>points</computeroutput> by linear least squares fitting of a plane over the k nearest neighbors. </para>        </briefdescription>
+        <detaileddescription>
+<para>The output normals are randomly oriented.</para><para><simplesect kind="pre"><para><computeroutput>k &gt;= 2</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and the remaining normals are left unchanged. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/pca_estimate_normals.h" line="197" column="1" bodyfile="CGAL/pca_estimate_normals.h" bodystart="197" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gafd0b5a21ec5042e4bca09cb43f1847f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>PointRange::iterator</type>
+        <definition>PointRange::iterator CGAL::remove_outliers</definition>
+        <argsstring>(PointRange &amp;points, unsigned int k, const NamedParameters &amp;np)</argsstring>
+        <name>remove_outliers</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Removes outliers: </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>computes average squared distance to the K nearest neighbors,</para></listitem><listitem><para>and sorts the points in increasing order of average distance.</para></listitem></itemizedlist>
+</para><para>This method modifies the order of input points so as to pack all remaining points first, and returns an iterator over the first point to remove (see erase-remove idiom). For this reason it should not be called on sorted containers.</para><para><simplesect kind="pre"><para><computeroutput>k &gt;= 2</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of neighbors </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="5" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_threshold_percent" kindref="member">threshold_percent</ref></para></entry><entry thead="no"><para>maximum percentage of points to remove. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_threshold_distance" kindref="member">threshold_distance</ref></para></entry><entry thead="no"><para>minimum distance for a point to be considered as outlier (distance here is the square root of the average squared distance to K nearest neighbors). </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped, all points are left unchanged and the function return <computeroutput>points.end()</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>iterator over the first point to remove.</para></simplesect>
+<simplesect kind="note"><para>There are two thresholds that can be used: <computeroutput>threshold_percent</computeroutput> and <computeroutput>threshold_distance</computeroutput>. This function returns the smallest number of outliers such that at least one of these threshold is fullfilled. This means that if <computeroutput>threshold_percent=100</computeroutput>, only <computeroutput>threshold_distance</computeroutput> is taken into account; if <computeroutput>threshold_distance=0</computeroutput> only <computeroutput>threshold_percent</computeroutput> is taken into account. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/remove_outliers.h" line="160" column="1" bodyfile="CGAL/remove_outliers.h" bodystart="160" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingAlgorithms_1gac7c81cc8a2986e3972e86612e4f847a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>PointRange::iterator</type>
+        <definition>PointRange::iterator CGAL::grid_simplify_point_set</definition>
+        <argsstring>(PointRange &amp;points, double epsilon, const NamedParameters &amp;np)</argsstring>
+        <name>grid_simplify_point_set</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Merges points which belong to the same cell of a grid of cell size = <computeroutput>epsilon</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This method modifies the order of input points so as to pack all remaining points first, and returns an iterator over the first point to remove (see erase-remove idiom). For this reason it should not be called on sorted containers.</para><para><simplesect kind="pre"><para><computeroutput>epsilon &gt; 0</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tolerance value when merging 3D points. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_callback" kindref="member">callback</ref></para></entry><entry thead="no"><para>an instance of <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped and simplification stops with no guarantee on the output. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>iterator over the first point to remove. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/grid_simplify_point_set.h" line="206" column="1" bodyfile="CGAL/grid_simplify_point_set.h" bodystart="206" bodyend="244"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Collection of algorithms of point set processing (smoothing, simplification, etc.). </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

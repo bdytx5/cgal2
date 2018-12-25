@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Periodic_3_mesh_3/group__PkgPeriodic__3__mesh__3Functions.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Periodic Mesh Generation: Mesh Generation Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Periodic Mesh Generation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgPeriodic__3__mesh__3Functions.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Mesh Generation Functions<div class="ingroups"><a class="el" href="group__PkgPeriodic__3__mesh__3.html">3D Periodic Mesh Generation Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>The two main functions to generate a periodic mesh are <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5" title="The function make_periodic_3_mesh_3() is a 3D periodic mesh generator. ">make_periodic_3_mesh_3()</a></code> and <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code>. </p>
+<p>Other functions are provided to optimize an existing periodic mesh. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0b7d3bf3e957fbf8ed46f9ed139502b5"><td class="memTemplParams" colspan="2">template&lt;class C3T3 , class MD , class MC &gt; </td></tr>
+<tr class="memitem:ga0b7d3bf3e957fbf8ed46f9ed139502b5"><td class="memTemplItemLeft" align="right" valign="top">C3T3 </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5">CGAL::make_periodic_3_mesh_3</a> (const MD &amp;domain, const MC &amp;criteria, parameters::internal::Features_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">features</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">parameters::features</a>(domain), parameters::internal::Lloyd_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">lloyd</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a>(), parameters::internal::Odt_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">odt</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a>(), parameters::internal::Perturb_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">perturb</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>(), parameters::internal::Exude_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">exude</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>())</td></tr>
+<tr class="memdesc:ga0b7d3bf3e957fbf8ed46f9ed139502b5"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5" title="The function make_periodic_3_mesh_3() is a 3D periodic mesh generator. ">make_periodic_3_mesh_3()</a></code> is a 3D periodic mesh generator.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5">More...</a><br /></td></tr>
+<tr class="separator:ga0b7d3bf3e957fbf8ed46f9ed139502b5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad04cbbb510f43fbc760c95e1b2ac170f"><td class="memTemplParams" colspan="2">template&lt;typename C3T3 , typename MD &gt; </td></tr>
+<tr class="memitem:gad04cbbb510f43fbc760c95e1b2ac170f"><td class="memTemplItemLeft" align="right" valign="top">CGAL::Mesh_optimization_return_code </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f">CGAL::lloyd_optimize_periodic_3_mesh_3</a> (C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</td></tr>
+<tr class="memdesc:gad04cbbb510f43fbc760c95e1b2ac170f"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> is a periodic mesh optimization process based on the minimization of a global energy function.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f">More...</a><br /></td></tr>
+<tr class="separator:gad04cbbb510f43fbc760c95e1b2ac170f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga98171a3e9d5208454d13cb52b8815737"><td class="memTemplParams" colspan="2">template&lt;typename C3T3 , typename MD &gt; </td></tr>
+<tr class="memitem:ga98171a3e9d5208454d13cb52b8815737"><td class="memTemplItemLeft" align="right" valign="top">Mesh_optimization_return_code </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737">CGAL::odt_optimize_periodic_3_mesh_3</a> (C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</td></tr>
+<tr class="memdesc:ga98171a3e9d5208454d13cb52b8815737"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> is a periodic mesh optimization process based on the minimization of a global energy function.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737">More...</a><br /></td></tr>
+<tr class="separator:ga98171a3e9d5208454d13cb52b8815737"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga423a8902ca11f0f01bb30aa5344fda55"><td class="memTemplParams" colspan="2">template&lt;typename C3T3 , typename MD &gt; </td></tr>
+<tr class="memitem:ga423a8902ca11f0f01bb30aa5344fda55"><td class="memTemplItemLeft" align="right" valign="top">CGAL::Mesh_optimization_return_code </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55">CGAL::perturb_periodic_3_mesh_3</a> (C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, double parameters::sliver_bound=0)</td></tr>
+<tr class="memdesc:ga423a8902ca11f0f01bb30aa5344fda55"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> is a mesh optimizer that improves the quality of a Delaunay mesh by changing the positions of some vertices of the mesh.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55">More...</a><br /></td></tr>
+<tr class="separator:ga423a8902ca11f0f01bb30aa5344fda55"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3c195958b87a6e501b37d10f29f0c0a8"><td class="memTemplParams" colspan="2">template&lt;typename C3T3 &gt; </td></tr>
+<tr class="memitem:ga3c195958b87a6e501b37d10f29f0c0a8"><td class="memTemplItemLeft" align="right" valign="top">CGAL::Mesh_optimization_return_code </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8">CGAL::exude_periodic_3_mesh_3</a> (C3T3 &amp;c3t3, double parameters::time_limit=0, double parameters::sliver_bound=0)</td></tr>
+<tr class="memdesc:ga3c195958b87a6e501b37d10f29f0c0a8"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> performs a sliver exudation process on a periodic Delaunay mesh.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8">More...</a><br /></td></tr>
+<tr class="separator:ga3c195958b87a6e501b37d10f29f0c0a8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5856ae11a447d996a8b0cfe38c0d7618"><td class="memTemplParams" colspan="2">template&lt;class C3T3 , class MD , class MeshCriteria &gt; </td></tr>
+<tr class="memitem:ga5856ae11a447d996a8b0cfe38c0d7618"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618">CGAL::refine_periodic_3_mesh_3</a> (C3T3 &amp;c3t3, const MD &amp;mesh_domain, const MC &amp;mesh_criteria, parameters::internal::Lloyd_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">lloyd</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a>(), parameters::internal::Odt_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">odt</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a>(), parameters::internal::Perturb_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">perturb</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>(), parameters::internal::Exude_options <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">exude</a>=<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>())</td></tr>
+<tr class="memdesc:ga5856ae11a447d996a8b0cfe38c0d7618"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code> is a 3D periodic mesh generator.  <a href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618">More...</a><br /></td></tr>
+<tr class="separator:ga5856ae11a447d996a8b0cfe38c0d7618"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3c195958b87a6e501b37d10f29f0c0a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3c195958b87a6e501b37d10f29f0c0a8">◆ </a></span>exude_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename C3T3 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL::Mesh_optimization_return_code CGAL::exude_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">C3T3 &amp; </td>
+          <td class="paramname"><em>c3t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::sliver_bound </td>
+          <td class="paramname"> = <code>0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/optimize_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> performs a sliver exudation process on a periodic Delaunay mesh. </p>
+<p>The sliver exudation process consists in optimizing the weights of vertices of the periodic weighted Delaunay triangulation in such a way that slivers disappear and the quality of the mesh improves.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This optimizer modifies the weight of vertices of the periodic triangulation and, if called, must be the last optimizer to be called. If the mesh is refined after this optimization has been performed, all improvements will be lost.</dd></dl>
+<p>This function directly calls <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9">exude_mesh_3()</a></code>, but is provided for convenience. Further information can be found on the documentation of the function <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9">exude_mesh_3()</a></code>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Periodic_3_mesh_3_2mesh_implicit_shape_with_optimizers_8cpp-example.html#a17">Periodic_3_mesh_3/mesh_implicit_shape_with_optimizers.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gad04cbbb510f43fbc760c95e1b2ac170f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad04cbbb510f43fbc760c95e1b2ac170f">◆ </a></span>lloyd_optimize_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename C3T3 , typename MD &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL::Mesh_optimization_return_code CGAL::lloyd_optimize_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">C3T3 &amp; </td>
+          <td class="paramname"><em>c3t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MD &amp; </td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t parameters::max_iteration_number </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::convergence </td>
+          <td class="paramname"> = <code>0.02</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::freeze_bound </td>
+          <td class="paramname"> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool parameters::do_freeze </td>
+          <td class="paramname"> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/optimize_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> is a periodic mesh optimization process based on the minimization of a global energy function. </p>
+<p>This function directly calls <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e">lloyd_optimize_mesh_3()</a></code>, but is provided for convenience. Further information can be found on the documentation of the function <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e">lloyd_optimize_mesh_3()</a></code>.</p>
+<dl class="section note"><dt>Note</dt><dd>This function requires the <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/installation.html#thirdpartyEigen">Eigen</a> library. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Periodic_3_mesh_3_2mesh_implicit_shape_with_optimizers_8cpp-example.html#a15">Periodic_3_mesh_3/mesh_implicit_shape_with_optimizers.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga0b7d3bf3e957fbf8ed46f9ed139502b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b7d3bf3e957fbf8ed46f9ed139502b5">◆ </a></span>make_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class C3T3 , class MD , class MC &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">C3T3 CGAL::make_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">const MD &amp; </td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MC &amp; </td>
+          <td class="paramname"><em>criteria</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Features_options </td>
+          <td class="paramname"><em>features</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">parameters::features</a>(domain)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Lloyd_options </td>
+          <td class="paramname"><em>lloyd</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Odt_options </td>
+          <td class="paramname"><em>odt</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Perturb_options </td>
+          <td class="paramname"><em>perturb</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Exude_options </td>
+          <td class="paramname"><em>exude</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/make_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5" title="The function make_periodic_3_mesh_3() is a 3D periodic mesh generator. ">make_periodic_3_mesh_3()</a></code> is a 3D periodic mesh generator. </p>
+<p>It produces simplicial meshes which discretize 3D periodic domains.</p>
+<p>The periodic mesh generation algorithm is a Delaunay refinement process followed by an optimization phase. The criteria driving the Delaunay refinement process may be tuned to achieve the user needs with respect to the size of mesh elements, the accuracy of boundaries approximation, etc.</p>
+<p>The optimization phase is a sequence of optimization processes, amongst the following available optimizers: an ODT-smoothing, a Lloyd smoothing, a sliver perturber, and a sliver exuder. Each optimization process can be activated or not, according to the user requirements and available time. By default, only the perturber and the exuder are activated. Note that the benefits of the exuder will be lost if the mesh is further refined afterward, and that ODT-smoothing, Lloyd-smoothing, and sliver perturber should never be called after the sliver exuder. In the case of further refinement, only the sliver exuder can be used.</p>
+<p>The function outputs the mesh to an object which provides iterators to traverse the resulting mesh data structure or can be written to a file (see <a class="el" href="index.html#Periodic_3_mesh_3_section_examples">Examples</a> ).</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">C3T3</td><td>is required to be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshComplex__3InTriangulation__3.html">MeshComplex_3InTriangulation_3</a></code>. This is the return type. The type <code>C3T3</code> is in particular required to provide a nested type <code>C3T3::Triangulation</code> for the 3D periodic triangulation embedding the periodic mesh. The vertex and cell base classes of the triangulation <code>C3T3::Triangulation</code> are required to be models of the concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshVertexBase__3.html">MeshVertexBase_3</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/classPeriodic__3TriangulationDSVertexBase__3.html">Periodic_3TriangulationDSVertexBase_3</a></code>, and of the concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCellBase__3.html">MeshCellBase_3</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/classPeriodic__3TriangulationDSCellBase__3.html">Periodic_3TriangulationDSCellBase_3</a></code>, respectively.</td></tr>
+    <tr><td class="paramname">MD</td><td>is required to be a model of the concept <code><a class="el" href="classPeriodic__3MeshDomain__3.html">Periodic_3MeshDomain_3</a></code>, or of the refined concept <code><a class="el" href="classPeriodic__3MeshDomainWithFeatures__3.html">Periodic_3MeshDomainWithFeatures_3</a></code> if the domain has corners and curve segments that need to be accurately represented in the mesh. The argument <code>domain</code> is the sole link through which the domain to be discretized is known by the mesh generation algorithm.</td></tr>
+    <tr><td class="paramname">MC</td><td>is required to be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCriteria__3.html">MeshCriteria_3</a></code>, or a model of the refined concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCriteriaWithFeatures__3.html">MeshCriteriaWithFeatures_3</a></code> if the domain has exposed features. The argument <code>criteria</code> of type <code>MC</code> specifies the size and shape requirements for mesh tetrahedra and surface facets. These criteria form the rules which drive the refinement process. All mesh elements satisfy those criteria at the end of the refinement process. In addition, if the domain has features, the argument <code>criteria</code> provides a sizing field to guide the discretization of 1-dimensional exposed features.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Named Parameters</b><br />
+</p>
+<ul>
+<li><b><code>features</code></b> allows the user to specify whether 0 and 1-dimensional features have to be taken into account or not when the domain is a model of <code><a class="el" href="classPeriodic__3MeshDomainWithFeatures__3.html">Periodic_3MeshDomainWithFeatures_3</a></code>. The type <code>Features</code> of this parameter is an internal undescribed type. The library provides functions to construct appropriate values of that type. <ul>
+<li>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af"><code>parameters::features(domain)</code> </a> sets <code>features</code> according to the domain, i.e. 0 and 1-dimensional features are taken into account if <code>domain</code> is a <code><a class="el" href="classPeriodic__3MeshDomainWithFeatures__3.html">Periodic_3MeshDomainWithFeatures_3</a></code>. This is the default behavior if parameter <code>features</code> is not specified. </li>
+<li>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535">parameters::no_features()</a></code> prevents the representation of 0 and 1-dimensional features in the mesh. </li>
+</ul>
+</li>
+</ul>
+<p>The four additional parameters are optimization parameters. They control which optimization processes are performed and allow the user to tune the parameters of the optimization processes. Individual optimization parameters are not described here as they are internal types (see instead the documentation page of each optimizer). For each optimization algorithm, there exist two global functions that allow to enable or disable the optimizer:</p>
+<ul>
+<li><b><code>lloyd</code></b>: <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> is used for this parameter.</li>
+<li><b><code>ODT</code></b>: <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt()</a></code> are designed to trigger or not a call to <code>odt_optimize_periodic_3_mesh_3</code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> is used for this parameter.</li>
+<li><b><code>perturb</code></b>: <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">parameters::no_perturb()</a></code> are designed to trigger or not a call to <code>perturb_periodic_3_mesh_3</code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code>CGAL::perturb_periodic_3_mesh_3</code> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</li>
+<li><b><code>exude</code></b>: <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">parameters::no_exude()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> function and to override to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</li>
+</ul>
+<p>The optimization parameters can be passed in an arbitrary order. If one parameter is not passed, its default value is used. The default values are <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">no_lloyd()</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">no_odt()</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">perturb()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">exude()</a></code>.</p>
+<p>Note that whatever may be the optimization processes activated, they are always launched in the order that is a suborder of the following (see user manual for further details): <em>ODT-smoother</em>, <em>Lloyd-smoother</em>, <em>perturb</em>, <em>exude</em>.</p>
+<p>Beware that optimization of the mesh is obtained by perturbing mesh vertices and modifying the mesh connectivity and that this has an impact on the strict compliance to the refinement criteria. Though a strict compliance to mesh criteria is guaranteed at the end of the Delaunay refinement, this may no longer be true after some optimization processes. Also beware that the default behavior does involve some optimization processes.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba">make_mesh_3()</a></code></dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">parameters::features()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535">parameters::no_features()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">parameters::no_exude()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">parameters::no_perturb()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga98171a3e9d5208454d13cb52b8815737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98171a3e9d5208454d13cb52b8815737">◆ </a></span>odt_optimize_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename C3T3 , typename MD &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh_optimization_return_code CGAL::odt_optimize_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">C3T3 &amp; </td>
+          <td class="paramname"><em>c3t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MD &amp; </td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t parameters::max_iteration_number </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::convergence </td>
+          <td class="paramname"> = <code>0.02</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::freeze_bound </td>
+          <td class="paramname"> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool parameters::do_freeze </td>
+          <td class="paramname"> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/optimize_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> is a periodic mesh optimization process based on the minimization of a global energy function. </p>
+<p>This function directly calls <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906">odt_optimize_mesh_3()</a></code>, but is provided for convenience. Further information can be found on the documentation of the function <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906">odt_optimize_mesh_3()</a></code>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Periodic_3_mesh_3_2mesh_implicit_shape_with_optimizers_8cpp-example.html#a14">Periodic_3_mesh_3/mesh_implicit_shape_with_optimizers.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga423a8902ca11f0f01bb30aa5344fda55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga423a8902ca11f0f01bb30aa5344fda55">◆ </a></span>perturb_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename C3T3 , typename MD &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL::Mesh_optimization_return_code CGAL::perturb_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">C3T3 &amp; </td>
+          <td class="paramname"><em>c3t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MD &amp; </td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::sliver_bound </td>
+          <td class="paramname"> = <code>0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/optimize_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> is a mesh optimizer that improves the quality of a Delaunay mesh by changing the positions of some vertices of the mesh. </p>
+<p>This function directly calls <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a">perturb_mesh_3()</a></code>, but is provided for convenience. Further information can be found on the documentation of the function <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a">perturb_mesh_3()</a></code>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Periodic_3_mesh_3_2mesh_implicit_shape_with_optimizers_8cpp-example.html#a16">Periodic_3_mesh_3/mesh_implicit_shape_with_optimizers.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga5856ae11a447d996a8b0cfe38c0d7618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5856ae11a447d996a8b0cfe38c0d7618">◆ </a></span>refine_periodic_3_mesh_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class C3T3 , class MD , class MeshCriteria &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::refine_periodic_3_mesh_3 </td>
+          <td>(</td>
+          <td class="paramtype">C3T3 &amp; </td>
+          <td class="paramname"><em>c3t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MD &amp; </td>
+          <td class="paramname"><em>mesh_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MC &amp; </td>
+          <td class="paramname"><em>mesh_criteria</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Lloyd_options </td>
+          <td class="paramname"><em>lloyd</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Odt_options </td>
+          <td class="paramname"><em>odt</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Perturb_options </td>
+          <td class="paramname"><em>perturb</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parameters::internal::Exude_options </td>
+          <td class="paramname"><em>exude</em> = <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_periodic_3_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code> is a 3D periodic mesh generator. </p>
+<p>It produces periodic simplicial meshes which discretize 3D periodic domains.</p>
+<p>The periodic mesh generation algorithm is a Delaunay refinement process followed by an optimization phase. The criteria driving the Delaunay refinement process may be tuned to achieve the user needs with respect to the size of mesh elements, the accuracy of boundaries approximation, etc.</p>
+<p>The optimization phase is a sequence of optimization processes, amongst the following available optimizers: an ODT-smoothing, a Lloyd smoothing, a sliver perturber, and a sliver exuder. Each optimization process can be activated or not, according to the user requirements and available time. By default, only the perturber and the exuder are activated. Note that the benefits of the exuder will be lost if the mesh is further refined afterward.</p>
+<dl class="section attention"><dt>Attention</dt><dd>The function template <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code> may be used to refine a previously computed mesh, e.g.: <div class="fragment"><div class="line">C3T3 c3t3 = CGAL::make_periodic_3_mesh_3&lt;C3T3&gt;(domain,criteria);</div><div class="line"></div><div class="line"><a class="code" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618">CGAL::refine_periodic_3_mesh_3</a>(c3t3, domain, new_criteria);</div></div><!-- fragment --></dd>
+<dd>
+Note that the triangulation must form at all times a simplicial complex within a single copy of the domain (see Sections <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/index.html#P3Triangulation3secspace">The Flat Torus</a> and <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/index.html#P3Triangulation3secintro">Representation</a> of the manual of 3D periodic triangulations). It is the responsability of the user to provide a triangulation that satisfies this condition when calling the refinement function <code>refine_periodic_3_mesh_3</code>. The underlying triangulation of a mesh complex obtained through <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5" title="The function make_periodic_3_mesh_3() is a 3D periodic mesh generator. ">make_periodic_3_mesh_3()</a></code> or <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga5856ae11a447d996a8b0cfe38c0d7618" title="The function refine_periodic_3_mesh_3() is a 3D periodic mesh generator. ">refine_periodic_3_mesh_3()</a></code> will always satisfy this condition.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">C3T3</td><td>is required to be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshComplex__3InTriangulation__3.html">MeshComplex_3InTriangulation_3</a></code>. The argument <code>c3t3</code> is passed by reference as this object is modified by the refinement process. As the refinement process only adds points to the triangulation, all vertices of the triangulation of <code>c3t3</code> remain in the mesh during the refinement process. The object <code>c3t3</code> can be used to insert specific points in the domain to ensure that they will be contained in the final triangulation. The type <code>C3T3</code> is in particular required to provide a nested type <code>C3T3::Triangulation</code> for the 3D periodic triangulation embedding the periodic mesh. The vertex and cell base classes of the triangulation <code>C3T3::Triangulation</code> are required to be models of the concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshVertexBase__3.html">MeshVertexBase_3</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/classPeriodic__3TriangulationDSVertexBase__3.html">Periodic_3TriangulationDSVertexBase_3</a></code>, and of the concepts <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCellBase__3.html">MeshCellBase_3</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Periodic_3_triangulation_3.tag:../Periodic_3_triangulation_3/" href="../Periodic_3_triangulation_3/classPeriodic__3TriangulationDSCellBase__3.html">Periodic_3TriangulationDSCellBase_3</a></code>, respectively.</td></tr>
+    <tr><td class="paramname">MD</td><td>is required to be a model of the concept <code><a class="el" href="classPeriodic__3MeshDomain__3.html">Periodic_3MeshDomain_3</a></code> or of the refined concept <code><a class="el" href="classPeriodic__3MeshDomainWithFeatures__3.html">Periodic_3MeshDomainWithFeatures_3</a></code> if 0 and 1-dimensional features of the input complex have to be accurately represented in the mesh. The argument <code>domain</code> is the sole link through which the domain to be discretized is known by the mesh generation algorithm.</td></tr>
+    <tr><td class="paramname">MC</td><td>has to be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCriteria__3.html">MeshCriteria_3</a></code>, or a model of the refined concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/classMeshCriteriaWithFeatures__3.html">MeshCriteriaWithFeatures_3</a></code> if the domain has exposed features. The argument <code>criteria</code> of type <code>MC</code> specifies the size and shape requirements for mesh tetrahedra and surface facets. These criteria form the rules which drive the refinement process. All mesh elements satisfy those criteria at the end of the refinement process. In addition, if the domain has features, the argument <code>criteria</code> provides a sizing field to guide the discretization of 1-dimensional exposed features.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The four additional parameters are optimization parameters. They control which optimization processes are performed and allow the user to tune the parameters of the optimization processes. Individual optimization parameters are not described here as they are internal types (see instead the documentation page of each optimizer). For each optimization algorithm, there exist two global functions that allow to enable or disable the optimizer:</p>
+<p><b>Named Parameters</b><br />
+</p><ul>
+<li><b><code>lloyd</code></b> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> is used for this parameter.</li>
+<li><b><code>ODT</code></b> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> is used for this parameter.</li>
+<li><b><code>perturb</code></b> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">parameters::no_perturb()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</li>
+<li><b><code>exude</code></b> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">parameters::no_exude()</a></code> are designed to trigger or not a call to <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> function and to override to set the parameters of this optimizer. If one parameter is not set, the default value of <code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</li>
+</ul>
+<p>The optimization parameters can be passed in arbitrary order. If one parameter is not passed, its default value is used. The default values are <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">no_lloyd()</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">no_odt()</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">perturb()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">exude()</a></code>. Note that whatever may be the optimization processes activated, they are always launched in the order that is a suborder of the following (see user manual for further details): <em>ODT-smoother</em>, <em>Lloyd-smoother</em>, <em>perturber</em>, and <em>exuder</em>.</p>
+<p>Beware that optimization of the mesh is obtained by perturbing mesh vertices and modifying the mesh connectivity and that this has an impact on the strict compliance to the refinement criteria. Though a strict compliance to mesh criteria is guaranteed at the end of the Delaunay refinement, this may no longer be true after some optimization processes. Also beware that the default behavior does involve some optimization processes.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga0b7d3bf3e957fbf8ed46f9ed139502b5" title="The function make_periodic_3_mesh_3() is a 3D periodic mesh generator. ">make_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba">refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga3c195958b87a6e501b37d10f29f0c0a8" title="The function exude_periodic_3_mesh_3() performs a sliver exudation process on a periodic Delaunay mes...">exude_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga423a8902ca11f0f01bb30aa5344fda55" title="The function perturb_periodic_3_mesh_3() is a mesh optimizer that improves the quality of a Delaunay ...">perturb_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#gad04cbbb510f43fbc760c95e1b2ac170f" title="The function lloyd_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the ...">lloyd_optimize_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgPeriodic__3__mesh__3Functions.html#ga98171a3e9d5208454d13cb52b8815737" title="The function odt_optimize_periodic_3_mesh_3() is a periodic mesh optimization process based on the mi...">odt_optimize_periodic_3_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">parameters::no_exude</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">parameters::no_perturb</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_3.tag:../Mesh_3/" href="../Mesh_3/group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a></code> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:40 for CGAL 4.13 - 3D Periodic Mesh Generation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

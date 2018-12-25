@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Labeled__image__mesh__domain__3" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Labeled_image_mesh_domain_3</compoundname>
+    <includes local="no">CGAL/Labeled_image_mesh_domain_3.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Image</type>
+      </param>
+      <param>
+        <type>typename BGT</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Creation</header>
+      <memberdef kind="function" id="classCGAL_1_1Labeled__image__mesh__domain__3_1aa2b8662717db7915a61ad715a9f79f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Labeled_image_mesh_domain_3&lt; Image, BGT &gt;::Labeled_Image_mesh_domain_3</definition>
+        <argsstring>(const Image &amp;image, const BGT::FT &amp;error_bound=FT(1e-3))</argsstring>
+        <name>Labeled_Image_mesh_domain_3</name>
+        <param>
+          <type>const Image &amp;</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>const BGT::FT &amp;</type>
+          <declname>error_bound</declname>
+          <defval>FT(1e-3)</defval>
+        </param>
+        <briefdescription>
+<para>Construction from an image. </para>        </briefdescription>
+        <detaileddescription>
+<para>The parameter <computeroutput>error_bound</computeroutput> is relative to the size of the image. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Labeled_image_mesh_domain_3.h" line="57" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>The class template <computeroutput><ref refid="classCGAL_1_1Labeled__image__mesh__domain__3" kindref="compound">Labeled_image_mesh_domain_3</ref></computeroutput> is deprecated since CGAL-4.13, in favor of the class template <computeroutput><ref refid="classCGAL_1_1Labeled__mesh__domain__3" kindref="compound">Labeled_mesh_domain_3</ref></computeroutput> and its static function <computeroutput><ref refid="classCGAL_1_1Labeled__mesh__domain__3_1a2d77aff36bbb720190b01e3d36f76a67" kindref="member">Labeled_mesh_domain_3::create_labeled_image_mesh_domain()</ref></computeroutput>.</para></xrefdescription></xrefsect></para><para>The class <computeroutput><ref refid="classCGAL_1_1Labeled__image__mesh__domain__3" kindref="compound">Labeled_image_mesh_domain_3</ref></computeroutput> implements a domain described by a 3D labeled image. A 3D labeled image is a grid of voxels, where each voxel is associated with an index (a subdomain index) characterizing the subdomain in which the voxel lies. This class is a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>. The domain to be discretized is the union of voxels that have an non-default index (different from the default constructed value of the type <computeroutput>Image::Type</computeroutput>).</para><para>This class includes a member function that provides, by interpolation, the index of the subdomain in which any query point lies. An intersection between a segment and bounding surfaces is detected when both segment endpoints are associated with different values of subdomain indices. The intersection is then constructed by bisection. The bisection stops when the query segment is shorter than a given error bound <computeroutput>e</computeroutput>. This error bound is given by <computeroutput>e=d</computeroutput> <formula id="2">$ \times$</formula><computeroutput>bound</computeroutput> where <computeroutput>d</computeroutput> is the length of the diagonal of the bounding box (in world coordinates) and <computeroutput>bound</computeroutput> is the argument passed to the constructor of <computeroutput><ref refid="classCGAL_1_1Labeled__image__mesh__domain__3" kindref="compound">Labeled_image_mesh_domain_3</ref></computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the type of the input image. This parameter must be <computeroutput><ref refid="classCGAL_1_1Image__3" kindref="compound">CGAL::Image_3</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>BGT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a geometric traits class which provides the basic operations to implement intersection tests and intersection computations through a bisection method. This parameter must be instantiated with a model of the concept <computeroutput><ref refid="classBisectionGeometricTraits__3" kindref="compound">BisectionGeometricTraits_3</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<xrefsect id="models_1_models000004"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput></para></xrefdescription></xrefsect></para><para>An executable that uses <computeroutput><ref refid="classCGAL_1_1Labeled__image__mesh__domain__3" kindref="compound">Labeled_image_mesh_domain_3</ref></computeroutput> must be linked with the <emphasis>CGAL_ImageIO</emphasis> library.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classBisectionGeometricTraits__3" kindref="compound">BisectionGeometricTraits_3</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput>. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="CGAL/Labeled_image_mesh_domain_3.h" line="47" column="1" bodyfile="CGAL/Labeled_image_mesh_domain_3.h" bodystart="47" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Labeled__image__mesh__domain__3_1aa2b8662717db7915a61ad715a9f79f64" prot="public" virt="non-virtual"><scope>CGAL::Labeled_image_mesh_domain_3</scope><name>Labeled_Image_mesh_domain_3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

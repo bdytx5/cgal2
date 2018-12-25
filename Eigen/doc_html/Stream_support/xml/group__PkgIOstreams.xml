@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgIOstreams" kind="group">
+    <compoundname>PkgIOstreams</compoundname>
+    <title>IO Streams Reference</title>
+    <innerclass refid="classCGAL_1_1Color" prot="public">CGAL::Color</innerclass>
+    <innerclass refid="classCGAL_1_1Input__rep" prot="public">CGAL::Input_rep</innerclass>
+    <innerclass refid="classCGAL_1_1Output__rep" prot="public">CGAL::Output_rep</innerclass>
+    <innerclass refid="classCGAL_1_1Istream__iterator" prot="public">CGAL::Istream_iterator</innerclass>
+    <innerclass refid="classCGAL_1_1Ostream__iterator" prot="public">CGAL::Ostream_iterator</innerclass>
+    <innerclass refid="classCGAL_1_1Verbose__ostream" prot="public">CGAL::Verbose_ostream</innerclass>
+    <innergroup refid="group__IOstreamOperators">Stream Operators</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" prot="public" static="no">
+        <name>Mode</name>
+        <enumvalue id="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a13a67787bf1f5275048052d9001e1bee" prot="public">
+          <name>ASCII</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0aa83308e9472ea595943a6b76af054e98" prot="public">
+          <name>BINARY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a5d045c18474dfd381b1c2b1dd1e612c5" prot="public">
+          <name>PRETTY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>All classes in the CGAL <computeroutput>Kernel</computeroutput> provide input and output operators for IOStreams. </para>        </briefdescription>
+        <detaileddescription>
+<para>The basic task of such an operator is to produce a representation of an object that can be written as a sequence of characters on devices as a console, a file, or a pipe. The enum <computeroutput>Mode</computeroutput> distinguish between three different printing formats.</para><para>In <computeroutput>ASCII</computeroutput> mode, numbers e.g. the coordinates of a point or the coefficients of a line, are written in a machine independent format. In BINARY mode, data are written in a binary format, e.g. a double is represented as a sequence of four byte. The format depends on the machine. The mode PRETTY serves mainly for debugging as the type of the geometric object is written, as well as the data defining the object. For example for a point at the origin with Cartesian double coordinates, the output would be <computeroutput>PointC2(0.0, 0.0)</computeroutput>. At the moment CGAL does not provide input operations for pretty printed data. By default a stream is in Ascii mode.</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="37" column="1" bodyfile="CGAL/IO/io.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IO::Mode</type>
+        <definition>IO::Mode CGAL::get_mode</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>get_mode</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>returns the printing mode of the IO stream <computeroutput>s</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IO::Mode</type>
+        <definition>IO::Mode CGAL::set_ascii_mode</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>set_ascii_mode</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>sets the mode of the IO stream <computeroutput>s</computeroutput> to be the <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a13a67787bf1f5275048052d9001e1bee" kindref="member">IO::ASCII</ref></computeroutput> mode. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the previous mode of <computeroutput>s</computeroutput>.</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IO::Mode</type>
+        <definition>IO::Mode CGAL::set_binary_mode</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>set_binary_mode</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput></para></simplesect>
+sets the mode of the IO stream <computeroutput>s</computeroutput> to be the <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0aa83308e9472ea595943a6b76af054e98" kindref="member">IO::BINARY</ref></computeroutput> mode. Returns the previous mode of <computeroutput>s</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="91" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IO::Mode</type>
+        <definition>IO::Mode CGAL::set_mode</definition>
+        <argsstring>(std::ios &amp;s, IO::Mode m)</argsstring>
+        <name>set_mode</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>IO::Mode</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>sets the printing mode of the IO stream <computeroutput>s</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="107" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IO::Mode</type>
+        <definition>IO::Mode CGAL::set_pretty_mode</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>set_pretty_mode</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>sets the mode of the IO stream <computeroutput>s</computeroutput> to be the <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a5d045c18474dfd381b1c2b1dd1e612c5" kindref="member">IO::PRETTY</ref></computeroutput> mode. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the previous mode of <computeroutput>s</computeroutput>.</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="125" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::is_ascii</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>is_ascii</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>checks if the IO stream <computeroutput>s</computeroutput> is in <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a13a67787bf1f5275048052d9001e1bee" kindref="member">IO::ASCII</ref></computeroutput> mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="187" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::is_binary</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>is_binary</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>checks if the IO stream <computeroutput>s</computeroutput> is in <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0aa83308e9472ea595943a6b76af054e98" kindref="member">IO::BINARY</ref></computeroutput> mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::is_pretty</definition>
+        <argsstring>(std::ios &amp;s)</argsstring>
+        <name>is_pretty</name>
+        <param>
+          <type>std::ios &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>checks if the IO stream <computeroutput>s</computeroutput> is in <computeroutput><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a5d045c18474dfd381b1c2b1dd1e612c5" kindref="member">IO::PRETTY</ref></computeroutput> mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="221" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>Output_rep&lt; T &gt;</type>
+        <definition>Output_rep&lt;T&gt; CGAL::oformat</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>oformat</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Convenience function to construct an output representation (<computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>) for type <computeroutput>T</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Generic <ref refid="namespaceCGAL_1_1IO" kindref="compound">IO</ref> for type <computeroutput>T</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="230" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1ga0be547927c2d0f532ee8ccae1dbab043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>Input_rep&lt; T &gt;</type>
+        <definition>Input_rep&lt;T&gt; CGAL::iformat</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>iformat</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>The definition of this function is completely symmetric to <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="237" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgIOstreams_1gaa98ef8b424ecc8d2f5da220a3dadd718" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>Output_rep&lt; T, F &gt;</type>
+        <definition>Output_rep&lt;T,F&gt; CGAL::oformat</definition>
+        <argsstring>(const T &amp;t, F)</argsstring>
+        <name>oformat</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>F</type>
+        </param>
+        <briefdescription>
+<para>Convenience function to construct an output representation (<computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>) for type <computeroutput>T</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Generic <ref refid="namespaceCGAL_1_1IO" kindref="compound">IO</ref> for type <computeroutput>T</computeroutput> with formatting tag. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/io.h" line="247" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para> <image type="html" name="io.png"></image>
+   Andreas Fabri, Geert-Jan Giezeman, and Lutz Kettner All classes in the CGAL kernel provide input and output operators for IO streams. The basic task of such an operator is to produce a representation of an object that can be written as a sequence of characters on devices as a console, a file, or a pipe. In CGAL we distinguish between a raw ascii, a raw binary and a pretty printing format. <linebreak/>
+   <bold>Introduced in:</bold> CGAL 1.0<linebreak/>
+ <bold>BibTeX:</bold> <ulink url="../Manual/how_to_cite_cgal.html#cgal:fgk-ios-12-18b">cgal:fgk-ios-12-18b</ulink><linebreak/>
+ <bold>License:</bold> <ref refid="preliminaries_1licensesLGPL" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">LGPL</ref> <linebreak/>
+ </para><para>All classes in the CGAL kernel provide input and output operators for IO streams. CGAL provides three different printing mode, defined in the enum <computeroutput>IO::Mode</computeroutput>, as well as different functions to set and get the printing mode.</para><para></para><para><heading level="2">Enum</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">CGAL::IO::Mode</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">CGAL::get_mode()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">CGAL::is_ascii()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">CGAL::is_binary()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">CGAL::is_pretty()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">CGAL::set_mode()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode()</ref></computeroutput></para></listitem><listitem><para><ref refid="group__IOstreamOperators" kindref="compound"><computeroutput>CGAL::operator&gt;&gt;()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__IOstreamOperators" kindref="compound"><computeroutput>CGAL::operator&lt;&lt;()</computeroutput> </ref></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga0be547927c2d0f532ee8ccae1dbab043" kindref="member">CGAL::iformat()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">CGAL::oformat()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Classes</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Color" kindref="compound">CGAL::Color</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Istream__iterator" kindref="compound">CGAL::Istream_iterator</ref>&lt;T,Stream&gt;</computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Ostream__iterator" kindref="compound">CGAL::Ostream_iterator</ref>&lt;T,Stream&gt;</computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Verbose__ostream" kindref="compound">CGAL::Verbose_ostream</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Input__rep" kindref="compound">CGAL::Input_rep</ref>&lt;T,F&gt;</computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">CGAL::Output_rep</ref>&lt;T,F&gt;</computeroutput> </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

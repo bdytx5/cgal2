@@ -1,0 +1,845 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgBGLSelectionFct" kind="group">
+    <compoundname>PkgBGLSelectionFct</compoundname>
+    <title>Selection Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga569fe26f889e5e4eed27746ac921651b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FaceRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsFaceSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::expand_face_selection</definition>
+        <argsstring>(const FaceRange &amp;selection, FaceGraph &amp;fg, unsigned int k, IsFaceSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>expand_face_selection</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsFaceSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Augments a selection with faces of <computeroutput>fg</computeroutput> that are adjacent to a face in <computeroutput>selection</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all faces added in the previous steps. Two faces are said to be adjacent if they share a vertex or an edge. Each new face added in the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of face descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsFaceSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::face_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting face descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of faces that will be expanded. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected faces. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the expansion procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if a face is part of the selection. It is updated by the function to accomodate new faces added to the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new faces added to the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="94" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="94" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1gadeff090826a857c141251ce28bbe1f48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FaceRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsFaceSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::reduce_face_selection</definition>
+        <argsstring>(const FaceRange &amp;selection, FaceGraph &amp;fg, unsigned int k, IsFaceSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>reduce_face_selection</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsFaceSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Diminishes a selection of faces from faces adjacent to a non-selected face. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all faces removed in the previous steps. Two faces are said to be adjacent if they share a vertex or an edge. Each face removed from the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of face descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsFaceSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::face_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting face descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of faces that will be expanded. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected faces. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the reduction procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if a face is part of the selection. It is updated by the function to accomodate faces removed from the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>faces removed from the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+<para>update is-selected attribute and output iterator </para>        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="163" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="163" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga8c925a29d68613319c31772123755ec7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class HalfedgeRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::select_incident_faces</definition>
+        <argsstring>(const HalfedgeRange &amp;hedges, FaceGraph &amp;fg, OutputIterator out)</argsstring>
+        <name>select_incident_faces</name>
+        <param>
+          <type>const HalfedgeRange &amp;</type>
+          <declname>hedges</declname>
+        </param>
+        <param>
+          <type><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Discovers and puts in <computeroutput>out</computeroutput> all faces incident to the target vertex of a halfedge in <computeroutput>hedges</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Faces are put exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>HalfedgeRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of halfedge descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting face descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hedges</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range a halfedge descriptors consider during the face selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the input halfedges. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>faces added to the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="231" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="231" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga6f6dd8a92c358a06592b9d481bf7bd74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class EdgeRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsEdgeSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::expand_edge_selection</definition>
+        <argsstring>(const EdgeRange &amp;selection, HalfedgeGraph &amp;fg, unsigned int k, IsEdgeSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>expand_edge_selection</name>
+        <param>
+          <type>const EdgeRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsEdgeSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Augments a selection with edges of <computeroutput>fg</computeroutput> that are adjacent to an edge in <computeroutput>selection</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all edges added in the previous steps. Two edges are said to be adjacent if they are incident to the same face or vertex. Each new edge added in the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>EdgeRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of edge descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsEdgeSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::edge_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting edge descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of edges that will be expanded. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected edges. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the expansion procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if an edge is part of the selection. It is updated by the function to accomodate new edges added to the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new edges added to the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="280" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="280" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga0fed4caaddf3fef51b37a64b42ba5fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class EdgeRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsEdgeSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::reduce_edge_selection</definition>
+        <argsstring>(const EdgeRange &amp;selection, HalfedgeGraph &amp;fg, unsigned int k, IsEdgeSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>reduce_edge_selection</name>
+        <param>
+          <type>const EdgeRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsEdgeSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Diminishes a selection of edges from edges adjacent to a non-selected edge. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all edges removed in the previous steps. Two edges are said to be adjacent if they are incident to the same face or vertex. Each edge removed from the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>EdgeRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of edge descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsEdgeSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::edge_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting edge descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of edges that will be reduced. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected edges. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the reduction procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if an edge is part of the selection. It is updated by the function to accomodate edges removed from the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>edges removed from the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="346" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="346" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga49398c78507f5664b740439a92ca746b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class VertexRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsVertexSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::expand_vertex_selection</definition>
+        <argsstring>(const VertexRange &amp;selection, HalfedgeGraph &amp;fg, unsigned int k, IsVertexSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>expand_vertex_selection</name>
+        <param>
+          <type>const VertexRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsVertexSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Augments a selection with vertices of <computeroutput>fg</computeroutput> that are adjacent to a vertex in <computeroutput>selection</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all vertices added in the previous steps. Two vertices are said to be adjacent if they are part of the same face. Each new vertex added in the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VertexRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of vertex descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsVertexSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting vertex descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of vertices that will be expanded. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected vertices. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the expansion procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if a vertex is part of the selection. It is updated by the function to accomodate new vertices added to the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new vertices added to the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="433" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="433" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga569127b818c04bfca7a5a5bca5b0bc24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class VertexRange</type>
+          </param>
+          <param>
+            <type>class <ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref></type>
+          </param>
+          <param>
+            <type>class IsVertexSelectedPMap</type>
+          </param>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::reduce_vertex_selection</definition>
+        <argsstring>(const VertexRange &amp;selection, HalfedgeGraph &amp;fg, unsigned int k, IsVertexSelectedPMap is_selected, OutputIterator out)</argsstring>
+        <name>reduce_vertex_selection</name>
+        <param>
+          <type>const VertexRange &amp;</type>
+          <declname>selection</declname>
+        </param>
+        <param>
+          <type><ref refid="classHalfedgeGraph" kindref="compound">HalfedgeGraph</ref> &amp;</type>
+          <declname>fg</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>IsVertexSelectedPMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Diminishes a selection of vertices from vertices adjacent to a non-selected vertex. </para>        </briefdescription>
+        <detaileddescription>
+<para>This process is applied <computeroutput>k</computeroutput> times considering all vertices removed in the previous steps. Two vertices are said to be adjacent if they are part of the same face. Each vertex removed from the selection is added exactly once in <computeroutput>out</computeroutput>. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VertexRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of vertex descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsVertexSelectedPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;<ref refid="classFaceGraph" kindref="compound">FaceGraph</ref>&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an output iterator accepting vertex descriptors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial selection of vertices that will be reduced. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph containing the selected vertices. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of times the reduction procedure is iteratively applied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indicates if a vertex is part of the selection. It is updated by the function to accomodate vertices removed from the selection. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertices removed from the selection are added exactly once in <computeroutput>out</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="487" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="487" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLSelectionFct_1ga6f8d338df28c24bbf93677f24f7bcbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class FaceRange</type>
+          </param>
+          <param>
+            <type>class IsSelectedMap</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::expand_face_selection_for_removal</definition>
+        <argsstring>(const FaceRange &amp;faces_to_be_deleted, TriangleMesh &amp;tm, IsSelectedMap is_selected)</argsstring>
+        <name>expand_face_selection_for_removal</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>faces_to_be_deleted</declname>
+        </param>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>IsSelectedMap</type>
+          <declname>is_selected</declname>
+        </param>
+        <briefdescription>
+<para>Expands a selection of faces so that their removal does not create any non manifold vertex. </para>        </briefdescription>
+        <detaileddescription>
+<para>For each vertex that is incident to a selected face, we turn around that vertex and check if there is exactly one set of consecutive selected faces. If not, additional faces around that vertex are selected to match this condition.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput> that is triangulated. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor</computeroutput>, with an iterator type model of <computeroutput><ref refid="classForwardIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ForwardIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IsSelectedMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor</computeroutput> as key and <computeroutput>bool</computeroutput> as value.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faces_to_be_deleted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of selected faces. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_selected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a property map containing the selected-or-not status of each face of <computeroutput>tm</computeroutput>. It must associate <computeroutput>true</computeroutput> to each face of <computeroutput>faces_to_be_deleted</computeroutput> and <computeroutput>false</computeroutput> to any other face of <computeroutput>tm</computeroutput>. It will be modified if the face selection must be expanded. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/selection.h" line="549" column="1" bodyfile="CGAL/boost/graph/selection.h" bodystart="549" bodyend="622"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Several functions to enlarge or reduce a k-ring selection of vertices, edges, or faces. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

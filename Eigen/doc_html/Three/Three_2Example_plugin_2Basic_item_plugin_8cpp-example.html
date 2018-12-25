@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Three/Three_2Example_plugin_2Basic_item_plugin_8cpp-example.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Three: Three/Example_plugin/Basic_item_plugin.cpp</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Three
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Three_2Example_plugin_2Basic_item_plugin_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Three/Example_plugin/Basic_item_plugin.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;CGAL/Three/Polyhedron_demo_plugin_interface.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;QApplication&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;QAction&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;QInputDialog&gt;</span></div><div class="line"><span class="preprocessor">#include "Messages_interface.h"</span></div><div class="line"><span class="preprocessor">#include "CGAL/Three/Scene_group_item.h"</span></div><div class="line"><span class="preprocessor">#include "Scene_plane_item.h"</span></div><div class="line"></div><div class="line"><span class="comment">//This plugin crates an action in Operations that displays the name of the selected item,</span></div><div class="line"><span class="comment">//adds a scene_plane_item to the scene, and adds the selected item and the plane to a new group.</span></div><div class="line"><span class="keyword">class </span>BasicItemPlugin :</div><div class="line">    <span class="keyword">public</span> QObject,</div><div class="line">    <span class="keyword">public</span> <a name="_a0" id="_a0"></a><a class="code" href="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface.html">CGAL::Three::Polyhedron_demo_plugin_interface</a></div><div class="line">{</div><div class="line">  Q_OBJECT</div><div class="line">  Q_INTERFACES(<a class="code" href="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface.html">CGAL::Three::Polyhedron_demo_plugin_interface</a>)</div><div class="line">  Q_PLUGIN_METADATA(IID <span class="stringliteral">"com.geometryfactory.PolyhedronDemo.PluginInterface/1.0"</span>)</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="comment">//This plugin is only applicable if there is exactly one selected item.</span></div><div class="line">  <span class="keywordtype">bool</span> <a name="a1" id="a1"></a><a class="code" href="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface.html#a9c6dc0e2cc17dc017fbc22d287265330">applicable</a>(QAction*) <span class="keyword">const</span> Q_DECL_OVERRIDE</div><div class="line">  {</div><div class="line">    <span class="keywordflow">return</span> scene-&gt;selectionIndices().size() ==1;</div><div class="line">  }</div><div class="line">  <span class="comment">//the list of the actions of the plugin.</span></div><div class="line">  QList&lt;QAction*&gt; <a name="a2" id="a2"></a><a class="code" href="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface.html#a5cf5516af2b3dce023c1057d6a36c5b0">actions</a>() <span class="keyword">const</span> Q_DECL_OVERRIDE</div><div class="line">  {</div><div class="line">    <span class="keywordflow">return</span> _actions;</div><div class="line">  }</div><div class="line">  <span class="comment">//this acts like a constructor for the plugin. It gets the references to the mainwindow and the scene, and connects the action.</span></div><div class="line">  <span class="keywordtype">void</span> <a name="a3" id="a3"></a><a class="code" href="classCGAL_1_1Three_1_1Polyhedron__demo__plugin__interface.html#ae133715200b7bdcf756c04ec1732971e">init</a>(QMainWindow* mw, <a name="_a4" id="_a4"></a><a class="code" href="classCGAL_1_1Three_1_1Scene__interface.html">CGAL::Three::Scene_interface</a>* sc, Messages_interface* mi) Q_DECL_OVERRIDE</div><div class="line">  {</div><div class="line">    <span class="comment">//gets the reference to the message interface, to display text in the console widget</span></div><div class="line">    this-&gt;messageInterface = mi;</div><div class="line">    <span class="comment">//get the references</span></div><div class="line">    this-&gt;scene = sc;</div><div class="line">    this-&gt;mw = mw;</div><div class="line"></div><div class="line">    <span class="comment">//creates the action</span></div><div class="line">    QAction *actionHelloWorld= <span class="keyword">new</span> QAction(QString(<span class="stringliteral">"Create a group"</span>), mw);</div><div class="line">    <span class="comment">//specifies the subMenu</span></div><div class="line">    actionHelloWorld-&gt;setProperty(<span class="stringliteral">"submenuName"</span>, <span class="stringliteral">"Basic"</span>);</div><div class="line">    <span class="comment">//links the action</span></div><div class="line">    <span class="keywordflow">if</span>(actionHelloWorld) {</div><div class="line">      connect(actionHelloWorld, SIGNAL(triggered()),</div><div class="line">              <span class="keyword">this</span>, SLOT(helloWorld()));</div><div class="line">      _actions &lt;&lt; actionHelloWorld;</div><div class="line">    }</div><div class="line">  }</div><div class="line"><span class="keyword">private</span> Q_SLOTS:</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keywordtype">void</span> helloWorld()</div><div class="line">  { </div><div class="line">    <span class="comment">//get a reference to the selected item.</span></div><div class="line">    <a name="_a5" id="_a5"></a><a class="code" href="classCGAL_1_1Three_1_1Scene__item.html">CGAL::Three::Scene_item</a> *item = scene-&gt;item(scene-&gt;mainSelectionIndex());</div><div class="line">    messageInterface-&gt;information(QString(<span class="stringliteral">"The selected item's name is  : %1"</span>).arg(item-&gt;<a name="a6" id="a6"></a>name()));</div><div class="line">    <span class="comment">//creates a plane item</span></div><div class="line">    Scene_plane_item *new_item = <span class="keyword">new</span> Scene_plane_item(scene);</div><div class="line">    new_item-&gt;setName(<span class="stringliteral">"Trivial Plane"</span>);</div><div class="line">    new_item-&gt;setColor(Qt::blue);</div><div class="line">    new_item-&gt;setNormal(0.0,0.0,1.0);</div><div class="line">    scene-&gt;addItem(new_item);</div><div class="line">    <span class="comment">//Create a new group</span></div><div class="line">    Scene_group_item *group = <span class="keyword">new</span> Scene_group_item(<span class="stringliteral">"New group"</span>);</div><div class="line">    <span class="comment">//add it to the scene</span></div><div class="line">    scene-&gt;addItem(group);</div><div class="line">    <span class="comment">//Then give it its children</span></div><div class="line">    scene-&gt;changeGroup(item, group);</div><div class="line">    scene-&gt;changeGroup(new_item,group);</div><div class="line">  }</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">  QList&lt;QAction*&gt; _actions;</div><div class="line">  Messages_interface* messageInterface;</div><div class="line">  <span class="comment">//The reference to the scene</span></div><div class="line">  <a class="code" href="classCGAL_1_1Three_1_1Scene__interface.html">CGAL::Three::Scene_interface</a>* scene;</div><div class="line">  <span class="comment">//The reference to the main window</span></div><div class="line">  QMainWindow* mw;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="preprocessor">#include "Basic_item_plugin.moc"</span></div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:11 for CGAL 4.13 - Three by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

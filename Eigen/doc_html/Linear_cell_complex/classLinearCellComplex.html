@@ -1,0 +1,852 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Linear_cell_complex/classLinearCellComplex.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Linear Cell Complex: LinearCellComplex Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Linear Cell Complex
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classLinearCellComplex.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classLinearCellComplex-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">LinearCellComplex Class Reference<div class="ingroups"><a class="el" href="group__PkgLinearCellComplex.html">Linear Cell Complex Reference</a> » <a class="el" href="group__PkgLinearCellComplexConcepts.html">Concepts</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;Concepts/LinearCellComplex.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>The concept <code><a class="el" href="classLinearCellComplex.html" title="The concept LinearCellComplex represents a linear cell complex in dimension d, in an ambient space of...">LinearCellComplex</a></code> represents a linear cell complex in dimension <code>d</code>, in an ambient space of dimension <code>d2</code>. </p>
+<p>This is a model of the concept of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html">GenericMap</a></code> adding a requirement to ensure that each vertex of the map is associated with a model of <code><a class="el" href="classCellAttributeWithPoint.html" title="The concept CellAttributeWithPoint is a refinement of the CellAttribute concept, to represent a cell ...">CellAttributeWithPoint</a></code>.</p>
+<dl class="refines"><dt><b><a class="el" href="refines.html#_refines000002">Refines:</a></b></dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html">GenericMap</a></code></dd></dl>
+<dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000002">Has Models:</a></b></dt><dd><p class="startdd"><a class="el" href="classCGAL_1_1Linear__cell__complex__for__combinatorial__map.html"><code>CGAL::Linear_cell_complex_for_combinatorial_map&lt;d,d2,LCCTraits,Items,Alloc&gt;</code></a> </p>
+<p class="enddd"><a class="el" href="classCGAL_1_1Linear__cell__complex__for__generalized__map.html"><code>CGAL::Linear_cell_complex_for_generalized_map&lt;d,d2,LCCTraits,Items,Alloc&gt;</code></a></p>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classLinearCellComplexItems.html" title="The concept LinearCellComplexItems refines the concept of GenericMapItems by adding the requirement t...">LinearCellComplexItems</a></code> </dd>
+<dd>
+<code><a class="el" href="classLinearCellComplexTraits.html" title="Required types and functors for the LinearCellComplexTraits concept. This geometric traits concept is...">LinearCellComplexTraits</a></code> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:a96f15f8e01bf7f11e1b86b000376b39c"><td class="memItemLeft" align="right" valign="top"><a id="a96f15f8e01bf7f11e1b86b000376b39c"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a96f15f8e01bf7f11e1b86b000376b39c">LinearCellComplex</a> ()</td></tr>
+<tr class="memdesc:a96f15f8e01bf7f11e1b86b000376b39c"><td class="mdescLeft"> </td><td class="mdescRight">Default constructor creating an empty linear cell complex. <br /></td></tr>
+<tr class="separator:a96f15f8e01bf7f11e1b86b000376b39c"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Constants</h2></td></tr>
+<tr class="memitem:a8ce098514128c2a8cd936be894f9f6fd"><td class="memItemLeft" align="right" valign="top"><a id="a8ce098514128c2a8cd936be894f9f6fd"></a>
+static unsigned int </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a8ce098514128c2a8cd936be894f9f6fd">ambient_dimension</a></td></tr>
+<tr class="memdesc:a8ce098514128c2a8cd936be894f9f6fd"><td class="mdescLeft"> </td><td class="mdescRight">Ambient dimension, must be &gt; 1. <br /></td></tr>
+<tr class="separator:a8ce098514128c2a8cd936be894f9f6fd"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a1a99a0123f0e6b3c0b4251c622ae9499"><td class="memItemLeft" align="right" valign="top"><a id="a1a99a0123f0e6b3c0b4251c622ae9499"></a>
+typedef Traits::FT </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a1a99a0123f0e6b3c0b4251c622ae9499">FT</a></td></tr>
+<tr class="separator:a1a99a0123f0e6b3c0b4251c622ae9499"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aafe7703196b62bce46a907a289d515f6"><td class="memItemLeft" align="right" valign="top"><a id="aafe7703196b62bce46a907a289d515f6"></a>
+typedef Traits::Point </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a></td></tr>
+<tr class="separator:aafe7703196b62bce46a907a289d515f6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5e53717a8512cf540a84d50db56ed139"><td class="memItemLeft" align="right" valign="top"><a id="a5e53717a8512cf540a84d50db56ed139"></a>
+typedef Traits::Vector </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a5e53717a8512cf540a84d50db56ed139">Vector</a></td></tr>
+<tr class="separator:a5e53717a8512cf540a84d50db56ed139"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ace2a2ab3eb3671b6b69b2919cbea07dc"><td class="memItemLeft" align="right" valign="top"><a id="ace2a2ab3eb3671b6b69b2919cbea07dc"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ace2a2ab3eb3671b6b69b2919cbea07dc">Vertex_attribute</a></td></tr>
+<tr class="memdesc:ace2a2ab3eb3671b6b69b2919cbea07dc"><td class="mdescLeft"> </td><td class="mdescRight">Type of 0-attributes, a model of <code><a class="el" href="classCellAttributeWithPoint.html" title="The concept CellAttributeWithPoint is a refinement of the CellAttribute concept, to represent a cell ...">CellAttributeWithPoint</a></code> concept (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a01213a6b36324a8e006d18afc57fc551"><code>Attribute_type&lt;0&gt;::type</code> </a>). <br /></td></tr>
+<tr class="separator:ace2a2ab3eb3671b6b69b2919cbea07dc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af9c5ba9f80a41723613ca9f8580a42a6"><td class="memItemLeft" align="right" valign="top"><a id="af9c5ba9f80a41723613ca9f8580a42a6"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a></td></tr>
+<tr class="memdesc:af9c5ba9f80a41723613ca9f8580a42a6"><td class="mdescLeft"> </td><td class="mdescRight">Handle through 0-attributes (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a0d7c2eec818bf0f5e0e4239feff21980"><code>Attribute_handle&lt;0&gt;::type</code> </a>). <br /></td></tr>
+<tr class="separator:af9c5ba9f80a41723613ca9f8580a42a6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aba6d8314d3303b6a45544c96a7a3a05a"><td class="memItemLeft" align="right" valign="top"><a id="aba6d8314d3303b6a45544c96a7a3a05a"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#aba6d8314d3303b6a45544c96a7a3a05a">Vertex_attribute_const_handle</a></td></tr>
+<tr class="memdesc:aba6d8314d3303b6a45544c96a7a3a05a"><td class="mdescLeft"> </td><td class="mdescRight">Const handle through 0-attributes (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#adfc1c9f38230637e6a483d62374af04d"><code>Attribute_const_handle&lt;0&gt;::type</code> </a>). <br /></td></tr>
+<tr class="separator:aba6d8314d3303b6a45544c96a7a3a05a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab177e606ecb086757009d9c7e1090afd"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ab177e606ecb086757009d9c7e1090afd">Vertex_attribute_range</a></td></tr>
+<tr class="memdesc:ab177e606ecb086757009d9c7e1090afd"><td class="mdescLeft"> </td><td class="mdescRight">Range of all the 0-attributes, a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code> concept (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#ae567e6737eb1577fb34e43bb257d8776"><code>Attribute_range&lt;0&gt;::type</code> </a>).  <a href="#ab177e606ecb086757009d9c7e1090afd">More...</a><br /></td></tr>
+<tr class="separator:ab177e606ecb086757009d9c7e1090afd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a311dc07c9279922957257415d45237df"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a311dc07c9279922957257415d45237df">Vertex_attribute_const_range</a></td></tr>
+<tr class="memdesc:a311dc07c9279922957257415d45237df"><td class="mdescLeft"> </td><td class="mdescRight">Const range of all the 0-attributes, a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classConstRange.html">ConstRange</a></code> concept a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aef776e81abebd51a27441d60cb1318ab"><code>Attribute_const_range&lt;0&gt;::type</code> </a>).  <a href="#a311dc07c9279922957257415d45237df">More...</a><br /></td></tr>
+<tr class="separator:a311dc07c9279922957257415d45237df"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Range Access Member Functions</h2></td></tr>
+<tr class="memitem:a4ff80dfa407ab4b52ffaa6888660cc9e"><td class="memItemLeft" align="right" valign="top"><a id="a4ff80dfa407ab4b52ffaa6888660cc9e"></a>
+<a class="el" href="classLinearCellComplex.html#ab177e606ecb086757009d9c7e1090afd">Vertex_attribute_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a4ff80dfa407ab4b52ffaa6888660cc9e">vertex_attributes</a> ()</td></tr>
+<tr class="memdesc:a4ff80dfa407ab4b52ffaa6888660cc9e"><td class="mdescLeft"> </td><td class="mdescRight">Returns a range of all the 0-attributes in this linear cell complex (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a01b65dd586a4d0a31280cd4b9668cc7e"><code>attributes&lt;0&gt;()</code></a>). <br /></td></tr>
+<tr class="separator:a4ff80dfa407ab4b52ffaa6888660cc9e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab51705f21a79c25397b5704359625c13"><td class="memItemLeft" align="right" valign="top"><a id="ab51705f21a79c25397b5704359625c13"></a>
+<a class="el" href="classLinearCellComplex.html#a311dc07c9279922957257415d45237df">Vertex_attribute_const_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ab51705f21a79c25397b5704359625c13">vertex_attributes</a> () const</td></tr>
+<tr class="memdesc:ab51705f21a79c25397b5704359625c13"><td class="mdescLeft"> </td><td class="mdescRight">Returns a const range of all the 0-attributes in this linear cell complex (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a01b65dd586a4d0a31280cd4b9668cc7e"><code>attributes&lt;0&gt;() const</code></a>). <br /></td></tr>
+<tr class="separator:ab51705f21a79c25397b5704359625c13"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Member Functions</h2></td></tr>
+<tr class="memitem:a31ffb0465b0b4d3e0d9947de56d0fea3"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a31ffb0465b0b4d3e0d9947de56d0fea3">is_valid</a> () const</td></tr>
+<tr class="memdesc:a31ffb0465b0b4d3e0d9947de56d0fea3"><td class="mdescLeft"> </td><td class="mdescRight">Returns true iff this linear cell complex is valid.  <a href="#a31ffb0465b0b4d3e0d9947de56d0fea3">More...</a><br /></td></tr>
+<tr class="separator:a31ffb0465b0b4d3e0d9947de56d0fea3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac8a2f734b43cd7251b80f4caad8c4f67"><td class="memItemLeft" align="right" valign="top"><a id="ac8a2f734b43cd7251b80f4caad8c4f67"></a>
+size_type </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ac8a2f734b43cd7251b80f4caad8c4f67">number_of_vertex_attributes</a> () const</td></tr>
+<tr class="memdesc:ac8a2f734b43cd7251b80f4caad8c4f67"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of 0-attributes in this linear cell complex (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a4b54978622b14186ea7fd70793ff023e"><code>number_of_attributes&lt;0&gt;()</code></a>). <br /></td></tr>
+<tr class="separator:ac8a2f734b43cd7251b80f4caad8c4f67"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac2be0fea18eb65f461a9ccd5e96618b3"><td class="memItemLeft" align="right" valign="top"><a id="ac2be0fea18eb65f461a9ccd5e96618b3"></a>
+<a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ac2be0fea18eb65f461a9ccd5e96618b3">vertex_attribute</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:ac2be0fea18eb65f461a9ccd5e96618b3"><td class="mdescLeft"> </td><td class="mdescRight">Returns the 0-attribute associated with <code>dh</code>. <br /></td></tr>
+<tr class="separator:ac2be0fea18eb65f461a9ccd5e96618b3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acbfb9de33c3369c7846f2cab6aba85f4"><td class="memItemLeft" align="right" valign="top"><a id="acbfb9de33c3369c7846f2cab6aba85f4"></a>
+<a class="el" href="classLinearCellComplex.html#aba6d8314d3303b6a45544c96a7a3a05a">Vertex_attribute_const_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#acbfb9de33c3369c7846f2cab6aba85f4">vertex_attribute</a> (Dart_const_handle dh)</td></tr>
+<tr class="memdesc:acbfb9de33c3369c7846f2cab6aba85f4"><td class="mdescLeft"> </td><td class="mdescRight">Returns the 0-attribute associated with <code>dh</code>, when <code>dh</code> is const. <br /></td></tr>
+<tr class="separator:acbfb9de33c3369c7846f2cab6aba85f4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa146235352b6c0ec3106e7de5ce10fd5"><td class="memItemLeft" align="right" valign="top"><a id="aa146235352b6c0ec3106e7de5ce10fd5"></a>
+<a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#aa146235352b6c0ec3106e7de5ce10fd5">point_of_vertex_attribute</a> (<a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> vh)</td></tr>
+<tr class="memdesc:aa146235352b6c0ec3106e7de5ce10fd5"><td class="mdescLeft"> </td><td class="mdescRight">Returns the point in the 0-attribute <code>vh</code>. <br /></td></tr>
+<tr class="separator:aa146235352b6c0ec3106e7de5ce10fd5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2c0dcd1ee19c97e34de890826abaaecd"><td class="memItemLeft" align="right" valign="top"><a id="a2c0dcd1ee19c97e34de890826abaaecd"></a>
+const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a2c0dcd1ee19c97e34de890826abaaecd">point_of_vertex_attribute</a> (<a class="el" href="classLinearCellComplex.html#aba6d8314d3303b6a45544c96a7a3a05a">Vertex_attribute_const_handle</a> vh) const</td></tr>
+<tr class="memdesc:a2c0dcd1ee19c97e34de890826abaaecd"><td class="mdescLeft"> </td><td class="mdescRight">Returns the point in the 0-attribute <code>vh</code>, when <code>vh</code> is const. <br /></td></tr>
+<tr class="separator:a2c0dcd1ee19c97e34de890826abaaecd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae9207eae4ecf57e7a9fef617ad5f669b"><td class="memItemLeft" align="right" valign="top"><a id="ae9207eae4ecf57e7a9fef617ad5f669b"></a>
+<a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ae9207eae4ecf57e7a9fef617ad5f669b">point</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:ae9207eae4ecf57e7a9fef617ad5f669b"><td class="mdescLeft"> </td><td class="mdescRight">Returns the point in the 0-attribute associated with <code>dh</code>. <br /></td></tr>
+<tr class="separator:ae9207eae4ecf57e7a9fef617ad5f669b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac9913170236030ffc057c61888504048"><td class="memItemLeft" align="right" valign="top"><a id="ac9913170236030ffc057c61888504048"></a>
+const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ac9913170236030ffc057c61888504048">point</a> (Dart_const_handle dh) const</td></tr>
+<tr class="memdesc:ac9913170236030ffc057c61888504048"><td class="mdescLeft"> </td><td class="mdescRight">Returns the point in the 0-attribute associated with <code>dh</code>, when <code>dh</code> is const. <br /></td></tr>
+<tr class="separator:ac9913170236030ffc057c61888504048"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Modifiers</h2></td></tr>
+<tr class="memitem:aec1e9cb57e03e8e318a5a0cc27510cd9"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#aec1e9cb57e03e8e318a5a0cc27510cd9">create_dart</a> (<a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> vh)</td></tr>
+<tr class="memdesc:aec1e9cb57e03e8e318a5a0cc27510cd9"><td class="mdescLeft"> </td><td class="mdescRight">Creates a new dart in this linear cell complex, sets its associated 0-attribute to <code>vh</code> and returns the corresponding handle.  <a href="#aec1e9cb57e03e8e318a5a0cc27510cd9">More...</a><br /></td></tr>
+<tr class="separator:aec1e9cb57e03e8e318a5a0cc27510cd9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0f0e4ff7d3d345e10e2b4e74b2353d2e"><td class="memItemLeft" align="right" valign="top"><a id="a0f0e4ff7d3d345e10e2b4e74b2353d2e"></a>
+Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a0f0e4ff7d3d345e10e2b4e74b2353d2e">create_dart</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;apoint)</td></tr>
+<tr class="memdesc:a0f0e4ff7d3d345e10e2b4e74b2353d2e"><td class="mdescLeft"> </td><td class="mdescRight">Creates a new dart in this linear cell complex, creates a new 0-attribute initialized with <code>apoint</code>, sets the associated 0-attribute of the new dart to this new 0-attribute, and returns the corresponding handle. <br /></td></tr>
+<tr class="separator:a0f0e4ff7d3d345e10e2b4e74b2353d2e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae757efdf325db6b215a6426143f09d37"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:ae757efdf325db6b215a6426143f09d37"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ae757efdf325db6b215a6426143f09d37">create_vertex_attribute</a> (T1 t1)</td></tr>
+<tr class="memdesc:ae757efdf325db6b215a6426143f09d37"><td class="mdescLeft"> </td><td class="mdescRight">Creates a new 0-attribute in this linear cell complex, and returns the corresponding handle (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a5d698a85ca72a0a5d9391367af232d65"><code>create_attribute&lt;0&gt;(t1)</code></a>).  <a href="#ae757efdf325db6b215a6426143f09d37">More...</a><br /></td></tr>
+<tr class="separator:ae757efdf325db6b215a6426143f09d37"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac17d95713b90e8b38886dbc29123a032"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ac17d95713b90e8b38886dbc29123a032">erase_vertex_attribute</a> (<a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> vh)</td></tr>
+<tr class="memdesc:ac17d95713b90e8b38886dbc29123a032"><td class="mdescLeft"> </td><td class="mdescRight">Removes the 0-attribute pointed to by <code>vh</code> from this linear cell complex (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aed0f512ecf1eb0dffb45bfb533883166"><code>erase_attribute&lt;0&gt;(vh)</code></a>).  <a href="#ac17d95713b90e8b38886dbc29123a032">More...</a><br /></td></tr>
+<tr class="separator:ac17d95713b90e8b38886dbc29123a032"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae2742737fee43dc3b0551ab13ae90074"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ae2742737fee43dc3b0551ab13ae90074">set_vertex_attribute</a> (Dart_handle dh, <a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> vh)</td></tr>
+<tr class="memdesc:ae2742737fee43dc3b0551ab13ae90074"><td class="mdescLeft"> </td><td class="mdescRight">Associates the 0-attribute of all the darts of the 0-cell containing <code>dh</code> to <code>vh</code> (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a246cb43a0c76592c605e4a129aab9763"><code>set_attribute&lt;0&gt;(dh,vh)</code></a>).  <a href="#ae2742737fee43dc3b0551ab13ae90074">More...</a><br /></td></tr>
+<tr class="separator:ae2742737fee43dc3b0551ab13ae90074"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Attributes management</h2></td></tr>
+<tr class="memitem:a62b17e6fe857c80a7c9c43e3c14f72f0"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a62b17e6fe857c80a7c9c43e3c14f72f0">correct_invalid_attributes</a> ()</td></tr>
+<tr class="memdesc:a62b17e6fe857c80a7c9c43e3c14f72f0"><td class="mdescLeft"> </td><td class="mdescRight">Correct the invalid attributes of the linear cell complex.  <a href="#a62b17e6fe857c80a7c9c43e3c14f72f0">More...</a><br /></td></tr>
+<tr class="separator:a62b17e6fe857c80a7c9c43e3c14f72f0"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:a0689ef15676c7d3082abcdbe64c364af"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:a0689ef15676c7d3082abcdbe64c364af"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a0689ef15676c7d3082abcdbe64c364af">barycenter</a> (Dart_const_handle dh) const</td></tr>
+<tr class="memdesc:a0689ef15676c7d3082abcdbe64c364af"><td class="mdescLeft"> </td><td class="mdescRight">Returns the barycenter of the <em>i</em>-cell containing <code>dh</code>.  <a href="#a0689ef15676c7d3082abcdbe64c364af">More...</a><br /></td></tr>
+<tr class="separator:a0689ef15676c7d3082abcdbe64c364af"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae02818ec1d44a28dc3265df1b76a967e"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:ae02818ec1d44a28dc3265df1b76a967e"><td class="memTemplItemLeft" align="right" valign="top">Dart_handle </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ae02818ec1d44a28dc3265df1b76a967e">insert_point_in_cell</a> (Dart_handle dh, <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> p)</td></tr>
+<tr class="memdesc:ae02818ec1d44a28dc3265df1b76a967e"><td class="mdescLeft"> </td><td class="mdescRight">Inserts a point, copy of <code>p</code>, in the <em>i</em>-cell containing <code>dh</code>.  <a href="#ae02818ec1d44a28dc3265df1b76a967e">More...</a><br /></td></tr>
+<tr class="separator:ae02818ec1d44a28dc3265df1b76a967e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aad0f09b94013ed62b09959b05a0a2212"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:aad0f09b94013ed62b09959b05a0a2212"><td class="memTemplItemLeft" align="right" valign="top">Dart_handle </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#aad0f09b94013ed62b09959b05a0a2212">insert_barycenter_in_cell</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:aad0f09b94013ed62b09959b05a0a2212"><td class="mdescLeft"> </td><td class="mdescRight">Inserts a point in the barycenter of the <em>i</em>-cell containing <code>dh</code>.  <a href="#aad0f09b94013ed62b09959b05a0a2212">More...</a><br /></td></tr>
+<tr class="separator:aad0f09b94013ed62b09959b05a0a2212"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a27af7fff974fcaaecca706d8ad736f84"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a27af7fff974fcaaecca706d8ad736f84">insert_dangling_cell_1_in_cell_2</a> (Dart_handle dh, <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> p)</td></tr>
+<tr class="memdesc:a27af7fff974fcaaecca706d8ad736f84"><td class="mdescLeft"> </td><td class="mdescRight">Inserts a 1-cell in the 2-cell containing <code>dh</code>, the 1-cell being attached only by one of its vertex to the 0-cell containing <code>dh</code>.  <a href="#a27af7fff974fcaaecca706d8ad736f84">More...</a><br /></td></tr>
+<tr class="separator:a27af7fff974fcaaecca706d8ad736f84"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Constructions</h2></td></tr>
+<tr class="memitem:a2929f7df1f0a0d00e1a59d9c9f264439"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a2929f7df1f0a0d00e1a59d9c9f264439">make_segment</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p0, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p1)</td></tr>
+<tr class="memdesc:a2929f7df1f0a0d00e1a59d9c9f264439"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated segment in this linear cell complex (two darts linked by \( \beta_2\)) having <code>p0</code>, <code>p1</code> as points.  <a href="#a2929f7df1f0a0d00e1a59d9c9f264439">More...</a><br /></td></tr>
+<tr class="separator:a2929f7df1f0a0d00e1a59d9c9f264439"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad46eb3f0dea8580207efdfb9d72714a0"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#ad46eb3f0dea8580207efdfb9d72714a0">make_triangle</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p0, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p1, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p2)</td></tr>
+<tr class="memdesc:ad46eb3f0dea8580207efdfb9d72714a0"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated triangle in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code> as points.  <a href="#ad46eb3f0dea8580207efdfb9d72714a0">More...</a><br /></td></tr>
+<tr class="separator:ad46eb3f0dea8580207efdfb9d72714a0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a47905dc3da3170523b163b46310b1e81"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a47905dc3da3170523b163b46310b1e81">make_quadrangle</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p0, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p1, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p2, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p3)</td></tr>
+<tr class="memdesc:a47905dc3da3170523b163b46310b1e81"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated quadrangle in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code>, <code>p3</code> as points.  <a href="#a47905dc3da3170523b163b46310b1e81">More...</a><br /></td></tr>
+<tr class="separator:a47905dc3da3170523b163b46310b1e81"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7586f6bb50e1b7f8259374a8bcaa5ba0"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a7586f6bb50e1b7f8259374a8bcaa5ba0">make_tetrahedron</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p0, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p1, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p2, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p3)</td></tr>
+<tr class="memdesc:a7586f6bb50e1b7f8259374a8bcaa5ba0"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated tetrahedron in this linear cell complex having <code>p0</code>, <code>p1</code>,<code>p2</code>,<code>p3</code> as points.  <a href="#a7586f6bb50e1b7f8259374a8bcaa5ba0">More...</a><br /></td></tr>
+<tr class="separator:a7586f6bb50e1b7f8259374a8bcaa5ba0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8786996ef191013fcee5a90a4ceb22ae"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearCellComplex.html#a8786996ef191013fcee5a90a4ceb22ae">make_hexahedron</a> (const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p0, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p1, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p2, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p3, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p4, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p5, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p6, const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp;p7)</td></tr>
+<tr class="memdesc:a8786996ef191013fcee5a90a4ceb22ae"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated hexahedron in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code>, <code>p3</code>, <code>p4</code>, <code>p5</code>, <code>p6</code>, <code>p7</code> as points.  <a href="#a8786996ef191013fcee5a90a4ceb22ae">More...</a><br /></td></tr>
+<tr class="separator:a8786996ef191013fcee5a90a4ceb22ae"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a311dc07c9279922957257415d45237df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a311dc07c9279922957257415d45237df">◆ </a></span>Vertex_attribute_const_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classLinearCellComplex.html#a311dc07c9279922957257415d45237df">LinearCellComplex::Vertex_attribute_const_range</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Const range of all the 0-attributes, a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classConstRange.html">ConstRange</a></code> concept a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aef776e81abebd51a27441d60cb1318ab"><code>Attribute_const_range&lt;0&gt;::type</code> </a>). </p>
+<p>Iterator inner type is bidirectional iterator and value type is <a class="el" href="classLinearCellComplex.html#ace2a2ab3eb3671b6b69b2919cbea07dc"><code>Vertex_attribute</code></a>. </p>
+
+</div>
+</div>
+<a id="ab177e606ecb086757009d9c7e1090afd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab177e606ecb086757009d9c7e1090afd">◆ </a></span>Vertex_attribute_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classLinearCellComplex.html#ab177e606ecb086757009d9c7e1090afd">LinearCellComplex::Vertex_attribute_range</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Range of all the 0-attributes, a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code> concept (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#ae567e6737eb1577fb34e43bb257d8776"><code>Attribute_range&lt;0&gt;::type</code> </a>). </p>
+<p>Iterator inner type is bidirectional iterator and value type is <a class="el" href="classLinearCellComplex.html#ace2a2ab3eb3671b6b69b2919cbea07dc"><code>Vertex_attribute</code></a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0689ef15676c7d3082abcdbe64c364af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0689ef15676c7d3082abcdbe64c364af">◆ </a></span>barycenter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> LinearCellComplex::barycenter </td>
+          <td>(</td>
+          <td class="paramtype">Dart_const_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the barycenter of the <em>i</em>-cell containing <code>dh</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>1 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>. </dd></dl>
+
+</div>
+</div>
+<a id="a62b17e6fe857c80a7c9c43e3c14f72f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b17e6fe857c80a7c9c43e3c14f72f0">◆ </a></span>correct_invalid_attributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinearCellComplex::correct_invalid_attributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Correct the invalid attributes of the linear cell complex. </p>
+<p>We can have invalid attribute either if we have called <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#af7fcbe383d43efece8525654b45741bf"><code>set_automatic_attributes_management(false)</code></a> before to use some modification operations or if we have modified the combinatorial map by using low level operations.</p>
+<p>The validation process of a linear cell complex validates its generic map (cf. <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#abb8954d074686dba5e91c5d54343cd0d"><code>correct_invalid_attributes()</code></a>), and for each dart <code>d</code> having no vertex attribute, a new vertex attribute is created, with its Point initialized to <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Origin.html">CGAL::Origin</a></code>, and all the darts of the 0-cell containing <code>d</code> are linked with the new attribute. </p>
+
+</div>
+</div>
+<a id="aec1e9cb57e03e8e318a5a0cc27510cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1e9cb57e03e8e318a5a0cc27510cd9">◆ </a></span>create_dart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::create_dart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> </td>
+          <td class="paramname"><em>vh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new dart in this linear cell complex, sets its associated 0-attribute to <code>vh</code> and returns the corresponding handle. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>*vh</code> \( \in \) <code><a class="el" href="classLinearCellComplex.html#a4ff80dfa407ab4b52ffaa6888660cc9e" title="Returns a range of all the 0-attributes in this linear cell complex (a shortcut for attributes&lt;0&gt;())...">vertex_attributes()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="ae757efdf325db6b215a6426143f09d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae757efdf325db6b215a6426143f09d37">◆ </a></span>create_vertex_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> LinearCellComplex::create_vertex_attribute </td>
+          <td>(</td>
+          <td class="paramtype">T1 </td>
+          <td class="paramname"><em>t1</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new 0-attribute in this linear cell complex, and returns the corresponding handle (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a5d698a85ca72a0a5d9391367af232d65"><code>create_attribute&lt;0&gt;(t1)</code></a>). </p>
+<p>Calls the constructor of <a class="el" href="classLinearCellComplex.html#ace2a2ab3eb3671b6b69b2919cbea07dc"><code>Vertex_attribute</code></a> having <code>T1</code> as parameter. Overloads of this member function are defined that take from zero to nine arguments. With zero argument, <code><a class="el" href="classLinearCellComplex.html#ae757efdf325db6b215a6426143f09d37" title="Creates a new 0-attribute in this linear cell complex, and returns the corresponding handle (a shortc...">create_vertex_attribute()</a></code> creates a new 0-attribute by using the default constructor. </p>
+
+</div>
+</div>
+<a id="ac17d95713b90e8b38886dbc29123a032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17d95713b90e8b38886dbc29123a032">◆ </a></span>erase_vertex_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinearCellComplex::erase_vertex_attribute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> </td>
+          <td class="paramname"><em>vh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the 0-attribute pointed to by <code>vh</code> from this linear cell complex (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aed0f512ecf1eb0dffb45bfb533883166"><code>erase_attribute&lt;0&gt;(vh)</code></a>). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>*vh</code> \( \in \) <code><a class="el" href="classLinearCellComplex.html#a4ff80dfa407ab4b52ffaa6888660cc9e" title="Returns a range of all the 0-attributes in this linear cell complex (a shortcut for attributes&lt;0&gt;())...">vertex_attributes()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="aad0f09b94013ed62b09959b05a0a2212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0f09b94013ed62b09959b05a0a2212">◆ </a></span>insert_barycenter_in_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::insert_barycenter_in_cell </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a point in the barycenter of the <em>i</em>-cell containing <code>dh</code>. </p>
+<p>Returns a handle on one dart of this cell. </p><dl class="section pre"><dt>Precondition</dt><dd><em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \leq \) 2 and <code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>.</dd></dl>
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==true</code>, if <em>i</em>-attributes are non void, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classCellAttribute.html#a3b4b722747fa2e6f52331bf92ea4f92f"><code>Attribute_type&lt;i&gt;::type::On_split</code></a>(<em>a</em>,<em>a'</em>) is called, with <em>a</em> the original <em>i</em>-attribute associated with <em>dh</em> and <em>a'</em> each new <em>i</em>-attribute created during the operation.</p>
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==false</code>, non void attributes are not updated; thus the combinatorial map can be no more valid after this operation.  </p></div>  
+
+</div>
+</div>
+<a id="a27af7fff974fcaaecca706d8ad736f84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27af7fff974fcaaecca706d8ad736f84">◆ </a></span>insert_dangling_cell_1_in_cell_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::insert_dangling_cell_1_in_cell_2 </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a 1-cell in the 2-cell containing <code>dh</code>, the 1-cell being attached only by one of its vertex to the 0-cell containing <code>dh</code>. </p>
+<p>The second vertex is associated with a new 0-attribute containing a copy of <code>p</code> as point. Returns a handle on one dart belonging to the new 0-cell. </p><dl class="section pre"><dt>Precondition</dt><dd>2 \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>.</dd></dl>
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==false</code>, non void attributes are not updated; thus the combinatorial map can be no more valid after this operation.  </p></div>  
+
+</div>
+</div>
+<a id="ae02818ec1d44a28dc3265df1b76a967e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02818ec1d44a28dc3265df1b76a967e">◆ </a></span>insert_point_in_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::insert_point_in_cell </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a point, copy of <code>p</code>, in the <em>i</em>-cell containing <code>dh</code>. </p>
+<p>Returns a handle on one dart of this cell. </p><dl class="section pre"><dt>Precondition</dt><dd><em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \leq \) 2 and <code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>.</dd></dl>
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==true</code>, if <em>i</em>-attributes are non void, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classCellAttribute.html#a3b4b722747fa2e6f52331bf92ea4f92f"><code>Attribute_type&lt;i&gt;::type::On_split</code></a>(<em>a</em>,<em>a'</em>) is called, with <em>a</em> the original <em>i</em>-attribute associated with <em>dh</em> and <em>a'</em> each new <em>i</em>-attribute created during the operation.</p>
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==false</code>, non void attributes are not updated; thus the combinatorial map can be no more valid after this operation.  </p></div>  
+
+</div>
+</div>
+<a id="a31ffb0465b0b4d3e0d9947de56d0fea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ffb0465b0b4d3e0d9947de56d0fea3">◆ </a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LinearCellComplex::is_valid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true iff this linear cell complex is valid. </p>
+<p>A linear cell complex <code>lcc</code> is valid if it is a valid generic map (cf. <code>GenericMap::is_valid()</code>), and if for each dart handle <em>dh</em> such that <code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>: <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a60dace8ebefc87170b0a4bb4ac138137"><code>dh-&gt;attribute&lt;0&gt;()</code></a><code>!=NULL</code>. </p>
+
+</div>
+</div>
+<a id="a8786996ef191013fcee5a90a4ceb22ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8786996ef191013fcee5a90a4ceb22ae">◆ </a></span>make_hexahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::make_hexahedron </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p7</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an isolated hexahedron in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code>, <code>p3</code>, <code>p4</code>, <code>p5</code>, <code>p6</code>, <code>p7</code> as points. </p>
+<p>Returns a handle on the dart associated with <code>p0</code>, with edge [<code>p0</code>,<code>p5</code>] and belonging to the 2-cell having <code>p0</code>, <code>p5</code>, <code>p6</code>, <code>p1</code> as points. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \geq \) 2.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="lcc_make_hexahedron.svg">lcc_make_hexahedron.svg</object>
+<div class="caption">
+Example of r=lcc.make_hexahedron(p0,p1,p2,p3,p4,p5,p6,p7), left for combinatorial map as combinatorial data-structure, right for generalized maps.</div></div>
+
+</div>
+</div>
+<a id="a47905dc3da3170523b163b46310b1e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47905dc3da3170523b163b46310b1e81">◆ </a></span>make_quadrangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::make_quadrangle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p3</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an isolated quadrangle in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code>, <code>p3</code> as points. </p>
+<p>Returns a handle on the dart associated with <code>p0</code> and with edge [<code>p0</code>,<code>p1</code>]. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \geq\) 1.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="lcc_make_quadrilateral.svg">lcc_make_quadrilateral.svg</object>
+<div class="caption">
+Example of r=lcc.make_quadrangle(p0,p1,p2,p3), left for combinatorial map as combinatorial data-structure, right for generalized maps.</div></div>
+
+</div>
+</div>
+<a id="a2929f7df1f0a0d00e1a59d9c9f264439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2929f7df1f0a0d00e1a59d9c9f264439">◆ </a></span>make_segment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::make_segment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p1</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an isolated segment in this linear cell complex (two darts linked by \( \beta_2\)) having <code>p0</code>, <code>p1</code> as points. </p>
+<p>Returns a handle on the dart associated with <code>p0</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \geq\) 2.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="lcc_make_segment.svg">lcc_make_segment.svg</object>
+<div class="caption">
+Example of r=lcc.make_segment(p0,p1), left for combinatorial map as combinatorial data-structure, right for generalized maps.</div></div>
+
+</div>
+</div>
+<a id="a7586f6bb50e1b7f8259374a8bcaa5ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7586f6bb50e1b7f8259374a8bcaa5ba0">◆ </a></span>make_tetrahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::make_tetrahedron </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p3</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an isolated tetrahedron in this linear cell complex having <code>p0</code>, <code>p1</code>,<code>p2</code>,<code>p3</code> as points. </p>
+<p>Returns a handle on the dart associated with <code>p0</code>, with edge [<code>p0</code>,<code>p1</code>] and belonging to the 2-cell having <code>p0</code>, <code>p1</code>, <code>p2</code> as points. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \geq\) 2.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="lcc_make_tetrahedron.svg">lcc_make_tetrahedron.svg</object>
+<div class="caption">
+Example of r=lcc.make_tetrahedron(p0,p1,p2,p3), left for combinatorial map as combinatorial data-structure, right for generalized maps.</div></div>
+
+</div>
+</div>
+<a id="ad46eb3f0dea8580207efdfb9d72714a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad46eb3f0dea8580207efdfb9d72714a0">◆ </a></span>make_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle LinearCellComplex::make_triangle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLinearCellComplex.html#aafe7703196b62bce46a907a289d515f6">Point</a> &amp; </td>
+          <td class="paramname"><em>p2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an isolated triangle in this linear cell complex having <code>p0</code>, <code>p1</code>, <code>p2</code> as points. </p>
+<p>Returns a handle on the dart associated with <code>p0</code> and with edge [<code>p0</code>,<code>p1</code>]. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> \( \geq\) 1.</dd></dl>
+<div class="image">
+<object type="image/svg+xml" data="lcc_make_triangle.svg">lcc_make_triangle.svg</object>
+<div class="caption">
+Example of r=lcc.make_triangle(p0,p1,p2), left for combinatorial map as combinatorial data-structure, right for generalized maps.</div></div>
+
+</div>
+</div>
+<a id="ae2742737fee43dc3b0551ab13ae90074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2742737fee43dc3b0551ab13ae90074">◆ </a></span>set_vertex_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinearCellComplex::set_vertex_attribute </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLinearCellComplex.html#af9c5ba9f80a41723613ca9f8580a42a6">Vertex_attribute_handle</a> </td>
+          <td class="paramname"><em>vh</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Associates the 0-attribute of all the darts of the 0-cell containing <code>dh</code> to <code>vh</code> (a shortcut for <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a246cb43a0c76592c605e4a129aab9763"><code>set_attribute&lt;0&gt;(dh,vh)</code></a>). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>*dh</code> \( \in \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a> and <code>*vh</code> \( \in \) <code><a class="el" href="classLinearCellComplex.html#a4ff80dfa407ab4b52ffaa6888660cc9e" title="Returns a range of all the 0-attributes in this linear cell complex (a shortcut for attributes&lt;0&gt;())...">vertex_attributes()</a></code>. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classLinearCellComplex.html">LinearCellComplex</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:08 for CGAL 4.13 - Linear Cell Complex by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

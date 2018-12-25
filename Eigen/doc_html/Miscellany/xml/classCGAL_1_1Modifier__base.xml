@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Modifier__base" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Modifier_base</compoundname>
+    <includes local="no">CGAL/Modifier_base.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>R</declname>
+        <defname>R</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Modifier__base_1aba3c477a58cdce6e00562858e0be297d" prot="public" static="no">
+        <type>R</type>
+        <definition>typedef R CGAL::Modifier_base&lt; R &gt;::Representation</definition>
+        <argsstring></argsstring>
+        <name>Representation</name>
+        <briefdescription>
+<para>the internal representation type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Modifier_base.h" line="55" column="1" bodyfile="CGAL/Modifier_base.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operations</header>
+      <memberdef kind="function" id="classCGAL_1_1Modifier__base_1a08a0a229b834229b3d35c8fb122cb488" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Modifier_base&lt; R &gt;::operator()</definition>
+        <argsstring>(R &amp;rep)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>R &amp;</type>
+          <declname>rep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="post"><para><computeroutput>rep</computeroutput> is a valid representation. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Modifier_base.h" line="65" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><computeroutput><ref refid="classCGAL_1_1Modifier__base" kindref="compound">Modifier_base</ref></computeroutput> is an abstract base class providing the interface for any modifier. </para>    </briefdescription>
+    <detaileddescription>
+<para>A modifier is a function object derived from <computeroutput><ref refid="classCGAL_1_1Modifier__base" kindref="compound">Modifier_base</ref></computeroutput> that implements the pure virtual member function <computeroutput>operator()</computeroutput>, which accepts a single reference parameter <computeroutput>R&amp;</computeroutput> on which the modifier is allowed to work. <computeroutput>R</computeroutput> is the type of the internal representation that is to be modified.</para><para><bold>Example</bold><linebreak/>
+</para><para>The following fragment defines a class <computeroutput>A</computeroutput> with an internal representation <computeroutput>i</computeroutput> of type <computeroutput>int</computeroutput>. It provides a member function <computeroutput>delegate()</computeroutput>, which gives a modifier access to the internal variable and checks validity thereafter. The example modifier sets the internal variable to 42. The example function applies the modifier to an instance of class <computeroutput>A</computeroutput>.</para><para><programlisting><codeline><highlight class="normal">class<sp/>A<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>int<sp/>i;<sp/>//<sp/>protected<sp/>internal<sp/>representation<sp/></highlight></codeline>
+<codeline><highlight class="normal">public:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>void<sp/>delegate(<sp/>CGAL::Modifier_base&lt;int&gt;&amp;<sp/>modifier)<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>modifier(i);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CGAL_postcondition(<sp/>i<sp/>&gt;<sp/>0);<sp/>//<sp/>check<sp/>validity<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal">};<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">struct<sp/>Modifier<sp/>:<sp/>public<sp/>CGAL::Modifier_base&lt;int&gt;<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>void<sp/>operator()(<sp/>int&amp;<sp/>rep)<sp/>{<sp/>rep<sp/>=<sp/>42;}<sp/></highlight></codeline>
+<codeline><highlight class="normal">};<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>use_it()<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>A<sp/>a;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Modifier<sp/>m;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>a.delegate(m);<sp/>//<sp/>a.i<sp/>==<sp/>42<sp/>and<sp/>A<sp/>has<sp/>checked<sp/>that<sp/>A::i<sp/>&gt;<sp/>0.<sp/></highlight></codeline>
+<codeline><highlight class="normal">}<sp/></highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <location file="CGAL/Modifier_base.h" line="46" column="1" bodyfile="CGAL/Modifier_base.h" bodystart="46" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Modifier__base_1a08a0a229b834229b3d35c8fb122cb488" prot="public" virt="virtual"><scope>CGAL::Modifier_base</scope><name>operator()</name></member>
+      <member refid="classCGAL_1_1Modifier__base_1aba3c477a58cdce6e00562858e0be297d" prot="public" virt="non-virtual"><scope>CGAL::Modifier_base</scope><name>Representation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

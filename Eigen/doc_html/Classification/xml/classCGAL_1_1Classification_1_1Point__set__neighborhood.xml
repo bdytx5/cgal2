@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Classification_1_1Point__set__neighborhood" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Classification::Point_set_neighborhood</compoundname>
+    <includes local="no">CGAL/Classification/Point_set_neighborhood.h</includes>
+    <innerclass refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1_1K__neighbor__query" prot="public">CGAL::Classification::Point_set_neighborhood::K_neighbor_query</innerclass>
+    <innerclass refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1_1My__point__property__map" prot="private">CGAL::Classification::Point_set_neighborhood::My_point_property_map</innerclass>
+    <innerclass refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1_1Sphere__neighbor__query" prot="public">CGAL::Classification::Point_set_neighborhood::Sphere_neighbor_query</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename GeomTraits</type>
+      </param>
+      <param>
+        <type>typename PointRange</type>
+      </param>
+      <param>
+        <type>typename PointMap</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Constructors</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a44c54cbb9b786cd61db4e0f4aaa4f077" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Point_set_neighborhood</definition>
+        <argsstring>(const PointRange &amp;input, PointMap point_map)</argsstring>
+        <name>Point_set_neighborhood</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>PointMap</type>
+          <declname>point_map</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a neighborhood object based on the input range. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>point_map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>property map to access the input points. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="188" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="188" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a7b625e9fedc5c6be33d9a72c7df6fab3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Point_set_neighborhood</definition>
+        <argsstring>(const PointRange &amp;input, PointMap point_map, float voxel_size)</argsstring>
+        <name>Point_set_neighborhood</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>PointMap</type>
+          <declname>point_map</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>voxel_size</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a simplified neighborhood object based on the input range. </para>        </briefdescription>
+        <detaileddescription>
+<para>This method first computes a simplified version of the input point set by voxelization: a 3D grid is defined and for each subset present in one cell, only the point closest to the centroid of this subset is used.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>point_map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>property map to access the input points. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>voxel_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the cells of the 3D grid used for simplification. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="213" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="213" bodyend="228"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Queries</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a0d601b25e108cc95e28e1324d1fe2c75" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1_1K__neighbor__query" kindref="compound">K_neighbor_query</ref></type>
+        <definition>K_neighbor_query CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::k_neighbor_query</definition>
+        <argsstring>(const unsigned int k) const</argsstring>
+        <name>k_neighbor_query</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+<para>Returns a neighbor query object with fixed number of neighbors <computeroutput>k</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="246" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="246" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a56843ead3a9bd9c4dc6af8dff56b58f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1_1Sphere__neighbor__query" kindref="compound">Sphere_neighbor_query</ref></type>
+        <definition>Sphere_neighbor_query CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::sphere_neighbor_query</definition>
+        <argsstring>(const float radius) const</argsstring>
+        <name>sphere_neighbor_query</name>
+        <param>
+          <type>const float</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+<para>Returns a neighbor query object with fixed radius <computeroutput>radius</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="254" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="254" bodyend="257"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a6e4cfefd9e11d166d50a59eb03b2c389" prot="private" static="no">
+        <type>GeomTraits::FT</type>
+        <definition>typedef GeomTraits::FT CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::FT</definition>
+        <argsstring></argsstring>
+        <name>FT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="69" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ac7edff1b10f7945d999e114293720be1" prot="private" static="no">
+        <type>GeomTraits::Point_3</type>
+        <definition>typedef GeomTraits::Point_3 CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="70" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a15612a1bdbf9f320c881e45558c47a46" prot="private" static="no">
+        <type>Search_traits_3&lt; GeomTraits &gt;</type>
+        <definition>typedef Search_traits_3&lt;GeomTraits&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::SearchTraits_3</definition>
+        <argsstring></argsstring>
+        <name>SearchTraits_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="89" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a833f076cd771a2206dda57b40fa1cd8a" prot="private" static="no">
+        <type>Search_traits_adapter&lt; boost::uint32_t, My_point_property_map, SearchTraits_3 &gt;</type>
+        <definition>typedef Search_traits_adapter&lt;boost::uint32_t, My_point_property_map, SearchTraits_3&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Search_traits</definition>
+        <argsstring></argsstring>
+        <name>Search_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="90" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a10548af0657f9292378428dc528810a7" prot="private" static="no">
+        <type>Sliding_midpoint&lt; Search_traits &gt;</type>
+        <definition>typedef Sliding_midpoint&lt;Search_traits&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Splitter</definition>
+        <argsstring></argsstring>
+        <name>Splitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="91" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a34a37d9a9b1604dbf920e700bc944066" prot="private" static="no">
+        <type>Distance_adapter&lt; boost::uint32_t, My_point_property_map, Euclidean_distance&lt; SearchTraits_3 &gt; &gt;</type>
+        <definition>typedef Distance_adapter&lt;boost::uint32_t, My_point_property_map, Euclidean_distance&lt;SearchTraits_3&gt; &gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Distance</definition>
+        <argsstring></argsstring>
+        <name>Distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="92" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a44d2b89afd71dc56b5305386cabba9d6" prot="private" static="no">
+        <type>Kd_tree&lt; Search_traits, Splitter, <ref refid="group__PkgStlExtensionUtilities_1gab3e2296107b5d26c32c8183028a217f1" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Tag_true</ref> &gt;</type>
+        <definition>typedef Kd_tree&lt;Search_traits, Splitter, Tag_true&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Tree</definition>
+        <argsstring></argsstring>
+        <name>Tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="93" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ad0ea375c7c8f2b8081b7a1a10bf70b50" prot="private" static="no">
+        <type>Fuzzy_sphere&lt; Search_traits &gt;</type>
+        <definition>typedef Fuzzy_sphere&lt;Search_traits&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Sphere</definition>
+        <argsstring></argsstring>
+        <name>Sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="94" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a73ad7a75d1be1d7906852268a2e3ae42" prot="private" static="no">
+        <type>Orthogonal_k_neighbor_search&lt; Search_traits, Distance, Splitter, Tree &gt;</type>
+        <definition>typedef Orthogonal_k_neighbor_search&lt;Search_traits, Distance, Splitter, Tree&gt; CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::Knn</definition>
+        <argsstring></argsstring>
+        <name>Knn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="95" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a07a42d2aa520b72825a6e5c5ca815ce6" prot="private" static="no" mutable="no">
+        <type>Tree *</type>
+        <definition>Tree* CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::m_tree</definition>
+        <argsstring></argsstring>
+        <name>m_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="98" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a86f5b18ccdfd26a17fa538d4eb7f2fc5" prot="private" static="no" mutable="no">
+        <type>Distance</type>
+        <definition>Distance CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::m_distance</definition>
+        <argsstring></argsstring>
+        <name>m_distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="99" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ae8f49aa84087fe5c9736f397ac3bd7e2" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::sphere_neighbors</definition>
+        <argsstring>(const Point &amp;query, const FT radius_neighbors, OutputIterator output) const</argsstring>
+        <name>sphere_neighbors</name>
+        <param>
+          <type>const Point &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const FT</type>
+          <declname>radius_neighbors</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="264" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="264" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1af17a3726b32062e730884a77976b7dfa" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::k_neighbors</definition>
+        <argsstring>(const Point &amp;query, const unsigned int k, OutputIterator output) const</argsstring>
+        <name>k_neighbors</name>
+        <param>
+          <type>const Point &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="272" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="272" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Point__set__neighborhood_1af98c4234869d2fc83a9fbc5687824000" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Map</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Classification::Point_set_neighborhood&lt; GeomTraits, PointRange, PointMap &gt;::voxelize_point_set</definition>
+        <argsstring>(std::size_t nb_pts, std::vector&lt; boost::uint32_t &gt; &amp;indices, Map point_map, float voxel_size)</argsstring>
+        <name>voxelize_point_set</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nb_pts</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; boost::uint32_t &gt; &amp;</type>
+          <declname>indices</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>point_map</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>voxel_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Point_set_neighborhood.h" line="281" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="281" bodyend="321"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that precomputes spatial searching structures for an input point set and gives access to the local neighborhood of a point as a set of indices. </para>    </briefdescription>
+    <detaileddescription>
+<para>It allows the user to generate models of <computeroutput><ref refid="classCGAL_1_1Classification_1_1NeighborQuery" kindref="compound">NeighborQuery</ref></computeroutput> based on a fixed range neighborhood or on a fixed K number of neighbors. In addition, the spatial searching structures can be computed on a simplified version of the point set to allow for neighbor queries at a higher scale.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>GeomTraits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classRandomAccessIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessIterator</ref></computeroutput> and its value type is the key type of <computeroutput>PointMap</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> whose key type is the value type of the iterator of <computeroutput>PointRange</computeroutput> and value type is <computeroutput>GeomTraits::Point_3</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <location file="CGAL/Classification/Point_set_neighborhood.h" line="67" column="1" bodyfile="CGAL/Classification/Point_set_neighborhood.h" bodystart="66" bodyend="322"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a34a37d9a9b1604dbf920e700bc944066" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Distance</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a6e4cfefd9e11d166d50a59eb03b2c389" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>FT</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a0d601b25e108cc95e28e1324d1fe2c75" prot="public" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>k_neighbor_query</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1af17a3726b32062e730884a77976b7dfa" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>k_neighbors</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a73ad7a75d1be1d7906852268a2e3ae42" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Knn</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a86f5b18ccdfd26a17fa538d4eb7f2fc5" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>m_distance</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a07a42d2aa520b72825a6e5c5ca815ce6" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>m_tree</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ac7edff1b10f7945d999e114293720be1" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Point</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a44c54cbb9b786cd61db4e0f4aaa4f077" prot="public" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Point_set_neighborhood</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a7b625e9fedc5c6be33d9a72c7df6fab3" prot="public" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Point_set_neighborhood</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a833f076cd771a2206dda57b40fa1cd8a" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Search_traits</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a15612a1bdbf9f320c881e45558c47a46" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>SearchTraits_3</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ad0ea375c7c8f2b8081b7a1a10bf70b50" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Sphere</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a56843ead3a9bd9c4dc6af8dff56b58f0" prot="public" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>sphere_neighbor_query</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1ae8f49aa84087fe5c9736f397ac3bd7e2" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>sphere_neighbors</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a10548af0657f9292378428dc528810a7" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Splitter</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1a44d2b89afd71dc56b5305386cabba9d6" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>Tree</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Point__set__neighborhood_1af98c4234869d2fc83a9fbc5687824000" prot="private" virt="non-virtual"><scope>CGAL::Classification::Point_set_neighborhood</scope><name>voxelize_point_set</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

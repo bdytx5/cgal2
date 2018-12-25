@@ -1,0 +1,1508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Arrangement_on_surface_2/classCGAL_1_1Arrangement__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Arrangements: CGAL::Arrangement_2&lt; Traits, Dcel &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Arrangements
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Arrangement__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Arrangement__2-members.html">List of all members</a> |
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Arrangement_2&lt; Traits, Dcel &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgArrangement2.html">2D Arrangement Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Arrangement_2.h&gt;</code></p>
+
+<p>Inherited by <a class="el" href="classCGAL_1_1Arrangement__with__history__2.html">CGAL::Arrangement_with_history_2&lt; Traits, Dcel &gt;</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p><a class="anchor" id="arr_refarr"></a></p>
+<p>An object <code>arr</code> of the class <code><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></code> represents the planar subdivision induced by a set of \( x\)-monotone curves and isolated points into maximally connected cells. The arrangement is represented as a doubly-connected edge-list (<span class="textsc">Dcel</span>) such that each <span class="textsc">Dcel</span> vertex is associated with a point of the plane and each edge is associated with an \( x\)-monotone curve whose interior is disjoint from all other edges and vertices. Recall that an arrangement edge is always comprised of a pair of twin <span class="textsc">Dcel</span> halfedges.</p>
+<p>The <code><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></code> template has two parameters: </p><ul>
+<li>
+The <code>Traits</code> template-parameter should be instantiated with a model of the <code><a class="el" href="classArrangementBasicTraits__2.html" title="The concept ArrangementBasicTraits_2 defines the minimal set of geometric predicates needed for the c...">ArrangementBasicTraits_2</a></code> concept. The traits class defines the types of \( x\)-monotone curves and two-dimensional points, namely <code><a class="el" href="classArrangementBasicTraits__2.html#a0fc1f7acfd69a5eae393294b6870a1d2" title="models the concept ArrTraits::XMonotoneCurve_2. ">ArrangementBasicTraits_2::X_monotone_curve_2</a></code> and <code><a class="el" href="classArrangementBasicTraits__2.html#a8cfc873dc62ce86f9479c4689845d4b3" title="models the concept ArrTraits::Point_2. ">ArrangementBasicTraits_2::Point_2</a></code>, respectively, and supports basic geometric predicates on them. </li>
+<li>
+The <code>Dcel</code> template-parameter should be instantiated with a class that is a model of the <code><a class="el" href="classArrangementDcel.html" title="A doubly-connected edge-list (Dcel for short) data-structure. It consists of three containers of reco...">ArrangementDcel</a></code> concept. The value of this parameter is by default <code><a class="el" href="classCGAL_1_1Arr__default__dcel.html" title="The default Dcel class used by the Arrangement_2 class-template is parameterized by a traits class...">Arr_default_dcel</a>&lt;Traits&gt;</code>. </li>
+</ul>
+<p>The available traits classes and <span class="textsc">Dcel</span> classes are described below.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classArrangementDcel.html" title="A doubly-connected edge-list (Dcel for short) data-structure. It consists of three containers of reco...">ArrangementDcel</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Arr__default__dcel.html" title="The default Dcel class used by the Arrangement_2 class-template is parameterized by a traits class...">Arr_default_dcel</a>&lt;Traits&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classArrangementBasicTraits__2.html" title="The concept ArrangementBasicTraits_2 defines the minimal set of geometric predicates needed for the c...">ArrangementBasicTraits_2</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Funcs.html#ga339cdba93f54001be303595689002396" title="Computes the overlay of two arrangements arr1 and arr2, and sets the output arrangement res to repres...">CGAL::overlay()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Number_types.tag:../Number_types/" href="../Number_types/group__nt__util.html#ga06ee6c8472c94e9f14d6fc94b6b7079b">CGAL::is_valid()</a></code></dd></dl>
+<p>Insertion Functions</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgArrangement2Insert.html">CGAL::insert()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Funcs.html#gad453feb3ff2f60a9741bf9d2917bf225" title="Inserts a given -monotone curve into a given arrangement, where the interior of the given curve is di...">CGAL::insert_non_intersecting_curve()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Funcs.html#gad4aa37a4e938747028690579fb703d67" title="Inserts a set of -monotone curves in a given range into a given arrangement. ">CGAL::insert_non_intersecting_curves()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Funcs.html#ga13c103c1cea5249ca37ce7e0be4d97e4" title="Inserts a given point into a given arrangement. ">CGAL::insert_point()</a></code></dd></dl>
+<p>Removal functions</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgArrangement2Funcs.html#ga324fdf8354e7812fe0e1c0e5ac14196c" title="Removes an edge given by one of the twin halfedges that forms it, from a given arrangement. ">CGAL::remove_edge()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Funcs.html#gacbb4f22a59c77fb06a9d544cbbb04778" title="Attempts to removed a given vertex from a given arrangement. ">CGAL::remove_vertex()</a></code></dd></dl>
+<p>Input/output functions</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgArrangement2Read.html" title="Reads a given arrangement from a given input stream using a specific input format. ">CGAL::read()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgArrangement2Write.html" title="Writes a given arrangement into a given output stream using a specific output format. ">CGAL::write()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Arrangement_on_surface_2_2aggregated_insertion_8cpp-example.html#_a3">Arrangement_on_surface_2/aggregated_insertion.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2algebraic_curves_8cpp-example.html#_a3">Arrangement_on_surface_2/algebraic_curves.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2algebraic_segments_8cpp-example.html#_a3">Arrangement_on_surface_2/algebraic_segments.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2batched_point_location_8cpp-example.html#_a2">Arrangement_on_surface_2/batched_point_location.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2Bezier_curves_8cpp-example.html#_a2">Arrangement_on_surface_2/Bezier_curves.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2bgl_dual_adapter_8cpp-example.html#_a3">Arrangement_on_surface_2/bgl_dual_adapter.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2bgl_primal_adapter_8cpp-example.html#_a2">Arrangement_on_surface_2/bgl_primal_adapter.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2circles_8cpp-example.html#_a3">Arrangement_on_surface_2/circles.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2circular_arcs_8cpp-example.html#_a4">Arrangement_on_surface_2/circular_arcs.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2conic_multiplicities_8cpp-example.html#_a2">Arrangement_on_surface_2/conic_multiplicities.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2conics_8cpp-example.html#_a2">Arrangement_on_surface_2/conics.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2consolidated_curve_data_8cpp-example.html#_a3">Arrangement_on_surface_2/consolidated_curve_data.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2dcel_extension_8cpp-example.html#_a3">Arrangement_on_surface_2/dcel_extension.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2dcel_extension_io_8cpp-example.html#_a5">Arrangement_on_surface_2/dcel_extension_io.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2dual_lines_8cpp-example.html#_a2">Arrangement_on_surface_2/dual_lines.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2dual_with_data_8cpp-example.html#_a3">Arrangement_on_surface_2/dual_with_data.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2edge_insertion_8cpp-example.html#_a2">Arrangement_on_surface_2/edge_insertion.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2edge_manipulation_8cpp-example.html#_a2">Arrangement_on_surface_2/edge_manipulation.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2face_extension_8cpp-example.html#_a3">Arrangement_on_surface_2/face_extension.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2face_extension_overlay_8cpp-example.html#_a3">Arrangement_on_surface_2/face_extension_overlay.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2generic_curve_data_8cpp-example.html#_a4">Arrangement_on_surface_2/generic_curve_data.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2global_insertion_8cpp-example.html#_a3">Arrangement_on_surface_2/global_insertion.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2global_removal_8cpp-example.html#_a2">Arrangement_on_surface_2/global_removal.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2incremental_insertion_8cpp-example.html#_a3">Arrangement_on_surface_2/incremental_insertion.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2io_8cpp-example.html#_a2">Arrangement_on_surface_2/io.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2observer_8cpp-example.html#_a3">Arrangement_on_surface_2/observer.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2overlay_8cpp-example.html#_a2">Arrangement_on_surface_2/overlay.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2overlay_unbounded_8cpp-example.html#_a3">Arrangement_on_surface_2/overlay_unbounded.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2point_location_example_8cpp-example.html#_a2">Arrangement_on_surface_2/point_location_example.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2polylines_8cpp-example.html#_a3">Arrangement_on_surface_2/polylines.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2predefined_kernel_8cpp-example.html#_a3">Arrangement_on_surface_2/predefined_kernel.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2predefined_kernel_non_intersecting_8cpp-example.html#_a3">Arrangement_on_surface_2/predefined_kernel_non_intersecting.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2rational_functions_8cpp-example.html#_a3">Arrangement_on_surface_2/rational_functions.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2unbounded_non_intersecting_8cpp-example.html#_a2">Arrangement_on_surface_2/unbounded_non_intersecting.cpp</a>, <a class="el" href="Arrangement_on_surface_2_2unbounded_rational_functions_8cpp-example.html#_a3">Arrangement_on_surface_2/unbounded_rational_functions.cpp</a>, and <a class="el" href="Arrangement_on_surface_2_2vertical_ray_shooting_8cpp-example.html#_a3">Arrangement_on_surface_2/vertical_ray_shooting.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Face.html">Face</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">An object of the class <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Face.html" title="An object of the class Face represents an arrangement face, namely, a -dimensional arrangement cell...">Face</a></code> represents an arrangement face, namely, a \( 2\)-dimensional arrangement cell.  <a href="classCGAL_1_1Arrangement__2_1_1Face.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html">Halfedge</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">An object \( e\) of the class <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code> represents a halfedge in the arrangement.  <a href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Vertex.html">Vertex</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">An object \( v\) of the class <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Vertex.html" title="An object  of the class Vertex represents an arrangement vertex, that is - a -dimensional cell...">Vertex</a></code> represents an arrangement vertex, that is - a \( 0\)-dimensional cell, associated with a point on the plane.  <a href="classCGAL_1_1Arrangement__2_1_1Vertex.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a48307d2ce8f84b8e85fd782d92bbf887"><td class="memItemLeft" align="right" valign="top"><a id="a48307d2ce8f84b8e85fd782d92bbf887"></a>
+typedef <a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a>&lt; <a class="el" href="classCGAL_1_1Arrangement__2.html#ad7527ffb7c9b9455c839ce9e192605c8">Traits_2</a>, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a48307d2ce8f84b8e85fd782d92bbf887">Self</a></td></tr>
+<tr class="memdesc:a48307d2ce8f84b8e85fd782d92bbf887"><td class="mdescLeft"> </td><td class="mdescRight">a private type used as an abbreviation of the <code><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></code> type hereafter. <br /></td></tr>
+<tr class="separator:a48307d2ce8f84b8e85fd782d92bbf887"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad7527ffb7c9b9455c839ce9e192605c8"><td class="memItemLeft" align="right" valign="top"><a id="ad7527ffb7c9b9455c839ce9e192605c8"></a>
+typedef Traits </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad7527ffb7c9b9455c839ce9e192605c8">Traits_2</a></td></tr>
+<tr class="memdesc:ad7527ffb7c9b9455c839ce9e192605c8"><td class="mdescLeft"> </td><td class="mdescRight">the traits class in use. <br /></td></tr>
+<tr class="separator:ad7527ffb7c9b9455c839ce9e192605c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0510dde537a06aaefc2fc4d1643d9315"><td class="memItemLeft" align="right" valign="top"><a id="a0510dde537a06aaefc2fc4d1643d9315"></a>
+typedef Traits_2::Point_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a0510dde537a06aaefc2fc4d1643d9315">Point_2</a></td></tr>
+<tr class="memdesc:a0510dde537a06aaefc2fc4d1643d9315"><td class="mdescLeft"> </td><td class="mdescRight">the point type, as defined by the traits class. <br /></td></tr>
+<tr class="separator:a0510dde537a06aaefc2fc4d1643d9315"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aebf230ed9d864e22fe7844225f4ebfdc"><td class="memItemLeft" align="right" valign="top"><a id="aebf230ed9d864e22fe7844225f4ebfdc"></a>
+typedef Traits_2::X_monotone_curve_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a></td></tr>
+<tr class="memdesc:aebf230ed9d864e22fe7844225f4ebfdc"><td class="mdescLeft"> </td><td class="mdescRight">the \( x\)-monotone curve type, as defined by the traits class. <br /></td></tr>
+<tr class="separator:aebf230ed9d864e22fe7844225f4ebfdc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a83db8dbd8203da3f0341d5076ca20daa"><td class="memItemLeft" align="right" valign="top"><a id="a83db8dbd8203da3f0341d5076ca20daa"></a>
+typedef Dcel::Size </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a></td></tr>
+<tr class="memdesc:a83db8dbd8203da3f0341d5076ca20daa"><td class="mdescLeft"> </td><td class="mdescRight">the size type (equivalent to <code>size_t</code>). <br /></td></tr>
+<tr class="separator:a83db8dbd8203da3f0341d5076ca20daa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp01747264fe7bf50731df0522c351974e"></a>The following handles, iterators, and circulators all have respective constant counterparts (for example, in addition to <code>Vertex_iterator</code> the type <code>Vertex_const_iterator</code> is also defined).</p>
+<p>See <a class="el" href="citelist.html#CITEREF_cgal:ms-strg-96">[9]</a> for a discussion of constant versus mutable iterator types. The mutable types are assignable to their constant counterparts. <code>Vertex_iterator</code>, <code>Halfedge_iterator</code>, and <code>Face_iterator</code> are equivalent to the respective handle types (namely, <code>Vertex_handle</code>, <code>Halfedge_handle</code>, and <code>Face_handle</code>). Thus, wherever the handles appear in function parameter lists, the respective iterators can be passed as well.</p>
+<p>All handles are model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classLessThanComparable.html">LessThanComparable</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>, that is they can be used as keys in containers such as <code>std::map</code> and <code>boost::unordered_map</code>. </p>
+</td></tr>
+<tr class="memitem:a7dac3eed2224beadf3658495bc671c49"><td class="memItemLeft" align="right" valign="top"><a id="a7dac3eed2224beadf3658495bc671c49"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a></td></tr>
+<tr class="memdesc:a7dac3eed2224beadf3658495bc671c49"><td class="mdescLeft"> </td><td class="mdescRight">a handle for an arrangement vertex. <br /></td></tr>
+<tr class="separator:a7dac3eed2224beadf3658495bc671c49"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acdb9c49c90f9354f20c56efac599a7fe"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a></td></tr>
+<tr class="memdesc:acdb9c49c90f9354f20c56efac599a7fe"><td class="mdescLeft"> </td><td class="mdescRight">a handle for a halfedge.  <a href="#acdb9c49c90f9354f20c56efac599a7fe">More...</a><br /></td></tr>
+<tr class="separator:acdb9c49c90f9354f20c56efac599a7fe"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad64170c3b8b8c4af16a4fb742bf56d48"><td class="memItemLeft" align="right" valign="top"><a id="ad64170c3b8b8c4af16a4fb742bf56d48"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a></td></tr>
+<tr class="memdesc:ad64170c3b8b8c4af16a4fb742bf56d48"><td class="mdescLeft"> </td><td class="mdescRight">a handle for an arrangement face. <br /></td></tr>
+<tr class="separator:ad64170c3b8b8c4af16a4fb742bf56d48"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac4a88fd2ca22b490454e4f425005e5c4"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ac4a88fd2ca22b490454e4f425005e5c4">Vertex_iterator</a></td></tr>
+<tr class="memdesc:ac4a88fd2ca22b490454e4f425005e5c4"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the vertices of the arrangement.  <a href="#ac4a88fd2ca22b490454e4f425005e5c4">More...</a><br /></td></tr>
+<tr class="separator:ac4a88fd2ca22b490454e4f425005e5c4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a1ab0fd70620da46360f95907d40c78"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a6a1ab0fd70620da46360f95907d40c78">Halfedge_iterator</a></td></tr>
+<tr class="memdesc:a6a1ab0fd70620da46360f95907d40c78"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the halfedges of the arrangement.  <a href="#a6a1ab0fd70620da46360f95907d40c78">More...</a><br /></td></tr>
+<tr class="separator:a6a1ab0fd70620da46360f95907d40c78"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9b3a4b116e66f66bcd69215fa3f513f9"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a9b3a4b116e66f66bcd69215fa3f513f9">Edge_iterator</a></td></tr>
+<tr class="memdesc:a9b3a4b116e66f66bcd69215fa3f513f9"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the edges of the arrangement.  <a href="#a9b3a4b116e66f66bcd69215fa3f513f9">More...</a><br /></td></tr>
+<tr class="separator:a9b3a4b116e66f66bcd69215fa3f513f9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa91e8147cf0a7cc30366af5b6f9a058e"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#aa91e8147cf0a7cc30366af5b6f9a058e">Face_iterator</a></td></tr>
+<tr class="memdesc:aa91e8147cf0a7cc30366af5b6f9a058e"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the faces of arrangement.  <a href="#aa91e8147cf0a7cc30366af5b6f9a058e">More...</a><br /></td></tr>
+<tr class="separator:aa91e8147cf0a7cc30366af5b6f9a058e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae2ea7ee0fc95f9b49fe2c090e43ed0bc"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">Unbounded_face_iterator</a></td></tr>
+<tr class="memdesc:ae2ea7ee0fc95f9b49fe2c090e43ed0bc"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the unbounded faces of arrangement.  <a href="#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">More...</a><br /></td></tr>
+<tr class="separator:ae2ea7ee0fc95f9b49fe2c090e43ed0bc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1490b8301d182e9d46e0c4e45cff6aa9"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a1490b8301d182e9d46e0c4e45cff6aa9">Halfedge_around_vertex_circulator</a></td></tr>
+<tr class="memdesc:a1490b8301d182e9d46e0c4e45cff6aa9"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional circulator over the halfedges that have a given vertex as their target.  <a href="#a1490b8301d182e9d46e0c4e45cff6aa9">More...</a><br /></td></tr>
+<tr class="separator:a1490b8301d182e9d46e0c4e45cff6aa9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab4a594c193ca09a672dbe2fcafa090e9"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ab4a594c193ca09a672dbe2fcafa090e9">Ccb_halfedge_circulator</a></td></tr>
+<tr class="memdesc:ab4a594c193ca09a672dbe2fcafa090e9"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional circulator over the halfedges of a CCB (connected component of the boundary).  <a href="#ab4a594c193ca09a672dbe2fcafa090e9">More...</a><br /></td></tr>
+<tr class="separator:ab4a594c193ca09a672dbe2fcafa090e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a13420f4fd95338b0384ff309f3a15153"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a13420f4fd95338b0384ff309f3a15153">Hole_iterator</a></td></tr>
+<tr class="memdesc:a13420f4fd95338b0384ff309f3a15153"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the holes (i.e., inner CCBs) contained inside a given face.  <a href="#a13420f4fd95338b0384ff309f3a15153">More...</a><br /></td></tr>
+<tr class="separator:a13420f4fd95338b0384ff309f3a15153"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1e0b89ad746d728e06ed8b62640d3d20"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a1e0b89ad746d728e06ed8b62640d3d20">Isolated_vertex_iterator</a></td></tr>
+<tr class="memdesc:a1e0b89ad746d728e06ed8b62640d3d20"><td class="mdescLeft"> </td><td class="mdescRight">a bidirectional iterator over the isolated vertices contained inside a given face.  <a href="#a1e0b89ad746d728e06ed8b62640d3d20">More...</a><br /></td></tr>
+<tr class="separator:a1e0b89ad746d728e06ed8b62640d3d20"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:a8c00bee784660ff4a0f5ce6a31134e4b"><td class="memItemLeft" align="right" valign="top"><a id="a8c00bee784660ff4a0f5ce6a31134e4b"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a8c00bee784660ff4a0f5ce6a31134e4b">Arrangement_2</a> ()</td></tr>
+<tr class="memdesc:a8c00bee784660ff4a0f5ce6a31134e4b"><td class="mdescLeft"> </td><td class="mdescRight">constructs an empty arrangement containing one unbounded face, which corresponds to the entire plane. <br /></td></tr>
+<tr class="separator:a8c00bee784660ff4a0f5ce6a31134e4b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5f55b8ef22ef11c003883b404926d07f"><td class="memItemLeft" align="right" valign="top"><a id="a5f55b8ef22ef11c003883b404926d07f"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a5f55b8ef22ef11c003883b404926d07f">Arrangement_2</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#a48307d2ce8f84b8e85fd782d92bbf887">Self</a> &amp;other)</td></tr>
+<tr class="memdesc:a5f55b8ef22ef11c003883b404926d07f"><td class="mdescLeft"> </td><td class="mdescRight">copy constructor. <br /></td></tr>
+<tr class="separator:a5f55b8ef22ef11c003883b404926d07f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad14081c7ed3008c84520d677b4e6a8fd"><td class="memItemLeft" align="right" valign="top"><a id="ad14081c7ed3008c84520d677b4e6a8fd"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad14081c7ed3008c84520d677b4e6a8fd">Arrangement_2</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#ad7527ffb7c9b9455c839ce9e192605c8">Traits_2</a> *traits)</td></tr>
+<tr class="memdesc:ad14081c7ed3008c84520d677b4e6a8fd"><td class="mdescLeft"> </td><td class="mdescRight">constructs an empty arrangement that uses the given <code>traits</code> instance for performing the geometric predicates. <br /></td></tr>
+<tr class="separator:ad14081c7ed3008c84520d677b4e6a8fd"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Assignment Methods</h2></td></tr>
+<tr class="memitem:a7ff57c08499377bb20599172a08e90db"><td class="memItemLeft" align="right" valign="top"><a id="a7ff57c08499377bb20599172a08e90db"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a48307d2ce8f84b8e85fd782d92bbf887">Self</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7ff57c08499377bb20599172a08e90db">operator=</a> (other)</td></tr>
+<tr class="memdesc:a7ff57c08499377bb20599172a08e90db"><td class="mdescLeft"> </td><td class="mdescRight">assignment operator. <br /></td></tr>
+<tr class="separator:a7ff57c08499377bb20599172a08e90db"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3074ee1c05b763134654b3fd28c0b5d7"><td class="memItemLeft" align="right" valign="top"><a id="a3074ee1c05b763134654b3fd28c0b5d7"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a3074ee1c05b763134654b3fd28c0b5d7">assign</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#a48307d2ce8f84b8e85fd782d92bbf887">Self</a> &amp;other)</td></tr>
+<tr class="memdesc:a3074ee1c05b763134654b3fd28c0b5d7"><td class="mdescLeft"> </td><td class="mdescRight">assigns the contents of another arrangement. <br /></td></tr>
+<tr class="separator:a3074ee1c05b763134654b3fd28c0b5d7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4656fff7c7a5dd4ae3d3e9759ec05254"><td class="memItemLeft" align="right" valign="top"><a id="a4656fff7c7a5dd4ae3d3e9759ec05254"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a4656fff7c7a5dd4ae3d3e9759ec05254">clear</a> ()</td></tr>
+<tr class="memdesc:a4656fff7c7a5dd4ae3d3e9759ec05254"><td class="mdescLeft"> </td><td class="mdescRight">clears the arrangement. <br /></td></tr>
+<tr class="separator:a4656fff7c7a5dd4ae3d3e9759ec05254"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Functions</h2></td></tr>
+<tr class="memitem:acdad1373cb6a4780267291d23b564b7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad7527ffb7c9b9455c839ce9e192605c8">Traits_2</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdad1373cb6a4780267291d23b564b7d">get_traits</a> ()</td></tr>
+<tr class="memdesc:acdad1373cb6a4780267291d23b564b7d"><td class="mdescLeft"> </td><td class="mdescRight">returns the traits object used by the arrangement instance.  <a href="#acdad1373cb6a4780267291d23b564b7d">More...</a><br /></td></tr>
+<tr class="separator:acdad1373cb6a4780267291d23b564b7d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7b51e88f6e20525f27bb6493240be915"><td class="memItemLeft" align="right" valign="top"><a id="a7b51e88f6e20525f27bb6493240be915"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7b51e88f6e20525f27bb6493240be915">is_empty</a> () const</td></tr>
+<tr class="memdesc:a7b51e88f6e20525f27bb6493240be915"><td class="mdescLeft"> </td><td class="mdescRight">determines whether the arrangement is empty (contains only the unbounded face, with no vertices or edges). <br /></td></tr>
+<tr class="separator:a7b51e88f6e20525f27bb6493240be915"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Accessing the Arrangement Vertices</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp8f43f8378c47f0b9c5ce270905e23afc"></a>All <code>_begin()</code> and <code>_end()</code> methods listed below also have <code>const</code> counterparts, returning constant iterators instead of mutable ones. </p>
+</td></tr>
+<tr class="memitem:adfb5b8f09b75e5278090d9292404972c"><td class="memItemLeft" align="right" valign="top"><a id="adfb5b8f09b75e5278090d9292404972c"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#adfb5b8f09b75e5278090d9292404972c">number_of_vertices</a> () const</td></tr>
+<tr class="memdesc:adfb5b8f09b75e5278090d9292404972c"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of vertices in the arrangement. <br /></td></tr>
+<tr class="separator:adfb5b8f09b75e5278090d9292404972c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8d167fb83cecb6f8c7b14e6432c4a2ae"><td class="memItemLeft" align="right" valign="top"><a id="a8d167fb83cecb6f8c7b14e6432c4a2ae"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a8d167fb83cecb6f8c7b14e6432c4a2ae">number_of_isolated_vertices</a> () const</td></tr>
+<tr class="memdesc:a8d167fb83cecb6f8c7b14e6432c4a2ae"><td class="mdescLeft"> </td><td class="mdescRight">returns the total number of isolated vertices in the arrangement. <br /></td></tr>
+<tr class="separator:a8d167fb83cecb6f8c7b14e6432c4a2ae"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a36392c2552dbb7d7b739b00af564e8fd"><td class="memItemLeft" align="right" valign="top"><a id="a36392c2552dbb7d7b739b00af564e8fd"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ac4a88fd2ca22b490454e4f425005e5c4">Vertex_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a36392c2552dbb7d7b739b00af564e8fd">vertices_begin</a> ()</td></tr>
+<tr class="memdesc:a36392c2552dbb7d7b739b00af564e8fd"><td class="mdescLeft"> </td><td class="mdescRight">returns the begin-iterator of the vertices in the arrangement. <br /></td></tr>
+<tr class="separator:a36392c2552dbb7d7b739b00af564e8fd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a331f17955aa33d03123b4a73f66865e1"><td class="memItemLeft" align="right" valign="top"><a id="a331f17955aa33d03123b4a73f66865e1"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ac4a88fd2ca22b490454e4f425005e5c4">Vertex_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a331f17955aa33d03123b4a73f66865e1">vertices_end</a> ()</td></tr>
+<tr class="memdesc:a331f17955aa33d03123b4a73f66865e1"><td class="mdescLeft"> </td><td class="mdescRight">returns the past-the-end iterator of the vertices in the arrangement. <br /></td></tr>
+<tr class="separator:a331f17955aa33d03123b4a73f66865e1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3882c503822369d85de0038293ae1895"><td class="memItemLeft" align="right" valign="top"><a id="a3882c503822369d85de0038293ae1895"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a3882c503822369d85de0038293ae1895">vertex_handles</a> ()</td></tr>
+<tr class="memdesc:a3882c503822369d85de0038293ae1895"><td class="mdescLeft"> </td><td class="mdescRight">returns a range over handles of the arrangement vertices . <br /></td></tr>
+<tr class="separator:a3882c503822369d85de0038293ae1895"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a59f61e918030f6dc45f08f434240030f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a59f61e918030f6dc45f08f434240030f">number_of_vertices_at_infinity</a> () const</td></tr>
+<tr class="memdesc:a59f61e918030f6dc45f08f434240030f"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of arrangement vertices that lie at infinity and are not associated with valid points.  <a href="#a59f61e918030f6dc45f08f434240030f">More...</a><br /></td></tr>
+<tr class="separator:a59f61e918030f6dc45f08f434240030f"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Accessing the Arrangement Halfedges</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp0d17a0c6ee67ebef91efcd1b82dbac22"></a>All <code>_begin()</code> and <code>_end()</code> methods listed below also have <code>const</code> counterparts, returning constant iterators instead of mutable ones. </p>
+</td></tr>
+<tr class="memitem:a383014f26cb3c0363561b0a968c4bf52"><td class="memItemLeft" align="right" valign="top"><a id="a383014f26cb3c0363561b0a968c4bf52"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a383014f26cb3c0363561b0a968c4bf52">number_of_halfedges</a> () const</td></tr>
+<tr class="memdesc:a383014f26cb3c0363561b0a968c4bf52"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of halfedges in the arrangement. <br /></td></tr>
+<tr class="separator:a383014f26cb3c0363561b0a968c4bf52"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6c5c8f16b9f7c58e563ccca2ff7256d8"><td class="memItemLeft" align="right" valign="top"><a id="a6c5c8f16b9f7c58e563ccca2ff7256d8"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a6a1ab0fd70620da46360f95907d40c78">Halfedge_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a6c5c8f16b9f7c58e563ccca2ff7256d8">halfedges_begin</a> ()</td></tr>
+<tr class="memdesc:a6c5c8f16b9f7c58e563ccca2ff7256d8"><td class="mdescLeft"> </td><td class="mdescRight">returns the begin-iterator of the halfedges in the arrangement. <br /></td></tr>
+<tr class="separator:a6c5c8f16b9f7c58e563ccca2ff7256d8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3c9ab579e2b9ded620ff296336dbdb17"><td class="memItemLeft" align="right" valign="top"><a id="a3c9ab579e2b9ded620ff296336dbdb17"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a6a1ab0fd70620da46360f95907d40c78">Halfedge_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a3c9ab579e2b9ded620ff296336dbdb17">halfedges_end</a> ()</td></tr>
+<tr class="memdesc:a3c9ab579e2b9ded620ff296336dbdb17"><td class="mdescLeft"> </td><td class="mdescRight">returns the past-the-end iterator of the halfedges in the arrangement. <br /></td></tr>
+<tr class="separator:a3c9ab579e2b9ded620ff296336dbdb17"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a60364e6cdf74ebccf1552eabcdfb4db9"><td class="memItemLeft" align="right" valign="top"><a id="a60364e6cdf74ebccf1552eabcdfb4db9"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a60364e6cdf74ebccf1552eabcdfb4db9">halfedge_handles</a> ()</td></tr>
+<tr class="memdesc:a60364e6cdf74ebccf1552eabcdfb4db9"><td class="mdescLeft"> </td><td class="mdescRight">returns a range over handles of the arrangement halfedges . <br /></td></tr>
+<tr class="separator:a60364e6cdf74ebccf1552eabcdfb4db9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a67be76508f79d2d1a1f10c36ee2aee98"><td class="memItemLeft" align="right" valign="top"><a id="a67be76508f79d2d1a1f10c36ee2aee98"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a67be76508f79d2d1a1f10c36ee2aee98">number_of_edges</a> () const</td></tr>
+<tr class="memdesc:a67be76508f79d2d1a1f10c36ee2aee98"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of edges in the arrangement (equivalent to <code>arr.number_of_halfedges() / 2</code>). <br /></td></tr>
+<tr class="separator:a67be76508f79d2d1a1f10c36ee2aee98"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0ef99b4cd765c99300e2c6f38a31564a"><td class="memItemLeft" align="right" valign="top"><a id="a0ef99b4cd765c99300e2c6f38a31564a"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a9b3a4b116e66f66bcd69215fa3f513f9">Edge_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a0ef99b4cd765c99300e2c6f38a31564a">edges_begin</a> ()</td></tr>
+<tr class="memdesc:a0ef99b4cd765c99300e2c6f38a31564a"><td class="mdescLeft"> </td><td class="mdescRight">returns the begin-iterator of the edges in the arrangement. <br /></td></tr>
+<tr class="separator:a0ef99b4cd765c99300e2c6f38a31564a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a92565bbc16f3436cdf2c32e1826337fa"><td class="memItemLeft" align="right" valign="top"><a id="a92565bbc16f3436cdf2c32e1826337fa"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a9b3a4b116e66f66bcd69215fa3f513f9">Edge_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a92565bbc16f3436cdf2c32e1826337fa">edges_end</a> ()</td></tr>
+<tr class="memdesc:a92565bbc16f3436cdf2c32e1826337fa"><td class="mdescLeft"> </td><td class="mdescRight">returns the past-the-end iterator of the edges in the arrangement. <br /></td></tr>
+<tr class="separator:a92565bbc16f3436cdf2c32e1826337fa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0137bca6275c018452097b0624714c5e"><td class="memItemLeft" align="right" valign="top"><a id="a0137bca6275c018452097b0624714c5e"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a0137bca6275c018452097b0624714c5e">edge_handles</a> ()</td></tr>
+<tr class="memdesc:a0137bca6275c018452097b0624714c5e"><td class="mdescLeft"> </td><td class="mdescRight">returns a range over handles of the arrangement edges . <br /></td></tr>
+<tr class="separator:a0137bca6275c018452097b0624714c5e"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Accessing the Arrangement Faces</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp047f79969a943a045aa2148d9619b5ac"></a>All <code>_begin()</code> and <code>_end()</code> methods listed below also have <code>const</code> counterparts, returning constant iterators instead of mutable ones. </p>
+</td></tr>
+<tr class="memitem:a1f35acd23e284060fa7f871e96ef420d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a1f35acd23e284060fa7f871e96ef420d">unbounded_face</a> ()</td></tr>
+<tr class="memdesc:a1f35acd23e284060fa7f871e96ef420d"><td class="mdescLeft"> </td><td class="mdescRight">returns a handle for an unbounded face of the arrangement.  <a href="#a1f35acd23e284060fa7f871e96ef420d">More...</a><br /></td></tr>
+<tr class="separator:a1f35acd23e284060fa7f871e96ef420d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0fd86df786f20248018b668812a129c7"><td class="memItemLeft" align="right" valign="top"><a id="a0fd86df786f20248018b668812a129c7"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a0fd86df786f20248018b668812a129c7">number_of_faces</a> () const</td></tr>
+<tr class="memdesc:a0fd86df786f20248018b668812a129c7"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of faces in the arrangement. <br /></td></tr>
+<tr class="separator:a0fd86df786f20248018b668812a129c7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6e2c8b090305fa93e7d3e804954fe990"><td class="memItemLeft" align="right" valign="top"><a id="a6e2c8b090305fa93e7d3e804954fe990"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#aa91e8147cf0a7cc30366af5b6f9a058e">Face_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a6e2c8b090305fa93e7d3e804954fe990">faces_begin</a> ()</td></tr>
+<tr class="memdesc:a6e2c8b090305fa93e7d3e804954fe990"><td class="mdescLeft"> </td><td class="mdescRight">returns the begin-iterator of the faces in the arrangement. <br /></td></tr>
+<tr class="separator:a6e2c8b090305fa93e7d3e804954fe990"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8d85d942a165b76a5f6e2611cda40c9c"><td class="memItemLeft" align="right" valign="top"><a id="a8d85d942a165b76a5f6e2611cda40c9c"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#aa91e8147cf0a7cc30366af5b6f9a058e">Face_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a8d85d942a165b76a5f6e2611cda40c9c">faces_end</a> ()</td></tr>
+<tr class="memdesc:a8d85d942a165b76a5f6e2611cda40c9c"><td class="mdescLeft"> </td><td class="mdescRight">returns the past-the-end iterator of the faces in the arrangement. <br /></td></tr>
+<tr class="separator:a8d85d942a165b76a5f6e2611cda40c9c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae08eeb886c43516731d4a136c691ffa8"><td class="memItemLeft" align="right" valign="top"><a id="ae08eeb886c43516731d4a136c691ffa8"></a>
+<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ae08eeb886c43516731d4a136c691ffa8">face_handles</a> ()</td></tr>
+<tr class="memdesc:ae08eeb886c43516731d4a136c691ffa8"><td class="mdescLeft"> </td><td class="mdescRight">returns a range over handles of the arrangement faces . <br /></td></tr>
+<tr class="separator:ae08eeb886c43516731d4a136c691ffa8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3312fefc38eefd32b2e775fd38ab0adb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a3312fefc38eefd32b2e775fd38ab0adb">number_of_unbounded_faces</a> () const</td></tr>
+<tr class="memdesc:a3312fefc38eefd32b2e775fd38ab0adb"><td class="mdescLeft"> </td><td class="mdescRight">returns the number of unbounded faces in the arrangement.  <a href="#a3312fefc38eefd32b2e775fd38ab0adb">More...</a><br /></td></tr>
+<tr class="separator:a3312fefc38eefd32b2e775fd38ab0adb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4c582991aa025fe44f4601c1a5e38100"><td class="memItemLeft" align="right" valign="top"><a id="a4c582991aa025fe44f4601c1a5e38100"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">Unbounded_face_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a4c582991aa025fe44f4601c1a5e38100">unbounded_faces_begin</a> ()</td></tr>
+<tr class="memdesc:a4c582991aa025fe44f4601c1a5e38100"><td class="mdescLeft"> </td><td class="mdescRight">returns the begin-iterator of the unbounded faces in the arrangement. <br /></td></tr>
+<tr class="separator:a4c582991aa025fe44f4601c1a5e38100"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a978c30bf816a279db39004367f5e2f47"><td class="memItemLeft" align="right" valign="top"><a id="a978c30bf816a279db39004367f5e2f47"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">Unbounded_face_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a978c30bf816a279db39004367f5e2f47">unbounded_faces_end</a> ()</td></tr>
+<tr class="memdesc:a978c30bf816a279db39004367f5e2f47"><td class="mdescLeft"> </td><td class="mdescRight">returns the past-the-end iterator of the unbounded faces in the arrangement. <br /></td></tr>
+<tr class="separator:a978c30bf816a279db39004367f5e2f47"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7e00b29158eb7ab043950da2c69bbea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7e00b29158eb7ab043950da2c69bbea0">fictitious_face</a> ()</td></tr>
+<tr class="memdesc:a7e00b29158eb7ab043950da2c69bbea0"><td class="mdescLeft"> </td><td class="mdescRight">returns a handle to the fictitious face of the arrangement.  <a href="#a7e00b29158eb7ab043950da2c69bbea0">More...</a><br /></td></tr>
+<tr class="separator:a7e00b29158eb7ab043950da2c69bbea0"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Casting Away Constness</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp0c2570ba6e955f427f4686ded2c95ad4"></a>It is sometimes necessary to convert a constant (non-mutable) handle to a mutable handle.</p>
+<p>For example, the result of a point-location query is a non-mutable handle for the arrangement cell containing the query point. Assume that the query point lies on an edge, so we obtain a <code>Halfedge_const_handle</code>; if we wish to use this handle and remove the edge, we first need to cast away its "constness". </p>
+</td></tr>
+<tr class="memitem:a11be9c67d85886e197306dc47abab37a"><td class="memItemLeft" align="right" valign="top"><a id="a11be9c67d85886e197306dc47abab37a"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a11be9c67d85886e197306dc47abab37a">non_const_handle</a> (Vertex_const_handle v)</td></tr>
+<tr class="memdesc:a11be9c67d85886e197306dc47abab37a"><td class="mdescLeft"> </td><td class="mdescRight">casts the given constant vertex handle to an equivalent mutable handle. <br /></td></tr>
+<tr class="separator:a11be9c67d85886e197306dc47abab37a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1a6d90d19bfa77097905fd8953a6a761"><td class="memItemLeft" align="right" valign="top"><a id="a1a6d90d19bfa77097905fd8953a6a761"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a1a6d90d19bfa77097905fd8953a6a761">non_const_handle</a> (Halfedge_const_handle e)</td></tr>
+<tr class="memdesc:a1a6d90d19bfa77097905fd8953a6a761"><td class="mdescLeft"> </td><td class="mdescRight">casts the given constant halfedge handle to an equivalent mutable handle. <br /></td></tr>
+<tr class="separator:a1a6d90d19bfa77097905fd8953a6a761"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a99518c1cc0f3bc000b0b88d37145707d"><td class="memItemLeft" align="right" valign="top"><a id="a99518c1cc0f3bc000b0b88d37145707d"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a99518c1cc0f3bc000b0b88d37145707d">non_const_handle</a> (Face_const_handle f)</td></tr>
+<tr class="memdesc:a99518c1cc0f3bc000b0b88d37145707d"><td class="mdescLeft"> </td><td class="mdescRight">casts the given constant face handle to an equivalent mutable handle. <br /></td></tr>
+<tr class="separator:a99518c1cc0f3bc000b0b88d37145707d"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Specialized Insertion Methods</h2></td></tr>
+<tr class="memitem:a88fed7cf475e474d187e65beb894dde2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a88fed7cf475e474d187e65beb894dde2">insert_in_face_interior</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#a0510dde537a06aaefc2fc4d1643d9315">Point_2</a> &amp;p, <a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> f)</td></tr>
+<tr class="memdesc:a88fed7cf475e474d187e65beb894dde2"><td class="mdescLeft"> </td><td class="mdescRight">inserts the point <code>p</code> into the arrangement as an isolated vertex in the interior of the face <code>f</code> and returns a handle for the newly created vertex.  <a href="#a88fed7cf475e474d187e65beb894dde2">More...</a><br /></td></tr>
+<tr class="separator:a88fed7cf475e474d187e65beb894dde2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7b90245d8a42ed90ea13b9d911adac73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7b90245d8a42ed90ea13b9d911adac73">insert_in_face_interior</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> f)</td></tr>
+<tr class="memdesc:a7b90245d8a42ed90ea13b9d911adac73"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> that is entirely contained in the interior of a given face <code>f</code>.  <a href="#a7b90245d8a42ed90ea13b9d911adac73">More...</a><br /></td></tr>
+<tr class="separator:a7b90245d8a42ed90ea13b9d911adac73"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a90593ca48b91c758d33112095ff9cf60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a90593ca48b91c758d33112095ff9cf60">insert_from_left_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:a90593ca48b91c758d33112095ff9cf60"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that its left endpoint corresponds to a given arrangement vertex.  <a href="#a90593ca48b91c758d33112095ff9cf60">More...</a><br /></td></tr>
+<tr class="separator:a90593ca48b91c758d33112095ff9cf60"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4b7c9d332f50adbc40c64a96bb85f916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a4b7c9d332f50adbc40c64a96bb85f916">insert_from_right_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:a4b7c9d332f50adbc40c64a96bb85f916"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that its right endpoint corresponds to a given arrangement vertex.  <a href="#a4b7c9d332f50adbc40c64a96bb85f916">More...</a><br /></td></tr>
+<tr class="separator:a4b7c9d332f50adbc40c64a96bb85f916"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4cc038d4e6f97c678fa4e7c01c273071"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a4cc038d4e6f97c678fa4e7c01c273071">insert_at_vertices</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v1, <a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v2)</td></tr>
+<tr class="memdesc:a4cc038d4e6f97c678fa4e7c01c273071"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>v1</code> and <code>v2</code>.  <a href="#a4cc038d4e6f97c678fa4e7c01c273071">More...</a><br /></td></tr>
+<tr class="separator:a4cc038d4e6f97c678fa4e7c01c273071"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a30064339ac4238e16547f835bba413ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a30064339ac4238e16547f835bba413ca">insert_in_face_interior</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> fict_pred1, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> fict_pred2=<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a>())</td></tr>
+<tr class="memdesc:a30064339ac4238e16547f835bba413ca"><td class="mdescLeft"> </td><td class="mdescRight">inserts an unbounded curve <code>c</code> into the arrangement, such that <code>c</code> is entirely contained within a single unbounded face of the arrangement.  <a href="#a30064339ac4238e16547f835bba413ca">More...</a><br /></td></tr>
+<tr class="separator:a30064339ac4238e16547f835bba413ca"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac753ca84f8aa51ba1d1606cc010c5358"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ac753ca84f8aa51ba1d1606cc010c5358">insert_from_left_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred)</td></tr>
+<tr class="memdesc:ac753ca84f8aa51ba1d1606cc010c5358"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that its left endpoint corresponds to a given arrangement vertex.  <a href="#ac753ca84f8aa51ba1d1606cc010c5358">More...</a><br /></td></tr>
+<tr class="separator:ac753ca84f8aa51ba1d1606cc010c5358"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a87575b9cbae2a7dea7c423fe2420fb0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a87575b9cbae2a7dea7c423fe2420fb0f">insert_from_left_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> fict_pred)</td></tr>
+<tr class="memdesc:a87575b9cbae2a7dea7c423fe2420fb0f"><td class="mdescLeft"> </td><td class="mdescRight">inserts an unbounded curve <code>c</code> into the arrangement, such that its left endpoint is bounded and corresponds to a given arrangement vertex.  <a href="#a87575b9cbae2a7dea7c423fe2420fb0f">More...</a><br /></td></tr>
+<tr class="separator:a87575b9cbae2a7dea7c423fe2420fb0f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4101c6028de08bb9da6cfd95aa0f898c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a4101c6028de08bb9da6cfd95aa0f898c">insert_from_right_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred)</td></tr>
+<tr class="memdesc:a4101c6028de08bb9da6cfd95aa0f898c"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that its right endpoint corresponds to a given arrangement vertex.  <a href="#a4101c6028de08bb9da6cfd95aa0f898c">More...</a><br /></td></tr>
+<tr class="separator:a4101c6028de08bb9da6cfd95aa0f898c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac1b9de6ed7935e4821c0f8a51b2848be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ac1b9de6ed7935e4821c0f8a51b2848be">insert_from_right_vertex</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> fict_pred)</td></tr>
+<tr class="memdesc:ac1b9de6ed7935e4821c0f8a51b2848be"><td class="mdescLeft"> </td><td class="mdescRight">inserts an unbounded curve <code>c</code> into the arrangement, such that its right endpoint is bounded and corresponds to a given arrangement vertex.  <a href="#ac1b9de6ed7935e4821c0f8a51b2848be">More...</a><br /></td></tr>
+<tr class="separator:ac1b9de6ed7935e4821c0f8a51b2848be"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aefbfa7379b14ff551877e4af1658b5d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#aefbfa7379b14ff551877e4af1658b5d5">insert_at_vertices</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred1, <a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v2)</td></tr>
+<tr class="memdesc:aefbfa7379b14ff551877e4af1658b5d5"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>pred1-&gt;target()</code> and <code>v2</code>.  <a href="#aefbfa7379b14ff551877e4af1658b5d5">More...</a><br /></td></tr>
+<tr class="separator:aefbfa7379b14ff551877e4af1658b5d5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a63c4e96eda9e258a43b4cdc61e3d4ca6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a63c4e96eda9e258a43b4cdc61e3d4ca6">insert_at_vertices</a> (const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred1, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> pred2)</td></tr>
+<tr class="memdesc:a63c4e96eda9e258a43b4cdc61e3d4ca6"><td class="mdescLeft"> </td><td class="mdescRight">inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>pred1-&gt;target()</code> and <code>pred2-&gt;target()</code>.  <a href="#a63c4e96eda9e258a43b4cdc61e3d4ca6">More...</a><br /></td></tr>
+<tr class="separator:a63c4e96eda9e258a43b4cdc61e3d4ca6"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Modifying Vertices and Edges</h2></td></tr>
+<tr class="memitem:a292b4f60940d559499aaa78566971b38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a292b4f60940d559499aaa78566971b38">modify_vertex</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v, const <a class="el" href="classCGAL_1_1Arrangement__2.html#a0510dde537a06aaefc2fc4d1643d9315">Point_2</a> &amp;p)</td></tr>
+<tr class="memdesc:a292b4f60940d559499aaa78566971b38"><td class="mdescLeft"> </td><td class="mdescRight">sets <code>p</code> to be the point associated with the vertex <code>v</code>.  <a href="#a292b4f60940d559499aaa78566971b38">More...</a><br /></td></tr>
+<tr class="separator:a292b4f60940d559499aaa78566971b38"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aac5283b511868dc7933c2173864991e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#aac5283b511868dc7933c2173864991e2">remove_isolated_vertex</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:aac5283b511868dc7933c2173864991e2"><td class="mdescLeft"> </td><td class="mdescRight">removes the isolated vertex <code>v</code> from the arrangement.  <a href="#aac5283b511868dc7933c2173864991e2">More...</a><br /></td></tr>
+<tr class="separator:aac5283b511868dc7933c2173864991e2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae2d5accb4fd3c80875a19da6b06e2bd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ae2d5accb4fd3c80875a19da6b06e2bd7">modify_edge</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> e, const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c)</td></tr>
+<tr class="memdesc:ae2d5accb4fd3c80875a19da6b06e2bd7"><td class="mdescLeft"> </td><td class="mdescRight">sets <code>c</code> to be the \( x\)-monotone curve associated with the edge <code>e</code>.  <a href="#ae2d5accb4fd3c80875a19da6b06e2bd7">More...</a><br /></td></tr>
+<tr class="separator:ae2d5accb4fd3c80875a19da6b06e2bd7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a238152ea6598f64afc7567c041e82bc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a238152ea6598f64afc7567c041e82bc5">split_edge</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> e, const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c1, const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c2)</td></tr>
+<tr class="memdesc:a238152ea6598f64afc7567c041e82bc5"><td class="mdescLeft"> </td><td class="mdescRight">splits the edge <code>e</code> into two edges (more precisely, into two halfedge pairs), associated with the given subcurves <code>c1</code> and <code>c2</code>, and creates a vertex that corresponds to the split point.  <a href="#a238152ea6598f64afc7567c041e82bc5">More...</a><br /></td></tr>
+<tr class="separator:a238152ea6598f64afc7567c041e82bc5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9d74923cc3da4ffb72d38f4ea32ea1c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a9d74923cc3da4ffb72d38f4ea32ea1c6">merge_edge</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> e1, <a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> e2, const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp;c)</td></tr>
+<tr class="memdesc:a9d74923cc3da4ffb72d38f4ea32ea1c6"><td class="mdescLeft"> </td><td class="mdescRight">merges the edges represented by <code>e1</code> and <code>e2</code> into a single edge, associated with the given merged curve <code>c</code>.  <a href="#a9d74923cc3da4ffb72d38f4ea32ea1c6">More...</a><br /></td></tr>
+<tr class="separator:a9d74923cc3da4ffb72d38f4ea32ea1c6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5f887fe2e70a9d8fc4775940a9fe21d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#a5f887fe2e70a9d8fc4775940a9fe21d2">remove_edge</a> (<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> e, bool remove_source=true, bool remove_target=true)</td></tr>
+<tr class="memdesc:a5f887fe2e70a9d8fc4775940a9fe21d2"><td class="mdescLeft"> </td><td class="mdescRight">removes the edge <code>e</code> from the arrangement.  <a href="#a5f887fe2e70a9d8fc4775940a9fe21d2">More...</a><br /></td></tr>
+<tr class="separator:a5f887fe2e70a9d8fc4775940a9fe21d2"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Miscellaneous</h2></td></tr>
+<tr class="memitem:ae68aeabb3772d8bfa19581cc294d60dc"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2.html#ae68aeabb3772d8bfa19581cc294d60dc">is_valid</a> () const</td></tr>
+<tr class="memdesc:ae68aeabb3772d8bfa19581cc294d60dc"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if <code>arr</code> represents a valid instance of <code><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></code>.  <a href="#ae68aeabb3772d8bfa19581cc294d60dc">More...</a><br /></td></tr>
+<tr class="separator:ae68aeabb3772d8bfa19581cc294d60dc"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab4a594c193ca09a672dbe2fcafa090e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a594c193ca09a672dbe2fcafa090e9">◆ </a></span>Ccb_halfedge_circulator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#ab4a594c193ca09a672dbe2fcafa090e9">Ccb_halfedge_circulator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional circulator over the halfedges of a CCB (connected component of the boundary). </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code>. Each bounded face has a single CCB representing it outer boundary, and may have several inner CCBs representing its holes. </p>
+
+</div>
+</div>
+<a id="a9b3a4b116e66f66bcd69215fa3f513f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3a4b116e66f66bcd69215fa3f513f9">◆ </a></span>Edge_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#a9b3a4b116e66f66bcd69215fa3f513f9">Edge_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the edges of the arrangement. </p>
+<p>(That is, it skips every other halfedge.) Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code>. </p>
+
+</div>
+</div>
+<a id="aa91e8147cf0a7cc30366af5b6f9a058e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91e8147cf0a7cc30366af5b6f9a058e">◆ </a></span>Face_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#aa91e8147cf0a7cc30366af5b6f9a058e">Face_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the faces of arrangement. </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Face.html" title="An object of the class Face represents an arrangement face, namely, a -dimensional arrangement cell...">Face</a></code>. </p>
+
+</div>
+</div>
+<a id="a1490b8301d182e9d46e0c4e45cff6aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1490b8301d182e9d46e0c4e45cff6aa9">◆ </a></span>Halfedge_around_vertex_circulator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#a1490b8301d182e9d46e0c4e45cff6aa9">Halfedge_around_vertex_circulator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional circulator over the halfedges that have a given vertex as their target. </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code>. </p>
+
+</div>
+</div>
+<a id="acdb9c49c90f9354f20c56efac599a7fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb9c49c90f9354f20c56efac599a7fe">◆ </a></span>Halfedge_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a handle for a halfedge. </p>
+<p>The halfedge and its twin form together an arrangement edge. </p>
+
+</div>
+</div>
+<a id="a6a1ab0fd70620da46360f95907d40c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1ab0fd70620da46360f95907d40c78">◆ </a></span>Halfedge_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#a6a1ab0fd70620da46360f95907d40c78">Halfedge_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the halfedges of the arrangement. </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code>. </p>
+
+</div>
+</div>
+<a id="a13420f4fd95338b0384ff309f3a15153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13420f4fd95338b0384ff309f3a15153">◆ </a></span>Hole_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#a13420f4fd95338b0384ff309f3a15153">Hole_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the holes (i.e., inner CCBs) contained inside a given face. </p>
+<p>Its value type is <code>Ccb_halfedge_circulator</code>. </p>
+
+</div>
+</div>
+<a id="a1e0b89ad746d728e06ed8b62640d3d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e0b89ad746d728e06ed8b62640d3d20">◆ </a></span>Isolated_vertex_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#a1e0b89ad746d728e06ed8b62640d3d20">Isolated_vertex_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the isolated vertices contained inside a given face. </p>
+<p>Its value type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Vertex.html" title="An object  of the class Vertex represents an arrangement vertex, that is - a -dimensional cell...">Vertex</a></code>. </p>
+
+</div>
+</div>
+<a id="ae2ea7ee0fc95f9b49fe2c090e43ed0bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">◆ </a></span>Unbounded_face_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#ae2ea7ee0fc95f9b49fe2c090e43ed0bc">Unbounded_face_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the unbounded faces of arrangement. </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Face.html" title="An object of the class Face represents an arrangement face, namely, a -dimensional arrangement cell...">Face</a></code>. </p>
+
+</div>
+</div>
+<a id="ac4a88fd2ca22b490454e4f425005e5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a88fd2ca22b490454e4f425005e5c4">◆ </a></span>Vertex_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::<a class="el" href="classCGAL_1_1Arrangement__2.html#ac4a88fd2ca22b490454e4f425005e5c4">Vertex_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a bidirectional iterator over the vertices of the arrangement. </p>
+<p>Its value-type is <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Vertex.html" title="An object  of the class Vertex represents an arrangement vertex, that is - a -dimensional cell...">Vertex</a></code>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7e00b29158eb7ab043950da2c69bbea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e00b29158eb7ab043950da2c69bbea0">◆ </a></span>fictitious_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::fictitious_face </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a handle to the fictitious face of the arrangement. </p>
+<p>If the arrangement is not unbounded, there is no fictitious face. In this case the result is not deterministic. A const version is also available. </p>
+
+</div>
+</div>
+<a id="acdad1373cb6a4780267291d23b564b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdad1373cb6a4780267291d23b564b7d">◆ </a></span>get_traits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad7527ffb7c9b9455c839ce9e192605c8">Traits_2</a>* <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::get_traits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the traits object used by the arrangement instance. </p>
+<p>A <code>const</code> version is also available. </p>
+
+</div>
+</div>
+<a id="a4cc038d4e6f97c678fa4e7c01c273071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc038d4e6f97c678fa4e7c01c273071">◆ </a></span>insert_at_vertices() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_at_vertices </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>v1</code> and <code>v2</code>. </p>
+<p>The function creates a new halfedge pair that connects the two vertices, and returns a handle for the halfedge directed from <code>v1</code> to <code>v2</code>. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>c</code> must not be an unbounded curve. </dd>
+<dd>
+<code>v1</code> and <code>v2</code> are associated with <code>c</code>'s endpoints. </dd>
+<dd>
+If <code>v1</code> and <code>v2</code> are already connected by an edge, this edge represents an \( x\)-monotone curve that is interior-disjoint from <code>c</code>). </dd></dl>
+
+</div>
+</div>
+<a id="aefbfa7379b14ff551877e4af1658b5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefbfa7379b14ff551877e4af1658b5d5">◆ </a></span>insert_at_vertices() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_at_vertices </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>pred1-&gt;target()</code> and <code>v2</code>. </p>
+<p>The function creates a new halfedge pair that connects the two vertices (where the corresponding halfedge is inserted right between <code>pred1</code> and its successor around <code>pred1</code>'s target vertex) and returns a handle for the halfedge directed from <code>pred1-&gt;target()</code> to <code>v2</code>. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>pred1-&gt;target()</code> and <code>v2</code> are associated with <code>c</code>'s endpoints. </dd>
+<dd>
+If <code>pred1-&gt;target</code> and <code>v2</code> are already connected by an edge, this edge represents an \( x\)-monotone curve that is interior-disjoint from <code>c</code>). </dd></dl>
+
+</div>
+</div>
+<a id="a63c4e96eda9e258a43b4cdc61e3d4ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c4e96eda9e258a43b4cdc61e3d4ca6">◆ </a></span>insert_at_vertices() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_at_vertices </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that both <code>c</code>'s endpoints correspond to existing arrangement vertices, given by <code>pred1-&gt;target()</code> and <code>pred2-&gt;target()</code>. </p>
+<p>The function creates a new halfedge pair that connects the two vertices (with <code>pred1</code> and <code>pred2</code> indicate the exact place for these halfedges around the two target vertices) and returns a handle for the halfedge directed from <code>pred1-&gt;target()</code> to <code>pred2-&gt;target()</code>. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>pred1-&gt;target()</code> and <code>pred2-&gt;target()</code> are associated with <code>c</code>'s endpoints. </dd>
+<dd>
+If <code>pred1-&gt;target</code> and <code>pred2-&gt;target()</code> are already connected by an edge, this edge represents an \( x\)-monotone curve that is interior-disjoint from <code>c</code>). </dd></dl>
+
+</div>
+</div>
+<a id="a90593ca48b91c758d33112095ff9cf60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90593ca48b91c758d33112095ff9cf60">◆ </a></span>insert_from_left_vertex() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_left_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that its left endpoint corresponds to a given arrangement vertex. </p>
+<p>As a result, a new vertex that correspond to <code>c</code>'s right endpoint is created and connected to <code>v</code> with a newly created halfedge pair. If <code>c</code> has an unbounded right end, the new vertex lies at infinity and the unbounded face that contains the interior of the curve is split. The function returns a handle for one of the new halfedges corresponding to the inserted curve, directed towards the newly created vertex - that is, directed in lexicographic increasing order (from left to right). </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>v</code> is associated with the left endpoint of <code>c</code>. </dd>
+<dd>
+The right endpoint of <code>c</code> is not already associated with an existing arrangement vertex. </dd></dl>
+
+</div>
+</div>
+<a id="ac753ca84f8aa51ba1d1606cc010c5358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac753ca84f8aa51ba1d1606cc010c5358">◆ </a></span>insert_from_left_vertex() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_left_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that its left endpoint corresponds to a given arrangement vertex. </p>
+<p>This vertex is the target vertex of the halfedge <code>pred</code>, such that <code>c</code> is inserted to the circular list of halfedges around <code>pred-&gt;target()</code> right between <code>pred</code> and its successor. The function returns a handle for one of the new halfedges directed (lexicographically) from left to right. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>pred-&gt;target()</code> is associated with the left endpoint of <code>c</code>, and <code>c</code> should be inserted after <code>pred</code> in a clockwise order around this vertex. </dd>
+<dd>
+The right endpoint of <code>c</code> is not already associated with an existing arrangement vertex. </dd></dl>
+
+</div>
+</div>
+<a id="a87575b9cbae2a7dea7c423fe2420fb0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87575b9cbae2a7dea7c423fe2420fb0f">◆ </a></span>insert_from_left_vertex() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_left_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>fict_pred</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts an unbounded curve <code>c</code> into the arrangement, such that its left endpoint is bounded and corresponds to a given arrangement vertex. </p>
+<p>This vertex is the target vertex of the halfedge <code>pred</code>, such that <code>c</code> is inserted to the circular list of halfedges around <code>pred-&gt;target()</code> right between <code>pred</code> and its successor. Similarly, <code>fict_pred</code> specifies the fictitious halfedge that should contain the vertex at infinity that corresponds to the unbounded right end of <code>c</code>. The function returns a handle for one of the new halfedges directed (lexicographically) from left to right. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. <code>c</code> must have a bounded left endpoint and an unbounded right end. </dd>
+<dd>
+<code>pred-&gt;target()</code> is associated with the left endpoint of <code>c</code>, and <code>c</code> should be inserted after <code>pred</code> in a clockwise order around this vertex. </dd>
+<dd>
+<code>fict_pred</code> is a fictitious halfedge that contains the unbounded right end of <code>c</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a4b7c9d332f50adbc40c64a96bb85f916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7c9d332f50adbc40c64a96bb85f916">◆ </a></span>insert_from_right_vertex() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_right_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that its right endpoint corresponds to a given arrangement vertex. </p>
+<p>As a result, a new vertex that correspond to <code>c</code>'s left endpoint is created and connected to <code>v</code> with a newly created halfedge pair. If <code>c</code> has an unbounded left end, the new vertex lies at infinity and the unbounded face that contains the interior of the curve is split. The function returns a handle for one of the new halfedges corresponding to the inserted curve, directed to the newly created vertex - that is, directed in lexicographic decreasing order (from right to left). </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>v</code> is associated with the right endpoint of <code>c</code>. </dd>
+<dd>
+The left endpoint of <code>c</code> is not already associated with an existing arrangement vertex. </dd></dl>
+
+</div>
+</div>
+<a id="a4101c6028de08bb9da6cfd95aa0f898c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4101c6028de08bb9da6cfd95aa0f898c">◆ </a></span>insert_from_right_vertex() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_right_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> into the arrangement, such that its right endpoint corresponds to a given arrangement vertex. </p>
+<p>This vertex is the target vertex of the halfedge <code>pred</code>, such that <code>c</code> is inserted to the circular list of halfedges around <code>pred-&gt;target()</code> right between <code>pred</code> and its successor. The function returns a handle for one of the new halfedges directed (lexicographically) from right to left. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>pred-&gt;target()</code> is associated with the right endpoint of <code>c</code>, and <code>c</code> should be inserted after <code>pred</code> in a clockwise order around this vertex. </dd>
+<dd>
+The left endpoint of <code>c</code> is not already associated with an existing arrangement vertex. </dd></dl>
+
+</div>
+</div>
+<a id="ac1b9de6ed7935e4821c0f8a51b2848be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1b9de6ed7935e4821c0f8a51b2848be">◆ </a></span>insert_from_right_vertex() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_from_right_vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>pred</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>fict_pred</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts an unbounded curve <code>c</code> into the arrangement, such that its right endpoint is bounded and corresponds to a given arrangement vertex. </p>
+<p>This vertex is the target vertex of the halfedge <code>pred</code>, such that <code>c</code> is inserted to the circular list of halfedges around <code>pred-&gt;target()</code> right between <code>pred</code> and its successor. Similarly, <code>fict_pred</code> specifies the fictitious halfedge that should contain the vertex at infinity that corresponds to the unbounded left end of <code>c</code>. The function returns a handle for one of the new halfedges directed (lexicographically) from right to left. </p><dl class="section pre"><dt>Precondition</dt><dd>The interior of <code>c</code> is disjoint from all existing arrangement vertices and edges. <code>c</code> must have a bounded right endpoint and an unbounded left end. </dd>
+<dd>
+<code>pred-&gt;target()</code> is associated with the right endpoint of <code>c</code>, and <code>c</code> should be inserted after <code>pred</code> in a clockwise order around this vertex. </dd>
+<dd>
+<code>fict_pred</code> is a fictitious halfedge that contains the unbounded left end of <code>c</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a88fed7cf475e474d187e65beb894dde2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88fed7cf475e474d187e65beb894dde2">◆ </a></span>insert_in_face_interior() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_in_face_interior </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#a0510dde537a06aaefc2fc4d1643d9315">Point_2</a> &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td>
+          <td class="paramname"><em>f</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the point <code>p</code> into the arrangement as an isolated vertex in the interior of the face <code>f</code> and returns a handle for the newly created vertex. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>p</code> lies in the interior of the face <code>f</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a7b90245d8a42ed90ea13b9d911adac73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b90245d8a42ed90ea13b9d911adac73">◆ </a></span>insert_in_face_interior() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_in_face_interior </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td>
+          <td class="paramname"><em>f</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts the curve <code>c</code> that is entirely contained in the interior of a given face <code>f</code>. </p>
+<p>If <code>c</code> is a bounded curve two new vertices that correspond to <code>c</code>'s endpoints are created and connected with a newly created halfedge pair, which forms a new hole (inner component) in the face <code>f</code>. If <code>c</code> is unbounded, at least one of the two vertices that represents its end lies at infinity, and its creation modifies the outer boundary of <code>f</code>. The function returns a handle for one of the new halfedges corresponding to the inserted curve, directed in lexicographic increasing order (from left to right). </p><dl class="section pre"><dt>Precondition</dt><dd><code>c</code> lies entirely in the interior of the face <code>f</code> and is disjoint from all existing arrangement vertices and edges (in particular, both its endpoints are not already associated with existing arrangement vertices). </dd>
+<dd>
+In case <code>c</code> is an unbounded curve, <code>f</code> must be an unbounded face. </dd></dl>
+
+</div>
+</div>
+<a id="a30064339ac4238e16547f835bba413ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30064339ac4238e16547f835bba413ca">◆ </a></span>insert_in_face_interior() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::insert_in_face_interior </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>fict_pred1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>fict_pred2</em> = <code><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a>()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>inserts an unbounded curve <code>c</code> into the arrangement, such that <code>c</code> is entirely contained within a single unbounded face of the arrangement. </p>
+<p><code>fict_pred1</code> specifies the fictitious halfedge that should contain the vertex at infinity that corresponds to the unbounded end of <code>c</code>. If both ends of <code>c</code> are unbounded, <code>fict_pred1</code> indicated the place for its left end and <code>fict_pred2</code> indicated a place for its right end. The function returns a handle for one of the new halfedges directed (lexicographically) from left to right. </p><dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is an unbounded curve disjoint from all existing arrangement vertices and edges. </dd>
+<dd>
+<code>fict_pred1</code> (and <code>fict_pred2</code>) are fictitious halfedges that contains the unbounded end(s) of <code>c</code>. If both halfedges are given they must be both incident to the same unbounded face. </dd></dl>
+
+</div>
+</div>
+<a id="ae68aeabb3772d8bfa19581cc294d60dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae68aeabb3772d8bfa19581cc294d60dc">◆ </a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::is_valid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns <code>true</code> if <code>arr</code> represents a valid instance of <code><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></code>. </p>
+<p>In particular, the functions checks the topological structure of the arrangement and assures that it is valid. In addition, the function performs several simple geometric tests to ensure the validity of some of the geometric properties of the arrangement. Namely, it checks that all arrangement vertices are associated with distinct points, and that the halfedges around every vertex are ordered clockwise. </p>
+
+</div>
+</div>
+<a id="a9d74923cc3da4ffb72d38f4ea32ea1c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d74923cc3da4ffb72d38f4ea32ea1c6">◆ </a></span>merge_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::merge_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>e1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>e2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>merges the edges represented by <code>e1</code> and <code>e2</code> into a single edge, associated with the given merged curve <code>c</code>. </p>
+<p>Denote <code>e1</code>'s end-vertices as \( u_1\) and \( v\), while <code>e2</code>'s end-vertices are denoted \( u_2\) and \( v\). The function removes the common vertex \( v\) returns a handle for one of the merged halfedges, directed from \( u_1\) to \( u_2\). </p><dl class="section pre"><dt>Precondition</dt><dd><code>e1</code> and <code>e2</code> share a common end-vertex, such that the two other end-vertices of the two edges are associated with <code>c</code>'s endpoints. </dd></dl>
+
+</div>
+</div>
+<a id="ae2d5accb4fd3c80875a19da6b06e2bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d5accb4fd3c80875a19da6b06e2bd7">◆ </a></span>modify_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::modify_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sets <code>c</code> to be the \( x\)-monotone curve associated with the edge <code>e</code>. </p>
+<p>The function returns a handle for the modified edge (same as <code>e</code>). </p><dl class="section pre"><dt>Precondition</dt><dd><code>c</code> is geometrically equivalent to the curve currently associated with <code>e</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a292b4f60940d559499aaa78566971b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292b4f60940d559499aaa78566971b38">◆ </a></span>modify_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::modify_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#a0510dde537a06aaefc2fc4d1643d9315">Point_2</a> &amp; </td>
+          <td class="paramname"><em>p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sets <code>p</code> to be the point associated with the vertex <code>v</code>. </p>
+<p>The function returns a handle for the modified vertex (same as <code>v</code>). </p><dl class="section pre"><dt>Precondition</dt><dd><code>v</code> is not a vertex at infinity and <code>p</code> is geometrically equivalent to the point currently associated with <code>v</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a3312fefc38eefd32b2e775fd38ab0adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3312fefc38eefd32b2e775fd38ab0adb">◆ </a></span>number_of_unbounded_faces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::number_of_unbounded_faces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the number of unbounded faces in the arrangement. </p>
+<p>Note <code>arr.number_of_faces()</code> also counts the unbounded faces of the arrangement. </p>
+
+</div>
+</div>
+<a id="a59f61e918030f6dc45f08f434240030f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59f61e918030f6dc45f08f434240030f">◆ </a></span>number_of_vertices_at_infinity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#a83db8dbd8203da3f0341d5076ca20daa">Size</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::number_of_vertices_at_infinity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the number of arrangement vertices that lie at infinity and are not associated with valid points. </p>
+<p>Such vertices are not considered to be regular arrangement vertices and <code>arr.number_of_vertices()</code> does not count them. </p>
+
+</div>
+</div>
+<a id="a5f887fe2e70a9d8fc4775940a9fe21d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f887fe2e70a9d8fc4775940a9fe21d2">◆ </a></span>remove_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::remove_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>remove_source</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>remove_target</em> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>removes the edge <code>e</code> from the arrangement. </p>
+<p>Since the <code>e</code> may be the only edge incident to its source vertex (or its target vertex), this vertex can be removed as well. The flags <code>remove_source</code> and <code>remove_target</code> indicate whether the endpoints of <code>e</code> should be removed, or whether they should be left as isolated vertices in the arrangement. If the operation causes two faces to merge, the merged face is returned. Otherwise, the face to which the edge was incident is returned. </p>
+
+</div>
+</div>
+<a id="aac5283b511868dc7933c2173864991e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5283b511868dc7933c2173864991e2">◆ </a></span>remove_isolated_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::remove_isolated_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>removes the isolated vertex <code>v</code> from the arrangement. </p>
+<p>The function returns the face <code>f</code> that used to contain the isolated vertex. </p><dl class="section pre"><dt>Precondition</dt><dd><code>v</code> is an isolated vertex (has no incident edges). </dd></dl>
+
+</div>
+</div>
+<a id="a238152ea6598f64afc7567c041e82bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238152ea6598f64afc7567c041e82bc5">◆ </a></span>split_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::split_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Arrangement__2.html#aebf230ed9d864e22fe7844225f4ebfdc">X_monotone_curve_2</a> &amp; </td>
+          <td class="paramname"><em>c2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>splits the edge <code>e</code> into two edges (more precisely, into two halfedge pairs), associated with the given subcurves <code>c1</code> and <code>c2</code>, and creates a vertex that corresponds to the split point. </p>
+<p>The function returns a handle for the halfedge, whose source is the same as <code>e-&gt;source()</code> and whose target vertex is the split point. </p><dl class="section pre"><dt>Precondition</dt><dd>Either <code>c1</code>'s left endpoint and <code>c2</code>'s right endpoint correspond to <code>e</code>'s end-vertices such that <code>c1</code>'s right endpoint and <code>c2</code>'s left endpoint are equal and define the split point - or vice-versa (with change of roles between <code>c1</code> and <code>c2</code>). </dd></dl>
+
+</div>
+</div>
+<a id="a1f35acd23e284060fa7f871e96ef420d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f35acd23e284060fa7f871e96ef420d">◆ </a></span>unbounded_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::unbounded_face </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a handle for an unbounded face of the arrangement. </p>
+<p>In case the arrangement comprises only bounded curves, there is a single unbounded face and the function returns a handle to it. Otherwise, a handle to an arbitrary unbounded face is returned. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:47 for CGAL 4.13 - 2D Arrangements by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

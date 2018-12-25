@@ -1,0 +1,1698 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Three_1_1Scene__item" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CGAL::Three::Scene_item</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classCGAL_1_1Three_1_1Scene__group__item" prot="public" virt="non-virtual">CGAL::Three::Scene_group_item</derivedcompoundref>
+    <derivedcompoundref refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper" prot="public" virt="non-virtual">CGAL::Three::Scene_item_rendering_helper</derivedcompoundref>
+    <includes local="no">CGAL/Three/Scene_item.h</includes>
+    <innerclass refid="structCGAL_1_1Three_1_1Scene__item_1_1Header__data" prot="public">CGAL::Three::Scene_item::Header_data</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049" prot="public" static="no">
+        <name>OpenGL_program_IDs</name>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ab33e98893e92995ed64e44e97d52c2d2" prot="public">
+          <name>PROGRAM_WITH_LIGHT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad3cc138ba3f5eb509249f3df9cdd1beb" prot="public">
+          <name>PROGRAM_WITHOUT_LIGHT</name>
+          <briefdescription>
+<para>Used to render a surface or edge affected by the light. </para>          </briefdescription>
+          <detaileddescription>
+<para>It uses a per fragment lighting model, and renders brighter the selected item. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad057924572470cc1f8725b0189c020ec" prot="public">
+          <name>PROGRAM_NO_SELECTION</name>
+          <briefdescription>
+<para>Used to render a polygon edge or points. </para>          </briefdescription>
+          <detaileddescription>
+<para>It renders in a uniform color and is not affected by light. It renders the selected item in black. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049afb63348ca981de7316391d1f2b93f48c" prot="public">
+          <name>PROGRAM_WITH_TEXTURE</name>
+          <briefdescription>
+<para>Used to render a polyline or a surface that is not affected by light, like a cutting plane. </para>          </briefdescription>
+          <detaileddescription>
+<para>It renders in a uniform color that does not change with selection. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a1798d8107df4d3c6184f8f7eb76ccfbe" prot="public">
+          <name>PROGRAM_PLANE_TWO_FACES</name>
+          <briefdescription>
+<para>Used to render a textured polyhedron. </para>          </briefdescription>
+          <detaileddescription>
+<para>Affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a9ded1faec1c8d6d03fcd1637f5a71b8a" prot="public">
+          <name>PROGRAM_WITH_TEXTURED_EDGES</name>
+          <briefdescription>
+<para>Used to render a two-faced plane. </para>          </briefdescription>
+          <detaileddescription>
+<para>The two faces have a different color. Not affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a81d5198857a8341beeaf2acbc4c03686" prot="public">
+          <name>PROGRAM_INSTANCED</name>
+          <briefdescription>
+<para>Used to render the edges of a textured polyhedorn. </para>          </briefdescription>
+          <detaileddescription>
+<para>Not affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a7979618e4b419bb40bfe78df679471de" prot="public">
+          <name>PROGRAM_INSTANCED_WIRE</name>
+          <briefdescription>
+<para>Used to display instanced rendered spheres.Affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a3a0b0f51cbe2d74ca594d90cfbf0c6b4" prot="public">
+          <name>PROGRAM_C3T3</name>
+          <briefdescription>
+<para>Used to display instanced rendered wired spheres. </para>          </briefdescription>
+          <detaileddescription>
+<para>Not affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a011adcba5708765b39816c769e06c4b6" prot="public">
+          <name>PROGRAM_C3T3_EDGES</name>
+          <briefdescription>
+<para>Used to render a c3t3_item. </para>          </briefdescription>
+          <detaileddescription>
+<para>It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ab53f0e0e7d2ca169a3e9b3dd63000f14" prot="public">
+          <name>PROGRAM_CUTPLANE_SPHERES</name>
+          <briefdescription>
+<para>Used to render the edges of a c3t3_item. </para>          </briefdescription>
+          <detaileddescription>
+<para>It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Not affected by light. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a16ef2c3b3d195975455313db8c9eb224" prot="public">
+          <name>PROGRAM_SPHERES</name>
+          <briefdescription>
+<para>Used to render the spheres of an item with a cut plane. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a4798d0fa62c3ec1884ca76536013336b" prot="public">
+          <name>PROGRAM_FLAT</name>
+          <briefdescription>
+<para>Used to render one or several spheres. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a08f2b62a5ec9bc6c53c2f4f86b06775c" prot="public">
+          <name>PROGRAM_OLD_FLAT</name>
+          <briefdescription>
+<para>Used to render flat shading without pre computing normals. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad07f0225ed77bbaf7053d8ae095a98ba" prot="public">
+          <name>PROGRAM_SOLID_WIREFRAME</name>
+          <briefdescription>
+<para>Used to render flat shading without pre computing normals without geometry shader. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a6a9f759b44e9f9a0b1c419ada693aecc" prot="public">
+          <name>NB_OF_PROGRAMS</name>
+          <briefdescription>
+<para>Used to render edges with width superior to 1. </para>          </briefdescription>
+          <detaileddescription>
+<para>Holds the number of different programs in this enum. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The OpenGL_program_IDs enum. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enum holds the OpenGL programs IDs that are given to <ref refid="classCGAL_1_1Three_1_1Scene__item_1a08880a273cf24d89d4e94760e082d72c" kindref="member">getShaderProgram()</ref> and <ref refid="classCGAL_1_1Three_1_1Scene__item_1aa3a870e77d1ed26662e21e79eecc589d" kindref="member">attribBuffers()</ref>. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a08880a273cf24d89d4e94760e082d72c" kindref="member">getShaderProgram</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1aa3a870e77d1ed26662e21e79eecc589d" kindref="member">attribBuffers</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="75" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="74" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Scene__item_1a4839bb8976dba7df0274424304cef576" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>typedef CGAL::Bbox_3 CGAL::Three::Scene_item::Bbox</definition>
+        <argsstring></argsstring>
+        <name>Bbox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="93" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Scene__item_1a2960e2e50cea785bd8d629a5964d4f08" prot="public" static="no">
+        <type>CGAL::qglviewer::ManipulatedFrame</type>
+        <definition>typedef CGAL::qglviewer::ManipulatedFrame CGAL::Three::Scene_item::ManipulatedFrame</definition>
+        <argsstring></argsstring>
+        <name>ManipulatedFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="94" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classCGAL_1_1Three_1_1Scene__item_1a8f8bb83fb448be990ca60db43535246f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor CGAL::Three::Scene_item::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="38" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCGAL_1_1Three_1_1Scene__item_1a6c0a159b8f4403548261938676097230" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CGAL::Three::Scene_item::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <read>name</read>
+        <write>setName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="38" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCGAL_1_1Three_1_1Scene__item_1a71180e87d5d5669756d35261387376af" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <read>visible</read>
+        <write>setVisible</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="38" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCGAL_1_1Three_1_1Scene__item_1a5385d2686aa171a91bc3ec73eb20f0d8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+        <definition>RenderingMode CGAL::Three::Scene_item::renderingMode</definition>
+        <argsstring></argsstring>
+        <name>renderingMode</name>
+        <read>renderingMode</read>
+        <write>setRenderingMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="38" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a9202b7c8773321cbbea3ae4d9e37245b" prot="public" static="yes" mutable="no">
+        <type>const QColor</type>
+        <definition>const QColor CGAL::Three::Scene_item::defaultColor</definition>
+        <argsstring></argsstring>
+        <name>defaultColor</name>
+        <briefdescription>
+<para>The default color of a scene_item. </para>        </briefdescription>
+        <detaileddescription>
+<para>This color is the one that will be displayed if none is specified after its creation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="98" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a1baed34145f0190db6a170a3e48874e6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CGAL::Three::Scene_item::has_group</definition>
+        <argsstring></argsstring>
+        <name>has_group</name>
+        <briefdescription>
+<para>Contains the number of group and subgroups containing this item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="303" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a895993b355cfc80feb5a12e4b7a60c6f" prot="protected" static="no" mutable="yes">
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Bbox</ref></type>
+        <definition>Bbox CGAL::Three::Scene_item::_bbox</definition>
+        <argsstring></argsstring>
+        <name>_bbox</name>
+        <briefdescription>
+<para>Holds the BBox of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="399" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a4f5817837a54292759e7987d6607fa57" prot="protected" static="no" mutable="yes">
+        <type>double</type>
+        <definition>double CGAL::Three::Scene_item::_diag_bbox</definition>
+        <argsstring></argsstring>
+        <name>_diag_bbox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="400" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1accc6e2f6e19d888e5b635ade33062ba0" prot="protected" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::is_bbox_computed</definition>
+        <argsstring></argsstring>
+        <name>is_bbox_computed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="401" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a3c3e66baab9f3be4b3cd547034b56188" prot="protected" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::is_diag_bbox_computed</definition>
+        <argsstring></argsstring>
+        <name>is_diag_bbox_computed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="402" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ad45ffd8cc920e16032817e01b2430d48" prot="protected" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString CGAL::Three::Scene_item::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <briefdescription>
+<para>The name of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="407" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1abf21c5e29aced1ea58fa6832a4d0638e" prot="protected" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor CGAL::Three::Scene_item::color_</definition>
+        <argsstring></argsstring>
+        <name>color_</name>
+        <briefdescription>
+<para>The color of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="409" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1addc8eb3f1cb5a42fa2ed623ae086815a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::visible_</definition>
+        <argsstring></argsstring>
+        <name>visible_</name>
+        <briefdescription>
+<para>The visibility of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="411" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="411" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ad0156e46b620a6d6dac81f730157d106" prot="protected" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__group__item" kindref="compound">Scene_group_item</ref> *</type>
+        <definition>Scene_group_item* CGAL::Three::Scene_item::parent_group</definition>
+        <argsstring></argsstring>
+        <name>parent_group</name>
+        <briefdescription>
+<para>The parent group, or 0 if the item is not in a group. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="413" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ae58ed69d17db89110b8472bc556cd95a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::is_selected</definition>
+        <argsstring></argsstring>
+        <name>is_selected</name>
+        <briefdescription>
+<para>Specifies if the item is currently selected. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="415" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ab681df6a98485d5ff2ee037f26548f23" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Three::Scene_item::nb_isolated_vertices</definition>
+        <argsstring></argsstring>
+        <name>nb_isolated_vertices</name>
+        <briefdescription>
+<para>Holds the number of vertices that are not linked to the polyhedron from the OFF file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="418" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ac4287b89a2d383abe75fde71aec9eb4d" prot="protected" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool CGAL::Three::Scene_item::are_buffers_filled</definition>
+        <argsstring></argsstring>
+        <name>are_buffers_filled</name>
+        <briefdescription>
+<para>Decides if the draw function must call <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> or not. </para>        </briefdescription>
+        <detaileddescription>
+<para>It is set to true in the end of <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> and to false in <ref refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" kindref="member">invalidateOpenGLBuffers()</ref>. The need of this boolean comes from the need of a context from the OpenGLFunctions used in <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref>. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" kindref="member">invalidateOpenGLBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="426" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1aee23f65dd495763db9c844835c6a4d2d" prot="protected" static="no" mutable="no">
+        <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+        <definition>RenderingMode CGAL::Three::Scene_item::rendering_mode</definition>
+        <argsstring></argsstring>
+        <name>rendering_mode</name>
+        <briefdescription>
+<para>The rendering mode of the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="429" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ab544502478d9c7ba7092085e27559078" prot="protected" static="no" mutable="no">
+        <type>QMenu *</type>
+        <definition>QMenu* CGAL::Three::Scene_item::defaultContextMenu</definition>
+        <argsstring></argsstring>
+        <name>defaultContextMenu</name>
+        <briefdescription>
+<para>The default context menu. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="431" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a29a686e3b11821c9249d92d50b3782da" prot="protected" static="no" mutable="no">
+        <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+        <definition>RenderingMode CGAL::Three::Scene_item::prev_shading</definition>
+        <argsstring></argsstring>
+        <name>prev_shading</name>
+        <briefdescription>
+<para>Contains the previous RenderingMode. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is used to determine if invalidateOpenGLBuffers should be called or not in certain cases. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" kindref="member">invalidateOpenGLBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="436" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ab6d349f906713609ebae88928536f7aa" prot="protected" static="no" mutable="no">
+        <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+        <definition>RenderingMode CGAL::Three::Scene_item::cur_shading</definition>
+        <argsstring></argsstring>
+        <name>cur_shading</name>
+        <briefdescription>
+<para>Contains the current RenderingMode. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is used to determine if invalidateOpenGLBuffers should be called or not in certain cases. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" kindref="member">invalidateOpenGLBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="443" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1aeb7b68ffbf83025742a8b27ba6a9a4e5" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CGAL::Three::Scene_item::buffersSize</definition>
+        <argsstring></argsstring>
+        <name>buffersSize</name>
+        <briefdescription>
+<para>Contains the size of the vector of VBOs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="445" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1ad4a9050142bce5fad07ea8ad750848a5" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CGAL::Three::Scene_item::vaosSize</definition>
+        <argsstring></argsstring>
+        <name>vaosSize</name>
+        <briefdescription>
+<para>Contains the size of the map of VAOs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="447" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a7c3aa5f5008edb8ab4a33b7d3d5b9ca0" prot="protected" static="no" mutable="yes">
+        <type>std::vector&lt; QOpenGLBuffer &gt;</type>
+        <definition>std::vector&lt;QOpenGLBuffer&gt; CGAL::Three::Scene_item::buffers</definition>
+        <argsstring></argsstring>
+        <name>buffers</name>
+        <briefdescription>
+<para>Contains the VBOs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="449" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="449" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1afc812b41ee388b79e981b32cbff82480" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; QOpenGLVertexArrayObject * &gt;</type>
+        <definition>std::vector&lt;QOpenGLVertexArrayObject*&gt; CGAL::Three::Scene_item::vaos</definition>
+        <argsstring></argsstring>
+        <name>vaos</name>
+        <briefdescription>
+<para>Contains the VAOs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="452" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Scene__item_1a6f449e7722222e4c4820e53e697a19e7" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CGAL::Three::Scene_item::cur_id</definition>
+        <argsstring></argsstring>
+        <name>cur_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="453" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="453" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a33bf2910f4b9ab7994cb5757c60e4adc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Three::Scene_item::Scene_item</definition>
+        <argsstring>(int buffers_size=20, int vaos_size=10)</argsstring>
+        <name>Scene_item</name>
+        <param>
+          <type>int</type>
+          <declname>buffers_size</declname>
+          <defval>20</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vaos_size</declname>
+          <defval>10</defval>
+        </param>
+        <briefdescription>
+<para>The Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is where the vectors of VBOs and VAOs are initialized. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="103" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ad2562d11286ae07f5cd871f3a57f5ffd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setNbIsolatedvertices</definition>
+        <argsstring>(std::size_t nb)</argsstring>
+        <name>setNbIsolatedvertices</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nb</declname>
+        </param>
+        <briefdescription>
+<para>Sets the number of isolated vertices. </para>        </briefdescription>
+        <detaileddescription>
+<para>This number will be displayed in a warning box at loading. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1af9bc0ff2137f0c9bcb96e28986064401" kindref="member">getNbIsolatedvertices</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="109" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1af9bc0ff2137f0c9bcb96e28986064401" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Three::Scene_item::getNbIsolatedvertices</definition>
+        <argsstring>() const</argsstring>
+        <name>getNbIsolatedvertices</name>
+        <briefdescription>
+<para>Getter for the number of isolated vertices. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1ad2562d11286ae07f5cd871f3a57f5ffd" kindref="member">setNbIsolatedvertices</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="112" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ae5758c30d20e08280fa67089c0d97384" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual CGAL::Three::Scene_item::~Scene_item</definition>
+        <argsstring>()</argsstring>
+        <name>~Scene_item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="113" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ac2bc3874a1d7196482b164b8dd1a05d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">Scene_item</ref> *</type>
+        <definition>virtual Scene_item* CGAL::Three::Scene_item::clone</definition>
+        <argsstring>() const =0</argsstring>
+        <name>clone</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1abe75ccb7fe639678ba981991010a17ce">clone</reimplementedby>
+        <briefdescription>
+<para>Duplicates the item. </para>        </briefdescription>
+        <detaileddescription>
+<para>Creates a new item as a copy of this one. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="117" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a02803633ba4bc72a216cad524d270278" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::supportsRenderingMode</definition>
+        <argsstring>(RenderingMode m) const =0</argsstring>
+        <name>supportsRenderingMode</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1ac7c860f6e89a12c6e67a7aa25df3dbc7">supportsRenderingMode</reimplementedby>
+        <param>
+          <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Indicates if <computeroutput>m</computeroutput> is supported. </para>        </briefdescription>
+        <detaileddescription>
+<para>If it is, it will be displayed in the context menu of the item. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="122" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a884cc1ab209133f3a615ceda7e566a74" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::draw</definition>
+        <argsstring>() const</argsstring>
+        <name>draw</name>
+        <briefdescription>
+<para>Deprecated. Does nothing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="124" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ab15b29884b66ec4e051fb426db25b344" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::draw</definition>
+        <argsstring>(CGAL::Three::Viewer_interface *) const</argsstring>
+        <name>draw</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a7b84625f39e16fe0ec706b213d919bac">draw</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref> *</type>
+        </param>
+        <briefdescription>
+<para>The drawing function for faces. </para>        </briefdescription>
+        <detaileddescription>
+<para>Draws the faces of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref>. <simplesect kind="see"><para>computeElements() </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="133" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a9f9c6fbb1eab8b063c083ea61830436c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::drawEdges</definition>
+        <argsstring>() const</argsstring>
+        <name>drawEdges</name>
+        <briefdescription>
+<para>Deprecated. Does nothing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="135" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1afe7c0327104e81875de80105a95a158d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::drawEdges</definition>
+        <argsstring>(CGAL::Three::Viewer_interface *viewer) const</argsstring>
+        <name>drawEdges</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1ab6f8be63d81d51c025fd4ffc1b4642d9">drawEdges</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref> *</type>
+          <declname>viewer</declname>
+        </param>
+        <briefdescription>
+<para>The drawing function for the edges. </para>        </briefdescription>
+        <detaileddescription>
+<para>Draws the edges and lines of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref>. <simplesect kind="see"><para>computeElements() </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="144" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a0b5bec42c1569625c42294af492e0a89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::drawPoints</definition>
+        <argsstring>() const</argsstring>
+        <name>drawPoints</name>
+        <briefdescription>
+<para>Deprecated. Does nothing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="146" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1afef30c057b3baaba39ee8642ea2ab3e4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::drawPoints</definition>
+        <argsstring>(CGAL::Three::Viewer_interface *) const</argsstring>
+        <name>drawPoints</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a63190b9b7d7663a6510cd4ae660913ae">drawPoints</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref> *</type>
+        </param>
+        <briefdescription>
+<para>The drawing function for the points. </para>        </briefdescription>
+        <detaileddescription>
+<para>Draws the points of the item in the viewer. The data for the drawing is gathered in computeElements(), and is sent to buffers in <ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref>. <simplesect kind="see"><para>computeElements() </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" kindref="member">initializeBuffers()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="155" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="155" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a6534cdc1df8b9c2483e57d6b0f07e340" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::selection_changed</definition>
+        <argsstring>(bool b)</argsstring>
+        <name>selection_changed</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Called by the scene. If b is true, then this item is currently selected. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="158" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1abb15a0d82db8f66786393df61c322b6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>QString</type>
+        <definition>virtual QString CGAL::Three::Scene_item::toolTip</definition>
+        <argsstring>() const =0</argsstring>
+        <name>toolTip</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1ad666da7d12bcf172e831bac8d081ca7e">toolTip</reimplementedby>
+        <briefdescription>
+<para>Contains meta-data about the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a QString containing meta-data about the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="163" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ab104d6a4265f721f7fe6729106e6c6a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QPixmap</type>
+        <definition>virtual QPixmap CGAL::Three::Scene_item::graphicalToolTip</definition>
+        <argsstring>() const</argsstring>
+        <name>graphicalToolTip</name>
+        <briefdescription>
+<para>Contains graphical meta-data about the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a QPixmap containing graphical meta-data about the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="166" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="166" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a6e175c307d08d8a4601b67b93db9ee7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QFont</type>
+        <definition>virtual QFont CGAL::Three::Scene_item::font</definition>
+        <argsstring>() const</argsstring>
+        <name>font</name>
+        <briefdescription>
+<para>Contains the font used for the data of the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a QFont containing the font used for the data of the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="169" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1aacdaacfd1e76887501acb522c61f5aa4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::isFinite</definition>
+        <argsstring>() const</argsstring>
+        <name>isFinite</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a31ac4b95e5d317fdb475a944b95e60d9">isFinite</reimplementedby>
+        <briefdescription>
+<para>Determines if the item is finite or not. </para>        </briefdescription>
+        <detaileddescription>
+<para>For example, a plane is not finite. If false, the BBox is not computed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="176" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="176" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a2287a9f901daa16577ba597a4432e284" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::isEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>isEmpty</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a79798257e2fe22f4b7280b5fdb500c20">isEmpty</reimplementedby>
+        <briefdescription>
+<para>Specifies if the item is empty or null. </para>        </briefdescription>
+        <detaileddescription>
+<para>If true, the BBox is not computed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="179" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1af9cd9477cc4f11afcdf6e7479c7fbd48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Bbox</ref></type>
+        <definition>virtual Bbox CGAL::Three::Scene_item::bbox</definition>
+        <argsstring>() const</argsstring>
+        <name>bbox</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a80d07f07bc62b73ef97147a7e8773364">bbox</reimplementedby>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1a68bec0cc2f3283242e692e8bc517c8e9">bbox</reimplementedby>
+        <briefdescription>
+<para>The item&apos;s bounding box. </para>        </briefdescription>
+        <detaileddescription>
+<para>If the Bbox has never been computed, computes it and saves the result for further calls. <simplesect kind="return"><para>the item&apos;s bounding box. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="185" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="185" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ab0c8523980da5f86748ad7a69fd11e34" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double CGAL::Three::Scene_item::diagonalBbox</definition>
+        <argsstring>() const</argsstring>
+        <name>diagonalBbox</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1a70c5d0516cdef228b0f3bae3c38ace42">diagonalBbox</reimplementedby>
+        <briefdescription>
+<para>the item&apos;s bounding box&apos;s diagonal length. </para>        </briefdescription>
+        <detaileddescription>
+<para>If the diagonal&apos;s length has never been computed, computes it and saves the result for further calls. <simplesect kind="return"><para>the item&apos;s bounding box&apos;s diagonal length. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="196" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="196" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a21b7abe6372d6af3c2594d682f486212" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::manipulatable</definition>
+        <argsstring>() const</argsstring>
+        <name>manipulatable</name>
+        <briefdescription>
+<para>Returns true if the item has a ManipulatedFrame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1ab07d3eadd4cdf4f366dada2e3864c94f" kindref="member">manipulatedFrame()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="206" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="206" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ab07d3eadd4cdf4f366dada2e3864c94f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>ManipulatedFrame *</type>
+        <definition>virtual ManipulatedFrame* CGAL::Three::Scene_item::manipulatedFrame</definition>
+        <argsstring>()</argsstring>
+        <name>manipulatedFrame</name>
+        <briefdescription>
+<para>The manipulatedFrame of the item. </para>        </briefdescription>
+        <detaileddescription>
+<para>A manipulated frame is an independant system that can be translated or rotated using the Ctrl key and the mouse. <simplesect kind="return"><para>the manipulatedFrame of the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="212" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a4855fcaac2fcf76147e06582508fa7ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QColor</type>
+        <definition>virtual QColor CGAL::Three::Scene_item::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <briefdescription>
+<para>Getter for the item&apos;s color. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current color of the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="217" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a9875d388ef00bea89d83d6dc2d9a9cfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString CGAL::Three::Scene_item::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Getter for the item&apos;s name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current name of the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="220" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a1139cc1cca8d8b1e3088dafc81c70aa1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::visible</definition>
+        <argsstring>() const</argsstring>
+        <name>visible</name>
+        <briefdescription>
+<para>If the item is not visible, it is not drawn and its Bbox is ignored in the computation of the scene&apos;s. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current visibility of the item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="224" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="224" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1af8611dc5cad9577d661cc0489c2f2ae8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+        <definition>virtual RenderingMode CGAL::Three::Scene_item::renderingMode</definition>
+        <argsstring>() const</argsstring>
+        <name>renderingMode</name>
+        <briefdescription>
+<para>Getter for the item&apos;s rendering mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current rendering mode of the item. </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="228" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a6264814c331f53f9a9616dca384acd40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString CGAL::Three::Scene_item::renderingModeName</definition>
+        <argsstring>() const</argsstring>
+        <name>renderingModeName</name>
+        <briefdescription>
+<para>The renderingMode&apos;s name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current rendering mode of the item as a human readable string. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="231" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a6eaa99ad881582218176a292ec64ea01" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>QMenu *</type>
+        <definition>virtual QMenu* CGAL::Three::Scene_item::contextMenu</definition>
+        <argsstring>()</argsstring>
+        <name>contextMenu</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1a8c76077e194bf3078c7341d87dff6edc">contextMenu</reimplementedby>
+        <briefdescription>
+<para>Context menu. </para>        </briefdescription>
+        <detaileddescription>
+<para>Contains the list of the supported rendering modes, the Operations menu, actions to save or clone the item if it is supported and any contextual action for the item. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="238" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1af724c60e4ec00c09b859599999422400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>setId</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>setId informs the item of its current index in the scene entries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="242" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ad0e3e3213359af74e18c780af2f60cde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CGAL::Three::Scene_item::getId</definition>
+        <argsstring>() const</argsstring>
+        <name>getId</name>
+        <briefdescription>
+<para>getId returns the current index of this item in the scene entries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="247" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1aa0e5d2a443b2fdb6ae18889bc3fdcce4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::keyPressEvent</definition>
+        <argsstring>(QKeyEvent *)</argsstring>
+        <name>keyPressEvent</name>
+        <param>
+          <type>QKeyEvent *</type>
+        </param>
+        <briefdescription>
+<para>Handles key press events. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="250" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="250" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1aa70ed13403cf68538511435a1e5abaa6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__group__item" kindref="compound">Scene_group_item</ref> *</type>
+        <definition>Scene_group_item* CGAL::Three::Scene_item::parentGroup</definition>
+        <argsstring>() const</argsstring>
+        <name>parentGroup</name>
+        <briefdescription>
+<para>The group containing the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the parent group if the item is in a group </para></simplesect>
+<simplesect kind="return"><para>0 if the item is not in a group. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="255" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1aa4fc99014364a228bed078d91b0afa91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structCGAL_1_1Three_1_1Scene__item_1_1Header__data" kindref="compound">Header_data</ref></type>
+        <definition>virtual Header_data CGAL::Three::Scene_item::header</definition>
+        <argsstring>() const</argsstring>
+        <name>header</name>
+        <briefdescription>
+<para>Returns a <ref refid="structCGAL_1_1Three_1_1Scene__item_1_1Header__data" kindref="compound">Header_data</ref> struct containing the header information. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="284" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a15bdbe0d457e44b19895ef3cdbfd0266" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Scene_item::has_stats</definition>
+        <argsstring>() const</argsstring>
+        <name>has_stats</name>
+        <briefdescription>
+<para>Returns true if the item has statistics. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="286" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="286" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ac22d0d3d8bb93498b7b8f843bf3c9afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString CGAL::Three::Scene_item::computeStats</definition>
+        <argsstring>(int i)</argsstring>
+        <name>computeStats</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Returns a QString containing the requested value for the the table in the statistics dialog. </para>        </briefdescription>
+        <detaileddescription>
+<para><verbatim>* Example :
+*  ____________________________
+* |             |Name   |Cube |
+* |             |_______|_____|
+* |General Info | #Edges|12   |
+* |_____________|_______|_____|
+* compute stats(0) should return &quot;Cube&quot; and computeStats(1) should return QString::number(12);
+* The numbers must be coherent with the order of declaration of the titles in the header.
+* </verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="300" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::invalidateOpenGLBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>invalidateOpenGLBuffers</name>
+        <briefdescription>
+<para>Notifies the program that the internal data or the properties of an item has changed, and that it must be computed again. </para>        </briefdescription>
+        <detaileddescription>
+<para>It is important to call this function whenever the internal data is changed, or the displayed item will not be updated. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="311" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1aa068e79eb544f7ee33a82ede9c91d816" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::setColor</definition>
+        <argsstring>(QColor c)</argsstring>
+        <name>setColor</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a3146119ca9de7e3776bc3791966ca01d">setColor</reimplementedby>
+        <param>
+          <type>QColor</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Setter for the color of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="313" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="313" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a6df86c4f76ed2b284ba508d02b6e4ff8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setRbgColor</definition>
+        <argsstring>(int r, int g, int b)</argsstring>
+        <name>setRbgColor</name>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Setter for the RGB color of the item. </para>        </briefdescription>
+        <detaileddescription>
+<para>Calls <ref refid="classCGAL_1_1Three_1_1Scene__item_1aa068e79eb544f7ee33a82ede9c91d816" kindref="member">setColor(QColor)</ref>. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__item_1aa068e79eb544f7ee33a82ede9c91d816" kindref="member">setColor(QColor c)</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="316" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="316" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1af8c64b12892a1372a3f253b8be23af8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::setName</definition>
+        <argsstring>(QString n)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>QString</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Sets the name of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="318" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="318" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1ae9ec96b24e4997e9b63ff782a4acf1c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::setVisible</definition>
+        <argsstring>(bool b)</argsstring>
+        <name>setVisible</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a0a3ee649372f64e0ebea9d978fe456fb">setVisible</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Sets the visibility of the item. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="320" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a1a313eea0253c08434f435af178380ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::moveToGroup</definition>
+        <argsstring>(Scene_group_item *group)</argsstring>
+        <name>moveToGroup</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__group__item" kindref="compound">Scene_group_item</ref> *</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Set the parent group. </para>        </briefdescription>
+        <detaileddescription>
+<para>If <computeroutput>group==0</computeroutput>, then the item has no parent. This function is called by <computeroutput>Scene::changeGroup</computeroutput> and should not be called manually. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="324" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a54a27fccdfc8b14c6cc3defb17c1a030" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::setRenderingMode</definition>
+        <argsstring>(RenderingMode m)</argsstring>
+        <name>setRenderingMode</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a8febd2a539c080696dc365c6385c0ee7">setRenderingMode</reimplementedby>
+        <param>
+          <type><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rendering mode of the item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" kindref="member">RenderingMode</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="327" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="327" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a7f10a2b5850e44b902089e6343d7f380" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setPointsMode</definition>
+        <argsstring>()</argsstring>
+        <name>setPointsMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to Points. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="333" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="333" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a66ef99b561ff6ca1ba8f0964973e62a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setShadedPointsMode</definition>
+        <argsstring>()</argsstring>
+        <name>setShadedPointsMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to Points. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="337" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="337" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a2aae6ee022487092f12d7903bd237428" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setWireframeMode</definition>
+        <argsstring>()</argsstring>
+        <name>setWireframeMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to Wireframe. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="341" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="341" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1ae47e5cf95029d38b009e2d4e793c71a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setFlatMode</definition>
+        <argsstring>()</argsstring>
+        <name>setFlatMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to Flat. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="346" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="346" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a033b59036eb7e655799bf5cdf26f5247" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setFlatPlusEdgesMode</definition>
+        <argsstring>()</argsstring>
+        <name>setFlatPlusEdgesMode</name>
+        <briefdescription>
+<para>Set the RenderingMode to FlatPlusEdges. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="350" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="350" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1ae79c04cc7ced1b52d77e4882364d66f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setGouraudMode</definition>
+        <argsstring>()</argsstring>
+        <name>setGouraudMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to Gouraud. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="354" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="354" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1afbb564552711a890be5cb8dadf44ef88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::setPointsPlusNormalsMode</definition>
+        <argsstring>()</argsstring>
+        <name>setPointsPlusNormalsMode</name>
+        <briefdescription>
+<para>Sets the RenderingMode to PointsPlusNormals. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="358" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="358" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a145adfaf093cbe754250864ad76cd0d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::itemAboutToBeDestroyed</definition>
+        <argsstring>(Scene_item *)</argsstring>
+        <name>itemAboutToBeDestroyed</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">Scene_item</ref> *</type>
+        </param>
+        <briefdescription>
+<para>Emits an <ref refid="classCGAL_1_1Three_1_1Scene__item_1a4dec9182cf1fdecadb7ca66a0b1ce496" kindref="member">aboutToBeDestroyed()</ref> signal. </para>        </briefdescription>
+        <detaileddescription>
+<para>Override this function to delete what needs to be deleted on destruction. This might be needed as items are not always deleted right away by Qt and this behaviour may cause a simily memory leak, for example when multiple items are created at the same time. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="366" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1ab5be7a8ae424b1e1fe465947d44ba419" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>virtual float CGAL::Three::Scene_item::alpha</definition>
+        <argsstring>() const</argsstring>
+        <name>alpha</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1a0b5b8914cc40b6e28a7a46e38d1d3d0a">alpha</reimplementedby>
+        <briefdescription>
+<para>Returns the alpha value for the item. </para>        </briefdescription>
+        <detaileddescription>
+<para>Must be called within a valid openGl context. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="369" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1a71289ccb01e001579b24ed01c0e43b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::setAlpha</definition>
+        <argsstring>(int alpha)</argsstring>
+        <name>setAlpha</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1a3fcaf2c78e85973aae8116d4047b5d15">setAlpha</reimplementedby>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__group__item_1a42b27a48ebc07ae774a16fe342899865">setAlpha</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Sets the value of the aplha Slider for this item. </para>        </briefdescription>
+        <detaileddescription>
+<para>Must be overriden; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be between 0 and 255 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="375" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Scene__item_1aa99e0d168423b5df529efc38b7749219" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::select</definition>
+        <argsstring>(double orig_x, double orig_y, double orig_z, double dir_x, double dir_y, double dir_z)</argsstring>
+        <name>select</name>
+        <param>
+          <type>double</type>
+          <declname>orig_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>orig_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>orig_z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dir_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dir_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dir_z</declname>
+        </param>
+        <briefdescription>
+<para>Selects a point through raycasting. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="377" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Scene__item_1a4512ce8d39b44c8472257852551be09b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::itemChanged</definition>
+        <argsstring>()</argsstring>
+        <name>itemChanged</name>
+        <briefdescription>
+<para>Is emitted to notify a change in the item&apos;s data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="388" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Scene__item_1ac2c1d53c8854d997729c8a51be89d3a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::itemVisibilityChanged</definition>
+        <argsstring>()</argsstring>
+        <name>itemVisibilityChanged</name>
+        <briefdescription>
+<para>Is emitted when the item is shown to notify a change in the item&apos;s visibility. </para>        </briefdescription>
+        <detaileddescription>
+<para>Typically used to update the scene&apos;s bbox; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="391" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Scene__item_1a4dec9182cf1fdecadb7ca66a0b1ce496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::aboutToBeDestroyed</definition>
+        <argsstring>()</argsstring>
+        <name>aboutToBeDestroyed</name>
+        <briefdescription>
+<para>Is emitted to notify that the item is about to be deleted. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="393" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Scene__item_1a4c4f967690edf07821421c7170386d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::redraw</definition>
+        <argsstring>()</argsstring>
+        <name>redraw</name>
+        <briefdescription>
+<para>Is emitted to require a new display. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="395" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a5f2a00cb10af8de9ca3e3eda88be49a2" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::compute_bbox</definition>
+        <argsstring>() const</argsstring>
+        <name>compute_bbox</name>
+        <reimplementedby refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper_1ae43c7a7d08de630b44fb7a709b816b61">compute_bbox</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="403" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="403" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1ad95b5675fbca013ef6e1810dc74c755b" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_item::compute_diag_bbox</definition>
+        <argsstring>() const</argsstring>
+        <name>compute_diag_bbox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="404" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a86841fd45abdb4e651cd5bc7f9eb79b3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::addVaos</definition>
+        <argsstring>(int i)</argsstring>
+        <name>addVaos</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Adds a VAO to the Map. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="455" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="455" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::initializeBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeBuffers</name>
+        <briefdescription>
+<para>Fills the VBOs with data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="463" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="463" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1aa3a870e77d1ed26662e21e79eecc589d" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Three::Scene_item::attribBuffers</definition>
+        <argsstring>(CGAL::Three::Viewer_interface *, int program_name) const</argsstring>
+        <name>attribBuffers</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref> *</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>program_name</declname>
+        </param>
+        <briefdescription>
+<para>Passes all the uniform data to the shaders. </para>        </briefdescription>
+        <detaileddescription>
+<para>According to program_name, this data may change. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="468" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__item_1a08880a273cf24d89d4e94760e082d72c" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QOpenGLShaderProgram *</type>
+        <definition>virtual QOpenGLShaderProgram* CGAL::Three::Scene_item::getShaderProgram</definition>
+        <argsstring>(int name, CGAL::Three::Viewer_interface *viewer=0) const</argsstring>
+        <name>getShaderProgram</name>
+        <param>
+          <type>int</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface" kindref="compound">CGAL::Three::Viewer_interface</ref> *</type>
+          <declname>viewer</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Compatibility function. </para>        </briefdescription>
+        <detaileddescription>
+<para>Calls <computeroutput>viewer-&gt;<ref refid="classCGAL_1_1Three_1_1Scene__item_1a08880a273cf24d89d4e94760e082d72c" kindref="member">getShaderProgram()</ref></computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_item.h" line="471" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class represents an object in the OpenGL scene. </para>    </briefdescription>
+    <detaileddescription>
+<para>It contains all the functions called by the <ref refid="classScene" kindref="compound">Scene</ref>. It acts like a mix between an interface and a helper. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="40">
+        <label>CGAL::Three::Scene_group_item</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__group__item"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>CGAL::Three::Scene_item_rendering_helper</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__item__rendering__helper"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>CGAL::Three::Scene_item</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__item"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="43">
+        <label>CGAL::Bbox_3</label>
+        <link refid="classCGAL_1_1Bbox__3" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag"/>
+      </node>
+      <node id="45">
+        <label>CGAL::Three::Scene_interface</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__interface"/>
+      </node>
+      <node id="44">
+        <label>CGAL::Three::Scene_group_item</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__group__item"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>scene</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>CGAL::Three::Scene_item</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__item"/>
+        <childnode refid="43" relation="usage">
+          <edgelabel>_bbox</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>parent_group</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="CGAL/Three/Scene_item.h" line="59" column="1" bodyfile="CGAL/Three/Scene_item.h" bodystart="59" bodyend="472"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a895993b355cfc80feb5a12e4b7a60c6f" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>_bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4f5817837a54292759e7987d6607fa57" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>_diag_bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4dec9182cf1fdecadb7ca66a0b1ce496" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>aboutToBeDestroyed</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a86841fd45abdb4e651cd5bc7f9eb79b3" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>addVaos</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab5be7a8ae424b1e1fe465947d44ba419" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>alpha</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ac4287b89a2d383abe75fde71aec9eb4d" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>are_buffers_filled</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa3a870e77d1ed26662e21e79eecc589d" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>attribBuffers</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4839bb8976dba7df0274424304cef576" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>Bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1af9cd9477cc4f11afcdf6e7479c7fbd48" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a7c3aa5f5008edb8ab4a33b7d3d5b9ca0" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>buffers</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aeb7b68ffbf83025742a8b27ba6a9a4e5" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>buffersSize</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ac2bc3874a1d7196482b164b8dd1a05d3" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_item</scope><name>clone</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a8f8bb83fb448be990ca60db43535246f" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>color</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4855fcaac2fcf76147e06582508fa7ac" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>color</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abf21c5e29aced1ea58fa6832a4d0638e" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>color_</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a5f2a00cb10af8de9ca3e3eda88be49a2" prot="protected" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>compute_bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad95b5675fbca013ef6e1810dc74c755b" prot="protected" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>compute_diag_bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ac22d0d3d8bb93498b7b8f843bf3c9afe" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>computeStats</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6eaa99ad881582218176a292ec64ea01" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>contextMenu</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6f449e7722222e4c4820e53e697a19e7" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>cur_id</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab6d349f906713609ebae88928536f7aa" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>cur_shading</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a9202b7c8773321cbbea3ae4d9e37245b" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>defaultColor</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab544502478d9c7ba7092085e27559078" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>defaultContextMenu</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab0c8523980da5f86748ad7a69fd11e34" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>diagonalBbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a884cc1ab209133f3a615ceda7e566a74" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>draw</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab15b29884b66ec4e051fb426db25b344" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>draw</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a9f9c6fbb1eab8b063c083ea61830436c" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>drawEdges</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1afe7c0327104e81875de80105a95a158d" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>drawEdges</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a0b5bec42c1569625c42294af492e0a89" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>drawPoints</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1afef30c057b3baaba39ee8642ea2ab3e4" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>drawPoints</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6e175c307d08d8a4601b67b93db9ee7b" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>font</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad0e3e3213359af74e18c780af2f60cde" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>getId</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1af9bc0ff2137f0c9bcb96e28986064401" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>getNbIsolatedvertices</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a08880a273cf24d89d4e94760e082d72c" prot="protected" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>getShaderProgram</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab104d6a4265f721f7fe6729106e6c6a5" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>graphicalToolTip</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a1baed34145f0190db6a170a3e48874e6" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>has_group</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a15bdbe0d457e44b19895ef3cdbfd0266" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>has_stats</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa4fc99014364a228bed078d91b0afa91" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>header</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a216833a5b2c7b82e7ae23ad4bd3684cb" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>initializeBuffers</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a90fdc9b1983bf20919a79063e6abb8cd" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>invalidateOpenGLBuffers</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1accc6e2f6e19d888e5b635ade33062ba0" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>is_bbox_computed</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a3c3e66baab9f3be4b3cd547034b56188" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>is_diag_bbox_computed</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ae58ed69d17db89110b8472bc556cd95a" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>is_selected</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a2287a9f901daa16577ba597a4432e284" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>isEmpty</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aacdaacfd1e76887501acb522c61f5aa4" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>isFinite</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a145adfaf093cbe754250864ad76cd0d3" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>itemAboutToBeDestroyed</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4512ce8d39b44c8472257852551be09b" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>itemChanged</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ac2c1d53c8854d997729c8a51be89d3a3" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>itemVisibilityChanged</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa0e5d2a443b2fdb6ae18889bc3fdcce4" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>keyPressEvent</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a21b7abe6372d6af3c2594d682f486212" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>manipulatable</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab07d3eadd4cdf4f366dada2e3864c94f" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>manipulatedFrame</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a2960e2e50cea785bd8d629a5964d4f08" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>ManipulatedFrame</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a1a313eea0253c08434f435af178380ea" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>moveToGroup</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6c0a159b8f4403548261938676097230" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>name</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a9875d388ef00bea89d83d6dc2d9a9cfb" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>name</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad45ffd8cc920e16032817e01b2430d48" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>name_</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ab681df6a98485d5ff2ee037f26548f23" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>nb_isolated_vertices</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a6a9f759b44e9f9a0b1c419ada693aecc" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>NB_OF_PROGRAMS</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>OpenGL_program_IDs</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad0156e46b620a6d6dac81f730157d106" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>parent_group</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa70ed13403cf68538511435a1e5abaa6" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>parentGroup</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a29a686e3b11821c9249d92d50b3782da" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>prev_shading</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a3a0b0f51cbe2d74ca594d90cfbf0c6b4" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_C3T3</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a011adcba5708765b39816c769e06c4b6" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_C3T3_EDGES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ab53f0e0e7d2ca169a3e9b3dd63000f14" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_CUTPLANE_SPHERES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a4798d0fa62c3ec1884ca76536013336b" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_FLAT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a81d5198857a8341beeaf2acbc4c03686" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_INSTANCED</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a7979618e4b419bb40bfe78df679471de" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_INSTANCED_WIRE</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad057924572470cc1f8725b0189c020ec" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_NO_SELECTION</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a08f2b62a5ec9bc6c53c2f4f86b06775c" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_OLD_FLAT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a1798d8107df4d3c6184f8f7eb76ccfbe" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_PLANE_TWO_FACES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad07f0225ed77bbaf7053d8ae095a98ba" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_SOLID_WIREFRAME</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a16ef2c3b3d195975455313db8c9eb224" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_SPHERES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ab33e98893e92995ed64e44e97d52c2d2" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_WITH_LIGHT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049afb63348ca981de7316391d1f2b93f48c" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_WITH_TEXTURE</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049a9ded1faec1c8d6d03fcd1637f5a71b8a" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_WITH_TEXTURED_EDGES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abfdd8a2b0f9b0b62e78ec525dfdf3049ad3cc138ba3f5eb509249f3df9cdd1beb" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>PROGRAM_WITHOUT_LIGHT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a4c4f967690edf07821421c7170386d57" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>redraw</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aee23f65dd495763db9c844835c6a4d2d" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>rendering_mode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a5385d2686aa171a91bc3ec73eb20f0d8" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>renderingMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1af8611dc5cad9577d661cc0489c2f2ae8" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>renderingMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6264814c331f53f9a9616dca384acd40" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>renderingModeName</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a33bf2910f4b9ab7994cb5757c60e4adc" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>Scene_item</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa99e0d168423b5df529efc38b7749219" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>select</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6534cdc1df8b9c2483e57d6b0f07e340" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>selection_changed</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a71289ccb01e001579b24ed01c0e43b96" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>setAlpha</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1aa068e79eb544f7ee33a82ede9c91d816" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>setColor</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ae47e5cf95029d38b009e2d4e793c71a6" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setFlatMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a033b59036eb7e655799bf5cdf26f5247" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setFlatPlusEdgesMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ae79c04cc7ced1b52d77e4882364d66f2" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setGouraudMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1af724c60e4ec00c09b859599999422400" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setId</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1af8c64b12892a1372a3f253b8be23af8e" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>setName</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad2562d11286ae07f5cd871f3a57f5ffd" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setNbIsolatedvertices</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a7f10a2b5850e44b902089e6343d7f380" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setPointsMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1afbb564552711a890be5cb8dadf44ef88" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setPointsPlusNormalsMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a6df86c4f76ed2b284ba508d02b6e4ff8" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setRbgColor</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a54a27fccdfc8b14c6cc3defb17c1a030" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>setRenderingMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a66ef99b561ff6ca1ba8f0964973e62a1" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setShadedPointsMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ae9ec96b24e4997e9b63ff782a4acf1c7" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>setVisible</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a2aae6ee022487092f12d7903bd237428" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>setWireframeMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a02803633ba4bc72a216cad524d270278" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_item</scope><name>supportsRenderingMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1abb15a0d82db8f66786393df61c322b6d" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_item</scope><name>toolTip</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1afc812b41ee388b79e981b32cbff82480" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>vaos</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ad4a9050142bce5fad07ea8ad750848a5" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>vaosSize</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a71180e87d5d5669756d35261387376af" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>visible</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1a1139cc1cca8d8b1e3088dafc81c70aa1" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>visible</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1addc8eb3f1cb5a42fa2ed623ae086815a" prot="protected" virt="non-virtual"><scope>CGAL::Three::Scene_item</scope><name>visible_</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__item_1ae5758c30d20e08280fa67089c0d97384" prot="public" virt="virtual"><scope>CGAL::Three::Scene_item</scope><name>~Scene_item</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

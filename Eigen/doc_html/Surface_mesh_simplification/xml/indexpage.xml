@@ -1,0 +1,608 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_Triangulated_Surface_Mesh_Simplification"/> </para><para><simplesect kind="authors"><para>Fernando Cacciola</para></simplesect>
+<image type="html" name="Illustration-Simplification-ALL.jpg"></image>
+ <image type="latex" name="Illustration-Simplification-ALL.jpg"></image>
+</para><sect1 id="index_1Surface_mesh_simplificationIntroduction">
+<title>Introduction</title>
+<para>Surface mesh simplification is the process of reducing the number of faces used in a surface mesh while keeping the overall shape, volume and boundaries preserved as much as possible. It is the opposite of subdivision.</para><para>The algorithm presented here can simplify any <emphasis>oriented 2-manifold surface</emphasis>, with any number of connected components, with or without boundaries (border or holes) and handles (arbitrary genus), using a method known as <emphasis>edge collapse</emphasis>. Roughly speaking, the method consists of iteratively replacing an edge with a single vertex, removing 2 triangles per collapse.</para><para>Edges are collapsed according to a priority given by a user-supplied <emphasis>cost</emphasis> function, and the coordinates of the replacing vertex are determined by another user-supplied <emphasis>placement</emphasis> function. The algorithm terminates when a user-supplied <emphasis>stop predicate</emphasis> is met, such as reaching the desired number of edges.</para><para>The algorithm implemented here is generic in the sense that it does not require the surface mesh to be of a particular type but to be a model of the <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> and <computeroutput><ref refid="classHalfedgeListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeListGraph</ref></computeroutput> concepts.</para><para>The design is <ulink url="http://en.wikipedia.org/wiki/Policy-based_design"><emphasis>policy-based</emphasis></ulink> (<ulink url="http://en.wikipedia.org/wiki/Policy-based_design"><computeroutput>http://en.wikipedia.org/wiki/Policy-based_design</computeroutput></ulink>), meaning that you can customize some aspects of the process by passing a set of <emphasis>policy objects</emphasis>. Each policy object specifies a particular aspect of the algorithm, such as how edges are selected and where the replacement vertex is placed. All policies have a sensible default. Furthermore, the API uses the so-called <computeroutput>named-parameters</computeroutput> technique which allows you to pass only the relevant parameters, in any order, omitting those parameters whose default is appropriate.</para></sect1>
+<sect1 id="index_1Surface_mesh_simplificationOverview">
+<title>Overview of the Simplification Process</title>
+<para>The free function that implements the simplification algorithm takes not only the surface mesh and the desired stop predicate but a number of additional parameters which control and monitor the simplification process. This section briefly describes the process in order to set the background for the discussion of the parameters to the algorithm.</para><para>There are two slightly different &quot;edge&quot; collapse operations. One is known as <emphasis>edge-collapse</emphasis> while the other is known as <emphasis>halfedge-collapse</emphasis>. Given an edge <computeroutput>e</computeroutput> joining vertices <computeroutput>w</computeroutput> and <computeroutput>v</computeroutput>, the edge-collapse operation replaces <computeroutput>e</computeroutput>,<computeroutput>w</computeroutput> and <computeroutput>v</computeroutput> for a new vertex <computeroutput>r</computeroutput>, while the halfedge-collapse operation pulls <computeroutput>v</computeroutput> into <computeroutput>w</computeroutput>, eliminating <computeroutput>e</computeroutput> and leaving <computeroutput>w</computeroutput> in place. In both cases the operation removes the edge <computeroutput>e</computeroutput> along with the 2 triangles adjacent to it.</para><para>This package uses the halfedge-collapse operation, which is implemented by removing, additionally, 1 vertex (<computeroutput>v</computeroutput>) and 2 edges, one per adjacent triangle. It optionally moves the remaining vertex (<computeroutput>w</computeroutput>) into a new position, called <emphasis>placement</emphasis>, in which case the net effect is the same as in the edge-collapse operation.</para><para>Naturally, the surface mesh that results from an edge collapse deviates from the initial surface mesh by some amount, and since the goal of simplification is to reduce the number of triangles while retaining the overall look of the surface mesh as much as possible, it is necessary to measure such a deviation. Some methods attempt to measure the total deviation from the initial surface mesh to the completely simplified surface mesh, for example, by tracking an accumulated error while keeping a history of the simplification changes. Other methods, like the one implemented in this package, attempt to measure only the <emphasis>cost</emphasis> of each individual edge collapse (the local deviation introduced by a single simplification step) and plan the entire process as a sequence of steps of increasing cost.</para><para>Global error tracking methods produce highly accurate simplifications but take up a lot of additional space. Cost-driven methods, like the one in this package, produce slightly less accurate simplifications but take up much less additional space, even none in some cases.</para><para>The cost-driven method implemented in this package is mainly based on <ref refid="citelist_1CITEREF_cgal:lt-fmeps-98" kindref="member">[4]</ref>, <ref refid="citelist_1CITEREF_cgal:lt-ems-99" kindref="member">[5]</ref>, with contributions from <ref refid="citelist_1CITEREF_hddms-mo-93" kindref="member">[3]</ref>, <ref refid="citelist_1CITEREF_gh-ssqem-97" kindref="member">[2]</ref> and <ref refid="citelist_1CITEREF_degn-tpec-98" kindref="member">[1]</ref>.</para><para>The algorithm proceeds in two stages. In the first stage, called <emphasis>collection stage</emphasis>, an initial <emphasis>collapse cost</emphasis> is assigned to each and every edge in the surface mesh. Then in the second stage, called <emphasis>collapsing stage</emphasis>, edges are processed in order of increasing cost. Some processed edges are collapsed while some are just discarded. Collapsed edges are replaced by a vertex and the collapse cost of all the edges now incident on the replacement vertex is recalculated, affecting the order of the remaining unprocessed edges.</para><para>Not all edges selected for processing are collapsed. A processed edge can be discarded right away, without being collapsed, if it does not satisfy certain topological and geometric conditions.</para><para>The algorithm presented in <ref refid="citelist_1CITEREF_gh-ssqem-97" kindref="member">[2]</ref> contracts (collapses) arbitrary vertex pairs and not only edges by considering certain vertex pairs as forming a pseudo-edge and proceeding to collapse both edges and pseudo-edges in the same way as in <ref refid="citelist_1CITEREF_cgal:lt-fmeps-98" kindref="member">[4]</ref>, <ref refid="citelist_1CITEREF_cgal:lt-ems-99" kindref="member">[5]</ref> ( which is the algorithm implemented here). However, contracting an arbitrary vertex-pair may result in a non-manifold surface mesh, but the current state of this package can only deal with manifold surface meshes, thus, it can only collapse edges. That is, this package cannot be used as a framework for vertex contraction.</para></sect1>
+<sect1 id="index_1Surface_mesh_simplificationCost">
+<title>Cost Strategy</title>
+<para>The specific way in which the collapse cost and vertex placement is calculated is called the <emphasis>cost strategy</emphasis>. The user can choose different strategies in the form of policies and related parameters, passed to the algorithm.</para><para>The current version of the package provides a set of policies implementing two strategies: the Lindstrom-Turk strategy, which is the default, and a strategy consisting of an edge-length cost with an optional midpoint placement (much faster but less accurate).</para><sect2 id="index_1SurfaceMeshSimplificationLindstromTurkStrategy">
+<title>Lindstrom-Turk Cost and Placement Strategy</title>
+<para>The main characteristic of the strategy presented in <ref refid="citelist_1CITEREF_cgal:lt-fmeps-98" kindref="member">[4]</ref>, <ref refid="citelist_1CITEREF_cgal:lt-ems-99" kindref="member">[5]</ref> is that the simplified surface mesh is not compared at each step with the original surface mesh (or the surface mesh at a previous step) so there is no need to keep extra information, such as the original surface mesh or a history of the local changes. Hence the name <emphasis>memoryless</emphasis> simplification.</para><para>At each step, all remaining edges are potential candidates for collapsing and the one with the lowest cost is selected.</para><para>The cost of collapsing an edge is given by the position chosen for the vertex that replaces it.</para><para>The replacement vertex position is computed as the solution to a system of 3 linearly-independent linear equality constraints. Each constraint is obtained by minimizing a quadratic objective function subject to the previously computed constraints.</para><para>There are several possible candidate constraints and each is considered in order of importance. A candidate constraint might be <emphasis>incompatible</emphasis> with the previously accepted constraints, in which case it is rejected and the next constraint is considered.</para><para>Once 3 constraints have been accepted, the system is solved for the vertex position.</para><para>The first constraints considered preserves the shape of the surface mesh boundaries (in case the edge profile has boundary edges). The next constraints preserve the total volume of the surface mesh. The next constraints, if needed, optimize the local changes in volume and boundary shape. Lastly, if a constraint is still needed (because the ones previously computed were incompatible), a third (and last) constraint is added to favor equilateral triangles over elongated triangles.</para><para>The cost is then a weighted sum of the shape, volume and boundary optimization terms, where the user specifies the unit <emphasis>weighting unit factor</emphasis> for each term.</para><para>The local changes are computed independently for each edge using only the triangles currently adjacent to it at the time when the edge is about to be collapsed, that is, after all previous collapses. Thus, the transitive path of minimal local changes yields at the end a global change reasonably close to the absolute minimum.</para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationCostStrategyPolicies">
+<title>Cost Strategy Policies</title>
+<para>The cost strategy used by the algorithm is selected by means of two policies: <computeroutput><ref refid="classGetPlacement" kindref="compound">GetPlacement</ref></computeroutput> and <computeroutput><ref refid="classGetCost" kindref="compound">GetCost</ref></computeroutput>.</para><para>The <computeroutput><ref refid="classGetPlacement" kindref="compound">GetPlacement</ref></computeroutput> policy is called to compute the new position for the remaining vertex after the halfedge-collapse. It returns an optional value, which can be absent, in which case the remaining vertex is kept in its place.</para><para>The <computeroutput><ref refid="classGetCost" kindref="compound">GetCost</ref></computeroutput> policy is called to compute the cost of collapsing an edge. This policy uses the placement to compute the cost (which is an error measure) and determines the ordering of the edges.</para><para>The algorithm maintains an internal data structure (a mutable priority queue) which allows each edge to be processed in increasing cost order. Such a data structure requires some per-edge additional information, such as the edge&apos;s cost. If the record of per-edge additional information occupies N bytes of storage, simplifying a surface mesh of 1 million edges (a normal size) requires 1 million times N bytes of additional storage. Thus, to minimize the amount of additional memory required to simplify a surface mesh only the cost is attached to each edge and nothing else.</para><para>But this is a trade-off: the cost of a collapse is a function of the placement (the new position chosen for the remaining vertex) so before <computeroutput><ref refid="classGetCost" kindref="compound">GetCost</ref></computeroutput> is called for each and every edge, <computeroutput><ref refid="classGetPlacement" kindref="compound">GetPlacement</ref></computeroutput> must also be called to obtain the placement parameter to the cost function. But that placement, which is a 3D Point, is not attached to each and every edge since that would easily <emphasis>triple</emphasis> the additional storage requirement.</para><para>On the one hand, this dramatically saves on memory but on the other hand is a processing waste because when an edge is effectively collapsed, <computeroutput><ref refid="classGetPlacement" kindref="compound">GetPlacement</ref></computeroutput> must be called <emphasis>again</emphasis> to know were to move the remaining vertex.</para><para>Earlier prototypes shown that attaching the placement to the edge, thus avoiding one redundant call to the placement function after the edge collapsed, has little impact on the total running time. This is because the cost of an each edge is not just computed once but changes several times during the process so the placement function must be called several times just as well. Caching the placement can only avoid the very last call, when the edge is collapsed, but not all the previous calls which are needed because the placement (and cost) changes.</para></sect2>
+</sect1>
+<sect1 id="index_1Surface_mesh_simplificationAPI">
+<title>API</title>
+<sect2 id="index_1Surface_mesh_simplificationAPIOverview">
+<title>API Overview</title>
+<para>Since the algorithm is free from robustness issues there is no need for exact predicates nor constructions and <computeroutput><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Simple_cartesian</ref>&lt;double&gt;</computeroutput> can be used safely. In the current version, 3.3, the LindstromTurk policies are not implemented for homogeneous coordinates, so a Cartesian kernel must be used.</para><para>The simplification algorithm is implemented as the free template function <computeroutput><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">Surface_mesh_simplification::edge_collapse()</ref></computeroutput>. The function has two mandatory and several optional parameters.</para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationMandatoryParameters">
+<title>Mandatory Parameters</title>
+<para>There are two main parameters to the algorithm: the surface mesh to be simplified (in-place) and the stop predicate.</para><para>The surface mesh to simplify must be a model of the <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> and <computeroutput><ref refid="classHalfedgeListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeListGraph</ref></computeroutput> concepts.</para><para>The stop predicate is called after each edge is selected for processing, <emphasis>before</emphasis> it is classified as collapsible or not (thus before it is collapsed). If the stop predicate returns <computeroutput>true</computeroutput> the algorithm terminates.</para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationOptionalNamed">
+<title>Optional Named Parameters</title>
+<para>The notion of <emphasis>named parameters</emphasis> was also introduced in the Bgl. You can read about it in <ref refid="citelist_1CITEREF_cgal:sll-bgl-02" kindref="member">[6]</ref> or the following site: <ulink url="http://www.boost.org/libs/graph/doc/bgl_named_params.html"><computeroutput>http://www.boost.org/libs/graph/doc/bgl_named_params.html</computeroutput></ulink>. Named parameters allow the user to specify only those parameters which are really needed, by name, making the parameter ordering unimportant.</para><para>Say there is a function <computeroutput>f()</computeroutput> that takes 3 parameters called <computeroutput>name</computeroutput>, <computeroutput>age</computeroutput> and <computeroutput>gender</computeroutput>, and you have variables <computeroutput>n,a and g</computeroutput> to pass as parameters to that function. Without named parameters, you would call it like this: <computeroutput>f(n,a,g)</computeroutput>, but with named parameters, you call it like this: <computeroutput>f(name(n).age(a).gender(g))</computeroutput>.</para><para>That is, you give each parameter a name by wrapping it into a function whose name matches that of the parameter. The entire list of named parameters is really a composition of function calls separated by a dot ( <formula id="0">$ .$</formula>). Thus, if the function takes a mix of mandatory and named parameters, you use a comma to separate the last non-named parameter from the first named parameters, like this:</para><para><computeroutput>f(non_named_par0, non_named_pa1, name(n).age(a).gender(g))</computeroutput></para><para>When you use named parameters, the ordering is irrelevant, so this: <computeroutput>f(name(n).age(a).gender(g))</computeroutput> is equivalent to this: <computeroutput>f(age(a).gender(g).name(n))</computeroutput>, and you can just omit any named parameter that has a default value.</para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationSampleCall">
+<title>Sample Call</title>
+<para><programlisting><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment">surface_mesh<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>the<sp/>surface_mesh<sp/>to<sp/>simplify</highlight></codeline>
+<codeline><highlight class="comment">stop_predicate<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>policy<sp/>indicating<sp/>when<sp/>the<sp/>simplification<sp/>must<sp/>finish<sp/></highlight></codeline>
+<codeline><highlight class="comment">vertex_index_map(vimap)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>property-map<sp/>giving<sp/>each<sp/>vertex<sp/>a<sp/>unique<sp/>integer<sp/>index<sp/></highlight></codeline>
+<codeline><highlight class="comment">edge_index_map(eimap)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>property-map<sp/>giving<sp/>each<sp/>edge<sp/>a<sp/>unique<sp/>integer<sp/>index<sp/></highlight></codeline>
+<codeline><highlight class="comment">edge_is_constrained_map(ebmap):<sp/>property-map<sp/>specifying<sp/>whether<sp/>an<sp/>edge<sp/>is<sp/>a<sp/>constrained<sp/>edge<sp/>or<sp/>not<sp/></highlight></codeline>
+<codeline><highlight class="comment">get_cost(cf)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>function<sp/>object<sp/>computing<sp/>the<sp/>cost<sp/>of<sp/>a<sp/>collapse<sp/></highlight></codeline>
+<codeline><highlight class="comment">get_placement(pf)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>function<sp/>object<sp/>computing<sp/>the<sp/>placement<sp/>for<sp/>the<sp/>remaining<sp/>vertex<sp/></highlight></codeline>
+<codeline><highlight class="comment">visitor(vis)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>function<sp/>object<sp/>tracking<sp/>the<sp/>simplification<sp/>process<sp/></highlight></codeline>
+<codeline><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">edge_collapse</ref>(surface_mesh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,stop_predicate</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,vertex_index_map(vimap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.edge_index_map(eimap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.edge_is_border_map(ebmap)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_cost(cf)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_placement(pf)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.visitor(vis)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationExamples">
+<title>Examples</title>
+</sect2>
+<sect2 id="index_1Surface_mesh_simplificationExampleUsinga">
+<title>Example Using a Default Polyhedron</title>
+<para>The following example illustrates the simplest of the cases. It uses an ordinary polyhedron and only one of the optional parameters. The unspecified cost strategy defaults to Lindstrom-Turk. <linebreak/>
+<bold>File</bold> <ref refid="Surface_mesh_simplification_2edge_collapse_polyhedron_8cpp-example" kindref="compound">Surface_mesh_simplification/edge_collapse_polyhedron.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polyhedron_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplification<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Stop-condition<sp/>policy</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Count_stop_predicate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Edge_length_cost.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Midpoint_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;double&gt;</ref><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">CGAL::Polyhedron_3&lt;Kernel&gt;</ref><sp/>Surface_mesh;<sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">SMS<sp/>=<sp/><ref refid="namespaceCGAL_1_1Surface__mesh__simplification" kindref="compound">CGAL::Surface_mesh_simplification</ref><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv<sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh<sp/>surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>is(argv[1])<sp/>;<sp/>is<sp/>&gt;&gt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="group__PkgBGLHelperFct_1ga11883d231eec1b58f37efe4acedd9588" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">CGAL::is_triangle_mesh</ref>(surface_mesh)){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>geometry<sp/>is<sp/>not<sp/>triangulated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>a<sp/>stop<sp/>predicate<sp/>(defines<sp/>when<sp/>the<sp/>algorithm<sp/>terminates).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>example,<sp/>the<sp/>simplification<sp/>stops<sp/>when<sp/>the<sp/>number<sp/>of<sp/>undirected<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>left<sp/>in<sp/>the<sp/>surface<sp/>mesh<sp/>drops<sp/>below<sp/>the<sp/>specified<sp/>number<sp/>(1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SMS::Count_stop_predicate&lt;Surface_mesh&gt;<sp/>stop(1000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>the<sp/>actual<sp/>call<sp/>to<sp/>the<sp/>simplification<sp/>algorithm.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>surface<sp/>mesh<sp/>and<sp/>stop<sp/>conditions<sp/>are<sp/>mandatory<sp/>arguments.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>index<sp/>maps<sp/>are<sp/>needed<sp/>because<sp/>the<sp/>vertices<sp/>and<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>this<sp/>surface<sp/>mesh<sp/>lack<sp/>an<sp/>&quot;id()&quot;<sp/>field.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">SMS::edge_collapse</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(surface_mesh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,stop</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,CGAL::parameters::vertex_index_map(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::vertex_external_index,surface_mesh))<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.halfedge_index_map<sp/><sp/>(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::halfedge_external_index<sp/><sp/>,surface_mesh))<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_cost<sp/>(SMS::Edge_length_cost<sp/>&lt;Surface_mesh&gt;())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_placement(SMS::Midpoint_placement&lt;Surface_mesh&gt;())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nFinished...\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>r<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>edges<sp/>removed.\n&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>(surface_mesh.size_of_halfedges()/2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>final<sp/>edges.\n&quot;</highlight><highlight class="normal"><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ofstream<sp/>os(<sp/>argc<sp/>&gt;<sp/>2<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;out.off&quot;</highlight><highlight class="normal"><sp/>)<sp/>;<sp/>os<sp/>&lt;&lt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS<sp/>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationExampleUsingan">
+<title>Example Using an Enriched Polyhedron</title>
+<para>The following example is equivalent to the previous example but using an enriched polyhedron whose halfedges support an <computeroutput>id</computeroutput> field to store the edge index needed by the algorithm. It also shows how to explicitly specify a cost strategy (other than the default) and how to use a visitor object to track the simplification process.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Surface_mesh_simplification_2edge_collapse_enriched_polyhedron_8cpp-example" kindref="compound">Surface_mesh_simplification/edge_collapse_enriched_polyhedron.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polyhedron_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplification<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Visitor<sp/>base</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Edge_collapse_visitor_base.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Extended<sp/>polyhedron<sp/>items<sp/>which<sp/>include<sp/>an<sp/>id()<sp/>field</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polyhedron_items_with_id_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Stop-condition<sp/>policy</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Count_ratio_stop_predicate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Non-default<sp/>cost<sp/>and<sp/>placement<sp/>policies</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Midpoint_and_length.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;double&gt;</ref><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classKernel_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Point_3</ref><sp/>Point<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Setup<sp/>an<sp/>enriched<sp/>polyhedron<sp/>type<sp/>which<sp/>stores<sp/>an<sp/>id()<sp/>field<sp/>in<sp/>the<sp/>items</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">CGAL::Polyhedron_3&lt;Kernel,CGAL::Polyhedron_items_with_id_3&gt;</ref><sp/>Surface_mesh;<sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Surface_mesh::Halfedge_handle<sp/>Halfedge_handle<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Surface_mesh::Vertex_handle<sp/><sp/><sp/>Vertex_handle<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">SMS<sp/>=<sp/><ref refid="namespaceCGAL_1_1Surface__mesh__simplification" kindref="compound">CGAL::Surface_mesh_simplification</ref><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>SMS::Edge_profile&lt;Surface_mesh&gt;<sp/>Profile<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>following<sp/>is<sp/>a<sp/>Visitor<sp/>that<sp/>keeps<sp/>track<sp/>of<sp/>the<sp/>simplification<sp/>process.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>example<sp/>the<sp/>progress<sp/>is<sp/>printed<sp/>real-time<sp/>and<sp/>a<sp/>few<sp/>statistics<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>recorded<sp/>(and<sp/>printed<sp/>in<sp/>the<sp/>end).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Stats</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Stats()<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>collected(0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>processed(0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>collapsed(0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>non_collapsable(0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>cost_uncomputable(0)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>placement_uncomputable(0)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>collected<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>processed<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>collapsed<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>non_collapsable<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>cost_uncomputable<sp/><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>placement_uncomputable<sp/>;<sp/></highlight></codeline>
+<codeline><highlight class="normal">}<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">My_visitor<sp/>:<sp/>SMS::Edge_collapse_visitor_base&lt;Surface_mesh&gt;</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>My_visitor(<sp/>Stats*<sp/>s)<sp/>:<sp/>stats(s){}<sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Called<sp/>during<sp/>the<sp/>collecting<sp/>phase<sp/>for<sp/>each<sp/>edge<sp/>collected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCollected(<sp/>Profile<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;,<sp/>boost::optional&lt;double&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;collected<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\rEdges<sp/>collected:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>stats-&gt;collected<sp/>&lt;&lt;<sp/>std::flush<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Called<sp/>during<sp/>the<sp/>processing<sp/>phase<sp/>for<sp/>each<sp/>edge<sp/>selected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>cost<sp/>is<sp/>absent<sp/>the<sp/>edge<sp/>won&apos;t<sp/>be<sp/>collapsed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnSelected(Profile<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,boost::optional&lt;double&gt;<sp/>cost</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,std::size_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>initial</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,std::size_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;processed<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!cost<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;cost_uncomputable<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>current<sp/>==<sp/>initial<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::flush<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\r&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>current<sp/>&lt;&lt;<sp/>std::flush<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Called<sp/>during<sp/>the<sp/>processing<sp/>phase<sp/>for<sp/>each<sp/>edge<sp/>being<sp/>collapsed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>placement<sp/>is<sp/>absent<sp/>the<sp/>edge<sp/>is<sp/>left<sp/>uncollapsed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCollapsing(Profile<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,boost::optional&lt;Point&gt;<sp/><sp/>placement</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!placement<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;placement_uncomputable<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Called<sp/>for<sp/>each<sp/>edge<sp/>which<sp/>failed<sp/>the<sp/>so<sp/>called<sp/>link-condition,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>that<sp/>is,<sp/>which<sp/>cannot<sp/>be<sp/>collapsed<sp/>because<sp/>doing<sp/>so<sp/>would</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>turn<sp/>the<sp/>surface<sp/>mesh<sp/>into<sp/>a<sp/>non-manifold.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnNonCollapsable(<sp/>Profile<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;non_collapsable;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Called<sp/>AFTER<sp/>each<sp/>edge<sp/>has<sp/>been<sp/>collapsed</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCollapsed(<sp/>Profile<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;,<sp/>Vertex_handle<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>++<sp/>stats-&gt;collapsed;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Stats*<sp/>stats<sp/>;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv<sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh<sp/>surface_mesh;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>is(argv[1])<sp/>;<sp/>is<sp/>&gt;&gt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="group__PkgBGLHelperFct_1ga11883d231eec1b58f37efe4acedd9588" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">CGAL::is_triangle_mesh</ref>(surface_mesh)){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>geometry<sp/>is<sp/>not<sp/>triangulated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>items<sp/>in<sp/>this<sp/>polyhedron<sp/>have<sp/>an<sp/>&quot;id()&quot;<sp/>field<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>the<sp/>default<sp/>index<sp/>maps<sp/>used<sp/>in<sp/>the<sp/>algorithm</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>need<sp/>to<sp/>get<sp/>the<sp/>index<sp/>of<sp/>a<sp/>vertex/edge.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>However,<sp/>the<sp/>Polyhedron_3<sp/>class<sp/>doesn&apos;t<sp/>assign<sp/>any<sp/>value<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>id(),<sp/>so<sp/>we<sp/>must<sp/>do<sp/>it<sp/>here:</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>Surface_mesh::Halfedge_iterator<sp/>eb<sp/>=<sp/>surface_mesh.halfedges_begin()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>,<sp/>ee<sp/>=<sp/>surface_mesh.halfedges_end()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>;<sp/>eb<sp/>!=<sp/>ee</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>;<sp/>++<sp/>eb</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>eb-&gt;id()<sp/>=<sp/>index++;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>index<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>Surface_mesh::Vertex_iterator<sp/>vb<sp/>=<sp/>surface_mesh.vertices_begin()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>,<sp/>ve<sp/>=<sp/>surface_mesh.vertices_end()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>;<sp/>vb<sp/>!=<sp/>ve</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>;<sp/>++<sp/>vb</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>vb-&gt;id()<sp/>=<sp/>index++;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>example,<sp/>the<sp/>simplification<sp/>stops<sp/>when<sp/>the<sp/>number<sp/>of<sp/>undirected<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>drops<sp/>below<sp/>10%<sp/>of<sp/>the<sp/>initial<sp/>count</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SMS::Count_ratio_stop_predicate&lt;Surface_mesh&gt;<sp/>stop(0.1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Stats<sp/>stats<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>My_visitor<sp/>vis(&amp;stats)<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>index<sp/>maps<sp/>are<sp/>not<sp/>explicitelty<sp/>passed<sp/>as<sp/>in<sp/>the<sp/>previous</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>example<sp/>because<sp/>the<sp/>surface<sp/>mesh<sp/>items<sp/>have<sp/>a<sp/>proper<sp/>id()<sp/>field.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>On<sp/>the<sp/>other<sp/>hand,<sp/>we<sp/>pass<sp/>here<sp/>explicit<sp/>cost<sp/>and<sp/>placement</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>which<sp/>differ<sp/>from<sp/>the<sp/>default<sp/>policies,<sp/>ommited<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>previous<sp/>example.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">SMS::edge_collapse</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(surface_mesh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,stop</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,CGAL::parameters::get_cost<sp/><sp/><sp/><sp/><sp/>(SMS::Edge_length_cost<sp/><sp/>&lt;Surface_mesh&gt;())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_placement(SMS::Midpoint_placement&lt;Surface_mesh&gt;())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.visitor<sp/><sp/><sp/><sp/><sp/><sp/>(vis)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdges<sp/>collected:<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>stats.collected</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdges<sp/>proccessed:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>stats.processed</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdges<sp/>collapsed:<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>stats.collapsed</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdges<sp/>not<sp/>collapsed<sp/>due<sp/>to<sp/>topological<sp/>constraints:<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>stats.non_collapsable</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdge<sp/>not<sp/>collapsed<sp/>due<sp/>to<sp/>cost<sp/>computation<sp/>constraints:<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>stats.cost_uncomputable<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nEdge<sp/>not<sp/>collapsed<sp/>due<sp/>to<sp/>placement<sp/>computation<sp/>constraints:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>stats.placement_uncomputable<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl<sp/>;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nFinished...\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>r<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>edges<sp/>removed.\n&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>(surface_mesh.size_of_halfedges()/2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>final<sp/>edges.\n&quot;</highlight><highlight class="normal"><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ofstream<sp/>os(<sp/>argc<sp/>&gt;<sp/>2<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;out.off&quot;</highlight><highlight class="normal"><sp/>)<sp/>;<sp/>os<sp/>&lt;&lt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS<sp/>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationExampleOpenMesh">
+<title>Example for Simplification of OpenMesh</title>
+<para>The following example shows how the mesh simplification package can be applied on a mesh data structure which is not part of CGAL, but a model of <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput>.</para><para>What is particular in this example is the property map that allows to associate 3D CGAL points to the vertices.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Surface_mesh_simplification_2edge_collapse_OpenMesh_8cpp-example" kindref="compound">Surface_mesh_simplification/edge_collapse_OpenMesh.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OpenMesh/Core/IO/MeshIO.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OpenMesh/Core/Mesh/PolyMesh_ArrayKernelT.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/boost/graph/graph_traits_PolyMesh_ArrayKernelT.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplification<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Count_stop_predicate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Edge_length_cost.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Midpoint_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>OpenMesh::PolyMesh_ArrayKernelT&lt;</highlight><highlight class="comment">/*<sp/>MyTraits*/</highlight><highlight class="normal">&gt;<sp/>Surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::graph_traits&lt;Surface_mesh&gt;::edge_descriptor<sp/>edge_descriptor;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::graph_traits&lt;Surface_mesh&gt;::edge_iterator<sp/>edge_iterator;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Constrained_edge_map</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::read_write_property_map_tag<sp/><sp/><sp/><sp/>category;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value_type;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reference;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>edge_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>key_type;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Constrained_edge_map(Surface_mesh&amp;<sp/>sm)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>sm_(sm)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sm_.add_property(constraint);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>reference<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Constrained_edge_map&amp;<sp/>em,<sp/>key_type<sp/>e)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>b<sp/>=<sp/>em.sm_.property(em.constraint,em.sm_.edge_handle(e.idx()));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>put(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Constrained_edge_map&amp;<sp/>em,<sp/>key_type<sp/>e,<sp/>value_type<sp/>b)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>em.sm_.property(em.constraint,em.sm_.edge_handle(e.idx()))<sp/>=<sp/>b;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh&amp;<sp/>sm_;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>OpenMesh::EPropHandleT&lt;bool&gt;<sp/>constraint;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">SMS<sp/>=<sp/><ref refid="namespaceCGAL_1_1Surface__mesh__simplification" kindref="compound">CGAL::Surface_mesh_simplification</ref><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv<sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh<sp/>surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Constrained_edge_map<sp/>constraints_map(surface_mesh);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc==2)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>OpenMesh::IO::read_mesh(surface_mesh,<sp/>argv[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>OpenMesh::IO::read_mesh(surface_mesh,<sp/></highlight><highlight class="stringliteral">&quot;cube.off&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="group__PkgBGLHelperFct_1ga11883d231eec1b58f37efe4acedd9588" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">CGAL::is_triangle_mesh</ref>(surface_mesh)){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>geometry<sp/>is<sp/>not<sp/>triangulated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>the<sp/>pupose<sp/>of<sp/>the<sp/>example<sp/>we<sp/>mark<sp/>10<sp/>edges<sp/>as<sp/>constrained<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>edge_iterator<sp/>b,e;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count=0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(boost::tie(b,e)<sp/>=<sp/>edges(surface_mesh);<sp/>b!=<sp/>e;<sp/>++b){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>put(constraints_map,*b,(count++<sp/>&lt;100));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>a<sp/>stop<sp/>predicate<sp/>(defines<sp/>when<sp/>the<sp/>algorithm<sp/>terminates).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>example,<sp/>the<sp/>simplification<sp/>stops<sp/>when<sp/>the<sp/>number<sp/>of<sp/>undirected<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>left<sp/>in<sp/>the<sp/>surface<sp/>mesh<sp/>drops<sp/>below<sp/>the<sp/>specified<sp/>number<sp/>(1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SMS::Count_stop_predicate&lt;Surface_mesh&gt;<sp/>stop(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>the<sp/>actual<sp/>call<sp/>to<sp/>the<sp/>simplification<sp/>algorithm.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>surface<sp/>mesh<sp/>and<sp/>stop<sp/>conditions<sp/>are<sp/>mandatory<sp/>arguments.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">SMS::edge_collapse</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(surface_mesh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,stop</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,CGAL::parameters::halfedge_index_map<sp/><sp/>(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::halfedge_index<sp/><sp/>,surface_mesh))<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.vertex_point_map(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(boost::vertex_point,<sp/>surface_mesh))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.edge_is_constrained_map(constraints_map)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>surface_mesh.garbage_collection();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nFinished...\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>r<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>edges<sp/>removed.\n&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>num_edges(surface_mesh)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>final<sp/>edges.\n&quot;</highlight><highlight class="normal"><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>OpenMesh::IO::write_mesh(surface_mesh,<sp/></highlight><highlight class="stringliteral">&quot;out.off&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationExamplewithedges">
+<title>Example with Edges Marked as Non-Removable</title>
+<para>The following example shows how to use the optional named parameter <computeroutput>edge_is_constrained_map</computeroutput> to prevent edges from being removed. Edges marked as constrained are guaranteed to be in the final surface mesh. However, the vertices of the constrained edges may change and the placement may change the points. The wrapper <computeroutput><ref refid="classCGAL_1_1Surface__mesh__simplification_1_1Constrained__placement" kindref="compound">CGAL::Surface_mesh_simplification::Constrained_placement</ref></computeroutput> guarantees that these points are not changed.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Surface_mesh_simplification_2edge_collapse_constrained_border_polyhedron_8cpp-example" kindref="compound">Surface_mesh_simplification/edge_collapse_constrained_border_polyhedron.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polyhedron_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplification<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Midpoint<sp/>placement<sp/>policy</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Midpoint_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//Placement<sp/>wrapper</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Constrained_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Stop-condition<sp/>policy</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Count_stop_predicate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;double&gt;</ref><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classKernel_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Point_3</ref><sp/>Point_3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">CGAL::Polyhedron_3&lt;Kernel&gt;</ref><sp/>Surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">SMS<sp/>=<sp/><ref refid="namespaceCGAL_1_1Surface__mesh__simplification" kindref="compound">CGAL::Surface_mesh_simplification</ref><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>BGL<sp/>property<sp/>map<sp/>which<sp/>indicates<sp/>whether<sp/>an<sp/>edge<sp/>is<sp/>marked<sp/>as<sp/>non-removable</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Border_is_constrained_edge_map{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Surface_mesh*<sp/>sm_ptr;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::graph_traits&lt;Surface_mesh&gt;::edge_descriptor<sp/>key_type;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value_type;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>value_type<sp/>reference;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::readable_property_map_tag<sp/>category;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Border_is_constrained_edge_map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Surface_mesh&amp;<sp/>sm)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>sm_ptr(&amp;sm)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(Border_is_constrained_edge_map<sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>key_type&amp;<sp/>edge)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__PkgBGLHelperFct_1gad93e429ad24efeaddeb836c437e719ab" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">CGAL::is_border</ref>(edge,<sp/>*m.sm_ptr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Placement<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>SMS::Constrained_placement&lt;SMS::Midpoint_placement&lt;Surface_mesh&gt;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Border_is_constrained_edge_map<sp/>&gt;<sp/>Placement;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh<sp/>surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc!=2){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Usage:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>argv[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>input.off\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>is(argv[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!is){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Filename<sp/>provided<sp/>is<sp/>invalid\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>is<sp/>&gt;&gt;<sp/>surface_mesh<sp/><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="group__PkgBGLHelperFct_1ga11883d231eec1b58f37efe4acedd9588" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">CGAL::is_triangle_mesh</ref>(surface_mesh)){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>geometry<sp/>is<sp/>not<sp/>triangulated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>map<sp/>used<sp/>to<sp/>check<sp/>that<sp/>constrained_edges<sp/>and<sp/>the<sp/>points<sp/>of<sp/>its<sp/>vertices</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>are<sp/>preserved<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>simplification</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::map&lt;Surface_mesh::Halfedge_handle,std::pair&lt;Point_3,<sp/>Point_3&gt;<sp/>&gt;constrained_edges;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>nb_border_edges=0;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Surface_mesh::Halfedge_iterator<sp/>hit=surface_mesh.halfedges_begin(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit_end=surface_mesh.halfedges_end();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit!=hit_end;<sp/>++hit<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>hit-&gt;is_border()<sp/>){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constrained_edges[hit]=std::make_pair(<sp/>hit-&gt;opposite()-&gt;vertex()-&gt;point(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit-&gt;vertex()-&gt;point()<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++nb_border_edges;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Contract<sp/>the<sp/>surface<sp/>mesh<sp/>as<sp/>much<sp/>as<sp/>possible</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SMS::Count_stop_predicate&lt;Surface_mesh&gt;<sp/>stop(0);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Border_is_constrained_edge_map<sp/>bem(surface_mesh);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>the<sp/>actual<sp/>call<sp/>to<sp/>the<sp/>simplification<sp/>algorithm.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>surface<sp/>mesh<sp/>and<sp/>stop<sp/>conditions<sp/>are<sp/>mandatory<sp/>arguments.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>index<sp/>maps<sp/>are<sp/>needed<sp/>because<sp/>the<sp/>vertices<sp/>and<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>this<sp/>surface<sp/>mesh<sp/>lack<sp/>an<sp/>&quot;id()&quot;<sp/>field.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r<sp/>=<sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">SMS::edge_collapse</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(surface_mesh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,stop</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,CGAL::parameters::vertex_index_map(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::vertex_external_index,surface_mesh))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.halfedge_index_map<sp/><sp/>(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::halfedge_external_index<sp/><sp/>,surface_mesh))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.edge_is_constrained_map(bem)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_placement(Placement(bem))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nFinished...\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>r<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>edges<sp/>removed.\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>(surface_mesh.size_of_halfedges()/2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>final<sp/>edges.\n&quot;</highlight><highlight class="normal"><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ofstream<sp/>os(<sp/>argc<sp/>&gt;<sp/>2<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;out.off&quot;</highlight><highlight class="normal"><sp/>)<sp/>;<sp/>os<sp/>&lt;&lt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>now<sp/>check!</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Surface_mesh::Halfedge_iterator<sp/>hit=surface_mesh.halfedges_begin(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit_end=surface_mesh.halfedges_end();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit!=hit_end;<sp/>++hit<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hit-&gt;is_border()){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>--nb_border_edges;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>assert(<sp/>constrained_edges[hit]<sp/>==</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_pair(<sp/>hit-&gt;opposite()-&gt;vertex()-&gt;point(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hit-&gt;vertex()-&gt;point()<sp/>)<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>assert(<sp/>nb_border_edges==0<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS<sp/>;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Surface_mesh_simplificationExamplewithBoundedNormal">
+<title>Example with Bounded Change of Face Normals</title>
+<para>The surface mesh simplification does not guarantee that the resulting surface has no self intersections. Even the rather trivial mesh shown in <ref refid="index_1fig__SMS-selfintersection" kindref="member">fig__SMS-selfintersection</ref> results in a self intersection when one edge is collapsed using the Lindstrom-Turk method.</para><para><anchor id="index_1fig__SMS-selfintersection"/><image type="html" name="SMS-selfintersection.png"></image>
+ <image type="latex" name="SMS-selfintersection.png" width="15cm"></image>
+  <ref refid="index_1fig__SMS-selfintersection" kindref="member">fig__SMS-selfintersection</ref> Simple mesh before and after the collapse of edge <computeroutput>v-w</computeroutput> into vertex <computeroutput>w</computeroutput>. While the normals of <computeroutput>f1</computeroutput> and <computeroutput>f2</computeroutput> are almost equal, they are opposed after the edge collapse.  <linebreak/>
+</para><para>The class <computeroutput><ref refid="classCGAL_1_1Surface__mesh__simplification_1_1Bounded__normal__change__placement" kindref="compound">Surface_mesh_simplification::Bounded_normal_change_placement</ref></computeroutput> is a placement that checks if another placement would invert the normal of a face around the stars of the two vertices of an edge that is candidate for an edge collapse. It then rejects this placement by returning <computeroutput>boost::none</computeroutput>.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Surface_mesh_simplification_2edge_collapse_bounded_normal_change_8cpp-example" kindref="compound">Surface_mesh_simplification/edge_collapse_bounded_normal_change.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polyhedron_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplification<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Stop-condition<sp/>policy</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Count_stop_predicate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/LindstromTurk_cost.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/LindstromTurk_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh_simplification/Policies/Edge_collapse/Bounded_normal_change_placement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;double&gt;</ref><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">CGAL::Polyhedron_3&lt;Kernel&gt;</ref><sp/>Surface_mesh;<sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">SMS<sp/>=<sp/><ref refid="namespaceCGAL_1_1Surface__mesh__simplification" kindref="compound">CGAL::Surface_mesh_simplification</ref><sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv<sp/>)<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Surface_mesh<sp/>surface_mesh;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>is(argc<sp/>&gt;<sp/>1<sp/>?<sp/>argv[1]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/fold.off&quot;</highlight><highlight class="normal">)<sp/>;<sp/>is<sp/>&gt;&gt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>a<sp/>stop<sp/>predicate<sp/>(defines<sp/>when<sp/>the<sp/>algorithm<sp/>terminates).</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>example,<sp/>the<sp/>simplification<sp/>stops<sp/>when<sp/>the<sp/>number<sp/>of<sp/>undirected<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>left<sp/>in<sp/>the<sp/>surface<sp/>mesh<sp/>drops<sp/>below<sp/>the<sp/>specified<sp/>number<sp/>(1000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SMS::Count_stop_predicate&lt;Surface_mesh&gt;<sp/>stop(num_halfedges(surface_mesh)/2<sp/>-<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>SMS::Bounded_normal_change_placement&lt;SMS::LindstromTurk_placement&lt;Surface_mesh&gt;<sp/>&gt;<sp/>Placement;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>the<sp/>actual<sp/>call<sp/>to<sp/>the<sp/>simplification<sp/>algorithm.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>surface<sp/>mesh<sp/>and<sp/>stop<sp/>conditions<sp/>are<sp/>mandatory<sp/>arguments.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>index<sp/>maps<sp/>are<sp/>needed<sp/>because<sp/>the<sp/>vertices<sp/>and<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>this<sp/>surface<sp/>mesh<sp/>lack<sp/>an<sp/>&quot;id()&quot;<sp/>field.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">SMS::edge_collapse</ref>(<sp/>surface_mesh,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stop,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::vertex_index_map(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::vertex_external_index,surface_mesh))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.halfedge_index_map<sp/><sp/>(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(CGAL::halfedge_external_index<sp/><sp/>,surface_mesh))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_cost<sp/>(SMS::LindstromTurk_cost&lt;Surface_mesh&gt;())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.get_placement(Placement())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ofstream<sp/>os(<sp/>argc<sp/>&gt;<sp/>2<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;out.off&quot;</highlight><highlight class="normal"><sp/>)<sp/>;<sp/>os<sp/>&lt;&lt;<sp/>surface_mesh<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0<sp/>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para></sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/BGL/group__PkgBGLHelperFct.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - CGAL and the Boost Graph Library: Helper Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - CGAL and the Boost Graph Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgBGLHelperFct.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Helper Functions<div class="ingroups"><a class="el" href="group__PkgBGL.html">CGAL and the Boost Graph Library Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>Generic convenience functions for testing if an edge is a border edge, if a mesh is triangular, for conversion between models of different <code><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></code> concepts, etc. </p>
+<p>Most functions are in the header file <code>&lt;CGAL/boost/graph/helpers.h&gt;</code> </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gad93e429ad24efeaddeb836c437e719ab"><td class="memTemplParams" colspan="2"><a id="gad93e429ad24efeaddeb836c437e719ab"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gad93e429ad24efeaddeb836c437e719ab"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gad93e429ad24efeaddeb836c437e719ab">CGAL::is_border</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gad93e429ad24efeaddeb836c437e719ab"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if the halfedge <code>hd</code> is on a border. <br /></td></tr>
+<tr class="separator:gad93e429ad24efeaddeb836c437e719ab"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga63695419c5ce7f68949ff2fb4f42d733"><td class="memTemplParams" colspan="2"><a id="ga63695419c5ce7f68949ff2fb4f42d733"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga63695419c5ce7f68949ff2fb4f42d733"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga63695419c5ce7f68949ff2fb4f42d733">CGAL::is_border_edge</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga63695419c5ce7f68949ff2fb4f42d733"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if the halfedge <code>hd</code> or the opposite halfedge is on a border. <br /></td></tr>
+<tr class="separator:ga63695419c5ce7f68949ff2fb4f42d733"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga2888ba1a3d27fda8f16d03e9ab4738df"><td class="memTemplParams" colspan="2"><a id="ga2888ba1a3d27fda8f16d03e9ab4738df"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga2888ba1a3d27fda8f16d03e9ab4738df"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga2888ba1a3d27fda8f16d03e9ab4738df">CGAL::is_border</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::edge_descriptor ed, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga2888ba1a3d27fda8f16d03e9ab4738df"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if the edge <code>e</code> is on a border. <br /></td></tr>
+<tr class="separator:ga2888ba1a3d27fda8f16d03e9ab4738df"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga268bad0cb16c1b330f00f1f2137e6a17"><td class="memTemplParams" colspan="2"><a id="ga268bad0cb16c1b330f00f1f2137e6a17"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga268bad0cb16c1b330f00f1f2137e6a17"><td class="memTemplItemLeft" align="right" valign="top">boost::optional&lt; typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga268bad0cb16c1b330f00f1f2137e6a17">CGAL::is_border</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::vertex_descriptor vd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga268bad0cb16c1b330f00f1f2137e6a17"><td class="mdescLeft"> </td><td class="mdescRight">returns a halfedge which is on a border and whose target vertex is <code>vd</code>, if such a halfedge exists. <br /></td></tr>
+<tr class="separator:ga268bad0cb16c1b330f00f1f2137e6a17"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gae04c8044cf1eee6a84baa5b79ab99fef"><td class="memTemplParams" colspan="2"><a id="gae04c8044cf1eee6a84baa5b79ab99fef"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gae04c8044cf1eee6a84baa5b79ab99fef"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gae04c8044cf1eee6a84baa5b79ab99fef">CGAL::is_closed</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gae04c8044cf1eee6a84baa5b79ab99fef"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if there are no border edges. <br /></td></tr>
+<tr class="separator:gae04c8044cf1eee6a84baa5b79ab99fef"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gadcd0f7717f833115030b951974837b6c"><td class="memTemplParams" colspan="2"><a id="gadcd0f7717f833115030b951974837b6c"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gadcd0f7717f833115030b951974837b6c"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gadcd0f7717f833115030b951974837b6c">CGAL::is_bivalent</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gadcd0f7717f833115030b951974837b6c"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if the target of <code>hd</code> has exactly two incident edges. <br /></td></tr>
+<tr class="separator:gadcd0f7717f833115030b951974837b6c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga7216689879e9ee4d0143054f2bbaf09c"><td class="memTemplParams" colspan="2"><a id="ga7216689879e9ee4d0143054f2bbaf09c"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga7216689879e9ee4d0143054f2bbaf09c"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga7216689879e9ee4d0143054f2bbaf09c">CGAL::is_bivalent_mesh</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga7216689879e9ee4d0143054f2bbaf09c"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if all vertices have exactly two incident edges. <br /></td></tr>
+<tr class="separator:ga7216689879e9ee4d0143054f2bbaf09c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6c1acedeffc27f41b2959b517f843ae4"><td class="memTemplParams" colspan="2"><a id="ga6c1acedeffc27f41b2959b517f843ae4"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga6c1acedeffc27f41b2959b517f843ae4"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga6c1acedeffc27f41b2959b517f843ae4">CGAL::is_trivalent</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga6c1acedeffc27f41b2959b517f843ae4"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if the target of <code>hd</code> has exactly three incident edges. <br /></td></tr>
+<tr class="separator:ga6c1acedeffc27f41b2959b517f843ae4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga1472e0db19a5232f6ce14287c30eb521"><td class="memTemplParams" colspan="2"><a id="ga1472e0db19a5232f6ce14287c30eb521"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga1472e0db19a5232f6ce14287c30eb521"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga1472e0db19a5232f6ce14287c30eb521">CGAL::is_trivalent_mesh</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga1472e0db19a5232f6ce14287c30eb521"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if all vertices have exactly three incident edges. <br /></td></tr>
+<tr class="separator:ga1472e0db19a5232f6ce14287c30eb521"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga0aeb3a6e6504032a485af3390dcec998"><td class="memTemplParams" colspan="2">template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga0aeb3a6e6504032a485af3390dcec998"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga0aeb3a6e6504032a485af3390dcec998">CGAL::is_isolated_triangle</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga0aeb3a6e6504032a485af3390dcec998"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the connected component denoted by <code>hd</code> is a triangle.  <a href="group__PkgBGLHelperFct.html#ga0aeb3a6e6504032a485af3390dcec998">More...</a><br /></td></tr>
+<tr class="separator:ga0aeb3a6e6504032a485af3390dcec998"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa552f609541c09f6d38ce92c19cd60c8"><td class="memTemplParams" colspan="2"><a id="gaa552f609541c09f6d38ce92c19cd60c8"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gaa552f609541c09f6d38ce92c19cd60c8"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gaa552f609541c09f6d38ce92c19cd60c8">CGAL::is_triangle</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gaa552f609541c09f6d38ce92c19cd60c8"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the face denoted by <code>hd</code> is a triangle, that is it has three incident halfedges. <br /></td></tr>
+<tr class="separator:gaa552f609541c09f6d38ce92c19cd60c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga11883d231eec1b58f37efe4acedd9588"><td class="memTemplParams" colspan="2"><a id="ga11883d231eec1b58f37efe4acedd9588"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga11883d231eec1b58f37efe4acedd9588"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga11883d231eec1b58f37efe4acedd9588">CGAL::is_triangle_mesh</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga11883d231eec1b58f37efe4acedd9588"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if all faces are triangles. <br /></td></tr>
+<tr class="separator:ga11883d231eec1b58f37efe4acedd9588"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga36ed1d044899aaeb9dc0e745b5a3d2e4"><td class="memTemplParams" colspan="2"><a id="ga36ed1d044899aaeb9dc0e745b5a3d2e4"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga36ed1d044899aaeb9dc0e745b5a3d2e4"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga36ed1d044899aaeb9dc0e745b5a3d2e4">CGAL::is_isolated_quad</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga36ed1d044899aaeb9dc0e745b5a3d2e4"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the connected component denoted by <code>hd</code> is a quadrilateral. <br /></td></tr>
+<tr class="separator:ga36ed1d044899aaeb9dc0e745b5a3d2e4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaefeddba3015a9723bfcacb904709bad0"><td class="memTemplParams" colspan="2"><a id="gaefeddba3015a9723bfcacb904709bad0"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gaefeddba3015a9723bfcacb904709bad0"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gaefeddba3015a9723bfcacb904709bad0">CGAL::is_quad</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gaefeddba3015a9723bfcacb904709bad0"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the face denoted by <code>hd</code> is a quad, that is it has four incident halfedges. <br /></td></tr>
+<tr class="separator:gaefeddba3015a9723bfcacb904709bad0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga092f99b04e99633136d6534e7bb76b0a"><td class="memTemplParams" colspan="2"><a id="ga092f99b04e99633136d6534e7bb76b0a"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga092f99b04e99633136d6534e7bb76b0a"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga092f99b04e99633136d6534e7bb76b0a">CGAL::is_quad_mesh</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga092f99b04e99633136d6534e7bb76b0a"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> if all faces are quadrilaterals. <br /></td></tr>
+<tr class="separator:ga092f99b04e99633136d6534e7bb76b0a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gab737aaa204a6bdb8d18b00403f9d35d7"><td class="memTemplParams" colspan="2"><a id="gab737aaa204a6bdb8d18b00403f9d35d7"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gab737aaa204a6bdb8d18b00403f9d35d7"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gab737aaa204a6bdb8d18b00403f9d35d7">CGAL::is_tetrahedron</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gab737aaa204a6bdb8d18b00403f9d35d7"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the connected component denoted by <code>hd</code> is a tetrahedron. <br /></td></tr>
+<tr class="separator:gab737aaa204a6bdb8d18b00403f9d35d7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga23e1d67dfacb0c3b659da32854f9026b"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga23e1d67dfacb0c3b659da32854f9026b"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b">CGAL::is_valid_halfedge_graph</a> (const Graph &amp;g, bool verb=false)</td></tr>
+<tr class="memdesc:ga23e1d67dfacb0c3b659da32854f9026b"><td class="mdescLeft"> </td><td class="mdescRight">checks the integrity of <code>g</code>.  <a href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b">More...</a><br /></td></tr>
+<tr class="separator:ga23e1d67dfacb0c3b659da32854f9026b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gac164e7e125a766bd4e5d5bacd05f2d4a"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gac164e7e125a766bd4e5d5bacd05f2d4a"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gac164e7e125a766bd4e5d5bacd05f2d4a">CGAL::is_valid_face_graph</a> (const Graph &amp;g, bool verb=false)</td></tr>
+<tr class="memdesc:gac164e7e125a766bd4e5d5bacd05f2d4a"><td class="mdescLeft"> </td><td class="mdescRight">checks the integrity of <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gac164e7e125a766bd4e5d5bacd05f2d4a">More...</a><br /></td></tr>
+<tr class="separator:gac164e7e125a766bd4e5d5bacd05f2d4a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gafa3bc673513c8750321bf062afd5e6b7"><td class="memTemplParams" colspan="2">template&lt;typename Mesh &gt; </td></tr>
+<tr class="memitem:gafa3bc673513c8750321bf062afd5e6b7"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gafa3bc673513c8750321bf062afd5e6b7">CGAL::is_valid_polygon_mesh</a> (const Mesh &amp;g, bool verb=false)</td></tr>
+<tr class="memdesc:gafa3bc673513c8750321bf062afd5e6b7"><td class="mdescLeft"> </td><td class="mdescRight">checks the integrity of <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gafa3bc673513c8750321bf062afd5e6b7">More...</a><br /></td></tr>
+<tr class="separator:gafa3bc673513c8750321bf062afd5e6b7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6c6e5a51ae08d56082eb4b0667d673d3"><td class="memTemplParams" colspan="2"><a id="ga6c6e5a51ae08d56082eb4b0667d673d3"></a>
+template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga6c6e5a51ae08d56082eb4b0667d673d3"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga6c6e5a51ae08d56082eb4b0667d673d3">CGAL::is_hexahedron</a> (typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor hd, const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga6c6e5a51ae08d56082eb4b0667d673d3"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>true</code> iff the connected component denoted by <code>hd</code> is a hexahedron. <br /></td></tr>
+<tr class="separator:ga6c6e5a51ae08d56082eb4b0667d673d3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga81ac0b6fbedf7889e0164aec540bd112"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename P &gt; </td></tr>
+<tr class="memitem:ga81ac0b6fbedf7889e0164aec540bd112"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga81ac0b6fbedf7889e0164aec540bd112">CGAL::make_triangle</a> (const P &amp;p0, const P &amp;p1, const P &amp;p2, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga81ac0b6fbedf7889e0164aec540bd112"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated triangle with its vertices initialized to <code>p0</code>, <code>p1</code> and <code>p2</code>, and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#ga81ac0b6fbedf7889e0164aec540bd112">More...</a><br /></td></tr>
+<tr class="separator:ga81ac0b6fbedf7889e0164aec540bd112"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga94890a756e6c8d96ba91711ade533208"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename P &gt; </td></tr>
+<tr class="memitem:ga94890a756e6c8d96ba91711ade533208"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga94890a756e6c8d96ba91711ade533208">CGAL::make_quad</a> (const P &amp;p0, const P &amp;p1, const P &amp;p2, const P &amp;p3, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga94890a756e6c8d96ba91711ade533208"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated quad with its vertices initialized to <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>, and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#ga94890a756e6c8d96ba91711ade533208">More...</a><br /></td></tr>
+<tr class="separator:ga94890a756e6c8d96ba91711ade533208"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad9df350e98780f0c213046d8a257358e"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename P &gt; </td></tr>
+<tr class="memitem:gad9df350e98780f0c213046d8a257358e"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gad9df350e98780f0c213046d8a257358e">CGAL::make_hexahedron</a> (const P &amp;p0, const P &amp;p1, const P &amp;p2, const P &amp;p3, const P &amp;p4, const P &amp;p5, const P &amp;p6, const P &amp;p7, Graph &amp;g)</td></tr>
+<tr class="memdesc:gad9df350e98780f0c213046d8a257358e"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated hexahedron with its vertices initialized to <code>p0</code>, <code>p1</code>, ... , and <code>p7</code>, and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gad9df350e98780f0c213046d8a257358e">More...</a><br /></td></tr>
+<tr class="separator:gad9df350e98780f0c213046d8a257358e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad2e132763721d8e4fd22020c1665c15f"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename P &gt; </td></tr>
+<tr class="memitem:gad2e132763721d8e4fd22020c1665c15f"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gad2e132763721d8e4fd22020c1665c15f">CGAL::make_tetrahedron</a> (const P &amp;p0, const P &amp;p1, const P &amp;p2, const P &amp;p3, Graph &amp;g)</td></tr>
+<tr class="memdesc:gad2e132763721d8e4fd22020c1665c15f"><td class="mdescLeft"> </td><td class="mdescRight">Creates an isolated tetrahedron with its vertices initialized to <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>, and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gad2e132763721d8e4fd22020c1665c15f">More...</a><br /></td></tr>
+<tr class="separator:gad2e132763721d8e4fd22020c1665c15f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga859e3e5e3e40c20eb36807d573dddbb0"><td class="memTemplParams" colspan="2">template&lt;class Graph , class P &gt; </td></tr>
+<tr class="memitem:ga859e3e5e3e40c20eb36807d573dddbb0"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga859e3e5e3e40c20eb36807d573dddbb0">CGAL::make_regular_prism</a> (typename boost::graph_traits&lt; Graph &gt;::vertices_size_type nb_vertices, Graph &amp;g, const P &amp;base_center=P(0, 0, 0), typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> height=1.0, typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> radius=1.0, bool is_closed=true)</td></tr>
+<tr class="memdesc:ga859e3e5e3e40c20eb36807d573dddbb0"><td class="mdescLeft"> </td><td class="mdescRight">Creates a triangulated regular prism, outward oriented, having <code>nb_vertices</code> vertices in each of its bases and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#ga859e3e5e3e40c20eb36807d573dddbb0">More...</a><br /></td></tr>
+<tr class="separator:ga859e3e5e3e40c20eb36807d573dddbb0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad559ef0cf6a75f905957a3c5b89a03c8"><td class="memTemplParams" colspan="2">template&lt;class Graph , class P &gt; </td></tr>
+<tr class="memitem:gad559ef0cf6a75f905957a3c5b89a03c8"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gad559ef0cf6a75f905957a3c5b89a03c8">CGAL::make_pyramid</a> (typename boost::graph_traits&lt; Graph &gt;::vertices_size_type nb_vertices, Graph &amp;g, const P &amp;base_center=P(0, 0, 0), typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> height=1.0, typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> radius=1.0, bool is_closed=true)</td></tr>
+<tr class="memdesc:gad559ef0cf6a75f905957a3c5b89a03c8"><td class="mdescLeft"> </td><td class="mdescRight">Creates a pyramid, outward oriented, having <code>nb_vertices</code> vertices in its base and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gad559ef0cf6a75f905957a3c5b89a03c8">More...</a><br /></td></tr>
+<tr class="separator:gad559ef0cf6a75f905957a3c5b89a03c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gac35ac7a3cb0ca4a5452548a304f3835e"><td class="memTemplParams" colspan="2">template&lt;class Graph , class P &gt; </td></tr>
+<tr class="memitem:gac35ac7a3cb0ca4a5452548a304f3835e"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gac35ac7a3cb0ca4a5452548a304f3835e">CGAL::make_icosahedron</a> (Graph &amp;g, const P &amp;center=P(0, 0, 0), typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> radius=1.0)</td></tr>
+<tr class="memdesc:gac35ac7a3cb0ca4a5452548a304f3835e"><td class="mdescLeft"> </td><td class="mdescRight">Creates an icosahedron, outward oriented, centered in <code>center</code> and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#gac35ac7a3cb0ca4a5452548a304f3835e">More...</a><br /></td></tr>
+<tr class="separator:gac35ac7a3cb0ca4a5452548a304f3835e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5a41c8f7154516b2f6f58937136e4bb3"><td class="memTemplParams" colspan="2">template&lt;class Graph , class CoordinateFunctor  = CGAL::Creator_uniform_3&lt;           typename boost::graph_traits&lt;Graph&gt;::vertices_size_type,           typename boost::property_traits&lt;typename boost::property_map&lt;Graph, vertex_point_t&gt;::type&gt;::value_type&gt;&gt; </td></tr>
+<tr class="memitem:ga5a41c8f7154516b2f6f58937136e4bb3"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga5a41c8f7154516b2f6f58937136e4bb3">CGAL::make_grid</a> (typename boost::graph_traits&lt; Graph &gt;::vertices_size_type i, typename boost::graph_traits&lt; Graph &gt;::vertices_size_type j, Graph &amp;g, const CoordinateFunctor &amp;calculator, bool triangulated=false)</td></tr>
+<tr class="memdesc:ga5a41c8f7154516b2f6f58937136e4bb3"><td class="mdescLeft"> </td><td class="mdescRight">Creates a row major ordered grid with <code>i</code> cells along the width and <code>j</code> cells along the height and adds it to the graph <code>g</code>.  <a href="group__PkgBGLHelperFct.html#ga5a41c8f7154516b2f6f58937136e4bb3">More...</a><br /></td></tr>
+<tr class="separator:ga5a41c8f7154516b2f6f58937136e4bb3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga4d3b9bb446f55fd37206eeba9d582296"><td class="memTemplParams" colspan="2">template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:ga4d3b9bb446f55fd37206eeba9d582296"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga4d3b9bb446f55fd37206eeba9d582296">CGAL::clear</a> (<a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:ga4d3b9bb446f55fd37206eeba9d582296"><td class="mdescLeft"> </td><td class="mdescRight">removes all vertices, faces and halfedges from a graph.  <a href="group__PkgBGLHelperFct.html#ga4d3b9bb446f55fd37206eeba9d582296">More...</a><br /></td></tr>
+<tr class="separator:ga4d3b9bb446f55fd37206eeba9d582296"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gab6e6f18e6de73b9f85e38d0b56145172"><td class="memTemplParams" colspan="2">template&lt;typename FaceGraph &gt; </td></tr>
+<tr class="memitem:gab6e6f18e6de73b9f85e38d0b56145172"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#gab6e6f18e6de73b9f85e38d0b56145172">CGAL::is_empty</a> (const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp;g)</td></tr>
+<tr class="memdesc:gab6e6f18e6de73b9f85e38d0b56145172"><td class="mdescLeft"> </td><td class="mdescRight">checks whether the graph is empty, by checking that it does not contain any vertex.  <a href="group__PkgBGLHelperFct.html#gab6e6f18e6de73b9f85e38d0b56145172">More...</a><br /></td></tr>
+<tr class="separator:gab6e6f18e6de73b9f85e38d0b56145172"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga2d3eb044bfe42eab566779ce32216c11"><td class="memTemplParams" colspan="2">template&lt;typename SourceMesh , typename TargetMesh , typename NamedParameters1 , typename NamedParameters2 &gt; </td></tr>
+<tr class="memitem:ga2d3eb044bfe42eab566779ce32216c11"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLHelperFct.html#ga2d3eb044bfe42eab566779ce32216c11">CGAL::copy_face_graph</a> (const SourceMesh &amp;sm, TargetMesh &amp;tm, const NamedParameters1 &amp;np1, const NamedParameters2 &amp;np2)</td></tr>
+<tr class="memdesc:ga2d3eb044bfe42eab566779ce32216c11"><td class="mdescLeft"> </td><td class="mdescRight">copies a source model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> into a target model of a <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code>.  <a href="group__PkgBGLHelperFct.html#ga2d3eb044bfe42eab566779ce32216c11">More...</a><br /></td></tr>
+<tr class="separator:ga2d3eb044bfe42eab566779ce32216c11"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga4d3b9bb446f55fd37206eeba9d582296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d3b9bb446f55fd37206eeba9d582296">◆ </a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FaceGraph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFaceGraph.html">FaceGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>removes all vertices, faces and halfedges from a graph. </p>
+<p>Calls <code><a class="el" href="classMutableHalfedgeGraph.html#a712fcc76b7d806811f90547b31a710ca">remove_edge()</a></code>, <code><a class="el" href="classMutableHalfedgeGraph.html#a75a8063e50ccded5ed08e3730542541d">remove_vertex()</a></code>, and <code><a class="el" href="group__PkgBGLEulerOperations.html#gacfae7ff8e782da55b941e4487e86c738" title="removes the incident face of h and changes all halfedges incident to the face into border halfedges o...">remove_face()</a></code> for each edge, vertex or face.</p>
+<p>If the graph has a member function <code><a class="el" href="group__PkgBGLHelperFct.html#ga4d3b9bb446f55fd37206eeba9d582296" title="removes all vertices, faces and halfedges from a graph. ">clear()</a></code>, it will be called instead.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></td><td>model of <code><a class="el" href="classMutableHalfedgeGraph.html" title="The concept MutableHalfedgeGraph refines the concept HalfedgeGraph and adds the requirements for oper...">MutableHalfedgeGraph</a></code> and <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph to clear </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2d3eb044bfe42eab566779ce32216c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d3eb044bfe42eab566779ce32216c11">◆ </a></span>copy_face_graph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SourceMesh , typename TargetMesh , typename NamedParameters1 , typename NamedParameters2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::copy_face_graph </td>
+          <td>(</td>
+          <td class="paramtype">const SourceMesh &amp; </td>
+          <td class="paramname"><em>sm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TargetMesh &amp; </td>
+          <td class="paramname"><em>tm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters1 &amp; </td>
+          <td class="paramname"><em>np1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters2 &amp; </td>
+          <td class="paramname"><em>np2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/copy_face_graph.h&gt;</code></p>
+
+<p>copies a source model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> into a target model of a <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code>. </p>
+<p><code>OutputIterators</code> can be provided to produce a mapping between source and target elements. The target graph is not cleared.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SourceMesh</td><td>a model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code>. The descriptor types <code>boost::graph_traits&lt;SourceMesh&gt;::vertex_descriptor</code> and <code>boost::graph_traits&lt;SourceMesh&gt;::face_descriptor</code> must be models of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>. </td></tr>
+    <tr><td class="paramname">TargetMesh</td><td>a model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters1</td><td>a sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon_mesh_processing.tag:../Polygon_mesh_processing/" href="../Polygon_mesh_processing/group__pmp__namedparameters.html">Named Parameters</a> </td></tr>
+    <tr><td class="paramname">NamedParameters2</td><td>a sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon_mesh_processing.tag:../Polygon_mesh_processing/" href="../Polygon_mesh_processing/group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The types <code>sm_vertex_descriptor</code> and <code>sm_face_descriptor</code> must be models of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sm</td><td>the source mesh </td></tr>
+    <tr><td class="paramname">tm</td><td>the target mesh </td></tr>
+    <tr><td class="paramname">np1</td><td>optional sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon_mesh_processing.tag:../Polygon_mesh_processing/" href="../Polygon_mesh_processing/group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>sm</code> . If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> should be available in <code>SourceMesh</code>  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_vertex_to_vertex_output_iterator">vertex_to_vertex_output_iterator</a></td><td>an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> containing the pairs source-vertex, target-vertex. If this parameter is given, then <code>vertex_to_vertex_map</code> cannot be used.  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_halfedge_to_halfedge_output_iterator">halfedge_to_halfedge_output_iterator</a></td><td>an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> containing the pairs source-halfedge, target-halfedge. If this parameter is given, then <code>halfedge_to_halfedge_map</code> cannot be used.  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_face_to_face_output_iterator">face_to_face_output_iterator</a></td><td>an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> containing the pairs source-face, target-face. If this parameter is given, then <code>face_to_face_map</code> cannot be used.  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_vertex_to_vertex_map">vertex_to_vertex_map</a></td><td>a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadWritePropertyMap.html">ReadWritePropertyMap</a></code> containing the pairs source-vertex, target-vertex.  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_halfedge_to_halfedge_map">halfedge_to_halfedge_map</a></td><td>a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadWritePropertyMap.html">ReadWritePropertyMap</a></code> containing the pairs source-halfedge, target-halfedge.  </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_face_to_face_map">face_to_face_map</a></td><td>a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadWritePropertyMap.html">ReadWritePropertyMap</a></code> containing the pairs source-face, target-face.  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">np2</td><td>optional sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon_mesh_processing.tag:../Polygon_mesh_processing/" href="../Polygon_mesh_processing/group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__bgl__namedparameters.html#BGL_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>tm</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> should be available in <code>TargetMesh</code>  </td></tr>
+</table>
+</dd>
+</dl>
+<p>The points from <code>sm</code> to <code>tm</code> are converted using <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Cartesian__converter.html">CGAL::Cartesian_converter</a>&lt;SourceKernel, TargetKernel&gt;</code>. <code>SourceKernel</code> and <code>TargetKernel</code> are deduced using <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a></code> from the value types of the vertex_point_maps.</p>
+<p>Other properties are not copied. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_polyhedron_3_2copy_polyhedron_8cpp-example.html#a4">BGL_polyhedron_3/copy_polyhedron.cpp</a>, <a class="el" href="BGL_surface_mesh_2surface_mesh_partition_8cpp-example.html#a5">BGL_surface_mesh/surface_mesh_partition.cpp</a>, and <a class="el" href="Surface_mesh_segmentation_2extract_segmentation_into_mesh_example_8cpp-example.html#a6">Surface_mesh_segmentation/extract_segmentation_into_mesh_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gab6e6f18e6de73b9f85e38d0b56145172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6e6f18e6de73b9f85e38d0b56145172">◆ </a></span>is_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FaceGraph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::is_empty </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>checks whether the graph is empty, by checking that it does not contain any vertex. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></td><td>model of <code><a class="el" href="classFaceGraph.html" title="The concept FaceGraph refines the concept HalfedgeGraph. It adds the requirements for a graph to expl...">FaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph to test </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0aeb3a6e6504032a485af3390dcec998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0aeb3a6e6504032a485af3390dcec998">◆ </a></span>is_isolated_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FaceGraph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::is_isolated_triangle </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; <a class="el" href="classFaceGraph.html">FaceGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>hd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classFaceGraph.html">FaceGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>returns <code>true</code> iff the connected component denoted by <code>hd</code> is a triangle. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>g</code> must be valid. </dd></dl>
+
+</div>
+</div>
+<a id="gac164e7e125a766bd4e5d5bacd05f2d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac164e7e125a766bd4e5d5bacd05f2d4a">◆ </a></span>is_valid_face_graph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::is_valid_face_graph </td>
+          <td>(</td>
+          <td class="paramtype">const Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>verb</em> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>checks the integrity of <code>g</code>. </p>
+<p><code>g</code> is valid if it is a valid <code><a class="el" href="classHalfedgeListGraph.html" title="The concept HalfedgeListGraph refines the concept HalfedgeGraph and adds the requirements for travers...">HalfedgeListGraph</a></code>, if it follows the rules of the <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> concept, and all of its associations are reciprocal. For example, <code>face(halfedge(f,g),g)</code> must be <code>f</code>. calls <code><a class="el" href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b" title="checks the integrity of g. ">is_valid_halfedge_graph()</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the <code>Graph</code> to test. </td></tr>
+    <tr><td class="paramname">verb</td><td>: if <code>true</code>, the details of the check will be written in the standard output.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">&lt;tt&gt;Graph&lt;/tt&gt;</td><td>a model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>g</code> is valid, <code>false</code> otherwise.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b" title="checks the integrity of g. ">is_valid_halfedge_graph()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga23e1d67dfacb0c3b659da32854f9026b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga23e1d67dfacb0c3b659da32854f9026b">◆ </a></span>is_valid_halfedge_graph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::is_valid_halfedge_graph </td>
+          <td>(</td>
+          <td class="paramtype">const Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>verb</em> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>checks the integrity of <code>g</code>. </p>
+<p><code>g</code> is valid if it follows the rules of the <code><a class="el" href="classHalfedgeListGraph.html" title="The concept HalfedgeListGraph refines the concept HalfedgeGraph and adds the requirements for travers...">HalfedgeListGraph</a></code> concept, and all of its associations are reciprocal. For example, <code>prev(next(h, g), g)</code> must be <code>h</code>, and <code>next(prev(h, g), g)</code> must be <code>h</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the <code>Graph</code> to test. </td></tr>
+    <tr><td class="paramname">verb</td><td>: if <code>true</code>, the details of the check will be written in the standard output.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">&lt;tt&gt;Graph&lt;/tt&gt;</td><td>a model of <code><a class="el" href="classHalfedgeListGraph.html" title="The concept HalfedgeListGraph refines the concept HalfedgeGraph and adds the requirements for travers...">HalfedgeListGraph</a></code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>g</code> is valid, <code>false</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="gafa3bc673513c8750321bf062afd5e6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafa3bc673513c8750321bf062afd5e6b7">◆ </a></span>is_valid_polygon_mesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Mesh &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::is_valid_polygon_mesh </td>
+          <td>(</td>
+          <td class="paramtype">const Mesh &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>verb</em> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>checks the integrity of <code>g</code>. </p>
+<p><code>g</code> is valid if it is a valid <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> and it has distinct faces on each side of an edge. calls <code><a class="el" href="group__PkgBGLHelperFct.html#gac164e7e125a766bd4e5d5bacd05f2d4a" title="checks the integrity of g. ">is_valid_face_graph()</a></code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the <code>Mesh</code> to test. </td></tr>
+    <tr><td class="paramname">verb</td><td>: if <code>true</code>, the details of the check will be written in the standard output.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Mesh</td><td>a model of <code><a class="el" href="classFaceListGraph.html" title="The concept FaceListGraph refines the concept FaceGraph and adds the requirement for traversal of all...">FaceListGraph</a></code> and <code><a class="el" href="classHalfedgeListGraph.html" title="The concept HalfedgeListGraph refines the concept HalfedgeGraph and adds the requirements for travers...">HalfedgeListGraph</a></code>, and follows the definition of a <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon_mesh_processing.tag:../Polygon_mesh_processing/" href="../Polygon_mesh_processing/index.html#PMPDef">PolygonMesh</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>g</code> is valid, <code>false</code> otherwise.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLHelperFct.html#gac164e7e125a766bd4e5d5bacd05f2d4a" title="checks the integrity of g. ">is_valid_face_graph()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgBGLHelperFct.html#ga23e1d67dfacb0c3b659da32854f9026b" title="checks the integrity of g. ">is_valid_halfedge_graph()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga5a41c8f7154516b2f6f58937136e4bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a41c8f7154516b2f6f58937136e4bb3">◆ </a></span>make_grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Graph , class CoordinateFunctor  = CGAL::Creator_uniform_3&lt;           typename boost::graph_traits&lt;Graph&gt;::vertices_size_type,           typename boost::property_traits&lt;typename boost::property_map&lt;Graph, vertex_point_t&gt;::type&gt;::value_type&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_grid </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::vertices_size_type </td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::vertices_size_type </td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordinateFunctor &amp; </td>
+          <td class="paramname"><em>calculator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>triangulated</em> = <code>false</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates a row major ordered grid with <code>i</code> cells along the width and <code>j</code> cells along the height and adds it to the graph <code>g</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>the number of cells along the width. </td></tr>
+    <tr><td class="paramname">j</td><td>the number of cells along the height. </td></tr>
+    <tr><td class="paramname">g</td><td>the graph in which the grid will be created. </td></tr>
+    <tr><td class="paramname">calculator</td><td>the functor that will assign coordinates to the grid vertices. </td></tr>
+    <tr><td class="paramname">triangulated</td><td>decides if a cell is composed of one quad or two triangles. If <code>triangulated</code> is <code>true</code>, the diagonal of each cell is oriented from (0,0) to (1,1) in the cell coordinates.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CoordinateFunctor</td><td>that takes two <code>boost::graph_traits&lt;Graph&gt;::vertices_size_type</code> and outputs a <code>boost::property_traits&lt;boost::property_map&lt;Graph,CGAL::vertex_point_t&gt;::type&gt;::value_type</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Default: a point with positive integer coordinates (<code>w</code>, <code>h</code>, 0), with <code>w</code> in [0..<code>i</code>] and <code>h</code> in [0..<code>j</code>] </p><dl class="section return"><dt>Returns</dt><dd>the non-border non-diagonal halfedge that has the target vertex associated with the first point of the grid (default is (0,0,0) ). </dd></dl>
+
+</div>
+</div>
+<a id="gad9df350e98780f0c213046d8a257358e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9df350e98780f0c213046d8a257358e">◆ </a></span>make_hexahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_hexahedron </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates an isolated hexahedron with its vertices initialized to <code>p0</code>, <code>p1</code>, ... , and <code>p7</code>, and adds it to the graph <code>g</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge that has the target vertex associated with <code>p0</code>, in the face with the vertices with the points <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_surface_mesh_2gwdwg_8cpp-example.html#a4">BGL_surface_mesh/gwdwg.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gac35ac7a3cb0ca4a5452548a304f3835e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac35ac7a3cb0ca4a5452548a304f3835e">◆ </a></span>make_icosahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Graph , class P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_icosahedron </td>
+          <td>(</td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>center</em> = <code>P(0,0,0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td>
+          <td class="paramname"><em>radius</em> = <code>1.0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates an icosahedron, outward oriented, centered in <code>center</code> and adds it to the graph <code>g</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph in which the icosahedron will be created. </td></tr>
+    <tr><td class="paramname">center</td><td>the center of the sphere in which the icosahedron is inscribed. </td></tr>
+    <tr><td class="paramname">radius</td><td>the radius of the sphere in which the icosahedron is inscribed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge that has the target vertex associated with the first point in the first face. </dd></dl>
+
+</div>
+</div>
+<a id="gad559ef0cf6a75f905957a3c5b89a03c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad559ef0cf6a75f905957a3c5b89a03c8">◆ </a></span>make_pyramid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Graph , class P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_pyramid </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::vertices_size_type </td>
+          <td class="paramname"><em>nb_vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>base_center</em> = <code>P(0,0,0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td>
+          <td class="paramname"><em>height</em> = <code>1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td>
+          <td class="paramname"><em>radius</em> = <code>1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>is_closed</em> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates a pyramid, outward oriented, having <code>nb_vertices</code> vertices in its base and adds it to the graph <code>g</code>. </p>
+<p>If <code>center</code> is (0, 0, 0), then the first point of the base is (<code>radius</code>, 0`, 0) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_vertices</td><td>the number of vertices in the base. It must be greater than or equal to 3. </td></tr>
+    <tr><td class="paramname">g</td><td>the graph in which the pyramid will be created </td></tr>
+    <tr><td class="paramname">base_center</td><td>the center of the circle in which the base is inscribed. </td></tr>
+    <tr><td class="paramname">height</td><td>the distance between the base and the apex. </td></tr>
+    <tr><td class="paramname">radius</td><td>the radius of the circle in which the base is inscribed. </td></tr>
+    <tr><td class="paramname">is_closed</td><td>determines if the base must be created or not. If <code>is_closed</code> is <code>true</code>, <code>center</code> is a vertex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge that has the target vertex associated with the apex point in the first face. </dd></dl>
+
+</div>
+</div>
+<a id="ga94890a756e6c8d96ba91711ade533208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94890a756e6c8d96ba91711ade533208">◆ </a></span>make_quad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_quad </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates an isolated quad with its vertices initialized to <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>, and adds it to the graph <code>g</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the non-border halfedge that has the target vertex associated with <code>p0</code>. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_surface_mesh_2write_inp_8cpp-example.html#a3">BGL_surface_mesh/write_inp.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga859e3e5e3e40c20eb36807d573dddbb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga859e3e5e3e40c20eb36807d573dddbb0">◆ </a></span>make_regular_prism()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Graph , class P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_regular_prism </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::vertices_size_type </td>
+          <td class="paramname"><em>nb_vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>base_center</em> = <code>P(0,0,0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td>
+          <td class="paramname"><em>height</em> = <code>1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">CGAL::Kernel_traits</a>&lt; P &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html#a55e83f5a9f8ca43588b02ae8256a8fbd">Kernel::FT</a> </td>
+          <td class="paramname"><em>radius</em> = <code>1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>is_closed</em> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates a triangulated regular prism, outward oriented, having <code>nb_vertices</code> vertices in each of its bases and adds it to the graph <code>g</code>. </p>
+<p>If <code>center</code> is (0, 0, 0), then the first point of the prism is (<code>radius</code>, <code>height</code>, 0) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_vertices</td><td>the number of vertices per base. It must be greater than or equal to 3. </td></tr>
+    <tr><td class="paramname">g</td><td>the graph in which the regular prism will be created. </td></tr>
+    <tr><td class="paramname">base_center</td><td>the center of the circle in which the lower base is inscribed. </td></tr>
+    <tr><td class="paramname">height</td><td>the distance between the two bases. </td></tr>
+    <tr><td class="paramname">radius</td><td>the radius of the circles in which the bases are inscribed. </td></tr>
+    <tr><td class="paramname">is_closed</td><td>determines if the bases must be created or not. If <code>is_closed</code> is <code>true</code>, <code>center</code> is a vertex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge that has the target vertex associated with the first point in the first face. </dd></dl>
+
+</div>
+</div>
+<a id="gad2e132763721d8e4fd22020c1665c15f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad2e132763721d8e4fd22020c1665c15f">◆ </a></span>make_tetrahedron()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_tetrahedron </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates an isolated tetrahedron with its vertices initialized to <code>p0</code>, <code>p1</code>, <code>p2</code>, and <code>p3</code>, and adds it to the graph <code>g</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge that has the target vertex associated with <code>p0</code>, in the face with the vertices with the points <code>p0</code>, <code>p1</code>, and <code>p2</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ga81ac0b6fbedf7889e0164aec540bd112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga81ac0b6fbedf7889e0164aec540bd112">◆ </a></span>make_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::make_triangle </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const P &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/helpers.h&gt;</code></p>
+
+<p>Creates an isolated triangle with its vertices initialized to <code>p0</code>, <code>p1</code> and <code>p2</code>, and adds it to the graph <code>g</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the non-border halfedge that has the target vertex associated with <code>p0</code>. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Property_map_2dynamic_properties_8cpp-example.html#a2">Property_map/dynamic_properties.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:01 for CGAL 4.13 - CGAL and the Boost Graph Library by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

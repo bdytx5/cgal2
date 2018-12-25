@@ -1,0 +1,25 @@
+var classCGAL_1_1Segment__2 =
+[
+    [ "Segment_2", "classCGAL_1_1Segment__2.html#a6c62f1f9e2163dfe93395fda70fd7961", null ],
+    [ "bbox", "classCGAL_1_1Segment__2.html#ae46827f288c128bf39072bb656f576cc", null ],
+    [ "collinear_has_on", "classCGAL_1_1Segment__2.html#a893f5bd400848844a65303a9823b70c1", null ],
+    [ "direction", "classCGAL_1_1Segment__2.html#a71806c47e29942c459596f4c299be0a2", null ],
+    [ "has_on", "classCGAL_1_1Segment__2.html#ab64cf561e7384a0c70c70360875a707a", null ],
+    [ "is_degenerate", "classCGAL_1_1Segment__2.html#a23a0c1be8ea62d0b24aff14b8650df9a", null ],
+    [ "is_horizontal", "classCGAL_1_1Segment__2.html#a5e58b295d3da03f3ceff9043569b0584", null ],
+    [ "is_vertical", "classCGAL_1_1Segment__2.html#a2ca16f87b8444b1fd4f458454d84eaa9", null ],
+    [ "max", "classCGAL_1_1Segment__2.html#a3686f9bb620ffeb749ab354868849af6", null ],
+    [ "min", "classCGAL_1_1Segment__2.html#ad755eed662c524165a740c659796e9ef", null ],
+    [ "operator!=", "classCGAL_1_1Segment__2.html#a4e4445c63f2e90194992aa86716f08e9", null ],
+    [ "operator==", "classCGAL_1_1Segment__2.html#ae14445a3219f34a43b82aec47027aafe", null ],
+    [ "operator[]", "classCGAL_1_1Segment__2.html#ac1f6dc3c3ca41bdd12fb77f5283a116b", null ],
+    [ "opposite", "classCGAL_1_1Segment__2.html#a662202127e7ba61351cb0b44445d93df", null ],
+    [ "point", "classCGAL_1_1Segment__2.html#a299aecb2bae0f42a61bb14e2c9840ed6", null ],
+    [ "source", "classCGAL_1_1Segment__2.html#a5555c4182949968af320fa00bc90ddcb", null ],
+    [ "squared_length", "classCGAL_1_1Segment__2.html#a0c0e17a4642d7d870b9c87905629e410", null ],
+    [ "supporting_line", "classCGAL_1_1Segment__2.html#a421352fb2a6a14a82112a8fb4c3716a8", null ],
+    [ "target", "classCGAL_1_1Segment__2.html#ac2d734801efb2e1e8bdc0bb19f02282a", null ],
+    [ "to_vector", "classCGAL_1_1Segment__2.html#adec57b656459ba640905c48b7188ed0d", null ],
+    [ "transform", "classCGAL_1_1Segment__2.html#ad6eea6876e2379a609a988c75139d748", null ],
+    [ "vertex", "classCGAL_1_1Segment__2.html#a11a94e33de078015b2e6af92ab6812e7", null ]
+];

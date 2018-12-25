@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classArrangementPointLocation__2" kind="class" language="C++" prot="public">
+    <compoundname>ArrangementPointLocation_2</compoundname>
+    <includes local="no">Concepts/ArrangementPointLocation_2.h</includes>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classArrangementPointLocation__2_1af558a0e9f0c9661da941cf28f3a261a7" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type ArrangementPointLocation_2::Arrangement_2</definition>
+        <argsstring></argsstring>
+        <name>Arrangement_2</name>
+        <briefdescription>
+<para>the associated arrangement type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="46" column="1" bodyfile="Concepts/ArrangementPointLocation_2.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classArrangementPointLocation__2_1a8599cf6f927eb77b32a5c06ef3dd492e" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type ArrangementPointLocation_2::Point_2</definition>
+        <argsstring></argsstring>
+        <name>Point_2</name>
+        <briefdescription>
+<para>equivalent to <computeroutput>Arrangement_2::Point_2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="51" column="1" bodyfile="Concepts/ArrangementPointLocation_2.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Creation</header>
+      <memberdef kind="function" id="classArrangementPointLocation__2_1a11c5edc97c98d542509145408af6dee9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ArrangementPointLocation_2::ArrangementPointLocation_2</definition>
+        <argsstring>()</argsstring>
+        <name>ArrangementPointLocation_2</name>
+        <briefdescription>
+<para>default constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classArrangementPointLocation__2_1a6088e9a333f8dcf60cbfd52f2cc26000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ArrangementPointLocation_2::ArrangementPointLocation_2</definition>
+        <argsstring>(const Arrangement_2 &amp;arr)</argsstring>
+        <name>ArrangementPointLocation_2</name>
+        <param>
+          <type>const <ref refid="classArrangementPointLocation__2_1af558a0e9f0c9661da941cf28f3a261a7" kindref="member">Arrangement_2</ref> &amp;</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+<para>constructs a point-location object <computeroutput>pl</computeroutput> attached to the given arrangement <computeroutput>arr</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="67" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Query Functions</header>
+      <memberdef kind="function" id="classArrangementPointLocation__2_1ad86ba795e886260a7e5858b34b0c4e7b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Arr_point_location_result&lt; <ref refid="classArrangementPointLocation__2_1af558a0e9f0c9661da941cf28f3a261a7" kindref="member">Arrangement_2</ref> &gt;::Type</type>
+        <definition>Arr_point_location_result&lt;Arrangement_2&gt;::Type ArrangementPointLocation_2::locate</definition>
+        <argsstring>(const Point_2 &amp;q) const</argsstring>
+        <name>locate</name>
+        <param>
+          <type>const <ref refid="classArrangementPointLocation__2_1a8599cf6f927eb77b32a5c06ef3dd492e" kindref="member">Point_2</ref> &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>locates the arrangement cell that contains the query point <computeroutput>q</computeroutput> and returns a discriminated union container of the following bounded types: </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Arrangement_2::Face_const_handle</computeroutput>, in case <computeroutput>q</computeroutput> is contained inside an arrangement face; </para></listitem>
+<listitem>
+<para><computeroutput>Arrangement_2::Halfedge_const_handle</computeroutput>, in case <computeroutput>q</computeroutput> lies on an arrangement edge; </para></listitem>
+<listitem>
+<para><computeroutput>Arrangement_2::Vertex_const_handle</computeroutput>, in case <computeroutput>q</computeroutput> coincides with an arrangement vertex. </para></listitem>
+</itemizedlist>
+<simplesect kind="pre"><para><computeroutput>pl</computeroutput> is attached to a valid arrangement object. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="89" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operations</header>
+      <memberdef kind="function" id="classArrangementPointLocation__2_1aff9fd9d497e9627d131f3be31d2d46de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ArrangementPointLocation_2::attach</definition>
+        <argsstring>(const Arrangement_2 &amp;arr)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>const <ref refid="classArrangementPointLocation__2_1af558a0e9f0c9661da941cf28f3a261a7" kindref="member">Arrangement_2</ref> &amp;</type>
+          <declname>arr</declname>
+        </param>
+        <briefdescription>
+<para>attaches <computeroutput>pl</computeroutput> to the given arrangement <computeroutput>arr</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classArrangementPointLocation__2_1ac1e7f0e2b729e120c561d964f1e244f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ArrangementPointLocation_2::detach</definition>
+        <argsstring>()</argsstring>
+        <name>detach</name>
+        <briefdescription>
+<para>detaches <computeroutput>pl</computeroutput> from the arrangement it is currently attached to. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/ArrangementPointLocation_2.h" line="104" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A model of the <computeroutput><ref refid="classArrangementPointLocation__2" kindref="compound">ArrangementPointLocation_2</ref></computeroutput> concept can answer point-location queries on an arrangement attached to it. Namely, given a <computeroutput>Arrangement_2::Point_2</computeroutput> object, representing a point in the plane, it returns the arrangement cell containing it. In the general case, the query point is contained inside an arrangement face, but in degenerate situations it may lie on an edge or coincide with an arrangement vertex. </para>    </briefdescription>
+    <detaileddescription>
+<para> <bold>A note on Backwards compatibility</bold><linebreak/>
+ The <computeroutput>locate</computeroutput> member function used to return <computeroutput><ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Object</ref></computeroutput> up to CGAL version 4.2. Starting with CGAL version 4.3 the return type is determined by a metafunction. To preserve backwards compatibility <computeroutput><ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Object</ref></computeroutput> can be constructed from the new return types implicitly, but switching to the new style is recommended. To enable the old style without any overhead, the macro <computeroutput>CGAL_ARR_POINT_LOCATION_VERSION</computeroutput> can be defined to 1 before any CGAL header is included.</para><para><xrefsect id="hasModels_1_hasModels000013"><xreftitle>Has Models</xreftitle><xrefdescription><para><computeroutput><ref refid="classCGAL_1_1Arr__naive__point__location" kindref="compound">CGAL::Arr_naive_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para><para><computeroutput><ref refid="classCGAL_1_1Arr__walk__along__line__point__location" kindref="compound">CGAL::Arr_walk_along_line_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para><para><computeroutput><ref refid="classCGAL_1_1Arr__trapezoid__ric__point__location" kindref="compound">CGAL::Arr_trapezoid_ric_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para><para><computeroutput><ref refid="classCGAL_1_1Arr__landmarks__point__location" kindref="compound">CGAL::Arr_landmarks_point_location</ref>&lt;Arrangement,Generator&gt;</computeroutput> </para></xrefdescription></xrefsect></para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Arr__naive__point__location" kindref="compound">CGAL::Arr_naive_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Arr__walk__along__line__point__location" kindref="compound">CGAL::Arr_walk_along_line_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Arr__trapezoid__ric__point__location" kindref="compound">CGAL::Arr_trapezoid_ric_point_location</ref>&lt;Arrangement&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Arr__landmarks__point__location" kindref="compound">CGAL::Arr_landmarks_point_location</ref>&lt;Arrangement,Generator&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="structCGAL_1_1Arr__point__location__result" kindref="compound">CGAL::Arr_point_location_result</ref>&lt;Arrangement&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgArrangement2PointLocation_1ga129054a4fe70ef70f478ca43e3757886" kindref="member">CGAL_ARR_POINT_LOCATION_VERSION</ref></computeroutput> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Concepts/ArrangementPointLocation_2.h" line="37" column="1" bodyfile="Concepts/ArrangementPointLocation_2.h" bodystart="37" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classArrangementPointLocation__2_1af558a0e9f0c9661da941cf28f3a261a7" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>Arrangement_2</name></member>
+      <member refid="classArrangementPointLocation__2_1a11c5edc97c98d542509145408af6dee9" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>ArrangementPointLocation_2</name></member>
+      <member refid="classArrangementPointLocation__2_1a6088e9a333f8dcf60cbfd52f2cc26000" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>ArrangementPointLocation_2</name></member>
+      <member refid="classArrangementPointLocation__2_1aff9fd9d497e9627d131f3be31d2d46de" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>attach</name></member>
+      <member refid="classArrangementPointLocation__2_1ac1e7f0e2b729e120c561d964f1e244f8" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>detach</name></member>
+      <member refid="classArrangementPointLocation__2_1ad86ba795e886260a7e5858b34b0c4e7b" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>locate</name></member>
+      <member refid="classArrangementPointLocation__2_1a8599cf6f927eb77b32a5c06ef3dd492e" prot="public" virt="non-virtual"><scope>ArrangementPointLocation_2</scope><name>Point_2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__sms__namedparameters" kind="group">
+    <compoundname>sms_namedparameters</compoundname>
+    <title>Named Parameters for Surface Mesh Simplification</title>
+    <briefdescription>
+<para>In this package, some optional parameters are implemented as BGL optional named parameters (see <ref refid="index_1BGLNamedParameters" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">Named Parameters</ref> for more information on how to use them). </para>    </briefdescription>
+    <detaileddescription>
+<para>The named parameters list is a composition of function calls separated by a dot ( <formula id="0">$ .$</formula>) where the name of each function matches the name of an argument and wraps the actual parameter. The sequence of named parameters should start with <computeroutput>CGAL::parameters::</computeroutput>.</para><para>This is an example with 2 arguments:</para><para><programlisting><codeline><highlight class="normal">`CGAL::parameters::get_cost(the_actual_cost).halfedge_index_map(the_actual_halfedge_index_map)`</highlight></codeline>
+</programlisting></para><para><computeroutput>the_actual_cost</computeroutput> and <computeroutput>the_actual_halfedge_index_map</computeroutput> are the actual parameters, while <computeroutput>get_cost()</computeroutput> and <computeroutput>halfedge_index_map()</computeroutput> are wrapper functions used to designate each formal argument.</para><para>All named parameters have default values so you only need to compose those for which the default is inappropriate. Furthermore, since each actual parameter is wrapped in a function whose name designates the formal argument, the order of named parameters in the list is totally irrelevant.</para><para>In the following, we assume that the type <computeroutput>TriangleMesh</computeroutput> is passed as template parameters of the functions, and is a model of the concept <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput>.</para><para>The following named parameters, offered by the package <ref refid="packages_1PkgBGLSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">CGAL and the Boost Graph Library</ref> (see <ref refid="group__bgl__namedparameters" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">BGL Named Parameters</ref>), are used in this package:</para><para><variablelist>
+<varlistentry><term></term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para>vertex_point_map </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_vertex_point_map"/>is the property map with the points associated to the vertices of the polygon mesh <computeroutput>pmesh</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>GeomTraits::Point_3</computeroutput> as value type. <linebreak/>
+<bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_point,<sp/>pmesh)<sp/></highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>vertex_index_map </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_vertex_index_map"/>is the property map containing the index of each vertex of the input polygon mesh.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::vertex_descriptor</computeroutput> as key type and the value type <programlisting><codeline><highlight class="normal">typename<sp/>boost::property_traits&lt;typename<sp/>boost::property_map&lt;TriangleMesh,<sp/>CGAL::vertex_index_t&gt;::type&gt;::value_type<sp/></highlight></codeline>
+</programlisting> <bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_index,<sp/>pmesh)</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>halfedge_index_map </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_halfedge_index_map"/>is the property map containing the index of each halfedge of the input polygon mesh.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::halfedge_descriptor</computeroutput> as key type and the value type: <programlisting><codeline><highlight class="normal">typename<sp/>boost::property_traits&lt;typename<sp/>boost::property_map&lt;TriangleMesh,<sp/>CGAL::halfedge_index_t&gt;::type&gt;::value_type<sp/></highlight></codeline>
+</programlisting> <bold>Default:</bold> the property map obtained by calling <computeroutput>get(CGAL::halfedge_index,surface_mesh)</computeroutput>, which requires the surface mesh edges to have an <computeroutput>id()</computeroutput> member properly initialized to the require value. If the edges don&apos;t have such an <computeroutput>id()</computeroutput>, a property map must be passed explicitly. An external property map can be easily obtained by calling <computeroutput>get(CGAL::halfedge_external_index,surface_mesh)</computeroutput>. This constructs on the fly, and returns, a property map which non-intrusively associates a proper id with each edge. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>edge_is_constrained_map </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_edge_is_constrained_map"/>is the property map containing information about edges of the input polygon mesh being marked or not.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::edge_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. It should be default constructible.<linebreak/>
+<bold>Default:</bold> a default property map where no edge is constrained  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para>In addition to these named parameters, this package offers the following named parameters:</para><para><variablelist>
+<varlistentry><term></term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para>get_cost </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_get_cost"/>is the policy which returns the collapse cost for an edge.<linebreak/>
+<bold>Type:</bold> a model of the concept <computeroutput><ref refid="classGetCost" kindref="compound">GetCost</ref></computeroutput><linebreak/>
+<bold>Default:</bold> The cost policy <computeroutput><ref refid="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__cost" kindref="compound">CGAL::Surface_mesh_simplification::LindstromTurk_cost</ref>&lt;TriangleMesh&gt;</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>get_placement </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_get_placement"/>is the policy which returns the placement (position of the replacemet vertex) for an edge.<linebreak/>
+<bold>Type:</bold> a model of the concept <computeroutput><ref refid="classGetPlacement" kindref="compound">GetPlacement</ref></computeroutput><linebreak/>
+<bold>Default:</bold> The cost policy <computeroutput><ref refid="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__placement" kindref="compound">CGAL::Surface_mesh_simplification::LindstromTurk_placement</ref>&lt;TriangleMesh&gt;</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>visitor </para></entry><entry thead="no"><para><anchor id="group__sms__namedparameters_1SMS_visitor"/>is the visitor that is called by the <computeroutput><ref refid="group__PkgSurfaceMeshSimplification_1ga5f51d0ea2897f3c22e870279cfb4bd41" kindref="member">edge_collapse()</ref></computeroutput> function in certain points to allow the user to track the simplification process.being marked or not. If you wish to provide your own visitor, you can derive from: <computeroutput><ref refid="structCGAL_1_1Surface__mesh__simplification_1_1Edge__collapse__visitor__base" kindref="compound">CGAL::Surface_mesh_simplification::Edge_collapse_visitor_base</ref>&lt;TriangleMesh&gt;</computeroutput> and override only the callbacks you are interested in.<linebreak/>
+<bold>Type:</bold> user specific<linebreak/>
+<bold>Default:</bold> an implementation-defined dummy visitor  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Mesh_3/classCGAL_1_1Mesh__complex__3__in__triangulation__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Mesh Generation: CGAL::Mesh_complex_3_in_triangulation_3&lt; Tr, CornerIndex, CurveIndex &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Mesh Generation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Mesh__complex__3__in__triangulation__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Mesh__complex__3__in__triangulation__3-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Mesh_complex_3_in_triangulation_3&lt; Tr, CornerIndex, CurveIndex &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgMesh__3.html">3D Mesh Generation Reference</a> » <a class="el" href="group__PkgMesh__3MeshClasses.html">Mesh Classes</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Mesh_complex_3_in_triangulation_3.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The class <code><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html" title="The class Mesh_complex_3_in_triangulation_3 implements a data structure to store the 3D restricted De...">Mesh_complex_3_in_triangulation_3</a></code> implements a data structure to store the 3D restricted Delaunay triangulation used by a mesh generation process. </p>
+<p>This class is a model of the concept <code><a class="el" href="classMeshComplexWithFeatures__3InTriangulation__3.html" title="The concept MeshComplexWithFeatures_3InTriangulation_3 describes a data structure to represent and ma...">MeshComplexWithFeatures_3InTriangulation_3</a></code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tr</td><td>can be instantiated with any 3D regular triangulation of <span style="font-variant: small-caps;">CGAL</span> provided that its vertex and cell base class are models of the concepts <code><a class="el" href="classMeshVertexBase__3.html" title="The concept MeshVertexBase_3 describes the requirements for the Vertex type of the triangulation used...">MeshVertexBase_3</a></code> and <code><a class="el" href="classMeshCellBase__3.html" title="The concept MeshCellBase_3 describes the requirements for the Cell type of the triangulation used in ...">MeshCellBase_3</a></code>, respectively.</td></tr>
+    <tr><td class="paramname">CornerIndex</td><td>is the type of the indices for corners. It must match the <code>Corner_index</code> of the model of the <code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code> concept used for mesh generation.</td></tr>
+    <tr><td class="paramname">CurveIndex</td><td>is the type of the indices for curves. It must match the <code>Curve_index</code> types of the model of the <code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code> concept used for mesh generation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Those two last template parameters defaults to <code>int</code>, so that they can be ignored if the domain used for mesh generation does not include 0 and 1-dimensionnal features (i.e is a model of the concept <code><a class="el" href="classMeshDomain__3.html" title="The concept MeshDomain_3 describes the knowledge required on the object to be discretized. The concept MeshDomain_3 is the concept to be used when the input domain does not have  or -dimensional features that need to be accurately approximated by the mesh. In such a case, the queries issued by the meshing process concern only the faces of the input domain with dimension  and , that are respectively called subdomains and surface patches. ">MeshDomain_3</a></code>).</p>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000008">Is Model Of:</a></b></dt><dd><code><a class="el" href="classMeshComplexWithFeatures__3InTriangulation__3.html" title="The concept MeshComplexWithFeatures_3InTriangulation_3 describes a data structure to represent and ma...">MeshComplexWithFeatures_3InTriangulation_3</a></code> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshComplex__3InTriangulation__3.html" title="The concept MeshComplex_3InTriangulation_3 describes a data structure to represent and maintain a 3D ...">MeshComplex_3InTriangulation_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshComplexWithFeatures__3InTriangulation__3.html" title="The concept MeshComplexWithFeatures_3InTriangulation_3 describes a data structure to represent and ma...">MeshComplexWithFeatures_3InTriangulation_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshCellBase__3.html" title="The concept MeshCellBase_3 describes the requirements for the Cell type of the triangulation used in ...">MeshCellBase_3</a></code>, </dd>
+<dd>
+<code><a class="el" href="classMeshVertexBase__3.html" title="The concept MeshVertexBase_3 describes the requirements for the Vertex type of the triangulation used...">MeshVertexBase_3</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_3D_gray_image_8cpp-example.html#_a3">Mesh_3/mesh_3D_gray_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_gray_vtk_image_8cpp-example.html#_a3">Mesh_3/mesh_3D_gray_vtk_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_8cpp-example.html#_a5">Mesh_3/mesh_3D_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_variable_size_8cpp-example.html#_a5">Mesh_3/mesh_3D_image_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_with_custom_initialization_8cpp-example.html#_a5">Mesh_3/mesh_3D_image_with_custom_initialization.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_with_features_8cpp-example.html#_a6">Mesh_3/mesh_3D_image_with_features.cpp</a>, <a class="el" href="Mesh_3_2mesh_hybrid_mesh_domain_8cpp-example.html#_a11">Mesh_3/mesh_hybrid_mesh_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_8cpp-example.html#_a4">Mesh_3/mesh_implicit_domains.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_2_8cpp-example.html#_a4">Mesh_3/mesh_implicit_domains_2.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_ellipsoid_8cpp-example.html#_a3">Mesh_3/mesh_implicit_ellipsoid.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_8cpp-example.html#_a5">Mesh_3/mesh_implicit_sphere.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_variable_size_8cpp-example.html#_a5">Mesh_3/mesh_implicit_sphere_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_example_8cpp-example.html#_a5">Mesh_3/mesh_optimization_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#_a5">Mesh_3/mesh_optimization_lloyd_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_complex_8cpp-example.html#_a5">Mesh_3/mesh_polyhedral_complex.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_8cpp-example.html#_a6">Mesh_3/mesh_polyhedral_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_features_8cpp-example.html#_a5">Mesh_3/mesh_polyhedral_domain_with_features.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_lipschitz_sizing_8cpp-example.html#_a5">Mesh_3/mesh_polyhedral_domain_with_lipschitz_sizing.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_surface_inside_8cpp-example.html#_a3">Mesh_3/mesh_polyhedral_domain_with_surface_inside.cpp</a>, <a class="el" href="Mesh_3_2mesh_two_implicit_spheres_with_balls_8cpp-example.html#_a6">Mesh_3/mesh_two_implicit_spheres_with_balls.cpp</a>, and <a class="el" href="Mesh_3_2remesh_polyhedral_surface_8cpp-example.html#_a3">Mesh_3/remesh_polyhedral_surface.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:aec86a2ca1f139ae7c79d91cf37e60df6"><td class="memItemLeft" align="right" valign="top"><a id="aec86a2ca1f139ae7c79d91cf37e60df6"></a>
+typedef Tr::Vertex::Index </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#aec86a2ca1f139ae7c79d91cf37e60df6">Index</a></td></tr>
+<tr class="memdesc:aec86a2ca1f139ae7c79d91cf37e60df6"><td class="mdescLeft"> </td><td class="mdescRight">Index type. <br /></td></tr>
+<tr class="separator:aec86a2ca1f139ae7c79d91cf37e60df6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a11ab165492c2ea92d94c9f4dbc91e9"><td class="memItemLeft" align="right" valign="top"><a id="a6a11ab165492c2ea92d94c9f4dbc91e9"></a>
+typedef Tr::Cell::Surface_patch_index </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a6a11ab165492c2ea92d94c9f4dbc91e9">Surface_patch_index</a></td></tr>
+<tr class="memdesc:a6a11ab165492c2ea92d94c9f4dbc91e9"><td class="mdescLeft"> </td><td class="mdescRight">Surface index type. <br /></td></tr>
+<tr class="separator:a6a11ab165492c2ea92d94c9f4dbc91e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a07470717d2e0eab0fd7ba1e6da32fca5"><td class="memItemLeft" align="right" valign="top"><a id="a07470717d2e0eab0fd7ba1e6da32fca5"></a>
+typedef Tr::Cell::Subdomain_index </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a07470717d2e0eab0fd7ba1e6da32fca5">Subdomain_index</a></td></tr>
+<tr class="memdesc:a07470717d2e0eab0fd7ba1e6da32fca5"><td class="mdescLeft"> </td><td class="mdescRight">Subdomain index type. <br /></td></tr>
+<tr class="separator:a07470717d2e0eab0fd7ba1e6da32fca5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1962f321dda5de11a2728a3d4d27bb52"><td class="memItemLeft" align="right" valign="top"><a id="a1962f321dda5de11a2728a3d4d27bb52"></a>
+typedef CornerIndex </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a1962f321dda5de11a2728a3d4d27bb52">Corner_index</a></td></tr>
+<tr class="memdesc:a1962f321dda5de11a2728a3d4d27bb52"><td class="mdescLeft"> </td><td class="mdescRight">Corner index type. <br /></td></tr>
+<tr class="separator:a1962f321dda5de11a2728a3d4d27bb52"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6ce827c74d06802480ad73c760796e2d"><td class="memItemLeft" align="right" valign="top"><a id="a6ce827c74d06802480ad73c760796e2d"></a>
+typedef CurveIndex </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a6ce827c74d06802480ad73c760796e2d">Curve_index</a></td></tr>
+<tr class="memdesc:a6ce827c74d06802480ad73c760796e2d"><td class="mdescLeft"> </td><td class="mdescRight">Curve index type. <br /></td></tr>
+<tr class="separator:a6ce827c74d06802480ad73c760796e2d"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:a1e69cf04e3d2956c2f56500a5d2eb1a0"><td class="memItemLeft" align="right" valign="top"><a id="a1e69cf04e3d2956c2f56500a5d2eb1a0"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a1e69cf04e3d2956c2f56500a5d2eb1a0">output_to_medit</a> (std::ofstream &amp;os)</td></tr>
+<tr class="memdesc:a1e69cf04e3d2956c2f56500a5d2eb1a0"><td class="mdescLeft"> </td><td class="mdescRight">Outputs the mesh to <code>os</code> in medit format. <br /></td></tr>
+<tr class="separator:a1e69cf04e3d2956c2f56500a5d2eb1a0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a797d9cd5a767c2f9b01c0c78665b675c"><td class="memItemLeft" align="right" valign="top"><a id="a797d9cd5a767c2f9b01c0c78665b675c"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a797d9cd5a767c2f9b01c0c78665b675c">output_boundary_to_off</a> (std::ostream &amp;out) const</td></tr>
+<tr class="memdesc:a797d9cd5a767c2f9b01c0c78665b675c"><td class="mdescLeft"> </td><td class="mdescRight">Outputs the outer boundary of the entire domain with facets oriented outward. <br /></td></tr>
+<tr class="separator:a797d9cd5a767c2f9b01c0c78665b675c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abcc99c42722b5da0f793ac073bc1a77b"><td class="memItemLeft" align="right" valign="top"><a id="abcc99c42722b5da0f793ac073bc1a77b"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#abcc99c42722b5da0f793ac073bc1a77b">output_boundary_to_off</a> (std::ostream &amp;out, <a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#a07470717d2e0eab0fd7ba1e6da32fca5">Subdomain_index</a> subdomain) const</td></tr>
+<tr class="memdesc:abcc99c42722b5da0f793ac073bc1a77b"><td class="mdescLeft"> </td><td class="mdescRight">Outputs the outer boundary of the selected subdomain with facets oriented outward. <br /></td></tr>
+<tr class="separator:abcc99c42722b5da0f793ac073bc1a77b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afdb5e416ce98ca9680851ed1b6da2350"><td class="memItemLeft" align="right" valign="top"><a id="afdb5e416ce98ca9680851ed1b6da2350"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html#afdb5e416ce98ca9680851ed1b6da2350">output_facets_in_complex_to_off</a> (std::ostream &amp;out) const</td></tr>
+<tr class="memdesc:afdb5e416ce98ca9680851ed1b6da2350"><td class="mdescLeft"> </td><td class="mdescRight">Outputs the surface facets with a consistent orientation at the interface of two subdomains. <br /></td></tr>
+<tr class="separator:afdb5e416ce98ca9680851ed1b6da2350"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html">Mesh_complex_3_in_triangulation_3</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:50 for CGAL 4.13 - 3D Mesh Generation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

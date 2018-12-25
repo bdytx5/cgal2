@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Three_1_1Scene__interface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CGAL::Three::Scene_interface</compoundname>
+    <derivedcompoundref refid="classScene" prot="public" virt="non-virtual">Scene</derivedcompoundref>
+    <includes local="no">CGAL/Three/Scene_interface.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Scene__interface_1aade0c86670c491623ef8c5ac1c115f9c" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>typedef CGAL::Bbox_3 CGAL::Three::Scene_interface::Bbox</definition>
+        <argsstring></argsstring>
+        <name>Bbox</name>
+        <briefdescription>
+<para>A bounding box is a box with each face corresponding to an extremum of its contents. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="72" column="1" bodyfile="CGAL/Three/Scene_interface.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int CGAL::Three::Scene_interface::Item_id</definition>
+        <argsstring></argsstring>
+        <name>Item_id</name>
+        <briefdescription>
+<para>Integer used as the index of a <ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">Scene_item</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>An item&apos;s index is its position in the Geometric Objects list. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="76" column="1" bodyfile="CGAL/Three/Scene_interface.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a9b1aa29a73ce05f10b22eb775d8623de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual CGAL::Three::Scene_interface::~Scene_interface</definition>
+        <argsstring>()</argsstring>
+        <name>~Scene_interface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="77" column="1" bodyfile="CGAL/Three/Scene_interface.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a7373a0da1155443122239b69d38409fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::addItem</definition>
+        <argsstring>(CGAL::Three::Scene_item *item)=0</argsstring>
+        <name>addItem</name>
+        <reimplementedby refid="classScene_1a781ef9bb269710a7256af16be57a74f0">addItem</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Adds an item to the Geometric Objects list. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the new item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="80" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1aa1d6993d87ae87523c0eda587d853eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">Scene_item</ref> *</type>
+        <definition>virtual Scene_item* CGAL::Three::Scene_interface::replaceItem</definition>
+        <argsstring>(Item_id id, CGAL::Three::Scene_item *item, bool emit_item_about_to_be_destroyed=false)=0</argsstring>
+        <name>replaceItem</name>
+        <reimplementedby refid="classScene_1a59d4906c1522d264b8cfdbefb423c261">replaceItem</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>emit_item_about_to_be_destroyed</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Replaces an item by a new one in the scene. </para>        </briefdescription>
+        <detaileddescription>
+<para>The item which id is <computeroutput>id</computeroutput> is replaced by <computeroutput>item</computeroutput>. The first one is deleted and gives its index to the second one. If emit_item_about_to_be_destroyed is true, emits an itemAboutToBeDestroyed signal. <simplesect kind="return"><para>a pointer to the old item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1acac2c469852a07791156a1a5072f2cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_interface::changeGroup</definition>
+        <argsstring>(CGAL::Three::Scene_item *item, CGAL::Three::Scene_group_item *target_group)=0</argsstring>
+        <name>changeGroup</name>
+        <reimplementedby refid="classScene_1a44410451efc5d8d4a0c3b6769a9509ee">changeGroup</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__group__item" kindref="compound">CGAL::Three::Scene_group_item</ref> *</type>
+          <declname>target_group</declname>
+        </param>
+        <briefdescription>
+<para>Moves item to the targeted group. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a29784976b579a8d56fb76dbca38131b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::erase</definition>
+        <argsstring>(Item_id)=0</argsstring>
+        <name>erase</name>
+        <reimplementedby refid="classScene_1a867fdf32f25630a2d0013e06ffe33a20">erase</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        </param>
+        <briefdescription>
+<para>Erases an item in the list. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the item just before the one that is erased, or just after. </para></simplesect>
+<simplesect kind="return"><para>-1 if the list is empty. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1ae98b890b42bb6eaf63440cc26d6578d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int CGAL::Three::Scene_interface::erase</definition>
+        <argsstring>(QList&lt; int &gt;)=0</argsstring>
+        <name>erase</name>
+        <reimplementedby refid="classScene_1aeaac9dcfca8b32eabd6fe9934e1690aa">erase</reimplementedby>
+        <param>
+          <type>QList&lt; int &gt;</type>
+        </param>
+        <briefdescription>
+<para>Deletes the items with the target indices. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the polyhedron just before the one that is erased, or just after. Returns -1 if the list is empty. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1ae3392303f470428f1ab7def5c0ba2a8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::duplicate</definition>
+        <argsstring>(Item_id id)=0</argsstring>
+        <name>duplicate</name>
+        <reimplementedby refid="classScene_1aa57e8bf74df39d38b22c4cc4f931e8e6">duplicate</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Creates a copy of the item whith the id <computeroutput>id</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the new item (-1 on error). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1acc9b4d3b3657f262bfaabc8375c40257" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int CGAL::Three::Scene_interface::numberOfEntries</definition>
+        <argsstring>() const =0</argsstring>
+        <name>numberOfEntries</name>
+        <reimplementedby refid="classScene_1a3e7667c259d3a25c6af44855691bdb64">numberOfEntries</reimplementedby>
+        <briefdescription>
+<para>The number of items. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of items in the scene. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="111" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a1e03431e194b7598fc053ceec35fe24d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+        <definition>virtual CGAL::Three::Scene_item* CGAL::Three::Scene_interface::item</definition>
+        <argsstring>(Item_id id) const =0</argsstring>
+        <name>item</name>
+        <reimplementedby refid="classScene_1a601c6392efb360b7bd54e2397cb300b6">item</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>The <computeroutput>id</computeroutput>th item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the item with the specified index. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="114" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a7c64ef901d51f90dd4fe17a815ec97a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::item_id</definition>
+        <argsstring>(CGAL::Three::Scene_item *item) const =0</argsstring>
+        <name>item_id</name>
+        <reimplementedby refid="classScene_1a3eb2511d7a6e76ff65a117e57439d781">item_id</reimplementedby>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>The id of <computeroutput>item</computeroutput> </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the id of the specified item. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="117" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a08565259baefb42241060285689c7197" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::mainSelectionIndex</definition>
+        <argsstring>() const =0</argsstring>
+        <name>mainSelectionIndex</name>
+        <reimplementedby refid="classScene_1a2e47dc931baa492f32d392f4c2a5f9a6">mainSelectionIndex</reimplementedby>
+        <briefdescription>
+<para>The currently selected item&apos;s index. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the currently selected item&apos;s index. </para></simplesect>
+<simplesect kind="return"><para>-1 if none or several items are selected </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="121" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a7983fecaaf2d05ceafecbc483f809b51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>QList&lt; <ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref> &gt;</type>
+        <definition>virtual QList&lt;Item_id&gt; CGAL::Three::Scene_interface::selectionIndices</definition>
+        <argsstring>() const =0</argsstring>
+        <name>selectionIndices</name>
+        <reimplementedby refid="classScene_1a3d418314c9e0f555f96f939c2a6441d5">selectionIndices</reimplementedby>
+        <briefdescription>
+<para>The id of the currently selected item. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the list of currently selected items indices. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="124" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a982c3b969c807b69f06cec4bcfa6dda3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::selectionAindex</definition>
+        <argsstring>() const =0</argsstring>
+        <name>selectionAindex</name>
+        <reimplementedby refid="classScene_1a345c4177c1fa34edf073da855d4ba40e">selectionAindex</reimplementedby>
+        <briefdescription>
+<para>Item_A is designated with the column A/B in the Geometric Objetcts widget. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the Item_A </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="127" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a0d8b7bdd9bb9b7b671d6ae0024a52e76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        <definition>virtual Item_id CGAL::Three::Scene_interface::selectionBindex</definition>
+        <argsstring>() const =0</argsstring>
+        <name>selectionBindex</name>
+        <reimplementedby refid="classScene_1a826c90f9134e89f0d3d8143e1a3f1708">selectionBindex</reimplementedby>
+        <briefdescription>
+<para>Item_B is designated with the column A/B in the Geometric Objetcts widget. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the index of the Item_B </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="130" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a4b62aefc860ee2208cb8743825dc25a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1aade0c86670c491623ef8c5ac1c115f9c" kindref="member">Bbox</ref></type>
+        <definition>virtual Bbox CGAL::Three::Scene_interface::bbox</definition>
+        <argsstring>() const =0</argsstring>
+        <name>bbox</name>
+        <reimplementedby refid="classScene_1a2bbbd9be24f9aded4a96b8594b53cdc0">bbox</reimplementedby>
+        <briefdescription>
+<para>The scene&apos;s Bbox. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the scene&apos;s bounding box </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Scene__interface_1aade0c86670c491623ef8c5ac1c115f9c" kindref="member">Scene_interface::Bbox</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="135" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a84fe85bb0e10e70a3ba1572b18fbc652" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double CGAL::Three::Scene_interface::len_diagonal</definition>
+        <argsstring>() const =0</argsstring>
+        <name>len_diagonal</name>
+        <reimplementedby refid="classScene_1abf2a008476f8f1f07392fc1b4140e4ff">len_diagonal</reimplementedby>
+        <briefdescription>
+<para>The length of the diagonal of the scene&apos;s Bbox. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the length of the bounding box&apos;s diagonal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="138" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1aef089a0acefa9b99f4e01e857996ca07" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_interface::itemChanged</definition>
+        <argsstring>(Item_id i)=0</argsstring>
+        <name>itemChanged</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Updates the information about the <computeroutput>i</computeroutput>th item in the Geometric Objects list and redraws the scene. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1aad992682d3092ef75bc5ecaa950f5e77" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_interface::itemChanged</definition>
+        <argsstring>(CGAL::Three::Scene_item *item)=0</argsstring>
+        <name>itemChanged</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Updates the information about <computeroutput>item</computeroutput> in the Geometric Objects list and redraws the scene. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="146" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a12c2f7f8ad865de1dbb1361b406bb277" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_interface::itemVisibilityChanged</definition>
+        <argsstring>(CGAL::Three::Scene_item *)=0</argsstring>
+        <name>itemVisibilityChanged</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+        </param>
+        <briefdescription>
+<para>Re computes the scene Bbox without recentering it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="148" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Scene__interface_1a3446953fbbfc85d104f5439f462d4ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CGAL::Three::Scene_interface::setSelectedItem</definition>
+        <argsstring>(Item_id)=0</argsstring>
+        <name>setSelectedItem</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" kindref="member">Item_id</ref></type>
+        </param>
+        <briefdescription>
+<para>Clears the current selection then sets the selected item to the target index. </para>        </briefdescription>
+        <detaileddescription>
+<para>Used to update the selection in the Geometric Objects view. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="151" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is the class given to the plugins to interact with the scene. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="36">
+        <label>CGAL::Three::Scene_interface</label>
+        <link refid="classCGAL_1_1Three_1_1Scene__interface"/>
+      </node>
+      <node id="37">
+        <label>Scene</label>
+        <link refid="classScene"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="CGAL/Three/Scene_interface.h" line="67" column="1" bodyfile="CGAL/Three/Scene_interface.h" bodystart="67" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a7373a0da1155443122239b69d38409fd" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>addItem</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1aade0c86670c491623ef8c5ac1c115f9c" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_interface</scope><name>Bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a4b62aefc860ee2208cb8743825dc25a4" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>bbox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1acac2c469852a07791156a1a5072f2cbd" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>changeGroup</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1ae3392303f470428f1ab7def5c0ba2a8a" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>duplicate</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a29784976b579a8d56fb76dbca38131b5" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>erase</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1ae98b890b42bb6eaf63440cc26d6578d9" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>erase</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a1e03431e194b7598fc053ceec35fe24d" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>item</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a58c385ba3ef7ca5fb6fedc57f51b052c" prot="public" virt="non-virtual"><scope>CGAL::Three::Scene_interface</scope><name>Item_id</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a7c64ef901d51f90dd4fe17a815ec97a9" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>item_id</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1aef089a0acefa9b99f4e01e857996ca07" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>itemChanged</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1aad992682d3092ef75bc5ecaa950f5e77" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>itemChanged</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a12c2f7f8ad865de1dbb1361b406bb277" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>itemVisibilityChanged</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a84fe85bb0e10e70a3ba1572b18fbc652" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>len_diagonal</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a08565259baefb42241060285689c7197" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>mainSelectionIndex</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1acc9b4d3b3657f262bfaabc8375c40257" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>numberOfEntries</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1aa1d6993d87ae87523c0eda587d853eb4" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>replaceItem</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a982c3b969c807b69f06cec4bcfa6dda3" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>selectionAindex</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a0d8b7bdd9bb9b7b671d6ae0024a52e76" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>selectionBindex</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a7983fecaaf2d05ceafecbc483f809b51" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>selectionIndices</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a3446953fbbfc85d104f5439f462d4ec3" prot="public" virt="pure-virtual"><scope>CGAL::Three::Scene_interface</scope><name>setSelectedItem</name></member>
+      <member refid="classCGAL_1_1Three_1_1Scene__interface_1a9b1aa29a73ce05f10b22eb775d8623de" prot="public" virt="virtual"><scope>CGAL::Three::Scene_interface</scope><name>~Scene_interface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

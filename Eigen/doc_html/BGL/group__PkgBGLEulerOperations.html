@@ -1,0 +1,1181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/BGL/group__PkgBGLEulerOperations.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - CGAL and the Boost Graph Library: Euler Operations</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - CGAL and the Boost Graph Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgBGLEulerOperations.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Euler Operations<div class="ingroups"><a class="el" href="group__PkgBGL.html">CGAL and the Boost Graph Library Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>We call high level operations that maintain the validity of a halfedge graph <em>Euler Operations</em>. </p>
+<table class="memberdecls">
+<tr class="memitem:ga585a3324ef493cc1340da5cb364b772c"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga585a3324ef493cc1340da5cb364b772c"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga585a3324ef493cc1340da5cb364b772c">CGAL::Euler::join_vertex</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga585a3324ef493cc1340da5cb364b772c"><td class="mdescLeft"> </td><td class="mdescRight">joins the two vertices incident to <code>h</code>, (that is <code>source(h, g)</code> and <code>target(h, g)</code>) and removes <code>source(h,g)</code>.  <a href="group__PkgBGLEulerOperations.html#ga585a3324ef493cc1340da5cb364b772c">More...</a><br /></td></tr>
+<tr class="separator:ga585a3324ef493cc1340da5cb364b772c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa60aecdf1aa48b7b3609abddd3b4d38b"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gaa60aecdf1aa48b7b3609abddd3b4d38b"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gaa60aecdf1aa48b7b3609abddd3b4d38b">CGAL::Euler::split_vertex</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</td></tr>
+<tr class="memdesc:gaa60aecdf1aa48b7b3609abddd3b4d38b"><td class="mdescLeft"> </td><td class="mdescRight">splits the target vertex <code>v</code> of <code>h1</code> and <code>h2</code>, and connects the new vertex and <code>v</code> with a new edge.  <a href="group__PkgBGLEulerOperations.html#gaa60aecdf1aa48b7b3609abddd3b4d38b">More...</a><br /></td></tr>
+<tr class="separator:gaa60aecdf1aa48b7b3609abddd3b4d38b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga8a7629a2a0659ca059081eae8cedca3d"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga8a7629a2a0659ca059081eae8cedca3d"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga8a7629a2a0659ca059081eae8cedca3d">CGAL::Euler::split_edge</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga8a7629a2a0659ca059081eae8cedca3d"><td class="mdescLeft"> </td><td class="mdescRight">splits the halfedge <code>h</code> into two halfedges inserting a new vertex that is a copy of <code>vertex(opposite(h,g),g)</code>.  <a href="group__PkgBGLEulerOperations.html#ga8a7629a2a0659ca059081eae8cedca3d">More...</a><br /></td></tr>
+<tr class="separator:ga8a7629a2a0659ca059081eae8cedca3d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga34c26f38b0453d3bad610963da8b24ee"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga34c26f38b0453d3bad610963da8b24ee"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga34c26f38b0453d3bad610963da8b24ee">CGAL::Euler::join_face</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga34c26f38b0453d3bad610963da8b24ee"><td class="mdescLeft"> </td><td class="mdescRight">joins the two faces incident to <code>h</code> and <code>opposite(h,g)</code>.  <a href="group__PkgBGLEulerOperations.html#ga34c26f38b0453d3bad610963da8b24ee">More...</a><br /></td></tr>
+<tr class="separator:ga34c26f38b0453d3bad610963da8b24ee"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gac0e8aebb3072d5dd67487ce40205f318"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gac0e8aebb3072d5dd67487ce40205f318"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gac0e8aebb3072d5dd67487ce40205f318">CGAL::Euler::split_face</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</td></tr>
+<tr class="memdesc:gac0e8aebb3072d5dd67487ce40205f318"><td class="mdescLeft"> </td><td class="mdescRight">splits the face incident to <code>h1</code> and <code>h2</code>.  <a href="group__PkgBGLEulerOperations.html#gac0e8aebb3072d5dd67487ce40205f318">More...</a><br /></td></tr>
+<tr class="separator:gac0e8aebb3072d5dd67487ce40205f318"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga868c3f29a47f516c24953b9b3b18c827"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga868c3f29a47f516c24953b9b3b18c827"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga868c3f29a47f516c24953b9b3b18c827">CGAL::Euler::join_loop</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga868c3f29a47f516c24953b9b3b18c827"><td class="mdescLeft"> </td><td class="mdescRight">glues the cycle of halfedges of <code>h1</code> and <code>h2</code> together.  <a href="group__PkgBGLEulerOperations.html#ga868c3f29a47f516c24953b9b3b18c827">More...</a><br /></td></tr>
+<tr class="separator:ga868c3f29a47f516c24953b9b3b18c827"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaff8b953d3c70fbfd2ae9db2f59d62bd0"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gaff8b953d3c70fbfd2ae9db2f59d62bd0"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gaff8b953d3c70fbfd2ae9db2f59d62bd0">CGAL::Euler::split_loop</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h3, Graph &amp;g)</td></tr>
+<tr class="memdesc:gaff8b953d3c70fbfd2ae9db2f59d62bd0"><td class="mdescLeft"> </td><td class="mdescRight">cuts the graph along the cycle <code>(h1,h2,h3)</code> changing the genus (halfedge <code>h3</code> runs on the backside of the three dimensional figure below).  <a href="group__PkgBGLEulerOperations.html#gaff8b953d3c70fbfd2ae9db2f59d62bd0">More...</a><br /></td></tr>
+<tr class="separator:gaff8b953d3c70fbfd2ae9db2f59d62bd0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gacfae7ff8e782da55b941e4487e86c738"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gacfae7ff8e782da55b941e4487e86c738"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gacfae7ff8e782da55b941e4487e86c738">CGAL::Euler::remove_face</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:gacfae7ff8e782da55b941e4487e86c738"><td class="mdescLeft"> </td><td class="mdescRight">removes the incident face of <code>h</code> and changes all halfedges incident to the face into border halfedges or removes them from the graph if they were already border halfedges.  <a href="group__PkgBGLEulerOperations.html#gacfae7ff8e782da55b941e4487e86c738">More...</a><br /></td></tr>
+<tr class="separator:gacfae7ff8e782da55b941e4487e86c738"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga4661f850bc60686efeae2fc9d2ec3e65"><td class="memTemplParams" colspan="2"><a id="ga4661f850bc60686efeae2fc9d2ec3e65"></a>
+template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga4661f850bc60686efeae2fc9d2ec3e65"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::edge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga4661f850bc60686efeae2fc9d2ec3e65">CGAL::Euler::add_edge</a> (typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor s, typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor t, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga4661f850bc60686efeae2fc9d2ec3e65"><td class="mdescLeft"> </td><td class="mdescRight">adds and returns the edge <code>e</code> connecting <code>s</code> and <code>t</code> halfedge(e, g) has s as source and t as target <br /></td></tr>
+<tr class="separator:ga4661f850bc60686efeae2fc9d2ec3e65"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa386d0cdef3b5d6ef43d6b503392dbcd"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename VertexRange &gt; </td></tr>
+<tr class="memitem:gaa386d0cdef3b5d6ef43d6b503392dbcd"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::face_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gaa386d0cdef3b5d6ef43d6b503392dbcd">CGAL::Euler::add_face</a> (const VertexRange &amp;vr, Graph &amp;g)</td></tr>
+<tr class="memdesc:gaa386d0cdef3b5d6ef43d6b503392dbcd"><td class="mdescLeft"> </td><td class="mdescRight">adds a new face defined by a range of vertices (identified by their descriptors, <code>boost::graph_traits&lt;Graph&gt;::vertex_descriptor</code>).  <a href="group__PkgBGLEulerOperations.html#gaa386d0cdef3b5d6ef43d6b503392dbcd">More...</a><br /></td></tr>
+<tr class="separator:gaa386d0cdef3b5d6ef43d6b503392dbcd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa305bfc634d2aa7bca376d0550d8363e"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:gaa305bfc634d2aa7bca376d0550d8363e"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gaa305bfc634d2aa7bca376d0550d8363e">CGAL::Euler::make_hole</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:gaa305bfc634d2aa7bca376d0550d8363e"><td class="mdescLeft"> </td><td class="mdescRight">removes the incident face of <code>h</code> and changes all halfedges incident to the face into border halfedges.  <a href="group__PkgBGLEulerOperations.html#gaa305bfc634d2aa7bca376d0550d8363e">More...</a><br /></td></tr>
+<tr class="separator:gaa305bfc634d2aa7bca376d0550d8363e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga12e0a6376e2755b48356b186e1344fdb"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga12e0a6376e2755b48356b186e1344fdb"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga12e0a6376e2755b48356b186e1344fdb">CGAL::Euler::fill_hole</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga12e0a6376e2755b48356b186e1344fdb"><td class="mdescLeft"> </td><td class="mdescRight">fills the hole incident to <code>h</code>.  <a href="group__PkgBGLEulerOperations.html#ga12e0a6376e2755b48356b186e1344fdb">More...</a><br /></td></tr>
+<tr class="separator:ga12e0a6376e2755b48356b186e1344fdb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga28e4d0f61f3cda26eb651e352cf756ce"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga28e4d0f61f3cda26eb651e352cf756ce"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce">CGAL::Euler::add_center_vertex</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga28e4d0f61f3cda26eb651e352cf756ce"><td class="mdescLeft"> </td><td class="mdescRight">creates a barycentric triangulation of the face incident to <code>h</code>.  <a href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce">More...</a><br /></td></tr>
+<tr class="separator:ga28e4d0f61f3cda26eb651e352cf756ce"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga8ec295610396e837258997c435b7a75f"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga8ec295610396e837258997c435b7a75f"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga8ec295610396e837258997c435b7a75f">CGAL::Euler::remove_center_vertex</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga8ec295610396e837258997c435b7a75f"><td class="mdescLeft"> </td><td class="mdescRight">removes the vertex <code>target(h, g)</code> and all incident halfedges thereby merging all incident faces.  <a href="group__PkgBGLEulerOperations.html#ga8ec295610396e837258997c435b7a75f">More...</a><br /></td></tr>
+<tr class="separator:ga8ec295610396e837258997c435b7a75f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga2bd5538dc0fda2be88770f5fb96c6782"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga2bd5538dc0fda2be88770f5fb96c6782"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga2bd5538dc0fda2be88770f5fb96c6782">CGAL::Euler::add_vertex_and_face_to_border</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga2bd5538dc0fda2be88770f5fb96c6782"><td class="mdescLeft"> </td><td class="mdescRight">appends a new face to the border halfedge <code>h2</code> by connecting the tip of <code>h2</code> with the tip of <code>h1</code> with two new halfedges and a new vertex and creating a new face that is incident to <code>h2</code>.  <a href="group__PkgBGLEulerOperations.html#ga2bd5538dc0fda2be88770f5fb96c6782">More...</a><br /></td></tr>
+<tr class="separator:ga2bd5538dc0fda2be88770f5fb96c6782"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga8666be89a7ffa73a5fe82b6b2bdc6f19"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga8666be89a7ffa73a5fe82b6b2bdc6f19"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga8666be89a7ffa73a5fe82b6b2bdc6f19">CGAL::Euler::add_face_to_border</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga8666be89a7ffa73a5fe82b6b2bdc6f19"><td class="mdescLeft"> </td><td class="mdescRight">appends a new face incident to the border halfedge <code>h1</code> and <code>h2</code> by connecting the vertex <code>target(h2,g)</code> and the vertex <code>target(h1,g)</code> with a new halfedge, and filling this separated part of the hole with a new face, such that the new face is incident to <code>h2</code>.  <a href="group__PkgBGLEulerOperations.html#ga8666be89a7ffa73a5fe82b6b2bdc6f19">More...</a><br /></td></tr>
+<tr class="separator:ga8666be89a7ffa73a5fe82b6b2bdc6f19"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5d15eb83f797b8f91e23e8e9ceec78c9"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga5d15eb83f797b8f91e23e8e9ceec78c9"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::vertex_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga5d15eb83f797b8f91e23e8e9ceec78c9">CGAL::Euler::collapse_edge</a> (typename boost::graph_traits&lt; Graph &gt;::edge_descriptor e, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga5d15eb83f797b8f91e23e8e9ceec78c9"><td class="mdescLeft"> </td><td class="mdescRight">collapses an edge in a graph.  <a href="group__PkgBGLEulerOperations.html#ga5d15eb83f797b8f91e23e8e9ceec78c9">More...</a><br /></td></tr>
+<tr class="separator:ga5d15eb83f797b8f91e23e8e9ceec78c9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa3849177a71b6b782db011fc0f5f1258"><td class="memTemplParams" colspan="2">template&lt;typename Graph , typename EdgeIsConstrainedMap &gt; </td></tr>
+<tr class="memitem:gaa3849177a71b6b782db011fc0f5f1258"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; Graph &gt;::vertex_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#gaa3849177a71b6b782db011fc0f5f1258">CGAL::Euler::collapse_edge</a> (typename boost::graph_traits&lt; Graph &gt;::edge_descriptor v0v1, Graph &amp;g, EdgeIsConstrainedMap Edge_is_constrained_map)</td></tr>
+<tr class="memdesc:gaa3849177a71b6b782db011fc0f5f1258"><td class="mdescLeft"> </td><td class="mdescRight">collapses an edge in a graph having non-collapsable edges.  <a href="group__PkgBGLEulerOperations.html#gaa3849177a71b6b782db011fc0f5f1258">More...</a><br /></td></tr>
+<tr class="separator:gaa3849177a71b6b782db011fc0f5f1258"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga174af506cebf3def60b56a3501843864"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga174af506cebf3def60b56a3501843864"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga174af506cebf3def60b56a3501843864">CGAL::Euler::flip_edge</a> (typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</td></tr>
+<tr class="memdesc:ga174af506cebf3def60b56a3501843864"><td class="mdescLeft"> </td><td class="mdescRight">performs an edge flip, rotating the edge pointed by <code>h</code> by one vertex in the direction of the face orientation.  <a href="group__PkgBGLEulerOperations.html#ga174af506cebf3def60b56a3501843864">More...</a><br /></td></tr>
+<tr class="separator:ga174af506cebf3def60b56a3501843864"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga2d19a3573640a9abb28885425bfd9f40"><td class="memTemplParams" colspan="2">template&lt;typename Graph &gt; </td></tr>
+<tr class="memitem:ga2d19a3573640a9abb28885425bfd9f40"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgBGLEulerOperations.html#ga2d19a3573640a9abb28885425bfd9f40">CGAL::Euler::does_satisfy_link_condition</a> (typename boost::graph_traits&lt; Graph &gt;::edge_descriptor e, Graph &amp;g)</td></tr>
+<tr class="separator:ga2d19a3573640a9abb28885425bfd9f40"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga28e4d0f61f3cda26eb651e352cf756ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28e4d0f61f3cda26eb651e352cf756ce">◆ </a></span>add_center_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_center_vertex </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>creates a barycentric triangulation of the face incident to <code>h</code>. </p>
+<p>Creates a new vertex and connects it to each vertex incident to <code>h</code> and splits <code>face(h, g)</code> into triangular faces. <code>h</code> remains incident to the original face. The time complexity is linear in the size of the face.</p>
+<div class="image">
+<object type="image/svg+xml" data="add_center_vertex.svg">add_center_vertex.svg</object>
+</div>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge <code>next(h, g)</code> after the operation, i.e., a halfedge pointing to the new vertex.</dd></dl>
+<p>Note that <code><a class="el" href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce" title="creates a barycentric triangulation of the face incident to h. ">add_center_vertex()</a></code> does not deal with properties of new vertices, halfedges, and faces. </p><dl class="section pre"><dt>Precondition</dt><dd><code>h</code> is not a border halfedge.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h</td><td>halfedge descriptor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#ga8ec295610396e837258997c435b7a75f" title="removes the vertex target(h, g) and all incident halfedges thereby merging all incident faces...">remove_center_vertex()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gaa386d0cdef3b5d6ef43d6b503392dbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa386d0cdef3b5d6ef43d6b503392dbcd">◆ </a></span>add_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename VertexRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; Graph &gt;::face_descriptor CGAL::Euler::add_face </td>
+          <td>(</td>
+          <td class="paramtype">const VertexRange &amp; </td>
+          <td class="paramname"><em>vr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>adds a new face defined by a range of vertices (identified by their descriptors, <code>boost::graph_traits&lt;Graph&gt;::vertex_descriptor</code>). </p>
+<p>For each pair of consecutive vertices, the corresponding halfedge is added in <code>g</code> if new, and its connectivity is updated otherwise. The face can be added only at the boundary of <code>g</code>, or as a new connected component.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>vr</code> contains at least 3 vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the added face descriptor, or <code>boost::graph_traits&lt;Graph&gt;::null_face()</code> if the face could not be added. </dd></dl>
+
+</div>
+</div>
+<a id="ga8666be89a7ffa73a5fe82b6b2bdc6f19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8666be89a7ffa73a5fe82b6b2bdc6f19">◆ </a></span>add_face_to_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_face_to_border </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>appends a new face incident to the border halfedge <code>h1</code> and <code>h2</code> by connecting the vertex <code>target(h2,g)</code> and the vertex <code>target(h1,g)</code> with a new halfedge, and filling this separated part of the hole with a new face, such that the new face is incident to <code>h2</code>. </p>
+<div class="image">
+<object type="image/svg+xml" data="add_face_to_border.svg">add_face_to_border.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge of the new edge that is incident to the new face.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h1</code> and <code>h2</code> are border halfedges, </dd>
+<dd>
+<code>h1 != h2</code>, </dd>
+<dd>
+<code>next(h1,g) != h2</code>, </dd>
+<dd>
+<code>h1</code> and <code>h2</code> are on the same border. </dd></dl>
+
+</div>
+</div>
+<a id="ga2bd5538dc0fda2be88770f5fb96c6782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2bd5538dc0fda2be88770f5fb96c6782">◆ </a></span>add_vertex_and_face_to_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_vertex_and_face_to_border </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>appends a new face to the border halfedge <code>h2</code> by connecting the tip of <code>h2</code> with the tip of <code>h1</code> with two new halfedges and a new vertex and creating a new face that is incident to <code>h2</code>. </p>
+<p>Note that <code><a class="el" href="group__PkgBGLEulerOperations.html#ga2bd5538dc0fda2be88770f5fb96c6782" title="appends a new face to the border halfedge h2 by connecting the tip of h2 with the tip of h1 with two ...">add_vertex_and_face_to_border()</a></code> does not deal with properties of new vertices, halfedges, and faces.</p>
+<div class="image">
+<object type="image/svg+xml" data="add_vertex_and_face_to_border.svg">add_vertex_and_face_to_border.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge of the new edge that is incident to the new face and the new vertex.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h1</code> and <code>h2</code> are border halfedges </dd>
+<dd>
+<code>h1 != h2</code>, </dd>
+<dd>
+<code>h1</code> and <code>h2</code> are on the same border. </dd></dl>
+
+</div>
+</div>
+<a id="ga5d15eb83f797b8f91e23e8e9ceec78c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d15eb83f797b8f91e23e8e9ceec78c9">◆ </a></span>collapse_edge() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::vertex_descriptor CGAL::Euler::collapse_edge </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::edge_descriptor </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>collapses an edge in a graph. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code> Let <code>h</code> be the halfedge of <code>e</code>, and let <code>v0</code> and <code>v1</code> be the source and target vertices of <code>h</code>. Let <code>p_h</code> and <code>p_o_h</code> be respectively the edges of <code>prev(h,g)</code> and <code>prev(opposite(h, g), g)</code>. Let <code>o_n_h</code> and <code>o_n_o_h</code> be respectively the edges of <code>opposite(next(h,g))</code> and <code>opposite(next(opposite(h, g), g))</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>After the collapse of edge <code>e</code> the following holds:</p><ul>
+<li>The edge <code>e</code> is no longer in <code>g</code>.</li>
+<li>The faces incident to edge <code>e</code> are no longer in <code>g</code>.</li>
+<li><code>v0</code> is no longer in <code>g</code>.</li>
+<li>If <code>h</code> is not a border halfedge, <code>p_h</code> is no longer in <code>g</code> and is replaced by <code>o_n_h</code>.</li>
+<li>If the opposite of <code>h</code> is not a border halfedge, <code>p_o_h</code> is no longer in <code>g</code> and is replaced by <code>o_n_o_h</code>.</li>
+<li>The halfedges kept in <code>g</code> that had <code>v0</code> as target and source now have <code>v1</code> as target and source, respectively.</li>
+<li>No other incidence information is changed in <code>g</code>.</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>vertex <code>v1</code>. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>g must be a triangulated graph </dd>
+<dd>
+<code>does_satisfy_link_condition(e,g) == true</code>. </dd></dl>
+
+</div>
+</div>
+<a id="gaa3849177a71b6b782db011fc0f5f1258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa3849177a71b6b782db011fc0f5f1258">◆ </a></span>collapse_edge() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph , typename EdgeIsConstrainedMap &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::vertex_descriptor CGAL::Euler::collapse_edge </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::edge_descriptor </td>
+          <td class="paramname"><em>v0v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EdgeIsConstrainedMap </td>
+          <td class="paramname"><em>Edge_is_constrained_map</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>collapses an edge in a graph having non-collapsable edges. </p>
+<p>Let <code>h</code> be the halfedge of <code>e</code>, and let <code>v0</code> and <code>v1</code> be the source and target vertices of <code>h</code>. Collapses the edge <code>e</code> replacing it with <code>v1</code>, as described in the paragraph above and guarantees that an edge <code>e2</code>, for which <code>get(edge_is_constrained_map, e2)==true</code>, is not removed after the collapse.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code> </td></tr>
+    <tr><td class="paramname">EdgeIsConstrainedMap</td><td>mut be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadablePropertyMap.html">ReadablePropertyMap</a></code> with the edge descriptor of <code>Graph</code> as key type and a Boolean as value type. It indicates if an edge is constrained or not.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vertex <code>v1</code>. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>This function requires <code>g</code> to be an oriented 2-manifold with or without boundaries. Furthermore, the edge <code>v0v1</code> must satisfy the link condition, which guarantees that the surface mesh is also 2-manifold after the edge collapse. </dd>
+<dd>
+<code>get(edge_is_constrained_map, v0v1)==false</code>. </dd>
+<dd>
+<code>v0</code> and <code>v1</code> are not both incident to a constrained edge. </dd></dl>
+
+</div>
+</div>
+<a id="ga2d19a3573640a9abb28885425bfd9f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d19a3573640a9abb28885425bfd9f40">◆ </a></span>does_satisfy_link_condition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::Euler::does_satisfy_link_condition </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::edge_descriptor </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>e</code> satisfies the <em>link condition</em> <a class="el" href="citelist.html#CITEREF_degn-tpec-98">[1]</a>, which guarantees that the surface is also 2-manifold after the edge collapse. </dd></dl>
+
+</div>
+</div>
+<a id="ga12e0a6376e2755b48356b186e1344fdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12e0a6376e2755b48356b186e1344fdb">◆ </a></span>fill_hole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Euler::fill_hole </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>fills the hole incident to <code>h</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h</code> must be a border halfedge </dd></dl>
+
+</div>
+</div>
+<a id="ga174af506cebf3def60b56a3501843864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga174af506cebf3def60b56a3501843864">◆ </a></span>flip_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Euler::flip_edge </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>performs an edge flip, rotating the edge pointed by <code>h</code> by one vertex in the direction of the face orientation. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Both faces incident to <code>h</code> are triangles. </dd></dl>
+
+</div>
+</div>
+<a id="ga34c26f38b0453d3bad610963da8b24ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga34c26f38b0453d3bad610963da8b24ee">◆ </a></span>join_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_face </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>joins the two faces incident to <code>h</code> and <code>opposite(h,g)</code>. </p>
+<p>The faces may be holes.</p>
+<p>If <code>Graph</code> is a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code> the face incident to <code>opposite(h,g)</code> is removed.</p>
+<p><code><a class="el" href="group__PkgBGLEulerOperations.html#ga34c26f38b0453d3bad610963da8b24ee" title="joins the two faces incident to h and opposite(h,g). ">join_face()</a></code> and <code><a class="el" href="group__PkgBGLEulerOperations.html#gac0e8aebb3072d5dd67487ce40205f318" title="splits the face incident to h1 and h2. ">split_face()</a></code> are inverse operations, that is <code>join_face(split_face(h,g),g)</code> returns <code>h</code>.</p>
+<div class="image">
+<object type="image/svg+xml" data="join_face.svg">join_face.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h</td><td>the halfedge incident to one of the faces to be joined.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>prev(h,g)</code></dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>out_degree(source(h,g)), g)) &gt;= 3</code> </dd>
+<dd>
+<code>out_degree(target(h,g)) &gt;= 3</code></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#gac0e8aebb3072d5dd67487ce40205f318" title="splits the face incident to h1 and h2. ">split_face()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga868c3f29a47f516c24953b9b3b18c827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga868c3f29a47f516c24953b9b3b18c827">◆ </a></span>join_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_loop </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>glues the cycle of halfedges of <code>h1</code> and <code>h2</code> together. </p>
+<p>The vertices in the cycle of <code>h2</code> get removed. If <code>h1</code> or <code>h2</code> are not border halfedges their faces get removed. The vertices on the face cycle of <code>h1</code> get removed. The invariant <code>join_loop(h1, split_loop(h1,h2,h3,g), g)</code> returns <code>h1</code> and keeps the graph unchanged.</p>
+<div class="image">
+<object type="image/svg+xml" data="join_loop.svg">join_loop.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>h1</code>.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The faces incident to <code>h</code> and <code>g</code> are different and have equal number of edges. </dd></dl>
+
+</div>
+</div>
+<a id="ga585a3324ef493cc1340da5cb364b772c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga585a3324ef493cc1340da5cb364b772c">◆ </a></span>join_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_vertex </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>joins the two vertices incident to <code>h</code>, (that is <code>source(h, g)</code> and <code>target(h, g)</code>) and removes <code>source(h,g)</code>. </p>
+<p>Returns the predecessor of <code>h</code> around the vertex, i.e., <code>prev(opposite(h,g))</code>. The invariant <code>join_vertex(split_vertex(h,g),g)</code> returns <code>h</code>. The time complexity is linear in the degree of the vertex removed.</p>
+<div class="image">
+<object type="image/svg+xml" data="join_vertex.svg">join_vertex.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h</td><td>the halfedge which incident vertices are joint</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>prev(opposite(h,g))</code></dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The size of the faces incident to <code>h</code> and <code>opposite(h,g)</code> is at least 4.</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd><code>source(h, g)</code> is invalidated </dd>
+<dd>
+<code>h</code> is invalidated</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#gaa60aecdf1aa48b7b3609abddd3b4d38b" title="splits the target vertex v of h1 and h2, and connects the new vertex and v with a new edge...">split_vertex()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gaa305bfc634d2aa7bca376d0550d8363e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa305bfc634d2aa7bca376d0550d8363e">◆ </a></span>make_hole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Euler::make_hole </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>removes the incident face of <code>h</code> and changes all halfedges incident to the face into border halfedges. </p>
+<p>See <code>remove_face(g,h)</code> for a more generalized variant.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>None of the incident edges of the face is a border edge. </dd></dl>
+
+</div>
+</div>
+<a id="ga8ec295610396e837258997c435b7a75f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ec295610396e837258997c435b7a75f">◆ </a></span>remove_center_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::remove_center_vertex </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>removes the vertex <code>target(h, g)</code> and all incident halfedges thereby merging all incident faces. </p>
+<p>The resulting face may not be triangulated. This function is the inverse operation of <code><a class="el" href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce" title="creates a barycentric triangulation of the face incident to h. ">add_center_vertex()</a></code>. The invariant <code>h == remove_center_vertex(add_center_vertex(h,g),g)</code> holds, if <code>h</code> is not a border halfedge.</p>
+<div class="image">
+<object type="image/svg+xml" data="remove_center_vertex.svg">remove_center_vertex.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h</td><td>halfedge descriptor</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>prev(h, g)</code></dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>None of the incident faces of <code>target(h,g)</code> is a hole. There are at least two distinct faces incident to the faces that are incident to <code>target(h,g)</code>. (This prevents the operation from collapsing a volume into two faces glued together with opposite orientations, such as would happen with any vertex of a tetrahedron.)</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#ga28e4d0f61f3cda26eb651e352cf756ce" title="creates a barycentric triangulation of the face incident to h. ">add_center_vertex()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gacfae7ff8e782da55b941e4487e86c738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacfae7ff8e782da55b941e4487e86c738">◆ </a></span>remove_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Euler::remove_face </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>removes the incident face of <code>h</code> and changes all halfedges incident to the face into border halfedges or removes them from the graph if they were already border halfedges. </p>
+<p>If this creates isolated vertices they get removed as well.</p>
+<div class="image">
+<object type="image/svg+xml" data="remove_face.svg">remove_face.svg</object>
+</div>
+ <div class="image">
+<object type="image/svg+xml" data="remove_face_and_vertex.svg">remove_face_and_vertex.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h</code> is not a border halfedge</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#gaa305bfc634d2aa7bca376d0550d8363e" title="removes the incident face of h and changes all halfedges incident to the face into border halfedges...">make_hole()</a></code> for a more specialized variant. </dd></dl>
+
+</div>
+</div>
+<a id="ga8a7629a2a0659ca059081eae8cedca3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a7629a2a0659ca059081eae8cedca3d">◆ </a></span>split_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_edge </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>splits the halfedge <code>h</code> into two halfedges inserting a new vertex that is a copy of <code>vertex(opposite(h,g),g)</code>. </p>
+<p>Is equivalent to <code>opposite(split_vertex( prev(h,g), opposite(h,g),g), g)</code>. </p><dl class="section return"><dt>Returns</dt><dd>the new halfedge <code>hnew</code> pointing to the inserted vertex. The new halfedge is followed by the old halfedge, i.e., <code>next(hnew,g) == h</code>. </dd></dl>
+
+</div>
+</div>
+<a id="gac0e8aebb3072d5dd67487ce40205f318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0e8aebb3072d5dd67487ce40205f318">◆ </a></span>split_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_face </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>splits the face incident to <code>h1</code> and <code>h2</code>. </p>
+<p>Creates the opposite halfedges <code>h3</code> and <code>h4</code>, such that <code>next(h1,g) == h3</code> and <code>next(h2,g) == h4</code>. Performs the inverse operation to <code><a class="el" href="group__PkgBGLEulerOperations.html#ga34c26f38b0453d3bad610963da8b24ee" title="joins the two faces incident to h and opposite(h,g). ">join_face()</a></code>.</p>
+<p>If <code>Graph</code> is a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code> and if the update of faces is not disabled a new face incident to <code>h4</code> is added.</p>
+<div class="image">
+<object type="image/svg+xml" data="split_face.svg">split_face.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h1</td><td></td></tr>
+    <tr><td class="paramname">h2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>h3</code></dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h1</code> and <code>h2</code> are incident to the same face </dd>
+<dd>
+<code>h1 != h2</code> </dd>
+<dd>
+<code>next(h1,g) != h2</code> and <code>next(h2,g) != h1</code> (no loop) </dd></dl>
+
+</div>
+</div>
+<a id="gaff8b953d3c70fbfd2ae9db2f59d62bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff8b953d3c70fbfd2ae9db2f59d62bd0">◆ </a></span>split_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_loop </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>cuts the graph along the cycle <code>(h1,h2,h3)</code> changing the genus (halfedge <code>h3</code> runs on the backside of the three dimensional figure below). </p>
+<p>Three new vertices, three new pairs of halfedges, and two new triangular faces are created.</p>
+<p><code>h1</code>, <code>h2</code>, and <code>h3</code> will be incident to the first new face.</p>
+<p>Note that <code><a class="el" href="group__PkgBGLEulerOperations.html#gaff8b953d3c70fbfd2ae9db2f59d62bd0" title="cuts the graph along the cycle (h1,h2,h3) changing the genus (halfedge h3 runs on the backside of the...">split_loop()</a></code> does not deal with properties of new vertices, halfedges, and faces.</p>
+<div class="image">
+<object type="image/svg+xml" data="split_loop.svg">split_loop.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the halfedge incident to the second new face.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>h1</code>, <code>h2</code>, and <code>h3</code> denote distinct, consecutive halfedges of the graph and form a cycle: i.e., <code>target(h1) == target(opposite(h2,g),g)</code>, … , <code>target(h3,g) == target(opposite(h1,g),g)</code>. </dd>
+<dd>
+The six faces incident to <code>h1</code>, <code>h2</code>, and <code>h3</code> are all distinct. </dd></dl>
+
+</div>
+</div>
+<a id="gaa60aecdf1aa48b7b3609abddd3b4d38b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa60aecdf1aa48b7b3609abddd3b4d38b">◆ </a></span>split_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Graph &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_vertex </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Graph &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/boost/graph/Euler_operations.h&gt;</code></p>
+
+<p>splits the target vertex <code>v</code> of <code>h1</code> and <code>h2</code>, and connects the new vertex and <code>v</code> with a new edge. </p>
+<p>Let <code>hnew</code> be <code>opposite(next(h1, g), g)</code> after the split. The split regroups the halfedges around the two vertices. The edge sequence <code>hnew</code>, <code>opposite(next(h2, g), g)</code>, ..., <code>h1</code> remains around the old vertex, while the halfedge sequence <code>opposite(hnew, g)</code>, <code>opposite(next(h1, g), g)</code> (before the split), ..., <code>h2</code> is regrouped around the new vertex. The split returns <code>hnew</code>, i.e., the new edge incident to vertex <code>v</code>. The time is proportional to the distance from <code>h1</code> to <code>h2</code> around the vertex.</p>
+<div class="image">
+<object type="image/svg+xml" data="split_vertex.svg">split_vertex.svg</object>
+</div>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Graph</td><td>must be a model of <code><a class="el" href="classMutableFaceGraph.html" title="The concept MutableFaceGraph refines the concepts FaceGraph and MutableHalfedgeGraph and adds the req...">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph </td></tr>
+    <tr><td class="paramname">h1</td><td>halfedge descriptor </td></tr>
+    <tr><td class="paramname">h2</td><td>halfedge descriptor</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>hnew</code></dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>target(h1, g) == target(h2, g)</code>, that is <code>h1</code> and <code>h2</code> are incident to the same vertex </dd>
+<dd>
+<code>h1 != h2</code>, that is no antennas</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgBGLEulerOperations.html#ga585a3324ef493cc1340da5cb364b772c" title="joins the two vertices incident to h, (that is source(h, g) and target(h, g)) and removes source(h...">join_vertex()</a></code> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:01 for CGAL 4.13 - CGAL and the Boost Graph Library by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

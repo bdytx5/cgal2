@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Arrangement_on_surface_2/classCGAL_1_1Arrangement__2_1_1Halfedge.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Arrangements: CGAL::Arrangement_2&lt; Traits, Dcel &gt;::Halfedge Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Arrangements
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Arrangement__2_1_1Halfedge.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Arrangement__2_1_1Halfedge-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Arrangement_2&lt; Traits, Dcel &gt;::Halfedge Class Reference<div class="ingroups"><a class="el" href="group__PkgArrangement2.html">2D Arrangement Reference</a> » <a class="el" href="group__PkgArrangement2DCEL.html">DCEL</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Arrangement_2.h&gt;</code></p>
+
+<a name="details" id="details"></a><h2 class="groupheader">Inherits from</h2><p>Halfedge.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>An object \( e\) of the class <code><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html" title="An object  of the class Halfedge represents a halfedge in the arrangement. ">Halfedge</a></code> represents a halfedge in the arrangement. </p>
+<p>A halfedge is directed from its <em>source</em> vertex to its <em>target</em> vertex, and has an <em>incident face</em> lying to its left. Each halfedge has a <em>twin</em> halfedge directed in the opposite direction, where the pair of twin halfedges form together an arrangement edge, that is - a \( 1\)-dimensional cell, associated with planar \( x\)-monotone curve.</p>
+<p>Halfedges are stored in doubly-connected lists and form chains. These chains define the inner and outer boundaries of connected components. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:af98c84d97fbd1bd80b5e5cd8f5c4cc95"><td class="memItemLeft" align="right" valign="top"><a id="af98c84d97fbd1bd80b5e5cd8f5c4cc95"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#af98c84d97fbd1bd80b5e5cd8f5c4cc95">Halfedge</a> ()</td></tr>
+<tr class="memdesc:af98c84d97fbd1bd80b5e5cd8f5c4cc95"><td class="mdescLeft"> </td><td class="mdescRight">default constructor. <br /></td></tr>
+<tr class="separator:af98c84d97fbd1bd80b5e5cd8f5c4cc95"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpdd247f83f6875f73de7cb46b8497a926"></a>All non-const methods listed below also have <code>const</code> counterparts that return constant handles, iterators or circulators: </p>
+</td></tr>
+<tr class="memitem:a6bfed47f62ef6ec8a834e7b3fee3e793"><td class="memItemLeft" align="right" valign="top"><a id="a6bfed47f62ef6ec8a834e7b3fee3e793"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a6bfed47f62ef6ec8a834e7b3fee3e793">is_fictitious</a> () const</td></tr>
+<tr class="memdesc:a6bfed47f62ef6ec8a834e7b3fee3e793"><td class="mdescLeft"> </td><td class="mdescRight">returns whether the halfedge is fictitious (i.e., connects two vertices at infinity and is not associated with a valid curve). <br /></td></tr>
+<tr class="separator:a6bfed47f62ef6ec8a834e7b3fee3e793"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a53aeb8b2165fb55ec1b85a57527dedfe"><td class="memItemLeft" align="right" valign="top"><a id="a53aeb8b2165fb55ec1b85a57527dedfe"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a53aeb8b2165fb55ec1b85a57527dedfe">source</a> ()</td></tr>
+<tr class="memdesc:a53aeb8b2165fb55ec1b85a57527dedfe"><td class="mdescLeft"> </td><td class="mdescRight">returns a handle for the source vertex of <code>e</code>. <br /></td></tr>
+<tr class="separator:a53aeb8b2165fb55ec1b85a57527dedfe"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acb06d3d769ff9995b19f43eb7709a9c7"><td class="memItemLeft" align="right" valign="top"><a id="acb06d3d769ff9995b19f43eb7709a9c7"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#a7dac3eed2224beadf3658495bc671c49">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#acb06d3d769ff9995b19f43eb7709a9c7">target</a> ()</td></tr>
+<tr class="memdesc:acb06d3d769ff9995b19f43eb7709a9c7"><td class="mdescLeft"> </td><td class="mdescRight">returns a handle for the target vertex of <code>e</code>. <br /></td></tr>
+<tr class="separator:acb06d3d769ff9995b19f43eb7709a9c7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab953fa894756fcc81d0776276d12c23b"><td class="memItemLeft" align="right" valign="top"><a id="ab953fa894756fcc81d0776276d12c23b"></a>
+<a class="el" href="group__PkgArrangement2Enums.html#ga92ec015604dd1aab753c009565fd28d0">Arr_halfedge_direction</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#ab953fa894756fcc81d0776276d12c23b">direction</a> () const</td></tr>
+<tr class="memdesc:ab953fa894756fcc81d0776276d12c23b"><td class="mdescLeft"> </td><td class="mdescRight">returns the direction of the halfedge: <code>ARR_LEFT_TO_RIGHT</code> if <code>e</code>'s source vertex is lexicographically smaller than it target (so the halfedge is directed from left to right), and <code>ARR_RIGHT_TO_LEFT</code> if it is lexicographically larger than the target (so the halfedge is directed from right to left). <br /></td></tr>
+<tr class="separator:ab953fa894756fcc81d0776276d12c23b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a74b40d033c926cbb58a574eabca1dd9b"><td class="memItemLeft" align="right" valign="top"><a id="a74b40d033c926cbb58a574eabca1dd9b"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#ad64170c3b8b8c4af16a4fb742bf56d48">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a74b40d033c926cbb58a574eabca1dd9b">face</a> ()</td></tr>
+<tr class="memdesc:a74b40d033c926cbb58a574eabca1dd9b"><td class="mdescLeft"> </td><td class="mdescRight">returns the face that <code>e</code> is incident to (The face lies to the left of <code>e</code>). <br /></td></tr>
+<tr class="separator:a74b40d033c926cbb58a574eabca1dd9b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a22a85419a4fda5e2ee4edad3c135bdcf"><td class="memItemLeft" align="right" valign="top"><a id="a22a85419a4fda5e2ee4edad3c135bdcf"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a22a85419a4fda5e2ee4edad3c135bdcf">twin</a> ()</td></tr>
+<tr class="memdesc:a22a85419a4fda5e2ee4edad3c135bdcf"><td class="mdescLeft"> </td><td class="mdescRight">returns the twin halfedge. <br /></td></tr>
+<tr class="separator:a22a85419a4fda5e2ee4edad3c135bdcf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a732baa80fadb64c137baf14df8017a86"><td class="memItemLeft" align="right" valign="top"><a id="a732baa80fadb64c137baf14df8017a86"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a732baa80fadb64c137baf14df8017a86">prev</a> ()</td></tr>
+<tr class="memdesc:a732baa80fadb64c137baf14df8017a86"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>e</code>'s predecessor in the connected component it belongs to. <br /></td></tr>
+<tr class="separator:a732baa80fadb64c137baf14df8017a86"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adea2ff2377c3b11994d02584c262c325"><td class="memItemLeft" align="right" valign="top"><a id="adea2ff2377c3b11994d02584c262c325"></a>
+<a class="el" href="classCGAL_1_1Arrangement__2.html#acdb9c49c90f9354f20c56efac599a7fe">Halfedge_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#adea2ff2377c3b11994d02584c262c325">next</a> ()</td></tr>
+<tr class="memdesc:adea2ff2377c3b11994d02584c262c325"><td class="mdescLeft"> </td><td class="mdescRight">returns <code>e</code>'s successor in the connected component it belongs to. <br /></td></tr>
+<tr class="separator:adea2ff2377c3b11994d02584c262c325"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acada30f9dde9e245b7919938b00b0159"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Arrangement__2.html#ab4a594c193ca09a672dbe2fcafa090e9">Ccb_halfedge_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#acada30f9dde9e245b7919938b00b0159">ccb</a> ()</td></tr>
+<tr class="memdesc:acada30f9dde9e245b7919938b00b0159"><td class="mdescLeft"> </td><td class="mdescRight">returns a circulator that allows traversing the halfedges of the connected component boundary (CCB) that contains <code>e</code>.  <a href="#acada30f9dde9e245b7919938b00b0159">More...</a><br /></td></tr>
+<tr class="separator:acada30f9dde9e245b7919938b00b0159"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1ee839a53b4e09d74cdfcbdebf3d04c7"><td class="memItemLeft" align="right" valign="top">const Traits::X_monotone_curve_2 &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html#a1ee839a53b4e09d74cdfcbdebf3d04c7">curve</a> () const</td></tr>
+<tr class="memdesc:a1ee839a53b4e09d74cdfcbdebf3d04c7"><td class="mdescLeft"> </td><td class="mdescRight">returns the \( x\)-monotone curve associated with <code>e</code>.  <a href="#a1ee839a53b4e09d74cdfcbdebf3d04c7">More...</a><br /></td></tr>
+<tr class="separator:a1ee839a53b4e09d74cdfcbdebf3d04c7"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acada30f9dde9e245b7919938b00b0159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acada30f9dde9e245b7919938b00b0159">◆ </a></span>ccb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Arrangement__2.html#ab4a594c193ca09a672dbe2fcafa090e9">Ccb_halfedge_circulator</a> <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::Halfedge::ccb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a circulator that allows traversing the halfedges of the connected component boundary (CCB) that contains <code>e</code>. </p>
+<p>The circulator is initialized to point to <code>e</code>. </p>
+
+</div>
+</div>
+<a id="a1ee839a53b4e09d74cdfcbdebf3d04c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee839a53b4e09d74cdfcbdebf3d04c7">◆ </a></span>curve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Dcel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const Traits::X_monotone_curve_2&amp; <a class="el" href="classCGAL_1_1Arrangement__2.html">CGAL::Arrangement_2</a>&lt; Traits, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Dcel</a> &gt;::Halfedge::curve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the \( x\)-monotone curve associated with <code>e</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>e</code> is not a fictitious halfedge. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Arrangement__2.html">Arrangement_2</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Arrangement__2_1_1Halfedge.html">Halfedge</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:47 for CGAL 4.13 - 2D Arrangements by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

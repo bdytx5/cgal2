@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Kernel_d/classCGAL_1_1Aff__transformation__d.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - dD Geometry Kernel: CGAL::Aff_transformation_d&lt; Kernel &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - dD Geometry Kernel
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Aff__transformation__d.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Aff__transformation__d-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Aff_transformation_d&lt; Kernel &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgKernelD.html">dD Geometry Kernel Reference</a> » <a class="el" href="group__PkgKernelDKernelObjs.html">Kernel Objects</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Kernel_d/Aff_transformation_d.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>An instance of the data type <code><a class="el" href="classCGAL_1_1Aff__transformation__d.html" title="An instance of the data type Aff_transformation_d&lt;Kernel&gt; is an affine transformation of -dimensional...">Aff_transformation_d</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;</code> is an affine transformation of \( d\)-dimensional space. </p>
+<p>It is specified by a square matrix \( M\) of dimension \( d + 1\). All entries in the last row of <code>M</code> except the diagonal entry must be zero; the diagonal entry must be non-zero. A point \( p\) with homogeneous coordinates \( (p[0], \ldots, p[d])\) can be transformed into the point <code>p.transform(A)</code> = \( Mp\), where <code>A</code> is an affine transformation created from <code>M</code> by the constructors below.</p>
+<p><b>Implementation</b><br />
+</p>
+<p>Affine Transformations are implemented by matrices of number type <code>RT</code> as a handle type. All operations like creation, initialization, input and output on a transformation \( t\) take time \( O(t.dimension()^2)\). <code><a class="el" href="classCGAL_1_1Aff__transformation__d.html#ac8bd9d10882d4e6a83794040ec7ce35e" title="the dimension of the underlying space ">dimension()</a></code> takes constant time. The operations for inversion and composition have the cubic costs of the used matrix operations. The space requirement is \( O(t.dimension()^2)\). </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a4292bc487be965e90d5464ad93b09fc5"><td class="memItemLeft" align="right" valign="top"><a id="a4292bc487be965e90d5464ad93b09fc5"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a4292bc487be965e90d5464ad93b09fc5">LA</a></td></tr>
+<tr class="memdesc:a4292bc487be965e90d5464ad93b09fc5"><td class="mdescLeft"> </td><td class="mdescRight">the linear algebra layer. <br /></td></tr>
+<tr class="separator:a4292bc487be965e90d5464ad93b09fc5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abd21f60ed6258ea830372804b973fddb"><td class="memItemLeft" align="right" valign="top"><a id="abd21f60ed6258ea830372804b973fddb"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#abd21f60ed6258ea830372804b973fddb">Matrix</a></td></tr>
+<tr class="memdesc:abd21f60ed6258ea830372804b973fddb"><td class="mdescLeft"> </td><td class="mdescRight">the matrix type. <br /></td></tr>
+<tr class="separator:abd21f60ed6258ea830372804b973fddb"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:adb46a9951bc7d27e81b21012c36f7ed7"><td class="memItemLeft" align="right" valign="top"><a id="adb46a9951bc7d27e81b21012c36f7ed7"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#adb46a9951bc7d27e81b21012c36f7ed7">Aff_transformation_d</a> ()</td></tr>
+<tr class="memdesc:adb46a9951bc7d27e81b21012c36f7ed7"><td class="mdescLeft"> </td><td class="mdescRight">introduces some transformation. <br /></td></tr>
+<tr class="separator:adb46a9951bc7d27e81b21012c36f7ed7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a77e424f5c4ee25e61890af926a9529ad"><td class="memItemLeft" align="right" valign="top"><a id="a77e424f5c4ee25e61890af926a9529ad"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a77e424f5c4ee25e61890af926a9529ad">Aff_transformation_d</a> (int d, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Identity__transformation.html">Identity_transformation</a>)</td></tr>
+<tr class="memdesc:a77e424f5c4ee25e61890af926a9529ad"><td class="mdescLeft"> </td><td class="mdescRight">introduces the identity transformation in \( d\)-dimensional space. <br /></td></tr>
+<tr class="separator:a77e424f5c4ee25e61890af926a9529ad"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7f1287bf497bd7a40bdea8d3a1aeed3a"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a7f1287bf497bd7a40bdea8d3a1aeed3a">Aff_transformation_d</a> (<a class="el" href="classCGAL_1_1Aff__transformation__d.html#abd21f60ed6258ea830372804b973fddb">Matrix</a> M)</td></tr>
+<tr class="memdesc:a7f1287bf497bd7a40bdea8d3a1aeed3a"><td class="mdescLeft"> </td><td class="mdescRight">introduces the transformation of \( d\)-space specified by matrix \( M\).  <a href="#a7f1287bf497bd7a40bdea8d3a1aeed3a">More...</a><br /></td></tr>
+<tr class="separator:a7f1287bf497bd7a40bdea8d3a1aeed3a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8ccac62d4b1a4de6eab6dab4999fc8de"><td class="memTemplParams" colspan="2">template&lt;typename Forward_iterator &gt; </td></tr>
+<tr class="memitem:a8ccac62d4b1a4de6eab6dab4999fc8de"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a8ccac62d4b1a4de6eab6dab4999fc8de">Aff_transformation_d</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Scaling.html">Scaling</a>, Forward_iterator start, Forward_iterator end)</td></tr>
+<tr class="memdesc:a8ccac62d4b1a4de6eab6dab4999fc8de"><td class="mdescLeft"> </td><td class="mdescRight">introduces the transformation of \( d\)-space specified by a diagonal matrix with entries <code>set [start,end)</code> on the diagonal (a scaling of the space).  <a href="#a8ccac62d4b1a4de6eab6dab4999fc8de">More...</a><br /></td></tr>
+<tr class="separator:a8ccac62d4b1a4de6eab6dab4999fc8de"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a99783dbf619fdac1c8af45d0701731ca"><td class="memItemLeft" align="right" valign="top"><a id="a99783dbf619fdac1c8af45d0701731ca"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a99783dbf619fdac1c8af45d0701731ca">Aff_transformation_d</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Translation.html">Translation</a>, <a class="el" href="classCGAL_1_1Vector__d.html">Vector_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; v)</td></tr>
+<tr class="memdesc:a99783dbf619fdac1c8af45d0701731ca"><td class="mdescLeft"> </td><td class="mdescRight">introduces the translation by vector \( v\). <br /></td></tr>
+<tr class="separator:a99783dbf619fdac1c8af45d0701731ca"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a107392a7569987b33fa78bbae6609698"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a107392a7569987b33fa78bbae6609698">Aff_transformation_d</a> (int d, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Scaling.html">Scaling</a>, RT num, RT den)</td></tr>
+<tr class="memdesc:a107392a7569987b33fa78bbae6609698"><td class="mdescLeft"> </td><td class="mdescRight">returns a scaling by a scale factor <code>num/den</code>.  <a href="#a107392a7569987b33fa78bbae6609698">More...</a><br /></td></tr>
+<tr class="separator:a107392a7569987b33fa78bbae6609698"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aac4acf5808f21c417e478ca1e35d5e1d"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#aac4acf5808f21c417e478ca1e35d5e1d">Aff_transformation_d</a> (int d, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Rotation.html">Rotation</a>, RT sin_num, RT cos_num, RT den, int e1=0, int e2=1)</td></tr>
+<tr class="memdesc:aac4acf5808f21c417e478ca1e35d5e1d"><td class="mdescLeft"> </td><td class="mdescRight">returns a planar rotation with sine and cosine values <code>sin_num/den</code> and <code>cos_num/den</code> in the plane spanned by the base vectors \( b_{e1}\) and \( b_{e2}\) in \( d\)-space.  <a href="#aac4acf5808f21c417e478ca1e35d5e1d">More...</a><br /></td></tr>
+<tr class="separator:aac4acf5808f21c417e478ca1e35d5e1d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac74e4a1e5523cf042c44d47d7044abfa"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#ac74e4a1e5523cf042c44d47d7044abfa">Aff_transformation_d</a> (int d, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Rotation.html">Rotation</a>, <a class="el" href="classCGAL_1_1Direction__d.html">Direction_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; dir, RT num, RT den, int e1=0, int e2=1)</td></tr>
+<tr class="memdesc:ac74e4a1e5523cf042c44d47d7044abfa"><td class="mdescLeft"> </td><td class="mdescRight">returns a planar rotation within a two-dimensional linear subspace.  <a href="#ac74e4a1e5523cf042c44d47d7044abfa">More...</a><br /></td></tr>
+<tr class="separator:ac74e4a1e5523cf042c44d47d7044abfa"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:ac8bd9d10882d4e6a83794040ec7ce35e"><td class="memItemLeft" align="right" valign="top"><a id="ac8bd9d10882d4e6a83794040ec7ce35e"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#ac8bd9d10882d4e6a83794040ec7ce35e">dimension</a> ()</td></tr>
+<tr class="memdesc:ac8bd9d10882d4e6a83794040ec7ce35e"><td class="mdescLeft"> </td><td class="mdescRight">the dimension of the underlying space <br /></td></tr>
+<tr class="separator:ac8bd9d10882d4e6a83794040ec7ce35e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afae6dfb2d291b40aca3b93e69052163a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCGAL_1_1Aff__transformation__d.html#abd21f60ed6258ea830372804b973fddb">Matrix</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#afae6dfb2d291b40aca3b93e69052163a">matrix</a> ()</td></tr>
+<tr class="memdesc:afae6dfb2d291b40aca3b93e69052163a"><td class="mdescLeft"> </td><td class="mdescRight">returns the transformation matrix  <a href="#afae6dfb2d291b40aca3b93e69052163a">More...</a><br /></td></tr>
+<tr class="separator:afae6dfb2d291b40aca3b93e69052163a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a09a657eb112244f74e149a8b98482b25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a09a657eb112244f74e149a8b98482b25">inverse</a> ()</td></tr>
+<tr class="memdesc:a09a657eb112244f74e149a8b98482b25"><td class="mdescLeft"> </td><td class="mdescRight">returns the inverse transformation.  <a href="#a09a657eb112244f74e149a8b98482b25">More...</a><br /></td></tr>
+<tr class="separator:a09a657eb112244f74e149a8b98482b25"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a729ab7bea05f16cca8863a8e94a4a849"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#a729ab7bea05f16cca8863a8e94a4a849">operator*</a> (const <a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; &amp;s)</td></tr>
+<tr class="memdesc:a729ab7bea05f16cca8863a8e94a4a849"><td class="mdescLeft"> </td><td class="mdescRight">composition of transformations.  <a href="#a729ab7bea05f16cca8863a8e94a4a849">More...</a><br /></td></tr>
+<tr class="separator:a729ab7bea05f16cca8863a8e94a4a849"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7f1287bf497bd7a40bdea8d3a1aeed3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1287bf497bd7a40bdea8d3a1aeed3a">◆ </a></span>Aff_transformation_d() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Aff__transformation__d.html#abd21f60ed6258ea830372804b973fddb">Matrix</a> </td>
+          <td class="paramname"><em>M</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>introduces the transformation of \( d\)-space specified by matrix \( M\). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>M</code> is a square matrix of dimension \( d + 1\) where entries in the last row of <code>M</code> except the diagonal entry must be zero; the diagonal entry must be non-zero. </dd></dl>
+
+</div>
+</div>
+<a id="a8ccac62d4b1a4de6eab6dab4999fc8de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ccac62d4b1a4de6eab6dab4999fc8de">◆ </a></span>Aff_transformation_d() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+<div class="memtemplate">
+template&lt;typename Forward_iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Scaling.html">Scaling</a> </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Forward_iterator </td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Forward_iterator </td>
+          <td class="paramname"><em>end</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>introduces the transformation of \( d\)-space specified by a diagonal matrix with entries <code>set [start,end)</code> on the diagonal (a scaling of the space). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>set [start,end)</code> is a vector of dimension \( d+1\). </dd></dl>
+
+</div>
+</div>
+<a id="a107392a7569987b33fa78bbae6609698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a107392a7569987b33fa78bbae6609698">◆ </a></span>Aff_transformation_d() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a> </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Scaling.html">Scaling</a> </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>den</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a scaling by a scale factor <code>num/den</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>den != 0</code>. </dd></dl>
+
+</div>
+</div>
+<a id="aac4acf5808f21c417e478ca1e35d5e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4acf5808f21c417e478ca1e35d5e1d">◆ </a></span>Aff_transformation_d() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a> </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Rotation.html">Rotation</a> </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>sin_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>cos_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>den</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>e1</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>e2</em> = <code>1</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a planar rotation with sine and cosine values <code>sin_num/den</code> and <code>cos_num/den</code> in the plane spanned by the base vectors \( b_{e1}\) and \( b_{e2}\) in \( d\)-space. </p>
+<p>Thus the default use delivers a planar rotation in the \( x\)- \( y\) plane.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>\( sin_num^2 + cos_num^2 = den^2\) and \( 0 \leq e_1 &lt; e_2 &lt; d\). </dd>
+<dd>
+<code>den != 0</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ac74e4a1e5523cf042c44d47d7044abfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74e4a1e5523cf042c44d47d7044abfa">◆ </a></span>Aff_transformation_d() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::<a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a> </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Rotation.html">Rotation</a> </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Direction__d.html">Direction_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; </td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RT </td>
+          <td class="paramname"><em>den</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>e1</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>e2</em> = <code>1</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a planar rotation within a two-dimensional linear subspace. </p>
+<p>The subspace is spanned by the base vectors \( b_{e1}\) and \( b_{e2}\) in \( d\)-space. The rotation parameters are given by the \( 2\)-dimensional direction <code>dir</code>, such that the difference between the sines and cosines of the rotation given by <code>dir</code> and the approximated rotation are at most <code>num/den</code> each. </p><dl class="section pre"><dt>Precondition</dt><dd><code>dir.dimension() == 2</code>, <code>!dir.is_degenerate()</code> and <code>num &lt; den</code> is positive, <code>den != 0</code>, \( 0 \leq e_1 &lt; e_2 &lt; d\). </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a09a657eb112244f74e149a8b98482b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a657eb112244f74e149a8b98482b25">◆ </a></span>inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt; <a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::inverse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the inverse transformation. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>t.matrix()</code> is invertible. </dd></dl>
+
+</div>
+</div>
+<a id="afae6dfb2d291b40aca3b93e69052163a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae6dfb2d291b40aca3b93e69052163a">◆ </a></span>matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCGAL_1_1Aff__transformation__d.html#abd21f60ed6258ea830372804b973fddb">Matrix</a>&amp; <a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the transformation matrix </p>
+
+</div>
+</div>
+<a id="a729ab7bea05f16cca8863a8e94a4a849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729ab7bea05f16cca8863a8e94a4a849">◆ </a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Kernel &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt; <a class="el" href="classCGAL_1_1Aff__transformation__d.html">CGAL::Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a> &gt; &amp; </td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>composition of transformations. </p>
+<p>Note that transformations are not necessarily commutative. <code>t*s</code> is the transformation which transforms first by <code>t</code> and then by <code>s</code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Aff__transformation__d.html">Aff_transformation_d</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:40 for CGAL 4.13 - dD Geometry Kernel by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

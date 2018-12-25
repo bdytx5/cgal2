@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Spatial_searching/classCGAL_1_1Kd__tree.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - dD Spatial Searching: CGAL::Kd_tree&lt; Traits, Splitter, UseExtendedNode &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - dD Spatial Searching
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Kd__tree.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Kd__tree-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Kd_tree&lt; Traits, Splitter, UseExtendedNode &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgSpatialSearchingD.html">dD Spatial Searching Reference</a> » <a class="el" href="group__SearchClasses.html">Search Classes</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Kd_tree.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The class <code><a class="el" href="classCGAL_1_1Kd__tree.html" title="The class Kd_tree defines a k-d tree. ">Kd_tree</a></code> defines a <code>k-d</code> tree. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Traits</td><td>must be a model of the concept <code><a class="el" href="classSearchTraits.html" title="The concept SearchTraits defines the requirements for the template parameter of the search classes...">SearchTraits</a></code>, for example <code><a class="el" href="classCGAL_1_1Search__traits__2.html" title="The class Search_traits_2 can be used as a template parameter of the kd tree and the search classes...">Search_traits_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Simple__cartesian.html">Simple_cartesian</a>&lt;double&gt; &gt;</code>.</td></tr>
+    <tr><td class="paramname"><a class="el" href="classSplitter.html" title=" &lt;div class=&quot;CGALAdvanced&quot;&gt; &lt;div&gt;Advanced&lt;/div&gt; The concept Splitter defines the requirements for a f...">Splitter</a></td><td>must be a model for the concept <code><a class="el" href="classSplitter.html" title=" &lt;div class=&quot;CGALAdvanced&quot;&gt; &lt;div&gt;Advanced&lt;/div&gt; The concept Splitter defines the requirements for a f...">Splitter</a></code>. It defaults to <code><a class="el" href="classCGAL_1_1Sliding__midpoint.html" title="Implements the sliding midpoint splitting rule. ">Sliding_midpoint</a>&lt;Traits&gt;</code>.</td></tr>
+    <tr><td class="paramname">UseExtendedNode</td><td>must be <code>Tag_true</code>, if the tree shall be built with extended nodes, and <code>Tag_false</code> otherwise.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Kd__tree__node.html" title="The class Kd_tree_node implements a node class for a k-d tree. ">CGAL::Kd_tree_node</a>&lt;Traits&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Search__traits__2.html" title="The class Search_traits_2 can be used as a template parameter of the kd tree and the search classes...">CGAL::Search_traits_2</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Search__traits__3.html" title="The class Search_traits_3 can be used as a template parameter of the kd tree and the search classes...">CGAL::Search_traits_3</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Search__traits.html" title="The class Search_traits can be used as a template parameter of the kd tree and the search classes...">CGAL::Search_traits</a>&lt;FT_,Point,CartesianIterator,ConstructCartesianIterator&gt;</code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Spatial_searching_2circular_query_8cpp-example.html#_a3">Spatial_searching/circular_query.cpp</a>, <a class="el" href="Spatial_searching_2fuzzy_range_query_8cpp-example.html#_a3">Spatial_searching/fuzzy_range_query.cpp</a>, <a class="el" href="Spatial_searching_2iso_rectangle_2_query_8cpp-example.html#_a3">Spatial_searching/iso_rectangle_2_query.cpp</a>, and <a class="el" href="Spatial_searching_2searching_with_circular_query_8cpp-example.html#_a4">Spatial_searching/searching_with_circular_query.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:af2bb094094f1874d1cd0a6da1ac650c4"><td class="memItemLeft" align="right" valign="top"><a id="af2bb094094f1874d1cd0a6da1ac650c4"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#af2bb094094f1874d1cd0a6da1ac650c4">D</a></td></tr>
+<tr class="memdesc:af2bb094094f1874d1cd0a6da1ac650c4"><td class="mdescLeft"> </td><td class="mdescRight">Dimension tag. <br /></td></tr>
+<tr class="separator:af2bb094094f1874d1cd0a6da1ac650c4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a82cb8381a9881c4b495959e9199b6544"><td class="memItemLeft" align="right" valign="top"><a id="a82cb8381a9881c4b495959e9199b6544"></a>
+typedef Traits::Point_d </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a></td></tr>
+<tr class="memdesc:a82cb8381a9881c4b495959e9199b6544"><td class="mdescLeft"> </td><td class="mdescRight">Point class. <br /></td></tr>
+<tr class="separator:a82cb8381a9881c4b495959e9199b6544"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a62f0b462a864125e984ddcab104c902b"><td class="memItemLeft" align="right" valign="top"><a id="a62f0b462a864125e984ddcab104c902b"></a>
+typedef Traits::FT </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a62f0b462a864125e984ddcab104c902b">FT</a></td></tr>
+<tr class="memdesc:a62f0b462a864125e984ddcab104c902b"><td class="mdescLeft"> </td><td class="mdescRight">Number type. <br /></td></tr>
+<tr class="separator:a62f0b462a864125e984ddcab104c902b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac24fc29d24eb4956bba22814db261f68"><td class="memItemLeft" align="right" valign="top"><a id="ac24fc29d24eb4956bba22814db261f68"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a></td></tr>
+<tr class="memdesc:ac24fc29d24eb4956bba22814db261f68"><td class="mdescLeft"> </td><td class="mdescRight"><a class="el" href="classSplitter.html" title=" &lt;div class=&quot;CGALAdvanced&quot;&gt; &lt;div&gt;Advanced&lt;/div&gt; The concept Splitter defines the requirements for a f...">Splitter</a> type. <br /></td></tr>
+<tr class="separator:ac24fc29d24eb4956bba22814db261f68"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af506e9c83db7eb15ad8aaec11914888e"><td class="memItemLeft" align="right" valign="top"><a id="af506e9c83db7eb15ad8aaec11914888e"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#af506e9c83db7eb15ad8aaec11914888e">iterator</a></td></tr>
+<tr class="memdesc:af506e9c83db7eb15ad8aaec11914888e"><td class="mdescLeft"> </td><td class="mdescRight">Bidirectional const iterator with value type <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code> that allows to enumerate all points in the tree. <br /></td></tr>
+<tr class="separator:af506e9c83db7eb15ad8aaec11914888e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa429c75b62cacc3abdc88bdeaa525f8d"><td class="memItemLeft" align="right" valign="top"><a id="aa429c75b62cacc3abdc88bdeaa525f8d"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aa429c75b62cacc3abdc88bdeaa525f8d">Node_handle</a></td></tr>
+<tr class="memdesc:aa429c75b62cacc3abdc88bdeaa525f8d"><td class="mdescLeft"> </td><td class="mdescRight">A handle with value type <code><a class="el" href="classCGAL_1_1Kd__tree__node.html" title="The class Kd_tree_node implements a node class for a k-d tree. ">Kd_tree_node</a>&lt;Traits,<a class="el" href="classSplitter.html" title=" &lt;div class=&quot;CGALAdvanced&quot;&gt; &lt;div&gt;Advanced&lt;/div&gt; The concept Splitter defines the requirements for a f...">Splitter</a>&gt;</code>. <br /></td></tr>
+<tr class="separator:aa429c75b62cacc3abdc88bdeaa525f8d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9debc8818a1499cc45ad325d20aabc40"><td class="memItemLeft" align="right" valign="top"><a id="a9debc8818a1499cc45ad325d20aabc40"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a9debc8818a1499cc45ad325d20aabc40">Node_const_handle</a></td></tr>
+<tr class="memdesc:a9debc8818a1499cc45ad325d20aabc40"><td class="mdescLeft"> </td><td class="mdescRight">A const handle with value type <code><a class="el" href="classCGAL_1_1Kd__tree__node.html" title="The class Kd_tree_node implements a node class for a k-d tree. ">Kd_tree_node</a>&lt;Traits,<a class="el" href="classSplitter.html" title=" &lt;div class=&quot;CGALAdvanced&quot;&gt; &lt;div&gt;Advanced&lt;/div&gt; The concept Splitter defines the requirements for a f...">Splitter</a>&gt;</code>. <br /></td></tr>
+<tr class="separator:a9debc8818a1499cc45ad325d20aabc40"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad27a2e99580b7caa4dca769b76d32133"><td class="memItemLeft" align="right" valign="top"><a id="ad27a2e99580b7caa4dca769b76d32133"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#ad27a2e99580b7caa4dca769b76d32133">Point_d_iterator</a></td></tr>
+<tr class="memdesc:ad27a2e99580b7caa4dca769b76d32133"><td class="mdescLeft"> </td><td class="mdescRight">Random access const iterator with value type <code>const Point_d*</code>. <br /></td></tr>
+<tr class="separator:ad27a2e99580b7caa4dca769b76d32133"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a44d9d3235a6fc450013b22f9a2767ac1"><td class="memItemLeft" align="right" valign="top"><a id="a44d9d3235a6fc450013b22f9a2767ac1"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a44d9d3235a6fc450013b22f9a2767ac1">size_type</a></td></tr>
+<tr class="memdesc:a44d9d3235a6fc450013b22f9a2767ac1"><td class="mdescLeft"> </td><td class="mdescRight">A type that counts the number of elements in a <code>k-d</code> tree. <br /></td></tr>
+<tr class="separator:a44d9d3235a6fc450013b22f9a2767ac1"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:affa94b4f024aff3274dfebe44ead61d0"><td class="memItemLeft" align="right" valign="top"><a id="affa94b4f024aff3274dfebe44ead61d0"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#affa94b4f024aff3274dfebe44ead61d0">Kd_tree</a> (<a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a> s=<a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>(), Traits t=Traits())</td></tr>
+<tr class="memdesc:affa94b4f024aff3274dfebe44ead61d0"><td class="mdescLeft"> </td><td class="mdescRight">Constructs an empty <code>k-d</code> tree. <br /></td></tr>
+<tr class="separator:affa94b4f024aff3274dfebe44ead61d0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a28783d5ad66d21ea02ac99bd68656895"><td class="memTemplParams" colspan="2">template&lt;class InputIterator &gt; </td></tr>
+<tr class="memitem:a28783d5ad66d21ea02ac99bd68656895"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a28783d5ad66d21ea02ac99bd68656895">Kd_tree</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> beyond, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a> s=<a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>(), Traits t=Traits())</td></tr>
+<tr class="memdesc:a28783d5ad66d21ea02ac99bd68656895"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a <code>k-d</code> tree on the elements from the sequence <code>[first, beyond)</code> using the splitting rule implemented by <code>s</code>.  <a href="#a28783d5ad66d21ea02ac99bd68656895">More...</a><br /></td></tr>
+<tr class="separator:a28783d5ad66d21ea02ac99bd68656895"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a14e4bfcf00392b6cfad2e78f24c0813d"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d">build</a> ()</td></tr>
+<tr class="memdesc:a14e4bfcf00392b6cfad2e78f24c0813d"><td class="mdescLeft"> </td><td class="mdescRight">The constructor does not build the internal data structure, and it is also not updated after calls to <code><a class="el" href="classCGAL_1_1Kd__tree.html#a2378b3ff1a73a984cd36e145af74f11c" title="Inserts the point p in the k-d tree. ">insert()</a></code>.  <a href="#a14e4bfcf00392b6cfad2e78f24c0813d">More...</a><br /></td></tr>
+<tr class="separator:a14e4bfcf00392b6cfad2e78f24c0813d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aeedc970b83fe01315e77620e8d5bef28"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aeedc970b83fe01315e77620e8d5bef28">invalidate_build</a> ()</td></tr>
+<tr class="memdesc:aeedc970b83fe01315e77620e8d5bef28"><td class="mdescLeft"> </td><td class="mdescRight">This clears the internal data structure, which then gets rebuilt either by an explicit call to <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code> or implicitly by the next query or removal.  <a href="#aeedc970b83fe01315e77620e8d5bef28">More...</a><br /></td></tr>
+<tr class="separator:aeedc970b83fe01315e77620e8d5bef28"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:a2378b3ff1a73a984cd36e145af74f11c"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a2378b3ff1a73a984cd36e145af74f11c">insert</a> (<a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> p)</td></tr>
+<tr class="memdesc:a2378b3ff1a73a984cd36e145af74f11c"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the point <code>p</code> in the <code>k-d</code> tree.  <a href="#a2378b3ff1a73a984cd36e145af74f11c">More...</a><br /></td></tr>
+<tr class="separator:a2378b3ff1a73a984cd36e145af74f11c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8100a78b987aa69d2edae40f9b171bf1"><td class="memTemplParams" colspan="2">template&lt;class InputIterator &gt; </td></tr>
+<tr class="memitem:a8100a78b987aa69d2edae40f9b171bf1"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a8100a78b987aa69d2edae40f9b171bf1">insert</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> beyond)</td></tr>
+<tr class="memdesc:a8100a78b987aa69d2edae40f9b171bf1"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the elements from the sequence <code>[first, beyond)</code> in the <code>k-d</code> tree.  <a href="#a8100a78b987aa69d2edae40f9b171bf1">More...</a><br /></td></tr>
+<tr class="separator:a8100a78b987aa69d2edae40f9b171bf1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adc28d64600c94360392e03f4a251f63c"><td class="memTemplParams" colspan="2">template&lt;class Identify_point &gt; </td></tr>
+<tr class="memitem:adc28d64600c94360392e03f4a251f63c"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#adc28d64600c94360392e03f4a251f63c">remove</a> (<a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> p, Identify_point equal_to_p)</td></tr>
+<tr class="memdesc:adc28d64600c94360392e03f4a251f63c"><td class="mdescLeft"> </td><td class="mdescRight">Removes the point <code>p</code> from the <code>k-d</code> tree.  <a href="#adc28d64600c94360392e03f4a251f63c">More...</a><br /></td></tr>
+<tr class="separator:adc28d64600c94360392e03f4a251f63c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac477dd4b97981c157466433c11144a11"><td class="memItemLeft" align="right" valign="top"><a id="ac477dd4b97981c157466433c11144a11"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#ac477dd4b97981c157466433c11144a11">remove</a> (<a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> p)</td></tr>
+<tr class="memdesc:ac477dd4b97981c157466433c11144a11"><td class="mdescLeft"> </td><td class="mdescRight">Removes point <code>p</code>, calling the 2-argument function <code><a class="el" href="classCGAL_1_1Kd__tree.html#adc28d64600c94360392e03f4a251f63c" title="Removes the point p from the k-d tree. ">remove()</a></code> with a functor that simply compares coordinates. <br /></td></tr>
+<tr class="separator:ac477dd4b97981c157466433c11144a11"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa1ee131caff5ac370f1cbfa49b872c0c"><td class="memItemLeft" align="right" valign="top"><a id="aa1ee131caff5ac370f1cbfa49b872c0c"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aa1ee131caff5ac370f1cbfa49b872c0c">reserve</a> (size_t <a class="el" href="classCGAL_1_1Kd__tree.html#acc7b3a3b238c012e6837a81827d9f253">size</a>)</td></tr>
+<tr class="separator:aa1ee131caff5ac370f1cbfa49b872c0c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afd162d3376f0c76aaf2cf9a3bcfe86d5"><td class="memItemLeft" align="right" valign="top"><a id="afd162d3376f0c76aaf2cf9a3bcfe86d5"></a>
+size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#afd162d3376f0c76aaf2cf9a3bcfe86d5">capacity</a> ()</td></tr>
+<tr class="separator:afd162d3376f0c76aaf2cf9a3bcfe86d5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a24bc6f7c61dbd30f1b5716c99568598e"><td class="memTemplParams" colspan="2">template&lt;class FuzzyQueryItem &gt; </td></tr>
+<tr class="memitem:a24bc6f7c61dbd30f1b5716c99568598e"><td class="memTemplItemLeft" align="right" valign="top">boost::optional&lt; <a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a24bc6f7c61dbd30f1b5716c99568598e">search_any_point</a> (<a class="el" href="classFuzzyQueryItem.html">FuzzyQueryItem</a> q) const</td></tr>
+<tr class="memdesc:a24bc6f7c61dbd30f1b5716c99568598e"><td class="mdescLeft"> </td><td class="mdescRight">Reports any point that is approximately contained by <code>q</code>.  <a href="#a24bc6f7c61dbd30f1b5716c99568598e">More...</a><br /></td></tr>
+<tr class="separator:a24bc6f7c61dbd30f1b5716c99568598e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa3725793cd312ca17378ff2793c3f8c7"><td class="memTemplParams" colspan="2">template&lt;class OutputIterator , class FuzzyQueryItem &gt; </td></tr>
+<tr class="memitem:aa3725793cd312ca17378ff2793c3f8c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aa3725793cd312ca17378ff2793c3f8c7">search</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> it, <a class="el" href="classFuzzyQueryItem.html">FuzzyQueryItem</a> q) const</td></tr>
+<tr class="memdesc:aa3725793cd312ca17378ff2793c3f8c7"><td class="mdescLeft"> </td><td class="mdescRight">Reports the points that are approximately contained by <code>q</code>.  <a href="#aa3725793cd312ca17378ff2793c3f8c7">More...</a><br /></td></tr>
+<tr class="separator:aa3725793cd312ca17378ff2793c3f8c7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6364586e6723ee2b39588602fa6cd3bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Kd__tree.html#af506e9c83db7eb15ad8aaec11914888e">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a6364586e6723ee2b39588602fa6cd3bb">begin</a> () const</td></tr>
+<tr class="memdesc:a6364586e6723ee2b39588602fa6cd3bb"><td class="mdescLeft"> </td><td class="mdescRight">Returns a const iterator to the first point in the tree.  <a href="#a6364586e6723ee2b39588602fa6cd3bb">More...</a><br /></td></tr>
+<tr class="separator:a6364586e6723ee2b39588602fa6cd3bb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2d8c591e28d66f84d71d99431d47958d"><td class="memItemLeft" align="right" valign="top"><a id="a2d8c591e28d66f84d71d99431d47958d"></a>
+<a class="el" href="classCGAL_1_1Kd__tree.html#af506e9c83db7eb15ad8aaec11914888e">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a2d8c591e28d66f84d71d99431d47958d">end</a> () const</td></tr>
+<tr class="memdesc:a2d8c591e28d66f84d71d99431d47958d"><td class="mdescLeft"> </td><td class="mdescRight">Returns the appropriate past-the-end const iterator. <br /></td></tr>
+<tr class="separator:a2d8c591e28d66f84d71d99431d47958d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad02056df51298aa0236e92d69af47034"><td class="memItemLeft" align="right" valign="top"><a id="ad02056df51298aa0236e92d69af47034"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#ad02056df51298aa0236e92d69af47034">clear</a> ()</td></tr>
+<tr class="memdesc:ad02056df51298aa0236e92d69af47034"><td class="mdescLeft"> </td><td class="mdescRight">Removes all points from the <code>k-d</code> tree. <br /></td></tr>
+<tr class="separator:ad02056df51298aa0236e92d69af47034"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acc7b3a3b238c012e6837a81827d9f253"><td class="memItemLeft" align="right" valign="top"><a id="acc7b3a3b238c012e6837a81827d9f253"></a>
+<a class="el" href="classCGAL_1_1Kd__tree.html#a44d9d3235a6fc450013b22f9a2767ac1">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#acc7b3a3b238c012e6837a81827d9f253">size</a> () const</td></tr>
+<tr class="memdesc:acc7b3a3b238c012e6837a81827d9f253"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of points that are stored in the tree. <br /></td></tr>
+<tr class="separator:acc7b3a3b238c012e6837a81827d9f253"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3138e6de1424bf5b60a4cf77a70076aa"><td class="memItemLeft" align="right" valign="top"><a id="a3138e6de1424bf5b60a4cf77a70076aa"></a>
+Traits </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a3138e6de1424bf5b60a4cf77a70076aa">traits</a> () const</td></tr>
+<tr class="memdesc:a3138e6de1424bf5b60a4cf77a70076aa"><td class="mdescLeft"> </td><td class="mdescRight">return the instance of the traits used to construct the tree. <br /></td></tr>
+<tr class="separator:a3138e6de1424bf5b60a4cf77a70076aa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aca02ee532f9356ce0c26ccd1663bdc3c"><td class="memItemLeft" align="right" valign="top"><a id="aca02ee532f9356ce0c26ccd1663bdc3c"></a>
+<a class="el" href="classCGAL_1_1Kd__tree.html#aa429c75b62cacc3abdc88bdeaa525f8d">Node_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aca02ee532f9356ce0c26ccd1663bdc3c">root</a> ()</td></tr>
+<tr class="memdesc:aca02ee532f9356ce0c26ccd1663bdc3c"><td class="mdescLeft"> </td><td class="mdescRight">Returns a handle to the root node of the tree. <br /></td></tr>
+<tr class="separator:aca02ee532f9356ce0c26ccd1663bdc3c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6bec1ef044458c72ed5353759fdefa59"><td class="memItemLeft" align="right" valign="top"><a id="a6bec1ef044458c72ed5353759fdefa59"></a>
+<a class="el" href="classCGAL_1_1Kd__tree.html#a9debc8818a1499cc45ad325d20aabc40">Node_const_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a6bec1ef044458c72ed5353759fdefa59">root</a> () const</td></tr>
+<tr class="memdesc:a6bec1ef044458c72ed5353759fdefa59"><td class="mdescLeft"> </td><td class="mdescRight">Returns a const handle to the root node of the tree. <br /></td></tr>
+<tr class="separator:a6bec1ef044458c72ed5353759fdefa59"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa1d343250b7515e0a81fe9df18010e7a"><td class="memItemLeft" align="right" valign="top"><a id="aa1d343250b7515e0a81fe9df18010e7a"></a>
+const <a class="el" href="classCGAL_1_1Kd__tree__rectangle.html">Kd_tree_rectangle</a>&lt; <a class="el" href="classCGAL_1_1Kd__tree.html#a62f0b462a864125e984ddcab104c902b">FT</a>, <a class="el" href="classCGAL_1_1Kd__tree.html#af2bb094094f1874d1cd0a6da1ac650c4">D</a> &gt; &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#aa1d343250b7515e0a81fe9df18010e7a">bounding_box</a> () const</td></tr>
+<tr class="memdesc:aa1d343250b7515e0a81fe9df18010e7a"><td class="mdescLeft"> </td><td class="mdescRight">Returns a const reference to the bounding box of the root node of the tree. <br /></td></tr>
+<tr class="separator:aa1d343250b7515e0a81fe9df18010e7a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2b32eb515f9fc369cd0424794849cf31"><td class="memItemLeft" align="right" valign="top"><a id="a2b32eb515f9fc369cd0424794849cf31"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Kd__tree.html#a2b32eb515f9fc369cd0424794849cf31">statistics</a> (std::ostream &amp;s) const</td></tr>
+<tr class="memdesc:a2b32eb515f9fc369cd0424794849cf31"><td class="mdescLeft"> </td><td class="mdescRight">Inserts statistics of the tree into the output stream <code>s</code>. <br /></td></tr>
+<tr class="separator:a2b32eb515f9fc369cd0424794849cf31"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a28783d5ad66d21ea02ac99bd68656895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28783d5ad66d21ea02ac99bd68656895">◆ </a></span>Kd_tree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+<div class="memtemplate">
+template&lt;class InputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::<a class="el" href="classCGAL_1_1Kd__tree.html">Kd_tree</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>beyond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a> </td>
+          <td class="paramname"><em>s</em> = <code><a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Traits </td>
+          <td class="paramname"><em>t</em> = <code>Traits()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <code>k-d</code> tree on the elements from the sequence <code>[first, beyond)</code> using the splitting rule implemented by <code>s</code>. </p>
+<p>The value type of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code> must be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6364586e6723ee2b39588602fa6cd3bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6364586e6723ee2b39588602fa6cd3bb">◆ </a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Kd__tree.html#af506e9c83db7eb15ad8aaec11914888e">iterator</a> <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a const iterator to the first point in the tree. </p>
+<dl class="section note"><dt>Note</dt><dd>Starting with CGAL 4.6, the order of the points in the iterator range <code>[<a class="el" href="classCGAL_1_1Kd__tree.html#a6364586e6723ee2b39588602fa6cd3bb" title="Returns a const iterator to the first point in the tree. ">begin()</a> , <a class="el" href="classCGAL_1_1Kd__tree.html#a2d8c591e28d66f84d71d99431d47958d" title="Returns the appropriate past-the-end const iterator. ">end()</a>)</code> is not the order of insertion of the points into the tree. This was not guaranteed before but might have beeen observed and exploited. </dd></dl>
+
+</div>
+</div>
+<a id="a14e4bfcf00392b6cfad2e78f24c0813d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e4bfcf00392b6cfad2e78f24c0813d">◆ </a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor does not build the internal data structure, and it is also not updated after calls to <code><a class="el" href="classCGAL_1_1Kd__tree.html#a2378b3ff1a73a984cd36e145af74f11c" title="Inserts the point p in the k-d tree. ">insert()</a></code>. </p>
+<p>The method <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code> is called implicitly at the first call to a query or removal member function. You can call <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code> explicitly to ensure that the next call to query functions will not trigger the reconstruction of the data structure. </p>
+
+</div>
+</div>
+<a id="a2378b3ff1a73a984cd36e145af74f11c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2378b3ff1a73a984cd36e145af74f11c">◆ </a></span>insert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> </td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the point <code>p</code> in the <code>k-d</code> tree. </p>
+<dl class="section note"><dt>Note</dt><dd>Insertions do not dynamically update the internal data structure. The next query, or a call to <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code>, automatically triggers a rebuild of the whole structure. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Spatial_searching_2circular_query_8cpp-example.html#a4">Spatial_searching/circular_query.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a8100a78b987aa69d2edae40f9b171bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8100a78b987aa69d2edae40f9b171bf1">◆ </a></span>insert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+<div class="memtemplate">
+template&lt;class InputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>beyond</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the elements from the sequence <code>[first, beyond)</code> in the <code>k-d</code> tree. </p>
+<p>The value type of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code> must be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code>. </p>
+
+</div>
+</div>
+<a id="aeedc970b83fe01315e77620e8d5bef28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeedc970b83fe01315e77620e8d5bef28">◆ </a></span>invalidate_build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::invalidate_build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This clears the internal data structure, which then gets rebuilt either by an explicit call to <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code> or implicitly by the next query or removal. </p>
+<p>The only reason to call this function explicitly is to rebalance the tree after some number of removals. </p>
+
+</div>
+</div>
+<a id="adc28d64600c94360392e03f4a251f63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc28d64600c94360392e03f4a251f63c">◆ </a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+<div class="memtemplate">
+template&lt;class Identify_point &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a> </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Identify_point </td>
+          <td class="paramname"><em>equal_to_p</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the point <code>p</code> from the <code>k-d</code> tree. </p>
+<p>It uses <code>equal_to_p</code> to identify the point after locating it, which can matter in particular when 2 points are in the same place. <code>Identify_point</code> is a unary functor that takes a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code> and returns a <code>bool</code>. This is a limited and naive implementation that does not rebalance the tree. On the other hand, the tree remains valid and ready for queries. If the internal data structure is not already built, for instance because the last operation was an insertion, it first calls <code><a class="el" href="classCGAL_1_1Kd__tree.html#a14e4bfcf00392b6cfad2e78f24c0813d" title="The constructor does not build the internal data structure, and it is also not updated after calls to...">build()</a></code>. </p>
+
+</div>
+</div>
+<a id="aa3725793cd312ca17378ff2793c3f8c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3725793cd312ca17378ff2793c3f8c7">◆ </a></span>search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+<div class="memtemplate">
+template&lt;class OutputIterator , class FuzzyQueryItem &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::search </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>it</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classFuzzyQueryItem.html">FuzzyQueryItem</a> </td>
+          <td class="paramname"><em>q</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reports the points that are approximately contained by <code>q</code>. </p>
+<p>The types <code><a class="el" href="classFuzzyQueryItem.html#ae1edf5aef303a1c5e0e4023c01563fa7" title="represents a d-dimensional point. ">FuzzyQueryItem::Point_d</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code> must be equivalent. To use this function <code>Traits</code> must be a model of the concept <code><a class="el" href="classRangeSearchTraits.html" title="The concept RangeSearchTraits defines the requirements for the template parameter of the search class...">RangeSearchTraits</a></code>. </p>
+
+</div>
+</div>
+<a id="a24bc6f7c61dbd30f1b5716c99568598e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24bc6f7c61dbd30f1b5716c99568598e">◆ </a></span>search_any_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Traits , typename Splitter , typename UseExtendedNode &gt; </div>
+<div class="memtemplate">
+template&lt;class FuzzyQueryItem &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::optional&lt;<a class="el" href="classCGAL_1_1Kd__tree.html#a82cb8381a9881c4b495959e9199b6544">Point_d</a>&gt; <a class="el" href="classCGAL_1_1Kd__tree.html">CGAL::Kd_tree</a>&lt; Traits, <a class="el" href="classCGAL_1_1Kd__tree.html#ac24fc29d24eb4956bba22814db261f68">Splitter</a>, UseExtendedNode &gt;::search_any_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFuzzyQueryItem.html">FuzzyQueryItem</a> </td>
+          <td class="paramname"><em>q</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reports any point that is approximately contained by <code>q</code>. </p>
+<p>The types <code><a class="el" href="classFuzzyQueryItem.html#ae1edf5aef303a1c5e0e4023c01563fa7" title="represents a d-dimensional point. ">FuzzyQueryItem::Point_d</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_d.tag:../Kernel_d/" href="../Kernel_d/classCGAL_1_1Point__d.html">Point_d</a></code> must be equivalent. To use this function <code>Traits</code> must be a model of the concept <code><a class="el" href="classRangeSearchTraits.html" title="The concept RangeSearchTraits defines the requirements for the template parameter of the search class...">RangeSearchTraits</a></code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Kd__tree.html">Kd_tree</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:09 for CGAL 4.13 - dD Spatial Searching by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

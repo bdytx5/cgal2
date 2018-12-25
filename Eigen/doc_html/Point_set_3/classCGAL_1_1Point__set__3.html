@@ -1,0 +1,1567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Point_set_3/classCGAL_1_1Point__set__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Point Set: CGAL::Point_set_3&lt; Point, Vector &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Point Set
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Point__set__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Point__set__3-members.html">List of all members</a> |
+<a href="#nested-classes">Classes</a> |
+<a href="#pub-types">Public Types</a> |
+<a href="#related">Related Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Point_set_3&lt; Point, Vector &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgPointSet3.html">3D Point Set Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Point_set_3.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><h3>template&lt;typename Point, typename Vector = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt;<br />
+class CGAL::Point_set_3&lt; Point, Vector &gt;</h3>
+
+<p>A collection of points with dynamically associated properties. </p>
+<p>An instance of this class stores a set of indices of type <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code>, each representing a point. Properties can be associated to each point and can be retrieved using the index of the point. There are two particular properties that are hard coded by this class: the coordinates of the points and the normal vectors.</p>
+<p>The coordinates of a point can be access using the index of the point and the member function <code><a class="el" href="classCGAL_1_1Point__set__3.html#a5acc26fcc6154088464952e5f818dee2" title="Returns a reference to the point corresponding to index. ">point()</a></code>. This property is always present. The normal vector of a point can be accessed using the index of the point and the <code><a class="el" href="classCGAL_1_1Point__set__3.html#a3580382a87d8741d26028cacdd6d001e" title="Returns a reference to the normal corresponding to index. ">normal()</a></code> function. This property must be explicitly created.</p>
+<p>All properties can be accessed as a range using the functions <code><a class="el" href="classCGAL_1_1Point__set__3.html#a9da8d77b4a882a89ced51e0e13c0d1f8" title="Returns a constant range of points. ">points()</a></code>, <code><a class="el" href="classCGAL_1_1Point__set__3.html#acfa6f77b17cf14e692631f26916a3b94" title="Returns a constant range of normals. ">normals()</a></code>, and <code><a class="el" href="classCGAL_1_1Point__set__3.html#a896cdc5ec36cbd9a0f3a1e8d68d9af48" title="Returns a property as a range. ">range()</a></code> for points coordinates, normal vectors, and other properties respectively.</p>
+<p>Removing a point with properties is achieved by moving its <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> at the end of the container and keeping track of the number of removed elements. A garbage collection method must be called to really remove it from memory.</p>
+<p>For convenience, all functions of the package <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessing.html">Point Set Processing Reference</a> are provided with an overload that takes a <a class="el" href="classCGAL_1_1Point__set__3.html" title="A collection of points with dynamically associated properties. ">Point_set_3</a> object as an argument.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Point</td><td>Point type. </td></tr>
+    <tr><td class="paramname">Vector</td><td>Normal vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000001">Is Model Of:</a></b></dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Point_set_3_2point_set_8cpp-example.html#_a4">Point_set_3/point_set.cpp</a>, <a class="el" href="Point_set_3_2point_set_advanced_8cpp-example.html#_a4">Point_set_3/point_set_advanced.cpp</a>, <a class="el" href="Point_set_3_2point_set_algo_8cpp-example.html#_a4">Point_set_3/point_set_algo.cpp</a>, <a class="el" href="Point_set_3_2point_set_property_8cpp-example.html#_a5">Point_set_3/point_set_property.cpp</a>, <a class="el" href="Point_set_3_2point_set_read_ply_8cpp-example.html#_a4">Point_set_3/point_set_read_ply.cpp</a>, and <a class="el" href="Point_set_3_2point_set_read_xyz_8cpp-example.html#_a4">Point_set_3/point_set_read_xyz.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">This represents a point with associated properties.  <a href="classCGAL_1_1Point__set__3_1_1Index.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types" id="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aefdfb209bf53edf0f9fd1bc1ea0e5ba9"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a></td></tr>
+<tr class="memdesc:aefdfb209bf53edf0f9fd1bc1ea0e5ba9"><td class="mdescLeft"> </td><td class="mdescRight"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classIterator.html">Iterator</a> type of the point set with value type <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code>  <a href="#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">More...</a><br /></td></tr>
+<tr class="separator:aefdfb209bf53edf0f9fd1bc1ea0e5ba9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac796907079351ad2fb7abcd8660ed0df"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a></td></tr>
+<tr class="memdesc:ac796907079351ad2fb7abcd8660ed0df"><td class="mdescLeft"> </td><td class="mdescRight">Constant iterator type of the point set with value type <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code>  <a href="#ac796907079351ad2fb7abcd8660ed0df">More...</a><br /></td></tr>
+<tr class="separator:ac796907079351ad2fb7abcd8660ed0df"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a70d70ab6e94ec8b3f1fb14c6ba4d1f16"><td class="memItemLeft" align="right" valign="top"><a id="a70d70ab6e94ec8b3f1fb14c6ba4d1f16"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; Point &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a70d70ab6e94ec8b3f1fb14c6ba4d1f16">Point_map</a></td></tr>
+<tr class="memdesc:a70d70ab6e94ec8b3f1fb14c6ba4d1f16"><td class="mdescLeft"> </td><td class="mdescRight">Property map of points. <br /></td></tr>
+<tr class="separator:a70d70ab6e94ec8b3f1fb14c6ba4d1f16"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a88886944611a4181f8c5b8c23cd0ee54"><td class="memItemLeft" align="right" valign="top"><a id="a88886944611a4181f8c5b8c23cd0ee54"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; Vector &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a></td></tr>
+<tr class="memdesc:a88886944611a4181f8c5b8c23cd0ee54"><td class="mdescLeft"> </td><td class="mdescRight">Property map of vectors. <br /></td></tr>
+<tr class="separator:a88886944611a4181f8c5b8c23cd0ee54"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae03986c20d80d52cd62b467d681d9b40"><td class="memItemLeft" align="right" valign="top"><a id="ae03986c20d80d52cd62b467d681d9b40"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#a9e76c241b2f57092ae7f697a750c3661">Property_range</a>&lt; Point &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ae03986c20d80d52cd62b467d681d9b40">Point_range</a></td></tr>
+<tr class="memdesc:ae03986c20d80d52cd62b467d681d9b40"><td class="mdescLeft"> </td><td class="mdescRight">Constant range of points. <br /></td></tr>
+<tr class="separator:ae03986c20d80d52cd62b467d681d9b40"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3080110d2037c55e1de4832ff2f3185a"><td class="memItemLeft" align="right" valign="top"><a id="a3080110d2037c55e1de4832ff2f3185a"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#a9e76c241b2f57092ae7f697a750c3661">Property_range</a>&lt; Vector &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a3080110d2037c55e1de4832ff2f3185a">Vector_range</a></td></tr>
+<tr class="memdesc:a3080110d2037c55e1de4832ff2f3185a"><td class="mdescLeft"> </td><td class="mdescRight">Constant range of vectors. <br /></td></tr>
+<tr class="separator:a3080110d2037c55e1de4832ff2f3185a"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related" id="related"></a>
+Related Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
+</td></tr>
+<tr class="memitem:gaebb876ced23adf1763934b43b18eb429"><td class="memTemplParams" colspan="2">template&lt;typename Point , typename Vector &gt; </td></tr>
+<tr class="memitem:gaebb876ced23adf1763934b43b18eb429"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPointSet3IO.html#gaebb876ced23adf1763934b43b18eb429">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt; &amp;ps)</td></tr>
+<tr class="memdesc:gaebb876ced23adf1763934b43b18eb429"><td class="mdescLeft"> </td><td class="mdescRight">Reads the point set from an input stream that can be either:  <a href="group__PkgPointSet3IO.html#gaebb876ced23adf1763934b43b18eb429">More...</a><br /></td></tr>
+<tr class="separator:gaebb876ced23adf1763934b43b18eb429"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga552bef80fa3c835f3b7e6cfb038f8b78"><td class="memTemplParams" colspan="2">template&lt;typename Point , typename Vector &gt; </td></tr>
+<tr class="memitem:ga552bef80fa3c835f3b7e6cfb038f8b78"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPointSet3IO.html#ga552bef80fa3c835f3b7e6cfb038f8b78">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt; &amp;ps)</td></tr>
+<tr class="memdesc:ga552bef80fa3c835f3b7e6cfb038f8b78"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the point set in an output stream in ASCII PLY format.  <a href="group__PkgPointSet3IO.html#ga552bef80fa3c835f3b7e6cfb038f8b78">More...</a><br /></td></tr>
+<tr class="separator:ga552bef80fa3c835f3b7e6cfb038f8b78"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a322c2acd54d4017cf7685565c58ae668"><td class="memTemplParams" colspan="2">template&lt;typename Point , typename Vector &gt; </td></tr>
+<tr class="memitem:a322c2acd54d4017cf7685565c58ae668"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a322c2acd54d4017cf7685565c58ae668">operator+=</a> (<a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp;ps, <a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp;other)</td></tr>
+<tr class="memdesc:a322c2acd54d4017cf7685565c58ae668"><td class="mdescLeft"> </td><td class="mdescRight">Append <code>other</code> at the end of <code>ps</code>.  <a href="#a322c2acd54d4017cf7685565c58ae668">More...</a><br /></td></tr>
+<tr class="separator:a322c2acd54d4017cf7685565c58ae668"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Construction, Destruction, Assignment</h2></td></tr>
+<tr class="memitem:aafda3c8eaae3d1cf6466d62138a9ac9f"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#aafda3c8eaae3d1cf6466d62138a9ac9f">Point_set_3</a> (bool with_normal_map=false)</td></tr>
+<tr class="memdesc:aafda3c8eaae3d1cf6466d62138a9ac9f"><td class="mdescLeft"> </td><td class="mdescRight">Creates an empty point set with no additional property.  <a href="#aafda3c8eaae3d1cf6466d62138a9ac9f">More...</a><br /></td></tr>
+<tr class="separator:aafda3c8eaae3d1cf6466d62138a9ac9f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae41c8923997b5a8548e25e51649a1df9"><td class="memItemLeft" align="right" valign="top"><a id="ae41c8923997b5a8548e25e51649a1df9"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ae41c8923997b5a8548e25e51649a1df9">operator=</a> (const <a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a> &amp;ps)</td></tr>
+<tr class="memdesc:ae41c8923997b5a8548e25e51649a1df9"><td class="mdescLeft"> </td><td class="mdescRight">Assignment operator, all properties with their content are copied. <br /></td></tr>
+<tr class="separator:ae41c8923997b5a8548e25e51649a1df9"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Memory Management</h2></td></tr>
+<tr class="memitem:a6a61b25872973b239c12a79f598dfb73"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a6a61b25872973b239c12a79f598dfb73">is_empty</a> () const</td></tr>
+<tr class="memdesc:a6a61b25872973b239c12a79f598dfb73"><td class="mdescLeft"> </td><td class="mdescRight">Returns <code>true</code> if the number of elements not marked as removed is 0, <code>false</code> otherwise.  <a href="#a6a61b25872973b239c12a79f598dfb73">More...</a><br /></td></tr>
+<tr class="separator:a6a61b25872973b239c12a79f598dfb73"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a32ceb0d2076cecac38167ff362eccd2e"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a32ceb0d2076cecac38167ff362eccd2e">number_of_points</a> () const</td></tr>
+<tr class="memdesc:a32ceb0d2076cecac38167ff362eccd2e"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of elements (not counting elements marked as removed).  <a href="#a32ceb0d2076cecac38167ff362eccd2e">More...</a><br /></td></tr>
+<tr class="separator:a32ceb0d2076cecac38167ff362eccd2e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1a2906af8c99af2e58ebca7b7fc54b3a"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a1a2906af8c99af2e58ebca7b7fc54b3a">join</a> (<a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a> &amp;other)</td></tr>
+<tr class="memdesc:a1a2906af8c99af2e58ebca7b7fc54b3a"><td class="mdescLeft"> </td><td class="mdescRight">Merges <code>other</code> in the point set.  <a href="#a1a2906af8c99af2e58ebca7b7fc54b3a">More...</a><br /></td></tr>
+<tr class="separator:a1a2906af8c99af2e58ebca7b7fc54b3a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6d53149421c3d97c949192e0258bac66"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a6d53149421c3d97c949192e0258bac66">clear</a> ()</td></tr>
+<tr class="memdesc:a6d53149421c3d97c949192e0258bac66"><td class="mdescLeft"> </td><td class="mdescRight">Clears the point set properties and content.  <a href="#a6d53149421c3d97c949192e0258bac66">More...</a><br /></td></tr>
+<tr class="separator:a6d53149421c3d97c949192e0258bac66"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1bd45ecee30f35477e412d4581bae211"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a1bd45ecee30f35477e412d4581bae211">clear_properties</a> ()</td></tr>
+<tr class="memdesc:a1bd45ecee30f35477e412d4581bae211"><td class="mdescLeft"> </td><td class="mdescRight">Clears all properties created.  <a href="#a1bd45ecee30f35477e412d4581bae211">More...</a><br /></td></tr>
+<tr class="separator:a1bd45ecee30f35477e412d4581bae211"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5ad5771002caef53459ffde7e4b6b4ff"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a5ad5771002caef53459ffde7e4b6b4ff">reserve</a> (std::size_t s)</td></tr>
+<tr class="memdesc:a5ad5771002caef53459ffde7e4b6b4ff"><td class="mdescLeft"> </td><td class="mdescRight">Increases the capacity of internal containers to be able to efficiently accommodate at least <code>s</code> elements.  <a href="#a5ad5771002caef53459ffde7e4b6b4ff">More...</a><br /></td></tr>
+<tr class="separator:a5ad5771002caef53459ffde7e4b6b4ff"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a938db0b9df274d2ee7b62b484fd806bc"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a938db0b9df274d2ee7b62b484fd806bc">resize</a> (std::size_t s)</td></tr>
+<tr class="memdesc:a938db0b9df274d2ee7b62b484fd806bc"><td class="mdescLeft"> </td><td class="mdescRight">Changes size of the point set.  <a href="#a938db0b9df274d2ee7b62b484fd806bc">More...</a><br /></td></tr>
+<tr class="separator:a938db0b9df274d2ee7b62b484fd806bc"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Adding Points and Normals</h2></td></tr>
+<tr class="memitem:ad216c71b08063e0e328c100d757db2bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ad216c71b08063e0e328c100d757db2bc">insert</a> ()</td></tr>
+<tr class="memdesc:ad216c71b08063e0e328c100d757db2bc"><td class="mdescLeft"> </td><td class="mdescRight">Inserts a new element with default property values.  <a href="#ad216c71b08063e0e328c100d757db2bc">More...</a><br /></td></tr>
+<tr class="separator:ad216c71b08063e0e328c100d757db2bc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9009460c6680b22c5823bbd160e33cf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a9009460c6680b22c5823bbd160e33cf2">insert</a> (const Point &amp;p)</td></tr>
+<tr class="memdesc:a9009460c6680b22c5823bbd160e33cf2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts new point with default property values.  <a href="#a9009460c6680b22c5823bbd160e33cf2">More...</a><br /></td></tr>
+<tr class="separator:a9009460c6680b22c5823bbd160e33cf2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acd87a6f1e03fdb0d1bec9111272043ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#acd87a6f1e03fdb0d1bec9111272043ae">insert</a> (const Point &amp;p, const Vector &amp;n)</td></tr>
+<tr class="memdesc:acd87a6f1e03fdb0d1bec9111272043ae"><td class="mdescLeft"> </td><td class="mdescRight">Convenience function to add a point with a normal vector.  <a href="#acd87a6f1e03fdb0d1bec9111272043ae">More...</a><br /></td></tr>
+<tr class="separator:acd87a6f1e03fdb0d1bec9111272043ae"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Accessors and Iterators</h2></td></tr>
+<tr class="memitem:a3d9201b986808c9cf8c6aaa65d9cfc88"><td class="memItemLeft" align="right" valign="top"><a id="a3d9201b986808c9cf8c6aaa65d9cfc88"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a3d9201b986808c9cf8c6aaa65d9cfc88">begin</a> ()</td></tr>
+<tr class="memdesc:a3d9201b986808c9cf8c6aaa65d9cfc88"><td class="mdescLeft"> </td><td class="mdescRight">Returns the begin iterator. <br /></td></tr>
+<tr class="separator:a3d9201b986808c9cf8c6aaa65d9cfc88"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a97fac9d9fe82dea17c3de017f2f2a6e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a97fac9d9fe82dea17c3de017f2f2a6e6">end</a> ()</td></tr>
+<tr class="memdesc:a97fac9d9fe82dea17c3de017f2f2a6e6"><td class="mdescLeft"> </td><td class="mdescRight">Returns the past-the-end iterator.  <a href="#a97fac9d9fe82dea17c3de017f2f2a6e6">More...</a><br /></td></tr>
+<tr class="separator:a97fac9d9fe82dea17c3de017f2f2a6e6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afcba783431b57f040be79a42b3f4ee99"><td class="memItemLeft" align="right" valign="top"><a id="afcba783431b57f040be79a42b3f4ee99"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#afcba783431b57f040be79a42b3f4ee99">begin</a> () const</td></tr>
+<tr class="memdesc:afcba783431b57f040be79a42b3f4ee99"><td class="mdescLeft"> </td><td class="mdescRight">Returns the begin constant iterator. <br /></td></tr>
+<tr class="separator:afcba783431b57f040be79a42b3f4ee99"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4e9d7f50aa4b4bca24e915a546578131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a4e9d7f50aa4b4bca24e915a546578131">end</a> () const</td></tr>
+<tr class="memdesc:a4e9d7f50aa4b4bca24e915a546578131"><td class="mdescLeft"> </td><td class="mdescRight">Returns the past-the-end constant iterator.  <a href="#a4e9d7f50aa4b4bca24e915a546578131">More...</a><br /></td></tr>
+<tr class="separator:a4e9d7f50aa4b4bca24e915a546578131"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5acc26fcc6154088464952e5f818dee2"><td class="memItemLeft" align="right" valign="top"><a id="a5acc26fcc6154088464952e5f818dee2"></a>
+Point &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a5acc26fcc6154088464952e5f818dee2">point</a> (const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp;index)</td></tr>
+<tr class="memdesc:a5acc26fcc6154088464952e5f818dee2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the point corresponding to <code>index</code>. <br /></td></tr>
+<tr class="separator:a5acc26fcc6154088464952e5f818dee2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7ae809c10f7c3335eff967113cfbff00"><td class="memItemLeft" align="right" valign="top"><a id="a7ae809c10f7c3335eff967113cfbff00"></a>
+const Point &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a7ae809c10f7c3335eff967113cfbff00">point</a> (const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp;index) const</td></tr>
+<tr class="memdesc:a7ae809c10f7c3335eff967113cfbff00"><td class="mdescLeft"> </td><td class="mdescRight">Returns a constant reference to the point corresponding to <code>index</code>. <br /></td></tr>
+<tr class="separator:a7ae809c10f7c3335eff967113cfbff00"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3580382a87d8741d26028cacdd6d001e"><td class="memItemLeft" align="right" valign="top">Vector &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a3580382a87d8741d26028cacdd6d001e">normal</a> (const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp;index)</td></tr>
+<tr class="memdesc:a3580382a87d8741d26028cacdd6d001e"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the normal corresponding to <code>index</code>.  <a href="#a3580382a87d8741d26028cacdd6d001e">More...</a><br /></td></tr>
+<tr class="separator:a3580382a87d8741d26028cacdd6d001e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af607702e6d0bd8ed3aab696f7e36c756"><td class="memItemLeft" align="right" valign="top">const Vector &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#af607702e6d0bd8ed3aab696f7e36c756">normal</a> (const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp;index) const</td></tr>
+<tr class="memdesc:af607702e6d0bd8ed3aab696f7e36c756"><td class="mdescLeft"> </td><td class="mdescRight">Returns a constant reference to the normal corresponding to <code>index</code>.  <a href="#af607702e6d0bd8ed3aab696f7e36c756">More...</a><br /></td></tr>
+<tr class="separator:af607702e6d0bd8ed3aab696f7e36c756"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Removal Functions</h2></td></tr>
+<tr class="memitem:a2373069f911654c58cfea2d01752eafb"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a2373069f911654c58cfea2d01752eafb">remove</a> (<a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> first, <a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> last)</td></tr>
+<tr class="memdesc:a2373069f911654c58cfea2d01752eafb"><td class="mdescLeft"> </td><td class="mdescRight">Marks all elements between <code>first</code> and <code>last</code> as removed.  <a href="#a2373069f911654c58cfea2d01752eafb">More...</a><br /></td></tr>
+<tr class="separator:a2373069f911654c58cfea2d01752eafb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a69d31427b38854fc1dc1eb35e9f59ceb"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a69d31427b38854fc1dc1eb35e9f59ceb">remove</a> (<a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> it)</td></tr>
+<tr class="memdesc:a69d31427b38854fc1dc1eb35e9f59ceb"><td class="mdescLeft"> </td><td class="mdescRight">Marks element specified by iterator as removed.  <a href="#a69d31427b38854fc1dc1eb35e9f59ceb">More...</a><br /></td></tr>
+<tr class="separator:a69d31427b38854fc1dc1eb35e9f59ceb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac6fa04edaef8a4b0f8841c2cc1b78b4b"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ac6fa04edaef8a4b0f8841c2cc1b78b4b">remove</a> (const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp;index)</td></tr>
+<tr class="memdesc:ac6fa04edaef8a4b0f8841c2cc1b78b4b"><td class="mdescLeft"> </td><td class="mdescRight">Marks element specified by <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> as removed.  <a href="#ac6fa04edaef8a4b0f8841c2cc1b78b4b">More...</a><br /></td></tr>
+<tr class="separator:ac6fa04edaef8a4b0f8841c2cc1b78b4b"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Garbage Management</h2></td></tr>
+<tr class="memitem:a91231dd32d8f3a7d2ef9d491601c096a"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a91231dd32d8f3a7d2ef9d491601c096a">is_removed</a> (<a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> it) const</td></tr>
+<tr class="memdesc:a91231dd32d8f3a7d2ef9d491601c096a"><td class="mdescLeft"> </td><td class="mdescRight">Returns <code>true</code> if the element is marked as removed, <code>false</code> otherwise.  <a href="#a91231dd32d8f3a7d2ef9d491601c096a">More...</a><br /></td></tr>
+<tr class="separator:a91231dd32d8f3a7d2ef9d491601c096a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a75b49192a2866cbfc2caa8f854dab759"><td class="memItemLeft" align="right" valign="top"><a id="a75b49192a2866cbfc2caa8f854dab759"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a75b49192a2866cbfc2caa8f854dab759">garbage_begin</a> () const</td></tr>
+<tr class="memdesc:a75b49192a2866cbfc2caa8f854dab759"><td class="mdescLeft"> </td><td class="mdescRight">Returns the constant iterator to the first element marked as removed (equal to <code><a class="el" href="classCGAL_1_1Point__set__3.html#a0d70cc6b0c0914dd193ede933d92722a" title="Returns the past-the-end constant iterator of the elements marked as removed. ">garbage_end()</a></code> if no elements are marked as removed. <br /></td></tr>
+<tr class="separator:a75b49192a2866cbfc2caa8f854dab759"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0d70cc6b0c0914dd193ede933d92722a"><td class="memItemLeft" align="right" valign="top"><a id="a0d70cc6b0c0914dd193ede933d92722a"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a0d70cc6b0c0914dd193ede933d92722a">garbage_end</a> () const</td></tr>
+<tr class="memdesc:a0d70cc6b0c0914dd193ede933d92722a"><td class="mdescLeft"> </td><td class="mdescRight">Returns the past-the-end constant iterator of the elements marked as removed. <br /></td></tr>
+<tr class="separator:a0d70cc6b0c0914dd193ede933d92722a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a14f5c5af31234bf24a736b22155b71be"><td class="memItemLeft" align="right" valign="top"><a id="a14f5c5af31234bf24a736b22155b71be"></a>
+std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a14f5c5af31234bf24a736b22155b71be">number_of_removed_points</a> () const</td></tr>
+<tr class="memdesc:a14f5c5af31234bf24a736b22155b71be"><td class="mdescLeft"> </td><td class="mdescRight">Number of removed points. <br /></td></tr>
+<tr class="separator:a14f5c5af31234bf24a736b22155b71be"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9356e2a518a58f857bb56ae2f6726e11"><td class="memItemLeft" align="right" valign="top"><a id="a9356e2a518a58f857bb56ae2f6726e11"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a9356e2a518a58f857bb56ae2f6726e11">has_garbage</a> () const</td></tr>
+<tr class="memdesc:a9356e2a518a58f857bb56ae2f6726e11"><td class="mdescLeft"> </td><td class="mdescRight">Returns <code>true</code> if there are elements marked as removed, <code>false</code> otherwise. <br /></td></tr>
+<tr class="separator:a9356e2a518a58f857bb56ae2f6726e11"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a46c81a44d3e59eb8f6142d8651083adc"><td class="memItemLeft" align="right" valign="top"><a id="a46c81a44d3e59eb8f6142d8651083adc"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a46c81a44d3e59eb8f6142d8651083adc">collect_garbage</a> ()</td></tr>
+<tr class="memdesc:a46c81a44d3e59eb8f6142d8651083adc"><td class="mdescLeft"> </td><td class="mdescRight">Erases from memory the elements marked as removed. <br /></td></tr>
+<tr class="separator:a46c81a44d3e59eb8f6142d8651083adc"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Property Handling</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp05f7d948113cc5f1b1b159bbb0deb0a6"></a>A property <code>Property_map&lt;Type&gt;</code> allows to associate properties of type <code>Type</code> to a point.</p>
+<p>Properties can be added, looked up with a string and removed at runtime. </p>
+</td></tr>
+<tr class="memitem:ac35e51676f4fd2d07192de5e831fd422"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
+<tr class="memitem:ac35e51676f4fd2d07192de5e831fd422"><td class="memTemplItemLeft" align="right" valign="top">using </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a> = <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td></tr>
+<tr class="memdesc:ac35e51676f4fd2d07192de5e831fd422"><td class="mdescLeft"> </td><td class="mdescRight">Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classLvaluePropertyMap.html">LvaluePropertyMap</a></code> with <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> as a key type and <code>Type</code> as value type.  <a href="#ac35e51676f4fd2d07192de5e831fd422">More...</a><br /></td></tr>
+<tr class="separator:ac35e51676f4fd2d07192de5e831fd422"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1b8eda6e922e5ca614dd9f5286dc43ee"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1b8eda6e922e5ca614dd9f5286dc43ee"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a1b8eda6e922e5ca614dd9f5286dc43ee">has_property_map</a> (const std::string &amp;name) const</td></tr>
+<tr class="memdesc:a1b8eda6e922e5ca614dd9f5286dc43ee"><td class="mdescLeft"> </td><td class="mdescRight">Tests whether property <code>name</code> of type <code>T</code> already exists.  <a href="#a1b8eda6e922e5ca614dd9f5286dc43ee">More...</a><br /></td></tr>
+<tr class="separator:a1b8eda6e922e5ca614dd9f5286dc43ee"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8c47264e1e08ca02bedc0895f9ce8cf1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a8c47264e1e08ca02bedc0895f9ce8cf1"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt;, bool &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a8c47264e1e08ca02bedc0895f9ce8cf1">add_property_map</a> (const std::string &amp;name, const T t=T())</td></tr>
+<tr class="memdesc:a8c47264e1e08ca02bedc0895f9ce8cf1"><td class="mdescLeft"> </td><td class="mdescRight">Adds a new property <code>name</code> of type <code>T</code> with given default value.  <a href="#a8c47264e1e08ca02bedc0895f9ce8cf1">More...</a><br /></td></tr>
+<tr class="separator:a8c47264e1e08ca02bedc0895f9ce8cf1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9512790822ff1e1f3b495f7d11604b5e"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a9512790822ff1e1f3b495f7d11604b5e"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt;, bool &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a9512790822ff1e1f3b495f7d11604b5e">property_map</a> (const std::string &amp;name) const</td></tr>
+<tr class="memdesc:a9512790822ff1e1f3b495f7d11604b5e"><td class="mdescLeft"> </td><td class="mdescRight">Returns the property <code>name</code> of type <code>T</code>.  <a href="#a9512790822ff1e1f3b495f7d11604b5e">More...</a><br /></td></tr>
+<tr class="separator:a9512790822ff1e1f3b495f7d11604b5e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad31fe016cf76b02d97e7c35673a2ab63"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ad31fe016cf76b02d97e7c35673a2ab63"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ad31fe016cf76b02d97e7c35673a2ab63">remove_property_map</a> (<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &amp;prop)</td></tr>
+<tr class="memdesc:ad31fe016cf76b02d97e7c35673a2ab63"><td class="mdescLeft"> </td><td class="mdescRight">Removes the specified property.  <a href="#ad31fe016cf76b02d97e7c35673a2ab63">More...</a><br /></td></tr>
+<tr class="separator:ad31fe016cf76b02d97e7c35673a2ab63"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a798bb000eb5ffce8373219e41f0a1ebf"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a798bb000eb5ffce8373219e41f0a1ebf">has_normal_map</a> () const</td></tr>
+<tr class="memdesc:a798bb000eb5ffce8373219e41f0a1ebf"><td class="mdescLeft"> </td><td class="mdescRight">Convenience method that tests whether the point set has normals.  <a href="#a798bb000eb5ffce8373219e41f0a1ebf">More...</a><br /></td></tr>
+<tr class="separator:a798bb000eb5ffce8373219e41f0a1ebf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4f7dce77e9796e9cf44809ea3e4e9d6b"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b">add_normal_map</a> (const Vector &amp;default_value=Vector(0., 0., 0.))</td></tr>
+<tr class="memdesc:a4f7dce77e9796e9cf44809ea3e4e9d6b"><td class="mdescLeft"> </td><td class="mdescRight">Convenience method that adds a normal property.  <a href="#a4f7dce77e9796e9cf44809ea3e4e9d6b">More...</a><br /></td></tr>
+<tr class="separator:a4f7dce77e9796e9cf44809ea3e4e9d6b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a41a0ac0eecc100a02efca2039a1c35c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a41a0ac0eecc100a02efca2039a1c35c5">normal_map</a> ()</td></tr>
+<tr class="memdesc:a41a0ac0eecc100a02efca2039a1c35c5"><td class="mdescLeft"> </td><td class="mdescRight">Returns the property map of the normal property.  <a href="#a41a0ac0eecc100a02efca2039a1c35c5">More...</a><br /></td></tr>
+<tr class="separator:a41a0ac0eecc100a02efca2039a1c35c5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a29a8f19cac29156c56d8dafd284770a3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a29a8f19cac29156c56d8dafd284770a3">normal_map</a> () const</td></tr>
+<tr class="memdesc:a29a8f19cac29156c56d8dafd284770a3"><td class="mdescLeft"> </td><td class="mdescRight">Returns the property map of the normal property (constant version).  <a href="#a29a8f19cac29156c56d8dafd284770a3">More...</a><br /></td></tr>
+<tr class="separator:a29a8f19cac29156c56d8dafd284770a3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4e76f6a022e42a59479faaf0acef8811"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a4e76f6a022e42a59479faaf0acef8811">remove_normal_map</a> ()</td></tr>
+<tr class="memdesc:a4e76f6a022e42a59479faaf0acef8811"><td class="mdescLeft"> </td><td class="mdescRight">Convenience method that removes the normal property.  <a href="#a4e76f6a022e42a59479faaf0acef8811">More...</a><br /></td></tr>
+<tr class="separator:a4e76f6a022e42a59479faaf0acef8811"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa738f987bd96ad8e86e558d3cd9278e9"><td class="memItemLeft" align="right" valign="top"><a id="aa738f987bd96ad8e86e558d3cd9278e9"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#a70d70ab6e94ec8b3f1fb14c6ba4d1f16">Point_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#aa738f987bd96ad8e86e558d3cd9278e9">point_map</a> ()</td></tr>
+<tr class="memdesc:aa738f987bd96ad8e86e558d3cd9278e9"><td class="mdescLeft"> </td><td class="mdescRight">Returns the property map of the point property. <br /></td></tr>
+<tr class="separator:aa738f987bd96ad8e86e558d3cd9278e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af06bf55e3d489d58294ef5a5ab87ada4"><td class="memItemLeft" align="right" valign="top"><a id="af06bf55e3d489d58294ef5a5ab87ada4"></a>
+const <a class="el" href="classCGAL_1_1Point__set__3.html#a70d70ab6e94ec8b3f1fb14c6ba4d1f16">Point_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#af06bf55e3d489d58294ef5a5ab87ada4">point_map</a> () const</td></tr>
+<tr class="memdesc:af06bf55e3d489d58294ef5a5ab87ada4"><td class="mdescLeft"> </td><td class="mdescRight">Returns the property map of the point property (constant version). <br /></td></tr>
+<tr class="separator:af06bf55e3d489d58294ef5a5ab87ada4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a55716cf7742c8945f706f95f4466537b"><td class="memItemLeft" align="right" valign="top"><a id="a55716cf7742c8945f706f95f4466537b"></a>
+std::vector&lt; std::string &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a55716cf7742c8945f706f95f4466537b">properties</a> () const</td></tr>
+<tr class="memdesc:a55716cf7742c8945f706f95f4466537b"><td class="mdescLeft"> </td><td class="mdescRight">Returns a vector with all strings that describe properties. <br /></td></tr>
+<tr class="separator:a55716cf7742c8945f706f95f4466537b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a02ef886d19ffa53faf527625c633c81c"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a02ef886d19ffa53faf527625c633c81c">parameters</a> () const</td></tr>
+<tr class="memdesc:a02ef886d19ffa53faf527625c633c81c"><td class="mdescLeft"> </td><td class="mdescRight">Returns a sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__psp__namedparameters.html">Named Parameters</a> for Point Set Processing algorithms.  <a href="#a02ef886d19ffa53faf527625c633c81c">More...</a><br /></td></tr>
+<tr class="separator:a02ef886d19ffa53faf527625c633c81c"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Ranges</h2></td></tr>
+<tr class="memitem:a9e76c241b2f57092ae7f697a750c3661"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
+<tr class="memitem:a9e76c241b2f57092ae7f697a750c3661"><td class="memTemplItemLeft" align="right" valign="top">using </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a9e76c241b2f57092ae7f697a750c3661">Property_range</a> = <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td></tr>
+<tr class="memdesc:a9e76c241b2f57092ae7f697a750c3661"><td class="mdescLeft"> </td><td class="mdescRight">Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classConstRange.html">ConstRange</a></code> that handles constant ranges for property maps with value type <code>Type</code>.  <a href="#a9e76c241b2f57092ae7f697a750c3661">More...</a><br /></td></tr>
+<tr class="separator:a9e76c241b2f57092ae7f697a750c3661"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a896cdc5ec36cbd9a0f3a1e8d68d9af48"><td class="memTemplParams" colspan="2"><a id="a896cdc5ec36cbd9a0f3a1e8d68d9af48"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a896cdc5ec36cbd9a0f3a1e8d68d9af48"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#a9e76c241b2f57092ae7f697a750c3661">Property_range</a>&lt; T &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a896cdc5ec36cbd9a0f3a1e8d68d9af48">range</a> (const <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &amp;pmap) const</td></tr>
+<tr class="memdesc:a896cdc5ec36cbd9a0f3a1e8d68d9af48"><td class="mdescLeft"> </td><td class="mdescRight">Returns a property as a range. <br /></td></tr>
+<tr class="separator:a896cdc5ec36cbd9a0f3a1e8d68d9af48"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9da8d77b4a882a89ced51e0e13c0d1f8"><td class="memItemLeft" align="right" valign="top"><a id="a9da8d77b4a882a89ced51e0e13c0d1f8"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#ae03986c20d80d52cd62b467d681d9b40">Point_range</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a9da8d77b4a882a89ced51e0e13c0d1f8">points</a> () const</td></tr>
+<tr class="memdesc:a9da8d77b4a882a89ced51e0e13c0d1f8"><td class="mdescLeft"> </td><td class="mdescRight">Returns a constant range of points. <br /></td></tr>
+<tr class="separator:a9da8d77b4a882a89ced51e0e13c0d1f8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acfa6f77b17cf14e692631f26916a3b94"><td class="memItemLeft" align="right" valign="top"><a id="acfa6f77b17cf14e692631f26916a3b94"></a>
+<a class="el" href="classCGAL_1_1Point__set__3.html#a3080110d2037c55e1de4832ff2f3185a">Vector_range</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#acfa6f77b17cf14e692631f26916a3b94">normals</a> () const</td></tr>
+<tr class="memdesc:acfa6f77b17cf14e692631f26916a3b94"><td class="mdescLeft"> </td><td class="mdescRight">Returns a constant range of normals. <br /></td></tr>
+<tr class="separator:acfa6f77b17cf14e692631f26916a3b94"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Push Property Maps and Inserters (Advanced)</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp06e984ab6733b9a219e5adfc243ab6e9"></a> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>The following method are specifically designed to make <code><a class="el" href="classCGAL_1_1Point__set__3.html" title="A collection of points with dynamically associated properties. ">CGAL::Point_set_3</a></code> usable with <span style="font-variant: small-caps;">CGAL</span> input/output functions.</p>
+<p> </p></div>  
+</td></tr>
+<tr class="memitem:abec2593e18bd151b37186bac6f13095e"><td class="memTemplParams" colspan="2">template&lt;class Property &gt; </td></tr>
+<tr class="memitem:abec2593e18bd151b37186bac6f13095e"><td class="memTemplItemLeft" align="right" valign="top">using </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#abec2593e18bd151b37186bac6f13095e">Property_back_inserter</a> = <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td></tr>
+<tr class="memdesc:abec2593e18bd151b37186bac6f13095e"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> used to insert elements by defining the value of the property <code>Property</code>.  <a href="#abec2593e18bd151b37186bac6f13095e">More...</a><br /></div></td></tr>
+<tr class="separator:abec2593e18bd151b37186bac6f13095e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac0f57d0c8967184fff962ef4f8733152"><td class="memTemplParams" colspan="2">template&lt;class Property &gt; </td></tr>
+<tr class="memitem:ac0f57d0c8967184fff962ef4f8733152"><td class="memTemplItemLeft" align="right" valign="top">using </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a> = <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td></tr>
+<tr class="memdesc:ac0f57d0c8967184fff962ef4f8733152"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classWritablePropertyMap.html">WritablePropertyMap</a></code> based on <code>Property</code> and that is allowed to push new items to the point set if needed.  <a href="#ac0f57d0c8967184fff962ef4f8733152">More...</a><br /></div></td></tr>
+<tr class="separator:ac0f57d0c8967184fff962ef4f8733152"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abdcca001156758eeb34617601d10335b"><td class="memItemLeft" align="right" valign="top"><a id="abdcca001156758eeb34617601d10335b"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#abec2593e18bd151b37186bac6f13095e">Property_back_inserter</a>&lt; Index_map &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#abdcca001156758eeb34617601d10335b">Index_back_inserter</a></td></tr>
+<tr class="memdesc:abdcca001156758eeb34617601d10335b"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Back inserter on indices  </div>  <br /></td></tr>
+<tr class="separator:abdcca001156758eeb34617601d10335b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a241ffdeff84320fbe313dd5468d466bb"><td class="memItemLeft" align="right" valign="top"><a id="a241ffdeff84320fbe313dd5468d466bb"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#abec2593e18bd151b37186bac6f13095e">Property_back_inserter</a>&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#a70d70ab6e94ec8b3f1fb14c6ba4d1f16">Point_map</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a241ffdeff84320fbe313dd5468d466bb">Point_back_inserter</a></td></tr>
+<tr class="memdesc:a241ffdeff84320fbe313dd5468d466bb"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Back inserter on points  </div>  <br /></td></tr>
+<tr class="separator:a241ffdeff84320fbe313dd5468d466bb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a85ad4902b2ebd6d2a59d55f80d46d0c8"><td class="memItemLeft" align="right" valign="top"><a id="a85ad4902b2ebd6d2a59d55f80d46d0c8"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a>&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#a70d70ab6e94ec8b3f1fb14c6ba4d1f16">Point_map</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a85ad4902b2ebd6d2a59d55f80d46d0c8">Point_push_map</a></td></tr>
+<tr class="memdesc:a85ad4902b2ebd6d2a59d55f80d46d0c8"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Property map for pushing new points  </div>  <br /></td></tr>
+<tr class="separator:a85ad4902b2ebd6d2a59d55f80d46d0c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0306d24c1de28e281d29d36d9f2962dc"><td class="memItemLeft" align="right" valign="top"><a id="a0306d24c1de28e281d29d36d9f2962dc"></a>
+typedef <a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a>&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a0306d24c1de28e281d29d36d9f2962dc">Vector_push_map</a></td></tr>
+<tr class="memdesc:a0306d24c1de28e281d29d36d9f2962dc"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> Property map for pushing new vectors  </div>  <br /></td></tr>
+<tr class="separator:a0306d24c1de28e281d29d36d9f2962dc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7015ae885b9eb2cc86bea01428bf82f6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a7015ae885b9eb2cc86bea01428bf82f6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a>&lt; <a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a7015ae885b9eb2cc86bea01428bf82f6">push_property_map</a> (<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &amp;prop)</td></tr>
+<tr class="memdesc:a7015ae885b9eb2cc86bea01428bf82f6"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function.  <a href="#a7015ae885b9eb2cc86bea01428bf82f6">More...</a><br /></div></td></tr>
+<tr class="separator:a7015ae885b9eb2cc86bea01428bf82f6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2c1251f86561fbeaf604cc9d094c06da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#a85ad4902b2ebd6d2a59d55f80d46d0c8">Point_push_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a2c1251f86561fbeaf604cc9d094c06da">point_push_map</a> ()</td></tr>
+<tr class="memdesc:a2c1251f86561fbeaf604cc9d094c06da"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function.  <a href="#a2c1251f86561fbeaf604cc9d094c06da">More...</a><br /></div></td></tr>
+<tr class="separator:a2c1251f86561fbeaf604cc9d094c06da"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a455cf274a28beddffbdb5d010f39b76a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#a0306d24c1de28e281d29d36d9f2962dc">Vector_push_map</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#a455cf274a28beddffbdb5d010f39b76a">normal_push_map</a> ()</td></tr>
+<tr class="memdesc:a455cf274a28beddffbdb5d010f39b76a"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function.  <a href="#a455cf274a28beddffbdb5d010f39b76a">More...</a><br /></div></td></tr>
+<tr class="separator:a455cf274a28beddffbdb5d010f39b76a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab5af3ed54a34b3ba3981c171bb2d1b14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#abdcca001156758eeb34617601d10335b">Index_back_inserter</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#ab5af3ed54a34b3ba3981c171bb2d1b14">index_back_inserter</a> ()</td></tr>
+<tr class="memdesc:ab5af3ed54a34b3ba3981c171bb2d1b14"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function.  <a href="#ab5af3ed54a34b3ba3981c171bb2d1b14">More...</a><br /></div></td></tr>
+<tr class="separator:ab5af3ed54a34b3ba3981c171bb2d1b14"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aecb31a95d1548b413b5d6ae6eb4b0a51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Point__set__3.html#a241ffdeff84320fbe313dd5468d466bb">Point_back_inserter</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Point__set__3.html#aecb31a95d1548b413b5d6ae6eb4b0a51">point_back_inserter</a> ()</td></tr>
+<tr class="memdesc:aecb31a95d1548b413b5d6ae6eb4b0a51"><td class="mdescLeft"> </td><td class="mdescRight"> <div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function.  <a href="#aecb31a95d1548b413b5d6ae6eb4b0a51">More...</a><br /></div></td></tr>
+<tr class="separator:aecb31a95d1548b413b5d6ae6eb4b0a51"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac796907079351ad2fb7abcd8660ed0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac796907079351ad2fb7abcd8660ed0df">◆ </a></span>const_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constant iterator type of the point set with value type <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> </p>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000004">Is Model Of:</a></b></dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classRandomAccessIterator.html">RandomAccessIterator</a> </dd></dl>
+
+</div>
+</div>
+<a id="aefdfb209bf53edf0f9fd1bc1ea0e5ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">◆ </a></span>iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classIterator.html">Iterator</a> type of the point set with value type <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> </p>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000003">Is Model Of:</a></b></dt><dd><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classRandomAccessIterator.html">RandomAccessIterator</a> </dd></dl>
+
+</div>
+</div>
+<a id="abec2593e18bd151b37186bac6f13095e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abec2593e18bd151b37186bac6f13095e">◆ </a></span>Property_back_inserter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class Property &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#abec2593e18bd151b37186bac6f13095e">Property_back_inserter</a> =  <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> used to insert elements by defining the value of the property <code>Property</code>. 
+<p> </p></div>  
+
+</div>
+</div>
+<a id="ac35e51676f4fd2d07192de5e831fd422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac35e51676f4fd2d07192de5e831fd422">◆ </a></span>Property_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a> =  <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classLvaluePropertyMap.html">LvaluePropertyMap</a></code> with <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> as a key type and <code>Type</code> as value type. </p>
+
+</div>
+</div>
+<a id="a9e76c241b2f57092ae7f697a750c3661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e76c241b2f57092ae7f697a750c3661">◆ </a></span>Property_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#a9e76c241b2f57092ae7f697a750c3661">Property_range</a> =  <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classConstRange.html">ConstRange</a></code> that handles constant ranges for property maps with value type <code>Type</code>. </p>
+
+</div>
+</div>
+<a id="ac0f57d0c8967184fff962ef4f8733152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f57d0c8967184fff962ef4f8733152">◆ </a></span>Push_property_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class Property &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a> =  <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> Model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classWritablePropertyMap.html">WritablePropertyMap</a></code> based on <code>Property</code> and that is allowed to push new items to the point set if needed. 
+<p> </p></div>  
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aafda3c8eaae3d1cf6466d62138a9ac9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafda3c8eaae3d1cf6466d62138a9ac9f">◆ </a></span>Point_set_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::<a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>with_normal_map</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an empty point set with no additional property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">with_normal_map</td><td><code>true</code> if the normal map should be added. If <code>false</code> (default value), the normal map can still be added later on (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4f7dce77e9796e9cf44809ea3e4e9d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7dce77e9796e9cf44809ea3e4e9d6b">◆ </a></span>add_normal_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::add_normal_map </td>
+          <td>(</td>
+          <td class="paramtype">const Vector &amp; </td>
+          <td class="paramname"><em>default_value</em> = <code>Vector(0., 0., 0.)</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience method that adds a normal property. </p>
+<p>This method adds a property of type <code>Vector</code> and named <code>normal</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the property was added, <code>false</code> if it already existed. </dd></dl>
+
+</div>
+</div>
+<a id="a8c47264e1e08ca02bedc0895f9ce8cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c47264e1e08ca02bedc0895f9ce8cf1">◆ </a></span>add_property_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt;T&gt;, bool&gt; <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::add_property_map </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp; </td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T </td>
+          <td class="paramname"><em>t</em> = <code>T()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new property <code>name</code> of type <code>T</code> with given default value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the property.</td></tr>
+    <tr><td class="paramname">t</td><td>Value taken by the property on already created elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pair containing the property map and a Boolean that is <code>true</code> if the property was added and <code>false</code> if it already exists (and was therefore not added but only returned). </dd></dl>
+
+</div>
+</div>
+<a id="a6d53149421c3d97c949192e0258bac66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d53149421c3d97c949192e0258bac66">◆ </a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the point set properties and content. </p>
+<p>After calling this function, the object is the same as a newly constructed object. The additional properties (such as normal vectors) are also removed and must thus be re-added if needed. </p>
+
+</div>
+</div>
+<a id="a1bd45ecee30f35477e412d4581bae211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd45ecee30f35477e412d4581bae211">◆ </a></span>clear_properties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::clear_properties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears all properties created. </p>
+<p>After calling this function, all properties are removed. The points are left unchanged. </p>
+
+</div>
+</div>
+<a id="a97fac9d9fe82dea17c3de017f2f2a6e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fac9d9fe82dea17c3de017f2f2a6e6">◆ </a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the past-the-end iterator. </p>
+<dl class="section note"><dt>Note</dt><dd>The returned value is the same as <code><a class="el" href="classCGAL_1_1Point__set__3.html#a75b49192a2866cbfc2caa8f854dab759" title="Returns the constant iterator to the first element marked as removed (equal to garbage_end() if no el...">garbage_begin()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a4e9d7f50aa4b4bca24e915a546578131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9d7f50aa4b4bca24e915a546578131">◆ </a></span>end() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the past-the-end constant iterator. </p>
+<dl class="section note"><dt>Note</dt><dd>The returned value is the same as <code><a class="el" href="classCGAL_1_1Point__set__3.html#a75b49192a2866cbfc2caa8f854dab759" title="Returns the constant iterator to the first element marked as removed (equal to garbage_end() if no el...">garbage_begin()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a798bb000eb5ffce8373219e41f0a1ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a798bb000eb5ffce8373219e41f0a1ebf">◆ </a></span>has_normal_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::has_normal_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience method that tests whether the point set has normals. </p>
+<p>This method tests whether a property of type <code>Vector</code> and named <code>normal</code> exists. </p>
+
+</div>
+</div>
+<a id="a1b8eda6e922e5ca614dd9f5286dc43ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b8eda6e922e5ca614dd9f5286dc43ee">◆ </a></span>has_property_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::has_property_map </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp; </td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests whether property <code>name</code> of type <code>T</code> already exists. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the property. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab5af3ed54a34b3ba3981c171bb2d1b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5af3ed54a34b3ba3981c171bb2d1b14">◆ </a></span>index_back_inserter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#abdcca001156758eeb34617601d10335b">Index_back_inserter</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::index_back_inserter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function. 
+<p>Returns the back inserter on the index property.  </p></div>  
+
+</div>
+</div>
+<a id="ad216c71b08063e0e328c100d757db2bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad216c71b08063e0e328c100d757db2bc">◆ </a></span>insert() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::insert </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a new element with default property values. </p>
+<dl class="section return"><dt>Returns</dt><dd>The iterator on the newly added element.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If a reallocation happens, all iterators, pointers and references related to the container are invalidated. Otherwise, only the end iterator is invalidated, and all iterators, pointers and references to elements are guaranteed to keep referring to the same elements they were referring to before the call. </dd></dl>
+
+</div>
+</div>
+<a id="a9009460c6680b22c5823bbd160e33cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9009460c6680b22c5823bbd160e33cf2">◆ </a></span>insert() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const Point &amp; </td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts new point with default property values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Point to insert</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Properties of the added point are initialized to their default value.</dd>
+<dd>
+If a reallocation happens, all iterators, pointers and references related to the container are invalidated. Otherwise, only the end iterator is invalidated, and all iterators, pointers and references to elements are guaranteed to keep referring to the same elements they were referring to before the call.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The iterator on the newly added element. </dd></dl>
+
+</div>
+</div>
+<a id="acd87a6f1e03fdb0d1bec9111272043ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd87a6f1e03fdb0d1bec9111272043ae">◆ </a></span>insert() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const Point &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp; </td>
+          <td class="paramname"><em>n</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience function to add a point with a normal vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Point to insert </td></tr>
+    <tr><td class="paramname">n</td><td>Associated normal vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Properties of the added point other than its normal vector are initialized to their default value.</dd>
+<dd>
+A normal property must have been added to the point set before using this method.</dd>
+<dd>
+If a reallocation happens, all iterators, pointers and references related to the container are invalidated. Otherwise, only the end iterator is invalidated, and all iterators, pointers and references to elements are guaranteed to keep referring to the same elements they were referring to before the call.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The iterator on the newly added element. </dd></dl>
+
+</div>
+</div>
+<a id="a6a61b25872973b239c12a79f598dfb73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a61b25872973b239c12a79f598dfb73">◆ </a></span>is_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::is_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the number of elements not marked as removed is 0, <code>false</code> otherwise. </p>
+<dl class="section note"><dt>Note</dt><dd>This does not count the removed elements.</dd>
+<dd>
+The method <code>empty()</code> is also available (see <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code>) and does the same thing. </dd></dl>
+
+</div>
+</div>
+<a id="a91231dd32d8f3a7d2ef9d491601c096a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91231dd32d8f3a7d2ef9d491601c096a">◆ </a></span>is_removed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::is_removed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#ac796907079351ad2fb7abcd8660ed0df">const_iterator</a> </td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the element is marked as removed, <code>false</code> otherwise. </p>
+<dl class="section note"><dt>Note</dt><dd>When iterating between <code><a class="el" href="classCGAL_1_1Point__set__3.html#a3d9201b986808c9cf8c6aaa65d9cfc88" title="Returns the begin iterator. ">begin()</a></code> and <code><a class="el" href="classCGAL_1_1Point__set__3.html#a97fac9d9fe82dea17c3de017f2f2a6e6" title="Returns the past-the-end iterator. ">end()</a></code>, no element marked as removed can be found. </dd></dl>
+
+</div>
+</div>
+<a id="a1a2906af8c99af2e58ebca7b7fc54b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2906af8c99af2e58ebca7b7fc54b3a">◆ </a></span>join()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::join </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp; </td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Merges <code>other</code> in the point set. </p>
+<p>Shifts the indices of points of <code>other</code> by <code><a class="el" href="classCGAL_1_1Point__set__3.html#a32ceb0d2076cecac38167ff362eccd2e" title="Returns the number of elements (not counting elements marked as removed). ">number_of_points()</a> + other.number_of_points()</code>.</p>
+<p>Copies entries of all property maps which have the same name in the point set and <code>other</code>. Property maps which are only in <code>other</code> are ignored.</p>
+<dl class="section note"><dt>Note</dt><dd>Garbage is collected in both point sets when calling this function. </dd></dl>
+
+</div>
+</div>
+<a id="a3580382a87d8741d26028cacdd6d001e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3580382a87d8741d26028cacdd6d001e">◆ </a></span>normal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector&amp; <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::normal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp; </td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a reference to the normal corresponding to <code>index</code>. </p>
+<dl class="section note"><dt>Note</dt><dd>The normal property must have been added to the point set before calling this method (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>). </dd></dl>
+
+</div>
+</div>
+<a id="af607702e6d0bd8ed3aab696f7e36c756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af607702e6d0bd8ed3aab696f7e36c756">◆ </a></span>normal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const Vector&amp; <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::normal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp; </td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a constant reference to the normal corresponding to <code>index</code>. </p>
+<dl class="section note"><dt>Note</dt><dd>The normal property must have been added to the point set before calling this method (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>). </dd></dl>
+
+</div>
+</div>
+<a id="a41a0ac0eecc100a02efca2039a1c35c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a0ac0eecc100a02efca2039a1c35c5">◆ </a></span>normal_map() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::normal_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the property map of the normal property. </p>
+<dl class="section note"><dt>Note</dt><dd>The normal property must have been added to the point set before calling this method (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>). </dd></dl>
+
+</div>
+</div>
+<a id="a29a8f19cac29156c56d8dafd284770a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a8f19cac29156c56d8dafd284770a3">◆ </a></span>normal_map() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCGAL_1_1Point__set__3.html#a88886944611a4181f8c5b8c23cd0ee54">Vector_map</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::normal_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the property map of the normal property (constant version). </p>
+<dl class="section note"><dt>Note</dt><dd>The normal property must have been added to the point set before calling this method (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>). </dd></dl>
+
+</div>
+</div>
+<a id="a455cf274a28beddffbdb5d010f39b76a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455cf274a28beddffbdb5d010f39b76a">◆ </a></span>normal_push_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#a0306d24c1de28e281d29d36d9f2962dc">Vector_push_map</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::normal_push_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function. 
+<p>Returns the push property map of the normal property.</p>
+<dl class="section note"><dt>Note</dt><dd>The normal property must have been added to the point set before calling this method (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a4f7dce77e9796e9cf44809ea3e4e9d6b" title="Convenience method that adds a normal property. ">add_normal_map()</a></code>).  </dd></dl></div>  
+
+</div>
+</div>
+<a id="a32ceb0d2076cecac38167ff362eccd2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32ceb0d2076cecac38167ff362eccd2e">◆ </a></span>number_of_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::number_of_points </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of elements (not counting elements marked as removed). </p>
+<dl class="section note"><dt>Note</dt><dd>See <code><a class="el" href="classCGAL_1_1Point__set__3.html#a14f5c5af31234bf24a736b22155b71be" title="Number of removed points. ">number_of_removed_points()</a></code> for getting the number of elements marked as removed.</dd>
+<dd>
+The method <code>size()</code> is also available (see <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code>) and does the same thing. </dd></dl>
+
+</div>
+</div>
+<a id="a02ef886d19ffa53faf527625c633c81c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02ef886d19ffa53faf527625c633c81c">◆ </a></span>parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::parameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a sequence of <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__psp__namedparameters.html">Named Parameters</a> for Point Set Processing algorithms. </p>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__psp__namedparameters.html#PSP_point_map">point_map</a></td><td>contains the point map (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#aa738f987bd96ad8e86e558d3cd9278e9" title="Returns the property map of the point property. ">point_map()</a></code>) </td></tr>
+<tr>
+<td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__psp__namedparameters.html#PSP_normal_map">normal_map</a></td><td>contains the normal map (see <code><a class="el" href="classCGAL_1_1Point__set__3.html#a41a0ac0eecc100a02efca2039a1c35c5" title="Returns the property map of the normal property. ">normal_map()</a></code>) </td></tr>
+<tr>
+<td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__psp__namedparameters.html#PSP_geom_traits">geom_traits</a></td><td>contains the kernel <code>typename <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">Kernel_traits</a>&lt;Point&gt;</code>::<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a></code> </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>this method does not check if the normal map was instanciated or not. The normal map named parameter should not be used if this property was not instanciated first. </dd></dl>
+
+</div>
+</div>
+<a id="aecb31a95d1548b413b5d6ae6eb4b0a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb31a95d1548b413b5d6ae6eb4b0a51">◆ </a></span>point_back_inserter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#a241ffdeff84320fbe313dd5468d466bb">Point_back_inserter</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::point_back_inserter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function. 
+<p>Returns the back inserter on the point property.  </p></div>  
+
+</div>
+</div>
+<a id="a2c1251f86561fbeaf604cc9d094c06da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1251f86561fbeaf604cc9d094c06da">◆ </a></span>point_push_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#a85ad4902b2ebd6d2a59d55f80d46d0c8">Point_push_map</a> <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::point_push_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function. 
+<p>Returns the push property map of the point property.  </p></div>  
+
+</div>
+</div>
+<a id="a9512790822ff1e1f3b495f7d11604b5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9512790822ff1e1f3b495f7d11604b5e">◆ </a></span>property_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt;T&gt;,bool&gt; <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::property_map </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp; </td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the property <code>name</code> of type <code>T</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pair containing: the specified property map and a Boolean set to <code>true</code> or an empty property map and a Boolean set to <code>false</code> (if the property was not found). </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Point_set_3_2point_set_property_8cpp-example.html#a6">Point_set_3/point_set_property.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a7015ae885b9eb2cc86bea01428bf82f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7015ae885b9eb2cc86bea01428bf82f6">◆ </a></span>push_property_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html#ac0f57d0c8967184fff962ef4f8733152">Push_property_map</a>&lt;<a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt;T&gt; &gt; <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::push_property_map </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &amp; </td>
+          <td class="paramname"><em>prop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> This is an advanced function. 
+<p>Returns the push property map of the given property.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prop</td><td>The property map.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pair containing: the specified property map and a Boolean set to <code>true</code> or an empty property map and a Boolean set to <code>false</code> (if the property was not found).  </dd></dl></div>  
+
+</div>
+</div>
+<a id="a2373069f911654c58cfea2d01752eafb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2373069f911654c58cfea2d01752eafb">◆ </a></span>remove() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td>
+          <td class="paramname"><em>last</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marks all elements between <code>first</code> and <code>last</code> as removed. </p>
+<dl class="section note"><dt>Note</dt><dd>The elements are just marked as removed and are not erased from the memory. <code><a class="el" href="classCGAL_1_1Point__set__3.html#a46c81a44d3e59eb8f6142d8651083adc" title="Erases from memory the elements marked as removed. ">collect_garbage()</a></code> should be called if the memory needs to be disallocated.</dd>
+<dd>
+All iterators, pointers and references related to the container are invalidated. </dd></dl>
+
+</div>
+</div>
+<a id="a69d31427b38854fc1dc1eb35e9f59ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d31427b38854fc1dc1eb35e9f59ceb">◆ </a></span>remove() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#aefdfb209bf53edf0f9fd1bc1ea0e5ba9">iterator</a> </td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marks element specified by iterator as removed. </p>
+<dl class="section note"><dt>Note</dt><dd>The element is just marked as removed and is not erased from the memory. <code><a class="el" href="classCGAL_1_1Point__set__3.html#a46c81a44d3e59eb8f6142d8651083adc" title="Erases from memory the elements marked as removed. ">collect_garbage()</a></code> should be called if the memory needs to be freed.</dd>
+<dd>
+All iterators, pointers and references related to the container are invalidated. </dd></dl>
+
+</div>
+</div>
+<a id="ac6fa04edaef8a4b0f8841c2cc1b78b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6fa04edaef8a4b0f8841c2cc1b78b4b">◆ </a></span>remove() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html">Index</a> &amp; </td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marks element specified by <code><a class="el" href="classCGAL_1_1Point__set__3_1_1Index.html" title="This represents a point with associated properties. ">Index</a></code> as removed. </p>
+<dl class="section note"><dt>Note</dt><dd>The element is just marked as removed and is not erased from the memory. <code><a class="el" href="classCGAL_1_1Point__set__3.html#a46c81a44d3e59eb8f6142d8651083adc" title="Erases from memory the elements marked as removed. ">collect_garbage()</a></code> should be called if the memory needs to be freed.</dd>
+<dd>
+All iterators, pointers and references related to the container are invalidated. </dd></dl>
+
+</div>
+</div>
+<a id="a4e76f6a022e42a59479faaf0acef8811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e76f6a022e42a59479faaf0acef8811">◆ </a></span>remove_normal_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::remove_normal_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience method that removes the normal property. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if the property was removed and <code>false</code> if the property was not found. </dd></dl>
+
+</div>
+</div>
+<a id="ad31fe016cf76b02d97e7c35673a2ab63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31fe016cf76b02d97e7c35673a2ab63">◆ </a></span>remove_property_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::remove_property_map </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html#ac35e51676f4fd2d07192de5e831fd422">Property_map</a>&lt; T &gt; &amp; </td>
+          <td class="paramname"><em>prop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the specified property. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of the property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prop</td><td>The property.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if the property was removed and <code>false</code> if the property was not found. </dd></dl>
+
+</div>
+</div>
+<a id="a5ad5771002caef53459ffde7e4b6b4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad5771002caef53459ffde7e4b6b4ff">◆ </a></span>reserve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::reserve </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increases the capacity of internal containers to be able to efficiently accommodate at least <code>s</code> elements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Expected final number of elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method does not change the content of the point set and is only used for optimization. </dd></dl>
+
+</div>
+</div>
+<a id="a938db0b9df274d2ee7b62b484fd806bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a938db0b9df274d2ee7b62b484fd806bc">◆ </a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector  = typename Kernel_traits&lt;Point&gt;::Kernel::Vector_3&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Point__set__3.html">CGAL::Point_set_3</a>&lt; Point, Vector &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes size of the point set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Target size of the point set.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>If the given size is larger than the current size, the capacity of the internal container is extended. If there are element marked as removed, they may be overwritten. If the given size is smaller than the current size, garbage is collected and the container is resized. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a322c2acd54d4017cf7685565c58ae668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322c2acd54d4017cf7685565c58ae668">◆ </a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Point , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp; operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp; </td>
+          <td class="paramname"><em>ps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a>&lt; Point, Vector &gt; &amp; </td>
+          <td class="paramname"><em>other</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Append <code>other</code> at the end of <code>ps</code>. </p>
+<p>Shifts the indices of points of <code>other</code> by <code>ps.number_of_points() + other.number_of_points()</code>.</p>
+<p>Copies entries of all property maps which have the same name in <code>ps</code> and <code>other</code>. Property maps which are only in <code>other</code> are ignored.</p>
+<dl class="section note"><dt>Note</dt><dd>Garbage is collected in both point sets when calling this function. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Point__set__3.html">Point_set_3</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:53 for CGAL 4.13 - 3D Point Set by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

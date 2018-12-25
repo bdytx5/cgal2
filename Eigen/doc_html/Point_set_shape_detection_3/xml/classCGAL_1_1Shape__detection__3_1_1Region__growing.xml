@@ -1,0 +1,784 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Shape__detection__3_1_1Region__growing" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Shape_detection_3::Region_growing</compoundname>
+    <includes local="no">CGAL/Shape_detection_3/Region_growing.h</includes>
+    <innerclass refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1_1My__point__map" prot="private">CGAL::Shape_detection_3::Region_growing::My_point_map</innerclass>
+    <innerclass refid="structCGAL_1_1Shape__detection__3_1_1Region__growing_1_1Parameters" prot="public">CGAL::Shape_detection_3::Region_growing::Parameters</innerclass>
+    <innerclass refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1_1Sort__by__planarity" prot="private">CGAL::Shape_detection_3::Region_growing::Sort_by_planarity</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class Traits</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1503fd47d88b37462b9c16aaea3a816" prot="public" static="no">
+        <type>Traits::Input_range</type>
+        <definition>typedef Traits::Input_range CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Input_range</definition>
+        <argsstring></argsstring>
+        <name>Input_range</name>
+        <briefdescription>
+<para>Model of the concept <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput> with random access iterators, providing input points and normals through the following two property maps. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="74" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" prot="public" static="no">
+        <type>Traits::Point_map</type>
+        <definition>typedef Traits::Point_map CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Point_map</definition>
+        <argsstring></argsstring>
+        <name>Point_map</name>
+        <briefdescription>
+<para>property map to access the location of an input point. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="78" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" prot="public" static="no">
+        <type>Traits::Normal_map</type>
+        <definition>typedef Traits::Normal_map CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Normal_map</definition>
+        <argsstring></argsstring>
+        <name>Normal_map</name>
+        <briefdescription>
+<para>property map to access the unoriented normal of an input point </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="80" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a7157d832deb68056f3b242606dc953" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base" kindref="compound">Shape_base</ref>&lt; Traits &gt;</type>
+        <definition>typedef Shape_base&lt;Traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Shape</definition>
+        <argsstring></argsstring>
+        <name>Shape</name>
+        <briefdescription>
+<para>shape type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="82" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a9a0532700ece8940936fefee7069a322" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane</ref>&lt; Traits &gt;</type>
+        <definition>typedef CGAL::Shape_detection_3::Plane&lt;Traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Plane_shape</definition>
+        <argsstring></argsstring>
+        <name>Plane_shape</name>
+        <briefdescription>
+<para>shape type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="83" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4ceabdc16ed52d4a84d6451040f3c6d3" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Shape_range</definition>
+        <argsstring></argsstring>
+        <name>Shape_range</name>
+        <briefdescription>
+<para>An <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional constant iterator type with value type <computeroutput>boost::shared_ptr&lt;Shape&gt;</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="86" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a890a64328306e6458be252ed80235226" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Plane_range</definition>
+        <argsstring></argsstring>
+        <name>Plane_range</name>
+        <briefdescription>
+<para>An <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional constant iterator type with value type <computeroutput>boost::shared_ptr&lt;Plane_shape&gt;</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="88" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a26c8570bd739a43fa08f1b97de09d54a" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Point_index_range</definition>
+        <argsstring></argsstring>
+        <name>Point_index_range</name>
+        <briefdescription>
+<para>An <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional iterator with value type <computeroutput>std::size_t</computeroutput> as indices into the input data that has not been assigned to a shape. </para>        </briefdescription>
+        <detaileddescription>
+<para>As this range class has no <computeroutput>size()</computeroutput> method, the method <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC_1a481fd2b62e10f0626e31c1198e31fe8d" kindref="member">Efficient_RANSAC::number_of_unassigned_points()</ref></computeroutput> is provided. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="140" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Initialization</header>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a9a580af01f0938f1c549c24be52bc8fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Region_growing</definition>
+        <argsstring>(Traits t=Traits())</argsstring>
+        <name>Region_growing</name>
+        <param>
+          <type>Traits</type>
+          <declname>t</declname>
+          <defval>Traits()</defval>
+        </param>
+        <briefdescription>
+<para>Constructs an empty shape detection object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="309" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="309" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a1f529c00aa2fdd60f2af1ad5c36d4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::~Region_growing</definition>
+        <argsstring>()</argsstring>
+        <name>~Region_growing</name>
+        <briefdescription>
+<para>Releases all memory allocated by this instances including shapes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="320" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="320" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a7c80462f4da946d835a172dcda36f014" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Traits &amp;</type>
+        <definition>const Traits&amp; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::traits</definition>
+        <argsstring>() const</argsstring>
+        <name>traits</name>
+        <briefdescription>
+<para>Retrieves the traits class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="328" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="328" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aeadde90a0122521529e14e4556969205" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" kindref="member">Point_map</ref> &amp;</type>
+        <definition>const Point_map&amp; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::point_map</definition>
+        <argsstring>() const</argsstring>
+        <name>point_map</name>
+        <briefdescription>
+<para>Retrieves the point property map. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="336" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="336" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad3d983462c55d2063d86274887861c9e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" kindref="member">Normal_map</ref> &amp;</type>
+        <definition>const Normal_map&amp; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::normal</definition>
+        <argsstring>() const</argsstring>
+        <name>normal</name>
+        <briefdescription>
+<para>Retrieves the normal property map. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="341" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="341" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2d8c63e3c27fbf107a53b616eb31ad04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Input_iterator</type>
+        <definition>Input_iterator CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::input_iterator_first</definition>
+        <argsstring>() const</argsstring>
+        <name>input_iterator_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="344" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="344" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5007cd8e67ceb4d8ef92bc33cd521515" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Input_iterator</type>
+        <definition>Input_iterator CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::input_iterator_beyond</definition>
+        <argsstring>() const</argsstring>
+        <name>input_iterator_beyond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="348" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="348" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2b949d03d7a265667cd262719b0b2a54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::set_input</definition>
+        <argsstring>(Input_range &amp;input_range, Point_map point_map=Point_map(), Normal_map normal_map=Normal_map())</argsstring>
+        <name>set_input</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1503fd47d88b37462b9c16aaea3a816" kindref="member">Input_range</ref> &amp;</type>
+          <declname>input_range</declname>
+          <briefdescription><para>range of input data. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" kindref="member">Point_map</ref></type>
+          <declname>point_map</declname>
+          <defval><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" kindref="member">Point_map</ref>()</defval>
+          <briefdescription><para>property map to access the position of an input point. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" kindref="member">Normal_map</ref></type>
+          <declname>normal_map</declname>
+          <defval><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" kindref="member">Normal_map</ref>()</defval>
+          <briefdescription><para>property map to access the normal of an input point. </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Sets the input data. </para>        </briefdescription>
+        <detaileddescription>
+<para>The range must stay valid until the detection has been performed and the access to the results is no longer required. This function first calls <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad84c393fc48730082f18101b65b0f2c1" kindref="member">clear()</ref></computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="358" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="358" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a994234121942ec1fe6769e116ebd8095" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Shape_type</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::add_shape_factory</definition>
+        <argsstring>()</argsstring>
+        <name>add_shape_factory</name>
+        <briefdescription>
+<para>Registers in the detection engine the shape type <computeroutput>ShapeType</computeroutput> that must inherit from <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base" kindref="compound">Shape_base</ref></computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>For example, for registering a plane as detectable shape you should call <computeroutput>region_growing.add_shape_factory&lt; <ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">Shape_detection_3::Plane</ref>&lt;Traits&gt; &gt;();</computeroutput>.</para><para>Note that if your call is within a template, you should add the <computeroutput>template</computeroutput> keyword just before <computeroutput>add_shape_factory</computeroutput>: <computeroutput>region_growing.template add_shape_factory&lt; <ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">Shape_detection_3::Plane</ref>&lt;Traits&gt; &gt;();</computeroutput>.</para><para><simplesect kind="note"><para>So far, region growing algorithm only supports plane detection. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="397" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="397" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad71b0f17fed35078d348d5c7a1d41ca3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::preprocess</definition>
+        <argsstring>()</argsstring>
+        <name>preprocess</name>
+        <briefdescription>
+<para>Constructs internal data structures required for the shape detection. </para>        </briefdescription>
+        <detaileddescription>
+<para>These structures only depend on the input data, i.e. the points and normal vectors. This method is called by <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a7e3f1333727cefc32243a48d9cfdefc5" kindref="member">detect()</ref></computeroutput>, if it was not called before by the user. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="410" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="410" bodyend="420"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Memory Management</header>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad91c458470a05f8eac69b428c4c0053c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::clear_shape_factories</definition>
+        <argsstring>()</argsstring>
+        <name>clear_shape_factories</name>
+        <briefdescription>
+<para>Removes all shape types registered for detection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="428" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="428" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad84c393fc48730082f18101b65b0f2c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all detected shapes. </para>        </briefdescription>
+        <detaileddescription>
+<para>All internal structures are cleaned, including formerly detected shapes. Thus iterators and ranges retrieved through <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1f7f01c0a573fdb286326b41b2fc756" kindref="member">shapes()</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a73a65bdda17d0edab088838e65fc1d03" kindref="member">planes()</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a03543f50e4dd4642373016a9975a840a" kindref="member">indices_of_unassigned_points()</ref></computeroutput> are invalidated. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="438" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="438" bodyend="456"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Detection</header>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a7e3f1333727cefc32243a48d9cfdefc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::detect</definition>
+        <argsstring>(const Parameters &amp;options=Parameters(), const cpp11::function&lt; bool(double)&gt; &amp;callback=cpp11::function&lt; bool(double)&gt;())</argsstring>
+        <name>detect</name>
+        <param>
+          <type>const <ref refid="structCGAL_1_1Shape__detection__3_1_1Region__growing_1_1Parameters" kindref="compound">Parameters</ref> &amp;</type>
+          <declname>options</declname>
+          <defval><ref refid="structCGAL_1_1Shape__detection__3_1_1Region__growing_1_1Parameters" kindref="compound">Parameters</ref>()</defval>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt; bool(double)&gt; &amp;</type>
+          <declname>callback</declname>
+          <defval><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">cpp11::function</ref>&lt; bool(double)&gt;()</defval>
+        </param>
+        <briefdescription>
+<para>Performs the shape detection. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters for shape detection.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be omitted if the algorithm should be run without any callback. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped. Note that this interruption may leave the class in an invalid state.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if shape types have been registered and input data has been set. Otherwise, <computeroutput>false</computeroutput> is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="479" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="479" bodyend="690"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Access</header>
+      <description><para><verbatim></verbatim> </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1f7f01c0a573fdb286326b41b2fc756" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4ceabdc16ed52d4a84d6451040f3c6d3" kindref="member">Shape_range</ref></type>
+        <definition>Shape_range CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::shapes</definition>
+        <argsstring>() const</argsstring>
+        <name>shapes</name>
+        <briefdescription>
+<para>Returns an <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional iterator with value type <computeroutput>boost::shared_ptr&lt;Shape&gt;</computeroutput> over the detected shapes in the order of detection. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>So far, region growing algorithm only supports plane detection, so this method is equivalent to <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a73a65bdda17d0edab088838e65fc1d03" kindref="member">planes()</ref></computeroutput> except that it returns planes with the abstract type <computeroutput>Shape</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="704" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="704" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a73a65bdda17d0edab088838e65fc1d03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a890a64328306e6458be252ed80235226" kindref="member">Plane_range</ref></type>
+        <definition>Plane_range CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::planes</definition>
+        <argsstring>() const</argsstring>
+        <name>planes</name>
+        <briefdescription>
+<para>Returns an <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional iterator with value type <computeroutput>boost::shared_ptr&lt;Plane_shape&gt;</computeroutput> over only the detected planes in the order of detection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="713" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="713" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a15bce0f238a3dac51c64d9eb84b29740" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::number_of_unassigned_points</definition>
+        <argsstring>()</argsstring>
+        <name>number_of_unassigned_points</name>
+        <briefdescription>
+<para>Number of points not assigned to a shape. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="732" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="732" bodyend="734"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a03543f50e4dd4642373016a9975a840a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a26c8570bd739a43fa08f1b97de09d54a" kindref="member">Point_index_range</ref></type>
+        <definition>Point_index_range CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::indices_of_unassigned_points</definition>
+        <argsstring>()</argsstring>
+        <name>indices_of_unassigned_points</name>
+        <briefdescription>
+<para>Returns an <computeroutput><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref></computeroutput> with a bidirectional iterator with value type <computeroutput>std::size_t</computeroutput> as indices into the input data that has not been assigned to a shape. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="740" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="740" bodyend="750"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa604f91c98f7d07cf339b017cbbf89c1" prot="private" static="no">
+        <type>Traits::Search_traits</type>
+        <definition>typedef Traits::Search_traits CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Search_traits_base</definition>
+        <argsstring></argsstring>
+        <name>Search_traits_base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="203" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a172dafa0e7fece04ea12116d38aa833e" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Search__traits__adapter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Search_traits_adapter</ref>&lt; std::size_t, My_point_map, Search_traits_base &gt;</type>
+        <definition>typedef Search_traits_adapter&lt;std::size_t, My_point_map, Search_traits_base&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Search_traits</definition>
+        <argsstring></argsstring>
+        <name>Search_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="204" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa0725c1a775aa70487076fb82e954326" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Fuzzy__sphere" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">CGAL::Fuzzy_sphere</ref>&lt; <ref refid="classCGAL_1_1Search__traits__adapter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Search_traits</ref> &gt;</type>
+        <definition>typedef CGAL::Fuzzy_sphere&lt;Search_traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Sphere</definition>
+        <argsstring></argsstring>
+        <name>Sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="205" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a69db16d880c1a8d05b270ee1174a3e83" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Kd__tree" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">CGAL::Kd_tree</ref>&lt; <ref refid="classCGAL_1_1Search__traits__adapter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Search_traits</ref> &gt;</type>
+        <definition>typedef CGAL::Kd_tree&lt;Search_traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Tree</definition>
+        <argsstring></argsstring>
+        <name>Tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="206" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ae5801097fecb4bb4542b953fed503299" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Fuzzy__sphere" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">CGAL::Fuzzy_sphere</ref>&lt; <ref refid="classCGAL_1_1Search__traits__adapter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Search_traits</ref> &gt;</type>
+        <definition>typedef CGAL::Fuzzy_sphere&lt;Search_traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Fuzzy_sphere</definition>
+        <argsstring></argsstring>
+        <name>Fuzzy_sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="207" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a179ad3bef52db57adfb4410c751db6f5" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Orthogonal__k__neighbor__search" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">CGAL::Orthogonal_k_neighbor_search</ref>&lt; <ref refid="classCGAL_1_1Search__traits__adapter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Search_traits</ref> &gt;</type>
+        <definition>typedef CGAL::Orthogonal_k_neighbor_search&lt;Search_traits&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Neighbor_search</definition>
+        <argsstring></argsstring>
+        <name>Neighbor_search</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="208" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2b52ccf6083b6cf4e13844eb00681242" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Orthogonal__k__neighbor__search_1aa171cea6d4ecc9168a324e3afafef57d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Neighbor_search::Distance</ref></type>
+        <definition>typedef Neighbor_search::Distance CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::Distance</definition>
+        <argsstring></argsstring>
+        <name>Distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="209" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4e8d978614d9daaa627c662ba45a12f4" prot="private" static="no" mutable="no">
+        <type><ref refid="structCGAL_1_1Shape__detection__3_1_1Region__growing_1_1Parameters" kindref="compound">Parameters</ref></type>
+        <definition>Parameters CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_options</definition>
+        <argsstring></argsstring>
+        <name>m_options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="276" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa615252dc69c01330046f07b744a7a5b" prot="private" static="no" mutable="no">
+        <type>Traits</type>
+        <definition>Traits CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_traits</definition>
+        <argsstring></argsstring>
+        <name>m_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="279" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a1f55897050db6bc95817b31af9c39bb8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_shape_index</definition>
+        <argsstring></argsstring>
+        <name>m_shape_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="282" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab89f53a5eaa5bdd16ba8360da78c1215" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_num_available_points</definition>
+        <argsstring></argsstring>
+        <name>m_num_available_points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="283" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1af46ec30808f995a88380bad4912e3eb9" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_num_total_points</definition>
+        <argsstring></argsstring>
+        <name>m_num_total_points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="284" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a3eb08ea8cf684e2ee352230e897d37e0" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_index_subsets</definition>
+        <argsstring></argsstring>
+        <name>m_index_subsets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="287" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a6bd832851d4374b84ed2b2b37d3012d3" prot="private" static="no" mutable="no">
+        <type>boost::shared_ptr&lt; std::vector&lt; boost::shared_ptr&lt; <ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a7157d832deb68056f3b242606dc953" kindref="member">Shape</ref> &gt; &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt;std::vector&lt;boost::shared_ptr&lt;Shape&gt; &gt; &gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_extracted_shapes</definition>
+        <argsstring></argsstring>
+        <name>m_extracted_shapes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="289" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a38b3e14405074cf03901ea4d325d45ac" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a7157d832deb68056f3b242606dc953" kindref="member">Shape</ref> *(*)()&gt;</type>
+        <definition>std::vector&lt;Shape *(*)()&gt; CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_shape_factories</definition>
+        <argsstring></argsstring>
+        <name>m_shape_factories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="291" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1abc9804bf82d34daf8c4920a185fc6dba" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_valid_iterators</definition>
+        <argsstring></argsstring>
+        <name>m_valid_iterators</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="294" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ae53a96d4fe78dbc6641aefb6667882ec" prot="private" static="no" mutable="no">
+        <type>Input_iterator</type>
+        <definition>Input_iterator CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_input_iterator_first</definition>
+        <argsstring></argsstring>
+        <name>m_input_iterator_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="295" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aac0cad4cf895b586c21fda80ecad9213" prot="private" static="no" mutable="no">
+        <type>Input_iterator</type>
+        <definition>Input_iterator CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_input_iterator_beyond</definition>
+        <argsstring></argsstring>
+        <name>m_input_iterator_beyond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="295" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5e77b4bb4c803326fa16629f4a3e1cac" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" kindref="member">Point_map</ref></type>
+        <definition>Point_map CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_point_map</definition>
+        <argsstring></argsstring>
+        <name>m_point_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="296" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab432c39065c18ff4966aa6b9630345b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" kindref="member">Normal_map</ref></type>
+        <definition>Normal_map CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_normal_map</definition>
+        <argsstring></argsstring>
+        <name>m_normal_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="297" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4de6def1adb07ff2554b30175475448d" prot="private" static="no" mutable="no">
+        <type>My_point_map</type>
+        <definition>My_point_map CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_index_map</definition>
+        <argsstring></argsstring>
+        <name>m_index_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="298" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a82c22fb0d5211c3ca5141126c08ccc2b" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Kd__tree" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">Tree</ref> *</type>
+        <definition>Tree* CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::m_tree</definition>
+        <argsstring></argsstring>
+        <name>m_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="299" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a354f7998559e7a1b328c3702755e6053" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class ShapeT</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a7157d832deb68056f3b242606dc953" kindref="member">Shape</ref> *</type>
+        <definition>static Shape* CGAL::Shape_detection_3::Region_growing&lt; Traits &gt;::factory</definition>
+        <argsstring>()</argsstring>
+        <name>factory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Shape_detection_3/Region_growing.h" line="272" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="272" bodyend="274"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A shape detection algorithm using a region growing method. </para>    </briefdescription>
+    <detaileddescription>
+<para>Given a point set in 3D space with unoriented normals, sampled on surfaces, this class enables to detect subsets of connected points lying on the surface of primitive shapes. Each input point is assigned to either none or at most one detected primitive shape. The implementation follows <ref refid="citelist_1CITEREF_cgal:lm-clscm-12" kindref="member">[1]</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Traits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classShapeDetectionTraits" kindref="compound">ShapeDetectionTraits</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <location file="CGAL/Shape_detection_3/Region_growing.h" line="60" column="1" bodyfile="CGAL/Shape_detection_3/Region_growing.h" bodystart="59" bodyend="754"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a994234121942ec1fe6769e116ebd8095" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>add_shape_factory</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad84c393fc48730082f18101b65b0f2c1" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>clear</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad91c458470a05f8eac69b428c4c0053c" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>clear_shape_factories</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a7e3f1333727cefc32243a48d9cfdefc5" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>detect</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2b52ccf6083b6cf4e13844eb00681242" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Distance</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a354f7998559e7a1b328c3702755e6053" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>factory</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ae5801097fecb4bb4542b953fed503299" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Fuzzy_sphere</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a03543f50e4dd4642373016a9975a840a" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>indices_of_unassigned_points</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5007cd8e67ceb4d8ef92bc33cd521515" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>input_iterator_beyond</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2d8c63e3c27fbf107a53b616eb31ad04" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>input_iterator_first</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1503fd47d88b37462b9c16aaea3a816" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Input_range</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a6bd832851d4374b84ed2b2b37d3012d3" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_extracted_shapes</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4de6def1adb07ff2554b30175475448d" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_index_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a3eb08ea8cf684e2ee352230e897d37e0" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_index_subsets</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aac0cad4cf895b586c21fda80ecad9213" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_input_iterator_beyond</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ae53a96d4fe78dbc6641aefb6667882ec" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_input_iterator_first</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab432c39065c18ff4966aa6b9630345b4" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_normal_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab89f53a5eaa5bdd16ba8360da78c1215" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_num_available_points</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1af46ec30808f995a88380bad4912e3eb9" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_num_total_points</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4e8d978614d9daaa627c662ba45a12f4" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_options</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5e77b4bb4c803326fa16629f4a3e1cac" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_point_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a38b3e14405074cf03901ea4d325d45ac" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_shape_factories</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a1f55897050db6bc95817b31af9c39bb8" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_shape_index</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa615252dc69c01330046f07b744a7a5b" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_traits</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a82c22fb0d5211c3ca5141126c08ccc2b" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_tree</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1abc9804bf82d34daf8c4920a185fc6dba" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>m_valid_iterators</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a179ad3bef52db57adfb4410c751db6f5" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Neighbor_search</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad3d983462c55d2063d86274887861c9e" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>normal</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a41eddfdec11adfb71a437e725baf3d9c" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Normal_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a15bce0f238a3dac51c64d9eb84b29740" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>number_of_unassigned_points</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a890a64328306e6458be252ed80235226" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Plane_range</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a9a0532700ece8940936fefee7069a322" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Plane_shape</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a73a65bdda17d0edab088838e65fc1d03" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>planes</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a26c8570bd739a43fa08f1b97de09d54a" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Point_index_range</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aeadde90a0122521529e14e4556969205" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>point_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a5bc3712f5c5a089dd7832c0ecc26cefe" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Point_map</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ad71b0f17fed35078d348d5c7a1d41ca3" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>preprocess</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a9a580af01f0938f1c549c24be52bc8fc" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Region_growing</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a172dafa0e7fece04ea12116d38aa833e" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Search_traits</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa604f91c98f7d07cf339b017cbbf89c1" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Search_traits_base</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a2b949d03d7a265667cd262719b0b2a54" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>set_input</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a7157d832deb68056f3b242606dc953" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Shape</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a4ceabdc16ed52d4a84d6451040f3c6d3" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Shape_range</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1ab1f7f01c0a573fdb286326b41b2fc756" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>shapes</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1aa0725c1a775aa70487076fb82e954326" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Sphere</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a7c80462f4da946d835a172dcda36f014" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>traits</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a69db16d880c1a8d05b270ee1174a3e83" prot="private" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>Tree</name></member>
+      <member refid="classCGAL_1_1Shape__detection__3_1_1Region__growing_1a0a1f529c00aa2fdd60f2af1ad5c36d4d" prot="public" virt="non-virtual"><scope>CGAL::Shape_detection_3::Region_growing</scope><name>~Region_growing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

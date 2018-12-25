@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Mesh_3/group__PkgMesh__3Parameters.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Mesh Generation: Parameter Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Mesh Generation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgMesh__3Parameters.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Parameter Functions<div class="ingroups"><a class="el" href="group__PkgMesh__3.html">3D Mesh Generation Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga67c9c42cfafc22044cc74c704c29aa76"><td class="memItemLeft" align="right" valign="top">parameters::internal::Manifold_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76">CGAL::parameters::manifold</a> ()</td></tr>
+<tr class="memdesc:ga67c9c42cfafc22044cc74c704c29aa76"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76" title="The function parameters::manifold() is used to drive the meshing algorithm for surfaces. ">parameters::manifold()</a></code> is used to drive the meshing algorithm for surfaces.  <a href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76">More...</a><br /></td></tr>
+<tr class="separator:ga67c9c42cfafc22044cc74c704c29aa76"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gae0004e99875f9294a4ff7c5b9d7b04af"><td class="memItemLeft" align="right" valign="top">parameters::internal::Manifold_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af">CGAL::parameters::non_manifold</a> ()</td></tr>
+<tr class="memdesc:gae0004e99875f9294a4ff7c5b9d7b04af"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af" title="The function parameters::non_manifold() is used to drive the meshing algorithm for surfaces...">parameters::non_manifold()</a></code> is used to drive the meshing algorithm for surfaces.  <a href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af">More...</a><br /></td></tr>
+<tr class="separator:gae0004e99875f9294a4ff7c5b9d7b04af"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6477a80df03317315fc2b0f1a1125b50"><td class="memItemLeft" align="right" valign="top">parameters::internal::Manifold_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50">CGAL::parameters::manifold_with_boundary</a> ()</td></tr>
+<tr class="memdesc:ga6477a80df03317315fc2b0f1a1125b50"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50" title="The function parameters::manifold_with_boundary() is used to drive the meshing algorithm for surfaces...">parameters::manifold_with_boundary()</a></code> is used to drive the meshing algorithm for surfaces.  <a href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50">More...</a><br /></td></tr>
+<tr class="separator:ga6477a80df03317315fc2b0f1a1125b50"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga16694b09a2acc8ab3f26b7d57633ccb0"><td class="memItemLeft" align="right" valign="top">parameters::internal::Exude_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">CGAL::parameters::exude</a> (double parameters::time_limit=0, double parameters::sliver_bound=0)</td></tr>
+<tr class="memdesc:ga16694b09a2acc8ab3f26b7d57633ccb0"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0" title="The function parameters::exude() allows the user to trigger a call to exude_mesh_3() in the make_mesh...">parameters::exude()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">exude_mesh_3()</a></code> in the <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> mesh generation functions.  <a href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">More...</a><br /></td></tr>
+<tr class="separator:ga16694b09a2acc8ab3f26b7d57633ccb0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga0a990b28d55157c62d4bfd2624d408af"><td class="memItemLeft" align="right" valign="top">parameters::internal::Features_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">CGAL::parameters::features</a> ()</td></tr>
+<tr class="memdesc:ga0a990b28d55157c62d4bfd2624d408af"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af" title="The function parameters::features() provides a value of internal type Features to specify if 0 and 1-...">parameters::features()</a></code> provides a value of internal type <code>Features</code> to specify if 0 and 1-dimensional features have to be taken into account.  <a href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af">More...</a><br /></td></tr>
+<tr class="separator:ga0a990b28d55157c62d4bfd2624d408af"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa7254c80bba62400f43f1e49506b975a"><td class="memItemLeft" align="right" valign="top">parameters::internal::Lloyd_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">CGAL::parameters::lloyd</a> (double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</td></tr>
+<tr class="memdesc:gaa7254c80bba62400f43f1e49506b975a"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a" title="The function parameters::lloyd() allows the user to trigger a call of lloyd_optimize_mesh_3() in the ...">parameters::lloyd()</a></code> allows the user to trigger a call of <code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_3()</a></code> in the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code>.  <a href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">More...</a><br /></td></tr>
+<tr class="separator:gaa7254c80bba62400f43f1e49506b975a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga0b79c473082a4ec2a45ed1497f3ac873"><td class="memItemLeft" align="right" valign="top">parameters::internal::Exude_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">CGAL::parameters::no_exude</a> ()</td></tr>
+<tr class="memdesc:ga0b79c473082a4ec2a45ed1497f3ac873"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873" title="The function parameters::no_exude() allows the user to tell the mesh generation functions make_mesh_3...">parameters::no_exude()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no exudation must be done.  <a href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">More...</a><br /></td></tr>
+<tr class="separator:ga0b79c473082a4ec2a45ed1497f3ac873"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa3eb2cb65200b0331ef9d5f14b4a0535"><td class="memItemLeft" align="right" valign="top">parameters::internal::Features_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535">CGAL::parameters::no_features</a> ()</td></tr>
+<tr class="memdesc:gaa3eb2cb65200b0331ef9d5f14b4a0535"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535" title="The function parameters::no_features() allows the user to prevent the handling of 0 and 1-dimensional...">parameters::no_features()</a></code> allows the user to prevent the handling of 0 and 1-dimensional features.  <a href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535">More...</a><br /></td></tr>
+<tr class="separator:gaa3eb2cb65200b0331ef9d5f14b4a0535"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6abfd3773eeb47d88ce6cffb91f14d2f"><td class="memItemLeft" align="right" valign="top">parameters::internal::Lloyd_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">CGAL::parameters::no_lloyd</a> ()</td></tr>
+<tr class="memdesc:ga6abfd3773eeb47d88ce6cffb91f14d2f"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f" title="The function parameters::no_lloyd() allows the user to tell the mesh generation functions make_mesh_3...">parameters::no_lloyd()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no lloyd optimization must be done.  <a href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">More...</a><br /></td></tr>
+<tr class="separator:ga6abfd3773eeb47d88ce6cffb91f14d2f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga1d041e8dbde3860cde3c20107225ecb1"><td class="memItemLeft" align="right" valign="top">parameters::internal::Odt_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">CGAL::parameters::no_odt</a> ()</td></tr>
+<tr class="memdesc:ga1d041e8dbde3860cde3c20107225ecb1"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1" title="The function parameters::no_odt() allows the user to tell the mesh generation functions make_mesh_3()...">parameters::no_odt()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no odt optimization must be done.  <a href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">More...</a><br /></td></tr>
+<tr class="separator:ga1d041e8dbde3860cde3c20107225ecb1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5714d10decd9eecd30997572b785e03b"><td class="memItemLeft" align="right" valign="top">parameters::internal::Perturb_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">CGAL::parameters::no_perturb</a> ()</td></tr>
+<tr class="memdesc:ga5714d10decd9eecd30997572b785e03b"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b" title="The function parameters::no_perturb() allows the user to tell mesh generation global functions make_m...">parameters::no_perturb()</a></code> allows the user to tell mesh generation global functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no perturbation must be done.  <a href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">More...</a><br /></td></tr>
+<tr class="separator:ga5714d10decd9eecd30997572b785e03b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gafbecfd22651a08e6812d8a5ad9b49852"><td class="memItemLeft" align="right" valign="top">parameters::internal::Odt_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">CGAL::parameters::odt</a> (double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</td></tr>
+<tr class="memdesc:gafbecfd22651a08e6812d8a5ad9b49852"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852" title="The function parameters::odt() allows the user to trigger a call to CGAL::odt_optimize_mesh_3() in CG...">parameters::odt()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">CGAL::odt_optimize_mesh_3()</a></code> in <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> mesh optimization functions.  <a href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">More...</a><br /></td></tr>
+<tr class="separator:gafbecfd22651a08e6812d8a5ad9b49852"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaedf18f7f3c4647ec5fce5d67e435757a"><td class="memItemLeft" align="right" valign="top">parameters::internal::Perturb_options </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">CGAL::parameters::perturb</a> (double parameters::time_limit=0, double parameters::sliver_bound=0)</td></tr>
+<tr class="memdesc:gaedf18f7f3c4647ec5fce5d67e435757a"><td class="mdescLeft"> </td><td class="mdescRight">The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a" title="The function parameters::perturb() allows the user to trigger a call to perturb_mesh_3() in make_mesh...">parameters::perturb()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">perturb_mesh_3()</a></code> in <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> mesh generation functions.  <a href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">More...</a><br /></td></tr>
+<tr class="separator:gaedf18f7f3c4647ec5fce5d67e435757a"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga16694b09a2acc8ab3f26b7d57633ccb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga16694b09a2acc8ab3f26b7d57633ccb0">◆ </a></span>exude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Exude_options CGAL::parameters::exude </td>
+          <td>(</td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::sliver_bound </td>
+          <td class="paramname"> = <code>0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0" title="The function parameters::exude() allows the user to trigger a call to exude_mesh_3() in the make_mesh...">parameters::exude()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">exude_mesh_3()</a></code> in the <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> mesh generation functions. </p>
+<p>It also allows the user to pass parameters to the optimization function <code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">exude_mesh_3()</a></code> through these mesh generation functions.</p>
+<p><b>Parameters</b><br />
+</p>
+<p>The parameters are named parameters. They are the same (i.e. they have the same name and the same default values) as the parameters of <code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">exude_mesh_3()</a></code> function. See its manual page for further details.</p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation with an exudation step</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>());</div><div class="line"></div><div class="line"><a class="code" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba">refine_mesh_3</a>(c3t3,</div><div class="line">              domain,</div><div class="line">              criteria,</div><div class="line">              <a class="code" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0">parameters::exude</a>(parameters::time_limit=10));</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873" title="The function parameters::no_exude() allows the user to tell the mesh generation functions make_mesh_3...">CGAL::parameters::no_exude()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">CGAL::exude_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#a11">Mesh_3/mesh_optimization_lloyd_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga0a990b28d55157c62d4bfd2624d408af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a990b28d55157c62d4bfd2624d408af">◆ </a></span>features()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Features_options CGAL::parameters::features </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af" title="The function parameters::features() provides a value of internal type Features to specify if 0 and 1-...">parameters::features()</a></code> provides a value of internal type <code>Features</code> to specify if 0 and 1-dimensional features have to be taken into account. </p>
+<p>The provided value is a default value that triggers the representation of corners and curves in the mesh when the domain is a model of <code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code>.</p>
+<p>Provides a <code>Features_options</code> value such that 0 and 1-dimensional input features are taken into account if domain is a model of the refined concept <code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code>.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535" title="The function parameters::no_features() allows the user to prevent the handling of 0 and 1-dimensional...">CGAL::parameters::no_features()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gaa7254c80bba62400f43f1e49506b975a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7254c80bba62400f43f1e49506b975a">◆ </a></span>lloyd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Lloyd_options CGAL::parameters::lloyd </td>
+          <td>(</td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t parameters::max_iteration_number </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::convergence </td>
+          <td class="paramname"> = <code>0.02</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::freeze_bound </td>
+          <td class="paramname"> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool parameters::do_freeze </td>
+          <td class="paramname"> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a" title="The function parameters::lloyd() allows the user to trigger a call of lloyd_optimize_mesh_3() in the ...">parameters::lloyd()</a></code> allows the user to trigger a call of <code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_3()</a></code> in the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code>. </p>
+<p>It also allows the user to pass parameters to the optimization function <code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_3()</a></code> through these mesh generation functions.</p>
+<p><b>Parameters</b><br />
+</p>
+<p>The parameters are named parameters. They are the same (i.e. they have the same name and the same default values) as the parameters of the <code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">lloyd_optimize_mesh_3()</a></code> function. See its manual page for further details.</p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation with lloyd optimization step</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd</a>());</div><div class="line"></div><div class="line"><a class="code" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba">refine_mesh_3</a>(c3t3,</div><div class="line">              domain,</div><div class="line">              criteria,</div><div class="line">              <a class="code" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a">parameters::lloyd</a>(parameters::time_limit=10));</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f" title="The function parameters::no_lloyd() allows the user to tell the mesh generation functions make_mesh_3...">CGAL::parameters::no_lloyd()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">CGAL::lloyd_optimize_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#a9">Mesh_3/mesh_optimization_lloyd_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga67c9c42cfafc22044cc74c704c29aa76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67c9c42cfafc22044cc74c704c29aa76">◆ </a></span>manifold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Manifold_options CGAL::parameters::manifold </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76" title="The function parameters::manifold() is used to drive the meshing algorithm for surfaces. ">parameters::manifold()</a></code> is used to drive the meshing algorithm for surfaces. </p>
+<p>It ensures that the surface of the output mesh is a manifold surface without boundaries. The manifold property of the output mesh can be achieved only if the input surface is a manifold. Note that the meshing algorithm provably terminates only if the input sharp edges have been protected, using the feature protection (see <a class="el" href="index.html#Mesh_3Protectionof0and1dimensionalExposed">Protection of 0 and 1-dimensional Exposed Features</a>).</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50" title="The function parameters::manifold_with_boundary() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::manifold_with_boundary()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af" title="The function parameters::non_manifold() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::non_manifold()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_polyhedral_domain_8cpp-example.html#a12">Mesh_3/mesh_polyhedral_domain.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga6477a80df03317315fc2b0f1a1125b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6477a80df03317315fc2b0f1a1125b50">◆ </a></span>manifold_with_boundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Manifold_options CGAL::parameters::manifold_with_boundary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50" title="The function parameters::manifold_with_boundary() is used to drive the meshing algorithm for surfaces...">parameters::manifold_with_boundary()</a></code> is used to drive the meshing algorithm for surfaces. </p>
+<p>It ensures that the surface of the output mesh is a manifold surface which may have boundaries. The manifold property of the output mesh can be achieved only if the input surface is a manifold. Note that the meshing algorithm provably terminates only if the input sharp edges have been protected, using the feature protection (see <a class="el" href="index.html#Mesh_3Protectionof0and1dimensionalExposed">Protection of 0 and 1-dimensional Exposed Features</a>).</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af" title="The function parameters::non_manifold() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::non_manifold()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76" title="The function parameters::manifold() is used to drive the meshing algorithm for surfaces. ">CGAL::parameters::manifold()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga0b79c473082a4ec2a45ed1497f3ac873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b79c473082a4ec2a45ed1497f3ac873">◆ </a></span>no_exude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Exude_options CGAL::parameters::no_exude </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873" title="The function parameters::no_exude() allows the user to tell the mesh generation functions make_mesh_3...">parameters::no_exude()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no exudation must be done. </p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation without exudation</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873">parameters::no_exude</a>());</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0" title="The function parameters::exude() allows the user to trigger a call to exude_mesh_3() in the make_mesh...">CGAL::parameters::exude()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">CGAL::exude_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_hybrid_mesh_domain_8cpp-example.html#a14">Mesh_3/mesh_hybrid_mesh_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_8cpp-example.html#a7">Mesh_3/mesh_implicit_domains.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_2_8cpp-example.html#a7">Mesh_3/mesh_implicit_domains_2.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_ellipsoid_8cpp-example.html#a7">Mesh_3/mesh_implicit_ellipsoid.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_variable_size_8cpp-example.html#a12">Mesh_3/mesh_implicit_sphere_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_example_8cpp-example.html#a9">Mesh_3/mesh_optimization_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#a12">Mesh_3/mesh_optimization_lloyd_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_8cpp-example.html#a10">Mesh_3/mesh_polyhedral_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_surface_inside_8cpp-example.html#a8">Mesh_3/mesh_polyhedral_domain_with_surface_inside.cpp</a>, and <a class="el" href="Mesh_3_2remesh_polyhedral_surface_8cpp-example.html#a7">Mesh_3/remesh_polyhedral_surface.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gaa3eb2cb65200b0331ef9d5f14b4a0535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa3eb2cb65200b0331ef9d5f14b4a0535">◆ </a></span>no_features()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Features_options CGAL::parameters::no_features </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535" title="The function parameters::no_features() allows the user to prevent the handling of 0 and 1-dimensional...">parameters::no_features()</a></code> allows the user to prevent the handling of 0 and 1-dimensional features. </p>
+<p>This is useful when the domain is a model of <code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code> and the user does not want corners and curves to be accurately represented in the mesh.</p>
+<p>Returns a <code>Features_options</code> value that prevents the mesh generator to take into account 0 and 1-dimensional input features.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af" title="The function parameters::features() provides a value of internal type Features to specify if 0 and 1-...">CGAL::parameters::features()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_two_implicit_spheres_with_balls_8cpp-example.html#a10">Mesh_3/mesh_two_implicit_spheres_with_balls.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga6abfd3773eeb47d88ce6cffb91f14d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6abfd3773eeb47d88ce6cffb91f14d2f">◆ </a></span>no_lloyd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Lloyd_options CGAL::parameters::no_lloyd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f" title="The function parameters::no_lloyd() allows the user to tell the mesh generation functions make_mesh_3...">parameters::no_lloyd()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no lloyd optimization must be done. </p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation without lloyd optimization</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f">parameters::no_lloyd</a>());</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a" title="The function parameters::lloyd() allows the user to trigger a call of lloyd_optimize_mesh_3() in the ...">CGAL::parameters::lloyd()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">CGAL::lloyd_optimize_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga1d041e8dbde3860cde3c20107225ecb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d041e8dbde3860cde3c20107225ecb1">◆ </a></span>no_odt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Odt_options CGAL::parameters::no_odt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1" title="The function parameters::no_odt() allows the user to tell the mesh generation functions make_mesh_3()...">parameters::no_odt()</a></code> allows the user to tell the mesh generation functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no odt optimization must be done. </p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation without odt optimization</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1">parameters::no_odt</a>());</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852" title="The function parameters::odt() allows the user to trigger a call to CGAL::odt_optimize_mesh_3() in CG...">CGAL::parameters::odt()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">CGAL::odt_optimize_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga5714d10decd9eecd30997572b785e03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5714d10decd9eecd30997572b785e03b">◆ </a></span>no_perturb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Perturb_options CGAL::parameters::no_perturb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b" title="The function parameters::no_perturb() allows the user to tell mesh generation global functions make_m...">parameters::no_perturb()</a></code> allows the user to tell mesh generation global functions <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> that no perturbation must be done. </p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation without perturbation</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b">parameters::no_perturb</a>());</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a" title="The function parameters::perturb() allows the user to trigger a call to perturb_mesh_3() in make_mesh...">CGAL::parameters::perturb()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">CGAL::perturb_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_hybrid_mesh_domain_8cpp-example.html#a13">Mesh_3/mesh_hybrid_mesh_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_8cpp-example.html#a8">Mesh_3/mesh_implicit_domains.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_2_8cpp-example.html#a8">Mesh_3/mesh_implicit_domains_2.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_ellipsoid_8cpp-example.html#a6">Mesh_3/mesh_implicit_ellipsoid.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_variable_size_8cpp-example.html#a13">Mesh_3/mesh_implicit_sphere_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_example_8cpp-example.html#a11">Mesh_3/mesh_optimization_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#a10">Mesh_3/mesh_optimization_lloyd_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_8cpp-example.html#a9">Mesh_3/mesh_polyhedral_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_surface_inside_8cpp-example.html#a7">Mesh_3/mesh_polyhedral_domain_with_surface_inside.cpp</a>, and <a class="el" href="Mesh_3_2remesh_polyhedral_surface_8cpp-example.html#a6">Mesh_3/remesh_polyhedral_surface.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gae0004e99875f9294a4ff7c5b9d7b04af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0004e99875f9294a4ff7c5b9d7b04af">◆ </a></span>non_manifold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Manifold_options CGAL::parameters::non_manifold </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af" title="The function parameters::non_manifold() is used to drive the meshing algorithm for surfaces...">parameters::non_manifold()</a></code> is used to drive the meshing algorithm for surfaces. </p>
+<p>It does not ensure that the surface of the output mesh is a manifold surface. The manifold property of the output mesh might nevertheless result from an appropriate choice of meshing criteria. </p><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50" title="The function parameters::manifold_with_boundary() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::manifold_with_boundary()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76" title="The function parameters::manifold() is used to drive the meshing algorithm for surfaces. ">CGAL::parameters::manifold()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gafbecfd22651a08e6812d8a5ad9b49852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafbecfd22651a08e6812d8a5ad9b49852">◆ </a></span>odt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Odt_options CGAL::parameters::odt </td>
+          <td>(</td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t parameters::max_iteration_number </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::convergence </td>
+          <td class="paramname"> = <code>0.02</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::freeze_bound </td>
+          <td class="paramname"> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool parameters::do_freeze </td>
+          <td class="paramname"> = <code>true</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852" title="The function parameters::odt() allows the user to trigger a call to CGAL::odt_optimize_mesh_3() in CG...">parameters::odt()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">CGAL::odt_optimize_mesh_3()</a></code> in <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> mesh optimization functions. </p>
+<p>It also allows the user to pass parameters to the optimization function <code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">odt_optimize_mesh_3()</a></code> through these mesh generation functions.</p>
+<p><b>Parameters</b><br />
+</p>
+<p>The parameters are named parameters. They are the same (i.e. they have the same name and the same default values) as the parameters of <code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">odt_optimize_mesh_3()</a></code> function. See its manual page for further details.</p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation with odt optimization step</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt</a>());</div><div class="line"></div><div class="line"><a class="code" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba">refine_mesh_3</a>(c3t3,</div><div class="line">              domain,</div><div class="line">              criteria,</div><div class="line">              <a class="code" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852">parameters::odt</a>(parameters::time_limit=10));</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1" title="The function parameters::no_odt() allows the user to tell the mesh generation functions make_mesh_3()...">CGAL::parameters::no_odt()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">CGAL::odt_optimize_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="gaedf18f7f3c4647ec5fce5d67e435757a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaedf18f7f3c4647ec5fce5d67e435757a">◆ </a></span>perturb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">parameters::internal::Perturb_options CGAL::parameters::perturb </td>
+          <td>(</td>
+          <td class="paramtype">double parameters::time_limit </td>
+          <td class="paramname"> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double parameters::sliver_bound </td>
+          <td class="paramname"> = <code>0</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/refine_mesh_3.h&gt;</code></p>
+
+<p>The function <code><a class="el" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a" title="The function parameters::perturb() allows the user to trigger a call to perturb_mesh_3() in make_mesh...">parameters::perturb()</a></code> allows the user to trigger a call to <code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">perturb_mesh_3()</a></code> in <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code> mesh generation functions. </p>
+<p>It also allows the user to pass parameters to the optimization function <code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">perturb_mesh_3()</a></code> through these mesh generation functions.</p>
+<p><b>Parameters</b><br />
+</p>
+<p>The parameters are named parameters. They are the same (i.e. they have the same name and the same default values) as the parameters of <code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">perturb_mesh_3()</a></code> function. See its manual page for further details.</p>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Mesh generation with a perturbation step</span></div><div class="line">C3t3 c3t3 = make_mesh_3&lt;c3t3&gt;(domain,</div><div class="line">                              criteria,</div><div class="line">                              <a class="code" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>());</div><div class="line"></div><div class="line"><a class="code" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba">refine_mesh_3</a>(c3t3,</div><div class="line">              domain,</div><div class="line">              criteria,</div><div class="line">              <a class="code" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a">parameters::perturb</a>(parameters::time_limit=10));</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b" title="The function parameters::no_perturb() allows the user to tell mesh generation global functions make_m...">CGAL::parameters::no_perturb()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">CGAL::perturb_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_optimization_example_8cpp-example.html#a10">Mesh_3/mesh_optimization_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:49 for CGAL 4.13 - 3D Mesh Generation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

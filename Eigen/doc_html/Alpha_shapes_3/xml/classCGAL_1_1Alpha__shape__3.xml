@@ -1,0 +1,1020 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Alpha__shape__3" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Alpha_shape_3</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Dt</basecompoundref>
+    <includes local="no">CGAL/Alpha_shape_3.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Dt</type>
+      </param>
+      <param>
+        <type>typename ExactAlphaComparisonTag</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="enum" id="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" prot="public" static="no">
+        <name>Mode</name>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa4684ead732e31e7517685b9e59d3005c" prot="public">
+          <name>GENERAL</name>
+          <briefdescription>
+<para>the alpha complex can have singular faces, i.e., faces of dimension <formula id="6">$ k$</formula>, for <formula id="14">$ k=(0,1,2)$</formula> that are not subfaces of a <formula id="15">$ k+1$</formula> face of the complex. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" prot="public">
+          <name>REGULARIZED</name>
+          <briefdescription>
+<para>the complex is regularized, that is singular faces are dropped and the alpha complex includes only a subset of the tetrahedral cells of the triangulation and the subfaces of those cells. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>In GENERAL mode, In REGULARIZED mode,. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="140" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="140" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="enum" id="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" prot="public" static="no">
+        <name>Classification_type</name>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40cac00e772e98e2ec3b2af765b18c0e5467" prot="public">
+          <name>EXTERIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca4fe33b826e16321706a6d2e3428fd992" prot="public">
+          <name>SINGULAR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca0cd7a695e3b6b042c77b53c770dc776b" prot="public">
+          <name>REGULAR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca8e65f253cf2f5db945f6665bfa645506" prot="public">
+          <name>INTERIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum to classify the faces of the underlying triangulation with respect to the alpha shape. </para>        </briefdescription>
+        <detaileddescription>
+<para>In <computeroutput>GENERAL</computeroutput> mode, for <formula id="14">$ k=(0,1,2)$</formula>, each k-dimensional simplex of the triangulation can be classified as <computeroutput>EXTERIOR</computeroutput>, <computeroutput>SINGULAR</computeroutput>, <computeroutput>REGULAR</computeroutput> or <computeroutput>INTERIOR</computeroutput>. In <computeroutput>GENERAL</computeroutput> mode a <formula id="6">$ k$</formula> simplex is <computeroutput>REGULAR</computeroutput> if it is on the boundary f the alpha complex and belongs to a <formula id="15">$ k+1$</formula> simplex in this complex and it is <computeroutput>SINGULAR</computeroutput> if it is a boundary simplex that is not included in a <formula id="15">$ k+1$</formula> simplex of the complex.</para><para>In <computeroutput>REGULARIZED</computeroutput> mode, for <formula id="14">$ k=(0,1,2)$</formula> each k-dimensional simplex of the triangulation can be classified as <computeroutput>EXTERIOR</computeroutput>, <computeroutput>REGULAR</computeroutput> or <computeroutput>INTERIOR</computeroutput>, i.e. there is no singular faces. A <formula id="6">$ k$</formula> simplex is <computeroutput>REGULAR</computeroutput> if it is on the boundary of alpha complex and belongs to a tetrahedral cell of the complex. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="168" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="168" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Alpha__shape__3_1a35b6db1db513f8cde1409ecbafef9927" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Gt</definition>
+        <argsstring></argsstring>
+        <name>Gt</name>
+        <briefdescription>
+<para>the alpha shape traits type. </para>        </briefdescription>
+        <detaileddescription>
+<para>It has to derive from a triangulation traits class. For example <computeroutput>Dt::Point</computeroutput> is a point class. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="94" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::FT</definition>
+        <argsstring></argsstring>
+        <name>FT</name>
+        <briefdescription>
+<para>the number type of alpha values. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case <computeroutput>ExactAlphaComparisonTag</computeroutput> is <computeroutput><ref refid="group__PkgStlExtensionUtilities_1ga89d5ecf1540b2ec0a2bf5dd003e186d0" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Tag_false</ref></computeroutput>, it is Gt::FT.</para><para>In case <computeroutput>ExactAlphaComparisonTag</computeroutput> is <computeroutput><ref refid="group__PkgStlExtensionUtilities_1gab3e2296107b5d26c32c8183028a217f1" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Tag_true</ref></computeroutput>, it is a number type allowing filtered exact comparisons (that is, interval arithmetic is first used before resorting to exact arithmetic). Access to the interval containing the exact value is provided through the function <computeroutput>FT::Approximate_nt approx() const</computeroutput> where <computeroutput>FT::Approximate_nt</computeroutput> is <computeroutput><ref refid="classCGAL_1_1Interval__nt" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">Interval_nt</ref>&lt;Protected&gt;</computeroutput> with <computeroutput>Protected=true</computeroutput>. Access to the exact value is provided through the function <computeroutput>FT::Exact_nt exact() const</computeroutput> where <computeroutput>FT::Exact_nt</computeroutput> depends on the configuration of CGAL (it is <computeroutput><ref refid="classCGAL_1_1Gmpq" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">Gmpq</ref></computeroutput> if <computeroutput>gmp</computeroutput> is available and <computeroutput><ref refid="classCGAL_1_1Quotient" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">Quotient</ref>&lt;<ref refid="classCGAL_1_1MP__Float" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL::MP_Float</ref>&gt;</computeroutput> otherwise). An overload for the function <computeroutput>double to_double(FT)</computeroutput> is also available. It must be noted that an object of type <computeroutput>FT</computeroutput> is valid as long as the alpha shapes class that creates it is valid and has not been modified. For convenience, classical comparison operators are provided for the type <computeroutput>FT</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="114" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Alpha__shape__3_1ab4406e2de893a89a316ea94eea46c316" prot="public" static="no">
+        <type>Dt::Point</type>
+        <definition>typedef Dt::Point CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+<para>The point type. </para>        </briefdescription>
+        <detaileddescription>
+<para>For basic alpha shapes, <computeroutput>Point</computeroutput> will be equal to <computeroutput>Gt::Point_2</computeroutput>. For weighted alpha shapes, <computeroutput>Point</computeroutput> will be equal to <computeroutput>Gt::Weighted_point_2</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="122" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Alpha__shape__3_1a00e9d0fe1b46d84edc91b8546b72eff5" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+<para>The size type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="127" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Alpha_iterator</definition>
+        <argsstring></argsstring>
+        <name>Alpha_iterator</name>
+        <briefdescription>
+<para>A bidirectional and non-mutable iterator that allow to traverse the increasing sequence of different alpha values. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>Its <computeroutput>value_type</computeroutput> is <computeroutput>FT</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="134" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Creation</header>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a616fec3f0ff3357bbce2fc3bbd29ec3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Alpha_shape_3</definition>
+        <argsstring>(FT alpha=0, Mode m=REGULARIZED)</argsstring>
+        <name>Alpha_shape_3</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref></type>
+          <declname>alpha</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+          <declname>m</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" kindref="member">REGULARIZED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Introduces an empty alpha shape, sets the current alpha value to <computeroutput>alpha</computeroutput> and the mode to <computeroutput>m</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="178" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a04b37aa511b45f84a8912ae3353bfe73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Alpha_shape_3</definition>
+        <argsstring>(Dt &amp;dt, FT alpha=0, Mode m=REGULARIZED)</argsstring>
+        <name>Alpha_shape_3</name>
+        <param>
+          <type>Dt &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref></type>
+          <declname>alpha</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+          <declname>m</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" kindref="member">REGULARIZED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Builds an alpha shape of mode <computeroutput>m</computeroutput> from the triangulation <computeroutput>dt</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>This operation destroys the triangulation <computeroutput>dt</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="186" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a9f428e9c8a8fa662127a56b847d296d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::Alpha_shape_3</definition>
+        <argsstring>(InputIterator first, InputIterator last, const FT &amp;alpha=0, Mode m=REGULARIZED)</argsstring>
+        <name>Alpha_shape_3</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>last</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+          <declname>m</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" kindref="member">REGULARIZED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Builds an alpha shape of mode <computeroutput>m</computeroutput> for the points in the range <computeroutput>[first,last)</computeroutput> and set the current alpha value to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an input iterator with value type <computeroutput>Point</computeroutput> (the point type of the underlying triangulation.) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="196" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Modifiers</header>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a8ee6ccb89259b856b07d3852eb8f7e5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type>std::ptrdiff_t</type>
+        <definition>std::ptrdiff_t CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::make_alpha_shape</definition>
+        <argsstring>(InputIterator first, InputIterator last)</argsstring>
+        <name>make_alpha_shape</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the alpha shape data structure for points in the range <computeroutput>[first,last)</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of data points inserted in the underlying triangulation.</para><para>If the function is applied to an non-empty alpha shape data structure, it is cleared before initialization. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an input iterator with value type <computeroutput>Point</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="218" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1ab44d66c4bc7809a4ec77457156d1254c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears the structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="226" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a6341256b28bb454f7d7b6a3be552b0cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref></type>
+        <definition>FT CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::set_alpha</definition>
+        <argsstring>(const FT &amp;alpha)</argsstring>
+        <name>set_alpha</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <formula id="2">$ \alpha$</formula>-value to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the previous <formula id="2">$ \alpha$</formula>-value. <simplesect kind="pre"><para><computeroutput>alpha</computeroutput> <formula id="16">$ \geq0$</formula>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="234" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a160314e33caf43ab29b307de6cbb672f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+        <definition>Mode CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::set_mode</definition>
+        <argsstring>(Mode m=REGULARIZED)</argsstring>
+        <name>set_mode</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+          <declname>m</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" kindref="member">REGULARIZED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sets the mode of the alpha shape to <computeroutput>GENERAL</computeroutput> or <computeroutput>REGULARIZED</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the previous mode. Changing the mode of an alpha shape entails a partial re-computation of the data structure. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="243" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Query Functions</header>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1af3284c43e01f788da0dfad093897a85d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" kindref="member">Mode</ref></type>
+        <definition>Mode CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_mode</definition>
+        <argsstring>(void) const</argsstring>
+        <name>get_mode</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns whether the alpha shape is general or regularized. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="254" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+        <definition>const FT&amp; CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha</definition>
+        <argsstring>(void) const</argsstring>
+        <name>get_alpha</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the current <formula id="2">$ \alpha$</formula>-value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="260" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a9c5ed06f24120af08bad1dba9662898b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+        <definition>const FT&amp; CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_nth_alpha</definition>
+        <argsstring>(int n) const</argsstring>
+        <name>get_nth_alpha</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <computeroutput>n</computeroutput>-th <computeroutput>alpha</computeroutput>-value, sorted in an increasing order. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><computeroutput>n</computeroutput> &lt; number of alphas. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="266" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a6cbdf2a4759e799c06772d15ff2b77f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1a00e9d0fe1b46d84edc91b8546b72eff5" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::number_of_alphas</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_alphas</name>
+        <briefdescription>
+<para>Returns the number of different alpha-values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="271" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a80f288c11e351134db95c0b971eee54c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(const Point &amp;p, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1ab4406e2de893a89a316ea94eea46c316" kindref="member">Point</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Locates a point <computeroutput>p</computeroutput> in the underlying triangulation and Classifies the associated k-face with respect to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="278" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1aeea04c78712a6458bfddc91ca188e911" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(Cell_handle f, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>Cell_handle</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Classifies the cell <computeroutput>f</computeroutput> of the underlying triangulation with respect to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="287" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1ad9c8f9e14be596815c691c78379b5a45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(Facet f, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>Facet</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Classifies the facet <computeroutput>f</computeroutput> of the underlying triangulation with respect to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="294" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a4802899bb754d039260e0528b9209618" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(Cell_handle f, int i, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>Cell_handle</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Classifies the facet of the cell <computeroutput>f</computeroutput> opposite to the vertex with index <computeroutput>i</computeroutput> of the underlying triangulation with respect to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="302" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1adb2d8d6ba3951a1e0c7abc3e3becef09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(const Edge &amp;e, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>const Edge &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Classifies the edge <computeroutput>e</computeroutput> with respect to <computeroutput>alpha</computeroutput> . </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="308" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a80e9322dea066a400a6459ecda121ee2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+        <definition>Classification_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::classify</definition>
+        <argsstring>(Vertex_handle v, const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>classify</name>
+        <param>
+          <type>Vertex_handle</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Classifies the vertex <computeroutput>v</computeroutput> of the underlying triangulation with respect to <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="314" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a28437b01999a8b5d8fc14a9a5b58b28f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__status" kindref="compound">Alpha_status</ref>&lt; <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &gt;</type>
+        <definition>Alpha_status&lt;FT&gt; CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_status</definition>
+        <argsstring>(const Edge &amp;e) const</argsstring>
+        <name>get_alpha_status</name>
+        <param>
+          <type>const Edge &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Returns the alpha-status of the edge <computeroutput>e</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="320" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a8d6c9b507986bb3a6cb760d2fe621766" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__status" kindref="compound">Alpha_status</ref>&lt; <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &gt;</type>
+        <definition>Alpha_status&lt;FT&gt; CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_status</definition>
+        <argsstring>(const Facet &amp;f) const</argsstring>
+        <name>get_alpha_status</name>
+        <param>
+          <type>const Facet &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>Returns the alpha-status of the facet <computeroutput>f</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="326" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a2fc51e1699b61b18efdeb9d7083c13b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_shape_cells</definition>
+        <argsstring>(OutputIterator it, Classification_type type, const FT &amp;alpha=get_alpha())</argsstring>
+        <name>get_alpha_shape_cells</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Write the cells which are of type <computeroutput>type</computeroutput> for the alpha value <computeroutput>alpha</computeroutput> to the sequence pointed to by the output iterator <computeroutput>it</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns past the end of the output sequence. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="335" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a0da61f30e79cb3b1e0bed2cb574bf818" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_shape_facets</definition>
+        <argsstring>(OutputIterator it, Classification_type type, const FT &amp;alpha=get_alpha())</argsstring>
+        <name>get_alpha_shape_facets</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Write the facets which are of type <computeroutput>type</computeroutput> for the alpha value <computeroutput>alpha</computeroutput> to the sequence pointed to by the output iterator <computeroutput>it</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns past the end of the output sequence. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="346" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a66957885cfa46e0c254e01d7d45c2b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_shape_edges</definition>
+        <argsstring>(OutputIterator it, Classification_type type, const FT &amp;alpha=get_alpha())</argsstring>
+        <name>get_alpha_shape_edges</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Write the edges which are of type <computeroutput>type</computeroutput> for the alpha value <computeroutput>alpha</computeroutput> to the sequence pointed to by the output iterator <computeroutput>it</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns past the end of the output sequence. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="357" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a5f229bd1091a1a1bd280e4ab289cac1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::get_alpha_shape_vertices</definition>
+        <argsstring>(OutputIterator it, Classification_type type, const FT &amp;alpha)</argsstring>
+        <name>get_alpha_shape_vertices</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" kindref="member">Classification_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Write the vertices which are of type <computeroutput>type</computeroutput> for the alpha value <computeroutput>alpha</computeroutput> to the sequence pointed to by the output iterator <computeroutput>it</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns past the end of the output sequence. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="368" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a63f7c9b44160ca226dac70adb3d8bba7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::filtration</definition>
+        <argsstring>(OutputIterator it) const</argsstring>
+        <name>filtration</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+<para>Output all the faces of the triangulation in increasing order of the alpha value for which they appear in the alpha complex. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case of equal alpha value lower dimensional faces are output first.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an output iterator accepting variables of type <computeroutput><ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Object</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>The result of this function depends on the mode of the Alpha-shape. In most case, <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa4684ead732e31e7517685b9e59d3005c" kindref="member">Alpha_shape_3::GENERAL</ref></computeroutput> is the most interesting one. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="386" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a81a9e396d265ad0e78dc725ec84a7e78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::filtration_with_alpha_values</definition>
+        <argsstring>(OutputIterator it) const</argsstring>
+        <name>filtration_with_alpha_values</name>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+<para>Output all the faces of the triangulation in increasing order of the alpha value for which they appear in the alpha complex. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case of equal alpha value lower dimensional faces are output first. In addition the value of alpha at which each face appears are also reported. Each face and its alpha value are reported successively.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an output iterator accepting variables of type <computeroutput><ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Object</ref></computeroutput> and <computeroutput>FT</computeroutput>. The class <computeroutput><ref refid="classCGAL_1_1Dispatch__output__iterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Dispatch_output_iterator</ref></computeroutput> can be used for this purpose.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>The result of this function dependents on the mode of the Alpha-shape. In most case, <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa4684ead732e31e7517685b9e59d3005c" kindref="member">Alpha_shape_3::GENERAL</ref></computeroutput> is the most interesting one. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="404" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Traversal of the alpha-Values</header>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a69bb7c06ee3efe1e72492e5311f0050f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::alpha_begin</definition>
+        <argsstring>() const</argsstring>
+        <name>alpha_begin</name>
+        <briefdescription>
+<para>Returns an iterator that allows to traverse the sorted sequence of <formula id="2">$ \alpha$</formula>-values of the family of alpha shapes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="415" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1ad8f7e57f0878e73a076f386fbea2918b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::alpha_end</definition>
+        <argsstring>() const</argsstring>
+        <name>alpha_end</name>
+        <briefdescription>
+<para>Returns the corresponding past-the-end iterator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="420" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1aa55712b98abbe5baf5e794e9813f2466" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::alpha_find</definition>
+        <argsstring>(const FT &amp;alpha) const</argsstring>
+        <name>alpha_find</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Returns an iterator pointing to an element with <formula id="2">$ \alpha$</formula>-value <computeroutput>alpha</computeroutput>, or the corresponding past-the-end iterator if such an element is not found. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="427" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a6045c904b2d57b880d2fd15de3b771cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::alpha_lower_bound</definition>
+        <argsstring>(const FT &amp;alpha) const</argsstring>
+        <name>alpha_lower_bound</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Returns an iterator pointing to the first element with <formula id="2">$ \alpha$</formula>-value not less than <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="433" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a04a2700d86384a9318647c5b27658c45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::alpha_upper_bound</definition>
+        <argsstring>(const FT &amp;alpha) const</argsstring>
+        <name>alpha_upper_bound</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Returns an iterator pointing to the first element with <formula id="2">$ \alpha$</formula>-value greater than <computeroutput>alpha</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="439" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operations</header>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a50affeb78ec8dd9075231c574c59b401" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1a00e9d0fe1b46d84edc91b8546b72eff5" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::number_of_solid_components</definition>
+        <argsstring>(const FT &amp;alpha=get_alpha()) const</argsstring>
+        <name>number_of_solid_components</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" kindref="member">FT</ref> &amp;</type>
+          <declname>alpha</declname>
+          <defval><ref refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" kindref="member">get_alpha</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Returns the number of solid components of the alpha shape, that is, the number of components of its regularized version. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="450" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1accd959f5316156b0c9cd425a7ad073ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" kindref="member">Alpha_iterator</ref></type>
+        <definition>Alpha_iterator CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;::find_optimal_alpha</definition>
+        <argsstring>(size_type nb_components) const</argsstring>
+        <name>find_optimal_alpha</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Alpha__shape__3_1a00e9d0fe1b46d84edc91b8546b72eff5" kindref="member">size_type</ref></type>
+          <declname>nb_components</declname>
+        </param>
+        <briefdescription>
+<para>Returns an iterator pointing to smallest <formula id="2">$ \alpha$</formula> value such that the alpha shape satisfies the following two properties: </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>All data points are either on the boundary or in the interior of the regularized version of the alpha shape.</para></listitem><listitem><para>The number of solid component of the alpha shape is equal to or smaller than <computeroutput>nb_components</computeroutput>. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="462" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a68e7bac704d76e71ddef1a2362aabf45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream &amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt; &amp;A)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3" kindref="compound">Alpha_shape_3</ref>&lt; Dt, ExactAlphaComparisonTag &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Inserts the alpha shape <computeroutput>A</computeroutput> for the current alpha value into the stream <computeroutput>os</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Defined in <computeroutput>CGAL/IO/io.h</computeroutput></para><para><simplesect kind="pre"><para>The insert operator must be defined for <computeroutput>Point</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="477" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Alpha__shape__3_1a3c1704cf0908f6c991a6e0201dfdb7d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Geomview__stream" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Geomview.tag">Geomview_stream</ref> &amp;</type>
+        <definition>Geomview_stream &amp; operator&lt;&lt;</definition>
+        <argsstring>(Geomview_stream &amp;W, const Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt; &amp;A)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Geomview__stream" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Geomview.tag">Geomview_stream</ref> &amp;</type>
+          <declname>W</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Alpha__shape__3" kindref="compound">Alpha_shape_3</ref>&lt; Dt, ExactAlphaComparisonTag &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Inserts the alpha shape <computeroutput>A</computeroutput> for the current alpha value into the Geomview stream <computeroutput>W</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>The insert operator must be defined for <computeroutput>GT::Point</computeroutput> and <computeroutput>GT::Triangle</computeroutput>.</para></simplesect>
+Defined in <computeroutput>CGAL/IO/Geomview_stream.h</computeroutput> and <computeroutput>CGAL/IO/alpha_shape_geomview_ostream_3.h</computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Alpha_shape_3.h" line="488" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The class <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3" kindref="compound">Alpha_shape_3</ref></computeroutput> represents the family of alpha shapes of points in the 3D space for <emphasis>all</emphasis> real <formula id="2">$ \alpha$</formula>. </para>    </briefdescription>
+    <detaileddescription>
+<para>It maintains an underlying triangulation of the class <computeroutput>Dt</computeroutput>. Each k-dimensional face of Dt is associated with an interval that specifies for which values of alpha the face belongs to the alpha shape.</para><para>Note that this class is used for <emphasis>basic</emphasis>, <emphasis>weighted</emphasis>, and <emphasis>periodic</emphasis> Alpha Shapes.</para><para>The modifying functions <computeroutput>insert</computeroutput> and <computeroutput>remove</computeroutput> will overwrite the one inherited from the underlying triangulation class <computeroutput>Dt</computeroutput>. At the moment, only the static version is implemented.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be either <computeroutput><ref refid="classCGAL_1_1Delaunay__triangulation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Triangulation_3.tag">Delaunay_triangulation_3</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Regular__triangulation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Triangulation_3.tag">Regular_triangulation_3</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Periodic__3__Delaunay__triangulation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Periodic_3_triangulation_3.tag">Periodic_3_Delaunay_triangulation_3</ref></computeroutput> or <computeroutput><ref refid="classCGAL_1_1Periodic__3__regular__triangulation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Periodic_3_triangulation_3.tag">Periodic_3_regular_triangulation_3</ref></computeroutput>. Note that <computeroutput>Dt::Geom_traits</computeroutput>, <computeroutput>Dt::Vertex</computeroutput>, and <computeroutput>Dt::Face</computeroutput> must be model the concepts <computeroutput><ref refid="classAlphaShapeTraits__3" kindref="compound">AlphaShapeTraits_3</ref></computeroutput>, <computeroutput><ref refid="classAlphaShapeVertex__3" kindref="compound">AlphaShapeVertex_3</ref></computeroutput> and <computeroutput><ref refid="classAlphaShapeCell__3" kindref="compound">AlphaShapeCell_3</ref></computeroutput>, respectively.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>second template parameter <computeroutput>ExactAlphaComparisonTag</computeroutput> is a tag that, when set to <ref refid="group__PkgStlExtensionUtilities_1gab3e2296107b5d26c32c8183028a217f1" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag"><computeroutput>Tag_true</computeroutput></ref>, triggers exact comparisons between alpha values. This is useful when the Delaunay triangulation is instantiated with an exact predicates inexact constructions kernel. By default the <computeroutput>ExactAlphaComparisonTag</computeroutput> is set to <ref refid="group__PkgStlExtensionUtilities_1ga89d5ecf1540b2ec0a2bf5dd003e186d0" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag"><computeroutput>Tag_false</computeroutput></ref> as it induces a small overhead. Note that the tag <computeroutput>ExactAlphaComparisonTag</computeroutput> is currently ignored (meaning that the code will behave as if <computeroutput>ExactAlphaComparisonTag</computeroutput> were set to <ref refid="group__PkgStlExtensionUtilities_1ga89d5ecf1540b2ec0a2bf5dd003e186d0" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag"><computeroutput>Tag_false</computeroutput></ref>) if <computeroutput>Dt::Geom_traits::FT</computeroutput> is not a floating point number type as this strategy does not make sense if the traits class already provides exact constructions.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para><itemizedlist>
+<listitem>
+<para>When the tag <computeroutput>ExactAlphaComparisonTag</computeroutput> is set to <ref refid="group__PkgStlExtensionUtilities_1gab3e2296107b5d26c32c8183028a217f1" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag"><computeroutput>Tag_true</computeroutput></ref>, the class <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> is used internally to switch between the traits class and the CGAL kernel <computeroutput><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian</ref>&lt;NT&gt;</computeroutput>, where <computeroutput>NT</computeroutput> can be either <computeroutput><ref refid="classCGAL_1_1Interval__nt" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL::Interval_nt</ref></computeroutput> or <computeroutput><ref refid="group__nt__cgal_1ga0849ff44771b19582218ebdfa5614f64" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL::Exact_rational</ref></computeroutput>. <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> must thus offer the necessary functors to convert a three-dimensional point of the traits class to a three-dimensional point of <computeroutput><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian</ref>&lt;NT&gt;</computeroutput>. However, these functors are not necessarily provided by the basic <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput>, for example when a custom point is used. In this case, a partial specialization of <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> must be provided by the user. An example of such specialization is given in the two-dimensional Alpha Shapes example <ref refid="Alpha_shapes_2_2ex_alpha_projection_traits_8cpp-example" kindref="compound">ex_alpha_projection_traits.cpp</ref>. </para></listitem>
+<listitem>
+<para>The tag <computeroutput>ExactAlphaComparisonTag</computeroutput> cannot be used in conjonction with periodic triangulations. When the tag <computeroutput>ExactAlphaComparisonTag</computeroutput> is set to <ref refid="group__PkgStlExtensionUtilities_1gab3e2296107b5d26c32c8183028a217f1" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag"><computeroutput>Tag_true</computeroutput></ref>, the evaluations of predicates such as <computeroutput>Side_of_oriented_sphere_3</computeroutput> are done lazily. Consequently, the predicates store pointers to the geometrical positions of the points passed as arguments of the predicates. It is thus important that these points are not temporary objects. Points of the triangulation are accessed using the function <computeroutput>point(Cell_handle, int)</computeroutput> of the underlying triangulation. In the case of periodic triangulations, the <computeroutput>point(Cell_handle, int)</computeroutput> function is actually a construction that returns a temporary, which thus cannot be used along with a lazy predicate evaluation. </para></listitem>
+</itemizedlist>
+</para></simplesect>
+<bold>I/O</bold><linebreak/>
+ The I/O operators are defined for <computeroutput>iostream</computeroutput>, and for the window stream provided by CGAL. The format for the iostream is an internal format.</para><para><bold>Implementation</bold><linebreak/>
+</para><para>In <computeroutput>GENERAL</computeroutput> mode, the alpha intervals of each triangulation face is computed and stored at initialization time. In <computeroutput>REGULARIZED</computeroutput> mode, the alpha shape intervals of edges are not stored nor computed at initialization. Edges are simply classified on the fly upon request. This allows to have much faster building of alpha shapes in <computeroutput>REGULARIZED</computeroutput> mode.</para><para>Function <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1aa55712b98abbe5baf5e794e9813f2466" kindref="member">Alpha_shape_3::alpha_find()</ref></computeroutput> uses linear search, while <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1a6045c904b2d57b880d2fd15de3b771cb" kindref="member">Alpha_shape_3::alpha_lower_bound()</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1a04a2700d86384a9318647c5b27658c45" kindref="member">Alpha_shape_3::alpha_upper_bound()</ref></computeroutput> use binary search. <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1a50affeb78ec8dd9075231c574c59b401" kindref="member">Alpha_shape_3::number_of_solid_components()</ref></computeroutput> performs a graph traversal and takes time linear in the number of cells of the underlying triangulation. <computeroutput><ref refid="classCGAL_1_1Alpha__shape__3_1accd959f5316156b0c9cd425a7ad073ac" kindref="member">Alpha_shape_3::find_optimal_alpha()</ref></computeroutput> uses binary search and takes time <formula id="12">$ O(n \log n)$</formula>, where <formula id="13">$ n$</formula> is the number of points. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>Dt</label>
+      </node>
+      <node id="6">
+        <label>CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;</label>
+        <link refid="classCGAL_1_1Alpha__shape__3"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>Dt</label>
+      </node>
+      <node id="8">
+        <label>CGAL::Alpha_shape_3&lt; Dt, ExactAlphaComparisonTag &gt;</label>
+        <link refid="classCGAL_1_1Alpha__shape__3"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="CGAL/Alpha_shape_3.h" line="84" column="1" bodyfile="CGAL/Alpha_shape_3.h" bodystart="84" bodyend="467"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a69bb7c06ee3efe1e72492e5311f0050f" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>alpha_begin</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ad8f7e57f0878e73a076f386fbea2918b" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>alpha_end</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1aa55712b98abbe5baf5e794e9813f2466" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>alpha_find</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ac4275fa2b0b9312eb6c967f4e61afe35" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Alpha_iterator</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a6045c904b2d57b880d2fd15de3b771cb" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>alpha_lower_bound</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a616fec3f0ff3357bbce2fc3bbd29ec3e" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Alpha_shape_3</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a04b37aa511b45f84a8912ae3353bfe73" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Alpha_shape_3</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a9f428e9c8a8fa662127a56b847d296d5" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Alpha_shape_3</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a04a2700d86384a9318647c5b27658c45" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>alpha_upper_bound</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40c" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Classification_type</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a80f288c11e351134db95c0b971eee54c" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1aeea04c78712a6458bfddc91ca188e911" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ad9c8f9e14be596815c691c78379b5a45" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a4802899bb754d039260e0528b9209618" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1adb2d8d6ba3951a1e0c7abc3e3becef09" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a80e9322dea066a400a6459ecda121ee2" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>classify</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ab44d66c4bc7809a4ec77457156d1254c" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>clear</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40cac00e772e98e2ec3b2af765b18c0e5467" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>EXTERIOR</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a63f7c9b44160ca226dac70adb3d8bba7" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>filtration</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a81a9e396d265ad0e78dc725ec84a7e78" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>filtration_with_alpha_values</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1accd959f5316156b0c9cd425a7ad073ac" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>find_optimal_alpha</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a4f4f472d5f13900af9eb12d688d497e5" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>FT</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa4684ead732e31e7517685b9e59d3005c" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>GENERAL</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a87c8275f2875cb45007eee93fa886346" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a2fc51e1699b61b18efdeb9d7083c13b5" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_shape_cells</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a66957885cfa46e0c254e01d7d45c2b8d" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_shape_edges</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a0da61f30e79cb3b1e0bed2cb574bf818" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_shape_facets</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a5f229bd1091a1a1bd280e4ab289cac1e" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_shape_vertices</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a28437b01999a8b5d8fc14a9a5b58b28f" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_status</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a8d6c9b507986bb3a6cb760d2fe621766" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_alpha_status</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1af3284c43e01f788da0dfad093897a85d" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_mode</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a9c5ed06f24120af08bad1dba9662898b" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>get_nth_alpha</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a35b6db1db513f8cde1409ecbafef9927" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Gt</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca8e65f253cf2f5db945f6665bfa645506" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>INTERIOR</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a8ee6ccb89259b856b07d3852eb8f7e5f" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>make_alpha_shape</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6ef" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Mode</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a6cbdf2a4759e799c06772d15ff2b77f9" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>number_of_alphas</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a50affeb78ec8dd9075231c574c59b401" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>number_of_solid_components</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a68e7bac704d76e71ddef1a2362aabf45" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a3c1704cf0908f6c991a6e0201dfdb7d4" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ab4406e2de893a89a316ea94eea46c316" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>Point</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca0cd7a695e3b6b042c77b53c770dc776b" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>REGULAR</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1aa6941cdb345b82d9aad513f8b7b1a6efa2566c900e41f0e4b1beb80b34044c160" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>REGULARIZED</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a6341256b28bb454f7d7b6a3be552b0cc" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>set_alpha</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a160314e33caf43ab29b307de6cbb672f" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>set_mode</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1ae887e9ecdaca28790f6ccdd73b84e40ca4fe33b826e16321706a6d2e3428fd992" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>SINGULAR</name></member>
+      <member refid="classCGAL_1_1Alpha__shape__3_1a00e9d0fe1b46d84edc91b8546b72eff5" prot="public" virt="non-virtual"><scope>CGAL::Alpha_shape_3</scope><name>size_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

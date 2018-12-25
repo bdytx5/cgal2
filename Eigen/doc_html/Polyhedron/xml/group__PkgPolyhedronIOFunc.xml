@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgPolyhedronIOFunc" kind="group">
+    <compoundname>PkgPolyhedronIOFunc</compoundname>
+    <title>I/O Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgPolyhedronIOFunc_1ga9791a3720c7a3e9e32e43aed28cd9695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref></type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool read_off</definition>
+        <argsstring>(std::istream &amp;in, Polyhedron_3&lt; PolyhedronTraits_3 &gt; &amp;P)</argsstring>
+        <name>read_off</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>Polyhedron_3&lt; <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref> &gt; &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function reads a polyhedral surface in Object File Format, OFF, with file extension <computeroutput>.off</computeroutput>, which is also understood by Geomview <ref refid="citelist_1CITEREF_cgal:p-gmgv16-96" kindref="member">[5]</ref>, from the input stream <computeroutput>in</computeroutput> and appends it to the polyhedral surface <formula id="0">$ P$</formula>. Only the point coordinates and facets from the input stream are used to build the polyhedral surface. Neither normal vectors nor color attributes are evaluated. If the stream <computeroutput>in</computeroutput> does not contain a permissible polyhedral surface the <computeroutput>ios::badbit</computeroutput> of the input stream <computeroutput>in</computeroutput> is set and <formula id="0">$ P$</formula> remains unchanged.</para><para>For OFF an ASCII and a binary format exist. The stream detects the format automatically and can read both.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound">CGAL::Polyhedron_3</ref>&lt;Traits&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Polyhedron__incremental__builder__3" kindref="compound">CGAL::Polyhedron_incremental_builder_3</ref>&lt;HDS&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PkgPolyhedronIOFunc" kindref="compound"><computeroutput>operator&lt;&lt;(std::ostream&amp;, Polyhedron_3&lt;PolyhedronTraits_3&gt;&amp;)</computeroutput></ref></para></simplesect>
+This function overloads the generic function <ref refid="group__PkgBGLIOFct" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag"><computeroutput>read_off(std::istream&amp;,FaceGraph)</computeroutput></ref>.</para><para><bold>Implementation</bold><linebreak/>
+</para><para>This operator is implemented using the modifier mechanism for polyhedral surfaces and the <computeroutput><ref refid="classCGAL_1_1Polyhedron__incremental__builder__3" kindref="compound">Polyhedron_incremental_builder_3</ref></computeroutput> class, which allows the construction in a single, efficient scan pass of the input and handles also all the possible flexibility of the polyhedral surface. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Polyhedron_iostream.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolyhedronIOFunc_1ga9771632b8e6602c2c85454318f7fe5bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref></type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream &amp; operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;in, Polyhedron_3&lt; PolyhedronTraits_3 &gt; &amp;P)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>Polyhedron_3&lt; <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref> &gt; &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>calls <ref refid="group__PkgPolyhedronIOFunc_1ga9791a3720c7a3e9e32e43aed28cd9695" kindref="member"><computeroutput>read_off(in, P)</computeroutput> </ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Polyhedron_iostream.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolyhedronIOFunc_1gaf6c472230000452a586037b3d4f04561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref></type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool write_off</definition>
+        <argsstring>(std::ostream &amp;out, Polyhedron_3&lt; PolyhedronTraits_3 &gt; &amp;P)</argsstring>
+        <name>write_off</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>Polyhedron_3&lt; <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref> &gt; &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function writes the polyhedral surface <formula id="1">$P$</formula> to the output stream <computeroutput>out</computeroutput> using the Object File Format, OFF, with file extension <computeroutput>.off</computeroutput>, which is also understood by GeomView <ref refid="citelist_1CITEREF_cgal:p-gmgv16-96" kindref="member">[5]</ref>. The output is in ASCII format. From the polyhedral surface, only the point coordinates and facets are written. Neither normal vectors nor color attributes are used.</para><para>For OFF an ASCII and a binary format exist. The format can be selected with the CGAL modifiers for streams, <computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_ascii_mode()</ref></computeroutput> and <computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_binary_mode()</ref></computeroutput> respectively. The modifier <computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_pretty_mode()</ref></computeroutput> can be used to allow for (a few) structuring comments in the output. Otherwise, the output would be free of comments. The default for writing is ASCII without comments.</para><para>This function overloads the generic function <ref refid="group__PkgBGLIOFct" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag"><computeroutput>write_off(std::istream&amp;,FaceGraph)</computeroutput> </ref>.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound">CGAL::Polyhedron_3</ref>&lt;Traits&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Polyhedron__incremental__builder__3" kindref="compound">CGAL::Polyhedron_incremental_builder_3</ref>&lt;HDS&gt;</computeroutput> </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PkgPolyhedronIOFunc" kindref="compound"><computeroutput>operator&gt;&gt;(std::istream&amp; in, Polyhedron_3&lt;PolyhedronTraits_3&gt;&amp; P)</computeroutput> </ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Polyhedron_iostream.h" line="71" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolyhedronIOFunc_1ga607e31b483259c882c6956f41c4b5529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref></type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, Polyhedron_3&lt; PolyhedronTraits_3 &gt; &amp;P)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>Polyhedron_3&lt; <ref refid="classPolyhedronTraits__3" kindref="compound">PolyhedronTraits_3</ref> &gt; &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>calls <ref refid="group__PkgPolyhedronIOFunc_1gaf6c472230000452a586037b3d4f04561" kindref="member"><computeroutput>write_off(out, P)</computeroutput> </ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Polyhedron_iostream.h" line="80" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

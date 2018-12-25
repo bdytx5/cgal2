@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_IO_Streams"/><anchor id="index_1Chapter_operator_for_IO_streams"/></para><para><simplesect kind="authors"><para>Andreas Fabri, Geert-Jan Giezeman, and Lutz Kettner</para></simplesect>
+All classes in the CGAL kernel provide input and output operators for <ref refid="namespaceCGAL_1_1IO" kindref="compound">IO</ref> streams. Classes external to CGAL are also supported, by means of <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput> (Section <ref refid="index_1seciofornoncgaltypes" kindref="member">IO for Non CGAL Types</ref>). The basic task of such an operator is to produce a representation of an object that can be written as a sequence of characters on devices as a console, a file, or a pipe. In CGAL we distinguish between a raw ascii, a raw binary and a pretty printing format.</para><para><programlisting><codeline><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">Mode</ref><sp/>{<ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a13a67787bf1f5275048052d9001e1bee" kindref="member">ASCII</ref><sp/>=<sp/>0,<sp/><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0aa83308e9472ea595943a6b76af054e98" kindref="member">BINARY</ref>,<sp/><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a5d045c18474dfd381b1c2b1dd1e612c5" kindref="member">PRETTY</ref>};</highlight></codeline>
+</programlisting></para><para>In <computeroutput>ASCII</computeroutput> mode, objects are written as a set of numbers, e.g. the coordinates of a point or the coefficients of a line, in a machine independent format. In <computeroutput>BINARY</computeroutput> mode, data are written in a binary format, e.g. a double is represented as a sequence of four byte. The format depends on the machine. The mode <computeroutput>PRETTY</computeroutput> serves mainly for debugging as the type of the geometric object is written, as well as the data defining the object. For example for a point at the origin with Cartesian double coordinates, the output would be <computeroutput>PointC2(0.0, 0.0)</computeroutput>. At the moment CGAL does not provide input operations for pretty printed data. By default a stream is in Ascii mode.</para><para>CGAL provides the following functions to modify the mode of an <ref refid="namespaceCGAL_1_1IO" kindref="compound">IO</ref> stream.</para><para><programlisting><codeline><highlight class="normal"><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/><ref refid="group__PkgIOstreams_1ga5218b20eafd2543d9c70a09c344df8f2" kindref="member">set_mode</ref>(std::ios&amp;<sp/>s,<sp/><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/>m);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">set_ascii_mode</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">set_binary_mode</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">set_pretty_mode</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+</programlisting></para><para>The following functions allow to test whether a stream is in a certain mode. <programlisting><codeline><highlight class="normal"><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref><sp/><ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">get_mode</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__PkgIOstreams_1ga120bfedfbc3d201a73b4824716e83990" kindref="member">is_ascii</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__PkgIOstreams_1ga1e9b270aa13ca55a76209600c2d915fd" kindref="member">is_binary</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__PkgIOstreams_1ga450ead59d56e074d8c3c4f594d2f7d0a" kindref="member">is_pretty</ref>(std::ios&amp;<sp/>s);</highlight></codeline>
+</programlisting></para><sect1 id="index_1IOstreamOutput">
+<title>Output Operator</title>
+<para>CGAL defines output operators for classes that are derived from the class <computeroutput>ostream</computeroutput>. This allows to write to ostreams as <computeroutput>std::cout</computeroutput> or <computeroutput>std::cerr</computeroutput>, as well as to <computeroutput>std::ostringstream</computeroutput> and <computeroutput>std::ofstream</computeroutput>. The output operator is defined for all classes in the CGAL <computeroutput>Kernel</computeroutput> and for the class <computeroutput><ref refid="classCGAL_1_1Color" kindref="compound">Color</ref></computeroutput> as well. Let <computeroutput>os</computeroutput> be an output stream.</para><para><programlisting><codeline><highlight class="comment">//<sp/>Inserts<sp/>object<sp/>`c`<sp/>in<sp/>the<sp/>stream<sp/>`os`.<sp/>Returns<sp/>`os`.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ostream&amp;<sp/><ref refid="group__IOstreamOperators_1ga525f8afc1fb75eb966517c447f1968ea" kindref="member">operator&lt;&lt;</ref>(ostream&amp;<sp/>os,<sp/>Class<sp/>c);</highlight></codeline>
+</programlisting></para><sect2 id="index_1IOstreamExample">
+<title>Example</title>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Segment_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::Point_2&lt;<sp/>CGAL::Cartesian&lt;double&gt;<sp/>&gt;<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::Segment_2&lt;<sp/>CGAL::Cartesian&lt;double&gt;<sp/>&gt;<sp/>Segment;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>p(0,1),<sp/>q(2,2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment<sp/>s(p,q);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member">CGAL::set_pretty_mode</ref>(std::cout);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>p<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>q<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ofstream<sp/>f(</highlight><highlight class="stringliteral">&quot;data.txt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode</ref>(f);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>f<sp/>&lt;&lt;<sp/>s<sp/>&lt;&lt;<sp/>p<sp/>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+</sect1>
+<sect1 id="index_1IOstreamInput">
+<title>Input Operator</title>
+<para>CGAL defines input operators for classes that are derived from the class <computeroutput>istream</computeroutput>. This allows to read from istreams as <computeroutput>std::cin</computeroutput>, as well as from <computeroutput>std::istringstream</computeroutput> and <computeroutput>std::ifstream</computeroutput>. The input operator is defined for all classes in the CGAL <computeroutput>Kernel</computeroutput>. Let <computeroutput>is</computeroutput> be an input stream.</para><para><programlisting><codeline><highlight class="comment">//<sp/>Extracts<sp/>object<sp/>`c`<sp/>from<sp/>the<sp/>stream<sp/>`is`.<sp/>Returns<sp/>`is`.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">istream&amp;<sp/><ref refid="group__IOstreamOperators_1gae89c813a0404eae7e0901ed8f3c92915" kindref="member">operator&gt;&gt;</ref>(istream&amp;<sp/>is,<sp/>Class<sp/>c);</highlight></codeline>
+</programlisting></para><sect2 id="index_1IOstreamExample_1">
+<title>Example</title>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Segment_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::Point_2&lt;<sp/>CGAL::Cartesian&lt;double&gt;<sp/>&gt;<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::Segment_2&lt;<sp/>CGAL::Cartesian&lt;double&gt;<sp/>&gt;<sp/>Segment;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>p,<sp/>q;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment<sp/>s;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member">CGAL::set_ascii_mode</ref>(std::cin);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>p<sp/>&gt;&gt;<sp/>q;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>f(</highlight><highlight class="stringliteral">&quot;data.txt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member">CGAL::set_binary_mode</ref>(f);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>f<sp/>&gt;&gt;<sp/>s<sp/>&gt;&gt;<sp/>p;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+</sect1>
+<sect1 id="index_1seciofornoncgaltypes">
+<title>IO for Non-CGAL Types</title>
+<sect2 id="index_1IOstreamUsingOutputFormatting">
+<title>Using Output Formatting</title>
+<para>To ensure that non-CGAL types are formatted correctly (i.e., respecting <computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref></computeroutput>), <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput> can be used. For types with a <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> specialization, the respective output routine of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> will be called by <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput>. Otherwise, the stream output operator will be called.</para><para><heading level="2">Example </heading>
+</para><para><programlisting><codeline><highlight class="normal">std::cout<sp/>&lt;&lt;<sp/><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">CGAL::oformat</ref>(<sp/>myobject<sp/>);</highlight></codeline>
+</programlisting></para><para>Optional, you can provide a second template parameter <computeroutput>F</computeroutput> as a formatting tag:</para><para><heading level="2">Example </heading>
+</para><para><programlisting><codeline><highlight class="normal">std::cout<sp/>&lt;&lt;<sp/><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">CGAL::oformat</ref>(<sp/>myobject,<sp/>My_formatting_tag()<sp/>);</highlight></codeline>
+</programlisting></para><para>For a list of formatting tags supported by the type <computeroutput>T</computeroutput>, please refer to the documentation of the respective type.</para></sect2>
+<sect2 id="index_1IOstreamCustomizingOutputFormatting">
+<title>Customizing Output Formatting</title>
+<para>In some situations, you want to control the output formatting for a type <computeroutput>T</computeroutput>. For external types (third party libraries etc.), there might be problems if their stream output operator does not respect <computeroutput><ref refid="group__PkgIOstreams_1gac0c882c273b950eb9efca32420e2bef0" kindref="member">IO::Mode</ref></computeroutput>. The purpose of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> is to provide a way to control output formatting that works independently of the object&apos;s stream output operator.</para><para>Instead of putting <computeroutput>T</computeroutput> directly into an output stream, <computeroutput>T</computeroutput> is wrapped into an output representation <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>. For convenience, a function <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput> exists which constructs an instance of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>.</para><para>If you do not specialize <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> for <computeroutput>T</computeroutput>, <computeroutput>T</computeroutput>&apos;s stream output operator is called from within <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>, by default. If you want another behaviour for your type <computeroutput>T</computeroutput>, you have to provide a specialization for that type. Furthermore, you can provide specializations with a second template parameter (a formatting tag). The second template parameter defaults to <computeroutput><ref refid="structCGAL_1_1Null__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Null_tag</ref></computeroutput> and means <emphasis>default behaviour</emphasis>.</para><para>For example, specializing <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> for <computeroutput>CORE::BigRat</computeroutput> (without a formatting tag parameter) could look like this:</para><para><heading level="2">Example </heading>
+</para><para><programlisting><codeline><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Output_rep&lt;<sp/>::CORE::BigRat,<sp/>F&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>const<sp/>::CORE::BigRat&amp;<sp/>t;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Output_rep(<sp/>const<sp/>::CORE::BigRat&amp;<sp/>tt)<sp/>:<sp/>t(tt)<sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ostream&amp;<sp/>operator()(<sp/>std::ostream&amp;<sp/>out)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="group__PkgIOstreams_1gaf0ca61609ab0738a82652842880b2674" kindref="member">get_mode</ref>(out))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="group__PkgIOstreams_1ggac0c882c273b950eb9efca32420e2bef0a5d045c18474dfd381b1c2b1dd1e612c5" kindref="member">IO::PRETTY</ref>:{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(CGAL_CORE_DENOMINATOR(t)<sp/>==<sp/>::CORE::BigRat(1))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out<sp/>&lt;&lt;CGAL_CORE_NUMERATOR(t);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out<sp/>&lt;&lt;<sp/>CGAL_CORE_NUMERATOR(t)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>CGAL_CORE_DENOMINATOR(t);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out<sp/>&lt;&lt;<sp/>CGAL_CORE_NUMERATOR(t)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>CGAL_CORE_DENOMINATOR(t);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting></para></sect2>
+</sect1>
+<sect1 id="index_1IOstreamColors">
+<title>Colors</title>
+<para>An object of the class <computeroutput><ref refid="classCGAL_1_1Color" kindref="compound">Color</ref></computeroutput> is a color available for drawing operations in many CGAL output streams.</para><para>Each color is defined by a triple of integers <computeroutput>(r,g,b)</computeroutput> with 0 <formula id="1">$ \le $</formula> r,g,b <formula id="1">$ \le $</formula> 255, the so-called <emphasis>rgb-value</emphasis> of the color. There are a 11 predefined <computeroutput><ref refid="classCGAL_1_1Color" kindref="compound">Color</ref></computeroutput> constants available: <computeroutput>BLACK</computeroutput>, <computeroutput>WHITE</computeroutput>, <computeroutput>GRAY</computeroutput>, <computeroutput>RED</computeroutput>, <computeroutput>GREEN</computeroutput>, <computeroutput>DEEPBLUE</computeroutput>, <computeroutput>BLUE</computeroutput>, <computeroutput>PURPLE</computeroutput>, <computeroutput>VIOLET</computeroutput>, <computeroutput>ORANGE</computeroutput>, and <computeroutput>YELLOW</computeroutput>.</para></sect1>
+<sect1 id="index_1IOstreamStream">
+<title>Stream Support</title>
+<para>Three classes are provided by CGAL as adaptors to input and output stream iterators. The class <computeroutput><ref refid="classCGAL_1_1Istream__iterator" kindref="compound">Istream_iterator</ref></computeroutput> is an input iterator adaptor and is particularly useful for classes that are similar but not compatible to <computeroutput>std::istream</computeroutput>. Similarly, the class <computeroutput><ref refid="classCGAL_1_1Ostream__iterator" kindref="compound">Ostream_iterator</ref></computeroutput> is an output iterator adaptor. The class <computeroutput><ref refid="classCGAL_1_1Verbose__ostream" kindref="compound">Verbose_ostream</ref></computeroutput> can be used as an output stream. The stream output operator <computeroutput>&lt;&lt;</computeroutput> is defined for any type. The class stores in an internal state a stream and whether the output is active or not. If the state is active, the stream output operator <computeroutput>&lt;&lt;</computeroutput> uses the internal stream to output its argument. If the state is inactive, nothing happens. </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="devman_multithreading" kind="page">
+    <compoundname>devman_multithreading</compoundname>
+    <title>Multithreading</title>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Andreas Fabri</para></simplesect>
+</para><sect1 id="devman_multithreading_1Developer_manualThreadlocal">
+<title>Thread Local Storage</title>
+<para>The header file &lt;CGAL/tss.h&gt; provides a macro <computeroutput>CGAL_STATIC_THREAD_LOCAL_VARIABLE(TYPE,VAR,ARG1)</computeroutput> that creates a thread local variable <computeroutput>VAR</computeroutput> of type <computeroutput>TYPE</computeroutput>, and passes <computeroutput>ARG1</computeroutput> to the constructor. The variable is either <computeroutput>threadlocal</computeroutput>, or a <computeroutput>boost::thread_specific_ptr</computeroutput>, or just a local variable if <computeroutput>CGAL_HAS_THREADS</computeroutput> is not defined.</para></sect1>
+<sect1 id="devman_multithreading_1Developer_manualMutex">
+<title>Mutex</title>
+<para>The header file &lt;CGAL/mutex.h&gt; provides a macro <computeroutput>CGAL_MUTEX</computeroutput> and a macro <computeroutput>CGAL_SCOPED_LOCK(M)</computeroutput> that is either a <computeroutput>std::unique_lock&lt;std::mutex&gt;</computeroutput> or a <computeroutput>boost::mutex::scoped_lock</computeroutput>. </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,5 @@
+var classCGAL_1_1Surface__mesh__parameterization_1_1Circular__border__arc__length__parameterizer__3 =
+[
+    [ "~Circular_border_arc_length_parameterizer_3", "classCGAL_1_1Surface__mesh__parameterization_1_1Circular__border__arc__length__parameterizer__3.html#a36a3088dc2bd2938a0bc3d3cb49df7ba", null ],
+    [ "compute_edge_length", "classCGAL_1_1Surface__mesh__parameterization_1_1Circular__border__arc__length__parameterizer__3.html#a123834b375afcd01f97a8577ebc8b3d5", null ]
+];

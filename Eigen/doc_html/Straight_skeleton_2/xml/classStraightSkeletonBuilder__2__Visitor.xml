@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classStraightSkeletonBuilder__2__Visitor" kind="class" language="C++" prot="public">
+    <compoundname>StraightSkeletonBuilder_2_Visitor</compoundname>
+    <includes local="no">Concepts/StraightSkeletonBuilder_2_Visitor.h</includes>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classStraightSkeletonBuilder__2__Visitor_1accc2de200d15374079bd04110cb9a35f" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type StraightSkeletonBuilder_2_Visitor::Halfedge_const_handle</definition>
+        <argsstring></argsstring>
+        <name>Halfedge_const_handle</name>
+        <briefdescription>
+<para>A constant handle to a straight skeleton halfedge. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="22" column="1" bodyfile="Concepts/StraightSkeletonBuilder_2_Visitor.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type StraightSkeletonBuilder_2_Visitor::Vertex_const_handle</definition>
+        <argsstring></argsstring>
+        <name>Vertex_const_handle</name>
+        <briefdescription>
+<para>A constant handle to a straight skeleton vertex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="27" column="1" bodyfile="Concepts/StraightSkeletonBuilder_2_Visitor.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operations</header>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1adc4eeff0e3d455f7e597a32eaf2da46e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_contour_edge_entered</definition>
+        <argsstring>(Halfedge_const_handle const &amp;) const</argsstring>
+        <name>on_contour_edge_entered</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1accc2de200d15374079bd04110cb9a35f" kindref="member">Halfedge_const_handle</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Called for each contour halfedge added to the skeleton). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a2f476a005a06582a313666c2ab2ce137" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_initialization_started</definition>
+        <argsstring>(std::size_t number_of_vertices) const</argsstring>
+        <name>on_initialization_started</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>number_of_vertices</declname>
+        </param>
+        <briefdescription>
+<para>Called before the initialization stage (when initial events are discovered) is started. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a0ad30013744c6cd4f2c38c312a14fa15" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_contour_vertex_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;v, bool is_reflex, bool is_degenerate) const</argsstring>
+        <name>on_contour_vertex_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_reflex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_degenerate</declname>
+        </param>
+        <briefdescription>
+<para>Called after the events for contour vertex <computeroutput>v</computeroutput> have been discovered. </para>        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>is_reflex</computeroutput> is true if this vertex has an internal angle <formula id="3">$ &gt; \pi$</formula>, or <computeroutput>is_degenerate</computeroutput> is true if the internal angle is <formula id="4">$ = \pi$</formula>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a8d9675f6b9736b920289983c1e562cde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_edge_event_created</definition>
+        <argsstring>(Vertex_const_handle const &amp;node0, Vertex_const_handle const &amp;node1) const</argsstring>
+        <name>on_edge_event_created</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node1</declname>
+        </param>
+        <briefdescription>
+<para>Called after an edge event for nodes <computeroutput>node0</computeroutput> and <computeroutput>node1</computeroutput> has been discovered and put on the queue for later processing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1acb49f325e7bac4fa93185b5a10d6a963" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_split_event_created</definition>
+        <argsstring>(Vertex_const_handle const &amp;node) const</argsstring>
+        <name>on_split_event_created</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Called after a slipt event for node <computeroutput>node</computeroutput> has been discovered and put on the queue for later processing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a6adf7b1cb23d367db156a85f9d7e9335" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_pseudo_split_event_created</definition>
+        <argsstring>(Vertex_const_handle const &amp;node0, Vertex_const_handle const &amp;node1) const</argsstring>
+        <name>on_pseudo_split_event_created</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node1</declname>
+        </param>
+        <briefdescription>
+<para>Called after a pseudo slipt event for nodes <computeroutput>node0</computeroutput> and <computeroutput>node1</computeroutput> has been discovered and put on the queue for later processing. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="71" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a50b09b31fcc12b19e2a64d5893c3b8a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_initialization_finished</definition>
+        <argsstring>() const</argsstring>
+        <name>on_initialization_finished</name>
+        <briefdescription>
+<para>Called after all initial events have been discovered. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1ad8c148402f4c8cb72085b7727c48277b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_propagation_started</definition>
+        <argsstring>() const</argsstring>
+        <name>on_propagation_started</name>
+        <briefdescription>
+<para>Called before the propagation stage (when events are poped off the queue and processed) is started. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="83" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1afc0e3ad469e072a4ff4b47cefc72b042" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_anihiliation_event_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;node0, Vertex_const_handle const &amp;node1) const</argsstring>
+        <name>on_anihiliation_event_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>node1</declname>
+        </param>
+        <briefdescription>
+<para>Called after an anhiliation event for nodes <computeroutput>node0</computeroutput> and <computeroutput>node1</computeroutput> has been processed. </para>        </briefdescription>
+        <detaileddescription>
+<para>A new skeleton edge between these nodes has been added. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a2cc37e461c0bab908437cd549cf968ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_edge_event_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;seed0, Vertex_const_handle const &amp;seed1, Vertex_const_handle const &amp;newnode) const</argsstring>
+        <name>on_edge_event_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>seed0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>seed1</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>newnode</declname>
+        </param>
+        <briefdescription>
+<para>Called after an edge for nodes <computeroutput>seed0</computeroutput> and <computeroutput>seed1</computeroutput> has been processed. </para>        </briefdescription>
+        <detaileddescription>
+<para>Skeleton vertex <computeroutput>newnode</computeroutput> and edges from <computeroutput>node0</computeroutput> to <computeroutput>newnode</computeroutput> and <computeroutput>node1</computeroutput> to <computeroutput>newnode</computeroutput> has been added. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="98" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1aee087445946998ab1f5806b54e47df90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_split_event_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;seed, Vertex_const_handle const &amp;newnode0, Vertex_const_handle const &amp;newnode1) const</argsstring>
+        <name>on_split_event_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>seed</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>newnode0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>newnode1</declname>
+        </param>
+        <briefdescription>
+<para>Called after a split event for node <computeroutput>seed</computeroutput> has been processed. </para>        </briefdescription>
+        <detaileddescription>
+<para>Skeleton vertices <computeroutput>newnode0</computeroutput> and <computeroutput>newnode1</computeroutput> have been added. An skeleton edge from <computeroutput>seed</computeroutput> to <computeroutput>newnode0</computeroutput> has been added. In the final skeleton, <computeroutput>newnode1</computeroutput> is removed and only <computeroutput>newnode0</computeroutput> remains. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="109" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1abe50296e07affdc5603114e95d33f61b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_pseudo_split_event_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;seed0, Vertex_const_handle const &amp;seed1, Vertex_const_handle const &amp;newnode0, Vertex_const_handle const &amp;newnode1) const</argsstring>
+        <name>on_pseudo_split_event_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>seed0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>seed1</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>newnode0</declname>
+        </param>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>newnode1</declname>
+        </param>
+        <briefdescription>
+<para>Called after a pseudo split event for nodes <computeroutput>seed0</computeroutput> and <computeroutput>seed1</computeroutput> has been processed. </para>        </briefdescription>
+        <detaileddescription>
+<para>Skeleton vertices <computeroutput>newnode0</computeroutput> and <computeroutput>newnode1</computeroutput> have been added. Skeleton edges from <computeroutput>seed0</computeroutput> to <computeroutput>newnode0</computeroutput> and <computeroutput>seed1</computeroutput> to <computeroutput>newnode1</computeroutput> has been added. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="119" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a60321ea6437cdbd6fdc0ca5d993297be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_vertex_processed</definition>
+        <argsstring>(Vertex_const_handle const &amp;v) const</argsstring>
+        <name>on_vertex_processed</name>
+        <param>
+          <type><ref refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" kindref="member">Vertex_const_handle</ref> const &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Called after vertex <computeroutput>v</computeroutput> has been marked as already processed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="128" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a40ad77f983dc58a017c8361880b50e59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_propagation_finished</definition>
+        <argsstring>() const</argsstring>
+        <name>on_propagation_finished</name>
+        <briefdescription>
+<para>Called after all events have been processed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="133" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1aba47e9ad6b7502ebc0e52109fd3fcaea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_cleanup_started</definition>
+        <argsstring>() const</argsstring>
+        <name>on_cleanup_started</name>
+        <briefdescription>
+<para>Called when the skeleton clean up (when multiple nodes are merged) is started. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="138" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1ac77ff26056c41f91ff91e556d8e36d06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_cleanup_finished</definition>
+        <argsstring>() const</argsstring>
+        <name>on_cleanup_finished</name>
+        <briefdescription>
+<para>Called when clean up finished. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a6d96e97ed7c37e1815e58f877bf34e37" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_algorithm_finished</definition>
+        <argsstring>(bool finished_ok) const</argsstring>
+        <name>on_algorithm_finished</name>
+        <param>
+          <type>bool</type>
+          <declname>finished_ok</declname>
+        </param>
+        <briefdescription>
+<para>Called when the algorithm terminated. </para>        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>finished_ok</computeroutput> is false if it terminated before completion or the resulting skeleton was found to be invalid. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="150" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStraightSkeletonBuilder__2__Visitor_1a567e51a40da8e5d73dc47056b97e8e8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StraightSkeletonBuilder_2_Visitor::on_error</definition>
+        <argsstring>(char const *msg) const</argsstring>
+        <name>on_error</name>
+        <param>
+          <type>char const *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Called whenever an error was detected. </para>        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>msg</computeroutput> is whatever error message accompanies the error. This pointer can be <computeroutput>null</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="156" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The concept <computeroutput><ref refid="classStraightSkeletonBuilder__2__Visitor" kindref="compound">StraightSkeletonBuilder_2_Visitor</ref></computeroutput> describes the requirements of the visitor class required by the algorithm class <computeroutput>Straight_skeleton_builder_2&lt;Gt,Ss,Visitor&gt;</computeroutput> in its third template parameter. </para>    </briefdescription>
+    <detaileddescription>
+<para> <xrefsect id="hasModels_1_hasModels000003"><xreftitle>Has Models</xreftitle><xrefdescription><para><ref refid="structCGAL_1_1Dummy__straight__skeleton__builder__2__visitor" kindref="compound">CGAL::Dummy_straight_skeleton_builder_2_visitor</ref></para></xrefdescription></xrefsect></para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">CGAL::Straight_skeleton_builder_2</ref>&lt;Gt,Ss&gt;</computeroutput> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Concepts/StraightSkeletonBuilder_2_Visitor.h" line="13" column="1" bodyfile="Concepts/StraightSkeletonBuilder_2_Visitor.h" bodystart="13" bodyend="160"/>
+    <listofallmembers>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1accc2de200d15374079bd04110cb9a35f" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>Halfedge_const_handle</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a6d96e97ed7c37e1815e58f877bf34e37" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_algorithm_finished</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1afc0e3ad469e072a4ff4b47cefc72b042" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_anihiliation_event_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1ac77ff26056c41f91ff91e556d8e36d06" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_cleanup_finished</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1aba47e9ad6b7502ebc0e52109fd3fcaea" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_cleanup_started</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1adc4eeff0e3d455f7e597a32eaf2da46e" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_contour_edge_entered</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a0ad30013744c6cd4f2c38c312a14fa15" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_contour_vertex_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a8d9675f6b9736b920289983c1e562cde" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_edge_event_created</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a2cc37e461c0bab908437cd549cf968ac" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_edge_event_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a567e51a40da8e5d73dc47056b97e8e8f" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_error</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a50b09b31fcc12b19e2a64d5893c3b8a1" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_initialization_finished</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a2f476a005a06582a313666c2ab2ce137" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_initialization_started</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a40ad77f983dc58a017c8361880b50e59" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_propagation_finished</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1ad8c148402f4c8cb72085b7727c48277b" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_propagation_started</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a6adf7b1cb23d367db156a85f9d7e9335" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_pseudo_split_event_created</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1abe50296e07affdc5603114e95d33f61b" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_pseudo_split_event_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1acb49f325e7bac4fa93185b5a10d6a963" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_split_event_created</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1aee087445946998ab1f5806b54e47df90" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_split_event_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a60321ea6437cdbd6fdc0ca5d993297be" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>on_vertex_processed</name></member>
+      <member refid="classStraightSkeletonBuilder__2__Visitor_1a0eb98806f2eacd004d3922dabcc20bd2" prot="public" virt="non-virtual"><scope>StraightSkeletonBuilder_2_Visitor</scope><name>Vertex_const_handle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

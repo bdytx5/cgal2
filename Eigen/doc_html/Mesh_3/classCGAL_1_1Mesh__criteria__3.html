@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Mesh_3/classCGAL_1_1Mesh__criteria__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Mesh Generation: CGAL::Mesh_criteria_3&lt; Tr &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Mesh Generation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Mesh__criteria__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Mesh__criteria__3-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Mesh_criteria_3&lt; Tr &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgMesh__3.html">3D Mesh Generation Reference</a> » <a class="el" href="group__PkgMesh__3MeshClasses.html">Mesh Classes</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Mesh_criteria_3.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The class <code><a class="el" href="classCGAL_1_1Mesh__criteria__3.html" title="The class Mesh_criteria_3 is a model of both concepts MeshCriteria_3 and MeshCriteriaWithFeatures_3. ">Mesh_criteria_3</a></code> is a model of both concepts <code><a class="el" href="classMeshCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCriteria_3</a></code> and <code><a class="el" href="classMeshCriteriaWithFeatures__3.html" title="The concept MeshCriteriaWithFeatures_3 refines the concept MeshCriteria_3. The concept MeshCriteria_3...">MeshCriteriaWithFeatures_3</a></code>. </p>
+<p>It gathers the refinement criteria for mesh tetrahedra and surface facets where surface facets are facets in the mesh approximating the domain surface patches. In addition, for domain with exposed 1-dimensional features, the class <code><a class="el" href="classCGAL_1_1Mesh__criteria__3.html" title="The class Mesh_criteria_3 is a model of both concepts MeshCriteria_3 and MeshCriteriaWithFeatures_3. ">Mesh_criteria_3</a></code> handles the definition of a sizing field to guide the discretization of 1-dimensional features.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tr</td><td>has to be instantiated with the type used for <code>C3T3::Triangulation</code>, where <code>C3T3</code> is the model of <code><a class="el" href="classMeshComplex__3InTriangulation__3.html" title="The concept MeshComplex_3InTriangulation_3 describes a data structure to represent and maintain a 3D ...">MeshComplex_3InTriangulation_3</a></code> used in the mesh generation process, and <code>C3T3::Triangulation</code> its nested triangulation type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000010">Is Model Of:</a></b></dt><dd><code><a class="el" href="classMeshCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCriteria_3</a></code></dd></dl>
+<p><b>Example</b><br />
+</p>
+<div class="fragment"><div class="line"><span class="comment">// Create a Mesh_criteria_3&lt;Tr&gt; object with all cell and facet parameters set</span></div><div class="line">Mesh_criteria_3&lt;Tr&gt; criteria (parameters::facet_angle=30,</div><div class="line">                              parameters::facet_size=1,</div><div class="line">                              parameters::facet_distance=0.1,</div><div class="line">                              parameters::cell_radius_edge_ratio=2,</div><div class="line">                              parameters::cell_size=1.5);</div><div class="line"></div><div class="line"><span class="comment">// Create a Mesh_criteria_3&lt;Tr&gt; object with size ignored (note that the order changed)</span></div><div class="line">Mesh_criteria_3&lt;Tr&gt; criteria (parameters::cell_radius_edge_ratio=2,</div><div class="line">                              parameters::facet_angle=30,</div><div class="line">                              parameters::facet_distance=0.1);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classMeshCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCriteria_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshCriteriaWithFeatures__3.html" title="The concept MeshCriteriaWithFeatures_3 refines the concept MeshCriteria_3. The concept MeshCriteria_3...">MeshCriteriaWithFeatures_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshCellCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCellCriteria_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshEdgeCriteria__3.html" title="The function object concept MeshEdgeCriteria_3 is designed to drive the process which samples the 1-d...">MeshEdgeCriteria_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshFacetCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshFacetCriteria_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classMeshDomainField__3.html" title="The concept MeshDomainField_3 describes a scalar field which could be queried at any point of the spa...">MeshDomainField_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Mesh__cell__criteria__3.html" title="The class Mesh_cell_criteria_3 is a model of MeshCellCriteria_3. ">CGAL::Mesh_cell_criteria_3</a>&lt;Tr&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Mesh__edge__criteria__3.html" title="The function object class Mesh_edge_criteria_3 is a model of MeshEdgeCriteria_3. ">CGAL::Mesh_edge_criteria_3</a>&lt;Tr&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Mesh__facet__criteria__3.html" title="The class Mesh_facet_criteria_3 is a model of MeshFacetCriteria_3. ">CGAL::Mesh_facet_criteria_3</a>&lt;Tr&gt;</code> </dd>
+<dd>
+<code><a class="el" href="group__PkgMesh__3Enum.html#gaac682a581ddebf8daff681621911d1f3" title="The enum Mesh_facet_topology is designed to tell which constraints have to be checked on each surface...">CGAL::Mesh_facet_topology</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Mesh_3_2mesh_3D_gray_image_8cpp-example.html#_a4">Mesh_3/mesh_3D_gray_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_gray_vtk_image_8cpp-example.html#_a4">Mesh_3/mesh_3D_gray_vtk_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_8cpp-example.html#_a6">Mesh_3/mesh_3D_image.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_variable_size_8cpp-example.html#_a6">Mesh_3/mesh_3D_image_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_with_custom_initialization_8cpp-example.html#_a6">Mesh_3/mesh_3D_image_with_custom_initialization.cpp</a>, <a class="el" href="Mesh_3_2mesh_3D_image_with_features_8cpp-example.html#_a7">Mesh_3/mesh_3D_image_with_features.cpp</a>, <a class="el" href="Mesh_3_2mesh_hybrid_mesh_domain_8cpp-example.html#_a12">Mesh_3/mesh_hybrid_mesh_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_8cpp-example.html#_a5">Mesh_3/mesh_implicit_domains.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_domains_2_8cpp-example.html#_a5">Mesh_3/mesh_implicit_domains_2.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_ellipsoid_8cpp-example.html#_a4">Mesh_3/mesh_implicit_ellipsoid.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_8cpp-example.html#_a6">Mesh_3/mesh_implicit_sphere.cpp</a>, <a class="el" href="Mesh_3_2mesh_implicit_sphere_variable_size_8cpp-example.html#_a6">Mesh_3/mesh_implicit_sphere_variable_size.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_example_8cpp-example.html#_a6">Mesh_3/mesh_optimization_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_optimization_lloyd_example_8cpp-example.html#_a6">Mesh_3/mesh_optimization_lloyd_example.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_complex_8cpp-example.html#_a6">Mesh_3/mesh_polyhedral_complex.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_8cpp-example.html#_a7">Mesh_3/mesh_polyhedral_domain.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_features_8cpp-example.html#_a6">Mesh_3/mesh_polyhedral_domain_with_features.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_lipschitz_sizing_8cpp-example.html#_a6">Mesh_3/mesh_polyhedral_domain_with_lipschitz_sizing.cpp</a>, <a class="el" href="Mesh_3_2mesh_polyhedral_domain_with_surface_inside_8cpp-example.html#_a4">Mesh_3/mesh_polyhedral_domain_with_surface_inside.cpp</a>, <a class="el" href="Mesh_3_2mesh_two_implicit_spheres_with_balls_8cpp-example.html#_a7">Mesh_3/mesh_two_implicit_spheres_with_balls.cpp</a>, and <a class="el" href="Mesh_3_2remesh_polyhedral_surface_8cpp-example.html#_a4">Mesh_3/remesh_polyhedral_surface.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:af16645ae282540037597e7b8e30899c4"><td class="memItemLeft" align="right" valign="top"><a id="af16645ae282540037597e7b8e30899c4"></a>
+typedef <a class="el" href="classCGAL_1_1Mesh__edge__criteria__3.html">Mesh_edge_criteria_3</a>&lt; Tr &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#af16645ae282540037597e7b8e30899c4">Edge_criteria</a></td></tr>
+<tr class="memdesc:af16645ae282540037597e7b8e30899c4"><td class="mdescLeft"> </td><td class="mdescRight">The criteria for edges. <br /></td></tr>
+<tr class="separator:af16645ae282540037597e7b8e30899c4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0aa5079222f974da5561ad342bc7e109"><td class="memItemLeft" align="right" valign="top"><a id="a0aa5079222f974da5561ad342bc7e109"></a>
+typedef <a class="el" href="classCGAL_1_1Mesh__facet__criteria__3.html">Mesh_facet_criteria_3</a>&lt; Tr &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a0aa5079222f974da5561ad342bc7e109">Facet_criteria</a></td></tr>
+<tr class="memdesc:a0aa5079222f974da5561ad342bc7e109"><td class="mdescLeft"> </td><td class="mdescRight">The criteria for facets. <br /></td></tr>
+<tr class="separator:a0aa5079222f974da5561ad342bc7e109"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab862162ed268c1f85a82daeb297ca575"><td class="memItemLeft" align="right" valign="top"><a id="ab862162ed268c1f85a82daeb297ca575"></a>
+typedef <a class="el" href="classCGAL_1_1Mesh__cell__criteria__3.html">Mesh_cell_criteria_3</a>&lt; Tr &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#ab862162ed268c1f85a82daeb297ca575">Cell_criteria</a></td></tr>
+<tr class="memdesc:ab862162ed268c1f85a82daeb297ca575"><td class="mdescLeft"> </td><td class="mdescRight">The criteria for cells. <br /></td></tr>
+<tr class="separator:ab862162ed268c1f85a82daeb297ca575"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:a240ef4e0f7ce97272aa67adaa654eea2"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a240ef4e0f7ce97272aa67adaa654eea2">Mesh_criteria_3</a> (const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a0aa5079222f974da5561ad342bc7e109">Facet_criteria</a> &amp;facet_criteria, const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#ab862162ed268c1f85a82daeb297ca575">Cell_criteria</a> &amp;cell_criteria)</td></tr>
+<tr class="memdesc:a240ef4e0f7ce97272aa67adaa654eea2"><td class="mdescLeft"> </td><td class="mdescRight">Construction from facet and cell criteria.  <a href="#a240ef4e0f7ce97272aa67adaa654eea2">More...</a><br /></td></tr>
+<tr class="separator:a240ef4e0f7ce97272aa67adaa654eea2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5876de330f3a13d7c56941380c16a1f7"><td class="memItemLeft" align="right" valign="top"><a id="a5876de330f3a13d7c56941380c16a1f7"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a5876de330f3a13d7c56941380c16a1f7">Mesh_criteria_3</a> (const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#af16645ae282540037597e7b8e30899c4">Edge_criteria</a> &amp;edge_criteria, const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a0aa5079222f974da5561ad342bc7e109">Facet_criteria</a> &amp;facet_criteria, const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#ab862162ed268c1f85a82daeb297ca575">Cell_criteria</a> &amp;cell_criteria)</td></tr>
+<tr class="memdesc:a5876de330f3a13d7c56941380c16a1f7"><td class="mdescLeft"> </td><td class="mdescRight">Construction from edge, facet and cell criteria. <br /></td></tr>
+<tr class="separator:a5876de330f3a13d7c56941380c16a1f7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ada26edb7ee77aa7279b2ae7e96c56eb0"><td class="memTemplParams" colspan="2">template&lt;typename FT , typename ... Fieldi&gt; </td></tr>
+<tr class="memitem:ada26edb7ee77aa7279b2ae7e96c56eb0"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html#ada26edb7ee77aa7279b2ae7e96c56eb0">Mesh_criteria_3</a> (Field1 parameters::edge_size=ignored, FT parameters::facet_angle=ignored, Field2 parameters::facet_size=ignored, Field3 parameters::facet_distance=ignored, <a class="el" href="group__PkgMesh__3Enum.html#gaac682a581ddebf8daff681621911d1f3">Mesh_facet_topology</a> parameters::facet_topology=<a class="el" href="group__PkgMesh__3Enum.html#ggaac682a581ddebf8daff681621911d1f3ad6594c00cfd02e9c61a483fc2efc9f9e">CGAL::FACET_VERTICES_ON_SURFACE</a>, FT parameters::cell_radius_edge_ratio=ignored, Field4 parameters::cell_size=ignored)</td></tr>
+<tr class="memdesc:ada26edb7ee77aa7279b2ae7e96c56eb0"><td class="mdescLeft"> </td><td class="mdescRight">Construction from criteria parameters.  <a href="#ada26edb7ee77aa7279b2ae7e96c56eb0">More...</a><br /></td></tr>
+<tr class="separator:ada26edb7ee77aa7279b2ae7e96c56eb0"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a240ef4e0f7ce97272aa67adaa654eea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a240ef4e0f7ce97272aa67adaa654eea2">◆ </a></span>Mesh_criteria_3() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tr &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html">CGAL::Mesh_criteria_3</a>&lt; Tr &gt;::<a class="el" href="classCGAL_1_1Mesh__criteria__3.html">Mesh_criteria_3</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#a0aa5079222f974da5561ad342bc7e109">Facet_criteria</a> &amp; </td>
+          <td class="paramname"><em>facet_criteria</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Mesh__criteria__3.html#ab862162ed268c1f85a82daeb297ca575">Cell_criteria</a> &amp; </td>
+          <td class="paramname"><em>cell_criteria</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construction from facet and cell criteria. </p>
+<p>The edge criteria are ignored in this case. </p>
+
+</div>
+</div>
+<a id="ada26edb7ee77aa7279b2ae7e96c56eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada26edb7ee77aa7279b2ae7e96c56eb0">◆ </a></span>Mesh_criteria_3() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tr &gt; </div>
+<div class="memtemplate">
+template&lt;typename FT , typename ... Fieldi&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html">CGAL::Mesh_criteria_3</a>&lt; Tr &gt;::<a class="el" href="classCGAL_1_1Mesh__criteria__3.html">Mesh_criteria_3</a> </td>
+          <td>(</td>
+          <td class="paramtype">Field1 parameters::edge_size </td>
+          <td class="paramname"> = <code>ignored</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FT parameters::facet_angle </td>
+          <td class="paramname"> = <code>ignored</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Field2 parameters::facet_size </td>
+          <td class="paramname"> = <code>ignored</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Field3 parameters::facet_distance </td>
+          <td class="paramname"> = <code>ignored</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__PkgMesh__3Enum.html#gaac682a581ddebf8daff681621911d1f3">Mesh_facet_topology</a> parameters::facet_topology </td>
+          <td class="paramname"> = <code><a class="el" href="group__PkgMesh__3Enum.html#ggaac682a581ddebf8daff681621911d1f3ad6594c00cfd02e9c61a483fc2efc9f9e">CGAL::FACET_VERTICES_ON_SURFACE</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FT parameters::cell_radius_edge_ratio </td>
+          <td class="paramname"> = <code>ignored</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Field4 parameters::cell_size </td>
+          <td class="paramname"> = <code>ignored</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construction from criteria parameters. </p>
+<p>This constructor uses named parameters (from <em>Boost.Parameter</em>) for convenient criteria construction.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FT</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Algebraic_foundations.tag:../Algebraic_foundations/" href="../Algebraic_foundations/classField.html">Field</a></code> </td></tr>
+    <tr><td class="paramname">Fieldi</td><td>(<code>i</code>=1,..,4) should be either a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Algebraic_foundations.tag:../Algebraic_foundations/" href="../Algebraic_foundations/classField.html">Field</a></code> or a model of the concept <code><a class="el" href="classMeshDomainField__3.html" title="The concept MeshDomainField_3 describes a scalar field which could be queried at any point of the spa...">MeshDomainField_3</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The parameters are named parameters and can be passed in any order provided their name is given (see example below). The name of each parameter is the one that is written in the description of the function (e.g. <code>parameters::facet_size</code>).</p>
+<p>The description of each parameter is as follows:</p>
+<ul>
+<li><code>edge_size</code>: a scalar field (resp. a constant) providing a space varying (resp. a uniform) upper bound for the lengths of curve edges. This parameter has to be set to a positive value when 1-dimensional features protection is used.</li>
+<li><code>facet_angle</code>: a lower bound for the angles (in degrees) of the surface mesh facets.</li>
+<li><code>facet_size</code>: a scalar field (resp. a constant) describing a space varying (resp. a uniform) upper-bound or for the radii of the surface Delaunay balls.</li>
+<li><code>facet_distance</code>: a scalar field (resp. a constant) describing a space varying (resp. a uniform) upper bound for the distance between the facet circumcenter and the center of its surface Delaunay ball.</li>
+<li><code>facet_topology</code>: the set of topological constraints which have to be verified by each surface facet. The default value is <code><a class="el" href="group__PkgMesh__3Enum.html#ggaac682a581ddebf8daff681621911d1f3ad6594c00cfd02e9c61a483fc2efc9f9e" title="Each vertex of the facet have to be on the surface, on a curve, or on a corner. ">CGAL::FACET_VERTICES_ON_SURFACE</a></code>. See <code>Mesh_facet_topology</code> manual page to get all possible values.</li>
+<li><code>cell_radius_edge_ratio</code>: an upper bound for the radius-edge ratio of the mesh tetrahedra.</li>
+<li><code>cell_size</code>: a scalar field (resp. a constant) describing a space varying (resp. a uniform) upper-bound for the circumradii of the mesh tetrahedra.</li>
+</ul>
+<p>Note that each size or distance parameter can be specified using two ways: either as a scalar field or as a numerical value when the field is uniform.</p>
+<p>Each parameter has a special default value <code>ignored</code> which means that the corresponding criterion will be ignored. Numerical sizing or distance values, as well as scalar fields should be given in the unit used for coordinates of points in the mesh domain class of the mesh generation process. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Mesh__criteria__3.html">Mesh_criteria_3</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:50 for CGAL 4.13 - 3D Mesh Generation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

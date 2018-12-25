@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/TDS_3/classCGAL_1_1Triangulation__data__structure__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Triangulation Data Structure: CGAL::Triangulation_data_structure_3&lt; TriangulationDSVertexBase_3, TriangulationDSCellBase_3, Concurrency_tag &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Triangulation Data Structure
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Triangulation__data__structure__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Triangulation__data__structure__3-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Triangulation_data_structure_3&lt; TriangulationDSVertexBase_3, TriangulationDSCellBase_3, Concurrency_tag &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgTDS3.html">3D Triangulation Data Structure Reference</a> » <a class="el" href="group__PkgTDS3Classes.html">Classes</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Triangulation_data_structure_3.h&gt;</code></p>
+
+<a name="details" id="details"></a><h2 class="groupheader">Inherits from</h2><p><a class="el" href="structCGAL_1_1Triangulation__utils__3.html">CGAL::Triangulation_utils_3</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The class <code><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html" title="The class Triangulation_data_structure_3 stores a 3D-triangulation data structure and provides the op...">Triangulation_data_structure_3</a></code> stores a 3D-triangulation data structure and provides the optional geometric functionalities to be used as a parameter for a 3D-geometric triangulation (see Chapter <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_3.tag:../Triangulation_3/" href="../Triangulation_3/index.html#chapterTriangulation3">3D Triangulations</a>). </p>
+<p>The vertices and cells are stored in two nested containers, which are implemented using <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a></code> (or <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Concurrent__compact__container.html">Concurrent_compact_container</a></code>, see below). The class may offer some flexibility for the choice of container in the future, in the form of additional template parameters.</p>
+<p><b>Parameters</b><br />
+</p>
+<p>It is parameterized by base classes for vertices and cells which have to match the requirements for the concepts <code><a class="el" href="classTriangulationDSCellBase__3.html" title="At the base level (see the Software Design sections of the Chapters Triangulation and Triangulation D...">TriangulationDSCellBase_3</a></code> and <code><a class="el" href="classTriangulationDSVertexBase__3.html" title="At the bottom level of 3D-triangulations (see Sections Software Design and Software Design)...">TriangulationDSVertexBase_3</a></code> respectively.</p>
+<p>They have the default values <code><a class="el" href="classCGAL_1_1Triangulation__ds__vertex__base__3.html" title="The class Triangulation_ds_vertex_base_3 can be used as the base vertex for a 3D-triangulation data s...">Triangulation_ds_vertex_base_3</a>&lt;TDS&gt;</code> and <code><a class="el" href="classCGAL_1_1Triangulation__ds__cell__base__3.html" title="The class Triangulation_ds_cell_base_3&lt;&gt; is a model for the concept TriangulationDSCellBase_3 to be u...">Triangulation_ds_cell_base_3</a>&lt;TDS&gt;</code> respectively.</p>
+<p>The <code>Concurrency_tag</code> parameter allows to enable the use of a concurrent container to store vertices and cells. It can be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Sequential__tag.html">Sequential_tag</a></code> (use of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a></code> to store vertices and cells) or <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Parallel__tag.html">Parallel_tag</a></code> (use of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Concurrent__compact__container.html">Concurrent_compact_container</a></code>). If it is <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Parallel__tag.html">Parallel_tag</a></code>, the following functions can be called concurrently: <code>create_vertex</code>, <code>create_cell</code>, <code>delete_vertex</code>, <code>delete_cell</code>. <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Sequential__tag.html">Sequential_tag</a></code> is the default value.</p>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000001">Is Model Of:</a></b></dt><dd><code><a class="el" href="classTriangulationDataStructure__3.html" title="3D-triangulation data structures are meant to maintain the combinatorial information for 3D-geometric...">TriangulationDataStructure_3</a></code></dd></dl>
+<p>The base class <code><a class="el" href="structCGAL_1_1Triangulation__utils__3.html" title="The class Triangulation_utils_3 defines operations on the indices of vertices and neighbors within a ...">Triangulation_utils_3</a></code> defines basic computations on indices of vertices and neighbors of cells.</p>
+<dl class="section attention"><dt>Attention</dt><dd>All members listed here are additional to the interface specified by the concept.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Triangulation__ds__vertex__base__3.html" title="The class Triangulation_ds_vertex_base_3 can be used as the base vertex for a 3D-triangulation data s...">CGAL::Triangulation_ds_vertex_base_3</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Triangulation__ds__cell__base__3.html" title="The class Triangulation_ds_cell_base_3&lt;&gt; is a model for the concept TriangulationDSCellBase_3 to be u...">CGAL::Triangulation_ds_cell_base_3</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_3.tag:../Triangulation_3/" href="../Triangulation_3/classCGAL_1_1Triangulation__vertex__base__with__info__3.html">CGAL::Triangulation_vertex_base_with_info_3</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_3.tag:../Triangulation_3/" href="../Triangulation_3/classCGAL_1_1Triangulation__cell__base__with__info__3.html">CGAL::Triangulation_cell_base_with_info_3</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="TDS_3_2linking_2d_and_3d_8cpp-example.html#_a1">TDS_3/linking_2d_and_3d.cpp</a>, and <a class="el" href="TDS_3_2tds_8cpp-example.html#_a0">TDS_3/tds.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:aa397226f80cbfbdce5c8e61da46737ae"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a>&lt; Vertex, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Default.html">Default</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#aa397226f80cbfbdce5c8e61da46737ae">Vertex_range</a></td></tr>
+<tr class="memdesc:aa397226f80cbfbdce5c8e61da46737ae"><td class="mdescLeft"> </td><td class="mdescRight">Vertex container type.  <a href="#aa397226f80cbfbdce5c8e61da46737ae">More...</a><br /></td></tr>
+<tr class="separator:aa397226f80cbfbdce5c8e61da46737ae"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad30d453316a88e646fc5ea8509aaa50d"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a>&lt; Cell, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Default.html">Default</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#ad30d453316a88e646fc5ea8509aaa50d">Cell_range</a></td></tr>
+<tr class="memdesc:ad30d453316a88e646fc5ea8509aaa50d"><td class="mdescLeft"> </td><td class="mdescRight">Cell container type.  <a href="#ad30d453316a88e646fc5ea8509aaa50d">More...</a><br /></td></tr>
+<tr class="separator:ad30d453316a88e646fc5ea8509aaa50d"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:a1537ba1ef92561936439c308f0100f47"><td class="memItemLeft" align="right" valign="top"><a id="a1537ba1ef92561936439c308f0100f47"></a>
+<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#ad30d453316a88e646fc5ea8509aaa50d">Cell_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#a1537ba1ef92561936439c308f0100f47">cells</a> () const</td></tr>
+<tr class="memdesc:a1537ba1ef92561936439c308f0100f47"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the container of cells. <br /></td></tr>
+<tr class="separator:a1537ba1ef92561936439c308f0100f47"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abe0f3c5986e46d56a8ec1aa3a3bd45a2"><td class="memItemLeft" align="right" valign="top"><a id="abe0f3c5986e46d56a8ec1aa3a3bd45a2"></a>
+<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#ad30d453316a88e646fc5ea8509aaa50d">Cell_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#abe0f3c5986e46d56a8ec1aa3a3bd45a2">cells</a> ()</td></tr>
+<tr class="memdesc:abe0f3c5986e46d56a8ec1aa3a3bd45a2"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the container of cells. <br /></td></tr>
+<tr class="separator:abe0f3c5986e46d56a8ec1aa3a3bd45a2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad2787a980abbaf3b28a3c4bf10c096fe"><td class="memItemLeft" align="right" valign="top"><a id="ad2787a980abbaf3b28a3c4bf10c096fe"></a>
+<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#aa397226f80cbfbdce5c8e61da46737ae">Vertex_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#ad2787a980abbaf3b28a3c4bf10c096fe">vertices</a> () const</td></tr>
+<tr class="memdesc:ad2787a980abbaf3b28a3c4bf10c096fe"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the container of vertices. <br /></td></tr>
+<tr class="separator:ad2787a980abbaf3b28a3c4bf10c096fe"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3e17ffe7e3d4adc515013a020150caef"><td class="memItemLeft" align="right" valign="top"><a id="a3e17ffe7e3d4adc515013a020150caef"></a>
+<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#aa397226f80cbfbdce5c8e61da46737ae">Vertex_range</a> &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#a3e17ffe7e3d4adc515013a020150caef">vertices</a> ()</td></tr>
+<tr class="memdesc:a3e17ffe7e3d4adc515013a020150caef"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the container of vertices. <br /></td></tr>
+<tr class="separator:a3e17ffe7e3d4adc515013a020150caef"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited" id="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_structCGAL_1_1Triangulation__utils__3')"><img src="closed.png" alt="-" /> Static Public Member Functions inherited from <a class="el" href="structCGAL_1_1Triangulation__utils__3.html">CGAL::Triangulation_utils_3</a></td></tr>
+<tr class="memitem:a54bf42467e28dcbea13bfd022ef49217 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memItemLeft" align="right" valign="top">static unsigned int </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Triangulation__utils__3.html#a54bf42467e28dcbea13bfd022ef49217">next_around_edge</a> (unsigned int i, unsigned int j)</td></tr>
+<tr class="memdesc:a54bf42467e28dcbea13bfd022ef49217 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="mdescLeft"> </td><td class="mdescRight">In dimension 3, index of the neighbor <code>n</code> that is next to the current cell, when turning positively around an oriented edge whose endpoints are indexed <code>i</code> and <code>j</code>.  <a href="structCGAL_1_1Triangulation__utils__3.html#a54bf42467e28dcbea13bfd022ef49217">More...</a><br /></td></tr>
+<tr class="separator:a54bf42467e28dcbea13bfd022ef49217 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a71288c8c2833f954a73090336ed60054 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memItemLeft" align="right" valign="top">static int </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Triangulation__utils__3.html#a71288c8c2833f954a73090336ed60054">vertex_triple_index</a> (const int i, const int j)</td></tr>
+<tr class="memdesc:a71288c8c2833f954a73090336ed60054 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="mdescLeft"> </td><td class="mdescRight">In dimension 3, index of the <code>j</code>'th vertex in counterclockwise order on the face opposite to vertex with <code>i</code> of the cell.  <a href="structCGAL_1_1Triangulation__utils__3.html#a71288c8c2833f954a73090336ed60054">More...</a><br /></td></tr>
+<tr class="separator:a71288c8c2833f954a73090336ed60054 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3e483dd7b1e45dd3bcce3dbc7f94bd70 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memItemLeft" align="right" valign="top">static unsigned int </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Triangulation__utils__3.html#a3e483dd7b1e45dd3bcce3dbc7f94bd70">ccw</a> (unsigned int i)</td></tr>
+<tr class="memdesc:a3e483dd7b1e45dd3bcce3dbc7f94bd70 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="mdescLeft"> </td><td class="mdescRight">Has a meaning only in dimension 2.  <a href="structCGAL_1_1Triangulation__utils__3.html#a3e483dd7b1e45dd3bcce3dbc7f94bd70">More...</a><br /></td></tr>
+<tr class="separator:a3e483dd7b1e45dd3bcce3dbc7f94bd70 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a39b8813b2f15dcb4446ff42b5c100529 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memItemLeft" align="right" valign="top"><a id="a39b8813b2f15dcb4446ff42b5c100529"></a>
+static unsigned int </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Triangulation__utils__3.html#a39b8813b2f15dcb4446ff42b5c100529">cw</a> (unsigned int i)</td></tr>
+<tr class="memdesc:a39b8813b2f15dcb4446ff42b5c100529 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="mdescLeft"> </td><td class="mdescRight">Same for clockwise. <br /></td></tr>
+<tr class="separator:a39b8813b2f15dcb4446ff42b5c100529 inherit pub_static_methods_structCGAL_1_1Triangulation__utils__3"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ad30d453316a88e646fc5ea8509aaa50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30d453316a88e646fc5ea8509aaa50d">◆ </a></span>Cell_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TriangulationDSVertexBase_3 , typename TriangulationDSCellBase_3 , typename Concurrency_tag &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a>&lt;Cell, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Default.html">Default</a>&gt; <a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html">CGAL::Triangulation_data_structure_3</a>&lt; <a class="el" href="classTriangulationDSVertexBase__3.html">TriangulationDSVertexBase_3</a>, <a class="el" href="classTriangulationDSCellBase__3.html">TriangulationDSCellBase_3</a>, Concurrency_tag &gt;::<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#ad30d453316a88e646fc5ea8509aaa50d">Cell_range</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cell container type. </p>
+<p>If Concurrency_tag is <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Parallel__tag.html">Parallel_tag</a>, a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Concurrent__compact__container.html">Concurrent_compact_container</a></code> is used instead of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a></code>. </p>
+
+</div>
+</div>
+<a id="aa397226f80cbfbdce5c8e61da46737ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa397226f80cbfbdce5c8e61da46737ae">◆ </a></span>Vertex_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TriangulationDSVertexBase_3 , typename TriangulationDSCellBase_3 , typename Concurrency_tag &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a>&lt;Vertex, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Default.html">Default</a>&gt; <a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html">CGAL::Triangulation_data_structure_3</a>&lt; <a class="el" href="classTriangulationDSVertexBase__3.html">TriangulationDSVertexBase_3</a>, <a class="el" href="classTriangulationDSCellBase__3.html">TriangulationDSCellBase_3</a>, Concurrency_tag &gt;::<a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html#aa397226f80cbfbdce5c8e61da46737ae">Vertex_range</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vertex container type. </p>
+<p>If Concurrency_tag is <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/structCGAL_1_1Parallel__tag.html">Parallel_tag</a>, a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Concurrent__compact__container.html">Concurrent_compact_container</a></code> is used instead of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Compact__container.html">Compact_container</a></code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Triangulation__data__structure__3.html">Triangulation_data_structure_3</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:10 for CGAL 4.13 - 3D Triangulation Data Structure by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

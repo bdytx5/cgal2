@@ -1,0 +1,1533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1AABB__tree" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::AABB_tree</compoundname>
+    <includes local="no">CGAL/AABB_tree.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1abc411ecfc01a20f0fa05d490926f40e4" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1a1ee53f64a2ab05d4389003d4f36539e4" kindref="member">AABBTraits::FT</ref></type>
+        <definition>typedef AABBTraits::FT CGAL::AABB_tree&lt; AABBTraits &gt;::FT</definition>
+        <argsstring></argsstring>
+        <name>FT</name>
+        <briefdescription>
+<para>Number type returned by the distance queries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="80" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1a4f4e3df6dadeac3164d15f28af48db14" kindref="member">AABBTraits::Point_3</ref></type>
+        <definition>typedef AABBTraits::Point_3 CGAL::AABB_tree&lt; AABBTraits &gt;::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+<para>Type of 3D point. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="84" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1aa27d769aa89e77dd5ab3769c21f64e7e" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1a18812bafada570757269e313ab06ff51" kindref="member">AABBTraits::Primitive</ref></type>
+        <definition>typedef AABBTraits::Primitive CGAL::AABB_tree&lt; AABBTraits &gt;::Primitive</definition>
+        <argsstring></argsstring>
+        <name>Primitive</name>
+        <briefdescription>
+<para>Type of input primitive. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="87" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a3f107d7a22b491cb71c6d7b6c660e19c" prot="public" static="no">
+        <type>Primitive::Id</type>
+        <definition>typedef Primitive::Id CGAL::AABB_tree&lt; AABBTraits &gt;::Primitive_id</definition>
+        <argsstring></argsstring>
+        <name>Primitive_id</name>
+        <briefdescription>
+<para>Identifier for a primitive in the tree. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="89" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a6f03da4364c74c764681c84c3f14dcfe" prot="public" static="no">
+        <type>Primitives::size_type</type>
+        <definition>typedef Primitives::size_type CGAL::AABB_tree&lt; AABBTraits &gt;::size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+<para>Unsigned integral size type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="91" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1ad0e923c3e39a12596648c1b6ba057e17" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1a71832e63c8ab85c356fa6b3fc792ed3e" kindref="member">AABBTraits::Bounding_box</ref></type>
+        <definition>typedef AABBTraits::Bounding_box CGAL::AABB_tree&lt; AABBTraits &gt;::Bounding_box</definition>
+        <argsstring></argsstring>
+        <name>Bounding_box</name>
+        <briefdescription>
+<para>Type of bounding box. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="93" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1a967ceb27204fc7491fe6bd018791b2f7" kindref="member">AABBTraits::Point_and_primitive_id</ref></type>
+        <definition>typedef AABBTraits::Point_and_primitive_id CGAL::AABB_tree&lt; AABBTraits &gt;::Point_and_primitive_id</definition>
+        <argsstring></argsstring>
+        <name>Point_and_primitive_id</name>
+        <briefdescription>
+<para>3D Point and Primitive Id type </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="95" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1afe6da1de3ad3c806512de7b091cd37f7" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1afeb8685b51df66ec98d9bf72e04007bf" kindref="member">AABBTraits::Object_and_primitive_id</ref></type>
+        <definition>typedef AABBTraits::Object_and_primitive_id CGAL::AABB_tree&lt; AABBTraits &gt;::Object_and_primitive_id</definition>
+        <argsstring></argsstring>
+        <name>Object_and_primitive_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000004"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="97" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1adcd65e098e0a79ce66a7df0097ba98aa" prot="public" static="no">
+        <type><ref refid="classAABBTraits_1af5b2ef75e7fca67d9ab37b0d4984000b" kindref="member">AABBTraits::Intersection_and_primitive_id</ref>&lt; Query &gt;</type>
+        <definition>using CGAL::AABB_tree&lt; AABBTraits &gt;::Intersection_and_primitive_id =  AABBTraits::Intersection_and_primitive_id&lt;Query&gt;</definition>
+        <argsstring></argsstring>
+        <name>Intersection_and_primitive_id</name>
+        <briefdescription>
+<para>An alias to <computeroutput><ref refid="classAABBTraits_1af5b2ef75e7fca67d9ab37b0d4984000b" kindref="member">AABBTraits::Intersection_and_primitive_id</ref>&lt;Query&gt;</computeroutput> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="104" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Creation</header>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a9f207cf5480458cb4ecfce46e60c9d06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_tree</definition>
+        <argsstring>(const AABBTraits &amp;traits=AABBTraits())</argsstring>
+        <name>AABB_tree</name>
+        <param>
+          <type>const <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> &amp;</type>
+          <declname>traits</declname>
+          <defval><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Constructs an empty tree, and initializes the internally stored traits class using <computeroutput>traits</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="121" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a27943b5072da1f829432c49683a896b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_tree</definition>
+        <argsstring>(InputIterator first, InputIterator beyond, T &amp;&amp;...)</argsstring>
+        <name>AABB_tree</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+<para>Builds the datastructure from a sequence of primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>first</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over first primitive to insert </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>beyond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>past-the-end iterator</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+It is equivalent to constructing an empty tree and calling <computeroutput>insert(first,last,t...)</computeroutput>. For compilers that do not support variadic templates, overloads up to 5 template arguments are provided. The tree stays empty if the memory allocation is not successful. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="135" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1acbfcbd966f10330a6bcb2b7684848f4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; Tr &gt;::build</definition>
+        <argsstring>()</argsstring>
+        <name>build</name>
+        <briefdescription>
+<para>After one or more calls to <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a5de00f7e7563d40132ec0676b5caf979" kindref="member">insert()</ref></computeroutput> the internal data structure of the tree must be reconstructed. </para>        </briefdescription>
+        <detaileddescription>
+<para>This procedure has a complexity of <formula id="3">$O(n log(n))$</formula>, where <formula id="4">$n$</formula> is the number of primitives of the tree. This procedure is called implicitly at the first call to a query member function. You can call <computeroutput><ref refid="classCGAL_1_1AABB__tree_1acbfcbd966f10330a6bcb2b7684848f4b" kindref="member">build()</ref></computeroutput> explicitly to ensure that the next call to query functions will not trigger the reconstruction of the data structure. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="159" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1047" bodyend="1075"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operations</header>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1af09ea7b0be4ad9b1135bc0052025dcc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPrimitiveIterator</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::rebuild</definition>
+        <argsstring>(ConstPrimitiveIterator first, ConstPrimitiveIterator beyond, T &amp;&amp;...)</argsstring>
+        <name>rebuild</name>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+<para>Equivalent to calling <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a5d804c64b784edc629a0db86154336d3" kindref="member">clear()</ref></computeroutput> and then <computeroutput>insert(first,last,t...)</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>For compilers that do not support variadic templates, overloads up to 5 template arguments are provided. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a5de00f7e7563d40132ec0676b5caf979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::insert</definition>
+        <argsstring>(InputIterator first, InputIterator beyond, T &amp;&amp;...)</argsstring>
+        <name>insert</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+<para>Add a sequence of primitives to the set of primitives of the AABB tree. </para>        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>InputIterator</computeroutput> is any iterator and the parameter pack <computeroutput>T</computeroutput> are any types such that <computeroutput>Primitive</computeroutput> has a constructor with the following signature: <computeroutput>Primitive(InputIterator, T...)</computeroutput>. If <computeroutput>Primitive</computeroutput> is a model of the concept <computeroutput><ref refid="classAABBPrimitiveWithSharedData" kindref="compound">AABBPrimitiveWithSharedData</ref></computeroutput>, a call to <computeroutput><ref refid="classAABBTraits_1a6dba5130cc78298fb7039f479f657fe4" kindref="member">AABBTraits::set_shared_data</ref>(t...)</computeroutput> is made using the internally stored traits. For compilers that do not support variadic templates, overloads up to 5 template arguments are provided. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="197" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a7fd6771ded7d4699733c9e921506c603" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; Tr &gt;::insert</definition>
+        <argsstring>(const Primitive &amp;p)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aa27d769aa89e77dd5ab3769c21f64e7e" kindref="member">Primitive</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Adds a primitive to the set of primitives of the tree. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="214" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1039" bodyend="1043"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1ad1889027637e1a5f0b19c91508eddfa3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::~AABB_tree</definition>
+        <argsstring>()</argsstring>
+        <name>~AABB_tree</name>
+        <briefdescription>
+<para>Clears and destroys the tree. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="217" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="217" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1ad80b5ddbe7f65a5ec6b39385224e4fff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> &amp;</type>
+        <definition>const AABBTraits&amp; CGAL::AABB_tree&lt; AABBTraits &gt;::traits</definition>
+        <argsstring>() const</argsstring>
+        <name>traits</name>
+        <briefdescription>
+<para>Returns a const reference to the internally stored traits class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="222" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="222" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a5d804c64b784edc629a0db86154336d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears the tree. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="227" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="227" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a50e221f6910aacdef2ecba85f8f459b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1AABB__tree_1ad0e923c3e39a12596648c1b6ba057e17" kindref="member">Bounding_box</ref></type>
+        <definition>const Bounding_box CGAL::AABB_tree&lt; AABBTraits &gt;::bbox</definition>
+        <argsstring>() const</argsstring>
+        <name>bbox</name>
+        <briefdescription>
+<para>Returns the axis-aligned bounding box of the whole tree. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="238" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="238" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a55f67db717c1e202806cb77be1b13795" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1a6f03da4364c74c764681c84c3f14dcfe" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::AABB_tree&lt; AABBTraits &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns the number of primitives in the tree. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="248" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="248" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a45053dc4244f0f55390dbad088f1c707" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; AABBTraits &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput>, iff the tree contains no primitive. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="251" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="251" bodyend="251"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Intersection Tests</header>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a36b4cfa21c223461bde0da2b020a67d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; Tr &gt;::do_intersect</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>do_intersect</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput>, iff the query intersects at least one of the input primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a type for which <computeroutput>do_intersect</computeroutput> predicates are defined in the traits class <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="338" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1151" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a872a72b57bbbb1d322fc8ef696e19057" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1AABB__tree_1a6f03da4364c74c764681c84c3f14dcfe" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::AABB_tree&lt; AABBTraits &gt;::number_of_intersected_primitives</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>number_of_intersected_primitives</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of primitives intersected by the query. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a type for which <computeroutput>do_intersect</computeroutput> predicates are defined in the traits class <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="345" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a9f40594599eded5f9a79f74186710697" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::AABB_tree&lt; Tr &gt;::all_intersected_primitives</definition>
+        <argsstring>(const Query &amp;query, OutputIterator out) const</argsstring>
+        <name>all_intersected_primitives</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Outputs to the iterator the list of all intersected primitives ids. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function does not compute the intersection points and is hence faster than the function <computeroutput><ref refid="classCGAL_1_1AABB__tree_1adf42c2edae69f92db5646d2c81d3bbff" kindref="member">all_intersections()</ref></computeroutput> function below. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a type for which <computeroutput>do_intersect</computeroutput> predicates are defined in the traits class <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="354" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1182" bodyend="1191"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a5e04790a20fe9868c68e51b95c06de31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; <ref refid="classCGAL_1_1AABB__tree_1a3f107d7a22b491cb71c6d7b6c660e19c" kindref="member">Primitive_id</ref> &gt;</type>
+        <definition>boost::optional&lt;Primitive_id&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::any_intersected_primitive</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>any_intersected_primitive</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns the intersected primitive id that is encountered first. </para>        </briefdescription>
+        <detaileddescription>
+<para>in the tree traversal, iff the query intersects at least one of the input primitives. No particular order is guaranteed over the tree traversal, such that, e.g, the primitive returned is not necessarily the closest from the source point of a ray query. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a type for which <computeroutput>do_intersect</computeroutput> predicates are defined in the traits class <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="367" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Intersections</header>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1adf42c2edae69f92db5646d2c81d3bbff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::AABB_tree&lt; Tr &gt;::all_intersections</definition>
+        <argsstring>(const Query &amp;query, OutputIterator out) const</argsstring>
+        <name>all_intersections</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Outputs the list of all intersections, as objects of <computeroutput>Intersection_and_primitive_id&lt;Query&gt;::Type</computeroutput>, between the query and the input data to the iterator. </para>        </briefdescription>
+        <detaileddescription>
+<para><computeroutput><ref refid="classCGAL_1_1AABB__tree_1a36b4cfa21c223461bde0da2b020a67d1" kindref="member">do_intersect()</ref></computeroutput> predicates and intersections must be defined for <computeroutput>Query</computeroutput> in the <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> class. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="380" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1196" bodyend="1205"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1aabc82809b9ccc4ea39bab7ab3ae5ab00" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; typename <ref refid="classCGAL_1_1AABB__tree_1adcd65e098e0a79ce66a7df0097ba98aa" kindref="member">Intersection_and_primitive_id</ref>&lt; Query &gt;::Type &gt;</type>
+        <definition>boost::optional&lt; typename Intersection_and_primitive_id&lt;Query&gt;::Type &gt; CGAL::AABB_tree&lt; AABBTraits &gt;::any_intersection</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>any_intersection</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns the intersection that is encountered first. </para>        </briefdescription>
+        <detaileddescription>
+<para>in the tree traversal. No particular order is guaranteed over the tree traversal, e.g, the primitive returned is not necessarily the closest from the source point of a ray query. Type <computeroutput>Query</computeroutput> must be a type for which <computeroutput>do_intersect</computeroutput> predicates and intersections are defined in the traits class <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="396" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a8395a234825644b42619aee0829a3a13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ray</type>
+          </param>
+          <param>
+            <type>typename SkipFunctor</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; typename <ref refid="classCGAL_1_1AABB__tree_1adcd65e098e0a79ce66a7df0097ba98aa" kindref="member">Intersection_and_primitive_id</ref>&lt; Ray &gt;::Type &gt;</type>
+        <definition>boost::optional&lt; typename Intersection_and_primitive_id&lt;Ray&gt;::Type &gt; CGAL::AABB_tree&lt; AABBTraits &gt;::first_intersection</definition>
+        <argsstring>(const Ray &amp;query, const SkipFunctor &amp;skip) const</argsstring>
+        <name>first_intersection</name>
+        <param>
+          <type>const Ray &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const SkipFunctor &amp;</type>
+          <declname>skip</declname>
+        </param>
+        <briefdescription>
+<para>Returns the intersection and primitive id closest to the source point of the ray query. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Ray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be the same as <computeroutput>AABBTraits::Ray_3</computeroutput> and <computeroutput>do_intersect</computeroutput> predicates and intersections for it must be defined. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Skip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a functor with an operator <computeroutput>bool operator()(const Primitive_id&amp; id) const</computeroutput> that returns <computeroutput>true</computeroutput> in order to skip the primitive. Defaults to a functor that always returns <computeroutput>false</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> must be a model of <computeroutput><ref refid="classAABBRayIntersectionTraits" kindref="compound">AABBRayIntersectionTraits</ref></computeroutput> to call this member function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="414" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1aff81f3526e1e8072a152f115339c1a7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ray</type>
+          </param>
+          <param>
+            <type>typename SkipFunctor</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; <ref refid="classCGAL_1_1AABB__tree_1a3f107d7a22b491cb71c6d7b6c660e19c" kindref="member">Primitive_id</ref> &gt;</type>
+        <definition>boost::optional&lt;Primitive_id&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::first_intersected_primitive</definition>
+        <argsstring>(const Ray &amp;query, const SkipFunctor &amp;skip) const</argsstring>
+        <name>first_intersected_primitive</name>
+        <param>
+          <type>const Ray &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const SkipFunctor &amp;</type>
+          <declname>skip</declname>
+        </param>
+        <briefdescription>
+<para>Returns the primitive id closest to the source point of the ray query. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Ray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be the same as <computeroutput>AABBTraits::Ray_3</computeroutput> and <computeroutput>do_intersect</computeroutput> predicates and intersections for it must be defined. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Skip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a functor with an operator <computeroutput>bool operator()(const Primitive_id&amp; id) const</computeroutput> that returns <computeroutput>true</computeroutput> in order to skip the primitive. Defaults to a functor that always returns <computeroutput>false</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> must be a model of <computeroutput><ref refid="classAABBRayIntersectionTraits" kindref="compound">AABBRayIntersectionTraits</ref></computeroutput> to call this member function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="439" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Distance Queries</header>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a24efb545081b6796d8843861a4bf49e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1abc411ecfc01a20f0fa05d490926f40e4" kindref="member">FT</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::FT CGAL::AABB_tree&lt; Tr &gt;::squared_distance</definition>
+        <argsstring>(const Point &amp;query) const</argsstring>
+        <name>squared_distance</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns the minimum squared distance between the query point and all input primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para>Method <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" kindref="member">accelerate_distance_queries()</ref></computeroutput> should be called before the first distance query, so that an internal secondary search structure is build, for improving performance. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="460" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1276" bodyend="1281"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1abe3e1ab4a89de2623b6930324343b2fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::Point CGAL::AABB_tree&lt; Tr &gt;::closest_point</definition>
+        <argsstring>(const Point &amp;query) const</argsstring>
+        <name>closest_point</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns the point in the union of all input primitives which is closest to the query. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case there are several closest points, one arbitrarily chosen closest point is returned. Method <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" kindref="member">accelerate_distance_queries()</ref></computeroutput> should be called before the first distance query, so that an internal secondary search structure is build, for improving performance. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="470" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1255" bodyend="1260"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a1b3ac9521fd7257f760deafff3743437" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" kindref="member">Point_and_primitive_id</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::Point_and_primitive_id CGAL::AABB_tree&lt; Tr &gt;::closest_point_and_primitive</definition>
+        <argsstring>(const Point &amp;query) const</argsstring>
+        <name>closest_point_and_primitive</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+<para>Returns a <computeroutput>Point_and_primitive_id</computeroutput> which realizes the smallest distance between the query point and all input primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para>Method <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" kindref="member">accelerate_distance_queries()</ref></computeroutput> should be called before the first distance query, so that an internal secondary search structure is build, for improving performance. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="480" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1286" bodyend="1290"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Accelerating the Distance Queries</header>
+      <description><para>In the following paragraphs, we discuss details of the implementation of the distance queries.</para><para>We explain the internal use of hints, how the user can pass his own hints to the tree, and how the user can influence the construction of the secondary data structure used for accelerating distance queries. Internally, the distance queries algorithms are initialized with some hint, which has the same type as the return type of the query, and this value is refined along a traversal of the tree, until it is optimal, that is to say until it realizes the shortest distance to the primitives. In particular, the exact specification of these internal algorithms is that they minimize the distance to the object composed of the union of the primitives and the hint. It follows that<itemizedlist>
+<listitem><para>in order to return the exact distance to the set of primitives, the algorithms need the hint to be exactly on the primitives;</para></listitem><listitem><para>if this is not the case, and if the hint happens to be closer to the query point than any of the primitives, then the hint is returned.</para></listitem></itemizedlist>
+</para><para>This second observation is reasonable, in the sense that providing a hint to the algorithm means claiming that this hint belongs to the union of the primitives. These considerations about the hints being exactly on the primitives or not are important: in the case where the set of primitives is a triangle soup, and if some of the primitives are large, one may want to provide a much better hint than a vertex of the triangle soup could be. It could be, for example, the barycenter of one of the triangles. But, except with the use of an exact constructions kernel, one cannot easily construct points other than the vertices, that lie exactly on a triangle soup. Hence, providing a good hint sometimes means not being able to provide it exactly on the primitives. In rare occasions, this hint can be returned as the closest point. In order to accelerate distance queries significantly, the AABB tree builds an internal KD-tree containing a set of potential hints, when the method <computeroutput><ref refid="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" kindref="member">accelerate_distance_queries()</ref></computeroutput> is called. This KD-tree provides very good hints that allow the algorithms to run much faster than with a default hint (such as the <computeroutput>reference_point</computeroutput> of the first primitive). The set of potential hints is a sampling of the union of the primitives, which is obtained, by default, by calling the method <computeroutput>reference_point</computeroutput> of each of the primitives. However, such a sampling with one point per primitive may not be the most relevant one: if some primitives are very large, it helps inserting more than one sample on them. Conversely, a sparser sampling with less than one point per input primitive is relevant in some cases. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; Tr &gt;::accelerate_distance_queries</definition>
+        <argsstring>() const</argsstring>
+        <name>accelerate_distance_queries</name>
+        <briefdescription>
+<para>Constructs internal search tree from a point set taken on the internal primitives returns <computeroutput>true</computeroutput> iff successful memory allocation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="543" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1120" bodyend="1146"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a4692da7230e9567b28cc645fe4afd336" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPointIterator</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; AABBTraits &gt;::accelerate_distance_queries</definition>
+        <argsstring>(ConstPointIterator first, ConstPointIterator beyond) const</argsstring>
+        <name>accelerate_distance_queries</name>
+        <param>
+          <type>ConstPointIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPointIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an internal KD-tree containing the specified point set, to be used as the set of potential hints for accelerating the distance queries. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConstPointIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is an iterator with value type <computeroutput>Point_and_primitive_id</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="551" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="551" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a3c2a4681e3440beb909b2596b0988bad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1abc411ecfc01a20f0fa05d490926f40e4" kindref="member">FT</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::FT CGAL::AABB_tree&lt; Tr &gt;::squared_distance</definition>
+        <argsstring>(const Point &amp;query, const Point &amp;hint) const</argsstring>
+        <name>squared_distance</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>hint</declname>
+        </param>
+        <briefdescription>
+<para>Returns the minimum squared distance between the query point and all input primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para>The internal KD-tree is not used. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="565" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1265" bodyend="1271"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a5aeffff0695b818998279aae800915b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::Point CGAL::AABB_tree&lt; Tr &gt;::closest_point</definition>
+        <argsstring>(const Point &amp;query, const Point &amp;hint) const</argsstring>
+        <name>closest_point</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>hint</declname>
+        </param>
+        <briefdescription>
+<para>Returns the point in the union of all input primitives which is closest to the query. </para>        </briefdescription>
+        <detaileddescription>
+<para>In case there are several closest points, one arbitrarily chosen closest point is returned. The internal KD-tree is not used. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="572" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1239" bodyend="1249"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a3a42a8e1d5594e7a708fdfe833474205" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" kindref="member">Point_and_primitive_id</ref></type>
+        <definition>AABB_tree&lt; Tr &gt;::Point_and_primitive_id CGAL::AABB_tree&lt; Tr &gt;::closest_point_and_primitive</definition>
+        <argsstring>(const Point &amp;query, const Point_and_primitive_id &amp;hint) const</argsstring>
+        <name>closest_point_and_primitive</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" kindref="member">Point_and_primitive_id</ref> &amp;</type>
+          <declname>hint</declname>
+        </param>
+        <briefdescription>
+<para>Returns a <computeroutput>Point_and_primitive_id</computeroutput> which realizes the smallest distance between the query point and all input primitives. </para>        </briefdescription>
+        <detaileddescription>
+<para>The internal KD-tree is not used. <simplesect kind="pre"><para><computeroutput>!empty()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="578" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1295" bodyend="1304"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a7eea75838412671751712cf187829a81" prot="private" static="no">
+        <type>AABB_search_tree&lt; <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> &gt;</type>
+        <definition>typedef AABB_search_tree&lt;AABBTraits&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::Search_tree</definition>
+        <argsstring></argsstring>
+        <name>Search_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="68" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1ac3d434f4239730d50c69579c59288e19" prot="private" static="no">
+        <type>std::vector&lt; typename <ref refid="classAABBTraits_1a18812bafada570757269e313ab06ff51" kindref="member">AABBTraits::Primitive</ref> &gt;</type>
+        <definition>typedef std::vector&lt;typename AABBTraits::Primitive&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::Primitives</definition>
+        <argsstring></argsstring>
+        <name>Primitives</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="71" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a5823cc91045b9ad9ded6e3c7dc9548d8" prot="private" static="no">
+        <type>AABB_node&lt; <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> &gt;</type>
+        <definition>typedef AABB_node&lt;AABBTraits&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::Node</definition>
+        <argsstring></argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="626" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="626" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a25550de404f3797e002a751209c3994e" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref>&lt; <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> &gt;</type>
+        <definition>typedef AABB_tree&lt;AABBTraits&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::Self</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="688" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="688" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__tree_1a93281fde72277762d4680fc0446b8db3" prot="public" static="no">
+        <type><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></type>
+        <definition>typedef AABBTraits CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_traits</definition>
+        <argsstring></argsstring>
+        <name>AABB_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="74" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classCGAL_1_1AABB__tree_1a6453ce4c2caffbaee954297b09a5e7f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename AABBTree</type>
+          </param>
+          <param>
+            <type>typename SkipFunctor</type>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class AABB_ray_intersection</definition>
+        <argsstring></argsstring>
+        <name>AABB_ray_intersection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="584" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="584" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a8a74e5f310141f79c9823d14d8068482" prot="private" static="no" mutable="no">
+        <type><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></type>
+        <definition>AABBTraits CGAL::AABB_tree&lt; AABBTraits &gt;::m_traits</definition>
+        <argsstring></argsstring>
+        <name>m_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="652" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="652" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a2ac6b64942fc85164563562e3744841b" prot="private" static="no" mutable="no">
+        <type>Primitives</type>
+        <definition>Primitives CGAL::AABB_tree&lt; AABBTraits &gt;::m_primitives</definition>
+        <argsstring></argsstring>
+        <name>m_primitives</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="654" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="654" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a4841b87aaf8b2604842ee6a00a270de8" prot="private" static="no" mutable="no">
+        <type>Node *</type>
+        <definition>Node* CGAL::AABB_tree&lt; AABBTraits &gt;::m_p_root_node</definition>
+        <argsstring></argsstring>
+        <name>m_p_root_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="656" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a3e81e0f644f368b28a294a0be674f02d" prot="private" static="no" mutable="yes">
+        <type>const Search_tree *</type>
+        <definition>const Search_tree* CGAL::AABB_tree&lt; AABBTraits &gt;::m_p_search_tree</definition>
+        <argsstring></argsstring>
+        <name>m_p_search_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="681" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="681" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1aa9447a0fa68f05029b510531a3445427" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; AABBTraits &gt;::m_search_tree_constructed</definition>
+        <argsstring></argsstring>
+        <name>m_search_tree_constructed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="682" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="682" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a38d929078037d10b2cb19f8f94e7935b" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; AABBTraits &gt;::m_default_search_tree_constructed</definition>
+        <argsstring></argsstring>
+        <name>m_default_search_tree_constructed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="683" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="683" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1AABB__tree_1a0d42a0c9f85bc50f19c2a65d3cc5849f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; AABBTraits &gt;::m_need_build</definition>
+        <argsstring></argsstring>
+        <name>m_need_build</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="684" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="684" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a52bfecc56b60f7291ed59de3fcd040a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Query</type>
+          </param>
+          <param>
+            <type>class Traversal_traits</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::traversal</definition>
+        <argsstring>(const Query &amp;query, Traversal_traits &amp;traits) const</argsstring>
+        <name>traversal</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>Traversal_traits &amp;</type>
+          <declname>traits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="611" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="611" bodyend="623"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a25c6ef344c71a1ae88f0bd2ac8b0bbf9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" kindref="member">Point_and_primitive_id</ref></type>
+        <definition>Point_and_primitive_id CGAL::AABB_tree&lt; AABBTraits &gt;::any_reference_point_and_id</definition>
+        <argsstring>() const</argsstring>
+        <name>any_reference_point_and_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="631" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="631" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a89ef3bacd3ef39f6407f22c817a241ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" kindref="member">Point_and_primitive_id</ref></type>
+        <definition>Point_and_primitive_id CGAL::AABB_tree&lt; AABBTraits &gt;::best_hint</definition>
+        <argsstring>(const Point &amp;query) const</argsstring>
+        <name>best_hint</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" kindref="member">Point</ref> &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="640" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="640" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a56ac99a21accb1cfae33a3b5dd78e4b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Tr</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_tree</definition>
+        <argsstring>(const Tr &amp;traits)</argsstring>
+        <name>AABB_tree</name>
+        <param>
+          <type>const Tr &amp;</type>
+          <declname>traits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="697" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="697" bodyend="705"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a1183335a976492cba89b5623c37263b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPrimitiveIterator</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_tree</definition>
+        <argsstring>(ConstPrimitiveIterator first, ConstPrimitiveIterator beyond, T &amp;&amp;... t)</argsstring>
+        <name>AABB_tree</name>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;...</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="710" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="710" bodyend="723"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1aeae5b64de0abace169f4cbd47ffb2703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPrimitiveIterator</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::insert</definition>
+        <argsstring>(ConstPrimitiveIterator first, ConstPrimitiveIterator beyond, T &amp;&amp;... t)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;...</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="727" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="727" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a98362064dc1dc718f45d7925aeda3919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPrimitiveIterator</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::rebuild</definition>
+        <argsstring>(ConstPrimitiveIterator first, ConstPrimitiveIterator beyond, T &amp;&amp;... t)</argsstring>
+        <name>rebuild</name>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPrimitiveIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;...</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="743" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="743" bodyend="754"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1ad7c3a2c7c1873d9488496634289357cd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; typename <ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref>&lt; Tr &gt;::<ref refid="classCGAL_1_1AABB__tree_1afe6da1de3ad3c806512de7b091cd37f7" kindref="member">Object_and_primitive_id</ref> &gt;</type>
+        <definition>boost::optional&lt;typename AABB_tree&lt;Tr&gt;::Object_and_primitive_id&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::any_intersection</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>any_intersection</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="1215" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1215" bodyend="1222"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1af151174edf5fdf8d3250e019f4cd2af1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Query</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; typename <ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref>&lt; Tr &gt;::<ref refid="classCGAL_1_1AABB__tree_1a3f107d7a22b491cb71c6d7b6c660e19c" kindref="member">Primitive_id</ref> &gt;</type>
+        <definition>boost::optional&lt;typename AABB_tree&lt;Tr&gt;::Primitive_id&gt; CGAL::AABB_tree&lt; AABBTraits &gt;::any_intersected_primitive</definition>
+        <argsstring>(const Query &amp;query) const</argsstring>
+        <name>any_intersected_primitive</name>
+        <param>
+          <type>const Query &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="1227" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1227" bodyend="1234"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a926064875766a68bffced08fec1c449b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::set_primitive_data_impl</definition>
+        <argsstring>(CGAL::Boolean_tag&lt; false &gt;, T ...)</argsstring>
+        <name>set_primitive_data_impl</name>
+        <param>
+          <type><ref refid="structCGAL_1_1Boolean__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Boolean_tag</ref>&lt; false &gt;</type>
+        </param>
+        <param>
+          <type>T ...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="257" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1af9f94db52539f980afa725b1635b8274" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::set_primitive_data_impl</definition>
+        <argsstring>(CGAL::Boolean_tag&lt; true &gt;, T &amp;&amp;... t)</argsstring>
+        <name>set_primitive_data_impl</name>
+        <param>
+          <type><ref refid="structCGAL_1_1Boolean__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Boolean_tag</ref>&lt; true &gt;</type>
+        </param>
+        <param>
+          <type>T &amp;&amp;...</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="259" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="259" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1ab37b6bd7a28aafd759d6314c4b54098a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::set_shared_data</definition>
+        <argsstring>(T &amp;&amp;...t)</argsstring>
+        <name>set_shared_data</name>
+        <param>
+          <type>T &amp;&amp;...</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="263" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="263" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a4c9002b4f6d135c75f0f453a0859433b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; Tr &gt;::build_kd_tree</definition>
+        <argsstring>() const</argsstring>
+        <name>build_kd_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="325" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1079" bodyend="1095"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1af0eb04ab02ecc4165284ba0c7819fdf2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ConstPointIterator</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::AABB_tree&lt; Tr &gt;::build_kd_tree</definition>
+        <argsstring>(ConstPointIterator first, ConstPointIterator beyond) const</argsstring>
+        <name>build_kd_tree</name>
+        <param>
+          <type>ConstPointIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>ConstPointIterator</type>
+          <declname>beyond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="327" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="1101" bodyend="1116"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1aa104f2b6a6b5531dd8ab58f62cad6f48" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::clear_nodes</definition>
+        <argsstring>()</argsstring>
+        <name>clear_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="587" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="587" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a6cec667a06054903fee08117581d3fa0" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::AABB_tree&lt; AABBTraits &gt;::clear_search_tree</definition>
+        <argsstring>() const</argsstring>
+        <name>clear_search_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="596" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="596" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a6020257bf9479952befc4afc1de6f61e" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Node *</type>
+        <definition>const Node* CGAL::AABB_tree&lt; AABBTraits &gt;::root_node</definition>
+        <argsstring>() const</argsstring>
+        <name>root_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="662" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="662" bodyend="673"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1aedc796158b3946e6211156692f7c874a" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1AABB__tree_1aa27d769aa89e77dd5ab3769c21f64e7e" kindref="member">Primitive</ref> &amp;</type>
+        <definition>const Primitive&amp; CGAL::AABB_tree&lt; AABBTraits &gt;::singleton_data</definition>
+        <argsstring>() const</argsstring>
+        <name>singleton_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="675" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="675" bodyend="678"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1a71a34b72eb0b8186be13ace6d1714710" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::AABB_tree&lt; AABBTraits &gt;::AABB_tree</definition>
+        <argsstring>(const Self &amp;src)</argsstring>
+        <name>AABB_tree</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree" kindref="compound">Self</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="689" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__tree_1abe4e5f29c135e7d25481c053f9e8267b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__tree" kindref="compound">Self</ref> &amp;</type>
+        <definition>Self&amp; CGAL::AABB_tree&lt; AABBTraits &gt;::operator=</definition>
+        <argsstring>(const Self &amp;src)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__tree" kindref="compound">Self</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_tree.h" line="690" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class <ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref> is a static data structure for efficient intersection and distance computations in 3D. </para>    </briefdescription>
+    <detaileddescription>
+<para>It builds a hierarchy of axis-aligned bounding boxes (an AABB tree) from a set of 3D geometric objects, and can receive intersection and distance queries, provided that the corresponding predicates are implemented in the traits class <ref refid="classAABBTraits" kindref="compound">AABBTraits</ref>. An instance of the class <computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> is internally stored.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref></computeroutput> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="CGAL/AABB_tree.h" line="65" column="1" bodyfile="CGAL/AABB_tree.h" bodystart="64" bodyend="692"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1AABB__tree_1a6453ce4c2caffbaee954297b09a5e7f5" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_ray_intersection</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a93281fde72277762d4680fc0446b8db3" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_traits</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a9f207cf5480458cb4ecfce46e60c9d06" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a27943b5072da1f829432c49683a896b4" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a71a34b72eb0b8186be13ace6d1714710" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a56ac99a21accb1cfae33a3b5dd78e4b5" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a1183335a976492cba89b5623c37263b8" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>AABB_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a7429c03030187c17ecca7f74aee28f44" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>accelerate_distance_queries</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a4692da7230e9567b28cc645fe4afd336" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>accelerate_distance_queries</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a9f40594599eded5f9a79f74186710697" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>all_intersected_primitives</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1adf42c2edae69f92db5646d2c81d3bbff" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>all_intersections</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a5e04790a20fe9868c68e51b95c06de31" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>any_intersected_primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1af151174edf5fdf8d3250e019f4cd2af1" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>any_intersected_primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aabc82809b9ccc4ea39bab7ab3ae5ab00" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>any_intersection</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ad7c3a2c7c1873d9488496634289357cd" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>any_intersection</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a25c6ef344c71a1ae88f0bd2ac8b0bbf9" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>any_reference_point_and_id</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a50e221f6910aacdef2ecba85f8f459b4" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>bbox</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a89ef3bacd3ef39f6407f22c817a241ff" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>best_hint</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ad0e923c3e39a12596648c1b6ba057e17" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Bounding_box</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1acbfcbd966f10330a6bcb2b7684848f4b" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>build</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a4c9002b4f6d135c75f0f453a0859433b" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>build_kd_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1af0eb04ab02ecc4165284ba0c7819fdf2" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>build_kd_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a5d804c64b784edc629a0db86154336d3" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>clear</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aa104f2b6a6b5531dd8ab58f62cad6f48" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>clear_nodes</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a6cec667a06054903fee08117581d3fa0" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>clear_search_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1abe3e1ab4a89de2623b6930324343b2fa" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>closest_point</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a5aeffff0695b818998279aae800915b5" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>closest_point</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a1b3ac9521fd7257f760deafff3743437" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>closest_point_and_primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a3a42a8e1d5594e7a708fdfe833474205" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>closest_point_and_primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a36b4cfa21c223461bde0da2b020a67d1" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>do_intersect</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a45053dc4244f0f55390dbad088f1c707" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>empty</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aff81f3526e1e8072a152f115339c1a7f" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>first_intersected_primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a8395a234825644b42619aee0829a3a13" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>first_intersection</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1abc411ecfc01a20f0fa05d490926f40e4" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>FT</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a5de00f7e7563d40132ec0676b5caf979" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>insert</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a7fd6771ded7d4699733c9e921506c603" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>insert</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aeae5b64de0abace169f4cbd47ffb2703" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>insert</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1adcd65e098e0a79ce66a7df0097ba98aa" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Intersection_and_primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a38d929078037d10b2cb19f8f94e7935b" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_default_search_tree_constructed</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a0d42a0c9f85bc50f19c2a65d3cc5849f" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_need_build</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a4841b87aaf8b2604842ee6a00a270de8" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_p_root_node</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a3e81e0f644f368b28a294a0be674f02d" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_p_search_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a2ac6b64942fc85164563562e3744841b" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_primitives</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aa9447a0fa68f05029b510531a3445427" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_search_tree_constructed</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a8a74e5f310141f79c9823d14d8068482" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>m_traits</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a5823cc91045b9ad9ded6e3c7dc9548d8" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Node</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a872a72b57bbbb1d322fc8ef696e19057" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>number_of_intersected_primitives</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1afe6da1de3ad3c806512de7b091cd37f7" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Object_and_primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1abe4e5f29c135e7d25481c053f9e8267b" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>operator=</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aea376d9607a3b0f9221d97d64e018d98" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Point</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a74ce5787605d37cd218701ea98968e82" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Point_and_primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aa27d769aa89e77dd5ab3769c21f64e7e" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Primitive</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a3f107d7a22b491cb71c6d7b6c660e19c" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ac3d434f4239730d50c69579c59288e19" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Primitives</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1af09ea7b0be4ad9b1135bc0052025dcc3" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>rebuild</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a98362064dc1dc718f45d7925aeda3919" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>rebuild</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a6020257bf9479952befc4afc1de6f61e" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>root_node</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a7eea75838412671751712cf187829a81" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Search_tree</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a25550de404f3797e002a751209c3994e" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>Self</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a926064875766a68bffced08fec1c449b" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>set_primitive_data_impl</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1af9f94db52539f980afa725b1635b8274" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>set_primitive_data_impl</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ab37b6bd7a28aafd759d6314c4b54098a" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>set_shared_data</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1aedc796158b3946e6211156692f7c874a" prot="private" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>singleton_data</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a55f67db717c1e202806cb77be1b13795" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>size</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a6f03da4364c74c764681c84c3f14dcfe" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>size_type</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a24efb545081b6796d8843861a4bf49e6" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>squared_distance</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a3c2a4681e3440beb909b2596b0988bad" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>squared_distance</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ad80b5ddbe7f65a5ec6b39385224e4fff" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>traits</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1a52bfecc56b60f7291ed59de3fcd040a8" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>traversal</name></member>
+      <member refid="classCGAL_1_1AABB__tree_1ad1889027637e1a5f0b19c91508eddfa3" prot="public" virt="non-virtual"><scope>CGAL::AABB_tree</scope><name>~AABB_tree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

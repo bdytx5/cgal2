@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Arr__conic__traits__2" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Arr_conic_traits_2</compoundname>
+    <includes local="no">CGAL/Arr_conic_traits_2.h</includes>
+    <innerclass refid="classCGAL_1_1Arr__conic__traits__2_1_1Curve__2" prot="public">CGAL::Arr_conic_traits_2::Curve_2</innerclass>
+    <innerclass refid="classCGAL_1_1Arr__conic__traits__2_1_1X__monotone__curve__2" prot="public">CGAL::Arr_conic_traits_2::X_monotone_curve_2</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename RatKernel</type>
+      </param>
+      <param>
+        <type>typename AlgKernel</type>
+      </param>
+      <param>
+        <type>typename NtTraits</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Arr__conic__traits__2_1a780cff469d9fa49c6179ae9ae6eefd9e" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Arr_conic_traits_2&lt; RatKernel, AlgKernel, NtTraits &gt;::Rational</definition>
+        <argsstring></argsstring>
+        <name>Rational</name>
+        <briefdescription>
+<para>the <computeroutput>NtTraits::Rational</computeroutput> type (and also the <computeroutput>RatKernel::FT</computeroutput> type). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Arr_conic_traits_2.h" line="95" column="1" bodyfile="CGAL/Arr_conic_traits_2.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Arr__conic__traits__2_1a7ff75e207556a864e7d7bf2b97861aa8" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Arr_conic_traits_2&lt; RatKernel, AlgKernel, NtTraits &gt;::Algebraic</definition>
+        <argsstring></argsstring>
+        <name>Algebraic</name>
+        <briefdescription>
+<para>the <computeroutput>NtTraits::Algebraic</computeroutput> type (and also the <computeroutput>AlgKernel::FT</computeroutput> type). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Arr_conic_traits_2.h" line="101" column="1" bodyfile="CGAL/Arr_conic_traits_2.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The class <computeroutput><ref refid="classCGAL_1_1Arr__conic__traits__2" kindref="compound">Arr_conic_traits_2</ref></computeroutput> is a model of the <computeroutput><ref refid="classArrangementTraits__2" kindref="compound">ArrangementTraits_2</ref></computeroutput> concept and can be used to construct and maintain arrangements of bounded segments of algebraic curves of degree <formula id="50">$ 2$</formula> at most, also known as <emphasis>conic curves</emphasis>. </para>    </briefdescription>
+    <detaileddescription>
+<para>A general conic curve <formula id="3">$ C$</formula> is the locus of all points <formula id="157">$ (x,y)$</formula> satisfying the equation: <formula id="241">$ r x^2 + s y^2 + t x y + u x + v y + w = 0$</formula>, where: <itemizedlist>
+<listitem>
+<para>If <formula id="242">$ 4 r s - t^2 &gt; 0$</formula>, <formula id="3">$ C$</formula> is an ellipse. A special case occurs when <formula id="162">$ r = s$</formula> and <formula id="163">$ t = 0$</formula>, when <formula id="3">$ C$</formula> becomes a circle. </para></listitem>
+<listitem>
+<para>If <formula id="243">$ 4 r s - t^2 &lt; 0$</formula>, <formula id="3">$ C$</formula> is a hyperbola. </para></listitem>
+<listitem>
+<para>If <formula id="244">$ 4 r s - t^2 = 0$</formula>, <formula id="3">$ C$</formula> is a parabola. A degenerate case occurs when <formula id="165">$ r = s = t = 0$</formula>, when <formula id="3">$ C$</formula> is a line. </para></listitem>
+</itemizedlist>
+</para><para>A <emphasis>bounded conic arc</emphasis> is defined as either of the following: <itemizedlist>
+<listitem>
+<para>A full ellipse (or a circle) <formula id="3">$ C$</formula>. </para></listitem>
+<listitem>
+<para>The tuple <formula id="167">$ \langle C, p_s, p_t, o \rangle$</formula>, where <formula id="3">$ C$</formula> is the supporting conic curve, with the arc endpoints being <formula id="168">$ p_s$</formula> and <formula id="169">$ p_t$</formula> (the source and target points, respectively). The orientation <formula id="171">$ o$</formula> indicates whether we proceed from <formula id="168">$ p_s$</formula> to <formula id="169">$ p_t$</formula> in a clockwise or in a counterclockwise direction. Note that <formula id="3">$ C$</formula> may also correspond to a line or to pair of lines - in this case <formula id="171">$ o$</formula> may specify a <computeroutput>COLLINEAR</computeroutput> orientation. </para></listitem>
+</itemizedlist>
+</para><para>A very useful subset of the set of conic arcs are line segments and circular arcs, as arrangements of circular arcs and line segments have some interesting applications (e.g. offsetting polygons, motion planning for a disc robot, etc.). Circular arcs and line segment are simpler objects and can be dealt with more efficiently than arbitrary arcs. For these reasons, it is possible to construct conic arcs from segments and from circles. Using these constructors is highly recommended: It is more straightforward and also speeds up the arrangement construction. However, in case the set of input curves contain only circular arcs and line segments, it is recommended to use the <computeroutput>Arr_circle_segment_2</computeroutput> class to achieve faster running times.</para><para>In our representation, all conic coefficients (namely <formula id="245">$ r, s, t, u, v, w$</formula>) must be rational numbers. This guarantees that the coordinates of all arrangement vertices (in particular, those representing intersection points) are algebraic numbers of degree <formula id="96">$ 4$</formula> (a real number <formula id="152">$ \alpha$</formula> is an algebraic number of degree <formula id="63">$ d$</formula> if there exist a polynomial <formula id="46">$ p$</formula> with <emphasis>integer</emphasis> coefficient of degree <formula id="63">$ d$</formula> such that <formula id="246">$ p(\alpha) = 0$</formula>). We therefore require separate representations of the curve coefficients and the point coordinates. The <computeroutput>NtTraits</computeroutput> should be instantiated with a class that defines nested <computeroutput>Integer</computeroutput>, <computeroutput>Rational</computeroutput> and <computeroutput>Algebraic</computeroutput> number types and supports various operations on them, yielding certified computation results (for example, it can convert rational numbers to algebraic numbers and can compute roots of polynomials with integer coefficients). The other template parameters, <computeroutput>RatKernel</computeroutput> and <computeroutput>AlgKernel</computeroutput> should be geometric kernels templated with the <computeroutput>NtTraits::Rational</computeroutput> and <computeroutput>NtTraits::Algebraic</computeroutput> number types, respectively. It is recommended to instantiate the <computeroutput>CORE_algebraic_number_traits</computeroutput> class as the <computeroutput>NtTraits</computeroutput> parameter, with <computeroutput><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian</ref>&lt;NtTraits::Rational&gt;</computeroutput> and <computeroutput><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian</ref>&lt;NtTraits::Algebraic&gt;</computeroutput> instantiating the two kernel types, respectively. The number types in this case are provided by the Core library, with its ability to exactly represent simple algebraic numbers.</para><para>The traits class inherits its point type from <computeroutput>AlgKernel::Point_2</computeroutput>, and defines a curve and <formula id="2">$ x$</formula>-monotone curve types, as detailed below.</para><para>While the <computeroutput><ref refid="classCGAL_1_1Arr__conic__traits__2" kindref="compound">Arr_conic_traits_2</ref></computeroutput> models the concept <computeroutput><ref refid="classArrangementDirectionalXMonotoneTraits__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Boolean_set_operations_2.tag">ArrangementDirectionalXMonotoneTraits_2</ref></computeroutput>, the implementation of the <computeroutput>Are_mergeable_2</computeroutput> operation does not enforce the input curves to have the same direction as a precondition. Moreover, <computeroutput><ref refid="classCGAL_1_1Arr__conic__traits__2" kindref="compound">Arr_conic_traits_2</ref></computeroutput> supports the merging of curves of opposite directions.</para><para><xrefsect id="models_1_models000006"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classArrangementTraits__2" kindref="compound">ArrangementTraits_2</ref></computeroutput> </para><para><computeroutput><ref refid="classArrangementLandmarkTraits__2" kindref="compound">ArrangementLandmarkTraits_2</ref></computeroutput> </para><para><computeroutput><ref refid="classArrangementDirectionalXMonotoneTraits__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Boolean_set_operations_2.tag">ArrangementDirectionalXMonotoneTraits_2</ref></computeroutput></para></xrefdescription></xrefsect></para><para><bold>Types</bold><linebreak/>
+ </para>    </detaileddescription>
+    <location file="CGAL/Arr_conic_traits_2.h" line="85" column="1" bodyfile="CGAL/Arr_conic_traits_2.h" bodystart="85" bodyend="404"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Arr__conic__traits__2_1a7ff75e207556a864e7d7bf2b97861aa8" prot="public" virt="non-virtual"><scope>CGAL::Arr_conic_traits_2</scope><name>Algebraic</name></member>
+      <member refid="classCGAL_1_1Arr__conic__traits__2_1a780cff469d9fa49c6179ae9ae6eefd9e" prot="public" virt="non-virtual"><scope>CGAL::Arr_conic_traits_2</scope><name>Rational</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

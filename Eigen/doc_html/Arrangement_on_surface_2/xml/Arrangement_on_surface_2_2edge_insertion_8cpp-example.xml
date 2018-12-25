@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2edge_insertion_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/edge_insertion.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Constructing<sp/>an<sp/>arrangement<sp/>using<sp/>the<sp/>simple<sp/>edge-insertion<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_segment_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;arr_print.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Number_type;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;Number_type&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound">CGAL::Arr_segment_traits_2&lt;Kernel&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::X_monotone_curve_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Segment_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Arrangement_2::Vertex_handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vertex_handle;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Arrangement_2::Halfedge_handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Halfedge_handle;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/>arr;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s1(Point_2(1,<sp/>3),<sp/>Point_2(3,<sp/>5));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s2(Point_2(3,<sp/>5),<sp/>Point_2(5,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3(Point_2(5,<sp/>3),<sp/>Point_2(3,<sp/>1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s4(Point_2(3,<sp/>1),<sp/>Point_2(1,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s5(Point_2(1,<sp/>3),<sp/>Point_2(5,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e1<sp/>=<sp/>arr.insert_in_face_interior(s1,<sp/>arr.unbounded_face());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v1<sp/>=<sp/>e1-&gt;source();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v2<sp/>=<sp/>e1-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e2<sp/>=<sp/>arr.insert_from_left_vertex(s2,<sp/>v2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v3<sp/>=<sp/>e2-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e3<sp/>=<sp/>arr.insert_from_right_vertex(s3,<sp/>v3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v4<sp/>=<sp/>e3-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s4,<sp/>v4,<sp/>v1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s5,<sp/>v1,<sp/>v3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>print_arrangement(arr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

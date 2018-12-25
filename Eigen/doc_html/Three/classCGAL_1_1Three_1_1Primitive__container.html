@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Three/classCGAL_1_1Three_1_1Primitive__container.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Three: CGAL::Three::Primitive_container Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Three
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Three_1_1Primitive__container.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Three_1_1Primitive__container-members.html">List of all members</a> |
+<a href="#pub-methods">Public Member Functions</a> |
+<a href="#pro-methods">Protected Member Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Three::Primitive_container Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Three/Primitive_container.h&gt;</code></p>
+
+<p>Inherited by <a class="el" href="structCGAL_1_1Three_1_1Edge__container.html">CGAL::Three::Edge_container</a>, <a class="el" href="structCGAL_1_1Three_1_1Point__container.html">CGAL::Three::Point_container</a>, and <a class="el" href="structCGAL_1_1Three_1_1Triangle__container.html">CGAL::Three::Triangle_container</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>The <a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html" title="The Primitive_container struct provides a base for the OpenGL data wrappers. ">Primitive_container</a> struct provides a base for the OpenGL data wrappers. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a188cda7751dbb561c5cdaefad22ec3da"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a188cda7751dbb561c5cdaefad22ec3da">Primitive_container</a> (int program, bool indexed)</td></tr>
+<tr class="memdesc:a188cda7751dbb561c5cdaefad22ec3da"><td class="mdescLeft"> </td><td class="mdescRight"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html" title="The Primitive_container struct provides a base for the OpenGL data wrappers. ">Primitive_container</a> ructor.  <a href="#a188cda7751dbb561c5cdaefad22ec3da">More...</a><br /></td></tr>
+<tr class="separator:a188cda7751dbb561c5cdaefad22ec3da"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1854417897bc92670fac1a8de3bd4b2d"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a1854417897bc92670fac1a8de3bd4b2d">bindUniformValues</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer)</td></tr>
+<tr class="memdesc:a1854417897bc92670fac1a8de3bd4b2d"><td class="mdescLeft"> </td><td class="mdescRight">bindUniformValues sets the uniform variables for the concerned shaders.  <a href="#a1854417897bc92670fac1a8de3bd4b2d">More...</a><br /></td></tr>
+<tr class="separator:a1854417897bc92670fac1a8de3bd4b2d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9fb69c70ce71f05f1f2b864830a92e62"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a9fb69c70ce71f05f1f2b864830a92e62">draw</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer, bool is_color_uniform)=0</td></tr>
+<tr class="memdesc:a9fb69c70ce71f05f1f2b864830a92e62"><td class="mdescLeft"> </td><td class="mdescRight">draw is the function that actually renders the data.  <a href="#a9fb69c70ce71f05f1f2b864830a92e62">More...</a><br /></td></tr>
+<tr class="separator:a9fb69c70ce71f05f1f2b864830a92e62"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a698b3665a3539bb14a156d4ed5796c6b"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a698b3665a3539bb14a156d4ed5796c6b">initializeBuffers</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer)</td></tr>
+<tr class="memdesc:a698b3665a3539bb14a156d4ed5796c6b"><td class="mdescLeft"> </td><td class="mdescRight">initializeBuffers sends the data to the GPU memory.  <a href="#a698b3665a3539bb14a156d4ed5796c6b">More...</a><br /></td></tr>
+<tr class="separator:a698b3665a3539bb14a156d4ed5796c6b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae9895202c87827719d68564037e57f59"><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ae9895202c87827719d68564037e57f59">initGL</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer)=0</td></tr>
+<tr class="memdesc:ae9895202c87827719d68564037e57f59"><td class="mdescLeft"> </td><td class="mdescRight">initGL initializes the OpenGL containers.  <a href="#ae9895202c87827719d68564037e57f59">More...</a><br /></td></tr>
+<tr class="separator:ae9895202c87827719d68564037e57f59"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:acd54752341c760ebef4e7ce6068b1943"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#acd54752341c760ebef4e7ce6068b1943">removeViewer</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> *viewer)</td></tr>
+<tr class="memdesc:acd54752341c760ebef4e7ce6068b1943"><td class="mdescLeft"> </td><td class="mdescRight">removeViewer deletes and removes the <a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a> assigned to <code>viewer</code> from <code>Vaos</code>.  <a href="#acd54752341c760ebef4e7ce6068b1943">More...</a><br /></td></tr>
+<tr class="separator:acd54752341c760ebef4e7ce6068b1943"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab8a59da5c79b1a8804fa6a71667719c1"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ab8a59da5c79b1a8804fa6a71667719c1">reset_vbos</a> (<a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a1e253e837a2d00836ea11cfe431b7c9c">Scene_item_rendering_helper::Gl_data_names</a>)</td></tr>
+<tr class="memdesc:ab8a59da5c79b1a8804fa6a71667719c1"><td class="mdescLeft"> </td><td class="mdescRight">reset_vbos de-allocates the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s.  <a href="#ab8a59da5c79b1a8804fa6a71667719c1">More...</a><br /></td></tr>
+<tr class="separator:ab8a59da5c79b1a8804fa6a71667719c1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aaaf88b8c3e3861c6394d01dffb5ca4d4"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#aaaf88b8c3e3861c6394d01dffb5ca4d4">setFlatDataSize</a> (std::size_t)</td></tr>
+<tr class="memdesc:aaaf88b8c3e3861c6394d01dffb5ca4d4"><td class="mdescLeft"> </td><td class="mdescRight">setFlatDataSize sets the number of un-indexed vertices of this container.  <a href="#aaaf88b8c3e3861c6394d01dffb5ca4d4">More...</a><br /></td></tr>
+<tr class="separator:aaaf88b8c3e3861c6394d01dffb5ca4d4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3a0b40ddb67193c1ef5eac3efc9d1c16"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a3a0b40ddb67193c1ef5eac3efc9d1c16">setIdxSize</a> (std::size_t)</td></tr>
+<tr class="memdesc:a3a0b40ddb67193c1ef5eac3efc9d1c16"><td class="mdescLeft"> </td><td class="mdescRight">setIdxDataSize sets the number of indexed vertices of this container.  <a href="#a3a0b40ddb67193c1ef5eac3efc9d1c16">More...</a><br /></td></tr>
+<tr class="separator:a3a0b40ddb67193c1ef5eac3efc9d1c16"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa5d5252c55f17ce5439a2955b720e09f"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#aa5d5252c55f17ce5439a2955b720e09f">setCenterSize</a> (std::size_t)</td></tr>
+<tr class="memdesc:aa5d5252c55f17ce5439a2955b720e09f"><td class="mdescLeft"> </td><td class="mdescRight">setCenterSize sets the number of instances of the item in this container.  <a href="#aa5d5252c55f17ce5439a2955b720e09f">More...</a><br /></td></tr>
+<tr class="separator:aa5d5252c55f17ce5439a2955b720e09f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4f780e052de09d950caf91f9bf349b14"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a4f780e052de09d950caf91f9bf349b14">isGLInit</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer) const</td></tr>
+<tr class="memdesc:a4f780e052de09d950caf91f9bf349b14"><td class="mdescLeft"> </td><td class="mdescRight">Returns <code>true</code> if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code>s and <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are created in the context of <code>viewer</code>.  <a href="#a4f780e052de09d950caf91f9bf349b14">More...</a><br /></td></tr>
+<tr class="separator:a4f780e052de09d950caf91f9bf349b14"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a77abc4e9ccbd2639761e4edccd2da25d"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a77abc4e9ccbd2639761e4edccd2da25d">allocate</a> (std::size_t vbo_id, void *data, int datasize)</td></tr>
+<tr class="memdesc:a77abc4e9ccbd2639761e4edccd2da25d"><td class="mdescLeft"> </td><td class="mdescRight">allocate sets the data for a <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>.  <a href="#a77abc4e9ccbd2639761e4edccd2da25d">More...</a><br /></td></tr>
+<tr class="separator:a77abc4e9ccbd2639761e4edccd2da25d"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods" id="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a17f368a2c6d6b880e77eb90d50296d9f"><td class="memItemLeft" align="right" valign="top"><a id="a17f368a2c6d6b880e77eb90d50296d9f"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a17f368a2c6d6b880e77eb90d50296d9f">setVao</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer, <a class="el" href="structCGAL_1_1Three_1_1Vao.html">Vao</a> *)</td></tr>
+<tr class="memdesc:a17f368a2c6d6b880e77eb90d50296d9f"><td class="mdescLeft"> </td><td class="mdescRight">setVao sets the <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code> corresponding to <code>viewer</code> of this container. <br /></td></tr>
+<tr class="separator:a17f368a2c6d6b880e77eb90d50296d9f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad4d688ba21c4e3bf60f3f6b0e02bd226"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ad4d688ba21c4e3bf60f3f6b0e02bd226">setVbos</a> (std::vector&lt; <a class="el" href="structCGAL_1_1Three_1_1Vbo.html">Vbo</a> *&gt;)</td></tr>
+<tr class="memdesc:ad4d688ba21c4e3bf60f3f6b0e02bd226"><td class="mdescLeft"> </td><td class="mdescRight">setVbos sets the vector of <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s for this container.  <a href="#ad4d688ba21c4e3bf60f3f6b0e02bd226">More...</a><br /></td></tr>
+<tr class="separator:ad4d688ba21c4e3bf60f3f6b0e02bd226"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aff95bf1bc91acfecc27982567540ce89"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#aff95bf1bc91acfecc27982567540ce89">setVbo</a> (std::size_t vbo_id, <a class="el" href="structCGAL_1_1Three_1_1Vbo.html">Vbo</a> *vbo)</td></tr>
+<tr class="memdesc:aff95bf1bc91acfecc27982567540ce89"><td class="mdescLeft"> </td><td class="mdescRight">setVbo sets the <code>vbo_id</code>th <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code> of this container to <code>vbo</code>.  <a href="#aff95bf1bc91acfecc27982567540ce89">More...</a><br /></td></tr>
+<tr class="separator:aff95bf1bc91acfecc27982567540ce89"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac77f3bd31305984b82159581370c8e95"><td class="memItemLeft" align="right" valign="top"><a id="ac77f3bd31305984b82159581370c8e95"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ac77f3bd31305984b82159581370c8e95">setGLInit</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer, bool)</td></tr>
+<tr class="memdesc:ac77f3bd31305984b82159581370c8e95"><td class="mdescLeft"> </td><td class="mdescRight">Use this to specify if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code>s and <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are created in the context of <code>viewer</code>. <br /></td></tr>
+<tr class="separator:ac77f3bd31305984b82159581370c8e95"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a770cdef083ec47f307288e08dc3c42df"><td class="memItemLeft" align="right" valign="top"><a id="a770cdef083ec47f307288e08dc3c42df"></a>
+<a class="el" href="structCGAL_1_1Three_1_1Vao.html">Vao</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a770cdef083ec47f307288e08dc3c42df">getVao</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer) const</td></tr>
+<tr class="memdesc:a770cdef083ec47f307288e08dc3c42df"><td class="mdescLeft"> </td><td class="mdescRight">Returns the <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code> bound to <code>viewer</code>. <br /></td></tr>
+<tr class="separator:a770cdef083ec47f307288e08dc3c42df"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1c980d55c933407d9d9d2ee6bed28f3e"><td class="memItemLeft" align="right" valign="top"><a id="a1c980d55c933407d9d9d2ee6bed28f3e"></a>
+<a class="el" href="structCGAL_1_1Three_1_1Vbo.html">Vbo</a> * </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a1c980d55c933407d9d9d2ee6bed28f3e">getVbo</a> (std::size_t id) const</td></tr>
+<tr class="memdesc:a1c980d55c933407d9d9d2ee6bed28f3e"><td class="mdescLeft"> </td><td class="mdescRight">getVbo returns the <code>id</code>th <a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a> of this container. <br /></td></tr>
+<tr class="separator:a1c980d55c933407d9d9d2ee6bed28f3e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9b00336ef8dcef685af7caf2e8625b74"><td class="memItemLeft" align="right" valign="top"><a id="a9b00336ef8dcef685af7caf2e8625b74"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a9b00336ef8dcef685af7caf2e8625b74">getProgram</a> () const</td></tr>
+<tr class="memdesc:a9b00336ef8dcef685af7caf2e8625b74"><td class="mdescLeft"> </td><td class="mdescRight">getProgram returns the <code>OpenGL_program_IDs</code> used with this container. <br /></td></tr>
+<tr class="separator:a9b00336ef8dcef685af7caf2e8625b74"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0b92f52ee3c14803594e97ed4703c28f"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a0b92f52ee3c14803594e97ed4703c28f">isDataIndexed</a> ()</td></tr>
+<tr class="memdesc:a0b92f52ee3c14803594e97ed4703c28f"><td class="mdescLeft"> </td><td class="mdescRight">isDataIndexed specifies if the data is indexed or not.  <a href="#a0b92f52ee3c14803594e97ed4703c28f">More...</a><br /></td></tr>
+<tr class="separator:a0b92f52ee3c14803594e97ed4703c28f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af2082b395f3b50df0777d754a7eea1e9"><td class="memItemLeft" align="right" valign="top"><a id="af2082b395f3b50df0777d754a7eea1e9"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#af2082b395f3b50df0777d754a7eea1e9">setInit</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer, bool)</td></tr>
+<tr class="memdesc:af2082b395f3b50df0777d754a7eea1e9"><td class="mdescLeft"> </td><td class="mdescRight">Use this to specify if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are filled for <code>viewer</code>. <br /></td></tr>
+<tr class="separator:af2082b395f3b50df0777d754a7eea1e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad0f2f3bf41226fc5b0ca0044fdb317cf"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ad0f2f3bf41226fc5b0ca0044fdb317cf">isInit</a> (<a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> *viewer) const</td></tr>
+<tr class="memdesc:ad0f2f3bf41226fc5b0ca0044fdb317cf"><td class="mdescLeft"> </td><td class="mdescRight">isInit returns <code>true</code> if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are filled for <code>viewer</code>.  <a href="#ad0f2f3bf41226fc5b0ca0044fdb317cf">More...</a><br /></td></tr>
+<tr class="separator:ad0f2f3bf41226fc5b0ca0044fdb317cf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8cb4a0ec38fa895b7ab4f8939478c81f"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a8cb4a0ec38fa895b7ab4f8939478c81f">getFlatDataSize</a> () const</td></tr>
+<tr class="memdesc:a8cb4a0ec38fa895b7ab4f8939478c81f"><td class="mdescLeft"> </td><td class="mdescRight">getFlatDataSize returns the number of un-indexed vertices.  <a href="#a8cb4a0ec38fa895b7ab4f8939478c81f">More...</a><br /></td></tr>
+<tr class="separator:a8cb4a0ec38fa895b7ab4f8939478c81f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a146d562999fedb497e5387eb2bc618c8"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a146d562999fedb497e5387eb2bc618c8">getIdxSize</a> () const</td></tr>
+<tr class="memdesc:a146d562999fedb497e5387eb2bc618c8"><td class="mdescLeft"> </td><td class="mdescRight">getIdxSize returns the number of indexed vertices.  <a href="#a146d562999fedb497e5387eb2bc618c8">More...</a><br /></td></tr>
+<tr class="separator:a146d562999fedb497e5387eb2bc618c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a26c98609f94ce3119803c030fe97fed2"><td class="memItemLeft" align="right" valign="top">std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a26c98609f94ce3119803c030fe97fed2">getCenterSize</a> () const</td></tr>
+<tr class="memdesc:a26c98609f94ce3119803c030fe97fed2"><td class="mdescLeft"> </td><td class="mdescRight">getCenterSize returns the number of instances of the item in this container.  <a href="#a26c98609f94ce3119803c030fe97fed2">More...</a><br /></td></tr>
+<tr class="separator:a26c98609f94ce3119803c030fe97fed2"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Setters for the shaders parameters.</h2></td></tr>
+<tr class="memitem:a0d9301b47e0c08a12e8661ac4f8b9997"><td class="memItemLeft" align="right" valign="top"><a id="a0d9301b47e0c08a12e8661ac4f8b9997"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a0d9301b47e0c08a12e8661ac4f8b9997">setSelected</a> (bool)</td></tr>
+<tr class="memdesc:a0d9301b47e0c08a12e8661ac4f8b9997"><td class="mdescLeft"> </td><td class="mdescRight">Setter for the "selected" uniform parameter. <br /></td></tr>
+<tr class="separator:a0d9301b47e0c08a12e8661ac4f8b9997"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac3d3bdc4dbd02cef7553873d64341de6"><td class="memItemLeft" align="right" valign="top"><a id="ac3d3bdc4dbd02cef7553873d64341de6"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#ac3d3bdc4dbd02cef7553873d64341de6">setColor</a> (QColor)</td></tr>
+<tr class="memdesc:ac3d3bdc4dbd02cef7553873d64341de6"><td class="mdescLeft"> </td><td class="mdescRight">Setter for the "color" parameter. <br /></td></tr>
+<tr class="separator:ac3d3bdc4dbd02cef7553873d64341de6"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Getters for the shaders parameters.</h2></td></tr>
+<tr class="memitem:a764016cfacbebb99f8da6d39d3bc8029"><td class="memItemLeft" align="right" valign="top"><a id="a764016cfacbebb99f8da6d39d3bc8029"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a764016cfacbebb99f8da6d39d3bc8029">isSelected</a> () const</td></tr>
+<tr class="memdesc:a764016cfacbebb99f8da6d39d3bc8029"><td class="mdescLeft"> </td><td class="mdescRight">getter for the "selected" parameter <br /></td></tr>
+<tr class="separator:a764016cfacbebb99f8da6d39d3bc8029"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5a33ffaefe8a6fda05f777b1351340d3"><td class="memItemLeft" align="right" valign="top"><a id="a5a33ffaefe8a6fda05f777b1351340d3"></a>
+QColor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a5a33ffaefe8a6fda05f777b1351340d3">getColor</a> () const</td></tr>
+<tr class="memdesc:a5a33ffaefe8a6fda05f777b1351340d3"><td class="mdescLeft"> </td><td class="mdescRight">getter for the "color" parameter <br /></td></tr>
+<tr class="separator:a5a33ffaefe8a6fda05f777b1351340d3"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a188cda7751dbb561c5cdaefad22ec3da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188cda7751dbb561c5cdaefad22ec3da">◆ </a></span>Primitive_container()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL::Three::Primitive_container::Primitive_container </td>
+          <td>(</td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>program</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>indexed</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html" title="The Primitive_container struct provides a base for the OpenGL data wrappers. ">Primitive_container</a> ructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">program</td><td>the <code>QOpenGLShaderProgram</code> used by the VAOs. </td></tr>
+    <tr><td class="paramname">indexed</td><td>must be <code>true</code> if the data is indexed, <code>false</code> otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a77abc4e9ccbd2639761e4edccd2da25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77abc4e9ccbd2639761e4edccd2da25d">◆ </a></span>allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::allocate </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>vbo_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>datasize</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>allocate sets the data for a <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbo_id</td><td>the index of the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code> in this container vector. </td></tr>
+    <tr><td class="paramname">data</td><td>the data to give to the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>. </td></tr>
+    <tr><td class="paramname">datasize</td><td>the size in bytes of <code>data</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1854417897bc92670fac1a8de3bd4b2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1854417897bc92670fac1a8de3bd4b2d">◆ </a></span>bindUniformValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::bindUniformValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bindUniformValues sets the uniform variables for the concerned shaders. </p>
+<p>Such variables are valid at every step of the pipeline. For example, the ModelViewProjection matrix, the uniform color or the is_selected state are uniform values. This function is called in the <code><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a9fb69c70ce71f05f1f2b864830a92e62" title="draw is the function that actually renders the data. ">draw()</a></code>function. </p><dl class="section attention"><dt>Attention</dt><dd><code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s data should be allocated for this function to be effective. </dd>
+<dd>
+This should only be called once the <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code>s and the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are created, in a valid OpenGL context. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewer</td><td>the active <code><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html" title="Base class to interact with the viewer from the plugins, the items and the scene. ...">Viewer_interface</a></code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9fb69c70ce71f05f1f2b864830a92e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb69c70ce71f05f1f2b864830a92e62">◆ </a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Primitive_container::draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>is_color_uniform</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>draw is the function that actually renders the data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewer</td><td>the active <code><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html" title="Base class to interact with the viewer from the plugins, the items and the scene. ...">Viewer_interface</a></code>. </td></tr>
+    <tr><td class="paramname">is_color_uniform</td><td>should be <code>true</code> if the item is unicolor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="structCGAL_1_1Three_1_1Edge__container.html#a9e78b5a6e1aefe8576cd5f3e4753f8f0">CGAL::Three::Edge_container</a>, <a class="el" href="structCGAL_1_1Three_1_1Triangle__container.html#ac463ed9a204d671d099688209541a528">CGAL::Three::Triangle_container</a>, and <a class="el" href="structCGAL_1_1Three_1_1Point__container.html#a2108fab61e2b6e7d4fc5aba363e68890">CGAL::Three::Point_container</a>.</p>
+
+</div>
+</div>
+<a id="a26c98609f94ce3119803c030fe97fed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c98609f94ce3119803c030fe97fed2">◆ </a></span>getCenterSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CGAL::Three::Primitive_container::getCenterSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getCenterSize returns the number of instances of the item in this container. </p>
+
+</div>
+</div>
+<a id="a8cb4a0ec38fa895b7ab4f8939478c81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb4a0ec38fa895b7ab4f8939478c81f">◆ </a></span>getFlatDataSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CGAL::Three::Primitive_container::getFlatDataSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getFlatDataSize returns the number of un-indexed vertices. </p>
+
+</div>
+</div>
+<a id="a146d562999fedb497e5387eb2bc618c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a146d562999fedb497e5387eb2bc618c8">◆ </a></span>getIdxSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CGAL::Three::Primitive_container::getIdxSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getIdxSize returns the number of indexed vertices. </p>
+
+</div>
+</div>
+<a id="ae9895202c87827719d68564037e57f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9895202c87827719d68564037e57f59">◆ </a></span>initGL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Primitive_container::initGL </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initGL initializes the OpenGL containers. </p>
+<dl class="section attention"><dt>Attention</dt><dd>It must be called within a valid OpenGL context. The <code><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html#a9fb69c70ce71f05f1f2b864830a92e62" title="draw is the function that actually renders the data. ">draw()</a></code> function of an item is always a safe place to call this.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewer</td><td>the active <code><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html" title="Base class to interact with the viewer from the plugins, the items and the scene. ...">Viewer_interface</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="structCGAL_1_1Three_1_1Edge__container.html#aeee6974cb2fdacdde8baa2c7ab2e39fb">CGAL::Three::Edge_container</a>, <a class="el" href="structCGAL_1_1Three_1_1Triangle__container.html#a2db9c8d984f6330ff4f17db59eabef22">CGAL::Three::Triangle_container</a>, and <a class="el" href="structCGAL_1_1Three_1_1Point__container.html#ac82fafdba599c20092ee694ed6f14810">CGAL::Three::Point_container</a>.</p>
+
+</div>
+</div>
+<a id="a698b3665a3539bb14a156d4ed5796c6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698b3665a3539bb14a156d4ed5796c6b">◆ </a></span>initializeBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CGAL::Three::Primitive_container::initializeBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initializeBuffers sends the data to the GPU memory. </p>
+<p>It actually fills up the buffers with the data provided by <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html#acdc679b5ec8f0f32f96e0318dad2eced" title="allocate gives CPU data to the GPU. ">Vbo::allocate()</a></code>; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewer</td><td>the active <code><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html" title="Base class to interact with the viewer from the plugins, the items and the scene. ...">Viewer_interface</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b92f52ee3c14803594e97ed4703c28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b92f52ee3c14803594e97ed4703c28f">◆ </a></span>isDataIndexed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::Three::Primitive_container::isDataIndexed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>isDataIndexed specifies if the data is indexed or not. </p>
+<p>This matters for the internal drawing functions. </p>
+
+</div>
+</div>
+<a id="a4f780e052de09d950caf91f9bf349b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f780e052de09d950caf91f9bf349b14">◆ </a></span>isGLInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::Three::Primitive_container::isGLInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code>s and <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are created in the context of <code>viewer</code>. </p>
+
+</div>
+</div>
+<a id="ad0f2f3bf41226fc5b0ca0044fdb317cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f2f3bf41226fc5b0ca0044fdb317cf">◆ </a></span>isInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::Three::Primitive_container::isInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>isInit returns <code>true</code> if the container <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s are filled for <code>viewer</code>. </p>
+
+</div>
+</div>
+<a id="acd54752341c760ebef4e7ce6068b1943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd54752341c760ebef4e7ce6068b1943">◆ </a></span>removeViewer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::removeViewer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html">CGAL::Three::Viewer_interface</a> * </td>
+          <td class="paramname"><em>viewer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>removeViewer deletes and removes the <a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a> assigned to <code>viewer</code> from <code>Vaos</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewer</td><td>the <code><a class="el" href="classCGAL_1_1Three_1_1Viewer__interface.html" title="Base class to interact with the viewer from the plugins, the items and the scene. ...">Viewer_interface</a></code> to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab8a59da5c79b1a8804fa6a71667719c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a59da5c79b1a8804fa6a71667719c1">◆ </a></span>reset_vbos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::reset_vbos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Three_1_1Scene__item__rendering__helper.html#a1e253e837a2d00836ea11cfe431b7c9c">Scene_item_rendering_helper::Gl_data_names</a> </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reset_vbos de-allocates the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s. </p>
+<p>It must be called when the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s data is updated. </p>
+
+</div>
+</div>
+<a id="aa5d5252c55f17ce5439a2955b720e09f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5d5252c55f17ce5439a2955b720e09f">◆ </a></span>setCenterSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::setCenterSize </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setCenterSize sets the number of instances of the item in this container. </p>
+<p>If the program of this container is not instanced, you can ignore this function. </p>
+
+</div>
+</div>
+<a id="aaaf88b8c3e3861c6394d01dffb5ca4d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaf88b8c3e3861c6394d01dffb5ca4d4">◆ </a></span>setFlatDataSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::setFlatDataSize </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setFlatDataSize sets the number of un-indexed vertices of this container. </p>
+<p>If the vertices are indexed, you can ignore this function. </p>
+
+</div>
+</div>
+<a id="a3a0b40ddb67193c1ef5eac3efc9d1c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0b40ddb67193c1ef5eac3efc9d1c16">◆ </a></span>setIdxSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::setIdxSize </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setIdxDataSize sets the number of indexed vertices of this container. </p>
+<p>If the vertices are not indexed, you can ignore this function. </p>
+
+</div>
+</div>
+<a id="aff95bf1bc91acfecc27982567540ce89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff95bf1bc91acfecc27982567540ce89">◆ </a></span>setVbo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::setVbo </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>vbo_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structCGAL_1_1Three_1_1Vbo.html">Vbo</a> * </td>
+          <td class="paramname"><em>vbo</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setVbo sets the <code>vbo_id</code>th <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code> of this container to <code>vbo</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbo_id</td><td></td></tr>
+    <tr><td class="paramname">vbo</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad4d688ba21c4e3bf60f3f6b0e02bd226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d688ba21c4e3bf60f3f6b0e02bd226">◆ </a></span>setVbos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Three::Primitive_container::setVbos </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structCGAL_1_1Three_1_1Vbo.html">Vbo</a> *&gt; </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setVbos sets the vector of <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s for this container. </p>
+<p>It must contain at least all the <code><a class="el" href="structCGAL_1_1Three_1_1Vbo.html" title="The Vbo struct is a wrapper for the QOpenGLBufferObject item. ">Vbo</a></code>s that will be used by the <code><a class="el" href="structCGAL_1_1Three_1_1Vao.html" title="The Vao struct is a wrapper for the QOpenGLVertexArrayObject. ">Vao</a></code>s. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>CGAL</b></li><li class="navelem"><b>Three</b></li><li class="navelem"><a class="el" href="classCGAL_1_1Three_1_1Primitive__container.html">Primitive_container</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:11 for CGAL 4.13 - Three by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

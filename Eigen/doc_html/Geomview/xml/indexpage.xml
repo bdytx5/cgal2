@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_Geomview"/> <simplesect kind="authors"><para>Andreas Fabri and Sylvain Pion</para></simplesect>
+</para><sect1 id="index_1GeomviewDefinition">
+<title>Definition</title>
+<para>This chapter presents the CGAL interface to Geomview <ulink url="http://www.geomview.org/">http://www.geomview.org/</ulink>, which is a viewer for three-dimensional objects, originally developed at the Geometry Center in Minneapolis <ulink url="http://www.geom.uiuc.edu/">http://www.geom.uiuc.edu/</ulink>.</para><para><bold>Note:</bold> The functionality described in this chapter is not available on Windows.</para><para>An object of the class <computeroutput><ref refid="classCGAL_1_1Geomview__stream" kindref="compound">Geomview_stream</ref></computeroutput> is a stream in which geometric objects can be inserted and where geometric objects can be extracted from. The constructor starts Geomview either on the local either on a remote machine.</para><para>Not all but most classes of the CGAL kernel have output operators for the <computeroutput><ref refid="classCGAL_1_1Geomview__stream" kindref="compound">Geomview_stream</ref></computeroutput>. 2D objects are embedded in the <computeroutput>xy</computeroutput>-plane. Input is only provided for points. Polyhedron and 2D and 3D triangulations have output operators for the <computeroutput><ref refid="classCGAL_1_1Geomview__stream" kindref="compound">Geomview_stream</ref></computeroutput>.</para></sect1>
+<sect1 id="index_1GeomviewImplementation">
+<title>Implementation</title>
+<para>The constructor forks a process and establishes two pipes between the processes. The forked process is then overlaid with Geomview. The file descriptors <computeroutput>stdin</computeroutput> and <computeroutput>stdout</computeroutput> of Geomview are hooked on the two pipes.</para><para>All insert operators construct expressions in <computeroutput>gcl</computeroutput>, the Geomview command language, which is a subset of Lisp. These expressions are sent to Geomview via the pipe. The extract operators notify <computeroutput>interest</computeroutput> for a certain kind of events. When such an event happens Geomview sends a description of the event in <computeroutput>gcl</computeroutput> and the extract operator has to parse this expression.</para><para>In order to implement further insert and extract operators you should take a look at the implementation and at the Geomview manual.</para></sect1>
+<sect1 id="index_1GeomviewExample">
+<title>Example</title>
+<para>The following program ouputs successively a 2D Delaunay triangulation (projected), a 3D Delaunay, and a terrain from the set of points. <linebreak/>
+<bold>File</bold> <ref refid="Geomview_2gv_terrain_8cpp-example" kindref="compound">Geomview/gv_terrain.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CGAL_USE_GEOMVIEW</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Geomview<sp/>doesn&apos;t<sp/>work<sp/>on<sp/>Windows,<sp/>so...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>for<sp/>sleep()</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Projection_traits_xy_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Delaunay_triangulation_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Delaunay_triangulation_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/Geomview_stream.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/Triangulation_geomview_ostream_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/Triangulation_geomview_ostream_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/intersections.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Cartesian&lt;double&gt;</ref><sp/><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>K::Point_2<sp/>Point2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Projection__traits__xy__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Projection_traits_xy_3&lt;K&gt;</ref><sp/>Gt3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Gt3::Point<sp/>Point3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Delaunay__triangulation__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Triangulation_2.tag">CGAL::Delaunay_triangulation_2&lt;K&gt;</ref><sp/><sp/><sp/>Delaunay;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Delaunay__triangulation__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Triangulation_2.tag">CGAL::Delaunay_triangulation_2&lt;Gt3&gt;</ref><sp/>Terrain;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Delaunay__triangulation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Triangulation_3.tag">CGAL::Delaunay_triangulation_3&lt;K&gt;</ref><sp/><sp/><sp/>Delaunay3d;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="classCGAL_1_1Geomview__stream" kindref="compound">CGAL::Geomview_stream</ref><sp/>gv(<ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref>(-100,<sp/>-100,<sp/>-100,<sp/>600,<sp/>600,<sp/>600));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_line_width(4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>gv.set_trace(true);</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_bg_color(<ref refid="classCGAL_1_1Color" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">CGAL::Color</ref>(0,<sp/>200,<sp/>200));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>gv.clear();</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Delaunay<sp/>D;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Delaunay3d<sp/>D3d;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Terrain<sp/>T;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>iFile(</highlight><highlight class="stringliteral">&quot;data/points3&quot;</highlight><highlight class="normal">,<sp/>std::ios::in);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point3<sp/>p;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>iFile<sp/>&gt;&gt;<sp/>p<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>D.insert(<sp/>Point2(p.x(),<sp/>p.y())<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>D3d.insert(<sp/>p<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>T.insert(<sp/>p<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>different<sp/>colors,<sp/>and<sp/>put<sp/>a<sp/>few<sp/>sleeps/clear.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>CGAL::BLUE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>2D<sp/>Delaunay<sp/>triangulation<sp/>in<sp/>wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>D;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>1<sp/>//<sp/>It&apos;s<sp/>too<sp/>slow<sp/>!<sp/><sp/>Needs<sp/>to<sp/>use<sp/>OFF<sp/>for<sp/>that.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>CGAL::RED;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>its<sp/>Voronoi<sp/>diagram.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>D.draw_dual(gv);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sleep(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.clear();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>2D<sp/>Delaunay<sp/>triangulation<sp/>in<sp/>non-wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>D;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sleep(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.clear();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>3D<sp/>Delaunay<sp/>triangulation<sp/>in<sp/>wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>D3d;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sleep(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.clear();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>3D<sp/>Delaunay<sp/>triangulation<sp/>in<sp/>non-wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>D3d;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sleep(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.clear();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>Terrain<sp/>in<sp/>wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>T;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sleep(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.clear();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Drawing<sp/>Terrain<sp/>in<sp/>non-wired<sp/>mode.\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv.set_wired(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gv<sp/>&lt;&lt;<sp/>T;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Enter<sp/>a<sp/>key<sp/>to<sp/>finish&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>ch;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>ch;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+</programlisting> </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

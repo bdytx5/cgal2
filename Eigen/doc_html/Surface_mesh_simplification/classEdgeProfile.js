@@ -1,0 +1,27 @@
+var classEdgeProfile =
+[
+    [ "TriangleMesh", "classEdgeProfile.html#a0e4fbc31bba41052363f166323e6f32c", null ],
+    [ "VertexPointMap", "classEdgeProfile.html#ac1ccf60effd05136c6007f0c4d26a853", null ],
+    [ "border_edges", "classEdgeProfile.html#aa3ffebd28ffecc341280e9fb8b34f7db", null ],
+    [ "left_face_exists", "classEdgeProfile.html#a52a391f292a7667dd4f1e1390bff7b05", null ],
+    [ "link", "classEdgeProfile.html#a3fccaaa1a8df21b0f812f12717c805df", null ],
+    [ "p0", "classEdgeProfile.html#a99c5d63999aec1620a1639bda0a495c6", null ],
+    [ "p1", "classEdgeProfile.html#a3fd3076b2099441e91e8eaf8a35b0e4e", null ],
+    [ "right_face_exists", "classEdgeProfile.html#a68585e4ca493b69d446de669553349c2", null ],
+    [ "surface_mesh", "classEdgeProfile.html#a34d6305eb4c4e7b32938980c8d718acb", null ],
+    [ "v0", "classEdgeProfile.html#aa78d2ce2e46129e12a2a5e79e159fe7d", null ],
+    [ "v0_v1", "classEdgeProfile.html#a5177f90d8d239aec9e593a521add6d0c", null ],
+    [ "v0_vR", "classEdgeProfile.html#a1b616ff60ce45de7456b17cae7bef89b", null ],
+    [ "v1", "classEdgeProfile.html#a9e2bbe7f1980a198fbc63b1890946cbc", null ],
+    [ "v1_v0", "classEdgeProfile.html#aebc5c03140c0451600c9b34d7bb39f95", null ],
+    [ "v1_vL", "classEdgeProfile.html#a90f66ccf39fa84211b6f0e47ab680844", null ],
+    [ "vertex_point_map", "classEdgeProfile.html#a2f1e83f7c5e1dc0554cb8cb8c81b10ba", null ],
+    [ "vL", "classEdgeProfile.html#a3dcebeba4f38f378d268464daf93f4d5", null ],
+    [ "vL_v0", "classEdgeProfile.html#a0d78519ba015c8908981e88c69c69f72", null ],
+    [ "vR", "classEdgeProfile.html#a2f1af7cac48efdbb4b7ca554507bd831", null ],
+    [ "vR_v1", "classEdgeProfile.html#af759f90d03bcb431cbe81f9b86b9fee3", null ],
+    [ "FT", "classEdgeProfile.html#a0177903803a5a2c6ceba94d0caca808a", null ],
+    [ "halfedge_descriptor", "classEdgeProfile.html#a6b65a36bc2c8dd96a21f9666a4f30f0b", null ],
+    [ "Point", "classEdgeProfile.html#a2a25fea0f4988dd09b78ba432078e59b", null ],
+    [ "vertex_descriptor", "classEdgeProfile.html#a3fee481d937c642db96cea4926a581ec", null ]
+];

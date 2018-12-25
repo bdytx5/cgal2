@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__normal__grp" kind="group">
+    <compoundname>PMP_normal_grp</compoundname>
+    <title>Normal Computation</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__normal__grp_1gaa76c6d307b9d3e48cafacd7b77b2c043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>Vector_3</type>
+        <definition>Vector_3 CGAL::Polygon_mesh_processing::compute_face_normal</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor f, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>compute_face_normal</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the outward unit vector normal to face <computeroutput>f</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the face on which the normal is computed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh containing <computeroutput>f</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the computed normal. The return type is a 3D vector type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or from the geometric traits class deduced from the point property map of <computeroutput>pmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/compute_normal.h" line="131" column="1" bodyfile="CGAL/Polygon_mesh_processing/compute_normal.h" bodystart="131" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__normal__grp_1ga129c8fb278c5f12158253cc488fdf6d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceNormalMap</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::compute_face_normals</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, FaceNormalMap fnm, const NamedParameters &amp;np)</argsstring>
+        <name>compute_face_normals</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>FaceNormalMap</type>
+          <declname>fnm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the outward unit vector normal for all faces of the polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceNormalMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> as key type and <computeroutput><ref refid="classKernel_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Vector_3</ref></computeroutput> as value type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fnm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the property map in which the normals are written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/compute_normal.h" line="183" column="1" bodyfile="CGAL/Polygon_mesh_processing/compute_normal.h" bodystart="183" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__normal__grp_1ga240ed0a1f5efbea472f998fada07e112" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>Vector_3</type>
+        <definition>Vector_3 CGAL::Polygon_mesh_processing::compute_vertex_normal</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor v, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>compute_vertex_normal</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the unit normal at vertex <computeroutput>v</computeroutput> as the average of the normals of incident faces. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertex at which the normal is computed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh containing <computeroutput>v</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the computed normal. The return type is a 3D vector type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>pmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/compute_normal.h" line="227" column="1" bodyfile="CGAL/Polygon_mesh_processing/compute_normal.h" bodystart="227" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__normal__grp_1gad46aaf003999b2939f3f9e4f6fa58d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename VertexNormalMap</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::compute_vertex_normals</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, VertexNormalMap vnm, const NamedParameters &amp;np)</argsstring>
+        <name>compute_vertex_normals</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>VertexNormalMap</type>
+          <declname>vnm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the outward unit vector normal for all vertices of the polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexNormalMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and the return type of <computeroutput><ref refid="group__PMP__normal__grp_1ga240ed0a1f5efbea472f998fada07e112" kindref="member">compute_vertex_normal()</ref></computeroutput> as value type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the property map in which the normals are written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/compute_normal.h" line="301" column="1" bodyfile="CGAL/Polygon_mesh_processing/compute_normal.h" bodystart="301" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__normal__grp_1ga14a7730a996879ba6e7589dfeaccff82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename VertexNormalMap</type>
+          </param>
+          <param>
+            <type>typename FaceNormalMap</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::compute_normals</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, VertexNormalMap vnm, FaceNormalMap fnm, const NamedParameters &amp;np)</argsstring>
+        <name>compute_normals</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>VertexNormalMap</type>
+          <declname>vnm</declname>
+        </param>
+        <param>
+          <type>FaceNormalMap</type>
+          <declname>fnm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the outward unit vector normal for all vertices and faces of the polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexNormalMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput><ref refid="classKernel_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Vector_3</ref></computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceNormalMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> as key type and <computeroutput><ref refid="classKernel_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Vector_3</ref></computeroutput> as value type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the property map in which the vertex normals are written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fnm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the property map in which the face normals are written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/compute_normal.h" line="348" column="1" bodyfile="CGAL/Polygon_mesh_processing/compute_normal.h" bodystart="348" bodyend="356"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to compute unit normals for individual/all vertices or faces. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__orientation__grp" kind="group">
+    <compoundname>PMP_orientation_grp</compoundname>
+    <title>Orientation Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__orientation__grp_1gad71360b56f0d5340bf3006febd49286c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::is_outward_oriented</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>is_outward_oriented</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>tests whether a closed polygon mesh has a positive orientation. </para>        </briefdescription>
+        <detaileddescription>
+<para>A closed polygon mesh is considered to have a positive orientation if the normal vectors to all its faces point outside the domain bounded by the polygon mesh. The normal vector to each face is chosen pointing on the side of the face where its sequence of vertices is seen counterclockwise. <simplesect kind="pre"><para><computeroutput>CGAL::is_closed(pmesh)</computeroutput> </para></simplesect>
+<simplesect kind="pre"><para>If <computeroutput>pmesh</computeroutput> contains several connected components, they are oriented consistently. In other words, the answer to this predicate would be the same for each isolated connected component.</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the closed polygon mesh to be tested </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PMP__orientation__grp_1ga21119757bf5835496ae1c9a6d4f5fa0a" kindref="member">CGAL::Polygon_mesh_processing::reverse_face_orientations()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orientation.h" line="175" column="1" bodyfile="CGAL/Polygon_mesh_processing/orientation.h" bodystart="175" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__orientation__grp_1gad8a3439883e3e76651f96d15ba58b2bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::reverse_face_orientations</definition>
+        <argsstring>(PolygonMesh &amp;pmesh)</argsstring>
+        <name>reverse_face_orientations</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <briefdescription>
+<para>reverses for each face the order of the vertices along the face boundary. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orientation.h" line="263" column="1" bodyfile="CGAL/Polygon_mesh_processing/orientation.h" bodystart="263" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__orientation__grp_1ga21119757bf5835496ae1c9a6d4f5fa0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::reverse_face_orientations</definition>
+        <argsstring>(const FaceRange &amp;face_range, PolygonMesh &amp;pmesh)</argsstring>
+        <name>reverse_face_orientations</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>face_range</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <briefdescription>
+<para>reverses for each face in <computeroutput>face_range</computeroutput> the order of the vertices along the face boundary. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function does not perform any control and if the orientation change of the faces makes the polygon mesh invalid, the behavior is undefined.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of face descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orientation.h" line="325" column="1" bodyfile="CGAL/Polygon_mesh_processing/orientation.h" bodystart="325" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__orientation__grp_1gafe035adcc4ff061b4438cc9dae591d00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::orient</definition>
+        <argsstring>(TriangleMesh &amp;tm, const NamedParameters &amp;np)</argsstring>
+        <name>orient</name>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>makes each connected component of a closed triangulated surface mesh inward or outward oriented. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> . If <computeroutput>TriangleMesh</computeroutput> has an internal property map for <computeroutput>CGAL::face_index_t</computeroutput>, as a named parameter, then it must be initialized. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters for Polygon Mesh Processing</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a closed triangulated surface mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters for Polygon Mesh Processing</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>tm</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_outward_orientation" kindref="member">outward_orientation</ref></para></entry><entry thead="no"><para>if set to <computeroutput>true</computeroutput> (default) indicates that each connected component will be outward oriented, (inward oriented if <computeroutput>false</computeroutput>).  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orientation.h" line="471" column="1" bodyfile="CGAL/Polygon_mesh_processing/orientation.h" bodystart="471" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__orientation__grp_1gafdbc256d06536f6aca2558bc1a0156e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::orient_to_bound_a_volume</definition>
+        <argsstring>(TriangleMesh &amp;tm, const NamedParameters &amp;np)</argsstring>
+        <name>orient_to_bound_a_volume</name>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>orients the connected components of <computeroutput>tm</computeroutput> to make it bound a volume. </para>        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="index_1coref_def_subsec" kindref="member">Definitions</ref> for a precise definition.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput>, <computeroutput><ref refid="classHalfedgeListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeListGraph</ref></computeroutput> and <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput>. If <computeroutput>TriangleMesh</computeroutput> has an internal property map for <computeroutput>CGAL::face_index_t</computeroutput>, as a named parameter, then it must be initialized. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters for Polygon Mesh Processing</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a closed triangulated surface mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters for Polygon Mesh Processing</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>tm</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_outward_orientation" kindref="member">outward_orientation</ref></para></entry><entry thead="no"><para>if set to <computeroutput>true</computeroutput> (default) the outer connected components will be outward oriented (inward oriented if set to <computeroutput>false</computeroutput>). If the outer connected components are inward oriented, it means that the infinity will be considered as part of the volume bounded by <computeroutput>tm</computeroutput>.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga808a0177bf30833d2c1e390e533fec7f" kindref="member">CGAL::Polygon_mesh_processing::does_bound_a_volume()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orientation.h" line="579" column="1" bodyfile="CGAL/Polygon_mesh_processing/orientation.h" bodystart="579" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__orientation__grp_1gaadc5bac3072b11d2313e40043c729d0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PointRange</type>
+          </param>
+          <param>
+            <type>class PolygonRange</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::orient_polygon_soup</definition>
+        <argsstring>(PointRange &amp;points, PolygonRange &amp;polygons)</argsstring>
+        <name>orient_polygon_soup</name>
+        <param>
+          <type>PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>PolygonRange &amp;</type>
+          <declname>polygons</declname>
+        </param>
+        <briefdescription>
+<para>tries to consistently orient a soup of polygons in 3D space. </para>        </briefdescription>
+        <detaileddescription>
+<para>When it is not possible to produce a combinatorial manifold surface, some points are duplicated. Because a polygon soup does not have any connectivity (each point has as many occurrences as the number of polygons it belongs to), duplicating one point (or a pair of points) amounts to duplicate the polygon to which it belongs.</para><para>These points are either an endpoint of an edge incident to more than two polygons, an endpoint of an edge between two polygons with incompatible orientations (during the re-orientation process), or more generally a point <emphasis>p</emphasis> at which the intersection of an infinitesimally small ball centered at <emphasis>p</emphasis> with the polygons incident to it is not a topological disk.</para><para>The algorithm is described in <ref refid="citelist_1CITEREF_gueziec2001cutting" kindref="member">[1]</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concepts <computeroutput><ref refid="classRandomAccessContainer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessContainer</ref></computeroutput> and <computeroutput><ref refid="classBackInsertionSequence" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">BackInsertionSequence</ref></computeroutput> whose value type is the point type </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PolygonRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classRandomAccessContainer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessContainer</ref></computeroutput> whose value_type is a model of the concept <computeroutput><ref refid="classRandomAccessContainer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">RandomAccessContainer</ref></computeroutput> whose value_type is <computeroutput>std::size_t</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>points of the soup of polygons. Some points might be pushed back to resolve non-manifold or non-orientability issues. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>polygons</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>each element in the vector describes a polygon using the index of the points in <computeroutput>points</computeroutput>. If needed the order of the indices of a polygon might be reversed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the orientation operation succeded. </para></simplesect>
+<simplesect kind="return"><para><computeroutput>false</computeroutput> if some points were duplicated, thus producing a self-intersecting polyhedron. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/orient_polygon_soup.h" line="480" column="1" bodyfile="CGAL/Polygon_mesh_processing/orient_polygon_soup.h" bodystart="480" bodyend="490"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to compute or change the orientation of faces and surfaces. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

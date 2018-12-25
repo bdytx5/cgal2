@@ -1,0 +1,611 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgPolygonMeshProcessing" kind="group">
+    <compoundname>PkgPolygonMeshProcessing</compoundname>
+    <title>Polygon Mesh Processing Reference</title>
+    <innerfile refid="polygon__mesh__processing_8h">polygon_mesh_processing.h</innerfile>
+    <innerclass refid="classCGAL_1_1Side__of__triangle__mesh" prot="public">CGAL::Side_of_triangle_mesh</innerclass>
+    <innerclass refid="classCGAL_1_1Polygon__mesh__slicer" prot="public">CGAL::Polygon_mesh_slicer</innerclass>
+    <innergroup refid="group__pmp__namedparameters">Named Parameters for Polygon Mesh Processing</innergroup>
+    <innergroup refid="group__PkgPolygonMeshProcessingConcepts">Concepts</innergroup>
+    <innergroup refid="group__keep__connected__components__grp">Connected Components</innergroup>
+    <innergroup refid="group__hole__filling__grp">Hole Filling</innergroup>
+    <innergroup refid="group__PMP__meshing__grp">Meshing</innergroup>
+    <innergroup refid="group__PMP__normal__grp">Normal Computation</innergroup>
+    <innergroup refid="group__measure__grp">Geometric Measure Functions</innergroup>
+    <innergroup refid="group__PMP__orientation__grp">Orientation Functions</innergroup>
+    <innergroup refid="group__PMP__intersection__grp">Intersection Functions</innergroup>
+    <innergroup refid="group__PMP__repairing__grp">Combinatorial Repairing</innergroup>
+    <innergroup refid="group__PMP__distance__grp">Distance Functions</innergroup>
+    <innergroup refid="group__PMP__corefinement__grp">Corefinement and Boolean Operations</innergroup>
+    <innergroup refid="group__PMP__detect__features__grp">Feature Detection Functions</innergroup>
+    <innergroup refid="group__PMP__predicates__grp">Intersection Detection Functions</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga0ce79f6c567ba2a4266c0ec636acc8b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename CGAL_PMP_NP_TEMPLATE_PARAMETERS</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>CGAL::Bbox_3 CGAL::Polygon_mesh_processing::bbox</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, const CGAL_PMP_NP_CLASS &amp;np)</argsstring>
+        <name>bbox</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const CGAL_PMP_NP_CLASS &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes a bounding box of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, providing the functor <computeroutput>Construct_bbox_3</computeroutput> and the function <computeroutput>Construct_bbox_3 construct_bbox_3_object()</computeroutput>. <computeroutput>Construct_bbox_3</computeroutput> must provide <computeroutput>BBox_3 operator()(Point_3)</computeroutput> where <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> is the value type of the vertex point map.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>a bounding box of <computeroutput>pmesh</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/bbox.h" line="66" column="1" bodyfile="CGAL/Polygon_mesh_processing/bbox.h" bodystart="66" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga0129863dcd7c851cf3587652e28c6eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>CGAL::Bbox_3 CGAL::Polygon_mesh_processing::vertex_bbox</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor vd, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>vertex_bbox</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor</type>
+          <declname>vd</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes a bounding box of a vertex of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a descriptor of a vertex in <computeroutput>pmesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, providing the functor <computeroutput>Construct_bbox_3</computeroutput> and the function <computeroutput>Construct_bbox_3 construct_bbox_3_object()</computeroutput>. <computeroutput>Construct_bbox_3</computeroutput> must provide <computeroutput>BBox_3 operator()(Point_3)</computeroutput> where <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> is the value type of the vertex point map.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>a bounding box of <computeroutput>pmesh</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/bbox.h" line="116" column="1" bodyfile="CGAL/Polygon_mesh_processing/bbox.h" bodystart="116" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga57266ab008442edbfa30ade3e1e6088e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>CGAL::Bbox_3 CGAL::Polygon_mesh_processing::edge_bbox</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::edge_descriptor ed, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>edge_bbox</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::edge_descriptor</type>
+          <declname>ed</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes a bounding box of an edge of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a descriptor of an edge in <computeroutput>pmesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, providing the functor <computeroutput>Construct_bbox_3</computeroutput> and the function <computeroutput>Construct_bbox_3 construct_bbox_3_object()</computeroutput>. <computeroutput>Construct_bbox_3</computeroutput> must provide <computeroutput>BBox_3 operator()(Point_3)</computeroutput> where <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> is the value type of the vertex point map.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>a bounding box of <computeroutput>pmesh</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/bbox.h" line="159" column="1" bodyfile="CGAL/Polygon_mesh_processing/bbox.h" bodystart="159" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga478dd7562282bc4cf94dfad779385f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>CGAL::Bbox_3 CGAL::Polygon_mesh_processing::face_bbox</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor fd, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>face_bbox</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes a bounding box of a face of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a descriptor of a face in <computeroutput>pmesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, providing the functor <computeroutput>Construct_bbox_3</computeroutput> and the function <computeroutput>Construct_bbox_3 construct_bbox_3_object()</computeroutput>. <computeroutput>Construct_bbox_3</computeroutput> must provide <computeroutput>BBox_3 operator()(Point_3)</computeroutput> where <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> is the value type of the vertex point map.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>a bounding box of <computeroutput>pmesh</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/bbox.h" line="203" column="1" bodyfile="CGAL/Polygon_mesh_processing/bbox.h" bodystart="203" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga09a4fe88fd2a7487679346301624e18a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename CGAL_PMP_NP_TEMPLATE_PARAMETERS</type>
+          </param>
+        </templateparamlist>
+        <type>CGAL_DEPRECATED <ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>CGAL_DEPRECATED CGAL::Bbox_3 CGAL::Polygon_mesh_processing::bbox_3</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, const CGAL_PMP_NP_CLASS &amp;np)</argsstring>
+        <name>bbox_3</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const CGAL_PMP_NP_CLASS &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This function is deprecated since CGAL 4.10, <computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga0ce79f6c567ba2a4266c0ec636acc8b9" kindref="member">CGAL::Polygon_mesh_processing::bbox()</ref></computeroutput> should be used instead.</para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/bbox.h" line="264" column="1" bodyfile="CGAL/Polygon_mesh_processing/bbox.h" bodystart="264" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1ga6a0a99788b1f8014d38fd9ef8fe7d746" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Transformation</type>
+          </param>
+          <param>
+            <type>class PolygonMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::transform</definition>
+        <argsstring>(const Transformation &amp;transformation, PolygonMesh &amp;mesh, const NamedParameters &amp;np)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const Transformation &amp;</type>
+          <declname>transformation</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>mesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>applies a transformation to every vertex of a <computeroutput>PolygonMesh</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Transformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a functor that has an <computeroutput>operator()(Point_3)</computeroutput>, with <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> the <computeroutput>value_type</computeroutput> of <computeroutput>vertex_point_map</computeroutput> (see below). Such a functor can be <computeroutput><ref refid="classCGAL_1_1Aff__transformation__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Aff_transformation_3</ref></computeroutput> for example. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classVertexListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">VertexListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the transformation functor to apply to the points of <computeroutput>mesh</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput>PolygonMesh</computeroutput> to transform. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters for Polygon Mesh Processing</ref> for <computeroutput>mesh</computeroutput>, among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<itemizedlist>
+<listitem><para><variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>mesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/transform.h" line="52" column="1" bodyfile="CGAL/Polygon_mesh_processing/transform.h" bodystart="52" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPolygonMeshProcessing_1gaf5f5eb322811f24573aa9158e6df8070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+          <param>
+            <type>typename HalfedgeOutputIterator</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>HalfedgeOutputIterator</type>
+        <definition>HalfedgeOutputIterator CGAL::Polygon_mesh_processing::border_halfedges</definition>
+        <argsstring>(const FaceRange &amp;faces, const PolygonMesh &amp;pmesh, HalfedgeOutputIterator out, const NamedParameters &amp;np)</argsstring>
+        <name>border_halfedges</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>faces</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>HalfedgeOutputIterator</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>collects the border halfedges of a surface patch defined as a face range. </para>        </briefdescription>
+        <detaileddescription>
+<para>For each returned halfedge <computeroutput>h</computeroutput>, <computeroutput>opposite(h, pmesh)</computeroutput> belongs to a face of the patch, but <computeroutput>face(h, pmesh)</computeroutput> does not belong to the patch.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput>. If <computeroutput>PolygonMesh</computeroutput> has an internal property map for <computeroutput>CGAL::face_index_t</computeroutput> and no <computeroutput>face_index_map</computeroutput> is given as a named parameter, then the internal one must be initialized </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HalfedgeOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::halfedge_descriptor</computeroutput> for patch border </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to which <computeroutput>faces</computeroutput> belong </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of faces defining the patch whose border halfedges are collected </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the output iterator that collects the border halfedges of the patch, seen from outside. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>pmesh</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>out</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/border.h" line="184" column="1" bodyfile="CGAL/Polygon_mesh_processing/border.h" bodystart="184" bodyend="207"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para> <image type="html" name="hole_filling_ico.png"></image>
+ </para><para> Sébastien Loriot, Jane Tournois, Ilker O. Yaz This package provides a collection of methods and classes for polygon mesh processing, ranging from basic operations on simplices, to complex geometry processing algorithms. <linebreak/>
+ </para><para> <bold>Introduced in:</bold> CGAL 4.7<linebreak/>
+ <bold>Depends on:</bold> documented for each function; <ref refid="packages_1PkgSolverSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">CGAL and Solvers</ref> <linebreak/>
+ <bold>BibTeX:</bold> <ulink url="../Manual/how_to_cite_cgal.html#cgal:lty-pmp-18b">cgal:lty-pmp-18b</ulink><linebreak/>
+ <bold>License:</bold> <ref refid="preliminaries_1licensesGPL" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">GPL</ref> <linebreak/>
+ <bold>Windows Demo:</bold> <ulink url="https://www.cgal.org/demo/4.13/polyhedron_3.zip">Polyhedron demo</ulink><linebreak/>
+<bold>Common Demo Dlls:</bold> <ulink url="https://www.cgal.org/demo/4.13/CGAL-demoDLLs.zip">dlls</ulink><linebreak/>
+ </para><para></para><para><heading level="2">Parameters</heading>
+</para><para>Optional parameters of the functions of this package are implemented as <ref refid="index_1BGLNamedParameters" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">Named Parameters</ref>. The page <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> describes their usage and provides a list of the parameters that are used in this package.</para><para><heading level="2">Meshing Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1gaa091c8368920920eed87784107d68ecf" kindref="member">CGAL::Polygon_mesh_processing::fair()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" kindref="member">CGAL::Polygon_mesh_processing::refine()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1ga70d65044f8c7309c24ade88fa280124a" kindref="member">CGAL::Polygon_mesh_processing::triangulate_face()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1gacaaff4d520500c530d9c3d5ebe2a0760" kindref="member">CGAL::Polygon_mesh_processing::triangulate_faces()</ref></computeroutput></para></listitem><listitem><para><ref refid="group__PMP__meshing__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::isotropic_remeshing()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__PMP__meshing__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::split_long_edges()</computeroutput> </ref></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1ga028a80dc84395650f67714fa7618ec53" kindref="member">CGAL::Polygon_mesh_processing::random_perturbation()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__meshing__grp_1ga102e1ba5d709c5e53e013160792e4d08" kindref="member">CGAL::Polygon_mesh_processing::extrude_mesh()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Hole Filling Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__hole__filling__grp_1ga4aacaa46c800a53ca0a0e5fd518a7b20" kindref="member">CGAL::Polygon_mesh_processing::triangulate_hole()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__hole__filling__grp_1gaaa1bfaf9a57dea8b6c71168a18f9b6eb" kindref="member">CGAL::Polygon_mesh_processing::triangulate_and_refine_hole()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__hole__filling__grp_1ga87655fb8d54a8d85e7eec7a21e5c0058" kindref="member">CGAL::Polygon_mesh_processing::triangulate_refine_and_fair_hole()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__hole__filling__grp_1ga8508fd49a2482ec7dcb3e1799234696a" kindref="member">CGAL::Polygon_mesh_processing::triangulate_hole_polyline()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Predicate Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__intersection__grp_1ga0beba25d03a16010b20e2c9b6771cd12" kindref="member">CGAL::Polygon_mesh_processing::does_self_intersect()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__intersection__grp_1ga0afb9e365a2f16f0591255b8df468885" kindref="member">CGAL::Polygon_mesh_processing::self_intersections()</ref></computeroutput></para></listitem><listitem><para><ref refid="group__PMP__predicates__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::do_intersect()</computeroutput> </ref></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__predicates__grp_1ga1ff63ec6e762d45ea5775bf7b49f9270" kindref="member">CGAL::Polygon_mesh_processing::intersecting_meshes()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Orientation Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__orientation__grp_1gad71360b56f0d5340bf3006febd49286c" kindref="member">CGAL::Polygon_mesh_processing::is_outward_oriented()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__orientation__grp_1gad8a3439883e3e76651f96d15ba58b2bc" kindref="member">CGAL::Polygon_mesh_processing::reverse_face_orientations()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__orientation__grp_1gaadc5bac3072b11d2313e40043c729d0a" kindref="member">CGAL::Polygon_mesh_processing::orient_polygon_soup()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__orientation__grp_1gafe035adcc4ff061b4438cc9dae591d00" kindref="member">CGAL::Polygon_mesh_processing::orient()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__orientation__grp_1gafdbc256d06536f6aca2558bc1a0156e2" kindref="member">CGAL::Polygon_mesh_processing::orient_to_bound_a_volume()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Combinatorial Repairing Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><ref refid="group__PMP__repairing__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::stitch_borders()</computeroutput> </ref></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__repairing__grp_1ga8b9d12d817b5cc76f5a42d74eac75bf3" kindref="member">CGAL::Polygon_mesh_processing::is_polygon_soup_a_polygon_mesh()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__repairing__grp_1gac8fe80db9800265922ce469c36d97baa" kindref="member">CGAL::Polygon_mesh_processing::polygon_soup_to_polygon_mesh()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__repairing__grp_1ga91c02ef57e638faf2622eae93e7a25e2" kindref="member">CGAL::Polygon_mesh_processing::remove_isolated_vertices()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Normal Computation Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__normal__grp_1gaa76c6d307b9d3e48cafacd7b77b2c043" kindref="member">CGAL::Polygon_mesh_processing::compute_face_normal()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__normal__grp_1ga129c8fb278c5f12158253cc488fdf6d4" kindref="member">CGAL::Polygon_mesh_processing::compute_face_normals()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__normal__grp_1ga240ed0a1f5efbea472f998fada07e112" kindref="member">CGAL::Polygon_mesh_processing::compute_vertex_normal()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__normal__grp_1gad46aaf003999b2939f3f9e4f6fa58d0e" kindref="member">CGAL::Polygon_mesh_processing::compute_vertex_normals()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__normal__grp_1ga14a7730a996879ba6e7589dfeaccff82" kindref="member">CGAL::Polygon_mesh_processing::compute_normals()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Connected Components</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__keep__connected__components__grp_1gad2546bc14c00bac66d87161a4044f871" kindref="member">CGAL::Polygon_mesh_processing::connected_component()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__keep__connected__components__grp_1gabe2052b2281e1e628e68d8fea94be2d9" kindref="member">CGAL::Polygon_mesh_processing::connected_components()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__keep__connected__components__grp_1ga6de4710f16947ea7817a0365c2fb72f1" kindref="member">CGAL::Polygon_mesh_processing::keep_large_connected_components()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__keep__connected__components__grp_1ga68c6c29dfc6a26a6a2f8befe6944f19d" kindref="member">CGAL::Polygon_mesh_processing::keep_largest_connected_components()</ref></computeroutput></para></listitem><listitem><para><ref refid="group__keep__connected__components__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::keep_connected_components()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__keep__connected__components__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::remove_connected_components()</computeroutput> </ref></para></listitem></itemizedlist>
+</para><para><heading level="2">Corefinement and Boolean Operation Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1gad7e1741a7ce41a5846cf86494982ca8b" kindref="member">CGAL::Polygon_mesh_processing::corefine_and_compute_union()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1gac5a853c33c4b0a9da9403c9b191caa44" kindref="member">CGAL::Polygon_mesh_processing::corefine_and_compute_difference()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga240e5df984c7d44741a7031e38203dc3" kindref="member">CGAL::Polygon_mesh_processing::corefine_and_compute_intersection()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga3e7f0215600d9280d9ac90565504228c" kindref="member">CGAL::Polygon_mesh_processing::corefine_and_compute_boolean_operations()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga6447dee822aaf92016f34512ce0b3456" kindref="member">CGAL::Polygon_mesh_processing::corefine()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga09e9c6524834aebd2b2dcd5c0031d1d4" kindref="member">CGAL::Polygon_mesh_processing::surface_intersection()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga30082762ba2d947cba304e2884d96a99" kindref="member">CGAL::Polygon_mesh_processing::clip()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__corefinement__grp_1ga808a0177bf30833d2c1e390e533fec7f" kindref="member">CGAL::Polygon_mesh_processing::does_bound_a_volume()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Geometric Measure Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><ref refid="group__measure__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::face_area()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__measure__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::area()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__measure__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::volume()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__measure__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::edge_length()</computeroutput> </ref></para></listitem><listitem><para><ref refid="group__measure__grp" kindref="compound"><computeroutput>CGAL::Polygon_mesh_processing::face_border_length()</computeroutput> </ref></para></listitem></itemizedlist>
+</para><para><heading level="2">Distance Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__distance__grp_1ga2b28867dc150931b2f12d17b77d15266" kindref="member">CGAL::Polygon_mesh_processing::approximate_Hausdorff_distance()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__distance__grp_1gaa5c83a2d9e8c1251e1ca3f2cdd59785c" kindref="member">CGAL::Polygon_mesh_processing::approximate_symmetric_Hausdorff_distance()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__distance__grp_1ga349ddbf7a4a44e820794dbe4680d0026" kindref="member">CGAL::Polygon_mesh_processing::approximate_max_distance_to_point_set()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__distance__grp_1ga44609a1b94f1ede1c87b2cfdc441d966" kindref="member">CGAL::Polygon_mesh_processing::max_distance_to_triangle_mesh()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">CGAL::Polygon_mesh_processing::sample_triangle_mesh()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Feature Detection Functions</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="group__PMP__detect__features__grp_1ga1daa8515d6867e977c470a53dfb93838" kindref="member">CGAL::Polygon_mesh_processing::sharp_edges_segmentation()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__detect__features__grp_1ga1e5e8ae3b4b8fc06270a50a48d92036d" kindref="member">CGAL::Polygon_mesh_processing::detect_sharp_edges()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PMP__detect__features__grp_1gaf42fe09f2b613c78bba5dd8d8a71b58f" kindref="member">CGAL::Polygon_mesh_processing::detect_vertex_incident_patches()</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><heading level="2">Miscellaneous</heading>
+</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Polygon__mesh__slicer" kindref="compound">CGAL::Polygon_mesh_slicer</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Side__of__triangle__mesh" kindref="compound">CGAL::Side_of_triangle_mesh</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga0ce79f6c567ba2a4266c0ec636acc8b9" kindref="member">CGAL::Polygon_mesh_processing::bbox()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga0129863dcd7c851cf3587652e28c6eed" kindref="member">CGAL::Polygon_mesh_processing::vertex_bbox()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga57266ab008442edbfa30ade3e1e6088e" kindref="member">CGAL::Polygon_mesh_processing::edge_bbox()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga478dd7562282bc4cf94dfad779385f72" kindref="member">CGAL::Polygon_mesh_processing::face_bbox()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1gaf5f5eb322811f24573aa9158e6df8070" kindref="member">CGAL::Polygon_mesh_processing::border_halfedges()</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="group__PkgPolygonMeshProcessing_1ga6a0a99788b1f8014d38fd9ef8fe7d746" kindref="member">CGAL::Polygon_mesh_processing::transform()</ref></computeroutput> </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

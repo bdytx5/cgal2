@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__hole__filling__grp" kind="group">
+    <compoundname>hole_filling_grp</compoundname>
+    <title>Hole Filling</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__hole__filling__grp_1ga4aacaa46c800a53ca0a0e5fd518a7b20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::triangulate_hole</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor border_halfedge, OutputIterator out, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_hole</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor</type>
+          <declname>border_halfedge</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates a hole in a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The hole must not contain any non-manifold vertex, nor self-intersections. The patch generated does not introduce non-manifold edges nor degenerate triangles. If a hole cannot be triangulated, <computeroutput>pmesh</computeroutput> is not modified and nothing is recorded in <computeroutput>out</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> for patch faces. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>polygon mesh containing the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>border_halfedge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a border halfedge incident to the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over patch faces </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_delaunay_triangulation" kindref="member">use_delaunay_triangulation</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput>, use the Delaunay triangulation facet search space  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>out</computeroutput></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_hole.h" line="86" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_hole.h" bodystart="86" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="group__hole__filling__grp_1gaaa1bfaf9a57dea8b6c71168a18f9b6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceOutputIterator</type>
+          </param>
+          <param>
+            <type>typename VertexOutputIterator</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; FaceOutputIterator, VertexOutputIterator &gt;</type>
+        <definition>std::pair&lt;FaceOutputIterator, VertexOutputIterator&gt; CGAL::Polygon_mesh_processing::triangulate_and_refine_hole</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor border_halfedge, FaceOutputIterator face_out, VertexOutputIterator vertex_out, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_and_refine_hole</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor</type>
+          <declname>border_halfedge</declname>
+        </param>
+        <param>
+          <type>FaceOutputIterator</type>
+          <declname>face_out</declname>
+        </param>
+        <param>
+          <type>VertexOutputIterator</type>
+          <declname>vertex_out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates and refines a hole in a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FacetOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> for patch faces. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> for patch vertices. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>polygon mesh which has the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>border_halfedge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a border halfedge incident to the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>face_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over patch faces </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertex_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over patch vertices without including the boundary </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_density_control_factor" kindref="member">density_control_factor</ref></para></entry><entry thead="no"><para>factor to control density of the ouput mesh, where larger values cause denser refinements, as in <computeroutput><ref refid="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" kindref="member">refine()</ref></computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_delaunay_triangulation" kindref="member">use_delaunay_triangulation</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput>, use the Delaunay triangulation facet search space  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>pair of <computeroutput>face_out</computeroutput> and <computeroutput>vertex_out</computeroutput></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__hole__filling__grp_1ga4aacaa46c800a53ca0a0e5fd518a7b20" kindref="member">CGAL::Polygon_mesh_processing::triangulate_hole()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" kindref="member">CGAL::Polygon_mesh_processing::refine()</ref></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_hole.h" line="176" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_hole.h" bodystart="176" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="group__hole__filling__grp_1ga87655fb8d54a8d85e7eec7a21e5c0058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceOutputIterator</type>
+          </param>
+          <param>
+            <type>typename VertexOutputIterator</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1cpp11_1_1tuple" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::cpp11::tuple</ref>&lt; bool, FaceOutputIterator, VertexOutputIterator &gt;</type>
+        <definition>CGAL::cpp11::tuple&lt;bool, FaceOutputIterator, VertexOutputIterator&gt; CGAL::Polygon_mesh_processing::triangulate_refine_and_fair_hole</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor border_halfedge, FaceOutputIterator face_out, VertexOutputIterator vertex_out, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_refine_and_fair_hole</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor</type>
+          <declname>border_halfedge</declname>
+        </param>
+        <param>
+          <type>FaceOutputIterator</type>
+          <declname>face_out</declname>
+        </param>
+        <param>
+          <type>VertexOutputIterator</type>
+          <declname>vertex_out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates, refines and fairs a hole in a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> for patch faces </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> for patch vertices </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>polygon mesh which has the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>border_halfedge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a border halfedge incident to the hole </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>face_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over patch faces </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertex_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over patch vertices without including the boundary </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="6" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available in <computeroutput>PolygonMesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_delaunay_triangulation" kindref="member">use_delaunay_triangulation</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput>, use the Delaunay triangulation facet search space  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_density_control_factor" kindref="member">density_control_factor</ref></para></entry><entry thead="no"><para>factor to control density of the ouput mesh, where larger values cause denser refinements, as in <computeroutput><ref refid="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" kindref="member">refine()</ref></computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_fairing_continuity" kindref="member">fairing_continuity</ref></para></entry><entry thead="no"><para>tangential continuity of the output surface patch  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_sparse_linear_solver" kindref="member">sparse_linear_solver</ref></para></entry><entry thead="no"><para>an instance of the sparse linear solver used for fairing  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>tuple of<itemizedlist>
+<listitem><para><computeroutput>bool</computeroutput>: <computeroutput>true</computeroutput> if fairing is successful</para></listitem><listitem><para><computeroutput>face_out</computeroutput></para></listitem><listitem><para><computeroutput>vertex_out</computeroutput></para></listitem></itemizedlist>
+</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__hole__filling__grp_1ga4aacaa46c800a53ca0a0e5fd518a7b20" kindref="member">CGAL::Polygon_mesh_processing::triangulate_hole()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" kindref="member">CGAL::Polygon_mesh_processing::refine()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PMP__meshing__grp_1gaa091c8368920920eed87784107d68ecf" kindref="member">CGAL::Polygon_mesh_processing::fair()</ref></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_hole.h" line="250" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_hole.h" bodystart="250" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="group__hole__filling__grp_1ga8508fd49a2482ec7dcb3e1799234696a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange1</type>
+          </param>
+          <param>
+            <type>typename PointRange2</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::triangulate_hole_polyline</definition>
+        <argsstring>(const PointRange1 &amp;points, const PointRange2 &amp;third_points, OutputIterator out, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_hole_polyline</name>
+        <param>
+          <type>const PointRange1 &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const PointRange2 &amp;</type>
+          <declname>third_points</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>creates triangles to fill the hole defined by points in the range <computeroutput>points</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Triangles are recorded into <computeroutput>out</computeroutput> using the indices of the input points in the range <computeroutput>points</computeroutput>. Note that no degenerate triangles will be produced. If no triangulation can be found, then nothing is recorded in <computeroutput>out</computeroutput>.</para><para>If faces incident to the polyline outside the hole are known, it is recommended to use this function. The point range <computeroutput>third_points</computeroutput> indicates for each pair of consecutive points in the range <computeroutput>points</computeroutput>, the third point of the face this segment is incident to. It influences the choice of the best triangulation while avoiding overfolding.</para><para>Note that the ranges <computeroutput>points</computeroutput> and <computeroutput>third_points</computeroutput> may or may not contain duplicated first point at the end of sequence.</para><para><simplesect kind="pre"><para><computeroutput>third_points.size() == points.size()</computeroutput></para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of points, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput>, to collect patch faces. A specialization for <computeroutput><ref refid="structCGAL_1_1value__type__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::value_type_traits</ref>&lt;<ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref>&gt;</computeroutput> must be available, and the corresponding value type <computeroutput>type</computeroutput> must have a constructor <computeroutput>type(int p0, int p1, int p2)</computeroutput> available. The indices correspond to the ones of input points in <computeroutput>points</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of input points </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>third_points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of third points </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over output patch triangles, described by indices of points in <computeroutput>points</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_delaunay_triangulation" kindref="member">use_delaunay_triangulation</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput>, use the Delaunay triangulation facet search space  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_hole.h" line="331" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_hole.h" bodystart="331" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="group__hole__filling__grp_1gae92ca5b4cfbed061a9cd98388453fc14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename CGAL_PMP_NP_TEMPLATE_PARAMETERS</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::triangulate_hole_polyline</definition>
+        <argsstring>(const PointRange &amp;points, OutputIterator out, const CGAL_PMP_NP_CLASS &amp;np)</argsstring>
+        <name>triangulate_hole_polyline</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const CGAL_PMP_NP_CLASS &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>same as above but the range of third points is omitted. </para>        </briefdescription>
+        <detaileddescription>
+<para>They are not taken into account in the cost computation that leads the hole filling. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_hole.h" line="391" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_hole.h" bodystart="391" bodyend="399"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to fill holes given as a range of halfedges or as range of points. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

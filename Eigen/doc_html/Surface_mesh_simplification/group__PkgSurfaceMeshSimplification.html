@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Surface_mesh_simplification/group__PkgSurfaceMeshSimplification.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Triangulated Surface Mesh Simplification: Triangulated Surface Mesh Simplification Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Triangulated Surface Mesh Simplification
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgSurfaceMeshSimplification.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> |
+<a href="#nested-classes">Classes</a> |
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Triangulated Surface Mesh Simplification Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<div class="PkgImage"> <div class="image">
+<img src="SMS-detail.png" alt="SMS-detail.png" />
+</div>
+ </div> <div class="PkgSummary"> <div class="PkgAuthors">Fernando Cacciola</div> <div class="PkgDescription">This package provides an algorithm to simplify a triangulated surface mesh by edge collapsing. It is an implementation of the Turk/Lindstrom <em>memoryless</em> surface mesh simplification algorithm.</div><p> <br />
+ </p></div> <div class="PkgShortInfo"> <b>Introduced in:</b> <span style="font-variant: small-caps;">CGAL</span> 3.3<br />
+ <b>BibTeX:</b> <a href="../Manual/how_to_cite_cgal.html#cgal:c-tsms-12-18b">cgal:c-tsms-12-18b</a><br />
+ <b>License:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/preliminaries.html#licensesGPL">GPL</a> <br />
+ <b>Windows Demo:</b> <a href="https://www.cgal.org/demo/4.13/polyhedron_3.zip">Polyhedron demo</a><br />
+<b>Common Demo Dlls:</b> <a href="https://www.cgal.org/demo/4.13/CGAL-demoDLLs.zip">dlls</a><br />
+ </div><p> </p><h2 class="groupheader">Classified Reference Pages</h2> 
+<h2>Concepts</h2>
+<ul>
+<li><code><a class="el" href="classEdgeProfile.html" title="The concept EdgeProfile describes the requirements for a data structure that caches the local topolog...">EdgeProfile</a></code></li>
+<li><code><a class="el" href="classStopPredicate.html" title="The concept StopPredicate describes the requirements for the predicate which indicates if the simplif...">StopPredicate</a></code></li>
+<li><code><a class="el" href="classGetCost.html" title="The concept GetCost describes the requirements for the policy function object which gets the collapse...">GetCost</a></code></li>
+<li><code><a class="el" href="classGetPlacement.html" title="The concept GetPlacement describes the requirements for the policy function object which gets the col...">GetPlacement</a></code></li>
+<li><code><a class="el" href="classEdgeCollapseSimplificationVisitor.html" title="The concept EdgeCollapseSimplificationVisitor describes the requirements for the visitor object which...">EdgeCollapseSimplificationVisitor</a></code></li>
+</ul>
+<h2>Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgSurfaceMeshSimplification.html#ga5f51d0ea2897f3c22e870279cfb4bd41" title="Simplifies surface_mesh in-place by collapsing edges, and returns the number of edges effectively rem...">CGAL::Surface_mesh_simplification::edge_collapse()</a></code></li>
+</ul>
+<h2>Classes</h2>
+<ul>
+<li><code><a class="el" href="structCGAL_1_1Surface__mesh__simplification_1_1Edge__collapse__visitor__base.html" title="The class Surface_mesh_simplification::Edge_collapse_visitor_base provides a base class for models of...">CGAL::Surface_mesh_simplification::Edge_collapse_visitor_base</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__profile.html" title="The class Edge_profile provides a model for the EdgeProfile concept. ">CGAL::Surface_mesh_simplification::Edge_profile</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__stop__predicate.html" title="The class Count_stop_predicate is a model for the StopPredicate concept, which returns true when the ...">CGAL::Surface_mesh_simplification::Count_stop_predicate</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__ratio__stop__predicate.html" title="The class Count_ratio_stop_predicate is a model for the StopPredicate concept which returns true when...">CGAL::Surface_mesh_simplification::Count_ratio_stop_predicate</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__stop__predicate.html" title="The class Edge_length_stop_predicate is a model for the StopPredicate concept, which returns true whe...">CGAL::Surface_mesh_simplification::Edge_length_stop_predicate</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__cost.html" title="The class Edge_length_cost is a model for the GetCost concept, which computes the collapse cost as th...">CGAL::Surface_mesh_simplification::Edge_length_cost</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Midpoint__placement.html" title="The class Midpoint_placement is a model for the GetPlacement concept which computes the placement as ...">CGAL::Surface_mesh_simplification::Midpoint_placement</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__cost.html" title="The class LindstromTurk_cost provides a model for the GetCost concept. ">CGAL::Surface_mesh_simplification::LindstromTurk_cost</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__placement.html" title="The class LindstromTurk_placement provides a model for the GetPlacement concept. ">CGAL::Surface_mesh_simplification::LindstromTurk_placement</a>&lt;TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Constrained__placement.html" title="The class Constrained_placement is a model for the GetPlacement concept provided the template paramet...">CGAL::Surface_mesh_simplification::Constrained_placement</a>&lt;Placement,TriangleMesh&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Bounded__normal__change__placement.html" title="The class Bounded_normal_change_placement is a model for the GetPlacement concept which serves as a f...">CGAL::Surface_mesh_simplification::Bounded_normal_change_placement</a>&lt;Placement&gt;</code> </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups" id="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__sms__namedparameters"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__sms__namedparameters.html">Named Parameters for Surface Mesh Simplification</a></td></tr>
+<tr class="memdesc:group__sms__namedparameters"><td class="mdescLeft"> </td><td class="mdescRight">In this package, some optional parameters are implemented as BGL optional named parameters (see <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/index.html#BGLNamedParameters">Named Parameters</a> for more information on how to use them). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgSurfaceMeshSimplificationConcepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgSurfaceMeshSimplificationConcepts.html">Concepts</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct  </td><td class="memItemRight" valign="bottom"><a class="el" href="structCGAL_1_1Surface__mesh__simplification_1_1Edge__collapse__visitor__base.html">CGAL::Surface_mesh_simplification::Edge_collapse_visitor_base&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="structCGAL_1_1Surface__mesh__simplification_1_1Edge__collapse__visitor__base.html" title="The class Surface_mesh_simplification::Edge_collapse_visitor_base provides a base class for models of...">Surface_mesh_simplification::Edge_collapse_visitor_base</a></code> provides a base class for models of the <code><a class="el" href="classEdgeCollapseSimplificationVisitor.html" title="The concept EdgeCollapseSimplificationVisitor describes the requirements for the visitor object which...">EdgeCollapseSimplificationVisitor</a></code> concept.  <a href="structCGAL_1_1Surface__mesh__simplification_1_1Edge__collapse__visitor__base.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Bounded__normal__change__placement.html">CGAL::Surface_mesh_simplification::Bounded_normal_change_placement&lt; Placement &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Bounded__normal__change__placement.html" title="The class Bounded_normal_change_placement is a model for the GetPlacement concept which serves as a f...">Bounded_normal_change_placement</a></code> is a model for the <code><a class="el" href="classGetPlacement.html" title="The concept GetPlacement describes the requirements for the policy function object which gets the col...">GetPlacement</a></code> concept which serves as a filter for another placement.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Bounded__normal__change__placement.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Constrained__placement.html">CGAL::Surface_mesh_simplification::Constrained_placement&lt; BasePlacement, EdgeIsConstrainedMap &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Constrained__placement.html" title="The class Constrained_placement is a model for the GetPlacement concept provided the template paramet...">Constrained_placement</a></code> is a model for the <code><a class="el" href="classGetPlacement.html" title="The concept GetPlacement describes the requirements for the policy function object which gets the col...">GetPlacement</a></code> concept provided the template parameter <code>BasePlacement</code> is such a model.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Constrained__placement.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__ratio__stop__predicate.html">CGAL::Surface_mesh_simplification::Count_ratio_stop_predicate&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__ratio__stop__predicate.html" title="The class Count_ratio_stop_predicate is a model for the StopPredicate concept which returns true when...">Count_ratio_stop_predicate</a></code> is a model for the <code><a class="el" href="classStopPredicate.html" title="The concept StopPredicate describes the requirements for the predicate which indicates if the simplif...">StopPredicate</a></code> concept which returns <code>true</code> when the relation between the initial and current number of edges drops below a certain ratio.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Count__ratio__stop__predicate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__stop__predicate.html">CGAL::Surface_mesh_simplification::Count_stop_predicate&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Count__stop__predicate.html" title="The class Count_stop_predicate is a model for the StopPredicate concept, which returns true when the ...">Count_stop_predicate</a></code> is a model for the <code><a class="el" href="classStopPredicate.html" title="The concept StopPredicate describes the requirements for the predicate which indicates if the simplif...">StopPredicate</a></code> concept, which returns <code>true</code> when the number of current edges drops below a certain threshold.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Count__stop__predicate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__cost.html">CGAL::Surface_mesh_simplification::Edge_length_cost&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__cost.html" title="The class Edge_length_cost is a model for the GetCost concept, which computes the collapse cost as th...">Edge_length_cost</a></code> is a model for the <code><a class="el" href="classGetCost.html" title="The concept GetCost describes the requirements for the policy function object which gets the collapse...">GetCost</a></code> concept, which computes the collapse cost as the squared length of the edge.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__cost.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__stop__predicate.html">CGAL::Surface_mesh_simplification::Edge_length_stop_predicate&lt; FT &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__stop__predicate.html" title="The class Edge_length_stop_predicate is a model for the StopPredicate concept, which returns true whe...">Edge_length_stop_predicate</a></code> is a model for the <code><a class="el" href="classStopPredicate.html" title="The concept StopPredicate describes the requirements for the predicate which indicates if the simplif...">StopPredicate</a></code> concept, which returns <code>true</code> when the top edge in the priority queue is larger than a certain threshold.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__length__stop__predicate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__profile.html">CGAL::Surface_mesh_simplification::Edge_profile&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__profile.html" title="The class Edge_profile provides a model for the EdgeProfile concept. ">Edge_profile</a></code> provides a model for the <code><a class="el" href="classEdgeProfile.html" title="The concept EdgeProfile describes the requirements for a data structure that caches the local topolog...">EdgeProfile</a></code> concept.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Edge__profile.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__cost.html">CGAL::Surface_mesh_simplification::LindstromTurk_cost&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__cost.html" title="The class LindstromTurk_cost provides a model for the GetCost concept. ">LindstromTurk_cost</a></code> provides a model for the <code><a class="el" href="classGetCost.html" title="The concept GetCost describes the requirements for the policy function object which gets the collapse...">GetCost</a></code> concept.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__cost.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__placement.html">CGAL::Surface_mesh_simplification::LindstromTurk_placement&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__placement.html" title="The class LindstromTurk_placement provides a model for the GetPlacement concept. ">LindstromTurk_placement</a></code> provides a model for the <code><a class="el" href="classGetPlacement.html" title="The concept GetPlacement describes the requirements for the policy function object which gets the col...">GetPlacement</a></code> concept.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1LindstromTurk__placement.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Midpoint__placement.html">CGAL::Surface_mesh_simplification::Midpoint_placement&lt; TriangleMesh &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">The class <code><a class="el" href="classCGAL_1_1Surface__mesh__simplification_1_1Midpoint__placement.html" title="The class Midpoint_placement is a model for the GetPlacement concept which computes the placement as ...">Midpoint_placement</a></code> is a model for the <code><a class="el" href="classGetPlacement.html" title="The concept GetPlacement describes the requirements for the policy function object which gets the col...">GetPlacement</a></code> concept which computes the placement as the midpoint position along the edge.  <a href="classCGAL_1_1Surface__mesh__simplification_1_1Midpoint__placement.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga5f51d0ea2897f3c22e870279cfb4bd41"><td class="memTemplParams" colspan="2">template&lt;class TriangleMesh , class StopPolicy , class NamedParameters &gt; </td></tr>
+<tr class="memitem:ga5f51d0ea2897f3c22e870279cfb4bd41"><td class="memTemplItemLeft" align="right" valign="top">int </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgSurfaceMeshSimplification.html#ga5f51d0ea2897f3c22e870279cfb4bd41">CGAL::Surface_mesh_simplification::edge_collapse</a> (TriangleMesh &amp;surface_mesh, const StopPolicy &amp;should_stop, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:ga5f51d0ea2897f3c22e870279cfb4bd41"><td class="mdescLeft"> </td><td class="mdescRight">Simplifies <code>surface_mesh</code> in-place by collapsing edges, and returns the number of edges effectively removed.  <a href="group__PkgSurfaceMeshSimplification.html#ga5f51d0ea2897f3c22e870279cfb4bd41">More...</a><br /></td></tr>
+<tr class="separator:ga5f51d0ea2897f3c22e870279cfb4bd41"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga5f51d0ea2897f3c22e870279cfb4bd41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f51d0ea2897f3c22e870279cfb4bd41">◆ </a></span>edge_collapse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TriangleMesh , class StopPolicy , class NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int CGAL::Surface_mesh_simplification::edge_collapse </td>
+          <td>(</td>
+          <td class="paramtype">TriangleMesh &amp; </td>
+          <td class="paramname"><em>surface_mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const StopPolicy &amp; </td>
+          <td class="paramname"><em>should_stop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Surface_mesh_simplification/edge_collapse.h&gt;</code></p>
+
+<p>Simplifies <code>surface_mesh</code> in-place by collapsing edges, and returns the number of edges effectively removed. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TriangleMesh</td><td>a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeListGraph.html">HalfedgeListGraph</a></code> concepts. </td></tr>
+    <tr><td class="paramname">StopPolicy</td><td>a model of <code><a class="el" href="classStopPredicate.html" title="The concept StopPredicate describes the requirements for the predicate which indicates if the simplif...">StopPredicate</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__sms__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface_mesh</td><td>a triangle mesh </td></tr>
+    <tr><td class="paramname">should_stop</td><td>the stop-condition policy </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__sms__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_vertex_point_map">vertex_point_map</a></td><td><p class="starttd">the property map with the points associated to the vertices of the mesh. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> should be available in <code>PolygonMesh</code> </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_halfedge_index_map">halfedge_index_map</a></td><td><p class="starttd">the property map containing an index for each halfedge, initialized 0 to <code>num_halfedges(graph)</code> </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_get_cost">get_cost</a></td><td><p class="starttd">The policy which returns the collapse cost for an edge. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_get_placement">get_placement</a></td><td><p class="starttd">The policy which returns the placement (position of the replacemet vertex) for an edge. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_edge_is_constrained_map">edge_is_constrained_map</a></td><td><p class="starttd">The property map containing the constrained-or-not status of each edge of <code>pmesh</code> </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_visitor">visitor</a></td><td><p class="starttd">The visitor that is called by the <code>edge_collapse</code> function in certain points to allow the user to track the simplification process. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__sms__namedparameters.html#SMS_vertex_index_map">vertex_index_map</a></td><td>is the property map containing the index of each vertex of the input polygon mesh.  <div class="CGALDebug"> <div>Debugging Support</div>  <pre class="fragment">This parameter is only used by debug functions and is usually not needed for users.
+</pre>  </div>   </td></tr>
+</table>
+</dd>
+</dl>
+<p><b>Semantics</b><br />
+</p>
+<p>The simplification process continues until the <code>should_stop</code> policy returns <code>true</code> or the surface mesh cannot be simplified any further due to topological constraints.</p>
+<p><code>get_cost</code> and <code>get_placement</code> are the policies which control the <em>cost-strategy</em>, that is, the order in which edges are collapsed and the remaining vertex is re-positioned.</p>
+<p><code>visitor</code> is used to keep track of the simplification process. It has several member functions which are called at certain points in the simplification code. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Surface_mesh_simplification_2edge_collapse_all_short_edges_8cpp-example.html#a3">Surface_mesh_simplification/edge_collapse_all_short_edges.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_bounded_normal_change_8cpp-example.html#a2">Surface_mesh_simplification/edge_collapse_bounded_normal_change.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_constrain_sharp_edges_8cpp-example.html#a10">Surface_mesh_simplification/edge_collapse_constrain_sharp_edges.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_constrained_border_polyhedron_8cpp-example.html#a5">Surface_mesh_simplification/edge_collapse_constrained_border_polyhedron.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_constrained_border_surface_mesh_8cpp-example.html#a4">Surface_mesh_simplification/edge_collapse_constrained_border_surface_mesh.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_enriched_polyhedron_8cpp-example.html#a4">Surface_mesh_simplification/edge_collapse_enriched_polyhedron.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_OpenMesh_8cpp-example.html#a2">Surface_mesh_simplification/edge_collapse_OpenMesh.cpp</a>, <a class="el" href="Surface_mesh_simplification_2edge_collapse_polyhedron_8cpp-example.html#a3">Surface_mesh_simplification/edge_collapse_polyhedron.cpp</a>, and <a class="el" href="Surface_mesh_simplification_2edge_collapse_surface_mesh_8cpp-example.html#a3">Surface_mesh_simplification/edge_collapse_surface_mesh.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:06 for CGAL 4.13 - Triangulated Surface Mesh Simplification by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

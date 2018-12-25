@@ -1,0 +1,857 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgBGLEulerOperations" kind="group">
+    <compoundname>PkgBGLEulerOperations</compoundname>
+    <title>Euler Operations</title>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga585a3324ef493cc1340da5cb364b772c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_vertex</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>join_vertex</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>joins the two vertices incident to <computeroutput>h</computeroutput>, (that is <computeroutput>source(h, g)</computeroutput> and <computeroutput>target(h, g)</computeroutput>) and removes <computeroutput>source(h,g)</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns the predecessor of <computeroutput>h</computeroutput> around the vertex, i.e., <computeroutput>prev(opposite(h,g))</computeroutput>. The invariant <computeroutput>join_vertex(split_vertex(h,g),g)</computeroutput> returns <computeroutput>h</computeroutput>. The time complexity is linear in the degree of the vertex removed.</para><para><image type="html" name="join_vertex.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the halfedge which incident vertices are joint</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>prev(opposite(h,g))</computeroutput></para></simplesect>
+<simplesect kind="pre"><para>The size of the faces incident to <computeroutput>h</computeroutput> and <computeroutput>opposite(h,g)</computeroutput> is at least 4.</para></simplesect>
+<simplesect kind="post"><para><computeroutput>source(h, g)</computeroutput> is invalidated </para></simplesect>
+<simplesect kind="post"><para><computeroutput>h</computeroutput> is invalidated</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1gaa60aecdf1aa48b7b3609abddd3b4d38b" kindref="member">split_vertex()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="116" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="116" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gaa60aecdf1aa48b7b3609abddd3b4d38b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_vertex</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</argsstring>
+        <name>split_vertex</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>splits the target vertex <computeroutput>v</computeroutput> of <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput>, and connects the new vertex and <computeroutput>v</computeroutput> with a new edge. </para>        </briefdescription>
+        <detaileddescription>
+<para>Let <computeroutput>hnew</computeroutput> be <computeroutput>opposite(next(h1, g), g)</computeroutput> after the split. The split regroups the halfedges around the two vertices. The edge sequence <computeroutput>hnew</computeroutput>, <computeroutput>opposite(next(h2, g), g)</computeroutput>, ..., <computeroutput>h1</computeroutput> remains around the old vertex, while the halfedge sequence <computeroutput>opposite(hnew, g)</computeroutput>, <computeroutput>opposite(next(h1, g), g)</computeroutput> (before the split), ..., <computeroutput>h2</computeroutput> is regrouped around the new vertex. The split returns <computeroutput>hnew</computeroutput>, i.e., the new edge incident to vertex <computeroutput>v</computeroutput>. The time is proportional to the distance from <computeroutput>h1</computeroutput> to <computeroutput>h2</computeroutput> around the vertex.</para><para><image type="html" name="split_vertex.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>halfedge descriptor </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>halfedge descriptor</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>hnew</computeroutput></para></simplesect>
+<simplesect kind="pre"><para><computeroutput>target(h1, g) == target(h2, g)</computeroutput>, that is <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are incident to the same vertex </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1 != h2</computeroutput>, that is no antennas</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1ga585a3324ef493cc1340da5cb364b772c" kindref="member">join_vertex()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="194" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="194" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga8a7629a2a0659ca059081eae8cedca3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_edge</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>split_edge</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>splits the halfedge <computeroutput>h</computeroutput> into two halfedges inserting a new vertex that is a copy of <computeroutput>vertex(opposite(h,g),g)</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Is equivalent to <computeroutput>opposite(split_vertex( prev(h,g), opposite(h,g),g), g)</computeroutput>. <simplesect kind="return"><para>the new halfedge <computeroutput>hnew</computeroutput> pointing to the inserted vertex. The new halfedge is followed by the old halfedge, i.e., <computeroutput>next(hnew,g) == h</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="232" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="232" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga34c26f38b0453d3bad610963da8b24ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_face</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>join_face</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>joins the two faces incident to <computeroutput>h</computeroutput> and <computeroutput>opposite(h,g)</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>The faces may be holes.</para><para>If <computeroutput>Graph</computeroutput> is a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput> the face incident to <computeroutput>opposite(h,g)</computeroutput> is removed.</para><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1ga34c26f38b0453d3bad610963da8b24ee" kindref="member">join_face()</ref></computeroutput> and <computeroutput><ref refid="group__PkgBGLEulerOperations_1gac0e8aebb3072d5dd67487ce40205f318" kindref="member">split_face()</ref></computeroutput> are inverse operations, that is <computeroutput>join_face(split_face(h,g),g)</computeroutput> returns <computeroutput>h</computeroutput>.</para><para><image type="html" name="join_face.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the halfedge incident to one of the faces to be joined.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>prev(h,g)</computeroutput></para></simplesect>
+<simplesect kind="pre"><para><computeroutput>out_degree(source(h,g)), g)) &gt;= 3</computeroutput> </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>out_degree(target(h,g)) &gt;= 3</computeroutput></para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1gac0e8aebb3072d5dd67487ce40205f318" kindref="member">split_face()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="261" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="261" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gac0e8aebb3072d5dd67487ce40205f318" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_face</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</argsstring>
+        <name>split_face</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>splits the face incident to <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Creates the opposite halfedges <computeroutput>h3</computeroutput> and <computeroutput>h4</computeroutput>, such that <computeroutput>next(h1,g) == h3</computeroutput> and <computeroutput>next(h2,g) == h4</computeroutput>. Performs the inverse operation to <computeroutput><ref refid="group__PkgBGLEulerOperations_1ga34c26f38b0453d3bad610963da8b24ee" kindref="member">join_face()</ref></computeroutput>.</para><para>If <computeroutput>Graph</computeroutput> is a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput> and if the update of faces is not disabled a new face incident to <computeroutput>h4</computeroutput> is added.</para><para><image type="html" name="split_face.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>h3</computeroutput></para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are incident to the same face </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1 != h2</computeroutput> </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>next(h1,g) != h2</computeroutput> and <computeroutput>next(h2,g) != h1</computeroutput> (no loop) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="293" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="293" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga868c3f29a47f516c24953b9b3b18c827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::join_loop</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</argsstring>
+        <name>join_loop</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>glues the cycle of halfedges of <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> together. </para>        </briefdescription>
+        <detaileddescription>
+<para>The vertices in the cycle of <computeroutput>h2</computeroutput> get removed. If <computeroutput>h1</computeroutput> or <computeroutput>h2</computeroutput> are not border halfedges their faces get removed. The vertices on the face cycle of <computeroutput>h1</computeroutput> get removed. The invariant <computeroutput>join_loop(h1, split_loop(h1,h2,h3,g), g)</computeroutput> returns <computeroutput>h1</computeroutput> and keeps the graph unchanged.</para><para><image type="html" name="join_loop.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>h1</computeroutput>.</para></simplesect>
+<simplesect kind="pre"><para>The faces incident to <computeroutput>h</computeroutput> and <computeroutput>g</computeroutput> are different and have equal number of edges. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="330" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="330" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gaff8b953d3c70fbfd2ae9db2f59d62bd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::split_loop</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h3, Graph &amp;g)</argsstring>
+        <name>split_loop</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h3</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>cuts the graph along the cycle <computeroutput>(h1,h2,h3)</computeroutput> changing the genus (halfedge <computeroutput>h3</computeroutput> runs on the backside of the three dimensional figure below). </para>        </briefdescription>
+        <detaileddescription>
+<para>Three new vertices, three new pairs of halfedges, and two new triangular faces are created.</para><para><computeroutput>h1</computeroutput>, <computeroutput>h2</computeroutput>, and <computeroutput>h3</computeroutput> will be incident to the first new face.</para><para>Note that <computeroutput><ref refid="group__PkgBGLEulerOperations_1gaff8b953d3c70fbfd2ae9db2f59d62bd0" kindref="member">split_loop()</ref></computeroutput> does not deal with properties of new vertices, halfedges, and faces.</para><para><image type="html" name="split_loop.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the halfedge incident to the second new face.</para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput>, <computeroutput>h2</computeroutput>, and <computeroutput>h3</computeroutput> denote distinct, consecutive halfedges of the graph and form a cycle: i.e., <computeroutput>target(h1) == target(opposite(h2,g),g)</computeroutput>, … , <computeroutput>target(h3,g) == target(opposite(h1,g),g)</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>The six faces incident to <computeroutput>h1</computeroutput>, <computeroutput>h2</computeroutput>, and <computeroutput>h3</computeroutput> are all distinct. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="402" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="402" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gacfae7ff8e782da55b941e4487e86c738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Euler::remove_face</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>remove_face</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>removes the incident face of <computeroutput>h</computeroutput> and changes all halfedges incident to the face into border halfedges or removes them from the graph if they were already border halfedges. </para>        </briefdescription>
+        <detaileddescription>
+<para>If this creates isolated vertices they get removed as well.</para><para><image type="html" name="remove_face.svg"></image>
+ <image type="html" name="remove_face_and_vertex.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>h</computeroutput> is not a border halfedge</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1gaa305bfc634d2aa7bca376d0550d8363e" kindref="member">make_hole()</ref></computeroutput> for a more specialized variant. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="508" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="508" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga4661f850bc60686efeae2fc9d2ec3e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::edge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::edge_descriptor CGAL::Euler::add_edge</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor s, typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor t, Graph &amp;g)</argsstring>
+        <name>add_edge</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::vertex_descriptor</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>adds and returns the edge <computeroutput>e</computeroutput> connecting <computeroutput>s</computeroutput> and <computeroutput>t</computeroutput> halfedge(e, g) has s as source and t as target </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="557" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="557" bodyend="565"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gaa386d0cdef3b5d6ef43d6b503392dbcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+          <param>
+            <type>typename VertexRange</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::face_descriptor</type>
+        <definition>boost::graph_traits&lt; Graph &gt;::face_descriptor CGAL::Euler::add_face</definition>
+        <argsstring>(const VertexRange &amp;vr, Graph &amp;g)</argsstring>
+        <name>add_face</name>
+        <param>
+          <type>const VertexRange &amp;</type>
+          <declname>vr</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>adds a new face defined by a range of vertices (identified by their descriptors, <computeroutput>boost::graph_traits&lt;Graph&gt;::vertex_descriptor</computeroutput>). </para>        </briefdescription>
+        <detaileddescription>
+<para>For each pair of consecutive vertices, the corresponding halfedge is added in <computeroutput>g</computeroutput> if new, and its connectivity is updated otherwise. The face can be added only at the boundary of <computeroutput>g</computeroutput>, or as a new connected component.</para><para><simplesect kind="pre"><para><computeroutput>vr</computeroutput> contains at least 3 vertices </para></simplesect>
+<simplesect kind="return"><para>the added face descriptor, or <computeroutput>boost::graph_traits&lt;Graph&gt;::null_face()</computeroutput> if the face could not be added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="579" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="579" bodyend="739"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gaa305bfc634d2aa7bca376d0550d8363e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Euler::make_hole</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>make_hole</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>removes the incident face of <computeroutput>h</computeroutput> and changes all halfedges incident to the face into border halfedges. </para>        </briefdescription>
+        <detaileddescription>
+<para>See <computeroutput>remove_face(g,h)</computeroutput> for a more generalized variant.</para><para><simplesect kind="pre"><para>None of the incident edges of the face is a border edge. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="748" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="748" bodyend="765"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga12e0a6376e2755b48356b186e1344fdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Euler::fill_hole</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>fill_hole</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>fills the hole incident to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><computeroutput>h</computeroutput> must be a border halfedge </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="772" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="772" bodyend="784"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga28e4d0f61f3cda26eb651e352cf756ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_center_vertex</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>add_center_vertex</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>creates a barycentric triangulation of the face incident to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Creates a new vertex and connects it to each vertex incident to <computeroutput>h</computeroutput> and splits <computeroutput>face(h, g)</computeroutput> into triangular faces. <computeroutput>h</computeroutput> remains incident to the original face. The time complexity is linear in the size of the face.</para><para><image type="html" name="add_center_vertex.svg"></image>
+</para><para><simplesect kind="return"><para>the halfedge <computeroutput>next(h, g)</computeroutput> after the operation, i.e., a halfedge pointing to the new vertex.</para></simplesect>
+Note that <computeroutput><ref refid="group__PkgBGLEulerOperations_1ga28e4d0f61f3cda26eb651e352cf756ce" kindref="member">add_center_vertex()</ref></computeroutput> does not deal with properties of new vertices, halfedges, and faces. <simplesect kind="pre"><para><computeroutput>h</computeroutput> is not a border halfedge.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>halfedge descriptor </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1ga8ec295610396e837258997c435b7a75f" kindref="member">remove_center_vertex()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="811" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="811" bodyend="840"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga8ec295610396e837258997c435b7a75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::remove_center_vertex</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>remove_center_vertex</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>removes the vertex <computeroutput>target(h, g)</computeroutput> and all incident halfedges thereby merging all incident faces. </para>        </briefdescription>
+        <detaileddescription>
+<para>The resulting face may not be triangulated. This function is the inverse operation of <computeroutput><ref refid="group__PkgBGLEulerOperations_1ga28e4d0f61f3cda26eb651e352cf756ce" kindref="member">add_center_vertex()</ref></computeroutput>. The invariant <computeroutput>h == remove_center_vertex(add_center_vertex(h,g),g)</computeroutput> holds, if <computeroutput>h</computeroutput> is not a border halfedge.</para><para><image type="html" name="remove_center_vertex.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>halfedge descriptor</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>prev(h, g)</computeroutput></para></simplesect>
+<simplesect kind="pre"><para>None of the incident faces of <computeroutput>target(h,g)</computeroutput> is a hole. There are at least two distinct faces incident to the faces that are incident to <computeroutput>target(h,g)</computeroutput>. (This prevents the operation from collapsing a volume into two faces glued together with opposite orientations, such as would happen with any vertex of a tetrahedron.)</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgBGLEulerOperations_1ga28e4d0f61f3cda26eb651e352cf756ce" kindref="member">add_center_vertex()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="870" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="870" bodyend="897"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga2bd5538dc0fda2be88770f5fb96c6782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_vertex_and_face_to_border</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</argsstring>
+        <name>add_vertex_and_face_to_border</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>appends a new face to the border halfedge <computeroutput>h2</computeroutput> by connecting the tip of <computeroutput>h2</computeroutput> with the tip of <computeroutput>h1</computeroutput> with two new halfedges and a new vertex and creating a new face that is incident to <computeroutput>h2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note that <computeroutput><ref refid="group__PkgBGLEulerOperations_1ga2bd5538dc0fda2be88770f5fb96c6782" kindref="member">add_vertex_and_face_to_border()</ref></computeroutput> does not deal with properties of new vertices, halfedges, and faces.</para><para><image type="html" name="add_vertex_and_face_to_border.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the halfedge of the new edge that is incident to the new face and the new vertex.</para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are border halfedges </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1 != h2</computeroutput>, </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are on the same border. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="919" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="919" bodyend="955"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga8666be89a7ffa73a5fe82b6b2bdc6f19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::halfedge_descriptor CGAL::Euler::add_face_to_border</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h1, typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h2, Graph &amp;g)</argsstring>
+        <name>add_face_to_border</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h1</declname>
+        </param>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h2</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>appends a new face incident to the border halfedge <computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> by connecting the vertex <computeroutput>target(h2,g)</computeroutput> and the vertex <computeroutput>target(h1,g)</computeroutput> with a new halfedge, and filling this separated part of the hole with a new face, such that the new face is incident to <computeroutput>h2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><image type="html" name="add_face_to_border.svg"></image>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the halfedge of the new edge that is incident to the new face.</para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are border halfedges, </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1 != h2</computeroutput>, </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>next(h1,g) != h2</computeroutput>, </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>h1</computeroutput> and <computeroutput>h2</computeroutput> are on the same border. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="976" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="976" bodyend="1016"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga5d15eb83f797b8f91e23e8e9ceec78c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::vertex_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::vertex_descriptor CGAL::Euler::collapse_edge</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::edge_descriptor e, Graph &amp;g)</argsstring>
+        <name>collapse_edge</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::edge_descriptor</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>collapses an edge in a graph. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput> Let <computeroutput>h</computeroutput> be the halfedge of <computeroutput>e</computeroutput>, and let <computeroutput>v0</computeroutput> and <computeroutput>v1</computeroutput> be the source and target vertices of <computeroutput>h</computeroutput>. Let <computeroutput>p_h</computeroutput> and <computeroutput>p_o_h</computeroutput> be respectively the edges of <computeroutput>prev(h,g)</computeroutput> and <computeroutput>prev(opposite(h, g), g)</computeroutput>. Let <computeroutput>o_n_h</computeroutput> and <computeroutput>o_n_o_h</computeroutput> be respectively the edges of <computeroutput>opposite(next(h,g))</computeroutput> and <computeroutput>opposite(next(opposite(h, g), g))</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+After the collapse of edge <computeroutput>e</computeroutput> the following holds:<itemizedlist>
+<listitem><para>The edge <computeroutput>e</computeroutput> is no longer in <computeroutput>g</computeroutput>.</para></listitem><listitem><para>The faces incident to edge <computeroutput>e</computeroutput> are no longer in <computeroutput>g</computeroutput>.</para></listitem><listitem><para><computeroutput>v0</computeroutput> is no longer in <computeroutput>g</computeroutput>.</para></listitem><listitem><para>If <computeroutput>h</computeroutput> is not a border halfedge, <computeroutput>p_h</computeroutput> is no longer in <computeroutput>g</computeroutput> and is replaced by <computeroutput>o_n_h</computeroutput>.</para></listitem><listitem><para>If the opposite of <computeroutput>h</computeroutput> is not a border halfedge, <computeroutput>p_o_h</computeroutput> is no longer in <computeroutput>g</computeroutput> and is replaced by <computeroutput>o_n_o_h</computeroutput>.</para></listitem><listitem><para>The halfedges kept in <computeroutput>g</computeroutput> that had <computeroutput>v0</computeroutput> as target and source now have <computeroutput>v1</computeroutput> as target and source, respectively.</para></listitem><listitem><para>No other incidence information is changed in <computeroutput>g</computeroutput>.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>vertex <computeroutput>v1</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>g must be a triangulated graph </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>does_satisfy_link_condition(e,g) == true</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="1042" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="1042" bodyend="1136"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1gaa3849177a71b6b782db011fc0f5f1258" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+          <param>
+            <type>typename EdgeIsConstrainedMap</type>
+          </param>
+        </templateparamlist>
+        <type>boost::graph_traits&lt; Graph &gt;::vertex_descriptor</type>
+        <definition>boost::graph_traits&lt;Graph&gt;::vertex_descriptor CGAL::Euler::collapse_edge</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::edge_descriptor v0v1, Graph &amp;g, EdgeIsConstrainedMap Edge_is_constrained_map)</argsstring>
+        <name>collapse_edge</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::edge_descriptor</type>
+          <declname>v0v1</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>EdgeIsConstrainedMap</type>
+          <declname>Edge_is_constrained_map</declname>
+        </param>
+        <briefdescription>
+<para>collapses an edge in a graph having non-collapsable edges. </para>        </briefdescription>
+        <detaileddescription>
+<para>Let <computeroutput>h</computeroutput> be the halfedge of <computeroutput>e</computeroutput>, and let <computeroutput>v0</computeroutput> and <computeroutput>v1</computeroutput> be the source and target vertices of <computeroutput>h</computeroutput>. Collapses the edge <computeroutput>e</computeroutput> replacing it with <computeroutput>v1</computeroutput>, as described in the paragraph above and guarantees that an edge <computeroutput>e2</computeroutput>, for which <computeroutput>get(edge_is_constrained_map, e2)==true</computeroutput>, is not removed after the collapse.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>EdgeIsConstrainedMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>mut be a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with the edge descriptor of <computeroutput>Graph</computeroutput> as key type and a Boolean as value type. It indicates if an edge is constrained or not.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vertex <computeroutput>v1</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>This function requires <computeroutput>g</computeroutput> to be an oriented 2-manifold with or without boundaries. Furthermore, the edge <computeroutput>v0v1</computeroutput> must satisfy the link condition, which guarantees that the surface mesh is also 2-manifold after the edge collapse. </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>get(edge_is_constrained_map, v0v1)==false</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>v0</computeroutput> and <computeroutput>v1</computeroutput> are not both incident to a constrained edge. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="1159" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="1159" bodyend="1278"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga174af506cebf3def60b56a3501843864" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Euler::flip_edge</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor h, Graph &amp;g)</argsstring>
+        <name>flip_edge</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>performs an edge flip, rotating the edge pointed by <computeroutput>h</computeroutput> by one vertex in the direction of the face orientation. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>Both faces incident to <computeroutput>h</computeroutput> are triangles. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="1285" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="1285" bodyend="1319"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgBGLEulerOperations_1ga2d19a3573640a9abb28885425bfd9f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Graph</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Euler::does_satisfy_link_condition</definition>
+        <argsstring>(typename boost::graph_traits&lt; Graph &gt;::edge_descriptor e, Graph &amp;g)</argsstring>
+        <name>does_satisfy_link_condition</name>
+        <param>
+          <type>typename boost::graph_traits&lt; Graph &gt;::edge_descriptor</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>Graph &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if <computeroutput>e</computeroutput> satisfies the <emphasis>link condition</emphasis> <ref refid="citelist_1CITEREF_degn-tpec-98" kindref="member">[1]</ref>, which guarantees that the surface is also 2-manifold after the edge collapse. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Euler_operations.h" line="1326" column="1" bodyfile="CGAL/boost/graph/Euler_operations.h" bodystart="1326" bodyend="1434"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>We call high level operations that maintain the validity of a halfedge graph <emphasis>Euler Operations</emphasis>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

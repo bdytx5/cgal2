@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_CGAL_and_Solvers"/><anchor id="index_1chapterSolvers"/> <simplesect kind="authors"><para>Simon Giraudot, Pierre Alliez, Frédéric Cazals, Gaël Guennebaud, Bruno Lévy, Marc Pouget, and Laurent Saboret</para></simplesect>
+Several CGAL packages have to solve linear systems with dense or sparse matrices. This package provides concepts and models for that purpose.</para><para>We generally provide models using the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library. Wrappers for the Eigen classes <computeroutput><ref refid="structCGAL_1_1Eigen__matrix" kindref="compound">Eigen_matrix</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Eigen__vector" kindref="compound">Eigen_vector</ref></computeroutput> are also provided when needed.</para><para>It is straightforward to develop equivalent models for other solvers, for example those found in the <ulink url="https://software.intel.com/en-us/intel-mkl">Intel Math Kernel Library (MKL)</ulink>.</para><sect1 id="index_1SectionSolverDiagonalize">
+<title>Matrix Diagonalization</title>
+<para>The concept <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound">DiagonalizeTraits</ref>&lt;T,dim&gt;</computeroutput> defines an interface for the diagonalization and computation of eigenvectors and eigenvalues of a symmetric matrix. <computeroutput>T</computeroutput> is the number type and <computeroutput>dim</computeroutput> is the dimension of the matrices and vector (set to 3 by default). We provide the model <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound">Eigen_diagonalize_traits</ref>&lt;T,dim&gt;</computeroutput> that uses the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library.</para><para>This is an example of an eigen decomposition of a matrix using this class:</para><para><linebreak/>
+<bold>File</bold> <ref refid="Solver_interface_2diagonalize_matrix_8cpp-example" kindref="compound">Solver_interface/diagonalize_matrix.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_diagonalize_traits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1cpp11_1_1array" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::cpp11::array&lt;FT, 6&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen_matrix;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1cpp11_1_1array" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::cpp11::array&lt;FT, 3&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1cpp11_1_1array" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::cpp11::array&lt;FT, 9&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen_three_vectors;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound">CGAL::Eigen_diagonalize_traits&lt;FT, 3&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Diagonalize_traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_matrix<sp/>covariance<sp/>=<sp/>{{<sp/>0.,<sp/>0.,<sp/>0.,<sp/>0.,<sp/>0.,<sp/>0.<sp/>}};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>matrix<sp/>with<sp/>random<sp/>numbers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>i=0;<sp/>i&lt;6;<sp/>++i)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>covariance[i]<sp/>=<sp/>rand();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_vector<sp/>eigenvalues;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_three_vectors<sp/>eigenvectors;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!(Diagonalize_traits::diagonalize_selfadjoint_covariance_matrix(covariance,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eigenvalues,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eigenvectors)))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>diagonalize<sp/>matrix&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>result</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>i=0;<sp/>i&lt;3;<sp/>++i)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Eigenvalue<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i+1<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>eigenvalues[i]<sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>with<sp/>eigenvector<sp/>[<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>j=0;<sp/>j&lt;3;<sp/>++j)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>eigenvectors[3*i<sp/>+<sp/>j]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect1>
+<sect1 id="index_1SectionSolverSVD">
+<title>Singular Value Decomposition</title>
+<para>The concept <computeroutput><ref refid="classSvdTraits" kindref="compound">SvdTraits</ref></computeroutput> defines an interface for solving in the least square sense a linear system with a singular value decomposition. The field type is <computeroutput>double</computeroutput>. We provide the model <computeroutput><ref refid="classCGAL_1_1Eigen__svd" kindref="compound">Eigen_svd</ref></computeroutput> that uses the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library.</para><para>Here is a simple example that shows how to handle matrices, vectors and this solver:</para><para><linebreak/>
+<bold>File</bold> <ref refid="Solver_interface_2singular_value_decomposition_8cpp-example" kindref="compound">Solver_interface/singular_value_decomposition.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#ifdef<sp/>CGAL_EIGEN3_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_matrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_vector.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_svd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__svd" kindref="compound">CGAL::Eigen_svd</ref><sp/>Svd;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Svd::FT<sp/><sp/><sp/><sp/><sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Svd::Vector<sp/>Eigen_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Svd::Matrix<sp/>Eigen_matrix;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>degree<sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_vector<sp/>B(degree);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_matrix<sp/>M(degree,<sp/>degree);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>B<sp/>and<sp/>M<sp/>with<sp/>random<sp/>numbers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>i=0;<sp/>i&lt;degree;<sp/>++i)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>B.set(i,<sp/>rand());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>degree;<sp/>++j)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>M.set(i,<sp/>j,<sp/>rand());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Solve<sp/>MX=B</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>Svd::solve(M,<sp/>B)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>result</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Solution<sp/>of<sp/>SVD<sp/>=<sp/>[<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>i=0;<sp/>i&lt;degree;<sp/>++i)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>B.vector()[i]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect1>
+<sect1 id="index_1SectionSolverSparse">
+<title>Sparse Solvers</title>
+<para>We define 3 concepts for sparse linear algebra:</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="classSparseLinearAlgebraTraits__d" kindref="compound">SparseLinearAlgebraTraits_d</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classSparseLinearAlgebraWithFactorTraits__d" kindref="compound">SparseLinearAlgebraWithFactorTraits_d</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classNormalEquationSparseLinearAlgebraTraits__d" kindref="compound">NormalEquationSparseLinearAlgebraTraits_d</ref></computeroutput></para></listitem></itemizedlist>
+</para><para>An interface to the sparse solvers from the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library is provided as a model for these 3 concepts through the class <computeroutput><ref refid="classCGAL_1_1Eigen__solver__traits" kindref="compound">Eigen_solver_traits</ref>&lt;T&gt;</computeroutput>. This solver traits class can be used for an iterative or a direct, symmetric or general sparse solvers. The specific solver to be used must be given as template parameter.</para><para>Each CGAL package using a sparse solver specifies which type of matrix and solver is required:</para><para><programlisting><codeline><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Eigen__sparse__matrix_1a4b43cacc467d285c11a39f4eef7a55ae" kindref="member">CGAL::Eigen_sparse_matrix&lt;double&gt;::EigenType</ref><sp/>EigenMatrix;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//iterative<sp/>general<sp/>solver<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__solver__traits" kindref="compound">CGAL::Eigen_solver_traits&lt; Eigen::BiCGSTAB&lt;EigenMatrix&gt;</ref><sp/>&gt;<sp/>Iterative_general_solver;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//iterative<sp/>symmetric<sp/>solver<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__solver__traits" kindref="compound">CGAL::Eigen_solver_traits&lt; Eigen::ConjugateGradient&lt;EigenMatrix&gt;</ref><sp/>&gt;<sp/>Iterative_symmetric_solver;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//direct<sp/>symmetric<sp/>solver<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__solver__traits" kindref="compound">CGAL::Eigen_solver_traits&lt; Eigen::SimplicialCholesky&lt;EigenMatrix&gt;</ref><sp/>&gt;<sp/>Direct_symmetric_solver;</highlight></codeline>
+</programlisting></para><para>Here is an example that shows how to fill the sparse matrix and call the solver:</para><para><linebreak/>
+<bold>File</bold> <ref refid="Solver_interface_2sparse_solvers_8cpp-example" kindref="compound">Solver_interface/sparse_solvers.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_solver_traits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Eigen_matrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Eigen__solver__traits" kindref="compound">CGAL::Eigen_solver_traits&lt;&gt;</ref><sp/>Eigen_solver;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen_solver::NT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen_solver::Matrix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen_matrix;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen_solver::Vector<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>srand(static_cast&lt;unsigned<sp/>int&gt;(time<sp/>(NULL)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>degree<sp/>=<sp/>3000;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::size_t<sp/>nb_nonzero_coef<sp/>=<sp/>100;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_vector<sp/>B(degree);<sp/></highlight><highlight class="comment">//<sp/>Zero<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_matrix<sp/>A(degree);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Randomly<sp/>make<sp/>some<sp/>coefficients<sp/>of<sp/>the<sp/>matrix<sp/>non-zero</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::size_t<sp/>i=0;<sp/>i&lt;nb_nonzero_coef;<sp/>++i)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>rand()<sp/>%<sp/>degree;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>rand()<sp/>%<sp/>degree;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>FT<sp/>value<sp/>=<sp/>rand()<sp/>/<sp/>(FT)RAND_MAX;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>A.add_coef(x,<sp/>y,<sp/>value);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>A.add_coef(y,<sp/>x,<sp/>value);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_vector<sp/>X(degree);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>d;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Eigen_solver<sp/>solver;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!(solver.linear_solver(A,<sp/>B,<sp/>X,<sp/>d)))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>linear<sp/>solver<sp/>failed&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Linear<sp/>solve<sp/>succeeded&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect1>
+<sect1 id="index_1SolversHistory">
+<title>Implementation History</title>
+<para>This package is the result of the increasing needs for linear solvers in CGAL. The first packages that introduced the solver concepts were <ref refid="group__PkgSurfaceParameterization" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Surface_mesh_parameterization.tag">Triangulated Surface Mesh Parameterization Reference</ref>, <ref refid="group__PkgPoissonSurfaceReconstruction" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Poisson_surface_reconstruction_3.tag">Poisson Surface Reconstruction Reference</ref> and <ref refid="group__PkgJet__fitting__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">Estimation of Local Differential Properties of Point-Sampled Surfaces Reference</ref>. At that time, these packages were relying on Taucs, <ref refid="namespaceCGAL_1_1LAPACK" kindref="compound">LAPACK</ref>, BLAS and OpenNL. Gaël Guennebaud then introduced new models using the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library that became the only supported models by CGAL. Later on the packages <ref refid="packages_1PkgMeanCurvatureSkeleton3Summary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Triangulated Surface Mesh Skeletonization</ref> and <ref refid="packages_1PkgSurfaceMeshDeformationSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Triangulated Surface Mesh Deformation</ref> extended the existing concepts.</para><para>Simon Giraudot was responsible for gathering all concepts and classes, and also wrote this user manual with the help of Andreas Fabri. </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

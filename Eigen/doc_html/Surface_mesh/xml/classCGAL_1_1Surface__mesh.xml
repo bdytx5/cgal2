@@ -1,0 +1,2237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Surface__mesh" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Surface_mesh</compoundname>
+    <includes local="no">CGAL/Surface_mesh.h</includes>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Edge__index" prot="public">CGAL::Surface_mesh::Edge_index</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Face__connectivity" prot="private">CGAL::Surface_mesh::Face_connectivity</innerclass>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Face__index" prot="public">CGAL::Surface_mesh::Face_index</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Halfedge__connectivity" prot="private">CGAL::Surface_mesh::Halfedge_connectivity</innerclass>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" prot="public">CGAL::Surface_mesh::Halfedge_index</innerclass>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Handle__iterator" prot="private">CGAL::Surface_mesh::Handle_iterator</innerclass>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Index__iterator" prot="private">CGAL::Surface_mesh::Index_iterator</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Property__selector" prot="private">CGAL::Surface_mesh::Property_selector</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Property__selector_3_01typename_01CGAL_1_1Surface__mesh_3_01P_01_a93c5e7851145b68dfaea527bac205bb" prot="private">CGAL::Surface_mesh::Property_selector&lt; typename CGAL::Surface_mesh&lt; P &gt;::Edge_index, dummy &gt;</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Property__selector_3_01typename_01CGAL_1_1Surface__mesh_3_01P_01_d4ca1f253ace89bd7e9314cf15c36868" prot="private">CGAL::Surface_mesh::Property_selector&lt; typename CGAL::Surface_mesh&lt; P &gt;::Face_index, dummy &gt;</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Property__selector_3_01typename_01CGAL_1_1Surface__mesh_3_01P_01_0e91cf82f753fbbecbafea8e9ce5008f" prot="private">CGAL::Surface_mesh::Property_selector&lt; typename CGAL::Surface_mesh&lt; P &gt;::Halfedge_index, dummy &gt;</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Property__selector_3_01typename_01CGAL_1_1Surface__mesh_3_01P_01_a2b20b5ba64fe157f2b2f451ddd9beb5" prot="private">CGAL::Surface_mesh::Property_selector&lt; typename CGAL::Surface_mesh&lt; P &gt;::Vertex_index, dummy &gt;</innerclass>
+    <innerclass refid="structCGAL_1_1Surface__mesh_1_1Vertex__connectivity" prot="private">CGAL::Surface_mesh::Vertex_connectivity</innerclass>
+    <innerclass refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" prot="public">CGAL::Surface_mesh::Vertex_index</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename P</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Basic Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" prot="public" static="no">
+        <type>P</type>
+        <definition>typedef P CGAL::Surface_mesh&lt; P &gt;::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+<para>The point type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="316" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" prot="public" static="no">
+        <type>boost::uint32_t</type>
+        <definition>typedef boost::uint32_t CGAL::Surface_mesh&lt; P &gt;::size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+<para>The type used to represent an index. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="319" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Range Types</header>
+      <description><para>Each range <computeroutput>R</computeroutput> in this section has a nested type <computeroutput>R::iterator</computeroutput>, is convertible to <computeroutput>std:pair&lt;R::iterator,R::iterator&gt;</computeroutput>, so that one can use <computeroutput>boost::tie()</computeroutput>, and can be used with <computeroutput>BOOST_FOREACH()</computeroutput>, as well as with the C++11 range based for-loop. </para></description>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Surface_mesh&lt; P &gt;::Vertex_range</definition>
+        <argsstring></argsstring>
+        <name>Vertex_range</name>
+        <briefdescription>
+<para>The range over all vertex indices. </para>        </briefdescription>
+        <detaileddescription>
+<para>A model of <ulink url="https://www.boost.org/libs/range/doc/html/range/concepts/bidirectional_range.html">BidirectionalRange</ulink> with value type <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></computeroutput>. <simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a64c3d4bfd5057d782f1e93f1f302bf5f" kindref="member">vertices()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" kindref="member">Halfedge_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" kindref="member">Edge_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" kindref="member">Face_range</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="573" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="573" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Surface_mesh&lt; P &gt;::Halfedge_range</definition>
+        <argsstring></argsstring>
+        <name>Halfedge_range</name>
+        <briefdescription>
+<para>The range over all halfedge indices. </para>        </briefdescription>
+        <detaileddescription>
+<para>A model of <ulink url="https://www.boost.org/libs/range/doc/html/range/concepts/bidirectional_range.html">BidirectionalRange</ulink> with value type <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></computeroutput>. <simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a7fd9d9c653012b5b02b505820c74e4d3" kindref="member">halfedges()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" kindref="member">Vertex_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" kindref="member">Edge_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" kindref="member">Face_range</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="588" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="588" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Surface_mesh&lt; P &gt;::Edge_range</definition>
+        <argsstring></argsstring>
+        <name>Edge_range</name>
+        <briefdescription>
+<para>The range over all edge indices. </para>        </briefdescription>
+        <detaileddescription>
+<para>A model of <ulink url="https://www.boost.org/libs/range/doc/html/range/concepts/bidirectional_range.html">BidirectionalRange</ulink> with value type <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></computeroutput>. <simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a8609809aac816f1da02e5912c55f7710" kindref="member">edges()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" kindref="member">Halfedge_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" kindref="member">Vertex_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" kindref="member">Face_range</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="603" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>typedef unspecified_type CGAL::Surface_mesh&lt; P &gt;::Face_range</definition>
+        <argsstring></argsstring>
+        <name>Face_range</name>
+        <briefdescription>
+<para>The range over all face indices. </para>        </briefdescription>
+        <detaileddescription>
+<para>A model of <ulink url="https://www.boost.org/libs/range/doc/html/range/concepts/bidirectional_range.html">BidirectionalRange</ulink> with value type <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></computeroutput>. <simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a321847b493741f8d25cefc53ed2593a6" kindref="member">faces()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" kindref="member">Vertex_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" kindref="member">Halfedge_range</ref></computeroutput>, <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" kindref="member">Edge_range</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="618" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="618" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a64c3d4bfd5057d782f1e93f1f302bf5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" kindref="member">Vertex_range</ref></type>
+        <definition>Vertex_range CGAL::Surface_mesh&lt; P &gt;::vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>vertices</name>
+        <briefdescription>
+<para>returns the iterator range of the vertices of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="660" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="660" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7fd9d9c653012b5b02b505820c74e4d3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" kindref="member">Halfedge_range</ref></type>
+        <definition>Halfedge_range CGAL::Surface_mesh&lt; P &gt;::halfedges</definition>
+        <argsstring>() const</argsstring>
+        <name>halfedges</name>
+        <briefdescription>
+<para>returns the iterator range of the halfedges of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="681" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="681" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a8609809aac816f1da02e5912c55f7710" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" kindref="member">Edge_range</ref></type>
+        <definition>Edge_range CGAL::Surface_mesh&lt; P &gt;::edges</definition>
+        <argsstring>() const</argsstring>
+        <name>edges</name>
+        <briefdescription>
+<para>returns the iterator range of the edges of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="702" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="702" bodyend="705"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a321847b493741f8d25cefc53ed2593a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" kindref="member">Face_range</ref></type>
+        <definition>Face_range CGAL::Surface_mesh&lt; P &gt;::faces</definition>
+        <argsstring>() const</argsstring>
+        <name>faces</name>
+        <briefdescription>
+<para>returns the iterator range of the faces of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="723" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="723" bodyend="725"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Construction, Destruction, Assignment</header>
+      <description><para>Copy constructors as well as assignment do also copy simplices marked as removed. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa9f5c5e5296a3af8af25e40d8943629d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Surface_mesh&lt; P &gt;::Surface_mesh</definition>
+        <argsstring>()</argsstring>
+        <name>Surface_mesh</name>
+        <briefdescription>
+<para>Default constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="867" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2254" bodyend="2270"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a2682ed1dff1ecacde3009c8f5f50962f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Surface_mesh&lt; P &gt;::Surface_mesh</definition>
+        <argsstring>(const Surface_mesh &amp;rhs)</argsstring>
+        <name>Surface_mesh</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor: copies <computeroutput>rhs</computeroutput> to <computeroutput>*this</computeroutput>. Performs a deep copy of all properties. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="870" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="870" bodyend="870"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a5e0b91cc6b7c63d2d466f008c1504b3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+        <definition>Surface_mesh&lt; P &gt; &amp; CGAL::Surface_mesh&lt; P &gt;::operator=</definition>
+        <argsstring>(const Surface_mesh &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>assigns <computeroutput>rhs</computeroutput> to <computeroutput>*this</computeroutput>. Performs a deep copy of all properties. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="873" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2277" bodyend="2308"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a0aa933581dec411f442794af1659db90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+        <definition>Surface_mesh&lt; P &gt; &amp; CGAL::Surface_mesh&lt; P &gt;::assign</definition>
+        <argsstring>(const Surface_mesh &amp;rhs)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>assigns <computeroutput>rhs</computeroutput> to <computeroutput>*this</computeroutput>. Does not copy custom properties. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="876" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2315" bodyend="2361"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Adding Vertices, Edges, and Faces</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a6f899386b0667edc64cfae79cc93386e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>Vertex_index CGAL::Surface_mesh&lt; P &gt;::add_vertex</definition>
+        <argsstring>()</argsstring>
+        <name>add_vertex</name>
+        <briefdescription>
+<para>adds a new vertex, and resizes vertex properties if necessary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="886" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="886" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad2e8dedad669cb3637d6a7f8207caed5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>Vertex_index CGAL::Surface_mesh&lt; P &gt;::add_vertex</definition>
+        <argsstring>(const Point &amp;p)</argsstring>
+        <name>add_vertex</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>adds a new vertex, resizes vertex properties if necessary, and sets the <emphasis>point</emphasis> property to <computeroutput>p</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Several vertices may have the same point property. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="905" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="905" bodyend="910"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7b041ffe8d6091cea5ba9dd254ca0bf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::add_edge</definition>
+        <argsstring>()</argsstring>
+        <name>add_edge</name>
+        <briefdescription>
+<para>adds a new edge, and resizes edge and halfedge properties if necessary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="917" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="917" bodyend="935"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a33bd9643a156c42ab35bb9bb49a0d1d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::add_edge</definition>
+        <argsstring>(Vertex_index v0, Vertex_index v1)</argsstring>
+        <name>add_edge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v1</declname>
+        </param>
+        <briefdescription>
+<para>adds two opposite halfedges, and resizes edge and halfedge properties if necessary. Sets the targets of the halfedge to the given vertices, but does not modify the halfedge associated to the vertices. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The function does not check whether there is already an edge between the vertices. </para></simplesect>
+<simplesect kind="return"><para>the halfedge with <computeroutput>v1</computeroutput> as target </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="943" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="943" bodyend="952"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a3bbb4fcc69d61f1bd816a255b2251f74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>Face_index CGAL::Surface_mesh&lt; P &gt;::add_face</definition>
+        <argsstring>()</argsstring>
+        <name>add_face</name>
+        <briefdescription>
+<para>adds a new face, and resizes face properties if necessary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="955" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="955" bodyend="969"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a4c55c6bdf6bd80faf0d07c587cdc253f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>Face_index CGAL::Surface_mesh&lt; P &gt;::add_face</definition>
+        <argsstring>(const Range &amp;vertices)</argsstring>
+        <name>add_face</name>
+        <param>
+          <type>const <ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref> &amp;</type>
+          <declname>vertices</declname>
+        </param>
+        <briefdescription>
+<para>if possible, adds a new face with vertices from a range with value type <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></computeroutput>. The function adds halfedges between successive vertices if they are not yet indicent to halfedges, or updates the connectivity of halfedges already in place. Resizes halfedge, edge, and face properties if necessary. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the face index of the added face, or <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" kindref="member">Surface_mesh::null_face()</ref></computeroutput> if the face could not be added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="977" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a47c2561d1430def60b9e538482ea2adb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>Face_index CGAL::Surface_mesh&lt; P &gt;::add_face</definition>
+        <argsstring>(Vertex_index v0, Vertex_index v1, Vertex_index v2)</argsstring>
+        <name>add_face</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>adds a new triangle connecting vertices <computeroutput>v0</computeroutput>, <computeroutput>v1</computeroutput>, <computeroutput>v2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the face index of the added face, or <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" kindref="member">Surface_mesh::null_face()</ref></computeroutput> if the face could not be added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="982" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="982" bodyend="987"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1af45a68e4c8a0fcb7c4fd899185824cae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>Face_index CGAL::Surface_mesh&lt; P &gt;::add_face</definition>
+        <argsstring>(Vertex_index v0, Vertex_index v1, Vertex_index v2, Vertex_index v3)</argsstring>
+        <name>add_face</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v2</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v3</declname>
+        </param>
+        <briefdescription>
+<para>adds a new quad connecting vertices <computeroutput>v0</computeroutput>, <computeroutput>v1</computeroutput>, <computeroutput>v2</computeroutput>, <computeroutput>v3</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the face index of the added face, or <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" kindref="member">Surface_mesh::null_face()</ref></computeroutput> if the face could not be added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="991" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="991" bodyend="996"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Low-Level Removal Functions</header>
+      <description><para>Although the elements are only marked as removed their connectivity and properties should not be used.</para><para><simplesect kind="warning"><para>Functions in this group do not adjust any of connected elements and usually leave the surface mesh in an invalid state. </para></simplesect>
+</para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a5295190357a81d285652a1ff6b8b4ba5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::remove_vertex</definition>
+        <argsstring>(Vertex_index v)</argsstring>
+        <name>remove_vertex</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>removes vertex <computeroutput>v</computeroutput> from the halfedge data structure without adjusting anything. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1016" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1016" bodyend="1022"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a895b28e72ba75afd13e8803c75423a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::remove_edge</definition>
+        <argsstring>(Edge_index e)</argsstring>
+        <name>remove_edge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>removes the two halfedges corresponding to <computeroutput>e</computeroutput> from the halfedge data structure without adjusting anything. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1026" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1026" bodyend="1032"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1af2311658bf6d730b276b23b5c304f90e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::remove_face</definition>
+        <argsstring>(Face_index f)</argsstring>
+        <name>remove_face</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>removes face <computeroutput>f</computeroutput> from the halfedge data structure without adjusting anything. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1037" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1037" bodyend="1043"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Memory Management</header>
+      <description><para>Functions to check the number of elements, the amount of space allocated for elements, and to clear the structure. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a10ba0d4fbb6ffaf0be57c5a088cc922b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_vertices</name>
+        <briefdescription>
+<para>returns the number of vertices in the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1056" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1056" bodyend="1059"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ada6fe7c0fbfedd660b8bd3aac0fb1380" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_halfedges</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_halfedges</name>
+        <briefdescription>
+<para>returns the number of halfedges in the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1062" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1062" bodyend="1065"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ac6bf5afa1bbac06969ce58d4199bb2c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_edges</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_edges</name>
+        <briefdescription>
+<para>returns the number of edges in the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1068" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1068" bodyend="1071"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7b14e51c9eab058c012dbb8aae7b0dda" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_faces</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_faces</name>
+        <briefdescription>
+<para>returns the number of faces in the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1074" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1074" bodyend="1077"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad29a74494f8712c0010915b59f7073be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_empty</definition>
+        <argsstring>() const</argsstring>
+        <name>is_empty</name>
+        <briefdescription>
+<para>returns <computeroutput>true</computeroutput> iff the mesh is empty, i.e., has no vertices, halfedges and faces. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1080" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1080" bodyend="1085"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a247d4ad3e6b106ae22e5306203812642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>removes all vertices, halfedge, edges and faces. Collects garbage and clears all properties. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1088" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2367" bodyend="2383"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a2172cdbebc27ecf4ca36ac050aad11b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::reserve</definition>
+        <argsstring>(size_type nvertices, size_type nedges, size_type nfaces)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nvertices</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nedges</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nfaces</declname>
+        </param>
+        <briefdescription>
+<para>reserves space for vertices, halfedges, edges, faces, and their currently associated properties. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1093" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1093" bodyend="1101"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a5f906d0fbc3edd8c73460d2513d53a33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::resize</definition>
+        <argsstring>(size_type nvertices, size_type nedges, size_type nfaces)</argsstring>
+        <name>resize</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nvertices</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nedges</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+          <declname>nfaces</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1103" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1103" bodyend="1111"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a60816a7febffcddc9c0043977379e1d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::join</definition>
+        <argsstring>(const Surface_mesh &amp;other)</argsstring>
+        <name>join</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1113" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1113" bodyend="1191"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Garbage Collection</header>
+      <description><para>While removing elements only marks them as removed garbage collection really removes them. The API in this section allows to check whether an element is removed, to get the number of removed elements, and to collect garbage. The number of elements together with the number of removed elements is an upperbound on the index, and is needed by algorithms that temporarily store a property in a vector of the appropriate size. Note however that by garbage collecting elements get new indices. In case you store indices in an auxiliary data structure or in a property these indices are potentially no longer refering to the right elements. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad63086c1d200cf3e34a5182d24fb699e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_removed_vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_removed_vertices</name>
+        <briefdescription>
+<para>returns the number of vertices in the mesh which are marked removed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1230" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1230" bodyend="1230"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a9ca9b411356d449a4e8b8ce1f4199c36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_removed_halfedges</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_removed_halfedges</name>
+        <briefdescription>
+<para>returns the number of halfedges in the mesh which are marked removed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1233" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1233" bodyend="1233"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1abc41a0165b44bde9742ec58829e22cb2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_removed_edges</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_removed_edges</name>
+        <briefdescription>
+<para>returns the number of edges in the mesh which are marked removed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1236" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1236" bodyend="1236"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a18689391cbfc91d574d4542aeaee61bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::number_of_removed_faces</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_removed_faces</name>
+        <briefdescription>
+<para>returns the number offaces in the mesh which are marked removed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1239" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1239" bodyend="1239"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a0766b04cc78c144e4c83d312faad0306" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_removed</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>is_removed</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns whether vertex <computeroutput>v</computeroutput> is marked removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" kindref="member">collect_garbage()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1245" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1245" bodyend="1248"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a331f6e8c9fb49e446aa3580ce32005e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_removed</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>is_removed</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns whether halfedge <computeroutput>h</computeroutput> is marked removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" kindref="member">collect_garbage()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1251" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1251" bodyend="1254"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a4b5a9fa18cda54bb5fcfb9673076cf92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_removed</definition>
+        <argsstring>(Edge_index e) const</argsstring>
+        <name>is_removed</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>returns whether edge <computeroutput>e</computeroutput> is marked removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" kindref="member">collect_garbage()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1257" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1257" bodyend="1260"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a556b60ce85c16eeaac494ede638bfca2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_removed</definition>
+        <argsstring>(Face_index f) const</argsstring>
+        <name>is_removed</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>returns whether face <computeroutput>f</computeroutput> is marked removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" kindref="member">collect_garbage()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1263" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1263" bodyend="1266"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1af27a48e4ceb0f2a4c712cd2a2462fe4c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::has_garbage</definition>
+        <argsstring>() const</argsstring>
+        <name>has_garbage</name>
+        <briefdescription>
+<para>checks if any vertices, halfedges, edges, or faces are marked as removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" kindref="member">collect_garbage</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1270" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1270" bodyend="1270"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::collect_garbage</definition>
+        <argsstring>()</argsstring>
+        <name>collect_garbage</name>
+        <briefdescription>
+<para>really removes vertices, halfedges, edges, and faces which are marked removed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Surface__mesh_1af27a48e4ceb0f2a4c712cd2a2462fe4c" kindref="member">has_garbage()</ref></computeroutput> </para></simplesect>
+<simplesect kind="attention"><para>By garbage collecting elements get new indices. In case you store indices in an auxiliary data structure or in a property these indices are potentially no longer refering to the right elements. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1278" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2532" bodyend="2664"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Validity Checks</header>
+      <description><para>Functions in this group perform checks for structural consistency of a complete surface mesh, or an individual element. They are expensive and should only be used in debug configurations. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a4354c610fa0840c3e356db8014fd5ec0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_valid</definition>
+        <argsstring>(bool verbose=true) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type>bool</type>
+          <declname>verbose</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>perform an expensive validity check on the data structure and print found errors to <computeroutput>std::cerr</computeroutput> when <computeroutput>verbose == true</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1341" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1341" bodyend="1423"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a604e6d0ab9fb0524c33b2b5ff31f0efc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_valid</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>performs a validity check on a single vertex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1426" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1426" bodyend="1434"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1abb4d55d8228581b00dc972980f676e24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_valid</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>performs a validity check on a single halfedge. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1437" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1437" bodyend="1474"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ae9e415c312830317cc7da534495531d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_valid</definition>
+        <argsstring>(Edge_index e) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>performs a validity check on a single ede. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1478" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1478" bodyend="1481"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ab1734f0c4dfa5f08b4ee1be0449b572e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_valid</definition>
+        <argsstring>(Face_index f) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>performs a validity check on a single face. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1485" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1485" bodyend="1493"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Low-Level Connectivity</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a1039dd1e0b038b526ddebe477e67f531" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>Vertex_index CGAL::Surface_mesh&lt; P &gt;::target</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>target</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the vertex the halfedge <computeroutput>h</computeroutput> points to. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1503" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1503" bodyend="1506"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a6b76416edec25da0458348b71eebc42c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_target</definition>
+        <argsstring>(Halfedge_index h, Vertex_index v)</argsstring>
+        <name>set_target</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>sets the vertex the halfedge <computeroutput>h</computeroutput> points to to <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1509" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1509" bodyend="1512"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a33419ae03fc4d9a8c28367dbe1241a21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>Face_index CGAL::Surface_mesh&lt; P &gt;::face</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>face</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the face incident to halfedge <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1515" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1515" bodyend="1518"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ab410584330993636208cec2aba27c21c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_face</definition>
+        <argsstring>(Halfedge_index h, Face_index f)</argsstring>
+        <name>set_face</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>sets the incident face to halfedge <computeroutput>h</computeroutput> to <computeroutput>f</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1521" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1521" bodyend="1524"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa1cc5db58c2a463d6e7dff79c8f01eda" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::next</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>next</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the next halfedge within the incident face. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1527" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1527" bodyend="1530"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a59417a612605ec242f066bd9a1e28185" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::prev</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>prev</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the previous halfedge within the incident face. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1533" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1533" bodyend="1536"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7fc2d1a60ab7a816958cf9e1728e00be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_next</definition>
+        <argsstring>(Halfedge_index h, Halfedge_index nh)</argsstring>
+        <name>set_next</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>sets the next halfedge of <computeroutput>h</computeroutput> within the face to <computeroutput>nh</computeroutput> and the previous halfedge of <computeroutput>nh</computeroutput> to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1556" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1556" bodyend="1560"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aabd478481f32d6539ac3e1db5ee65e36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::halfedge</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns an incoming halfedge of vertex <computeroutput>v</computeroutput>. If <computeroutput>v</computeroutput> is a border vertex this will be a border halfedge. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="invariant"><para><computeroutput>target(halfedge(v)) == v</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1565" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1565" bodyend="1568"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa7b9045225df5fd211b8eded584d752e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_halfedge</definition>
+        <argsstring>(Vertex_index v, Halfedge_index h)</argsstring>
+        <name>set_halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>sets the incoming halfedge of vertex <computeroutput>v</computeroutput> to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1571" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1571" bodyend="1574"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a31fe20ac8be55eab477ea1d577d7d19e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::halfedge</definition>
+        <argsstring>(Face_index f) const</argsstring>
+        <name>halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>returns a halfedge of face <computeroutput>f</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1578" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1578" bodyend="1581"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a3fe44bf0597205f6b123ea34dacc21b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_halfedge</definition>
+        <argsstring>(Face_index f, Halfedge_index h)</argsstring>
+        <name>set_halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>sets the halfedge of face <computeroutput>f</computeroutput> to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1584" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1584" bodyend="1587"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa7db4bc6d4c063059072b2f1a4609c0e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::opposite</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>opposite</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the opposite halfedge of <computeroutput>h</computeroutput>. Note that there is no function <computeroutput>set_opposite()</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1590" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1590" bodyend="1593"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Low-Level Connectivity Convenience Functions</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a25636a372cb22645aba7175c5b5af3fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>Vertex_index CGAL::Surface_mesh&lt; P &gt;::source</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>source</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the vertex the halfedge <computeroutput>h</computeroutput> emanates from. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1601" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1601" bodyend="1604"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a9d3fe22aceef04f6666b0e52fde9a6a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::next_around_target</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>next_around_target</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns <computeroutput>opposite(next(h))</computeroutput>, that is the next halfedge <ref refid="index_1SurfaceMeshOrientation" kindref="member">clockwise</ref> around the target vertex of <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1608" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1608" bodyend="1611"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7223adcc73ff2b52005652c69c765d1c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::prev_around_target</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>prev_around_target</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns <computeroutput>prev(opposite(h))</computeroutput>, that is the previous halfedge <ref refid="index_1SurfaceMeshOrientation" kindref="member">clockwise</ref> around the target vertex of <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1615" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1615" bodyend="1618"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ac2d017d411523eaca99ed127ce283b56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::next_around_source</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>next_around_source</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns <computeroutput>next(opposite(h))</computeroutput>, that is the next halfedge <ref refid="index_1SurfaceMeshOrientation" kindref="member">clockwise</ref> around the source vertex of <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1622" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1622" bodyend="1625"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a055f041aff1eb896f148b6d38534eccd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::prev_around_source</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>prev_around_source</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns <computeroutput>opposite(prev(h))</computeroutput>, that is the previous halfedge <ref refid="index_1SurfaceMeshOrientation" kindref="member">clockwise</ref> around the source vertex of <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1629" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1629" bodyend="1632"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa2da347a8d3a70595ed10b5cdef811b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>Vertex_index CGAL::Surface_mesh&lt; P &gt;::vertex</definition>
+        <argsstring>(Edge_index e, unsigned int i) const</argsstring>
+        <name>vertex</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>returns the i&apos;th vertex of edge <computeroutput>e</computeroutput>, for <computeroutput>i=0</computeroutput> or <computeroutput>1</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1635" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1635" bodyend="1639"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a437671cfff86f382a6492628aec0c850" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Surface_mesh&lt; P &gt;::Halfedge_index CGAL::Surface_mesh&lt; P &gt;::halfedge</definition>
+        <argsstring>(Vertex_index source, Vertex_index target) const</argsstring>
+        <name>halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>finds a halfedge between two vertices. Returns a default constructed <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></computeroutput>, if <computeroutput>source</computeroutput> and <computeroutput>target</computeroutput> are not connected. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1643" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2420" bodyend="2439"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Switching between Halfedges and Edges</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a5cb17ab35c7aa9027919399087655aba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+        <definition>Edge_index CGAL::Surface_mesh&lt; P &gt;::edge</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>edge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns the edge that contains halfedge <computeroutput>h</computeroutput> as one of its two halfedges. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1652" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1652" bodyend="1655"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a06e2df07fec1e5e105521e16763082fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::halfedge</definition>
+        <argsstring>(Edge_index e) const</argsstring>
+        <name>halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>returns the halfedge corresponding to the edge <computeroutput>e</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1658" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1658" bodyend="1661"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7a9f0599ddc39fef56bc32108bef7814" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>Halfedge_index CGAL::Surface_mesh&lt; P &gt;::halfedge</definition>
+        <argsstring>(Edge_index e, unsigned int i) const</argsstring>
+        <name>halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>returns the i&apos;th halfedge of edge <computeroutput>e</computeroutput>, for <computeroutput>i=0</computeroutput> or <computeroutput>1</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1664" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1664" bodyend="1668"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Degree Functions</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1affa6fb8f904cef513e398230cf570809" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>Surface_mesh&lt; P &gt;::size_type CGAL::Surface_mesh&lt; P &gt;::degree</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>degree</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns the number of incident halfedges of vertex <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1677" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2492" bodyend="2507"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1abfc34c532abdfe0c1c21a7534f8c7e90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>Surface_mesh&lt; P &gt;::size_type CGAL::Surface_mesh&lt; P &gt;::degree</definition>
+        <argsstring>(Face_index f) const</argsstring>
+        <name>degree</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>returns the number of incident halfedges of face <computeroutput>f</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1680" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2514" bodyend="2527"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Borders</header>
+      <description><para>A halfedge, or edge is on the border of a surface mesh if it is incident to a <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" kindref="member">null_face()</ref></computeroutput>. A vertex is on a border if it is isolated or incident to a border halfedge. While for a halfedge and edge this is a constant time operation, for a vertex it means to look at all incident halfedges. If algorithms operating on a surface mesh maintain that the halfedge associated to a border vertex is a border halfedge, this is a constant time operation too. This section provides functions to check if an element is on a border and to change the halfedge associated to a border vertex. </para></description>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a587a5b95dab4077e28b4b6db8d947f1b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_border</definition>
+        <argsstring>(Vertex_index v, bool check_all_incident_halfedges=true) const</argsstring>
+        <name>is_border</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>check_all_incident_halfedges</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>returns whether <computeroutput>v</computeroutput> is a border vertex. </para><para>With the default value for <computeroutput>check_all_incident_halfedges</computeroutput> the function iteratates over the incident halfedges. With <computeroutput>check_all_incident_halfedges == false</computeroutput> the function returns <computeroutput>true</computeroutput>, if the incident halfedge associated to vertex <computeroutput>v</computeroutput> is a border halfedge, or if the vertex is isolated.  </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1706" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1706" bodyend="1722"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a7a137ae3497093e1eb6b04271fbd35c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_border</definition>
+        <argsstring>(Halfedge_index h) const</argsstring>
+        <name>is_border</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>returns whether <computeroutput>h</computeroutput> is a border halfege, that is if its incident face is <computeroutput>sm.null_face()</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1725" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1725" bodyend="1728"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad234fcbd729f08d433bb33adcb406f7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_border</definition>
+        <argsstring>(Edge_index e) const</argsstring>
+        <name>is_border</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>returns whether <computeroutput>e</computeroutput> is a border edge, i.e., if any of its two halfedges is a border halfedge. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1733" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1733" bodyend="1736"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1acfb375fa2902b1f0c4cf1ff00b9eb9d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::set_vertex_halfedge_to_border_halfedge</definition>
+        <argsstring>(Vertex_index v)</argsstring>
+        <name>set_vertex_halfedge_to_border_halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>iterates over the incident halfedges and sets the incident halfedge associated to vertex <computeroutput>v</computeroutput> to a border halfedge and returns <computeroutput>true</computeroutput> if it exists. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1740" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1740" bodyend="1753"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ae7e7430b67351edd3b43767d50e2eeb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_vertex_halfedge_to_border_halfedge</definition>
+        <argsstring>(Halfedge_index h)</argsstring>
+        <name>set_vertex_halfedge_to_border_halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>applies <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1acfb375fa2902b1f0c4cf1ff00b9eb9d8" kindref="member">set_vertex_halfedge_to_border_halfedge(Vertex_index)</ref></computeroutput> on all vertices around the face associated to <computeroutput>h</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1757" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1757" bodyend="1770"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a71e4ba8bbb19ea91f010b13b6df8f1b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::set_vertex_halfedge_to_border_halfedge</definition>
+        <argsstring>()</argsstring>
+        <name>set_vertex_halfedge_to_border_halfedge</name>
+        <briefdescription>
+<para>applies <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1acfb375fa2902b1f0c4cf1ff00b9eb9d8" kindref="member">set_vertex_halfedge_to_border_halfedge(Vertex_index)</ref></computeroutput> on all vertices of the surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1774" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1774" bodyend="1781"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a6bfaa51e271f1af32d33830a5c40e606" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::is_isolated</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>is_isolated</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns whether <computeroutput>v</computeroutput> is isolated, i.e., incident to <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1ac3b6c754bb42cb067c49c201551024e2" kindref="member">Surface_mesh::null_halfedge()</ref></computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1785" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1785" bodyend="1788"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Property Handling</header>
+      <description><para>A <computeroutput>Properties::Property_map&lt;I,T&gt;</computeroutput> allows to associate properties of type <computeroutput>T</computeroutput> to a vertex, halfdge, edge, or face index type I.</para><para>Properties can be added, and looked up with a string, and they can be removed at runtime. The <emphasis>point</emphasis> property of type <computeroutput>P</computeroutput> is associated to the string &quot;v:point&quot;. </para></description>
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" prot="public" static="no">
+        <type><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">unspecified_type</ref></type>
+        <definition>using CGAL::Surface_mesh&lt; P &gt;::Property_map =  unspecified_type</definition>
+        <argsstring></argsstring>
+        <name>Property_map</name>
+        <briefdescription>
+<para>Model of <computeroutput><ref refid="classLvaluePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">LvaluePropertyMap</ref></computeroutput> with <computeroutput>I</computeroutput> as key type and <computeroutput>T</computeroutput> as value type, where <computeroutput>I</computeroutput> is either a vertex, halfedge, edge, or face index type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1850" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1850" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aa4c1cb3ee0a1e0530b5427554c6517b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class I</type>
+          </param>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; <ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; I, T &gt;, bool &gt;</type>
+        <definition>std::pair&lt;Property_map&lt;I, T&gt;, bool&gt; CGAL::Surface_mesh&lt; P &gt;::add_property_map</definition>
+        <argsstring>(std::string name=std::string(), const T t=T())</argsstring>
+        <name>add_property_map</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+          <defval>std::string()</defval>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>t</declname>
+          <defval>T()</defval>
+        </param>
+        <briefdescription>
+<para>adds a property map named <computeroutput>name</computeroutput> with value type <computeroutput>T</computeroutput> and default <computeroutput>t</computeroutput> for index type <computeroutput>I</computeroutput>. Returns the property map together with a Boolean that is <computeroutput>true</computeroutput> if a new map was created. In case it already exists the existing map together with <computeroutput>false</computeroutput> is returned. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1865" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1865" bodyend="1872"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad26d6c09eb532fd5faddc39f9034f462" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class I</type>
+          </param>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; <ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; I, T &gt;, bool &gt;</type>
+        <definition>std::pair&lt;Property_map&lt;I, T&gt;,bool&gt; CGAL::Surface_mesh&lt; P &gt;::property_map</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>property_map</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>returns a property map named <computeroutput>name</computeroutput> with key type <computeroutput>I</computeroutput> and value type <computeroutput>T</computeroutput>, and a Boolean that is <computeroutput>true</computeroutput> if the property exists. In case it does not exist the Boolean is <computeroutput>false</computeroutput> and the behavior of the property map is undefined. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1879" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1879" bodyend="1882"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ad1b7490dbfc8c4485b6c9f38926a17fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class I</type>
+          </param>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::remove_property_map</definition>
+        <argsstring>(Property_map&lt; I, T &gt; &amp;p)</argsstring>
+        <name>remove_property_map</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; I, T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>removes property map <computeroutput>p</computeroutput>. The memory allocated for that property map is freed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1888" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1888" bodyend="1891"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a0e9d3f572d6657aee5c2f4d81dc2eb7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class I</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CGAL::Surface_mesh&lt; P &gt;::properties</definition>
+        <argsstring>() const</argsstring>
+        <name>properties</name>
+        <briefdescription>
+<para>returns a vector with all strings that describe properties with the key type <computeroutput>I</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>I</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key type of the properties. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1910" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1910" bodyend="1913"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a2e2a9858cb443f77290dc78267aea827" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>, <ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &gt;</type>
+        <definition>Property_map&lt;Vertex_index, Point&gt; CGAL::Surface_mesh&lt; P &gt;::points</definition>
+        <argsstring>() const</argsstring>
+        <name>points</name>
+        <briefdescription>
+<para>returns the property for the string &quot;v:point&quot;. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1917" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1917" bodyend="1917"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a0887ce92d0d65bcd1128c313bc9d2d07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>, <ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &gt; &amp;</type>
+        <definition>Property_map&lt;Vertex_index, Point&gt;&amp; CGAL::Surface_mesh&lt; P &gt;::points</definition>
+        <argsstring>()</argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1920" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1920" bodyend="1920"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a49fcf015652f232662b2a28df36e9d8d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &amp;</type>
+        <definition>const Point&amp; CGAL::Surface_mesh&lt; P &gt;::point</definition>
+        <argsstring>(Vertex_index v) const</argsstring>
+        <name>point</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns the point associated to vertex <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1924" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1924" bodyend="1924"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1aaf6c8f0ab1ccc8a7b8b07de618aca2f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &amp;</type>
+        <definition>Point&amp; CGAL::Surface_mesh&lt; P &gt;::point</definition>
+        <argsstring>(Vertex_index v)</argsstring>
+        <name>point</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns the point associated to vertex <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1928" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1928" bodyend="1928"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Null Elements</header>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ab9849ea411550211d24dbb2ca6162e89" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+        <definition>static Vertex_index CGAL::Surface_mesh&lt; P &gt;::null_vertex</definition>
+        <argsstring>()</argsstring>
+        <name>null_vertex</name>
+        <briefdescription>
+<para>returns <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>(std::numeric_limits&lt;size_type&gt;::max())</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1943" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1943" bodyend="1946"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a8274ae85a7f62d05a9514caa89156b7a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref></type>
+        <definition>static Edge_index CGAL::Surface_mesh&lt; P &gt;::null_edge</definition>
+        <argsstring>()</argsstring>
+        <name>null_edge</name>
+        <briefdescription>
+<para>returns <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref>(std::numeric_limits&lt;size_type&gt;::max())</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1949" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1949" bodyend="1952"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ac3b6c754bb42cb067c49c201551024e2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref></type>
+        <definition>static Halfedge_index CGAL::Surface_mesh&lt; P &gt;::null_halfedge</definition>
+        <argsstring>()</argsstring>
+        <name>null_halfedge</name>
+        <briefdescription>
+<para>returns <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref>(std::numeric_limits&lt;size_type&gt;::max())</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1954" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1954" bodyend="1957"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref></type>
+        <definition>static Face_index CGAL::Surface_mesh&lt; P &gt;::null_face</definition>
+        <argsstring>()</argsstring>
+        <name>null_face</name>
+        <briefdescription>
+<para>returns <computeroutput><ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref>(std::numeric_limits&lt;size_type&gt;::max())</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1959" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1959" bodyend="1962"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Surface__mesh_1af18facf9d9b02c957fc4bd97778f164a" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt;</type>
+        <definition>typedef Surface_mesh&lt;P&gt; CGAL::Surface_mesh&lt; P &gt;::Self</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="289" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a2dea2c7df84165a57e0a6d77b9b66579" prot="private" static="no" mutable="no">
+        <type>Properties::Property_container&lt; <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Self</ref>, <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref> &gt;</type>
+        <definition>Properties::Property_container&lt;Self, Vertex_index&gt; CGAL::Surface_mesh&lt; P &gt;::vprops_</definition>
+        <argsstring></argsstring>
+        <name>vprops_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1974" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1974" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1ac86627e78f5ef66094f21e7e98b34757" prot="private" static="no" mutable="no">
+        <type>Properties::Property_container&lt; <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Self</ref>, <ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref> &gt;</type>
+        <definition>Properties::Property_container&lt;Self, Halfedge_index&gt; CGAL::Surface_mesh&lt; P &gt;::hprops_</definition>
+        <argsstring></argsstring>
+        <name>hprops_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1975" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1975" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1ae0b351bef7e62ac0b6e7914406328b7a" prot="private" static="no" mutable="no">
+        <type>Properties::Property_container&lt; <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Self</ref>, <ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref> &gt;</type>
+        <definition>Properties::Property_container&lt;Self, Edge_index&gt; CGAL::Surface_mesh&lt; P &gt;::eprops_</definition>
+        <argsstring></argsstring>
+        <name>eprops_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1976" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1976" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a0ee0d9062b72264faf6514fa07171b76" prot="private" static="no" mutable="no">
+        <type>Properties::Property_container&lt; <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Self</ref>, <ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref> &gt;</type>
+        <definition>Properties::Property_container&lt;Self, Face_index&gt; CGAL::Surface_mesh&lt; P &gt;::fprops_</definition>
+        <argsstring></argsstring>
+        <name>fprops_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1977" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1977" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a455f91a64f50b11a433bd4b35e979e8b" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>, Vertex_connectivity &gt;</type>
+        <definition>Property_map&lt;Vertex_index, Vertex_connectivity&gt; CGAL::Surface_mesh&lt; P &gt;::vconn_</definition>
+        <argsstring></argsstring>
+        <name>vconn_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1979" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1979" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1adf7c7de44ca8c4b73e384f4dcc4746fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Halfedge__index" kindref="compound">Halfedge_index</ref>, Halfedge_connectivity &gt;</type>
+        <definition>Property_map&lt;Halfedge_index, Halfedge_connectivity&gt; CGAL::Surface_mesh&lt; P &gt;::hconn_</definition>
+        <argsstring></argsstring>
+        <name>hconn_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1980" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1980" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a15397ebe4aa53ae5efe05866f077113c" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref>, Face_connectivity &gt;</type>
+        <definition>Property_map&lt;Face_index, Face_connectivity&gt; CGAL::Surface_mesh&lt; P &gt;::fconn_</definition>
+        <argsstring></argsstring>
+        <name>fconn_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1981" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1981" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1aab5725db010225589252400ba167050c" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>, bool &gt;</type>
+        <definition>Property_map&lt;Vertex_index, bool&gt; CGAL::Surface_mesh&lt; P &gt;::vremoved_</definition>
+        <argsstring></argsstring>
+        <name>vremoved_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1983" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1983" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a8164cce4931d2d1fe2cfc6df2f022d19" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Edge__index" kindref="compound">Edge_index</ref>, bool &gt;</type>
+        <definition>Property_map&lt;Edge_index, bool&gt; CGAL::Surface_mesh&lt; P &gt;::eremoved_</definition>
+        <argsstring></argsstring>
+        <name>eremoved_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1984" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1984" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a9cf42e02eb76ab00288c3b67f4f542bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Face__index" kindref="compound">Face_index</ref>, bool &gt;</type>
+        <definition>Property_map&lt;Face_index, bool&gt; CGAL::Surface_mesh&lt; P &gt;::fremoved_</definition>
+        <argsstring></argsstring>
+        <name>fremoved_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1985" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1985" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1abf9897d1a8e8abaee5f4d6ddbcf3b026" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" kindref="member">Property_map</ref>&lt; <ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref>, <ref refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" kindref="member">Point</ref> &gt;</type>
+        <definition>Property_map&lt;Vertex_index, Point&gt; CGAL::Surface_mesh&lt; P &gt;::vpoint_</definition>
+        <argsstring></argsstring>
+        <name>vpoint_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1987" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1987" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a6d76caa6cdec107f6d1dbc57a40987df" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::removed_vertices_</definition>
+        <argsstring></argsstring>
+        <name>removed_vertices_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1989" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1989" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1abf7efb739d1a2b3114e55f984f94d448" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::removed_edges_</definition>
+        <argsstring></argsstring>
+        <name>removed_edges_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1990" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1990" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a13356a2fda4dfb45d6551c70d95e92f2" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::removed_faces_</definition>
+        <argsstring></argsstring>
+        <name>removed_faces_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1991" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1991" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1aca4b8e8f61ca51a40024e273a13998db" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::vertices_freelist_</definition>
+        <argsstring></argsstring>
+        <name>vertices_freelist_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1993" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1993" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1af578b4e64fffdfe402238ff789e3f8e6" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::edges_freelist_</definition>
+        <argsstring></argsstring>
+        <name>edges_freelist_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1994" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1994" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1aea518ea54cce1db7b0b7a20825275c94" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::faces_freelist_</definition>
+        <argsstring></argsstring>
+        <name>faces_freelist_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1995" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1995" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1a5b8f468291a6eacb13b9c08b0ed47d68" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CGAL::Surface_mesh&lt; P &gt;::garbage_</definition>
+        <argsstring></argsstring>
+        <name>garbage_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1996" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1996" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Surface__mesh_1af2047f88a09dd9a3d187009bd4a7be9b" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" kindref="member">size_type</ref></type>
+        <definition>size_type CGAL::Surface_mesh&lt; P &gt;::anonymous_property_</definition>
+        <argsstring></argsstring>
+        <name>anonymous_property_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1998" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="1998" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCGAL_1_1Surface__mesh_1a2d337be6cbd12c5b9b282a52713c2edf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Surface_mesh&lt; P &gt;::adjust_incoming_halfedge</definition>
+        <argsstring>(Vertex_index v)</argsstring>
+        <name>adjust_incoming_halfedge</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh_1_1Vertex__index" kindref="compound">Vertex_index</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>make sure that the incoming halfedge of vertex v is a border halfedge if <computeroutput>v</computeroutput> is a border vertex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="1971" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2446" bodyend="2472"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__PkgSurface__mesh_1gace96325c1be2a053bba0afd0fae128c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+        <definition>Surface_mesh&lt; P &gt; &amp; operator+=</definition>
+        <argsstring>(Surface_mesh&lt; P &gt; &amp;sm, const Surface_mesh&lt; P &gt; &amp;other)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>sm</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts <computeroutput>other</computeroutput> into <computeroutput>sm</computeroutput>. Shifts the indices of vertices of <computeroutput>other</computeroutput> by <computeroutput>sm.number_of_vertices() + sm.number_of_removed_vertices()</computeroutput> and analoguously for halfedges, edges, and faces. Copies entries of all property maps which have the same name in <computeroutput>sm</computeroutput> and <computeroutput>other</computeroutput>. that is, property maps which are only in <computeroutput>other</computeroutput> are ignored. Also copies elements which are marked as removed, and concatenates the freelists of <computeroutput>sm</computeroutput> and <computeroutput>other</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="2015" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2015" bodyend="2019"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgSurface__mesh_1gab9cba393612ed9793e20b2d8b65bca79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool write_off</definition>
+        <argsstring>(std::ostream &amp;os, const Surface_mesh&lt; P &gt; &amp;sm, const NamedParameters &amp;np)</argsstring>
+        <name>write_off</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>sm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts the surface mesh in an output stream in Ascii OFF format. Only the <emphasis>point</emphasis> property is inserted in the stream. If an alternative vertex_point map is given through <computeroutput>np</computeroutput>, then it will be used instead of the default one. <simplesect kind="pre"><para><computeroutput>operator&lt;&lt;(std::ostream&amp;,const P&amp;)</computeroutput> must be defined. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="2029" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2029" bodyend="2076"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgSurface__mesh_1ga5bb8fea5de90f1481268a5e313405808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const Surface_mesh&lt; P &gt; &amp;sm)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>sm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This operator calls <computeroutput><ref refid="group__PkgSurface__mesh_1gaf10a90e383ba440f115eeb1553e44768" kindref="member">write_off(std::ostream&amp; os, const CGAL::Surface_mesh&amp; sm)</ref></computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="2086" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2086" bodyend="2090"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgSurface__mesh_1gaff345ead523f3c3d2c8ec7943a9a1e6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool read_off</definition>
+        <argsstring>(std::istream &amp;is, Surface_mesh&lt; P &gt; &amp;sm, NamedParameters np)</argsstring>
+        <name>read_off</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>sm</declname>
+        </param>
+        <param>
+          <type>NamedParameters</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extracts the surface mesh from an input stream in Ascii OFF, COFF, NOFF, CNOFF format and appends it to the surface mesh <computeroutput>sm</computeroutput>. The operator reads the point property as well as &quot;v:normal&quot;, &quot;v:color&quot;, and &quot;f:color&quot;. Vertex texture coordinates are ignored. If an alternative vertex_point map is given through <computeroutput>np</computeroutput>, then it will be used instead of the default one. <simplesect kind="pre"><para><computeroutput>operator&gt;&gt;(std::istream&amp;,const P&amp;)</computeroutput> must be defined. </para></simplesect>
+<simplesect kind="pre"><para>The data in the stream must represent a two-manifold. If this is not the case the <computeroutput>failbit</computeroutput> of <computeroutput>is</computeroutput> is set and the mesh cleared. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="2123" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2123" bodyend="2231"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgSurface__mesh_1ga268e72b885b6a04c4ee6c16ad5265b46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream &amp; operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, Surface_mesh&lt; P &gt; &amp;sm)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Surface__mesh" kindref="compound">Surface_mesh</ref>&lt; P &gt; &amp;</type>
+          <declname>sm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This operator calls <computeroutput><ref refid="group__PkgSurface__mesh_1gab985fbde15bac9d10d7b211600e04702" kindref="member">read_off(std::istream&amp; is, CGAL::Surface_mesh&amp; sm)</ref></computeroutput>. <simplesect kind="attention"><para>Up to CGAL 4.10 this operator called <computeroutput>sm.clear()</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Surface_mesh/Surface_mesh.h" line="2244" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="2244" bodyend="2248"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class is a data structure that can be used as halfedge data structure or polyhedral surface. It is an alternative to the classes <computeroutput><ref refid="classHalfedgeDS" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/HalfedgeDS.tag">HalfedgeDS</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Polyhedron__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polyhedron.tag">Polyhedron_3</ref></computeroutput> defined in the packages <ref refid="packages_1PkgHDSSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Halfedge Data Structures</ref> and <ref refid="packages_1PkgPolyhedronSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">3D Polyhedral Surface</ref>. The main difference is that it is indexed based and not pointer based, and that the mechanism for adding information to vertices, halfedges, edges, and faces is much simpler and done at runtime and not at compile time. When elements are removed, they are only marked as removed, and a garbage collection function must be called to really remove them. </para>    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the <emphasis>point</emphasis> property of a vertex. There is no requirement on <computeroutput>P</computeroutput>, besides being default constructible and assignable. In typical use cases it will be a 2D or 3D point type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<xrefsect id="models_1_models000001"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> and <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput></para></xrefdescription></xrefsect></para><para><simplesect kind="see"><para><ref refid="group__PkgBGLConcepts" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">Graph Concepts</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="CGAL/Surface_mesh/Surface_mesh.h" line="287" column="1" bodyfile="CGAL/Surface_mesh/Surface_mesh.h" bodystart="286" bodyend="1999"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Surface__mesh_1a7b041ffe8d6091cea5ba9dd254ca0bf9" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_edge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a33bd9643a156c42ab35bb9bb49a0d1d2" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_edge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a3bbb4fcc69d61f1bd816a255b2251f74" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a4c55c6bdf6bd80faf0d07c587cdc253f" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a47c2561d1430def60b9e538482ea2adb" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af45a68e4c8a0fcb7c4fd899185824cae" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa4c1cb3ee0a1e0530b5427554c6517b0" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_property_map</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a6f899386b0667edc64cfae79cc93386e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_vertex</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad2e8dedad669cb3637d6a7f8207caed5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>add_vertex</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a2d337be6cbd12c5b9b282a52713c2edf" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>adjust_incoming_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af2047f88a09dd9a3d187009bd4a7be9b" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>anonymous_property_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a0aa933581dec411f442794af1659db90" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>assign</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a247d4ad3e6b106ae22e5306203812642" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>clear</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aea69dbef8122b1acf050c19063f935f2" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>collect_garbage</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1affa6fb8f904cef513e398230cf570809" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>degree</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1abfc34c532abdfe0c1c21a7534f8c7e90" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>degree</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a5cb17ab35c7aa9027919399087655aba" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>edge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aea5cd1027cca955472f6c7cb6fc6ffcb" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Edge_range</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a8609809aac816f1da02e5912c55f7710" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>edges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af578b4e64fffdfe402238ff789e3f8e6" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>edges_freelist_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ae0b351bef7e62ac0b6e7914406328b7a" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>eprops_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a8164cce4931d2d1fe2cfc6df2f022d19" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>eremoved_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a33419ae03fc4d9a8c28367dbe1241a21" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7b883dec85f78bd7db1dee08ffb343e1" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Face_range</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a321847b493741f8d25cefc53ed2593a6" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>faces</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aea518ea54cce1db7b0b7a20825275c94" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>faces_freelist_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a15397ebe4aa53ae5efe05866f077113c" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>fconn_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a0ee0d9062b72264faf6514fa07171b76" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>fprops_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a9cf42e02eb76ab00288c3b67f4f542bc" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>fremoved_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a5b8f468291a6eacb13b9c08b0ed47d68" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>garbage_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aabd478481f32d6539ac3e1db5ee65e36" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a31fe20ac8be55eab477ea1d577d7d19e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a437671cfff86f382a6492628aec0c850" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a06e2df07fec1e5e105521e16763082fc" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7a9f0599ddc39fef56bc32108bef7814" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a8624189e735737af4e63015ebfd9a009" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Halfedge_range</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7fd9d9c653012b5b02b505820c74e4d3" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>halfedges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af27a48e4ceb0f2a4c712cd2a2462fe4c" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>has_garbage</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1adf7c7de44ca8c4b73e384f4dcc4746fc" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>hconn_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ac86627e78f5ef66094f21e7e98b34757" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>hprops_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a587a5b95dab4077e28b4b6db8d947f1b" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_border</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7a137ae3497093e1eb6b04271fbd35c5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_border</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad234fcbd729f08d433bb33adcb406f7e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_border</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad29a74494f8712c0010915b59f7073be" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_empty</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a6bfaa51e271f1af32d33830a5c40e606" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_isolated</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a0766b04cc78c144e4c83d312faad0306" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_removed</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a331f6e8c9fb49e446aa3580ce32005e3" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_removed</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a4b5a9fa18cda54bb5fcfb9673076cf92" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_removed</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a556b60ce85c16eeaac494ede638bfca2" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_removed</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a4354c610fa0840c3e356db8014fd5ec0" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_valid</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a604e6d0ab9fb0524c33b2b5ff31f0efc" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_valid</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1abb4d55d8228581b00dc972980f676e24" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_valid</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ae9e415c312830317cc7da534495531d8" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_valid</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ab1734f0c4dfa5f08b4ee1be0449b572e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>is_valid</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a60816a7febffcddc9c0043977379e1d7" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>join</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa1cc5db58c2a463d6e7dff79c8f01eda" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>next</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ac2d017d411523eaca99ed127ce283b56" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>next_around_source</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a9d3fe22aceef04f6666b0e52fde9a6a1" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>next_around_target</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a8274ae85a7f62d05a9514caa89156b7a" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>null_edge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ab88a9b19157845d6f9881c4ab77c79d6" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>null_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ac3b6c754bb42cb067c49c201551024e2" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>null_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ab9849ea411550211d24dbb2ca6162e89" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>null_vertex</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ac6bf5afa1bbac06969ce58d4199bb2c0" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_edges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7b14e51c9eab058c012dbb8aae7b0dda" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_faces</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ada6fe7c0fbfedd660b8bd3aac0fb1380" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_halfedges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1abc41a0165b44bde9742ec58829e22cb2" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_removed_edges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a18689391cbfc91d574d4542aeaee61bd" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_removed_faces</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a9ca9b411356d449a4e8b8ce1f4199c36" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_removed_halfedges</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad63086c1d200cf3e34a5182d24fb699e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_removed_vertices</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a10ba0d4fbb6ffaf0be57c5a088cc922b" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>number_of_vertices</name></member>
+      <member refid="group__PkgSurface__mesh_1gace96325c1be2a053bba0afd0fae128c5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>operator+=</name></member>
+      <member refid="group__PkgSurface__mesh_1ga5bb8fea5de90f1481268a5e313405808" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a5e0b91cc6b7c63d2d466f008c1504b3e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>operator=</name></member>
+      <member refid="group__PkgSurface__mesh_1ga268e72b885b6a04c4ee6c16ad5265b46" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa7db4bc6d4c063059072b2f1a4609c0e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>opposite</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a49fcf015652f232662b2a28df36e9d8d" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>point</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aaf6c8f0ab1ccc8a7b8b07de618aca2f8" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>point</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ae7d6654202cb1722b4efc8faf311eeb4" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Point</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a2e2a9858cb443f77290dc78267aea827" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>points</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a0887ce92d0d65bcd1128c313bc9d2d07" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>points</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a59417a612605ec242f066bd9a1e28185" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>prev</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a055f041aff1eb896f148b6d38534eccd" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>prev_around_source</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7223adcc73ff2b52005652c69c765d1c" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>prev_around_target</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a0e9d3f572d6657aee5c2f4d81dc2eb7b" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>properties</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a9d40ac48b19106cd3f59639b036471b1" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Property_map</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad26d6c09eb532fd5faddc39f9034f462" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>property_map</name></member>
+      <member refid="group__PkgSurface__mesh_1gaff345ead523f3c3d2c8ec7943a9a1e6e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>read_off</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a895b28e72ba75afd13e8803c75423a0b" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>remove_edge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af2311658bf6d730b276b23b5c304f90e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>remove_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ad1b7490dbfc8c4485b6c9f38926a17fd" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>remove_property_map</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a5295190357a81d285652a1ff6b8b4ba5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>remove_vertex</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1abf7efb739d1a2b3114e55f984f94d448" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>removed_edges_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a13356a2fda4dfb45d6551c70d95e92f2" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>removed_faces_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a6d76caa6cdec107f6d1dbc57a40987df" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>removed_vertices_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a2172cdbebc27ecf4ca36ac050aad11b8" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>reserve</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a5f906d0fbc3edd8c73460d2513d53a33" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>resize</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1af18facf9d9b02c957fc4bd97778f164a" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Self</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ab410584330993636208cec2aba27c21c" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_face</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa7b9045225df5fd211b8eded584d752e" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a3fe44bf0597205f6b123ea34dacc21b5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a7fc2d1a60ab7a816958cf9e1728e00be" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_next</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a6b76416edec25da0458348b71eebc42c" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_target</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1acfb375fa2902b1f0c4cf1ff00b9eb9d8" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_vertex_halfedge_to_border_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1ae7e7430b67351edd3b43767d50e2eeb5" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_vertex_halfedge_to_border_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a71e4ba8bbb19ea91f010b13b6df8f1b1" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>set_vertex_halfedge_to_border_halfedge</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a094168d6cb2bef3bfac36a01a7463285" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>size_type</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a25636a372cb22645aba7175c5b5af3fc" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>source</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa9f5c5e5296a3af8af25e40d8943629d" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Surface_mesh</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a2682ed1dff1ecacde3009c8f5f50962f" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Surface_mesh</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a1039dd1e0b038b526ddebe477e67f531" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>target</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a455f91a64f50b11a433bd4b35e979e8b" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vconn_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aa2da347a8d3a70595ed10b5cdef811b4" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vertex</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a81371c8abd2daaf53bb457945a3a7d15" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>Vertex_range</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a64c3d4bfd5057d782f1e93f1f302bf5f" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vertices</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aca4b8e8f61ca51a40024e273a13998db" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vertices_freelist_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1abf9897d1a8e8abaee5f4d6ddbcf3b026" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vpoint_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1a2dea2c7df84165a57e0a6d77b9b66579" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vprops_</name></member>
+      <member refid="classCGAL_1_1Surface__mesh_1aab5725db010225589252400ba167050c" prot="private" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>vremoved_</name></member>
+      <member refid="group__PkgSurface__mesh_1gab9cba393612ed9793e20b2d8b65bca79" prot="public" virt="non-virtual"><scope>CGAL::Surface_mesh</scope><name>write_off</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

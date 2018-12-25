@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgNef3IOFunctions" kind="group">
+    <compoundname>PkgNef3IOFunctions</compoundname>
+    <title>I/O Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgNef3IOFunctions_1ga2e47f1a21e5b35af36c7ef665c66e848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Nef_polyhedron</type>
+          </param>
+          <param>
+            <type>class Polygon_mesh</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::convert_nef_polyhedron_to_polygon_mesh</definition>
+        <argsstring>(const Nef_polyhedron &amp;nef, Polygon_mesh &amp;pm, bool triangulate_all_faces=false)</argsstring>
+        <name>convert_nef_polyhedron_to_polygon_mesh</name>
+        <param>
+          <type>const Nef_polyhedron &amp;</type>
+          <declname>nef</declname>
+        </param>
+        <param>
+          <type>Polygon_mesh &amp;</type>
+          <declname>pm</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>triangulate_all_faces</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Converts an objet of type <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">Nef_polyhedron_3</ref></computeroutput> into a polygon mesh model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note that contrary to <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3_1ae1caa4106dbeaa8e59ff48c5e02260c6" kindref="member">Nef_polyhedron_3::convert_to_polyhedron()</ref></computeroutput>, the output is not triangulated (but faces with more than one connected component of the boundary). The polygon mesh can be triangulated by setting <computeroutput>triangulate_all_faces</computeroutput> to <computeroutput>true</computeroutput> or by calling the function <computeroutput><ref refid="group__PMP__meshing__grp_1gacaaff4d520500c530d9c3d5ebe2a0760" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon_mesh_processing.tag">triangulate_faces()</ref></computeroutput>. <simplesect kind="pre"><para><computeroutput>Polygon_mesh</computeroutput> must have an internal point property map with value type being <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3_1afc9ae4754ea1d424b3e9a46a387d52f0" kindref="member">Nef_polyhedron_3::Point_3</ref></computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para><computeroutput>nef.simple()</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/convert_nef_polyhedron_to_polygon_mesh.h" line="12" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgNef3IOFunctions_1ga07ab85177604bf7463df8321e4f90af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Traits</type>
+          </param>
+        </templateparamlist>
+        <type>istream &amp;</type>
+        <definition>istream&amp; CGAL::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;in, CGAL::Nef_polyhedron_3&lt; Traits &gt; &amp;N)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3</ref>&lt; Traits &gt; &amp;</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>This operator reads a Nef polyhedron, which is given in the proprietary file format written by the input operator <emphasis>in</emphasis> and assigns it to <emphasis>N</emphasis>. </para>        </briefdescription>
+        <detaileddescription>
+<para>It includes the complete incidence structure, the geometric data, and the marks of each item.</para><para>It is recommended to use the CGAL kernels <computeroutput><ref refid="structCGAL_1_1Homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Homogeneous</ref></computeroutput>, <computeroutput><ref refid="structCGAL_1_1Simple__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Simple_homogeneous</ref></computeroutput>, or <computeroutput><ref refid="classCGAL_1_1Extended__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Nef_2.tag">Extended_homogeneous</ref></computeroutput> parametrized with any exact number type that models <formula id="0">$ \mathbb{Z}$</formula> (e.g.<computeroutput><ref refid="classCGAL_1_1Gmpz" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">Gmpz</ref></computeroutput> or <computeroutput><ref refid="classleda__integer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">leda_integer</ref></computeroutput>). The input and output iterators of Nef polyhedra parametrized with either of these kernels are compatible as long as the Nef polyhedron is bounded. An unbounded Nef polyhedron can only be read by a Nef polyhedron parametrized with an extended kernel. It is also recommended to use the CGAL stream modifier <computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_ascii_mode()</ref></computeroutput>.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3</ref>&lt;Traits&gt;</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Nef_polyhedron_iostream_3.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgNef3IOFunctions_1ga281d595d56868aa3daeb991b1b44f1de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Traits</type>
+          </param>
+        </templateparamlist>
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; CGAL::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, CGAL::Nef_polyhedron_3&lt; Traits &gt; &amp;N)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3</ref>&lt; Traits &gt; &amp;</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>This operator writes the Nef polyhedron <computeroutput>N</computeroutput> to the output stream <computeroutput>out</computeroutput> using a proprietary file format. </para>        </briefdescription>
+        <detaileddescription>
+<para>It includes the complete incidence structure, the geometric data, and the marks of each item.</para><para>Using CGAL stream modifiers the following output formats can be chosen: ASCII (<computeroutput><ref refid="group__PkgIOstreams_1ga62462cf829e614f6f2cd2cbec9a093d2" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_ascii_mode()</ref></computeroutput>), binary (<computeroutput><ref refid="group__PkgIOstreams_1gaf8eb8599079dfa427e0f34098bcc790b" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_binary_mode()</ref></computeroutput>) or pretty (<computeroutput><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">set_pretty_mode()</ref></computeroutput>). The mandatory format is the ASCII format. It is recommended to use this format for file input and output.</para><para>As the output depends on the output operators of the geometric primitives provided by the traits class, it might not be possible that the input operator and output operators of different traits classes are not compatible. We recommend to use the CGAL kernels <computeroutput><ref refid="structCGAL_1_1Homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Homogeneous</ref></computeroutput>, <computeroutput><ref refid="structCGAL_1_1Simple__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Simple_homogeneous</ref></computeroutput>, or <computeroutput><ref refid="classCGAL_1_1Extended__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Nef_2.tag">Extended_homogeneous</ref></computeroutput> parametrized with any exact number type that models <formula id="1">$\mathbb{Z}$</formula> (e.g. <computeroutput><ref refid="classCGAL_1_1Gmpz" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">Gmpz</ref></computeroutput> or <computeroutput><ref refid="classleda__integer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">leda_integer</ref></computeroutput>).</para><para>A bounded <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">Nef_polyhedron_3</ref>&lt;<ref refid="classCGAL_1_1Extended__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Nef_2.tag">Extended_homogeneous</ref>&gt;</computeroutput> is automatically written as though <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">Nef_polyhedron_3</ref>&lt;<ref refid="structCGAL_1_1Homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Homogeneous</ref>&gt;</computeroutput> or <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">Nef_polyhedron_3</ref>&lt;<ref refid="structCGAL_1_1Simple__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Simple_homogeneous</ref>&gt;</computeroutput> is used. As a result, the input operator of each of these types can read the output.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3</ref>&lt;Traits&gt;</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/Nef_polyhedron_iostream_3.h" line="57" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgNef3IOFunctions_1gaeb31b20d2824c500c4a12e284667dfce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Nef_polyhedron_3</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::OFF_to_nef_3</definition>
+        <argsstring>(std::istream &amp;in, Nef_polyhedron_3 &amp;N)</argsstring>
+        <name>OFF_to_nef_3</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>Nef_polyhedron_3 &amp;</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>This function creates a 3D Nef polyhedron from an OFF file which is read from input stream <computeroutput>in</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>The purpose of <computeroutput>OFF_to_nef_3</computeroutput> is to create a Nef polyhedron from an OFF file that cannot be handled by the <computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">Nef_polyhedron_3</ref></computeroutput> constructors. It handles double coordinates while using a homogenous kernel, non-coplanar facets, surfaces with boundaries, self-intersecting surfaces, and single facets. Every closed volume gets marked. The function returns the number of facets it could not handle.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3</ref>&lt;Traits&gt;</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/OFF_to_nef_3.h" line="19" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

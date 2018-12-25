@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Polyhedral__mesh__domain__3" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Polyhedral_mesh_domain_3</compoundname>
+    <includes local="no">CGAL/Polyhedral_mesh_domain_3.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Polyhedron</declname>
+        <defname>Polyhedron</defname>
+      </param>
+      <param>
+        <type>typename</type>
+        <declname>IGT</declname>
+        <defname>IGT</defname>
+      </param>
+      <param>
+        <type>typename</type>
+        <declname>TriangleAccessor</declname>
+        <defname>TriangleAccessor</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Creation</header>
+      <memberdef kind="function" id="classCGAL_1_1Polyhedral__mesh__domain__3_1ad0fdcf7446e0a0a94d06c75a77696772" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Polyhedral_mesh_domain_3&lt; Polyhedron, IGT, TriangleAccessor &gt;::Polyhedral_mesh_domain_3</definition>
+        <argsstring>(const Polyhedron &amp;bounding_polyhedron)</argsstring>
+        <name>Polyhedral_mesh_domain_3</name>
+        <param>
+          <type>const Polyhedron &amp;</type>
+          <declname>bounding_polyhedron</declname>
+        </param>
+        <briefdescription>
+<para>Construction from a bouding polyhedral surface which must be closed, and free of intersections. </para>        </briefdescription>
+        <detaileddescription>
+<para>The inside of <computeroutput>bounding_polyhedron</computeroutput> will be meshed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polyhedral_mesh_domain_3.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Polyhedral__mesh__domain__3_1ad62d9971ded6d10e794409492ce96ca8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Polyhedral_mesh_domain_3&lt; Polyhedron, IGT, TriangleAccessor &gt;::Polyhedral_mesh_domain_3</definition>
+        <argsstring>(const Polyhedron &amp;polyhedron, const Polyhedron &amp;bounding_polyhedron)</argsstring>
+        <name>Polyhedral_mesh_domain_3</name>
+        <param>
+          <type>const Polyhedron &amp;</type>
+          <declname>polyhedron</declname>
+        </param>
+        <param>
+          <type>const Polyhedron &amp;</type>
+          <declname>bounding_polyhedron</declname>
+        </param>
+        <briefdescription>
+<para>Construction from a polyhedral surface, and a bounding polyhedral surface,. </para>        </briefdescription>
+        <detaileddescription>
+<para>The first polyhedron must be entirely included inside <computeroutput>bounding_polyhedron</computeroutput>, which must be closed and free of intersections. Using this constructor allows to mesh a polyhedral surface which is not closed, or has holes. The inside of <computeroutput>bounding_polyhedron</computeroutput> will be meshed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polyhedral_mesh_domain_3.h" line="54" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The class <computeroutput><ref refid="classCGAL_1_1Polyhedral__mesh__domain__3" kindref="compound">Polyhedral_mesh_domain_3</ref></computeroutput> implements a domain defined by a simplicial polyhedral surface. </para>    </briefdescription>
+    <detaileddescription>
+<para>The input polyhedral surface must be free of intersection. It must include (at least) one closed connected component that defines the boundary of the domain to be meshed. Inside this bounding component, the input polyhedral surface may contain several other components (closed or not) that will be represented in the final mesh. This class is a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Polyhedron</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stands for the type of the input polyhedral surface(s), model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IGT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stands for a geometric traits class providing the types and functors required to implement the intersection tests and intersection computations for polyhedral boundary surfaces. This parameter has to be instantiated with a model of the concept <computeroutput><ref refid="classIntersectionGeometricTraits__3" kindref="compound">IntersectionGeometricTraits_3</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<xrefsect id="models_1_models000014"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput> </para></xrefdescription></xrefsect></para><para><simplesect kind="see"><para><computeroutput><ref refid="classIntersectionGeometricTraits__3" kindref="compound">IntersectionGeometricTraits_3</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput>. </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="62">
+        <label>CGAL::Mesh_domain_with_polyline_features_3&lt; CGAL::Polyhedral_mesh_domain_3&lt; CGAL::Mesh_polyhedron_3&lt; IGT &gt;::type, IGT &gt; &gt;</label>
+        <link refid="classCGAL_1_1Mesh__domain__with__polyline__features__3"/>
+        <childnode refid="61" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>CGAL::Polyhedral_mesh_domain_3&lt; Polyhedron, IGT, TriangleAccessor &gt;</label>
+        <link refid="classCGAL_1_1Polyhedral__mesh__domain__3"/>
+      </node>
+      <node id="65">
+        <label>CGAL::Mesh_domain_with_polyline_features_3&lt; Polyhedral_mesh_domain_3&lt; Polyhedron, IGT_, CGAL::Default, int, Tag_true &gt; &gt;</label>
+        <link refid="classCGAL_1_1Mesh__domain__with__polyline__features__3"/>
+        <childnode refid="64" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>CGAL::Polyhedral_mesh_domain_with_features_3&lt; IGT &gt;</label>
+        <link refid="classCGAL_1_1Polyhedral__mesh__domain__with__features__3"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>CGAL::Polyhedral_complex_mesh_domain_3&lt; IGT_, Polyhedron, TriangleAccessor &gt;</label>
+        <link refid="classCGAL_1_1Polyhedral__complex__mesh__domain__3"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>CGAL::Polyhedral_mesh_domain_3&lt; CGAL::Mesh_polyhedron_3&lt; IGT &gt;::type, IGT &gt;</label>
+        <link refid="classCGAL_1_1Polyhedral__mesh__domain__3"/>
+        <childnode refid="60" relation="template-instance">
+          <edgelabel>&lt; CGAL::Mesh_polyhedron_3&lt; IGT &gt;::type, IGT &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="64">
+        <label>CGAL::Polyhedral_mesh_domain_3&lt; Polyhedron, IGT_, CGAL::Default, int, Tag_true &gt;</label>
+        <link refid="classCGAL_1_1Polyhedral__mesh__domain__3"/>
+        <childnode refid="60" relation="template-instance">
+          <edgelabel>&lt; Polyhedron, IGT_, CGAL::Default, int, Tag_true &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="CGAL/Polyhedral_mesh_domain_3.h" line="35" column="1" bodyfile="CGAL/Polyhedral_mesh_domain_3.h" bodystart="34" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Polyhedral__mesh__domain__3_1ad0fdcf7446e0a0a94d06c75a77696772" prot="public" virt="non-virtual"><scope>CGAL::Polyhedral_mesh_domain_3</scope><name>Polyhedral_mesh_domain_3</name></member>
+      <member refid="classCGAL_1_1Polyhedral__mesh__domain__3_1ad62d9971ded6d10e794409492ce96ca8" prot="public" virt="non-virtual"><scope>CGAL::Polyhedral_mesh_domain_3</scope><name>Polyhedral_mesh_domain_3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

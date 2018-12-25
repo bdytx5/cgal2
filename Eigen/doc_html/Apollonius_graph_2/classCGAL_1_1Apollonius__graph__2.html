@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Apollonius_graph_2/classCGAL_1_1Apollonius__graph__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Apollonius Graphs (Delaunay Graphs of Disks): CGAL::Apollonius_graph_2&lt; Gt, Agds &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Apollonius Graphs (Delaunay Graphs of Disks)
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Apollonius__graph__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Apollonius__graph__2-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Apollonius_graph_2&lt; Gt, Agds &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgApolloniusGraph2.html">2D Apollonius Graphs (Delaunay Graphs of Disks) Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Apollonius_graph_2.h&gt;</code></p>
+
+<p>Inherited by <a class="el" href="classCGAL_1_1Apollonius__graph__hierarchy__2.html">CGAL::Apollonius_graph_hierarchy_2&lt; Gt, Agds &gt;</a>.</p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"> 
+
+<p>The class <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html" title="The class Apollonius_graph_2 represents the Apollonius graph. ">Apollonius_graph_2</a></code> represents the Apollonius graph. </p>
+<p>It supports insertions and deletions of sites. It is templated by two template arguments <code>Gt</code>, which must be a model of <code><a class="el" href="classApolloniusGraphTraits__2.html">ApolloniusGraphTraits_2</a></code>, and <code>Agds</code>, which must be a model of <code><a class="el" href="classApolloniusGraphDataStructure__2.html" title="The concept ApolloniusGraphDataStructure_2 refines the concept TriangulationDataStructure_2. In addition it provides two methods for the insertion and removal of a degree 2 vertex in the data structure. The insertion method adds a new vertex to the specified edge, thus creating two new edges. Moreover, it creates two new faces that have the two newly created edges in common (see figure below). The removal method performs the reverse operation. ">ApolloniusGraphDataStructure_2</a></code>. The second template argument defaults to <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/TDS_2.tag:../TDS_2/" href="../TDS_2/classCGAL_1_1Triangulation__data__structure__2.html">CGAL::Triangulation_data_structure_2</a>&lt; <a class="el" href="classCGAL_1_1Apollonius__graph__vertex__base__2.html" title="The class Apollonius_graph_vertex_base_2 provides a model for the ApolloniusGraphVertexBase_2 concept...">CGAL::Apollonius_graph_vertex_base_2</a>&lt;Gt,true&gt;, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Triangulation__face__base__2.html">CGAL::Triangulation_face_base_2</a>&lt;Gt&gt; &gt;</code>. </p><dl class="models"><dt><b><a class="el" href="models.html#_models000001">Is Model Of:</a></b></dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Voronoi_diagram_2.tag:../Voronoi_diagram_2/" href="../Voronoi_diagram_2/classDelaunayGraph__2.html">DelaunayGraph_2</a></code></dd></dl>
+<p><b>Traversal of the Apollonius Graph</b><br />
+</p>
+<p>An Apollonius graph can be seen as a container of faces and vertices. Therefore the Apollonius graph provides several iterators and circulators that allow to traverse it (completely or partially).</p>
+<p><b>Traversal of the Convex Hull</b><br />
+</p>
+<p>Applied on the <code>infinite_vertex</code> the <code>incident_*</code> functions allow to visit the vertices on the convex hull and the infinite edges and faces. Note that a counterclockwise traversal of the vertices adjacent to the <code>infinite_vertex</code> is a clockwise traversal of the convex hull.</p>
+<div class="fragment"><div class="line"><a class="code" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2&lt;Gt, Agds&gt;</a> ag;</div><div class="line"><a class="code" href="classCGAL_1_1Apollonius__graph__2.html#a5fd4209127d34c18ac0885520aab5520">CGAL::Apollonius_graph_2&lt;Gt, Agds&gt;::Face</a> f;</div><div class="line"></div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#ab3be0a81ae7504909bd9a82e3a1e9070">incident_vertices</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>()); </div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#ab3be0a81ae7504909bd9a82e3a1e9070">incident_vertices</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>(), f); </div><div class="line"></div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#ae0c4540c40f8a32a282472d7e5e9cafd">incident_faces</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>()); </div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#ae0c4540c40f8a32a282472d7e5e9cafd">incident_faces</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>(), f); </div><div class="line"></div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#a5cc66d8aea2c6d07bd96fa182dfe2a36">incident_edges</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>()); </div><div class="line">ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#a5cc66d8aea2c6d07bd96fa182dfe2a36">incident_edges</a>(ag.<a class="code" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a>(), f); </div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Voronoi_diagram_2.tag:../Voronoi_diagram_2/" href="../Voronoi_diagram_2/classDelaunayGraph__2.html">DelaunayGraph_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classApolloniusGraphTraits__2.html">ApolloniusGraphTraits_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classApolloniusGraphDataStructure__2.html" title="The concept ApolloniusGraphDataStructure_2 refines the concept TriangulationDataStructure_2. In addition it provides two methods for the insertion and removal of a degree 2 vertex in the data structure. The insertion method adds a new vertex to the specified edge, thus creating two new edges. Moreover, it creates two new faces that have the two newly created edges in common (see figure below). The removal method performs the reverse operation. ">ApolloniusGraphDataStructure_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classApolloniusGraphVertexBase__2.html">ApolloniusGraphVertexBase_2</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classTriangulationFaceBase__2.html">TriangulationFaceBase_2</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Apollonius__graph__traits__2.html" title="The class Apollonius_graph_traits_2 provides a model for the ApolloniusGraphTraits_2 concept...">CGAL::Apollonius_graph_traits_2</a>&lt;K,Method_tag&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Apollonius__graph__filtered__traits__2.html" title="The class Apollonius_graph_filtered_traits_2 provides a model for the ApolloniusGraphTraits_2 concept...">CGAL::Apollonius_graph_filtered_traits_2</a>&lt;CK,CM,EK,EM,FK,FM&gt;</code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/TDS_2.tag:../TDS_2/" href="../TDS_2/classCGAL_1_1Triangulation__data__structure__2.html">CGAL::Triangulation_data_structure_2</a>&lt;Vb,Fb&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Apollonius__graph__vertex__base__2.html" title="The class Apollonius_graph_vertex_base_2 provides a model for the ApolloniusGraphVertexBase_2 concept...">CGAL::Apollonius_graph_vertex_base_2</a>&lt;Gt,StoreHidden&gt;</code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_2.tag:../Triangulation_2/" href="../Triangulation_2/classCGAL_1_1Triangulation__face__base__2.html">CGAL::Triangulation_face_base_2</a>&lt;Gt&gt;</code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Apollonius_graph_2_2ag2_exact_traits_8cpp-example.html#_a2">Apollonius_graph_2/ag2_exact_traits.cpp</a>, <a class="el" href="Apollonius_graph_2_2ag2_exact_traits_sqrt_8cpp-example.html#_a2">Apollonius_graph_2/ag2_exact_traits_sqrt.cpp</a>, and <a class="el" href="Apollonius_graph_2_2ag2_filtered_traits_no_hidden_8cpp-example.html#_a5">Apollonius_graph_2/ag2_filtered_traits_no_hidden.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:adc99b3b3a8d7adc7f5b4e38a21733985"><td class="memItemLeft" align="right" valign="top"><a id="adc99b3b3a8d7adc7f5b4e38a21733985"></a>
+typedef Agds </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a></td></tr>
+<tr class="memdesc:adc99b3b3a8d7adc7f5b4e38a21733985"><td class="mdescLeft"> </td><td class="mdescRight">A type for the underlying data structure. <br /></td></tr>
+<tr class="separator:adc99b3b3a8d7adc7f5b4e38a21733985"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a61636138d13c212ff2a6dd4ff5f816c9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a61636138d13c212ff2a6dd4ff5f816c9">Triangulation_data_structure</a></td></tr>
+<tr class="memdesc:a61636138d13c212ff2a6dd4ff5f816c9"><td class="mdescLeft"> </td><td class="mdescRight">Same as the <code>Data_structure</code> type.  <a href="#a61636138d13c212ff2a6dd4ff5f816c9">More...</a><br /></td></tr>
+<tr class="separator:a61636138d13c212ff2a6dd4ff5f816c9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1e780c09c97d949d3425144a8cc81e1a"><td class="memItemLeft" align="right" valign="top"><a id="a1e780c09c97d949d3425144a8cc81e1a"></a>
+typedef Gt </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1e780c09c97d949d3425144a8cc81e1a">Geom_traits</a></td></tr>
+<tr class="memdesc:a1e780c09c97d949d3425144a8cc81e1a"><td class="mdescLeft"> </td><td class="mdescRight">A type for the geometric traits. <br /></td></tr>
+<tr class="separator:a1e780c09c97d949d3425144a8cc81e1a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4417369c58be047f0159259f4a679a9e"><td class="memItemLeft" align="right" valign="top"><a id="a4417369c58be047f0159259f4a679a9e"></a>
+typedef Gt::Point_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4417369c58be047f0159259f4a679a9e">Point_2</a></td></tr>
+<tr class="memdesc:a4417369c58be047f0159259f4a679a9e"><td class="mdescLeft"> </td><td class="mdescRight">A type for the point defined in the geometric traits. <br /></td></tr>
+<tr class="separator:a4417369c58be047f0159259f4a679a9e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aef591204a5abd776cd7717b258b52f69"><td class="memItemLeft" align="right" valign="top"><a id="aef591204a5abd776cd7717b258b52f69"></a>
+typedef Gt::Site_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef591204a5abd776cd7717b258b52f69">Site_2</a></td></tr>
+<tr class="memdesc:aef591204a5abd776cd7717b258b52f69"><td class="mdescLeft"> </td><td class="mdescRight">A type for the Apollonius site, defined in the geometric traits. <br /></td></tr>
+<tr class="separator:aef591204a5abd776cd7717b258b52f69"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Handles And Iterators</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpb6ffd9c7f84cc903e909d7263262aa49"></a>The vertices and faces of the Apollonius graph are accessed through <code>handles</code>, <code>iterators</code> and <code>circulators</code>.</p>
+<p>The iterators and circulators are all bidirectional and non-mutable. The circulators and iterators are assignable to the corresponding handle types, and they are also convertible to the corresponding handles. The edges of the Apollonius graph can also be visited through iterators and circulators, the edge circulators and iterators are also bidirectional and non-mutable. In the following, we call <em>infinite</em> any face or edge incident to the infinite vertex and the infinite vertex itself. Any other feature (face, edge or vertex) of the Apollonius graph is said to be <em>finite</em>. Some iterators (the <code>All</code> iterators ) allow to visit finite or infinite features while the others (the <code>Finite</code> iterators) visit only finite features. Circulators visit both infinite and finite features. </p>
+</td></tr>
+<tr class="memitem:ab1f5de353e920892190337b1b76cd509"><td class="memItemLeft" align="right" valign="top">typedef Data_structure::Edge </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a></td></tr>
+<tr class="memdesc:ab1f5de353e920892190337b1b76cd509"><td class="mdescLeft"> </td><td class="mdescRight">the edge type.  <a href="#ab1f5de353e920892190337b1b76cd509">More...</a><br /></td></tr>
+<tr class="separator:ab1f5de353e920892190337b1b76cd509"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a17245aed36840bee031fc4fa908d2450"><td class="memItemLeft" align="right" valign="top"><a id="a17245aed36840bee031fc4fa908d2450"></a>
+typedef Data_structure::Vertex </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a17245aed36840bee031fc4fa908d2450">Vertex</a></td></tr>
+<tr class="memdesc:a17245aed36840bee031fc4fa908d2450"><td class="mdescLeft"> </td><td class="mdescRight">A type for a vertex. <br /></td></tr>
+<tr class="separator:a17245aed36840bee031fc4fa908d2450"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5fd4209127d34c18ac0885520aab5520"><td class="memItemLeft" align="right" valign="top"><a id="a5fd4209127d34c18ac0885520aab5520"></a>
+typedef Data_structure::Face </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a5fd4209127d34c18ac0885520aab5520">Face</a></td></tr>
+<tr class="memdesc:a5fd4209127d34c18ac0885520aab5520"><td class="mdescLeft"> </td><td class="mdescRight">A type for a face. <br /></td></tr>
+<tr class="separator:a5fd4209127d34c18ac0885520aab5520"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac49e5e5289682d991ea051327a4c0d8f"><td class="memItemLeft" align="right" valign="top"><a id="ac49e5e5289682d991ea051327a4c0d8f"></a>
+typedef Data_structure::Vertex_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a></td></tr>
+<tr class="memdesc:ac49e5e5289682d991ea051327a4c0d8f"><td class="mdescLeft"> </td><td class="mdescRight">A type for a handle to a vertex. <br /></td></tr>
+<tr class="separator:ac49e5e5289682d991ea051327a4c0d8f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afe012870773a550396ad67f4cdfe6ccd"><td class="memItemLeft" align="right" valign="top"><a id="afe012870773a550396ad67f4cdfe6ccd"></a>
+typedef Data_structure::Face_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a></td></tr>
+<tr class="memdesc:afe012870773a550396ad67f4cdfe6ccd"><td class="mdescLeft"> </td><td class="mdescRight">A type for a handle to a face. <br /></td></tr>
+<tr class="separator:afe012870773a550396ad67f4cdfe6ccd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7c2be7467b149c7c76eab8ea3b1e2d33"><td class="memItemLeft" align="right" valign="top"><a id="a7c2be7467b149c7c76eab8ea3b1e2d33"></a>
+typedef Data_structure::Vertex_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a7c2be7467b149c7c76eab8ea3b1e2d33">Vertex_circulator</a></td></tr>
+<tr class="memdesc:a7c2be7467b149c7c76eab8ea3b1e2d33"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over vertices incident to a given vertex. <br /></td></tr>
+<tr class="separator:a7c2be7467b149c7c76eab8ea3b1e2d33"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6935414a5009edc49af24e8100deed54"><td class="memItemLeft" align="right" valign="top"><a id="a6935414a5009edc49af24e8100deed54"></a>
+typedef Data_structure::Face_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6935414a5009edc49af24e8100deed54">Face_circulator</a></td></tr>
+<tr class="memdesc:a6935414a5009edc49af24e8100deed54"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over faces incident to a given vertex. <br /></td></tr>
+<tr class="separator:a6935414a5009edc49af24e8100deed54"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4a54f07541f4ef6fa55ac47cc260b619"><td class="memItemLeft" align="right" valign="top"><a id="a4a54f07541f4ef6fa55ac47cc260b619"></a>
+typedef Data_structure::Edge_circulator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4a54f07541f4ef6fa55ac47cc260b619">Edge_circulator</a></td></tr>
+<tr class="memdesc:a4a54f07541f4ef6fa55ac47cc260b619"><td class="mdescLeft"> </td><td class="mdescRight">A type for a circulator over edges incident to a given vertex. <br /></td></tr>
+<tr class="separator:a4a54f07541f4ef6fa55ac47cc260b619"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a67efc48a9fdc072f18176cf8b2d1bf4f"><td class="memItemLeft" align="right" valign="top"><a id="a67efc48a9fdc072f18176cf8b2d1bf4f"></a>
+typedef Data_structure::Vertex_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a67efc48a9fdc072f18176cf8b2d1bf4f">All_vertices_iterator</a></td></tr>
+<tr class="memdesc:a67efc48a9fdc072f18176cf8b2d1bf4f"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all vertices. <br /></td></tr>
+<tr class="separator:a67efc48a9fdc072f18176cf8b2d1bf4f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a42b527855a0d86c39666fadbffe35a0e"><td class="memItemLeft" align="right" valign="top"><a id="a42b527855a0d86c39666fadbffe35a0e"></a>
+typedef Data_structure::Face_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42b527855a0d86c39666fadbffe35a0e">All_faces_iterator</a></td></tr>
+<tr class="memdesc:a42b527855a0d86c39666fadbffe35a0e"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all faces. <br /></td></tr>
+<tr class="separator:a42b527855a0d86c39666fadbffe35a0e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1a980bb005f7609fe901793c14e029eb"><td class="memItemLeft" align="right" valign="top"><a id="a1a980bb005f7609fe901793c14e029eb"></a>
+typedef Data_structure::Edge_iterator </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1a980bb005f7609fe901793c14e029eb">All_edges_iterator</a></td></tr>
+<tr class="memdesc:a1a980bb005f7609fe901793c14e029eb"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all edges. <br /></td></tr>
+<tr class="separator:a1a980bb005f7609fe901793c14e029eb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af45600846b8c46a7cfb5ede06ff33d7e"><td class="memItemLeft" align="right" valign="top"><a id="af45600846b8c46a7cfb5ede06ff33d7e"></a>
+typedef Data_structure::size_type </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af45600846b8c46a7cfb5ede06ff33d7e">size_type</a></td></tr>
+<tr class="memdesc:af45600846b8c46a7cfb5ede06ff33d7e"><td class="mdescLeft"> </td><td class="mdescRight">An unsigned integral type. <br /></td></tr>
+<tr class="separator:af45600846b8c46a7cfb5ede06ff33d7e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4c2e91040f1c353a7b611b55614bcf79"><td class="memItemLeft" align="right" valign="top"><a id="a4c2e91040f1c353a7b611b55614bcf79"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4c2e91040f1c353a7b611b55614bcf79">Finite_vertices_iterator</a></td></tr>
+<tr class="memdesc:a4c2e91040f1c353a7b611b55614bcf79"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite vertices. <br /></td></tr>
+<tr class="separator:a4c2e91040f1c353a7b611b55614bcf79"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3969c0696ecb5a405a1a01a459c5b6df"><td class="memItemLeft" align="right" valign="top"><a id="a3969c0696ecb5a405a1a01a459c5b6df"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3969c0696ecb5a405a1a01a459c5b6df">Finite_faces_iterator</a></td></tr>
+<tr class="memdesc:a3969c0696ecb5a405a1a01a459c5b6df"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite faces. <br /></td></tr>
+<tr class="separator:a3969c0696ecb5a405a1a01a459c5b6df"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0c52fcbb3b25be0c6b78d4ae68f6661a"><td class="memItemLeft" align="right" valign="top"><a id="a0c52fcbb3b25be0c6b78d4ae68f6661a"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a0c52fcbb3b25be0c6b78d4ae68f6661a">Finite_edges_iterator</a></td></tr>
+<tr class="memdesc:a0c52fcbb3b25be0c6b78d4ae68f6661a"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over finite edges. <br /></td></tr>
+<tr class="separator:a0c52fcbb3b25be0c6b78d4ae68f6661a"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Site Iterators</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpaf63d1ff1e7e463aeffe2ff1446fa935"></a>The following iterators allow respectively to visit all sites, the visible sites and the hidden sites.</p>
+<p>These iterators are non-mutable, bidirectional and their value type is <code>Site_2</code>. They are all invalidated by any change in the Apollonius graph. </p>
+</td></tr>
+<tr class="memitem:ade765de09304a43067546280f0302003"><td class="memItemLeft" align="right" valign="top"><a id="ade765de09304a43067546280f0302003"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ade765de09304a43067546280f0302003">Sites_iterator</a></td></tr>
+<tr class="memdesc:ade765de09304a43067546280f0302003"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all sites. <br /></td></tr>
+<tr class="separator:ade765de09304a43067546280f0302003"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a03a9c34a198c73ce1604723d4c4926ff"><td class="memItemLeft" align="right" valign="top"><a id="a03a9c34a198c73ce1604723d4c4926ff"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a03a9c34a198c73ce1604723d4c4926ff">Visible_sites_iterator</a></td></tr>
+<tr class="memdesc:a03a9c34a198c73ce1604723d4c4926ff"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all visible sites. <br /></td></tr>
+<tr class="separator:a03a9c34a198c73ce1604723d4c4926ff"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afa1b8c7922d472b50aa9503520b12979"><td class="memItemLeft" align="right" valign="top"><a id="afa1b8c7922d472b50aa9503520b12979"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afa1b8c7922d472b50aa9503520b12979">Hidden_sites_iterator</a></td></tr>
+<tr class="memdesc:afa1b8c7922d472b50aa9503520b12979"><td class="mdescLeft"> </td><td class="mdescRight">A type for an iterator over all hidden sites. <br /></td></tr>
+<tr class="separator:afa1b8c7922d472b50aa9503520b12979"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af75de607fc1ad50f56dda6583d6255bc"><td class="memItemLeft" align="right" valign="top"><a id="af75de607fc1ad50f56dda6583d6255bc"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ade765de09304a43067546280f0302003">Sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af75de607fc1ad50f56dda6583d6255bc">sites_begin</a> ()</td></tr>
+<tr class="memdesc:af75de607fc1ad50f56dda6583d6255bc"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary site. <br /></td></tr>
+<tr class="separator:af75de607fc1ad50f56dda6583d6255bc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a31460d44d7c55e72a59c94bb085b605f"><td class="memItemLeft" align="right" valign="top"><a id="a31460d44d7c55e72a59c94bb085b605f"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ade765de09304a43067546280f0302003">Sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a31460d44d7c55e72a59c94bb085b605f">sites_end</a> ()</td></tr>
+<tr class="memdesc:a31460d44d7c55e72a59c94bb085b605f"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a31460d44d7c55e72a59c94bb085b605f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a55fb677849d54bf7dbfed8774aa891aa"><td class="memItemLeft" align="right" valign="top"><a id="a55fb677849d54bf7dbfed8774aa891aa"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a03a9c34a198c73ce1604723d4c4926ff">Visible_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a55fb677849d54bf7dbfed8774aa891aa">visible_sites_begin</a> ()</td></tr>
+<tr class="memdesc:a55fb677849d54bf7dbfed8774aa891aa"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary visible site. <br /></td></tr>
+<tr class="separator:a55fb677849d54bf7dbfed8774aa891aa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3c1ddc6422028841f9082f6ae9ee32db"><td class="memItemLeft" align="right" valign="top"><a id="a3c1ddc6422028841f9082f6ae9ee32db"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a03a9c34a198c73ce1604723d4c4926ff">Visible_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3c1ddc6422028841f9082f6ae9ee32db">visible_sites_end</a> ()</td></tr>
+<tr class="memdesc:a3c1ddc6422028841f9082f6ae9ee32db"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a3c1ddc6422028841f9082f6ae9ee32db"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a85aabaaf416756314dd0b9ba3cf86907"><td class="memItemLeft" align="right" valign="top"><a id="a85aabaaf416756314dd0b9ba3cf86907"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afa1b8c7922d472b50aa9503520b12979">Hidden_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a85aabaaf416756314dd0b9ba3cf86907">hidden_sites_begin</a> ()</td></tr>
+<tr class="memdesc:a85aabaaf416756314dd0b9ba3cf86907"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary hidden site. <br /></td></tr>
+<tr class="separator:a85aabaaf416756314dd0b9ba3cf86907"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aca0816bba7a11471e4110093f22004b0"><td class="memItemLeft" align="right" valign="top"><a id="aca0816bba7a11471e4110093f22004b0"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afa1b8c7922d472b50aa9503520b12979">Hidden_sites_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aca0816bba7a11471e4110093f22004b0">hidden_sites_end</a> ()</td></tr>
+<tr class="memdesc:aca0816bba7a11471e4110093f22004b0"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:aca0816bba7a11471e4110093f22004b0"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr class="memitem:aa5584c72f4877bcac11e5022b79bbb8b"><td class="memItemLeft" align="right" valign="top"><a id="aa5584c72f4877bcac11e5022b79bbb8b"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aa5584c72f4877bcac11e5022b79bbb8b">Apollonius_graph_2</a> (Gt gt=Gt())</td></tr>
+<tr class="memdesc:aa5584c72f4877bcac11e5022b79bbb8b"><td class="mdescLeft"> </td><td class="mdescRight">Creates an Apollonius graph <code>ag</code> using <code>gt</code> as geometric traits. <br /></td></tr>
+<tr class="separator:aa5584c72f4877bcac11e5022b79bbb8b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af387fad63bf790839d8ce5ffb2a875aa"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:af387fad63bf790839d8ce5ffb2a875aa"><td class="memTemplItemLeft" align="right" valign="top"> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af387fad63bf790839d8ce5ffb2a875aa">Apollonius_graph_2</a> (Input_iterator first, Input_iterator beyond, Gt gt=Gt())</td></tr>
+<tr class="memdesc:af387fad63bf790839d8ce5ffb2a875aa"><td class="mdescLeft"> </td><td class="mdescRight">Creates an Apollonius graph <code>ag</code> using <code>gt</code> as geometric traits and inserts all sites in the range [<code>first</code>, <code>beyond</code>).  <a href="#af387fad63bf790839d8ce5ffb2a875aa">More...</a><br /></td></tr>
+<tr class="separator:af387fad63bf790839d8ce5ffb2a875aa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a77b430b6cf2e494cf14099e2a0054c1b"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a77b430b6cf2e494cf14099e2a0054c1b">Apollonius_graph_2</a> (const <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; &amp;other)</td></tr>
+<tr class="memdesc:a77b430b6cf2e494cf14099e2a0054c1b"><td class="mdescLeft"> </td><td class="mdescRight">Copy constructor.  <a href="#a77b430b6cf2e494cf14099e2a0054c1b">More...</a><br /></td></tr>
+<tr class="separator:a77b430b6cf2e494cf14099e2a0054c1b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6f98fefa3d3e46720b190916b18989ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6f98fefa3d3e46720b190916b18989ed">operator=</a> (const <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; &amp;other)</td></tr>
+<tr class="memdesc:a6f98fefa3d3e46720b190916b18989ed"><td class="mdescLeft"> </td><td class="mdescRight">Assignment.  <a href="#a6f98fefa3d3e46720b190916b18989ed">More...</a><br /></td></tr>
+<tr class="separator:a6f98fefa3d3e46720b190916b18989ed"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Functions</h2></td></tr>
+<tr class="memitem:aef68035e2c956e1245b7d19eaebc66e1"><td class="memItemLeft" align="right" valign="top"><a id="aef68035e2c956e1245b7d19eaebc66e1"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1e780c09c97d949d3425144a8cc81e1a">Geom_traits</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef68035e2c956e1245b7d19eaebc66e1">geom_traits</a> ()</td></tr>
+<tr class="memdesc:aef68035e2c956e1245b7d19eaebc66e1"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the Apollonius graph traits object. <br /></td></tr>
+<tr class="separator:aef68035e2c956e1245b7d19eaebc66e1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab42d8fe6f9dce31c11307ecbce8acb04"><td class="memItemLeft" align="right" valign="top"><a id="ab42d8fe6f9dce31c11307ecbce8acb04"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab42d8fe6f9dce31c11307ecbce8acb04">data_structure</a> ()</td></tr>
+<tr class="memdesc:ab42d8fe6f9dce31c11307ecbce8acb04"><td class="mdescLeft"> </td><td class="mdescRight">Returns a reference to the underlying data structure. <br /></td></tr>
+<tr class="separator:ab42d8fe6f9dce31c11307ecbce8acb04"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0a5d7a0531e28bfc6aa9f1e6f39cc811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a0a5d7a0531e28bfc6aa9f1e6f39cc811">tds</a> ()</td></tr>
+<tr class="memdesc:a0a5d7a0531e28bfc6aa9f1e6f39cc811"><td class="mdescLeft"> </td><td class="mdescRight">Same as <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab42d8fe6f9dce31c11307ecbce8acb04" title="Returns a reference to the underlying data structure. ">data_structure()</a></code>.  <a href="#a0a5d7a0531e28bfc6aa9f1e6f39cc811">More...</a><br /></td></tr>
+<tr class="separator:a0a5d7a0531e28bfc6aa9f1e6f39cc811"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2483f3b1aaa22a0b03f6fa8b9211e633"><td class="memItemLeft" align="right" valign="top"><a id="a2483f3b1aaa22a0b03f6fa8b9211e633"></a>
+int </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a2483f3b1aaa22a0b03f6fa8b9211e633">dimension</a> ()</td></tr>
+<tr class="memdesc:a2483f3b1aaa22a0b03f6fa8b9211e633"><td class="mdescLeft"> </td><td class="mdescRight">Returns the dimension of the Apollonius graph. <br /></td></tr>
+<tr class="separator:a2483f3b1aaa22a0b03f6fa8b9211e633"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a67cebda221210a8cff1ac33af853e904"><td class="memItemLeft" align="right" valign="top"><a id="a67cebda221210a8cff1ac33af853e904"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af45600846b8c46a7cfb5ede06ff33d7e">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a67cebda221210a8cff1ac33af853e904">number_of_vertices</a> ()</td></tr>
+<tr class="memdesc:a67cebda221210a8cff1ac33af853e904"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of finite vertices. <br /></td></tr>
+<tr class="separator:a67cebda221210a8cff1ac33af853e904"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac96ec1df26d1517bde80cbb493b1c475"><td class="memItemLeft" align="right" valign="top"><a id="ac96ec1df26d1517bde80cbb493b1c475"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af45600846b8c46a7cfb5ede06ff33d7e">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac96ec1df26d1517bde80cbb493b1c475">number_of_visible_sites</a> ()</td></tr>
+<tr class="memdesc:ac96ec1df26d1517bde80cbb493b1c475"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of visible sites. <br /></td></tr>
+<tr class="separator:ac96ec1df26d1517bde80cbb493b1c475"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a486c5612381fe5e6e20f74b2c93977fd"><td class="memItemLeft" align="right" valign="top"><a id="a486c5612381fe5e6e20f74b2c93977fd"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af45600846b8c46a7cfb5ede06ff33d7e">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a486c5612381fe5e6e20f74b2c93977fd">number_of_hidden_sites</a> ()</td></tr>
+<tr class="memdesc:a486c5612381fe5e6e20f74b2c93977fd"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of hidden sites. <br /></td></tr>
+<tr class="separator:a486c5612381fe5e6e20f74b2c93977fd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aba7a18aeeea055409484a0903fce0419"><td class="memItemLeft" align="right" valign="top"><a id="aba7a18aeeea055409484a0903fce0419"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af45600846b8c46a7cfb5ede06ff33d7e">size_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aba7a18aeeea055409484a0903fce0419">number_of_faces</a> ()</td></tr>
+<tr class="memdesc:aba7a18aeeea055409484a0903fce0419"><td class="mdescLeft"> </td><td class="mdescRight">Returns the number of faces (both finite and infinite) of the Apollonius graph. <br /></td></tr>
+<tr class="separator:aba7a18aeeea055409484a0903fce0419"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a53d22491d5633549c12dc0a27822b42f"><td class="memItemLeft" align="right" valign="top"><a id="a53d22491d5633549c12dc0a27822b42f"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a53d22491d5633549c12dc0a27822b42f">infinite_face</a> ()</td></tr>
+<tr class="memdesc:a53d22491d5633549c12dc0a27822b42f"><td class="mdescLeft"> </td><td class="mdescRight">Returns a face incident to the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:a53d22491d5633549c12dc0a27822b42f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aeb8926478276024fe28fd9d0ee65a46b"><td class="memItemLeft" align="right" valign="top"><a id="aeb8926478276024fe28fd9d0ee65a46b"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aeb8926478276024fe28fd9d0ee65a46b">infinite_vertex</a> ()</td></tr>
+<tr class="memdesc:aeb8926478276024fe28fd9d0ee65a46b"><td class="mdescLeft"> </td><td class="mdescRight">Returns the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:aeb8926478276024fe28fd9d0ee65a46b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4d72a42454bcdb44ef5c01f86fc3370a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4d72a42454bcdb44ef5c01f86fc3370a">finite_vertex</a> ()</td></tr>
+<tr class="memdesc:a4d72a42454bcdb44ef5c01f86fc3370a"><td class="mdescLeft"> </td><td class="mdescRight">Returns a vertex distinct from the <code>infinite_vertex</code>.  <a href="#a4d72a42454bcdb44ef5c01f86fc3370a">More...</a><br /></td></tr>
+<tr class="separator:a4d72a42454bcdb44ef5c01f86fc3370a"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Face, Edge and Vertex Iterators</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp5a8e2ae2ac7dfed177c0c7f37f101010"></a>The following iterators allow respectively to visit finite faces, finite edges and finite vertices of the Apollonius graph.</p>
+<p>These iterators are non-mutable, bidirectional and their value types are respectively <code>Face</code>, <code>Edge</code> and <code>Vertex</code>. They are all invalidated by any change in the Apollonius graph. The following iterators allow respectively to visit all (both finite and infinite) faces, edges and vertices of the Apollonius graph. These iterators are non-mutable, bidirectional and their value types are respectively <code>Face</code>, <code>Edge</code> and <code>Vertex</code>. They are all invalidated by any change in the Apollonius graph. </p>
+</td></tr>
+<tr class="memitem:a8df22478dee497b72c920425e9acd36f"><td class="memItemLeft" align="right" valign="top"><a id="a8df22478dee497b72c920425e9acd36f"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4c2e91040f1c353a7b611b55614bcf79">Finite_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a8df22478dee497b72c920425e9acd36f">finite_vertices_begin</a> ()</td></tr>
+<tr class="memdesc:a8df22478dee497b72c920425e9acd36f"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite vertex. <br /></td></tr>
+<tr class="separator:a8df22478dee497b72c920425e9acd36f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a94cbfc716842f799a6c4651fc53f9e25"><td class="memItemLeft" align="right" valign="top"><a id="a94cbfc716842f799a6c4651fc53f9e25"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4c2e91040f1c353a7b611b55614bcf79">Finite_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a94cbfc716842f799a6c4651fc53f9e25">finite_vertices_end</a> ()</td></tr>
+<tr class="memdesc:a94cbfc716842f799a6c4651fc53f9e25"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a94cbfc716842f799a6c4651fc53f9e25"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8b782ea367c5df1f4813d469f257a4f9"><td class="memItemLeft" align="right" valign="top"><a id="a8b782ea367c5df1f4813d469f257a4f9"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a0c52fcbb3b25be0c6b78d4ae68f6661a">Finite_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a8b782ea367c5df1f4813d469f257a4f9">finite_edges_begin</a> ()</td></tr>
+<tr class="memdesc:a8b782ea367c5df1f4813d469f257a4f9"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite edge. <br /></td></tr>
+<tr class="separator:a8b782ea367c5df1f4813d469f257a4f9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a62b059c99af5c3690fab08c306cf7a15"><td class="memItemLeft" align="right" valign="top"><a id="a62b059c99af5c3690fab08c306cf7a15"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a0c52fcbb3b25be0c6b78d4ae68f6661a">Finite_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a62b059c99af5c3690fab08c306cf7a15">finite_edges_end</a> ()</td></tr>
+<tr class="memdesc:a62b059c99af5c3690fab08c306cf7a15"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a62b059c99af5c3690fab08c306cf7a15"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2e13742a7565c0e46700bd87bd794fe4"><td class="memItemLeft" align="right" valign="top"><a id="a2e13742a7565c0e46700bd87bd794fe4"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3969c0696ecb5a405a1a01a459c5b6df">Finite_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a2e13742a7565c0e46700bd87bd794fe4">finite_faces_begin</a> ()</td></tr>
+<tr class="memdesc:a2e13742a7565c0e46700bd87bd794fe4"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary finite face. <br /></td></tr>
+<tr class="separator:a2e13742a7565c0e46700bd87bd794fe4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a26800688e5691e8a926568addb7cdbbe"><td class="memItemLeft" align="right" valign="top"><a id="a26800688e5691e8a926568addb7cdbbe"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3969c0696ecb5a405a1a01a459c5b6df">Finite_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a26800688e5691e8a926568addb7cdbbe">finite_faces_end</a> () const</td></tr>
+<tr class="memdesc:a26800688e5691e8a926568addb7cdbbe"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a26800688e5691e8a926568addb7cdbbe"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a53dfd042bfde5d64839b5214fae705b0"><td class="memItemLeft" align="right" valign="top"><a id="a53dfd042bfde5d64839b5214fae705b0"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a67efc48a9fdc072f18176cf8b2d1bf4f">All_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a53dfd042bfde5d64839b5214fae705b0">all_vertices_begin</a> ()</td></tr>
+<tr class="memdesc:a53dfd042bfde5d64839b5214fae705b0"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary vertex. <br /></td></tr>
+<tr class="separator:a53dfd042bfde5d64839b5214fae705b0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab945277abbd6b2dfbe5874821bb05b8e"><td class="memItemLeft" align="right" valign="top"><a id="ab945277abbd6b2dfbe5874821bb05b8e"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a67efc48a9fdc072f18176cf8b2d1bf4f">All_vertices_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab945277abbd6b2dfbe5874821bb05b8e">all_vertices_end</a> ()</td></tr>
+<tr class="memdesc:ab945277abbd6b2dfbe5874821bb05b8e"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:ab945277abbd6b2dfbe5874821bb05b8e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ada8c9863db042083ae28408c001fbcf4"><td class="memItemLeft" align="right" valign="top"><a id="ada8c9863db042083ae28408c001fbcf4"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1a980bb005f7609fe901793c14e029eb">All_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ada8c9863db042083ae28408c001fbcf4">all_edges_begin</a> ()</td></tr>
+<tr class="memdesc:ada8c9863db042083ae28408c001fbcf4"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary edge. <br /></td></tr>
+<tr class="separator:ada8c9863db042083ae28408c001fbcf4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0178c25b3a7518e380bb37f644359692"><td class="memItemLeft" align="right" valign="top"><a id="a0178c25b3a7518e380bb37f644359692"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1a980bb005f7609fe901793c14e029eb">All_edges_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a0178c25b3a7518e380bb37f644359692">all_edges_end</a> ()</td></tr>
+<tr class="memdesc:a0178c25b3a7518e380bb37f644359692"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a0178c25b3a7518e380bb37f644359692"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af47e0b39e85b500d117ef1dfa706dd3b"><td class="memItemLeft" align="right" valign="top"><a id="af47e0b39e85b500d117ef1dfa706dd3b"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42b527855a0d86c39666fadbffe35a0e">All_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af47e0b39e85b500d117ef1dfa706dd3b">all_faces_begin</a> ()</td></tr>
+<tr class="memdesc:af47e0b39e85b500d117ef1dfa706dd3b"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary face. <br /></td></tr>
+<tr class="separator:af47e0b39e85b500d117ef1dfa706dd3b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a08ff9d69334a433d7ceb229ef788cc73"><td class="memItemLeft" align="right" valign="top"><a id="a08ff9d69334a433d7ceb229ef788cc73"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42b527855a0d86c39666fadbffe35a0e">All_faces_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a08ff9d69334a433d7ceb229ef788cc73">all_faces_end</a> ()</td></tr>
+<tr class="memdesc:a08ff9d69334a433d7ceb229ef788cc73"><td class="mdescLeft"> </td><td class="mdescRight">Past-the-end iterator. <br /></td></tr>
+<tr class="separator:a08ff9d69334a433d7ceb229ef788cc73"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Face, Edge and Vertex Circulators</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp56e7b7312026903cf99178c0a4677022"></a>The Apollonius graph also provides circulators that allow to visit respectively all faces or edges incident to a given vertex or all vertices adjacent to a given vertex.</p>
+<p>These circulators are non-mutable and bidirectional. The operator <code>operator++</code> moves the circulator counterclockwise around the vertex while the <code>operator--</code> moves clockwise. A face circulator is invalidated by any modification of the face pointed to. An edge circulator is invalidated by any modification in one of the two faces incident to the edge pointed to. A vertex circulator is invalidated by any modification in any of the faces adjacent to the vertex pointed to. </p>
+</td></tr>
+<tr class="memitem:ae0c4540c40f8a32a282472d7e5e9cafd"><td class="memItemLeft" align="right" valign="top"><a id="ae0c4540c40f8a32a282472d7e5e9cafd"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6935414a5009edc49af24e8100deed54">Face_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ae0c4540c40f8a32a282472d7e5e9cafd">incident_faces</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:ae0c4540c40f8a32a282472d7e5e9cafd"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary face incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:ae0c4540c40f8a32a282472d7e5e9cafd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a820ba9836d441f126cb6c7c587fb5d49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6935414a5009edc49af24e8100deed54">Face_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a820ba9836d441f126cb6c7c587fb5d49">incident_faces</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f)</td></tr>
+<tr class="memdesc:a820ba9836d441f126cb6c7c587fb5d49"><td class="mdescLeft"> </td><td class="mdescRight">Starts at face <code>f</code>.  <a href="#a820ba9836d441f126cb6c7c587fb5d49">More...</a><br /></td></tr>
+<tr class="separator:a820ba9836d441f126cb6c7c587fb5d49"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5cc66d8aea2c6d07bd96fa182dfe2a36"><td class="memItemLeft" align="right" valign="top"><a id="a5cc66d8aea2c6d07bd96fa182dfe2a36"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4a54f07541f4ef6fa55ac47cc260b619">Edge_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a5cc66d8aea2c6d07bd96fa182dfe2a36">incident_edges</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:a5cc66d8aea2c6d07bd96fa182dfe2a36"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary edge incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:a5cc66d8aea2c6d07bd96fa182dfe2a36"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac1715033ce3824daa94823b6e6601a6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4a54f07541f4ef6fa55ac47cc260b619">Edge_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac1715033ce3824daa94823b6e6601a6c">incident_edges</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f)</td></tr>
+<tr class="memdesc:ac1715033ce3824daa94823b6e6601a6c"><td class="mdescLeft"> </td><td class="mdescRight">Starts at the first edge of <code>f</code> incident to <code>v</code>, in counterclockwise order around <code>v</code>.  <a href="#ac1715033ce3824daa94823b6e6601a6c">More...</a><br /></td></tr>
+<tr class="separator:ac1715033ce3824daa94823b6e6601a6c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab3be0a81ae7504909bd9a82e3a1e9070"><td class="memItemLeft" align="right" valign="top"><a id="ab3be0a81ae7504909bd9a82e3a1e9070"></a>
+<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a7c2be7467b149c7c76eab8ea3b1e2d33">Vertex_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab3be0a81ae7504909bd9a82e3a1e9070">incident_vertices</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:ab3be0a81ae7504909bd9a82e3a1e9070"><td class="mdescLeft"> </td><td class="mdescRight">Starts at an arbitrary vertex incident to <code>v</code>. <br /></td></tr>
+<tr class="separator:ab3be0a81ae7504909bd9a82e3a1e9070"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab68466a4f12c04717182f1aedc4ecdb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a7c2be7467b149c7c76eab8ea3b1e2d33">Vertex_circulator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab68466a4f12c04717182f1aedc4ecdb0">incident_vertices</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f)</td></tr>
+<tr class="memdesc:ab68466a4f12c04717182f1aedc4ecdb0"><td class="mdescLeft"> </td><td class="mdescRight">Starts at the first vertex of <code>f</code> adjacent to <code>v</code> in counterclockwise order around <code>v</code>.  <a href="#ab68466a4f12c04717182f1aedc4ecdb0">More...</a><br /></td></tr>
+<tr class="separator:ab68466a4f12c04717182f1aedc4ecdb0"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Predicates</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp1ec0e1a5cad6c8b35f0d54a8fc3be146"></a>The class <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html" title="The class Apollonius_graph_2 represents the Apollonius graph. ">Apollonius_graph_2</a></code> provides methods to test the finite or infinite character of any feature. </p>
+</td></tr>
+<tr class="memitem:a36820d88501404365245c6a7f7fca573"><td class="memItemLeft" align="right" valign="top"><a id="a36820d88501404365245c6a7f7fca573"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a36820d88501404365245c6a7f7fca573">is_infinite</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v) const</td></tr>
+<tr class="memdesc:a36820d88501404365245c6a7f7fca573"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff <code>v</code> is the <code>infinite_vertex</code>. <br /></td></tr>
+<tr class="separator:a36820d88501404365245c6a7f7fca573"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4fb0275444193c09ffaacacaf3e57b40"><td class="memItemLeft" align="right" valign="top"><a id="a4fb0275444193c09ffaacacaf3e57b40"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4fb0275444193c09ffaacacaf3e57b40">is_infinite</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f) const</td></tr>
+<tr class="memdesc:a4fb0275444193c09ffaacacaf3e57b40"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff face <code>f</code> is infinite. <br /></td></tr>
+<tr class="separator:a4fb0275444193c09ffaacacaf3e57b40"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aeeea392554f6977a65d6c46d10bcf51f"><td class="memItemLeft" align="right" valign="top"><a id="aeeea392554f6977a65d6c46d10bcf51f"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aeeea392554f6977a65d6c46d10bcf51f">is_infinite</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f, int i) const</td></tr>
+<tr class="memdesc:aeeea392554f6977a65d6c46d10bcf51f"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>(f,i)</code> is infinite. <br /></td></tr>
+<tr class="separator:aeeea392554f6977a65d6c46d10bcf51f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a30ad9ee69b0b274624af3599d0c35550"><td class="memItemLeft" align="right" valign="top"><a id="a30ad9ee69b0b274624af3599d0c35550"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a30ad9ee69b0b274624af3599d0c35550">is_infinite</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a> e) const</td></tr>
+<tr class="memdesc:a30ad9ee69b0b274624af3599d0c35550"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>e</code> is infinite. <br /></td></tr>
+<tr class="separator:a30ad9ee69b0b274624af3599d0c35550"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a82b53618d81c23d3b8f250fdbf942827"><td class="memItemLeft" align="right" valign="top"><a id="a82b53618d81c23d3b8f250fdbf942827"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a82b53618d81c23d3b8f250fdbf942827">is_infinite</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4a54f07541f4ef6fa55ac47cc260b619">Edge_circulator</a> ec) const</td></tr>
+<tr class="memdesc:a82b53618d81c23d3b8f250fdbf942827"><td class="mdescLeft"> </td><td class="mdescRight"><code>true</code>, iff edge <code>*ec</code> is infinite. <br /></td></tr>
+<tr class="separator:a82b53618d81c23d3b8f250fdbf942827"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Insertion</h2></td></tr>
+<tr class="memitem:a30a25b908f475dc7c495a06799a8a11a"><td class="memTemplParams" colspan="2">template&lt;class Input_iterator &gt; </td></tr>
+<tr class="memitem:a30a25b908f475dc7c495a06799a8a11a"><td class="memTemplItemLeft" align="right" valign="top">unsigned int </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a30a25b908f475dc7c495a06799a8a11a">insert</a> (Input_iterator first, Input_iterator beyond)</td></tr>
+<tr class="memdesc:a30a25b908f475dc7c495a06799a8a11a"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the sites in the range [<code>first</code>,<code>beyond</code>).  <a href="#a30a25b908f475dc7c495a06799a8a11a">More...</a><br /></td></tr>
+<tr class="separator:a30a25b908f475dc7c495a06799a8a11a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a690a6005474c94d7322d7e8074465461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a690a6005474c94d7322d7e8074465461">insert</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef591204a5abd776cd7717b258b52f69">Site_2</a> s)</td></tr>
+<tr class="memdesc:a690a6005474c94d7322d7e8074465461"><td class="mdescLeft"> </td><td class="mdescRight">Inserts the site <code>s</code> in the Apollonius graph.  <a href="#a690a6005474c94d7322d7e8074465461">More...</a><br /></td></tr>
+<tr class="separator:a690a6005474c94d7322d7e8074465461"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5fc3766c5f04712e5378f624a11562c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a5fc3766c5f04712e5378f624a11562c2">insert</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef591204a5abd776cd7717b258b52f69">Site_2</a> s, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:a5fc3766c5f04712e5378f624a11562c2"><td class="mdescLeft"> </td><td class="mdescRight">Inserts <code>s</code> in the Apollonius graph using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of the center of <code>s</code>.  <a href="#a5fc3766c5f04712e5378f624a11562c2">More...</a><br /></td></tr>
+<tr class="separator:a5fc3766c5f04712e5378f624a11562c2"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Removal</h2></td></tr>
+<tr class="memitem:aaffa121b1edbcf179452a1d55026605c"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aaffa121b1edbcf179452a1d55026605c">remove</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> v)</td></tr>
+<tr class="memdesc:aaffa121b1edbcf179452a1d55026605c"><td class="mdescLeft"> </td><td class="mdescRight">Removes the site associated to the vertex handle <code>v</code> from the Apollonius graph.  <a href="#aaffa121b1edbcf179452a1d55026605c">More...</a><br /></td></tr>
+<tr class="separator:aaffa121b1edbcf179452a1d55026605c"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Nearest Neighbor Location</h2></td></tr>
+<tr class="memitem:a3fce781d622b0d63e4e290e29cceda4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3fce781d622b0d63e4e290e29cceda4d">nearest_neighbor</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4417369c58be047f0159259f4a679a9e">Point_2</a> p)</td></tr>
+<tr class="memdesc:a3fce781d622b0d63e4e290e29cceda4d"><td class="mdescLeft"> </td><td class="mdescRight">Finds the nearest neighbor of the point <code>p</code>.  <a href="#a3fce781d622b0d63e4e290e29cceda4d">More...</a><br /></td></tr>
+<tr class="separator:a3fce781d622b0d63e4e290e29cceda4d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a14a464708e13dcbad9b6830a64fa3881"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a14a464708e13dcbad9b6830a64fa3881">nearest_neighbor</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4417369c58be047f0159259f4a679a9e">Point_2</a> p, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> vnear)</td></tr>
+<tr class="memdesc:a14a464708e13dcbad9b6830a64fa3881"><td class="mdescLeft"> </td><td class="mdescRight">Finds the nearest neighbor of the point <code>p</code> using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>p</code>.  <a href="#a14a464708e13dcbad9b6830a64fa3881">More...</a><br /></td></tr>
+<tr class="separator:a14a464708e13dcbad9b6830a64fa3881"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access to the Dual</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp40fec05fdd3abcd6a0d8ae2e86025ff8"></a>The <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html" title="The class Apollonius_graph_2 represents the Apollonius graph. ">Apollonius_graph_2</a></code> class provides access to the duals of the faces of the graph.</p>
+<p>The dual of a face of the Apollonius graph is a site. If the originating face is infinite, its dual is a site with center at infinity (or equivalently with infinite weight), which means that it can be represented geometrically as a line. If the originating face is finite, its dual is a site with finite center and weight. In the following three methods the returned object is assignable to either <code>Site_2</code> or <code>Gt::Line_2</code>, depending on whether the corresponding face of the Apollonius graph is finite or infinite, respectively. </p>
+</td></tr>
+<tr class="memitem:a304f5fe797914ddda090095ece7fdd7d"><td class="memItemLeft" align="right" valign="top">Gt::Object_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a304f5fe797914ddda090095ece7fdd7d">dual</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> f) const</td></tr>
+<tr class="memdesc:a304f5fe797914ddda090095ece7fdd7d"><td class="mdescLeft"> </td><td class="mdescRight">Returns the dual corresponding to the face handle <code>f</code>.  <a href="#a304f5fe797914ddda090095ece7fdd7d">More...</a><br /></td></tr>
+<tr class="separator:a304f5fe797914ddda090095ece7fdd7d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6e6e1b20ab5018c96e4b0ed2c0f0ee00"><td class="memItemLeft" align="right" valign="top">Gt::Object_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6e6e1b20ab5018c96e4b0ed2c0f0ee00">dual</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42b527855a0d86c39666fadbffe35a0e">All_faces_iterator</a> it) const</td></tr>
+<tr class="memdesc:a6e6e1b20ab5018c96e4b0ed2c0f0ee00"><td class="mdescLeft"> </td><td class="mdescRight">Returns the dual of the face to which <code>it</code> points to.  <a href="#a6e6e1b20ab5018c96e4b0ed2c0f0ee00">More...</a><br /></td></tr>
+<tr class="separator:a6e6e1b20ab5018c96e4b0ed2c0f0ee00"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7bc59bde3f5e808541b8689e3516bfdc"><td class="memItemLeft" align="right" valign="top">Gt::Object_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a7bc59bde3f5e808541b8689e3516bfdc">dual</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3969c0696ecb5a405a1a01a459c5b6df">Finite_faces_iterator</a> it) const</td></tr>
+<tr class="memdesc:a7bc59bde3f5e808541b8689e3516bfdc"><td class="mdescLeft"> </td><td class="mdescRight">Returns the dual of the face to which <code>it</code> points to.  <a href="#a7bc59bde3f5e808541b8689e3516bfdc">More...</a><br /></td></tr>
+<tr class="separator:a7bc59bde3f5e808541b8689e3516bfdc"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+I/O</h2></td></tr>
+<tr class="memitem:a36ec4fdf29bdd71aa89584cb30e0e1dc"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a36ec4fdf29bdd71aa89584cb30e0e1dc"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a36ec4fdf29bdd71aa89584cb30e0e1dc">draw_primal</a> (Stream &amp;str)</td></tr>
+<tr class="memdesc:a36ec4fdf29bdd71aa89584cb30e0e1dc"><td class="mdescLeft"> </td><td class="mdescRight">Draws the Apollonius graph to the stream <code>str</code>.  <a href="#a36ec4fdf29bdd71aa89584cb30e0e1dc">More...</a><br /></td></tr>
+<tr class="separator:a36ec4fdf29bdd71aa89584cb30e0e1dc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1956a3b3d339eb667775f2051cbc80ab"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a1956a3b3d339eb667775f2051cbc80ab"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a1956a3b3d339eb667775f2051cbc80ab">draw_dual</a> (Stream &amp;str)</td></tr>
+<tr class="memdesc:a1956a3b3d339eb667775f2051cbc80ab"><td class="mdescLeft"> </td><td class="mdescRight">Draws the dual of the Apollonius graph, i.e., the Apollonius diagram, to the stream <code>str</code>.  <a href="#a1956a3b3d339eb667775f2051cbc80ab">More...</a><br /></td></tr>
+<tr class="separator:a1956a3b3d339eb667775f2051cbc80ab"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a4de4b2934b0f2b12bd00d4db3a4a1d"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a6a4de4b2934b0f2b12bd00d4db3a4a1d"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6a4de4b2934b0f2b12bd00d4db3a4a1d">draw_primal_edge</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a> e, Stream &amp;str)</td></tr>
+<tr class="memdesc:a6a4de4b2934b0f2b12bd00d4db3a4a1d"><td class="mdescLeft"> </td><td class="mdescRight">Draws the edge <code>e</code> of the Apollonius graph to the stream <code>str</code>.  <a href="#a6a4de4b2934b0f2b12bd00d4db3a4a1d">More...</a><br /></td></tr>
+<tr class="separator:a6a4de4b2934b0f2b12bd00d4db3a4a1d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a42be977f239f865a1ae3b6d71346f410"><td class="memTemplParams" colspan="2">template&lt;class Stream &gt; </td></tr>
+<tr class="memitem:a42be977f239f865a1ae3b6d71346f410"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42be977f239f865a1ae3b6d71346f410">draw_dual_edge</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a> e, Stream &amp;str)</td></tr>
+<tr class="memdesc:a42be977f239f865a1ae3b6d71346f410"><td class="mdescLeft"> </td><td class="mdescRight">Draws the dual of the edge <code>e</code> to the stream <code>str</code>.  <a href="#a42be977f239f865a1ae3b6d71346f410">More...</a><br /></td></tr>
+<tr class="separator:a42be977f239f865a1ae3b6d71346f410"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a98047a5e2c7483a82073eb0918ab10b4"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a98047a5e2c7483a82073eb0918ab10b4">file_output</a> (std::ostream &amp;os)</td></tr>
+<tr class="memdesc:a98047a5e2c7483a82073eb0918ab10b4"><td class="mdescLeft"> </td><td class="mdescRight">Writes the current state of the Apollonius graph to an output stream.  <a href="#a98047a5e2c7483a82073eb0918ab10b4">More...</a><br /></td></tr>
+<tr class="separator:a98047a5e2c7483a82073eb0918ab10b4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4c7ae4fbb71648098764eaefb3f89b8a"><td class="memItemLeft" align="right" valign="top"><a id="a4c7ae4fbb71648098764eaefb3f89b8a"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4c7ae4fbb71648098764eaefb3f89b8a">file_input</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:a4c7ae4fbb71648098764eaefb3f89b8a"><td class="mdescLeft"> </td><td class="mdescRight">Reads the state of the Apollonius graph from an input stream. <br /></td></tr>
+<tr class="separator:a4c7ae4fbb71648098764eaefb3f89b8a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6248bc10d8530ff6a80d61c3af28c57e"><td class="memItemLeft" align="right" valign="top"><a id="a6248bc10d8530ff6a80d61c3af28c57e"></a>
+std::ostream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6248bc10d8530ff6a80d61c3af28c57e">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; ag)</td></tr>
+<tr class="memdesc:a6248bc10d8530ff6a80d61c3af28c57e"><td class="mdescLeft"> </td><td class="mdescRight">Writes the current state of the Apollonius graph to an output stream. <br /></td></tr>
+<tr class="separator:a6248bc10d8530ff6a80d61c3af28c57e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a53ac2cdcd848ce2df937c519664aaad5"><td class="memItemLeft" align="right" valign="top"><a id="a53ac2cdcd848ce2df937c519664aaad5"></a>
+std::istream &amp; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a53ac2cdcd848ce2df937c519664aaad5">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; ag)</td></tr>
+<tr class="memdesc:a53ac2cdcd848ce2df937c519664aaad5"><td class="mdescLeft"> </td><td class="mdescRight">Reads the state of the Apollonius graph from an input stream. <br /></td></tr>
+<tr class="separator:a53ac2cdcd848ce2df937c519664aaad5"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Validity Check</h2></td></tr>
+<tr class="memitem:a2f6c0464322784e82763d88de0b7005b"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a2f6c0464322784e82763d88de0b7005b">is_valid</a> (bool verbose=false, int level=1)</td></tr>
+<tr class="memdesc:a2f6c0464322784e82763d88de0b7005b"><td class="mdescLeft"> </td><td class="mdescRight">Checks the validity of the Apollonius graph.  <a href="#a2f6c0464322784e82763d88de0b7005b">More...</a><br /></td></tr>
+<tr class="separator:a2f6c0464322784e82763d88de0b7005b"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Miscellaneous</h2></td></tr>
+<tr class="memitem:af292b6d506335a271ece345ee9041523"><td class="memItemLeft" align="right" valign="top"><a id="af292b6d506335a271ece345ee9041523"></a>
+void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#af292b6d506335a271ece345ee9041523">clear</a> ()</td></tr>
+<tr class="memdesc:af292b6d506335a271ece345ee9041523"><td class="mdescLeft"> </td><td class="mdescRight">Clears all contents of the Apollonius graph. <br /></td></tr>
+<tr class="separator:af292b6d506335a271ece345ee9041523"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a09e9138285f7863da80e66eafa1dd352"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a09e9138285f7863da80e66eafa1dd352">swap</a> (<a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; other)</td></tr>
+<tr class="memdesc:a09e9138285f7863da80e66eafa1dd352"><td class="mdescLeft"> </td><td class="mdescRight">The Apollonius graphs <code>other</code> and <code>ag</code> are swapped.  <a href="#a09e9138285f7863da80e66eafa1dd352">More...</a><br /></td></tr>
+<tr class="separator:a09e9138285f7863da80e66eafa1dd352"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab1f5de353e920892190337b1b76cd509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f5de353e920892190337b1b76cd509">◆ </a></span>Edge</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Data_structure::Edge <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the edge type. </p>
+<p>The <code>Edge(f,i)</code> is the edge common to faces <code>f</code> and <code>f.neighbor(i)</code>. It is also the edge joining the vertices <code>vertex(cw(i))</code> and <code>vertex(ccw(i))</code> of <code>f</code>. </p><dl class="section pre"><dt>Precondition</dt><dd><code>i</code> must be <code>0</code>, <code>1</code> or <code>2</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a61636138d13c212ff2a6dd4ff5f816c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61636138d13c212ff2a6dd4ff5f816c9">◆ </a></span>Triangulation_data_structure</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::<a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a61636138d13c212ff2a6dd4ff5f816c9">Triangulation_data_structure</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as the <code>Data_structure</code> type. </p>
+<p>This type has been introduced in order for the <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html" title="The class Apollonius_graph_2 represents the Apollonius graph. ">Apollonius_graph_2</a></code> class to be a model of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Voronoi_diagram_2.tag:../Voronoi_diagram_2/" href="../Voronoi_diagram_2/classDelaunayGraph__2.html">DelaunayGraph_2</a></code> concept. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af387fad63bf790839d8ce5ffb2a875aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af387fad63bf790839d8ce5ffb2a875aa">◆ </a></span>Apollonius_graph_2() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Input_iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::<a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a> </td>
+          <td>(</td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>beyond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Gt </td>
+          <td class="paramname"><em>gt</em> = <code>Gt()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an Apollonius graph <code>ag</code> using <code>gt</code> as geometric traits and inserts all sites in the range [<code>first</code>, <code>beyond</code>). </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>Input_iterator</code> must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code>. The value type of <code>Input_iterator</code> must be <code>Site_2</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a77b430b6cf2e494cf14099e2a0054c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b430b6cf2e494cf14099e2a0054c1b">◆ </a></span>Apollonius_graph_2() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::<a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; &amp; </td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<p>All faces and vertices are duplicated. After the construction, <code>ag</code> and <code>other</code> refer to two different Apollonius graphs : if <code>other</code> is modified, <code>ag</code> is not. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1956a3b3d339eb667775f2051cbc80ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1956a3b3d339eb667775f2051cbc80ab">◆ </a></span>draw_dual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Stream &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Stream&amp; <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::draw_dual </td>
+          <td>(</td>
+          <td class="paramtype">Stream &amp; </td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the dual of the Apollonius graph, i.e., the Apollonius diagram, to the stream <code>str</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The following operators must be defined: <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Segment_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Ray_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Line_2)</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a42be977f239f865a1ae3b6d71346f410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42be977f239f865a1ae3b6d71346f410">◆ </a></span>draw_dual_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Stream &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Stream&amp; <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::draw_dual_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a> </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stream &amp; </td>
+          <td class="paramname"><em>str</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the dual of the edge <code>e</code> to the stream <code>str</code>. </p>
+<p>The dual of <code>e</code> is an edge of the Apollonius diagram. </p><dl class="section pre"><dt>Precondition</dt><dd>The following operators must be defined: <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Segment_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Ray_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Line_2)</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a36ec4fdf29bdd71aa89584cb30e0e1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ec4fdf29bdd71aa89584cb30e0e1dc">◆ </a></span>draw_primal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Stream &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Stream&amp; <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::draw_primal </td>
+          <td>(</td>
+          <td class="paramtype">Stream &amp; </td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the Apollonius graph to the stream <code>str</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The following operators must be defined: <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Segment_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Ray_2)</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a6a4de4b2934b0f2b12bd00d4db3a4a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a4de4b2934b0f2b12bd00d4db3a4a1d">◆ </a></span>draw_primal_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Stream &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Stream&amp; <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::draw_primal_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab1f5de353e920892190337b1b76cd509">Edge</a> </td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Stream &amp; </td>
+          <td class="paramname"><em>str</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the edge <code>e</code> of the Apollonius graph to the stream <code>str</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The following operators must be defined: <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Segment_2)</code>, <code>Stream&amp; operator&lt;&lt;(Stream&amp;, Gt::Ray_2)</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a304f5fe797914ddda090095ece7fdd7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304f5fe797914ddda090095ece7fdd7d">◆ </a></span>dual() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Gt::Object_2 <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::dual </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> </td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the dual corresponding to the face handle <code>f</code>. </p>
+<p>The returned object can be assignable to one of the following: <code>Site_2</code>, <code>Gt::Line_2</code>. </p>
+
+</div>
+</div>
+<a id="a6e6e1b20ab5018c96e4b0ed2c0f0ee00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6e1b20ab5018c96e4b0ed2c0f0ee00">◆ </a></span>dual() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Gt::Object_2 <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::dual </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a42b527855a0d86c39666fadbffe35a0e">All_faces_iterator</a> </td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the dual of the face to which <code>it</code> points to. </p>
+<p>The returned object can be assignable to one of the following: <code>Site_2</code>, <code>Gt::Line_2</code>. </p>
+
+</div>
+</div>
+<a id="a7bc59bde3f5e808541b8689e3516bfdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc59bde3f5e808541b8689e3516bfdc">◆ </a></span>dual() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Gt::Object_2 <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::dual </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a3969c0696ecb5a405a1a01a459c5b6df">Finite_faces_iterator</a> </td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the dual of the face to which <code>it</code> points to. </p>
+<p>The returned object can be assignable to one of the following: <code>Site_2</code>, <code>Gt::Line_2</code>. </p>
+
+</div>
+</div>
+<a id="a98047a5e2c7483a82073eb0918ab10b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98047a5e2c7483a82073eb0918ab10b4">◆ </a></span>file_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::file_output </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp; </td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes the current state of the Apollonius graph to an output stream. </p>
+<p>In particular, all visible and hidden sites are written as well as the underlying combinatorial data structure. </p>
+
+</div>
+</div>
+<a id="a4d72a42454bcdb44ef5c01f86fc3370a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d72a42454bcdb44ef5c01f86fc3370a">◆ </a></span>finite_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::finite_vertex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a vertex distinct from the <code>infinite_vertex</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The number of (visible) vertices in the Apollonius graph must be at least one. </dd></dl>
+
+</div>
+</div>
+<a id="ac1715033ce3824daa94823b6e6601a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1715033ce3824daa94823b6e6601a6c">◆ </a></span>incident_edges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4a54f07541f4ef6fa55ac47cc260b619">Edge_circulator</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::incident_edges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> </td>
+          <td class="paramname"><em>f</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts at the first edge of <code>f</code> incident to <code>v</code>, in counterclockwise order around <code>v</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Face <code>f</code> is incident to vertex <code>v</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a820ba9836d441f126cb6c7c587fb5d49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820ba9836d441f126cb6c7c587fb5d49">◆ </a></span>incident_faces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a6935414a5009edc49af24e8100deed54">Face_circulator</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::incident_faces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> </td>
+          <td class="paramname"><em>f</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts at face <code>f</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Face <code>f</code> is incident to vertex <code>v</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ab68466a4f12c04717182f1aedc4ecdb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab68466a4f12c04717182f1aedc4ecdb0">◆ </a></span>incident_vertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a7c2be7467b149c7c76eab8ea3b1e2d33">Vertex_circulator</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::incident_vertices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#afe012870773a550396ad67f4cdfe6ccd">Face_handle</a> </td>
+          <td class="paramname"><em>f</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts at the first vertex of <code>f</code> adjacent to <code>v</code> in counterclockwise order around <code>v</code>. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Face <code>f</code> is incident to vertex <code>v</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a30a25b908f475dc7c495a06799a8a11a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a25b908f475dc7c495a06799a8a11a">◆ </a></span>insert() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+<div class="memtemplate">
+template&lt;class Input_iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Input_iterator </td>
+          <td class="paramname"><em>beyond</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the sites in the range [<code>first</code>,<code>beyond</code>). </p>
+<p>The number of sites in the range [<code>first</code>, <code>beyond</code>) is returned. </p><dl class="section pre"><dt>Precondition</dt><dd><code>Input_iterator</code> must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code> and its value type must be <code>Site_2</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a690a6005474c94d7322d7e8074465461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690a6005474c94d7322d7e8074465461">◆ </a></span>insert() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef591204a5abd776cd7717b258b52f69">Site_2</a> </td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the site <code>s</code> in the Apollonius graph. </p>
+<p>If <code>s</code> is visible then the vertex handle of <code>s</code> is returned, otherwise <code>Vertex_handle(NULL)</code> is returned. </p>
+
+</div>
+</div>
+<a id="a5fc3766c5f04712e5378f624a11562c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fc3766c5f04712e5378f624a11562c2">◆ </a></span>insert() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#aef591204a5abd776cd7717b258b52f69">Site_2</a> </td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>vnear</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts <code>s</code> in the Apollonius graph using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of the center of <code>s</code>. </p>
+<p>If <code>s</code> is visible then the vertex handle of <code>s</code> is returned, otherwise <code>Vertex_handle(NULL)</code> is returned. </p>
+
+</div>
+</div>
+<a id="a2f6c0464322784e82763d88de0b7005b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6c0464322784e82763d88de0b7005b">◆ </a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::is_valid </td>
+          <td>(</td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>verbose</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>level</em> = <code>1</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks the validity of the Apollonius graph. </p>
+<p>If <code>verbose</code> is <code>true</code> a short message is sent to <code>std::cerr</code>. If <code>level</code> is 0, only the data structure is validated. If <code>level</code> is 1, then both the data structure and the Apollonius graph are validated. Negative values of <code>level</code> always return true, and values greater then 1 are equivalent to <code>level</code> being 1. </p>
+
+</div>
+</div>
+<a id="a3fce781d622b0d63e4e290e29cceda4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fce781d622b0d63e4e290e29cceda4d">◆ </a></span>nearest_neighbor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::nearest_neighbor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4417369c58be047f0159259f4a679a9e">Point_2</a> </td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the nearest neighbor of the point <code>p</code>. </p>
+<p>In other words it finds the site whose Apollonius cell contains <code>p</code>. Ties are broken arbitrarily and one of the nearest neighbors of <code>p</code> is returned. If there are no visible sites in the Apollonius diagram <code>Vertex_handle(NULL)</code> is returned. </p>
+
+</div>
+</div>
+<a id="a14a464708e13dcbad9b6830a64fa3881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a464708e13dcbad9b6830a64fa3881">◆ </a></span>nearest_neighbor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::nearest_neighbor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#a4417369c58be047f0159259f4a679a9e">Point_2</a> </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>vnear</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the nearest neighbor of the point <code>p</code> using the site associated with <code>vnear</code> as an estimate for the nearest neighbor of <code>p</code>. </p>
+<p>Ties are broken arbitrarily and one of the nearest neighbors of <code>p</code> is returned. If there are no visible sites in the Apollonius diagram <code>Vertex_handle(NULL)</code> is returned. </p>
+
+</div>
+</div>
+<a id="a6f98fefa3d3e46720b190916b18989ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f98fefa3d3e46720b190916b18989ed">◆ </a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt;Gt,Agds&gt; <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; &amp; </td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment. </p>
+<p>If <code>ag</code> and <code>other</code> are the same object nothing is done. Otherwise, all the vertices and faces are duplicated. After the assignment, <code>ag</code> and <code>other</code> refer to different Apollonius graphs : if <code>other</code> is modified, <code>ag</code> is not. </p>
+
+</div>
+</div>
+<a id="aaffa121b1edbcf179452a1d55026605c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffa121b1edbcf179452a1d55026605c">◆ </a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ac49e5e5289682d991ea051327a4c0d8f">Vertex_handle</a> </td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the site associated to the vertex handle <code>v</code> from the Apollonius graph. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>v</code> must correspond to a valid finite vertex of the Apollonius graph. </dd></dl>
+
+</div>
+</div>
+<a id="a09e9138285f7863da80e66eafa1dd352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e9138285f7863da80e66eafa1dd352">◆ </a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a>&lt; Gt, Agds &gt; </td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Apollonius graphs <code>other</code> and <code>ag</code> are swapped. </p>
+<p><code>ag</code>.<code>swap(other)</code> should be preferred to <code>ag</code><code>= other</code> or to <code>ag</code><code>(other)</code> if <code>other</code> is deleted afterwards. </p>
+
+</div>
+</div>
+<a id="a0a5d7a0531e28bfc6aa9f1e6f39cc811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5d7a0531e28bfc6aa9f1e6f39cc811">◆ </a></span>tds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Gt, typename Agds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#adc99b3b3a8d7adc7f5b4e38a21733985">Data_structure</a> <a class="el" href="classCGAL_1_1Apollonius__graph__2.html">CGAL::Apollonius_graph_2</a>&lt; Gt, Agds &gt;::tds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <code><a class="el" href="classCGAL_1_1Apollonius__graph__2.html#ab42d8fe6f9dce31c11307ecbce8acb04" title="Returns a reference to the underlying data structure. ">data_structure()</a></code>. </p>
+<p>This method has been added in compliance with the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Voronoi_diagram_2.tag:../Voronoi_diagram_2/" href="../Voronoi_diagram_2/classDelaunayGraph__2.html">DelaunayGraph_2</a></code> concept. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Apollonius__graph__2.html">Apollonius_graph_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:10 for CGAL 4.13 - 2D Apollonius Graphs (Delaunay Graphs of Disks) by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

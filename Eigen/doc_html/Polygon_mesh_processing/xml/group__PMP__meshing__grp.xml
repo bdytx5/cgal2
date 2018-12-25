@@ -1,0 +1,1146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__meshing__grp" kind="group">
+    <compoundname>PMP_meshing_grp</compoundname>
+    <title>Meshing</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__meshing__grp_1ga028a80dc84395650f67714fa7618ec53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VertexRange</type>
+          </param>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::random_perturbation</definition>
+        <argsstring>(VertexRange vertices, TriangleMesh &amp;tmesh, const double &amp;perturbation_max_size, const NamedParameters &amp;np)</argsstring>
+        <name>random_perturbation</name>
+        <param>
+          <type>VertexRange</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>perturbation_max_size</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>randomly perturbs the locations of vertices of a triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>By default, the vertices are re-projected onto the input surface after perturbation. Note that no geometric checks are done after the perturbation (face orientation might become incorrect and self-intersections might be introduced).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VertexRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>, holding vertices of type <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::vertex_descriptor</computeroutput>. Its iterator type is <computeroutput><ref refid="classForwardIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ForwardIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of vertices to be perturbed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>perturbation_max_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximal length of moves that can be applied to vertices of <computeroutput>tmesh</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="5" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tmesh</computeroutput>. Instance of a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_is_constrained_map" kindref="member">vertex_is_constrained_map</ref></para></entry><entry thead="no"><para>a property map containing the constrained-or-not status of each vertex of <computeroutput>tmesh</computeroutput>. A constrained vertex cannot be modified at all during perturbation  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_do_project" kindref="member">do_project</ref></para></entry><entry thead="no"><para>a boolean that sets whether vertices are reprojected on the input surface after their coordinates random perturbation  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_random_seed" kindref="member">random_seed</ref></para></entry><entry thead="no"><para>a non-negative integer value to seed the random number generator, and make the perturbation deterministic  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/random_perturbation.h" line="148" column="1" bodyfile="CGAL/Polygon_mesh_processing/random_perturbation.h" bodystart="148" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gac53b0a32bc4ca2bb220ec47bb241d7e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::random_perturbation</definition>
+        <argsstring>(TriangleMesh &amp;tmesh, const double &amp;perturbation_max_size, const NamedParameters &amp;np)</argsstring>
+        <name>random_perturbation</name>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>perturbation_max_size</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>same as above, but all non-border vertices of <computeroutput>tmesh</computeroutput> are perturbed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/random_perturbation.h" line="208" column="1" bodyfile="CGAL/Polygon_mesh_processing/random_perturbation.h" bodystart="208" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gad0449d8e1021fc46507074cd6db65ef4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+          <param>
+            <type>typename FaceOutputIterator</type>
+          </param>
+          <param>
+            <type>typename VertexOutputIterator</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; FaceOutputIterator, VertexOutputIterator &gt;</type>
+        <definition>std::pair&lt;FaceOutputIterator, VertexOutputIterator&gt; CGAL::Polygon_mesh_processing::refine</definition>
+        <argsstring>(TriangleMesh &amp;tmesh, const FaceRange &amp;faces, FaceOutputIterator faces_out, VertexOutputIterator vertices_out, const NamedParameters &amp;np)</argsstring>
+        <name>refine</name>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>faces</declname>
+        </param>
+        <param>
+          <type>FaceOutputIterator</type>
+          <declname>faces_out</declname>
+        </param>
+        <param>
+          <type>VertexOutputIterator</type>
+          <declname>vertices_out</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>refines a region of a triangle mesh </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of face descriptors, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::face_descriptor</computeroutput> for patch faces </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexOutputIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding <computeroutput>boost::graph_traits&lt;TriangleMesh&gt;::vertex_descriptor</computeroutput> for patch vertices </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>triangle mesh with patches to be refined </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of faces defining the patches to refine </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faces_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator into which descriptors of new faces are recorded </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertices_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator into which descriptors of new vertices are recorded </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tmesh</computeroutput> Instance of a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_density_control_factor" kindref="member">density_control_factor</ref></para></entry><entry thead="no"><para>factor to control density of the output mesh, where larger values lead to denser refinements. The density of vertices of <computeroutput>faces_out</computeroutput> is this factor times higher than the vertices of <computeroutput>faces.</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>pair of <computeroutput>faces_out</computeroutput> and <computeroutput>vertices_out</computeroutput></para></simplesect>
+<simplesect kind="pre"><para><computeroutput>is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/refine.h" line="80" column="1" bodyfile="CGAL/Polygon_mesh_processing/refine.h" bodystart="80" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gaa091c8368920920eed87784107d68ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename VertexRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::fair</definition>
+        <argsstring>(TriangleMesh &amp;tmesh, const VertexRange &amp;vertices, const NamedParameters &amp;np)</argsstring>
+        <name>fair</name>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const VertexRange &amp;</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>fairs a region on a triangle mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The points of the selected vertices are relocated to yield an as-smooth-as-possible surface patch, based on solving a linear bi-Laplacian system with boundary constraints, described in <ref refid="citelist_1CITEREF_Botsch2008OnLinearVariational" kindref="member">[3]</ref>. The optional parameter <computeroutput>fairing_continuity</computeroutput> gives the ability to control the tangential continuity C<superscript> n</superscript> of the output mesh.</para><para>The region described by <computeroutput>vertices</computeroutput> might contain multiple disconnected components. Note that the mesh connectivity is not altered in any way, only vertex locations get updated.</para><para>Fairing might fail if fixed vertices, which are used as boundary conditions, do not suffice to solve constructed linear system.</para><para>Note that if the vertex range to which fairing is applied contains all the vertices of the triangle mesh, fairing does not fail, but the mesh gets shrinked to <computeroutput>CGAL::ORIGIN</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VertexRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of vertex descriptors of <computeroutput>TriangleMesh</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh with patches to be faired </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertices of the patches to be faired (the positions of only those vertices will be changed) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_fairing_continuity" kindref="member">fairing_continuity</ref></para></entry><entry thead="no"><para>tangential continuity of the output surface patch. The larger <computeroutput>fairing_continuity</computeroutput> gets, the more fixed vertices are required  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_sparse_linear_solver" kindref="member">sparse_linear_solver</ref></para></entry><entry thead="no"><para>an instance of the sparse linear solver used for fairing  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>true</computeroutput> if fairing is successful, otherwise no vertices are relocated</para></simplesect>
+<simplesect kind="pre"><para><computeroutput>is_triangle_mesh(tmesh)</computeroutput></para></simplesect>
+<simplesect kind="warning"><para>This function involves linear algebra, that is computed using a non-exact floating-point arithmetic.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/fair.h" line="115" column="1" bodyfile="CGAL/Polygon_mesh_processing/fair.h" bodystart="115" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1ga102e1ba5d709c5e53e013160792e4d08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class InputMesh</type>
+          </param>
+          <param>
+            <type>class OutputMesh</type>
+          </param>
+          <param>
+            <type>class BottomFunctor</type>
+          </param>
+          <param>
+            <type>class TopFunctor</type>
+          </param>
+          <param>
+            <type>class NamedParameters1</type>
+          </param>
+          <param>
+            <type>class NamedParameters2</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::extrude_mesh</definition>
+        <argsstring>(const InputMesh &amp;input, OutputMesh &amp;output, const BottomFunctor &amp;bot, const TopFunctor &amp;top, const NamedParameters1 &amp;np_in, const NamedParameters2 &amp;np_out)</argsstring>
+        <name>extrude_mesh</name>
+        <param>
+          <type>const InputMesh &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>OutputMesh &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const BottomFunctor &amp;</type>
+          <declname>bot</declname>
+        </param>
+        <param>
+          <type>const TopFunctor &amp;</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>const NamedParameters1 &amp;</type>
+          <declname>np_in</declname>
+        </param>
+        <param>
+          <type>const NamedParameters2 &amp;</type>
+          <declname>np_out</declname>
+        </param>
+        <briefdescription>
+<para>performs a generalized extrusion of <computeroutput>input</computeroutput> and puts it in <computeroutput>output</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function extrudes the open surface mesh <computeroutput>input</computeroutput> and puts the result in <computeroutput>output</computeroutput>. The mesh generated is a closed surface mesh with a bottom and top part, both having the same graph combinatorics as <computeroutput>input</computeroutput> (except that the orientation of the faces of the bottom part is reversed). The bottom and the top parts are connected by a triangle strip between boundary cycles. The coordinates of the points associated to the vertices of the bottom and top part are first initialized to the same value as the corresponding vertices of <computeroutput>input</computeroutput>. Then for each vertex, a call to <computeroutput>bot</computeroutput> and <computeroutput>top</computeroutput> is done for the vertices of the bottom part and the top part, respectively. <simplesect kind="attention"><para><computeroutput>output</computeroutput> may be self intersecting. </para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>InputMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OutputMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>InputMesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>OutputMesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>BottomFunctor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a functor providing <programlisting><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()`(boost::graph_traits&lt;InputMesh&gt;::vertex_descriptor<sp/>input_v,boost::graph_traits&lt;OutputMesh&gt;::vertex_descriptor<sp/>output_v)</highlight></codeline>
+</programlisting> where <computeroutput>output_v</computeroutput> is the copy of <computeroutput>input_v</computeroutput> from <computeroutput>input</computeroutput> into the bottom part of <computeroutput>output</computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TopFunctor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a functor providing a similar <computeroutput>operator()</computeroutput> as <computeroutput>BottomFunctor</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an open surface mesh to extrude. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a surface mesh that will contain the result of the extrusion. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>functor that will transform all points copied from <computeroutput>input</computeroutput> in order to shape the bottom part of the extrusion. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>top</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>functor that will transform all points copied from <computeroutput>input</computeroutput> in order to shape the top part of the extrusion. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map that contains the points associated to the vertices of <computeroutput>input</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available for the vertices of <computeroutput>input</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><itemizedlist>
+<listitem><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>np_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map that will contain the points associated to the vertices of <computeroutput>output</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available for the vertices of <computeroutput>output</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/extrude.h" line="162" column="1" bodyfile="CGAL/Polygon_mesh_processing/extrude.h" bodystart="162" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1ga6cf0f4aaf1f304d129d76b9d20a4e909" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class InputMesh</type>
+          </param>
+          <param>
+            <type>class OutputMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters1</type>
+          </param>
+          <param>
+            <type>class NamedParameters2</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::extrude_mesh</definition>
+        <argsstring>(const InputMesh &amp;input, OutputMesh &amp;output, Vector_3 v, const NamedParameters1 &amp;np_in, const NamedParameters2 &amp;np_out)</argsstring>
+        <name>extrude_mesh</name>
+        <param>
+          <type>const InputMesh &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>OutputMesh &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>Vector_3</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const NamedParameters1 &amp;</type>
+          <declname>np_in</declname>
+        </param>
+        <param>
+          <type>const NamedParameters2 &amp;</type>
+          <declname>np_out</declname>
+        </param>
+        <briefdescription>
+<para>fills <computeroutput>output</computeroutput> with a closed mesh bounding the volume swept by <computeroutput>input</computeroutput> when translating its vertices by <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>The mesh is oriented so that the faces corresponding to <computeroutput>input</computeroutput> in <computeroutput>output</computeroutput> have the same orientation. <simplesect kind="attention"><para><computeroutput>output</computeroutput> may be self intersecting. </para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>InputMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OutputMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classCGAL_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Vector_3</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector type from the same CGAL kernel as the point of the vertex point map used for <computeroutput>OutputMesh</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>InputMesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>OutputMesh</computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an open surface mesh to extrude. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a surface mesh that will contain the result of the extrusion. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector defining the direction of the extrusion </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map that contains the points associated to the vertices of <computeroutput>input</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available for the vertices of <computeroutput>input</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><itemizedlist>
+<listitem><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>np_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map that will contain the points associated to the vertices of <computeroutput>output</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> should be available for the vertices of <computeroutput>output</computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/extrude.h" line="261" column="1" bodyfile="CGAL/Polygon_mesh_processing/extrude.h" bodystart="261" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::isotropic_remeshing</definition>
+        <argsstring>(const FaceRange &amp;faces, const double &amp;target_edge_length, PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>isotropic_remeshing</name>
+        <param>
+          <type>const FaceRange &amp;</type>
+          <declname>faces</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>target_edge_length</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>remeshes a triangulated region of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>This operation sequentially performs edge splits, edge collapses, edge flips, tangential relaxation and projection to the initial surface to generate a smooth mesh with a prescribed edge length.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput>. The descriptor types <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> and <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::halfedge_descriptor</computeroutput> must be models of <computeroutput><ref refid="classHashable" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Hashable</ref></computeroutput>. If <computeroutput>PolygonMesh</computeroutput> has an internal property map for <computeroutput>CGAL::face_index_t</computeroutput>, and no <computeroutput>face_index_map</computeroutput> is given as a named parameter, then the internal one must be initialized </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classForwardIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ForwardIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh with triangulated surface patches to be remeshed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of triangular faces defining one or several surface patches to be remeshed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_edge_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the edge length that is targeted in the remeshed patch. If <computeroutput>0</computeroutput> is passed then only the edge-flip, tangential relaxation, and projection steps will be done. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>if constraints protection is activated, the constrained edges must not be longer than 4/3*<computeroutput>target_edge_length</computeroutput></para></simplesect>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="13" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput>. Exact constructions kernels are not supported by this function.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. Instance of a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>pmesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_iterations" kindref="member">number_of_iterations</ref></para></entry><entry thead="no"><para>the number of iterations for the sequence of atomic operations performed (listed in the above description)  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_edge_is_constrained_map" kindref="member">edge_is_constrained_map</ref></para></entry><entry thead="no"><para>a property map containing the constrained-or-not status of each edge of <computeroutput>pmesh</computeroutput>. A constrained edge can be split or collapsed, but not flipped, nor its endpoints moved by smoothing. Sub-edges generated by splitting are set to be constrained. Note that patch boundary edges (i.e. incident to only one face in the range) are always considered as constrained edges.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_is_constrained_map" kindref="member">vertex_is_constrained_map</ref></para></entry><entry thead="no"><para>a property map containing the constrained-or-not status of each vertex of <computeroutput>pmesh</computeroutput>. A constrained vertex cannot be modified at all during remeshing  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_protect_constraints" kindref="member">protect_constraints</ref></para></entry><entry thead="no"><para>If <computeroutput>true</computeroutput>, the edges set as constrained in <computeroutput>edge_is_constrained_map</computeroutput> (or by default the boundary edges) are not split nor collapsed during remeshing. Note that around constrained edges that have their length higher than twice <computeroutput>target_edge_length</computeroutput>, remeshing will fail to provide good quality results. It can even fail to terminate because of cascading vertex insertions.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_collapse_constraints" kindref="member">collapse_constraints</ref></para></entry><entry thead="no"><para>If <computeroutput>true</computeroutput>, the edges set as constrained in <computeroutput>edge_is_constrained_map</computeroutput> (or by default the boundary edges) are collapsed during remeshing. This value is ignored if <computeroutput>protect_constraints</computeroutput> is true;  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_patch_map" kindref="member">face_patch_map</ref></para></entry><entry thead="no"><para>a property map with the patch id&apos;s associated to the faces of <computeroutput>faces</computeroutput>. Instance of a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput>. It gets updated during the remeshing process while new faces are created.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_relaxation_steps" kindref="member">number_of_relaxation_steps</ref></para></entry><entry thead="no"><para>the number of iterations of tangential relaxation that are performed at each iteration of the remeshing process  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_relax_constraints" kindref="member">relax_constraints</ref></para></entry><entry thead="no"><para>If <computeroutput>true</computeroutput>, the end vertices of the edges set as constrained in <computeroutput>edge_is_constrained_map</computeroutput> and boundary edges move along the constrained polylines they belong to.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_do_project" kindref="member">do_project</ref></para></entry><entry thead="no"><para>a boolean that sets whether vertices should be reprojected on the input surface after creation or displacement.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_projection_functor" kindref="member">projection_functor</ref></para></entry><entry thead="no"><para>A function object used to project input vertices (moved by the smoothing) and created vertices. It must have <computeroutput>Point_3 operator()(vertex_descriptor)</computeroutput>, <computeroutput>Point_3</computeroutput> being the value type of the vertex point map. If not provided, vertices are projected on the input surface mesh.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PMP__meshing__grp_1gaafd017f4424c3942bfdcc93874c8f596" kindref="member">split_long_edges()</ref></computeroutput></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/remesh.h" line="140" column="1" bodyfile="CGAL/Polygon_mesh_processing/remesh.h" bodystart="140" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gaafd017f4424c3942bfdcc93874c8f596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename EdgeRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::Polygon_mesh_processing::split_long_edges</definition>
+        <argsstring>(const EdgeRange &amp;edges, const double &amp;max_length, PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>split_long_edges</name>
+        <param>
+          <type>const EdgeRange &amp;</type>
+          <declname>edges</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>max_length</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>splits the edges listed in <computeroutput>edges</computeroutput> into sub-edges that are not longer than the given threshold <computeroutput>max_length</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note this function is useful to split constrained edges before calling <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput> with protection of constraints activated (to match the constrained edge length required by the remeshing algorithm to be guaranteed to terminate)</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> that has an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>EdgeRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::edge_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>edges</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of edges to be split if they are longer than given threshold </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the edge length above which an edge from <computeroutput>edges</computeroutput> is split into to sub-edges </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> described below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. Instance of a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_face_index_map" kindref="member">face_index_map</ref></para></entry><entry thead="no"><para>a property map containing the index of each face of <computeroutput>pmesh</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_edge_is_constrained_map" kindref="member">edge_is_constrained_map</ref></para></entry><entry thead="no"><para>a property map containing the constrained-or-not status of each edge of <computeroutput>pmesh</computeroutput>. A constrained edge can be split, and the sub-edges are set to be constrained.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/remesh.h" line="331" column="1" bodyfile="CGAL/Polygon_mesh_processing/remesh.h" bodystart="331" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1ga70d65044f8c7309c24ade88fa280124a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::triangulate_face</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor f, PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_face</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates a single face of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgTriangulation2Summary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">2D Triangulation</ref> <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>face to be triangulated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to which the face to be triangulated belongs </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the face has been triangulated. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_faces.h" line="422" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_faces.h" bodystart="422" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1gacaaff4d520500c530d9c3d5ebe2a0760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::triangulate_faces</definition>
+        <argsstring>(FaceRange face_range, PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_faces</name>
+        <param>
+          <type>FaceRange</type>
+          <declname>face_range</declname>
+        </param>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates given faces of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgTriangulation2Summary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">2D Triangulation</ref></para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>face_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of faces to be triangulated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be triangulated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>true</computeroutput> if all the faces have been triangulated. </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PMP__meshing__grp_1ga70d65044f8c7309c24ade88fa280124a" kindref="member">triangulate_face()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_faces.h" line="475" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_faces.h" bodystart="475" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__meshing__grp_1ga1e9c8778755b2d1741f47736ba6e4b45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Polygon_mesh_processing::triangulate_faces</definition>
+        <argsstring>(PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>triangulate_faces</name>
+        <param>
+          <type>PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>triangulates all faces of a polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function depends on the package <ref refid="packages_1PkgTriangulation2Summary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">2D Triangulation</ref> <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> and <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to be triangulated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a geometric traits class instance  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para><computeroutput>true</computeroutput> if all the faces have been triangulated. </para></simplesect>
+<simplesect kind="see"><para><ref refid="group__PMP__meshing__grp_1ga70d65044f8c7309c24ade88fa280124a" kindref="member">triangulate_face()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/triangulate_faces.h" line="522" column="1" bodyfile="CGAL/Polygon_mesh_processing/triangulate_faces.h" bodystart="522" bodyend="526"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to triangulate faces, and to refine and fair regions of a polygon mesh. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

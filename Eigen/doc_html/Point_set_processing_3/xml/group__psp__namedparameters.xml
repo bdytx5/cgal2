@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__psp__namedparameters" kind="group">
+    <compoundname>psp_namedparameters</compoundname>
+    <title>Named Parameters for Point Set Processing</title>
+    <briefdescription>
+<para>In this package, all functions optional parameters are implemented as BGL optional named parameters (see <ref refid="index_1BGLNamedParameters" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">Named Parameters</ref> for more information on how to use them). </para>    </briefdescription>
+    <detaileddescription>
+<para>Since the parameters of the various point set processing functions defined in this package are redundant, their long descriptions are centralized below.</para><para>In the following, we assume that the following types are provided as template parameters of point set processing functions and classes. Note that, for some of these functions, the type is more specific.</para><para><itemizedlist>
+<listitem>
+<para><computeroutput>PointRange</computeroutput> is a model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. The value type of its iterator is the key type of the related property maps (see below). </para></listitem>
+<listitem>
+<para><computeroutput>GeomTraits</computeroutput> a geometric traits class in which constructions are performed and predicates evaluated. Everywhere in this package, a CGAL <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> fulfills the requirements. </para></listitem>
+</itemizedlist>
+</para><para><computeroutput>CGAL::parameters::all_default()</computeroutput> can be used to indicate that default values of optional named parameters must be used.</para><para>Here is the list of the named parameters available in this package:</para><para><variablelist>
+<varlistentry><term></term></varlistentry>
+<listitem><para><table rows="23" cols="2"><row>
+<entry thead="no"><para>geom_traits </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_geom_traits"/> the geometric traits instance in which the point set processing operation should be performed.<linebreak/>
+<bold>Type:</bold> a Geometric traits class.<linebreak/>
+<bold>Default</bold> <bold>type:</bold> is <programlisting><codeline><highlight class="normal">typename<sp/>CGAL::Kernel_traits&lt;point_map::value_type&gt;::Kernel</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>point_map </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_point_map"/> is the property map containing the points associated to the iterators of the point range <computeroutput>points</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>PointRange::iterator</computeroutput> as key type and <computeroutput>geom_traits::Point_3</computeroutput> as value type. <linebreak/>
+<bold>Default value</bold>:<programlisting><codeline><highlight class="normal">CGAL::Identity_property_map&lt;geom_traits::Point_3&gt;</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>normal_map </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_normal_map"/> is the property map containing the normal vectors associated to the iterators of the point range <computeroutput>points</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>PointRange::iterator</computeroutput> as key type and <computeroutput>geom_traits::Vector_3</computeroutput> as value type. <linebreak/>
+No default value. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>diagonalize_traits </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_diagonalize_traits"/> is the solver used for diagonalizing covariance matrices.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput>.<linebreak/>
+<bold>Default:</bold> <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">CGAL::Eigen_diagonalize_traits</ref></computeroutput> if <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> 3.2 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined.<linebreak/>
+</para><para></para></entry></row>
+<row>
+<entry thead="no"><para>svd_traits </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_svd_traits"/> is the linear algebra algorithm required by the jet fitting method. For more information, please refer to the documentation of <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">CGAL::Monge_via_jet_fitting</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> a class fitting the requirements of <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">CGAL::Monge_via_jet_fitting</ref></computeroutput>.<linebreak/>
+<bold>Default:</bold> if <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> 3.2 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined, then <computeroutput><ref refid="classCGAL_1_1Eigen__svd" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">CGAL::Eigen_svd</ref></computeroutput> is used.<linebreak/>
+</para><para></para></entry></row>
+<row>
+<entry thead="no"><para>callback </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_callback"/>is a mechanism to get feedback on the advancement of the algorithm while it&apos;s running and to interrupt it if needed. It is called regularly when the algorithm is running: the current advancement (between 0. and 1.) is passed as parameter. If it returns <computeroutput>true</computeroutput>, then the algorithm continues its execution normally; if it returns <computeroutput>false</computeroutput>, the algorithm is stopped.<linebreak/>
+The callback will be copied and therefore needs to be lightweight.<linebreak/>
+Note that when a callback is run on a parallelized algorithm with <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Parallel_tag</ref></computeroutput>, it is called asynchronously on a separate thread and shouldn&apos;t access or modify the variables that are parameters of the algorithm.<linebreak/>
+<bold>Type:</bold> <computeroutput><ref refid="classCGAL_1_1cpp11_1_1function" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::cpp11::function</ref>&lt;bool(double)&gt;</computeroutput>.<linebreak/>
+<bold>Default:</bold> empty function.<linebreak/>
+</para><para></para></entry></row>
+<row>
+<entry thead="no"><para>query_point_map </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_query_point_map"/> is the property map containing the points associated to the iterators of the point range <computeroutput>queries</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>PointRange::iterator</computeroutput> as key type and <computeroutput>geom_traits::Point_3</computeroutput> as value type. <linebreak/>
+<bold>Default value</bold>:<programlisting><codeline><highlight class="normal">CGAL::Identity_property_map&lt;geom_traits::Point_3&gt;</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>sharpness_angle </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_sharpness_angle"/> controls the sharpness of the result. The larger the value is, the smoother the result will be. The range of possible value is [0, 90].<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>30.</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>edge_sensitivity </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_edge_sensitivity"/>controls the priority of points inserted along sharp features. Larger values of edge-sensitivity give higher priority to inserting points along sharp features. The range of possible values is <computeroutput>[0, 1]</computeroutput>. <linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>1</computeroutput>. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>neighbor_radius </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_neighbor_radius"/>is the spherical neighborhood radius.<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>-1</computeroutput>, in which case the functions that use it will compute an adapted value automatically. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_output_points </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_number_of_output_points"/>is the number of output points to generate.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: <computeroutput>1000</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>size </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_size"/>maximum cluster size for hierarchical clustering. Must be strictly greather than 0.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: <computeroutput>10</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>maximum_variation </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_maximum_variation"/>maximum cluster size for hierarchical clustering. Must be strictly greather than 0.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: <computeroutput>10</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>degree_fitting </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_degree_fitting"/> is the degree of fitting (see <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">CGAL::Monge_via_jet_fitting</ref></computeroutput>).<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: <computeroutput>2</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>degree_monge </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_degree_monge"/> is the Monge degree (see <computeroutput><ref refid="classCGAL_1_1Monge__via__jet__fitting" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Jet_fitting_3.tag">CGAL::Monge_via_jet_fitting</ref></computeroutput>).<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: <computeroutput>2</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>threshold_distance </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_threshold_distance"/>is the minimum distance for a point to be considered as outlier (distance here is the square root of the average squared distance to K nearest neighbors).<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>threshold_percent </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_threshold_percent"/> is the maximum percentage (between 0 and 100) of points to remove in <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gafd0b5a21ec5042e4bca09cb43f1847f9" kindref="member">remove_outliers()</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>10</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>attraction_factor </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_attraction_factor"/>multiple of a tolerance <computeroutput>epsilon</computeroutput> used to connect simplices. <bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: <computeroutput>3</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>plane_map </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_plane_map"/> is the property map containing the planes associated to the iterators of the plane range <computeroutput>planes</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>PlaneRange::iterator</computeroutput> as key type and <computeroutput>geom_traits::Plane_3</computeroutput> as value type. <linebreak/>
+<bold>Default value</bold>:<programlisting><codeline><highlight class="normal">CGAL::Identity_property_map&lt;geom_traits::Plane_3&gt;</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>plane_index_map </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_plane_index_map"/>is the property map that associates the index of a point in the input range to the index of plane (-1 if point is not assigned to a plane).<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>std::size_t</computeroutput> as key type and <computeroutput>int</computeroutput> as value type. <linebreak/>
+No default value. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>select_percentage </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_select_percentage"/>percentage of points to retain (between 0 and 100) in <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gacbddbfa4e9c4c32c42d981a6a050d8cd" kindref="member">wlop_simplify_and_regularize_point_set()</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default value</bold>: 5. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_iterations </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_number_of_iterations"/>number of iterations to solve the optimsation problem in <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gacbddbfa4e9c4c32c42d981a6a050d8cd" kindref="member">wlop_simplify_and_regularize_point_set()</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default value</bold>: 35. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>require_uniform_sampling </para></entry><entry thead="no"><para><anchor id="group__psp__namedparameters_1PSP_require_uniform_sampling"/>turn on or off an optional preprocessing of <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gacbddbfa4e9c4c32c42d981a6a050d8cd" kindref="member">wlop_simplify_and_regularize_point_set()</ref></computeroutput>, which will give better result if the distribution of the input points is highly non-uniform.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput><linebreak/>
+<bold>Default value</bold>: <computeroutput>false</computeroutput> </para><para></para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

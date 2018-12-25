@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Property_map_2dynamic_properties_8cpp-example" kind="example">
+    <compoundname>Property_map/dynamic_properties.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Surface_mesh.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Simple_cartesian&lt;double&gt;</ref><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>K::Point_3<sp/>Point_3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Surface__mesh" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Surface_mesh.tag">CGAL::Surface_mesh&lt;Point_3&gt;</ref><sp/>Mesh;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Mesh<sp/>mesh;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgBGLHelperFct_1ga81ac0b6fbedf7889e0164aec540bd112" kindref="member">CGAL::make_triangle</ref>(Point_3(0,0,0),Point_3(1,0,0),Point_3(1,1,0),<sp/>mesh);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::property_map&lt;Mesh,<sp/>CGAL::dynamic_vertex_property_t&lt;std::string&gt;<sp/>&gt;::type<sp/>VertexNameMap;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>VertexNameMap<sp/>vnm<sp/><sp/>=<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(<ref refid="structCGAL_1_1dynamic__vertex__property__t" kindref="compound">CGAL::dynamic_vertex_property_t&lt;std::string&gt;</ref>(),<sp/>mesh);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>put(vnm,<sp/>*(<ref refid="classVertexListGraph_1a3eb7f06fc4dfb72e705535b4844cdc74" kindref="member">vertices</ref>(mesh).first),<sp/></highlight><highlight class="stringliteral">&quot;Paris&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(vnm,<sp/>*(<ref refid="classVertexListGraph_1a3eb7f06fc4dfb72e705535b4844cdc74" kindref="member">vertices</ref>(mesh).first))<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::property_map&lt;Mesh,<sp/>CGAL::dynamic_halfedge_property_t&lt;double&gt;<sp/>&gt;::type<sp/>TrafficDensityMap;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TrafficDensityMap<sp/>tdm<sp/>=<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(<ref refid="structCGAL_1_1dynamic__halfedge__property__t" kindref="compound">CGAL::dynamic_halfedge_property_t&lt;double&gt;</ref>(),<sp/>mesh);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>put(tdm,<sp/>*(<ref refid="classHalfedgeListGraph_1abdd8822c5cbb8e83de1df45abc3521f2" kindref="member">halfedges</ref>(mesh).first),<sp/>0.7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">(tdm,<sp/>*(<ref refid="classHalfedgeListGraph_1abdd8822c5cbb8e83de1df45abc3521f2" kindref="member">halfedges</ref>(mesh).first))<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

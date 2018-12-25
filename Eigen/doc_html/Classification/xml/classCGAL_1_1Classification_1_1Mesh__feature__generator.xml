@@ -1,0 +1,485 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Classification_1_1Mesh__feature__generator" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Classification::Mesh_feature_generator</compoundname>
+    <includes local="no">CGAL/Classification/Mesh_feature_generator.h</includes>
+    <innerclass refid="structCGAL_1_1Classification_1_1Mesh__feature__generator_1_1Scale" prot="private">CGAL::Classification::Mesh_feature_generator::Scale</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename GeomTraits</type>
+      </param>
+      <param>
+        <type>typename <ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></type>
+      </param>
+      <param>
+        <type>typename PointMap</type>
+      </param>
+      <param>
+        <type>typename ConcurrencyTag</type>
+      </param>
+      <param>
+        <type>typename <ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></type>
+        <defval>CGAL::Default_diagonalize_traits&lt;float,3&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Constructor</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1afdefaad53592b29e4c3f38b6b2666121" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::Mesh_feature_generator</definition>
+        <argsstring>(const FaceListGraph &amp;input, PointMap point_map, std::size_t nb_scales, float voxel_size=-1.f)</argsstring>
+        <name>Mesh_feature_generator</name>
+        <param>
+          <type>const <ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>PointMap</type>
+          <declname>point_map</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>nb_scales</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>voxel_size</declname>
+          <defval>-1.f</defval>
+        </param>
+        <briefdescription>
+<para>Initializes a feature generator from an input range. </para>        </briefdescription>
+        <detaileddescription>
+<para>If not provided by the user, The size of the smallest scale is automatically estimated using a method equivalent to <computeroutput><ref refid="group__PkgPointSetProcessingAlgorithms_1gabb9a90622271869b3f2393314075fa0e" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::compute_average_spacing()</ref></computeroutput> using 6 neighbors. The data structures needed (<computeroutput>Neighborhood</computeroutput>, <computeroutput><ref refid="classCGAL_1_1Classification_1_1Planimetric__grid" kindref="compound">Planimetric_grid</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Classification_1_1Local__eigen__analysis" kindref="compound">Local_eigen_analysis</ref></computeroutput>) are computed at <computeroutput>nb_scales</computeroutput> recursively larger scales.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input mesh. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>point_map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>property map to access a representative point of each face. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nb_scales</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of scales to compute. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>voxel_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>smallest scale used as a voxel size for the planimetric grid (if the default value -1 is used, its value is automatically estimated). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="251" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="251" bodyend="279"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Feature Generation</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a9651d0485d3af616ef4b19a2ac1111ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::generate_face_based_features</definition>
+        <argsstring>(Feature_set &amp;features)</argsstring>
+        <name>generate_face_based_features</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Feature__set" kindref="compound">Feature_set</ref> &amp;</type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+<para>Generate geometric features based on face information. </para>        </briefdescription>
+        <detaileddescription>
+<para>At each scale, the following features are generated:</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Classification_1_1Feature_1_1Eigenvalue" kindref="compound">CGAL::Classification::Feature::Eigenvalue</ref></computeroutput> with indices 0, 1 and 2</para></listitem><listitem><para>The version of <computeroutput><ref refid="classCGAL_1_1Classification_1_1Feature_1_1Verticality" kindref="compound">CGAL::Classification::Feature::Verticality</ref></computeroutput> based on eigenvalues</para></listitem></itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>features</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature set where the features are instantiated. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="313" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="313" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a654102f5802627ab1b6bb515a0b340d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::generate_point_based_features</definition>
+        <argsstring>(Feature_set &amp;features)</argsstring>
+        <name>generate_point_based_features</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Classification_1_1Feature__set" kindref="compound">Feature_set</ref> &amp;</type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+<para>Generate geometric features based on point position information. </para>        </briefdescription>
+        <detaileddescription>
+<para>At each scale, the following features are generated by considering the mesh as a point cloud through <computeroutput>PointMap</computeroutput>:</para><para><itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Classification_1_1Feature_1_1Distance__to__plane" kindref="compound">CGAL::Classification::Feature::Distance_to_plane</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Classification_1_1Feature_1_1Elevation" kindref="compound">CGAL::Classification::Feature::Elevation</ref></computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Classification_1_1Feature_1_1Vertical__dispersion" kindref="compound">CGAL::Classification::Feature::Vertical_dispersion</ref></computeroutput></para></listitem></itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>features</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature set where the features are instantiated. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="334" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="334" bodyend="342"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Data Structures Access</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a4fb568b8b8c31bf043d1142b20c3be36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a0d989a55b7041b75c5705f39f6fd1648" kindref="member">Iso_cuboid_3</ref> &amp;</type>
+        <definition>const Iso_cuboid_3&amp; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::bbox</definition>
+        <argsstring>() const</argsstring>
+        <name>bbox</name>
+        <briefdescription>
+<para>Returns the bounding box of the input point set. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="352" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="352" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a8e628189f4d49e021607908f1dddeae3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a52acbc9b214dd2420610731a71319c87" kindref="member">Neighborhood</ref> &amp;</type>
+        <definition>const Neighborhood&amp; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::neighborhood</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>neighborhood</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the neighborhood structure at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="356" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="356" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a5b549636aeedb58a47439fa04ba67070" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a6d765aea8339be72539f6e1631c623c7" kindref="member">Planimetric_grid</ref> &amp;</type>
+        <definition>const Planimetric_grid&amp; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::grid</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>grid</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the planimetric grid structure at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="360" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="360" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1af59594fe2f32e66896896b530a47e9fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a10083b5de53aa7944bb53800f994c9f6" kindref="member">Local_eigen_analysis</ref> &amp;</type>
+        <definition>const Local_eigen_analysis&amp; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::eigen</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>eigen</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the local eigen analysis structure at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="364" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="364" bodyend="364"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Parameters</header>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1acea616624fc80748230b5b5efb9321b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::number_of_scales</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_scales</name>
+        <briefdescription>
+<para>Returns the number of scales that were computed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="374" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="374" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a85bb15af4ef06d238332d9c4c028a786" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::grid_resolution</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>grid_resolution</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the grid resolution at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This resolution is the length and width of a cell of the <computeroutput><ref refid="classCGAL_1_1Classification_1_1Planimetric__grid" kindref="compound">Planimetric_grid</ref></computeroutput> defined at this scale. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="381" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="381" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a418e62700e20cfb51a0ca34e34a95935" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::radius_neighbors</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>radius_neighbors</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the radius used for neighborhood queries at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This radius is the smallest radius that is relevant from a geometric point of view at this scale (that is to say that encloses a few cells of <computeroutput><ref refid="classCGAL_1_1Classification_1_1Planimetric__grid" kindref="compound">Planimetric_grid</ref></computeroutput>). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="389" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="389" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a61f5d8881ac71e0ca857d8a63f718cfa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::radius_dtm</definition>
+        <argsstring>(std::size_t scale=0) const</argsstring>
+        <name>radius_dtm</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>scale</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns the radius used for digital terrain modeling at scale <computeroutput>scale</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This radius represents the minimum size of a building at this scale. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="395" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="395" bodyend="395"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a0d989a55b7041b75c5705f39f6fd1648" prot="public" static="no">
+        <type>GeomTraits::Iso_cuboid_3</type>
+        <definition>typedef GeomTraits::Iso_cuboid_3 CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::Iso_cuboid_3</definition>
+        <argsstring></argsstring>
+        <name>Iso_cuboid_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="108" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a6d765aea8339be72539f6e1631c623c7" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Classification_1_1Planimetric__grid" kindref="compound">Classification::Planimetric_grid</ref>&lt; GeomTraits, Face_range, PointMap &gt;</type>
+        <definition>typedef Classification::Planimetric_grid&lt;GeomTraits, Face_range, PointMap&gt; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::Planimetric_grid</definition>
+        <argsstring></argsstring>
+        <name>Planimetric_grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="125" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a52acbc9b214dd2420610731a71319c87" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Classification_1_1Mesh__neighborhood" kindref="compound">Classification::Mesh_neighborhood</ref>&lt; <ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref> &gt;</type>
+        <definition>typedef Classification::Mesh_neighborhood&lt;FaceListGraph&gt; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::Neighborhood</definition>
+        <argsstring></argsstring>
+        <name>Neighborhood</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="127" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a10083b5de53aa7944bb53800f994c9f6" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Classification_1_1Local__eigen__analysis" kindref="compound">Classification::Local_eigen_analysis</ref></type>
+        <definition>typedef Classification::Local_eigen_analysis CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::Local_eigen_analysis</definition>
+        <argsstring></argsstring>
+        <name>Local_eigen_analysis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="128" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa507c3ca7ecd4da34dd70b95094e95e2" prot="private" static="no" mutable="no">
+        <type><ref refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a0d989a55b7041b75c5705f39f6fd1648" kindref="member">Iso_cuboid_3</ref></type>
+        <definition>Iso_cuboid_3 CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::m_bbox</definition>
+        <argsstring></argsstring>
+        <name>m_bbox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="220" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a35c3bd5441909e7ea85293504a762e86" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Scale * &gt;</type>
+        <definition>std::vector&lt;Scale*&gt; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::m_scales</definition>
+        <argsstring></argsstring>
+        <name>m_scales</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="221" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1addc20ab8c7855e51ef4a7bccb057614b" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref> &amp;</type>
+        <definition>const FaceListGraph&amp; CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::m_input</definition>
+        <argsstring></argsstring>
+        <name>m_input</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="223" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1ab000271018ae51221e0a9d3cf22e72b8" prot="private" static="no" mutable="no">
+        <type>Face_range</type>
+        <definition>Face_range CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::m_range</definition>
+        <argsstring></argsstring>
+        <name>m_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="224" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa5f807146fc7d0517bcd31e6e0b765a8" prot="private" static="no" mutable="no">
+        <type>PointMap</type>
+        <definition>PointMap CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::m_point_map</definition>
+        <argsstring></argsstring>
+        <name>m_point_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="225" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa9ba6d7f065c1daac196fb1f89e047d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Classification::Mesh_feature_generator&lt; GeomTraits, FaceListGraph, PointMap, ConcurrencyTag, DiagonalizeTraits &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Classification/Mesh_feature_generator.h" line="401" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="401" bodyend="406"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generates a set of generic features for surface mesh classification. </para>    </briefdescription>
+    <detaileddescription>
+<para>This class takes care of computing all necessary data structures and of generating a set of generic features at multiple scales to increase the reliability of the classification.</para><para>A <computeroutput>PointMap</computeroutput> is required: this map should associate each face of the mesh to a representative point (for example, the center of mass of the face). It is used to generate point set features by considering the mesh as a point set.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>GeomTraits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> whose key type is <computeroutput>boost::graph_traits&lt;<ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref>&gt;::face_descriptor</computeroutput> and value type is <computeroutput>GeomTraits::Point_3</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ConcurrencyTag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel computation of <computeroutput><ref refid="classCGAL_1_1Classification_1_1Local__eigen__analysis" kindref="compound">CGAL::Classification::Local_eigen_analysis</ref></computeroutput> objects. Possible values are <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput> (default value is CGAL is linked with TBB) or <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> (default value otherwise). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model of <computeroutput><ref refid="classDiagonalizeTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">DiagonalizeTraits</ref></computeroutput> used for matrix diagonalization. It can be omitted: if Eigen 3 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined then an overload using <computeroutput><ref refid="classCGAL_1_1Eigen__diagonalize__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">Eigen_diagonalize_traits</ref></computeroutput> is provided. Otherwise, the internal implementation <computeroutput>Diagonalize_traits</computeroutput> is used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <location file="CGAL/Classification/Mesh_feature_generator.h" line="105" column="1" bodyfile="CGAL/Classification/Mesh_feature_generator.h" bodystart="104" bodyend="408"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a4fb568b8b8c31bf043d1142b20c3be36" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>bbox</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa9ba6d7f065c1daac196fb1f89e047d0" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>clear</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1af59594fe2f32e66896896b530a47e9fb" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>eigen</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a9651d0485d3af616ef4b19a2ac1111ae" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>generate_face_based_features</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a654102f5802627ab1b6bb515a0b340d3" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>generate_point_based_features</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a5b549636aeedb58a47439fa04ba67070" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>grid</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a85bb15af4ef06d238332d9c4c028a786" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>grid_resolution</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a0d989a55b7041b75c5705f39f6fd1648" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>Iso_cuboid_3</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a10083b5de53aa7944bb53800f994c9f6" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>Local_eigen_analysis</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa507c3ca7ecd4da34dd70b95094e95e2" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>m_bbox</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1addc20ab8c7855e51ef4a7bccb057614b" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>m_input</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1aa5f807146fc7d0517bcd31e6e0b765a8" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>m_point_map</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1ab000271018ae51221e0a9d3cf22e72b8" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>m_range</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a35c3bd5441909e7ea85293504a762e86" prot="private" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>m_scales</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1afdefaad53592b29e4c3f38b6b2666121" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>Mesh_feature_generator</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a8e628189f4d49e021607908f1dddeae3" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>neighborhood</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a52acbc9b214dd2420610731a71319c87" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>Neighborhood</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1acea616624fc80748230b5b5efb9321b8" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>number_of_scales</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a6d765aea8339be72539f6e1631c623c7" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>Planimetric_grid</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a61f5d8881ac71e0ca857d8a63f718cfa" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>radius_dtm</name></member>
+      <member refid="classCGAL_1_1Classification_1_1Mesh__feature__generator_1a418e62700e20cfb51a0ca34e34a95935" prot="public" virt="non-virtual"><scope>CGAL::Classification::Mesh_feature_generator</scope><name>radius_neighbors</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

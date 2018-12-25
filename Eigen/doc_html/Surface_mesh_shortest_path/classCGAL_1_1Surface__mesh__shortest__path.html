@@ -1,0 +1,1446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Surface_mesh_shortest_path/classCGAL_1_1Surface__mesh__shortest__path.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Triangulated Surface Mesh Shortest Paths: CGAL::Surface_mesh_shortest_path&lt; Traits, VIM, HIM, FIM, VPM &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Triangulated Surface Mesh Shortest Paths
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Surface__mesh__shortest__path.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Surface__mesh__shortest__path-members.html">List of all members</a> |
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Surface_mesh_shortest_path&lt; Traits, VIM, HIM, FIM, VPM &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgSurfaceMeshShortestPath.html">Triangulated Surface Mesh Geodesic Shortest Paths Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Surface_mesh_shortest_path/Surface_mesh_shortest_path.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><h3>template&lt;class Traits, class VIM = Default, class HIM = Default, class FIM = Default, class VPM = Default&gt;<br />
+class CGAL::Surface_mesh_shortest_path&lt; Traits, VIM, HIM, FIM, VPM &gt;</h3>
+
+<p>Computes shortest surface paths from one or more source points on a surface mesh. </p>
+<p>Uses an optimized variation of Chen and Han's \( O(n^2) \) algorithm by Xin and Wang. Refer to those respective papers for the details of the implementation.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Traits</td><td>a model of <code><a class="el" href="classSurfaceMeshShortestPathTraits.html" title="The concept SurfaceMeshShortestPathTraits describes the types, predicates, and constructions required...">SurfaceMeshShortestPathTraits</a></code>. </td></tr>
+    <tr><td class="paramname">VIM</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadablePropertyMap.html">ReadablePropertyMap</a></code> with <code>vertex_descriptor</code> as key and <code>unsigned int</code> as value type. The default is <code>boost::property_map&lt;HG, boost::vertex_index_t&gt;::type</code>. </td></tr>
+    <tr><td class="paramname">HIM</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadablePropertyMap.html">ReadablePropertyMap</a></code> with <code>halfedge_descriptor</code> as key and <code>unsigned int</code> as value type. The default is <code>boost::property_map&lt;HG, boost::halfedge_index_t&gt;::type</code>. </td></tr>
+    <tr><td class="paramname">FIM</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadablePropertyMap.html">ReadablePropertyMap</a></code> with <code>face_descriptor</code> as key and <code>unsigned int</code> as value type. The default is <code>boost::property_map&lt;HG, boost::face_index_t&gt;::type</code>. </td></tr>
+    <tr><td class="paramname">VPM</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classReadablePropertyMap.html">ReadablePropertyMap</a></code> with <code>vertex_descriptor</code> as key and <code>Traits::Point_3</code> as value type. The default is <code>boost::property_map&lt;HG, CGAL::vertex_point_t&gt;::type</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Surface_mesh_shortest_path_2shortest_path_sequence_8cpp-example.html#_a3">Surface_mesh_shortest_path/shortest_path_sequence.cpp</a>, <a class="el" href="Surface_mesh_shortest_path_2shortest_paths_8cpp-example.html#_a3">Surface_mesh_shortest_path/shortest_paths.cpp</a>, <a class="el" href="Surface_mesh_shortest_path_2shortest_paths_multiple_sources_8cpp-example.html#_a3">Surface_mesh_shortest_path/shortest_paths_multiple_sources.cpp</a>, <a class="el" href="Surface_mesh_shortest_path_2shortest_paths_no_id_8cpp-example.html#_a3">Surface_mesh_shortest_path/shortest_paths_no_id.cpp</a>, <a class="el" href="Surface_mesh_shortest_path_2shortest_paths_OpenMesh_8cpp-example.html#_a2">Surface_mesh_shortest_path/shortest_paths_OpenMesh.cpp</a>, and <a class="el" href="Surface_mesh_shortest_path_2shortest_paths_with_id_8cpp-example.html#_a3">Surface_mesh_shortest_path/shortest_paths_with_id.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classBidirectionalIterator.html">BidirectionalIterator</a></code> to access the source points.  <a href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:aef3947df805af0702372c74ed8d3c0df"><td class="memItemLeft" align="right" valign="top"><a id="aef3947df805af0702372c74ed8d3c0df"></a>
+typedef Traits::Triangle_mesh </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a></td></tr>
+<tr class="memdesc:aef3947df805af0702372c74ed8d3c0df"><td class="mdescLeft"> </td><td class="mdescRight">The triangle mesh type which this algorithm acts on. <br /></td></tr>
+<tr class="separator:aef3947df805af0702372c74ed8d3c0df"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abd8d318a4c700e9d5e44e9528a96af94"><td class="memItemLeft" align="right" valign="top"><a id="abd8d318a4c700e9d5e44e9528a96af94"></a>
+typedef boost::graph_traits&lt; <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#abd8d318a4c700e9d5e44e9528a96af94">Graph_traits</a></td></tr>
+<tr class="memdesc:abd8d318a4c700e9d5e44e9528a96af94"><td class="mdescLeft"> </td><td class="mdescRight">The BGL graph traits for this triangle mesh. <br /></td></tr>
+<tr class="separator:abd8d318a4c700e9d5e44e9528a96af94"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2ab1434e14b0dabcf42b16816fa2add3"><td class="memItemLeft" align="right" valign="top"><a id="a2ab1434e14b0dabcf42b16816fa2add3"></a>
+typedef Graph_traits::vertex_descriptor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a></td></tr>
+<tr class="memdesc:a2ab1434e14b0dabcf42b16816fa2add3"><td class="mdescLeft"> </td><td class="mdescRight">Descriptors for the vertices of <code>Triangle_mesh</code> <br /></td></tr>
+<tr class="separator:a2ab1434e14b0dabcf42b16816fa2add3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa6ceb41c5d4af00aed03c3c292daef5a"><td class="memItemLeft" align="right" valign="top"><a id="aa6ceb41c5d4af00aed03c3c292daef5a"></a>
+typedef Graph_traits::halfedge_descriptor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa6ceb41c5d4af00aed03c3c292daef5a">halfedge_descriptor</a></td></tr>
+<tr class="memdesc:aa6ceb41c5d4af00aed03c3c292daef5a"><td class="mdescLeft"> </td><td class="mdescRight">Descriptors for the halfedges of <code>Triangle_mesh</code> <br /></td></tr>
+<tr class="separator:aa6ceb41c5d4af00aed03c3c292daef5a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aaccafcaf5163a924dc2527e230fab0c1"><td class="memItemLeft" align="right" valign="top"><a id="aaccafcaf5163a924dc2527e230fab0c1"></a>
+typedef Graph_traits::face_descriptor </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a></td></tr>
+<tr class="memdesc:aaccafcaf5163a924dc2527e230fab0c1"><td class="mdescLeft"> </td><td class="mdescRight">Descriptors of the faces of <code>Triangle_mesh</code> <br /></td></tr>
+<tr class="separator:aaccafcaf5163a924dc2527e230fab0c1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afc7b9c8ae5ea41f30f03043ad7c7e9c6"><td class="memItemLeft" align="right" valign="top"><a id="afc7b9c8ae5ea41f30f03043ad7c7e9c6"></a>
+typedef VIM </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#afc7b9c8ae5ea41f30f03043ad7c7e9c6">Vertex_index_map</a></td></tr>
+<tr class="memdesc:afc7b9c8ae5ea41f30f03043ad7c7e9c6"><td class="mdescLeft"> </td><td class="mdescRight">The vertex index property map class. <br /></td></tr>
+<tr class="separator:afc7b9c8ae5ea41f30f03043ad7c7e9c6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae38a1bf0060d4efd9455509f80c1ec1d"><td class="memItemLeft" align="right" valign="top"><a id="ae38a1bf0060d4efd9455509f80c1ec1d"></a>
+typedef HIM </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae38a1bf0060d4efd9455509f80c1ec1d">Halfedge_index_map</a></td></tr>
+<tr class="memdesc:ae38a1bf0060d4efd9455509f80c1ec1d"><td class="mdescLeft"> </td><td class="mdescRight">The halfedge index property map class. <br /></td></tr>
+<tr class="separator:ae38a1bf0060d4efd9455509f80c1ec1d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abdc2c4f293bca472425996d88c643427"><td class="memItemLeft" align="right" valign="top"><a id="abdc2c4f293bca472425996d88c643427"></a>
+typedef FIM </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#abdc2c4f293bca472425996d88c643427">Face_index_map</a></td></tr>
+<tr class="memdesc:abdc2c4f293bca472425996d88c643427"><td class="mdescLeft"> </td><td class="mdescRight">The face index property map class. <br /></td></tr>
+<tr class="separator:abdc2c4f293bca472425996d88c643427"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a139f86929378cab10f2f6836707094d7"><td class="memItemLeft" align="right" valign="top"><a id="a139f86929378cab10f2f6836707094d7"></a>
+typedef VPM </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a139f86929378cab10f2f6836707094d7">Vertex_point_map</a></td></tr>
+<tr class="memdesc:a139f86929378cab10f2f6836707094d7"><td class="mdescLeft"> </td><td class="mdescRight">The vertex point property map class. <br /></td></tr>
+<tr class="separator:a139f86929378cab10f2f6836707094d7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a93d95c23f3d40bd7d19e65e912249969"><td class="memItemLeft" align="right" valign="top"><a id="a93d95c23f3d40bd7d19e65e912249969"></a>
+typedef Traits::FT </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a></td></tr>
+<tr class="memdesc:a93d95c23f3d40bd7d19e65e912249969"><td class="mdescLeft"> </td><td class="mdescRight">The numeric type used by this algorithm. <br /></td></tr>
+<tr class="separator:a93d95c23f3d40bd7d19e65e912249969"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a317bc450ee9398f9578b4afd2696163e"><td class="memItemLeft" align="right" valign="top"><a id="a317bc450ee9398f9578b4afd2696163e"></a>
+typedef Traits::Point_3 </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a></td></tr>
+<tr class="memdesc:a317bc450ee9398f9578b4afd2696163e"><td class="mdescLeft"> </td><td class="mdescRight">The 3-dimensional point type, which must coincide with the value type of <code>Vertex_point_map</code>. <br /></td></tr>
+<tr class="separator:a317bc450ee9398f9578b4afd2696163e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac464d9c545c334d290867be1f4b967a2"><td class="memItemLeft" align="right" valign="top">typedef Traits::Barycentric_coordinates </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a></td></tr>
+<tr class="memdesc:ac464d9c545c334d290867be1f4b967a2"><td class="mdescLeft"> </td><td class="mdescRight">An ordered triple which specifies a location inside a triangle as a convex combination of its three vertices.  <a href="#ac464d9c545c334d290867be1f4b967a2">More...</a><br /></td></tr>
+<tr class="separator:ac464d9c545c334d290867be1f4b967a2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af56f17aa88b0ad678131cc04da400dec"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#af56f17aa88b0ad678131cc04da400dec">Barycentric_coordinate</a></td></tr>
+<tr class="separator:af56f17aa88b0ad678131cc04da400dec"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3aa5578369b10a5054ebfaf3bed9e5d0"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a>, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a></td></tr>
+<tr class="memdesc:a3aa5578369b10a5054ebfaf3bed9e5d0"><td class="mdescLeft"> </td><td class="mdescRight">An ordered pair specifying a location on the surface of the <code>Triangle_mesh</code>.  <a href="#a3aa5578369b10a5054ebfaf3bed9e5d0">More...</a><br /></td></tr>
+<tr class="separator:a3aa5578369b10a5054ebfaf3bed9e5d0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad7d2e3a1d9c0ad919364e7bebe2afdfa"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a>, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> &gt; </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a></td></tr>
+<tr class="memdesc:ad7d2e3a1d9c0ad919364e7bebe2afdfa"><td class="mdescLeft"> </td><td class="mdescRight">The return type from shortest path distance queries.  <a href="#ad7d2e3a1d9c0ad919364e7bebe2afdfa">More...</a><br /></td></tr>
+<tr class="separator:ad7d2e3a1d9c0ad919364e7bebe2afdfa"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Constructors</h2></td></tr>
+<tr class="memitem:a63c1aadf19821b51bcf58bd157ad33ff"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a63c1aadf19821b51bcf58bd157ad33ff">Surface_mesh_shortest_path</a> (const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a> &amp;tm, const Traits &amp;traits=Traits())</td></tr>
+<tr class="memdesc:a63c1aadf19821b51bcf58bd157ad33ff"><td class="mdescLeft"> </td><td class="mdescRight">Creates a shortest paths object using <code>tm</code> as input.  <a href="#a63c1aadf19821b51bcf58bd157ad33ff">More...</a><br /></td></tr>
+<tr class="separator:a63c1aadf19821b51bcf58bd157ad33ff"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad538e2ad3daccf1cf2a350c8b4ed3171"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad538e2ad3daccf1cf2a350c8b4ed3171">Surface_mesh_shortest_path</a> (const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a> &amp;tm, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#afc7b9c8ae5ea41f30f03043ad7c7e9c6">Vertex_index_map</a> vertexIndexMap, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae38a1bf0060d4efd9455509f80c1ec1d">Halfedge_index_map</a> halfedgeIndexMap, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#abdc2c4f293bca472425996d88c643427">Face_index_map</a> faceIndexMap, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a139f86929378cab10f2f6836707094d7">Vertex_point_map</a> vertexPointMap, const Traits &amp;traits=Traits())</td></tr>
+<tr class="memdesc:ad538e2ad3daccf1cf2a350c8b4ed3171"><td class="mdescLeft"> </td><td class="mdescRight">Creates a shortest paths object using <code>tm</code> as input.  <a href="#ad538e2ad3daccf1cf2a350c8b4ed3171">More...</a><br /></td></tr>
+<tr class="separator:ad538e2ad3daccf1cf2a350c8b4ed3171"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Addition and Removal of Source Points</h2></td></tr>
+<tr class="memitem:ae314d28958487ee519b7f8e00ad7d514"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae314d28958487ee519b7f8e00ad7d514">add_source_point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> v)</td></tr>
+<tr class="memdesc:ae314d28958487ee519b7f8e00ad7d514"><td class="mdescLeft"> </td><td class="mdescRight">Adds <code>v</code> as a source for the shortest path queries.  <a href="#ae314d28958487ee519b7f8e00ad7d514">More...</a><br /></td></tr>
+<tr class="separator:ae314d28958487ee519b7f8e00ad7d514"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a96a3a3e4857dcb0aa206426e235e374f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a96a3a3e4857dcb0aa206426e235e374f">add_source_point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> f, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> location)</td></tr>
+<tr class="memdesc:a96a3a3e4857dcb0aa206426e235e374f"><td class="mdescLeft"> </td><td class="mdescRight">Adds a point inside the face <code>f</code> as a source for the shortest path queries.  <a href="#a96a3a3e4857dcb0aa206426e235e374f">More...</a><br /></td></tr>
+<tr class="separator:a96a3a3e4857dcb0aa206426e235e374f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a692d394ca43558659eeda344f9dbe2f6"><td class="memItemLeft" align="right" valign="top"><a id="a692d394ca43558659eeda344f9dbe2f6"></a>
+<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a692d394ca43558659eeda344f9dbe2f6">add_source_point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> location)</td></tr>
+<tr class="memdesc:a692d394ca43558659eeda344f9dbe2f6"><td class="mdescLeft"> </td><td class="mdescRight">Adds a point inside a face as a source for the shortest path queries, equivalent to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae314d28958487ee519b7f8e00ad7d514" title="Adds v as a source for the shortest path queries. ">Surface_mesh_shortest_path::add_source_point</a>(location.first, location.second);</code> <br /></td></tr>
+<tr class="separator:a692d394ca43558659eeda344f9dbe2f6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a14cc9830c1585323ef0756ac6ba51a5f"><td class="memTemplParams" colspan="2">template&lt;class InputIterator &gt; </td></tr>
+<tr class="memitem:a14cc9830c1585323ef0756ac6ba51a5f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a14cc9830c1585323ef0756ac6ba51a5f">add_source_points</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> begin, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> end)</td></tr>
+<tr class="memdesc:a14cc9830c1585323ef0756ac6ba51a5f"><td class="mdescLeft"> </td><td class="mdescRight">Adds a range of points as sources for the shortest path queries.  <a href="#a14cc9830c1585323ef0756ac6ba51a5f">More...</a><br /></td></tr>
+<tr class="separator:a14cc9830c1585323ef0756ac6ba51a5f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afc643ea8248c67469d8a06ac5e9e10c1"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#afc643ea8248c67469d8a06ac5e9e10c1">remove_source_point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> it)</td></tr>
+<tr class="memdesc:afc643ea8248c67469d8a06ac5e9e10c1"><td class="mdescLeft"> </td><td class="mdescRight">Removes a source point for the shortest path queries.  <a href="#afc643ea8248c67469d8a06ac5e9e10c1">More...</a><br /></td></tr>
+<tr class="separator:afc643ea8248c67469d8a06ac5e9e10c1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a40a1734ec96fe7e4f335c1e842c82207"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a40a1734ec96fe7e4f335c1e842c82207">remove_all_source_points</a> ()</td></tr>
+<tr class="memdesc:a40a1734ec96fe7e4f335c1e842c82207"><td class="mdescLeft"> </td><td class="mdescRight">Removes all source points for the shortest path queries.  <a href="#a40a1734ec96fe7e4f335c1e842c82207">More...</a><br /></td></tr>
+<tr class="separator:a40a1734ec96fe7e4f335c1e842c82207"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation and Destruction of the Shortest Paths Sequence Tree</h2></td></tr>
+<tr class="memitem:a09ce4f3420206eca88e44a73677d18b6"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6">build_sequence_tree</a> ()</td></tr>
+<tr class="memdesc:a09ce4f3420206eca88e44a73677d18b6"><td class="mdescLeft"> </td><td class="mdescRight">Computes all pending changes to the internal sequence tree.  <a href="#a09ce4f3420206eca88e44a73677d18b6">More...</a><br /></td></tr>
+<tr class="separator:a09ce4f3420206eca88e44a73677d18b6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3c600f64c4329ff9b747cd91d916b609"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3c600f64c4329ff9b747cd91d916b609">clear</a> ()</td></tr>
+<tr class="memdesc:a3c600f64c4329ff9b747cd91d916b609"><td class="mdescLeft"> </td><td class="mdescRight">Removes all data, the class is as if it was constructed.  <a href="#a3c600f64c4329ff9b747cd91d916b609">More...</a><br /></td></tr>
+<tr class="separator:a3c600f64c4329ff9b747cd91d916b609"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Accessors</h2></td></tr>
+<tr class="memitem:a6b678164ccd294d44a8f5564d4de7bc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a6b678164ccd294d44a8f5564d4de7bc5">source_points_begin</a> () const</td></tr>
+<tr class="memdesc:a6b678164ccd294d44a8f5564d4de7bc5"><td class="mdescLeft"> </td><td class="mdescRight">Returns an iterator to the first source point location.  <a href="#a6b678164ccd294d44a8f5564d4de7bc5">More...</a><br /></td></tr>
+<tr class="separator:a6b678164ccd294d44a8f5564d4de7bc5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a04fff3b98695f681fd9a50c4addf8dd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3">source_points_end</a> () const</td></tr>
+<tr class="memdesc:a04fff3b98695f681fd9a50c4addf8dd3"><td class="mdescLeft"> </td><td class="mdescRight">Returns an iterator to one past the last source point location.  <a href="#a04fff3b98695f681fd9a50c4addf8dd3">More...</a><br /></td></tr>
+<tr class="separator:a04fff3b98695f681fd9a50c4addf8dd3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5944cd6c57cc6d6402da7f6f1575d37e"><td class="memItemLeft" align="right" valign="top"><a id="a5944cd6c57cc6d6402da7f6f1575d37e"></a>
+std::size_t </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a5944cd6c57cc6d6402da7f6f1575d37e">number_of_source_points</a> () const</td></tr>
+<tr class="memdesc:a5944cd6c57cc6d6402da7f6f1575d37e"><td class="mdescLeft"> </td><td class="mdescRight">Returns the total number of source points used for the shortest path queries. <br /></td></tr>
+<tr class="separator:a5944cd6c57cc6d6402da7f6f1575d37e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a804f62f0a1259d9888e664f7f6f41d16"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a804f62f0a1259d9888e664f7f6f41d16">changed_since_last_build</a> () const</td></tr>
+<tr class="memdesc:a804f62f0a1259d9888e664f7f6f41d16"><td class="mdescLeft"> </td><td class="mdescRight">Determines if the internal sequence tree is valid (already built and no new source point has been added).  <a href="#a804f62f0a1259d9888e664f7f6f41d16">More...</a><br /></td></tr>
+<tr class="separator:a804f62f0a1259d9888e664f7f6f41d16"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Shortest Distance Queries</h2></td></tr>
+<tr class="memitem:a003a2cfa5608f68cbdb4b0a27ba137fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a003a2cfa5608f68cbdb4b0a27ba137fc">shortest_distance_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> v)</td></tr>
+<tr class="memdesc:a003a2cfa5608f68cbdb4b0a27ba137fc"><td class="mdescLeft"> </td><td class="mdescRight">Computes the shortest surface distance from a vertex to any source point.  <a href="#a003a2cfa5608f68cbdb4b0a27ba137fc">More...</a><br /></td></tr>
+<tr class="separator:a003a2cfa5608f68cbdb4b0a27ba137fc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4376ec72d504372df67c24cf341985f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a4376ec72d504372df67c24cf341985f1">shortest_distance_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> f, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> location)</td></tr>
+<tr class="memdesc:a4376ec72d504372df67c24cf341985f1"><td class="mdescLeft"> </td><td class="mdescRight">Computes the shortest surface distance from any surface location to any source point.  <a href="#a4376ec72d504372df67c24cf341985f1">More...</a><br /></td></tr>
+<tr class="separator:a4376ec72d504372df67c24cf341985f1"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Shortest Path Sequence Queries</h2></td></tr>
+<tr class="memitem:ad5ee89ad6219c72e864e567268445920"><td class="memTemplParams" colspan="2">template&lt;class Visitor &gt; </td></tr>
+<tr class="memitem:ad5ee89ad6219c72e864e567268445920"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad5ee89ad6219c72e864e567268445920">shortest_path_sequence_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> v, Visitor &amp;visitor)</td></tr>
+<tr class="memdesc:ad5ee89ad6219c72e864e567268445920"><td class="mdescLeft"> </td><td class="mdescRight">Visits the sequence of edges, vertices and faces traversed by the shortest path from a vertex to any source point.  <a href="#ad5ee89ad6219c72e864e567268445920">More...</a><br /></td></tr>
+<tr class="separator:ad5ee89ad6219c72e864e567268445920"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a239f60b82b271c361a95cd3fa665eae4"><td class="memTemplParams" colspan="2">template&lt;class Visitor &gt; </td></tr>
+<tr class="memitem:a239f60b82b271c361a95cd3fa665eae4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a239f60b82b271c361a95cd3fa665eae4">shortest_path_sequence_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> f, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> location, Visitor &amp;visitor)</td></tr>
+<tr class="memdesc:a239f60b82b271c361a95cd3fa665eae4"><td class="mdescLeft"> </td><td class="mdescRight">Visits the sequence of edges, vertices and faces traversed by the shortest path from any surface location to any source point.  <a href="#a239f60b82b271c361a95cd3fa665eae4">More...</a><br /></td></tr>
+<tr class="separator:a239f60b82b271c361a95cd3fa665eae4"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Shortest Path Point Queries</h2></td></tr>
+<tr class="memitem:a0c1ac61a70081dda2c83a0911e035c90"><td class="memTemplParams" colspan="2">template&lt;class OutputIterator &gt; </td></tr>
+<tr class="memitem:a0c1ac61a70081dda2c83a0911e035c90"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a0c1ac61a70081dda2c83a0911e035c90">shortest_path_points_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> v, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> output)</td></tr>
+<tr class="memdesc:a0c1ac61a70081dda2c83a0911e035c90"><td class="mdescLeft"> </td><td class="mdescRight">Computes the sequence of points in the shortest path along the surface of the input face graph from the given vertex to the closest source point.  <a href="#a0c1ac61a70081dda2c83a0911e035c90">More...</a><br /></td></tr>
+<tr class="separator:a0c1ac61a70081dda2c83a0911e035c90"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6c47fba8a554c0089876b11c7001c777"><td class="memTemplParams" colspan="2">template&lt;class OutputIterator &gt; </td></tr>
+<tr class="memitem:a6c47fba8a554c0089876b11c7001c777"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a6c47fba8a554c0089876b11c7001c777">shortest_path_points_to_source_points</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> f, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> location, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> output)</td></tr>
+<tr class="memdesc:a6c47fba8a554c0089876b11c7001c777"><td class="mdescLeft"> </td><td class="mdescRight">Computes the sequence of points in the shortest path along the surface of the input face graph from the given query location to the closest source point.  <a href="#a6c47fba8a554c0089876b11c7001c777">More...</a><br /></td></tr>
+<tr class="separator:a6c47fba8a554c0089876b11c7001c777"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Surface Point Constructions</h2></td></tr>
+<tr class="memitem:ac2931a4489e90f212a261256a8658eec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac2931a4489e90f212a261256a8658eec">point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> f, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> location) const</td></tr>
+<tr class="memdesc:ac2931a4489e90f212a261256a8658eec"><td class="mdescLeft"> </td><td class="mdescRight">Returns the 3-dimensional coordinates at the barycentric coordinates of the given face.  <a href="#ac2931a4489e90f212a261256a8658eec">More...</a><br /></td></tr>
+<tr class="separator:ac2931a4489e90f212a261256a8658eec"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7395c5fe1cae5288ae020cb94388e8c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a7395c5fe1cae5288ae020cb94388e8c8">point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa6ceb41c5d4af00aed03c3c292daef5a">halfedge_descriptor</a> edge, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a> t) const</td></tr>
+<tr class="memdesc:a7395c5fe1cae5288ae020cb94388e8c8"><td class="mdescLeft"> </td><td class="mdescRight">Returns the 3-dimensional coordinates at the parametric location along the given edge.  <a href="#a7395c5fe1cae5288ae020cb94388e8c8">More...</a><br /></td></tr>
+<tr class="separator:a7395c5fe1cae5288ae020cb94388e8c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af95d41b1823410397a6acecc48f68a48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#af95d41b1823410397a6acecc48f68a48">point</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> vertex) const</td></tr>
+<tr class="memdesc:af95d41b1823410397a6acecc48f68a48"><td class="mdescLeft"> </td><td class="mdescRight">Returns the 3-dimensional coordinates of the given vertex.  <a href="#af95d41b1823410397a6acecc48f68a48">More...</a><br /></td></tr>
+<tr class="separator:af95d41b1823410397a6acecc48f68a48"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Surface Face Location Constructions</h2></td></tr>
+<tr class="memitem:a61010bb4f1709d693bef70c82b174d1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a61010bb4f1709d693bef70c82b174d1a">face_location</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> vertex) const</td></tr>
+<tr class="memdesc:a61010bb4f1709d693bef70c82b174d1a"><td class="mdescLeft"> </td><td class="mdescRight">Returns the location of the given vertex as a <code>Face_location</code>  <a href="#a61010bb4f1709d693bef70c82b174d1a">More...</a><br /></td></tr>
+<tr class="separator:a61010bb4f1709d693bef70c82b174d1a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a79ce56caa0b400faa26f1dafdbb133fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a79ce56caa0b400faa26f1dafdbb133fc">face_location</a> (<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa6ceb41c5d4af00aed03c3c292daef5a">halfedge_descriptor</a> he, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a> t) const</td></tr>
+<tr class="memdesc:a79ce56caa0b400faa26f1dafdbb133fc"><td class="mdescLeft"> </td><td class="mdescRight">Returns a location along the given edge as a <code>Face_location</code>.  <a href="#a79ce56caa0b400faa26f1dafdbb133fc">More...</a><br /></td></tr>
+<tr class="separator:a79ce56caa0b400faa26f1dafdbb133fc"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Nearest Face Location Queries</h2></td></tr>
+<tr class="memitem:aeef6cd8e8c10b5c8c3ebb0388664ff1a"><td class="memTemplParams" colspan="2">template&lt;class AABBTraits &gt; </td></tr>
+<tr class="memitem:aeef6cd8e8c10b5c8c3ebb0388664ff1a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aeef6cd8e8c10b5c8c3ebb0388664ff1a">locate</a> (const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> &amp;p) const</td></tr>
+<tr class="memdesc:aeef6cd8e8c10b5c8c3ebb0388664ff1a"><td class="mdescLeft"> </td><td class="mdescRight">Returns the nearest face location to the given point.  <a href="#aeef6cd8e8c10b5c8c3ebb0388664ff1a">More...</a><br /></td></tr>
+<tr class="separator:aeef6cd8e8c10b5c8c3ebb0388664ff1a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a89cf147a8f486c1dd6382b36ea268cbc"><td class="memTemplParams" colspan="2">template&lt;class AABBTraits &gt; </td></tr>
+<tr class="memitem:a89cf147a8f486c1dd6382b36ea268cbc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a89cf147a8f486c1dd6382b36ea268cbc">locate</a> (const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> &amp;p, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a> &gt; &amp;tree) const</td></tr>
+<tr class="memdesc:a89cf147a8f486c1dd6382b36ea268cbc"><td class="mdescLeft"> </td><td class="mdescRight">Returns the face location nearest to the given point.  <a href="#a89cf147a8f486c1dd6382b36ea268cbc">More...</a><br /></td></tr>
+<tr class="separator:a89cf147a8f486c1dd6382b36ea268cbc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0c2f372ecddb1ee989bf00cab56efbdb"><td class="memTemplParams" colspan="2">template&lt;class AABBTraits &gt; </td></tr>
+<tr class="memitem:a0c2f372ecddb1ee989bf00cab56efbdb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a0c2f372ecddb1ee989bf00cab56efbdb">locate</a> (const Ray_3 &amp;ray) const</td></tr>
+<tr class="memdesc:a0c2f372ecddb1ee989bf00cab56efbdb"><td class="mdescLeft"> </td><td class="mdescRight">Returns the face location along <code>ray</code> nearest to its source point.  <a href="#a0c2f372ecddb1ee989bf00cab56efbdb">More...</a><br /></td></tr>
+<tr class="separator:a0c2f372ecddb1ee989bf00cab56efbdb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa9ec9559f19e64ddc84063bc5df05641"><td class="memTemplParams" colspan="2">template&lt;class AABBTraits &gt; </td></tr>
+<tr class="memitem:aa9ec9559f19e64ddc84063bc5df05641"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa9ec9559f19e64ddc84063bc5df05641">locate</a> (const Ray_3 &amp;ray, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a> &gt; &amp;tree) const</td></tr>
+<tr class="memdesc:aa9ec9559f19e64ddc84063bc5df05641"><td class="mdescLeft"> </td><td class="mdescRight">Returns the face location along <code>ray</code> nearest to its source point.  <a href="#aa9ec9559f19e64ddc84063bc5df05641">More...</a><br /></td></tr>
+<tr class="separator:aa9ec9559f19e64ddc84063bc5df05641"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="af56f17aa88b0ad678131cc04da400dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56f17aa88b0ad678131cc04da400dec">◆ </a></span>Barycentric_coordinate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#af56f17aa88b0ad678131cc04da400dec">Barycentric_coordinate</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ac464d9c545c334d290867be1f4b967a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac464d9c545c334d290867be1f4b967a2">◆ </a></span>Barycentric_coordinates</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Traits::Barycentric_coordinates <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An ordered triple which specifies a location inside a triangle as a convex combination of its three vertices. </p>
+
+</div>
+</div>
+<a id="a3aa5578369b10a5054ebfaf3bed9e5d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aa5578369b10a5054ebfaf3bed9e5d0">◆ </a></span>Face_location</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a>, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a>&gt; <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An ordered pair specifying a location on the surface of the <code>Triangle_mesh</code>. </p>
+<p>If <code>tm</code> is the input graph and given the pair (<code>f</code>, <code>bc</code>) such that <code>bc</code> is <code>(w0, w1, w2)</code>, the correspondance with the weights in <code>bc</code> and the vertices of the face <code>f</code> is the following:</p><ul>
+<li><code>w0 = source(halfedge(f,tm),tm)</code></li>
+<li><code>w1 = target(halfedge(f,tm),tm)</code></li>
+<li><code>w2 = target(next(halfedge(f,tm),tm),tm)</code> </li>
+</ul>
+
+</div>
+</div>
+<a id="ad7d2e3a1d9c0ad919364e7bebe2afdfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d2e3a1d9c0ad919364e7bebe2afdfa">◆ </a></span>Shortest_path_result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a>, <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a>&gt; <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The return type from shortest path distance queries. </p>
+<p>Stores the distance to the nearest source point, and a <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html" title="A model of BidirectionalIterator to access the source points. ">Source_point_iterator</a></code> to the source point itself. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a63c1aadf19821b51bcf58bd157ad33ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c1aadf19821b51bcf58bd157ad33ff">◆ </a></span>Surface_mesh_shortest_path() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">Surface_mesh_shortest_path</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a> &amp; </td>
+          <td class="paramname"><em>tm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>traits</em> = <code>Traits()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a shortest paths object using <code>tm</code> as input. </p>
+<p>Equivalent to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html" title="Computes shortest surface paths from one or more source points on a surface mesh. ...">Surface_mesh_shortest_path</a>(tm, get(boost::vertex_index, tm), get(boost::halfedge_index, tm), get(boost::face_index, tm), get(CGAL::vertex_point, tm), traits)</code>. </p>
+
+</div>
+</div>
+<a id="ad538e2ad3daccf1cf2a350c8b4ed3171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad538e2ad3daccf1cf2a350c8b4ed3171">◆ </a></span>Surface_mesh_shortest_path() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::<a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">Surface_mesh_shortest_path</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aef3947df805af0702372c74ed8d3c0df">Triangle_mesh</a> &amp; </td>
+          <td class="paramname"><em>tm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#afc7b9c8ae5ea41f30f03043ad7c7e9c6">Vertex_index_map</a> </td>
+          <td class="paramname"><em>vertexIndexMap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae38a1bf0060d4efd9455509f80c1ec1d">Halfedge_index_map</a> </td>
+          <td class="paramname"><em>halfedgeIndexMap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#abdc2c4f293bca472425996d88c643427">Face_index_map</a> </td>
+          <td class="paramname"><em>faceIndexMap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a139f86929378cab10f2f6836707094d7">Vertex_point_map</a> </td>
+          <td class="paramname"><em>vertexPointMap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>traits</em> = <code>Traits()</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a shortest paths object using <code>tm</code> as input. </p>
+<p>No copy of the <code>Triangle_mesh</code> is made, only a reference to the <code>tm</code> is held.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tm</td><td>The surface mesh to compute shortest paths on. Note that it must be triangulated.</td></tr>
+    <tr><td class="paramname">vertexIndexMap</td><td>Property map associating an id to each vertex, from 0 to <code>num_vertices(tm) - 1</code>.</td></tr>
+    <tr><td class="paramname">halfedgeIndexMap</td><td>Property map associating an id to each halfedge, from 0 to <code>num_halfedges(tm) - 1</code>.</td></tr>
+    <tr><td class="paramname">faceIndexMap</td><td>Property map associating an id to each face, from 0 to <code>num_faces(tm) - 1</code>.</td></tr>
+    <tr><td class="paramname">vertexPointMap</td><td>Property map used to access the points associated to each vertex of the graph.</td></tr>
+    <tr><td class="paramname">traits</td><td>Optional instance of the traits class to use. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae314d28958487ee519b7f8e00ad7d514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae314d28958487ee519b7f8e00ad7d514">◆ </a></span>add_source_point() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::add_source_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds <code>v</code> as a source for the shortest path queries. </p>
+<p>No change to the internal shortest paths data structure occurs until either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6" title="Computes all pending changes to the internal sequence tree. ">Surface_mesh_shortest_path::build_sequence_tree()</a></code> or the first shortest path query is done.</p>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the source point added </dd></dl>
+
+</div>
+</div>
+<a id="a96a3a3e4857dcb0aa206426e235e374f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a3a3e4857dcb0aa206426e235e374f">◆ </a></span>add_source_point() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::add_source_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td>
+          <td class="paramname"><em>location</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a point inside the face <code>f</code> as a source for the shortest path queries. </p>
+<p>No change to the internal shortest paths data structure occurs until either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6" title="Computes all pending changes to the internal sequence tree. ">Surface_mesh_shortest_path::build_sequence_tree()</a></code> or the first shortest path query is done.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A face of the input face graph </td></tr>
+    <tr><td class="paramname">location</td><td>Barycentric coordinates in face <code>f</code> specifying the source point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the source point added </dd></dl>
+
+</div>
+</div>
+<a id="a14cc9830c1585323ef0756ac6ba51a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14cc9830c1585323ef0756ac6ba51a5f">◆ </a></span>add_source_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class InputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::add_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>end</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a range of points as sources for the shortest path queries. </p>
+<p>No change to the internal shortest paths data structure occurs until either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6" title="Computes all pending changes to the internal sequence tree. ">Surface_mesh_shortest_path::build_sequence_tree()</a></code> or the first shortest path query is done.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></td><td>A <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classForwardIterator.html">ForwardIterator</a></code> which dereferences to either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0" title="An ordered pair specifying a location on the surface of the Triangle_mesh. ">Surface_mesh_shortest_path::Face_location</a></code>, or <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3" title="Descriptors for the vertices of Triangle_mesh ">Surface_mesh_shortest_path::vertex_descriptor</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>iterator to the first in the list of source point locations. </td></tr>
+    <tr><td class="paramname">end</td><td>iterator to one past the end of the list of source point locations. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the first source point added. </dd></dl>
+
+</div>
+</div>
+<a id="a09ce4f3420206eca88e44a73677d18b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ce4f3420206eca88e44a73677d18b6">◆ </a></span>build_sequence_tree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::build_sequence_tree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes all pending changes to the internal sequence tree. </p>
+<p>A call to this method will only trigger a computation only if some change to the set of source points occurred since the last time the sequence tree was computed. </p>
+
+</div>
+</div>
+<a id="a804f62f0a1259d9888e664f7f6f41d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804f62f0a1259d9888e664f7f6f41d16">◆ </a></span>changed_since_last_build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::changed_since_last_build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines if the internal sequence tree is valid (already built and no new source point has been added). </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the structure needs to be rebuilt, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a3c600f64c4329ff9b747cd91d916b609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c600f64c4329ff9b747cd91d916b609">◆ </a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all data, the class is as if it was constructed. </p>
+<p>All internal containers are cleared and the internal sequence tree is also cleared. For a version which defers deletion until it is necessary, use <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a40a1734ec96fe7e4f335c1e842c82207" title="Removes all source points for the shortest path queries. ">Surface_mesh_shortest_path::remove_all_source_points()</a></code>. </p>
+
+</div>
+</div>
+<a id="a61010bb4f1709d693bef70c82b174d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61010bb4f1709d693bef70c82b174d1a">◆ </a></span>face_location() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::face_location </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>vertex</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the location of the given vertex as a <code>Face_location</code> </p>
+<p>The following static overload is also available:</p><ul>
+<li><code>static Face_location face_location(vertex_descriptor vertex, const Triangle_mesh&amp; tm, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>A vertex of the input face graph </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a79ce56caa0b400faa26f1dafdbb133fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79ce56caa0b400faa26f1dafdbb133fc">◆ </a></span>face_location() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::face_location </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa6ceb41c5d4af00aed03c3c292daef5a">halfedge_descriptor</a> </td>
+          <td class="paramname"><em>he</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a> </td>
+          <td class="paramname"><em>t</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a location along the given edge as a <code>Face_location</code>. </p>
+<p>The following static overload is also available:</p><ul>
+<li><code>static Face_location face_location(halfedge_descriptor he, FT t, const Triangle_mesh&amp; tm, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">he</td><td>A halfedge of the input face graph </td></tr>
+    <tr><td class="paramname">t</td><td>Parametric distance of the desired point along <code>he</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeef6cd8e8c10b5c8c3ebb0388664ff1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef6cd8e8c10b5c8c3ebb0388664ff1a">◆ </a></span>locate() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class AABBTraits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::locate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> &amp; </td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the nearest face location to the given point. </p>
+<p>Note that this will (re-)build an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> on each call. If you need to call this function more than once, use <code>build_aabb_tree()</code> to cache a copy of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>, and use the overloads of this function that accept a reference to an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> as input.</p>
+<p>The following static overload is also available:</p><ul>
+<li><code>static Face_location locate(const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a>&amp; p, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></td><td>A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></code> used to define a <span style="font-variant: small-caps;">CGAL</span> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Point to locate on the input face graph </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a89cf147a8f486c1dd6382b36ea268cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89cf147a8f486c1dd6382b36ea268cbc">◆ </a></span>locate() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class AABBTraits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::locate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> &amp; </td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a> &gt; &amp; </td>
+          <td class="paramname"><em>tree</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the face location nearest to the given point. </p>
+<p>The following static overload is also available:</p><ul>
+<li>static Face_location locate(const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a>&amp; p, const AABB_tree&lt;AABBTraits&gt;&amp; tree, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</li>
+</ul>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></td><td>A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></code> used to define a <span style="font-variant: small-caps;">CGAL</span> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Point to locate on the input face graph </td></tr>
+    <tr><td class="paramname">tree</td><td>A <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> containing the triangular faces of the input surface mesh to perform the point location with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c2f372ecddb1ee989bf00cab56efbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2f372ecddb1ee989bf00cab56efbdb">◆ </a></span>locate() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class AABBTraits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::locate </td>
+          <td>(</td>
+          <td class="paramtype">const Ray_3 &amp; </td>
+          <td class="paramname"><em>ray</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the face location along <code>ray</code> nearest to its source point. </p>
+<p>Note that this will (re-)build an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> on each call. If you need to call this function more than once, use <code>build_aabb_tree()</code> to cache a copy of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>, and use the overloads of this function that accept a reference to an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> as input.</p>
+<p>The following static overload is also available:</p><ul>
+<li><code>static Face_location locate(const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Ray__3.html">Ray_3</a>&amp; ray, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></td><td>A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></code> used to define an <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ray</td><td>Ray to intersect with the input face graph </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9ec9559f19e64ddc84063bc5df05641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ec9559f19e64ddc84063bc5df05641">◆ </a></span>locate() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class AABBTraits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3aa5578369b10a5054ebfaf3bed9e5d0">Face_location</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::locate </td>
+          <td>(</td>
+          <td class="paramtype">const Ray_3 &amp; </td>
+          <td class="paramname"><em>ray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a> &gt; &amp; </td>
+          <td class="paramname"><em>tree</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the face location along <code>ray</code> nearest to its source point. </p>
+<p>The following static overload is also available:</p><ul>
+<li>static Face_location locate(const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Ray__3.html">Ray_3</a>&amp; ray, const AABB_tree&lt;AABBTraits&gt;&amp; tree, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</li>
+</ul>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></td><td>A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classAABBTraits.html">AABBTraits</a></code> used to define a <span style="font-variant: small-caps;">CGAL</span> <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ray</td><td>Ray to intersect with the input face graph </td></tr>
+    <tr><td class="paramname">tree</td><td>A <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/AABB_tree.tag:../AABB_tree/" href="../AABB_tree/classCGAL_1_1AABB__tree.html">AABB_tree</a></code> containing the triangular faces of the input surface mesh to perform the point location with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2931a4489e90f212a261256a8658eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2931a4489e90f212a261256a8658eec">◆ </a></span>point() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td>
+          <td class="paramname"><em>location</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the 3-dimensional coordinates at the barycentric coordinates of the given face. </p>
+<p>The following static overloads are also available:</p><ul>
+<li><code>static <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a> point(face_descriptor f, Barycentric_coordinates location, const Triangle_mesh&amp; tm, const Traits&amp; traits = Traits())</code></li>
+<li><code>static <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a> point(face_descriptor f, Barycentric_coordinates location, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A face of on the input face graph </td></tr>
+    <tr><td class="paramname">location</td><td>The barycentric coordinates of the query point on face <code>f</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7395c5fe1cae5288ae020cb94388e8c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7395c5fe1cae5288ae020cb94388e8c8">◆ </a></span>point() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aa6ceb41c5d4af00aed03c3c292daef5a">halfedge_descriptor</a> </td>
+          <td class="paramname"><em>edge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a93d95c23f3d40bd7d19e65e912249969">FT</a> </td>
+          <td class="paramname"><em>t</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the 3-dimensional coordinates at the parametric location along the given edge. </p>
+<p>The following static overloads are also available:</p><ul>
+<li><code>static <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a> point(halfedge_descriptor edge, FT t, const Triangle_mesh&amp; tm, const Traits&amp; traits = Traits())</code></li>
+<li><code>static <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a> point(halfedge_descriptor edge, FT t, const Triangle_mesh&amp; tm, Vertex_point_map vertexPointMap, const Traits&amp; traits = Traits())</code></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edge</td><td>An edge of the input face graph </td></tr>
+    <tr><td class="paramname">t</td><td>The parametric distance along edge of the desired point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af95d41b1823410397a6acecc48f68a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95d41b1823410397a6acecc48f68a48">◆ </a></span>point() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a317bc450ee9398f9578b4afd2696163e">Point_3</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>vertex</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the 3-dimensional coordinates of the given vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>A vertex of the input face graph </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a40a1734ec96fe7e4f335c1e842c82207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a1734ec96fe7e4f335c1e842c82207">◆ </a></span>remove_all_source_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::remove_all_source_points </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all source points for the shortest path queries. </p>
+<p>No change to the internal shortest paths data structure occurs until either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6" title="Computes all pending changes to the internal sequence tree. ">Surface_mesh_shortest_path::build_sequence_tree()</a></code> or the first shortest path query is done. For a version which deletes all data immediately, use <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a3c600f64c4329ff9b747cd91d916b609" title="Removes all data, the class is as if it was constructed. ">clear()</a></code> instead. </p>
+
+</div>
+</div>
+<a id="afc643ea8248c67469d8a06ac5e9e10c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc643ea8248c67469d8a06ac5e9e10c1">◆ </a></span>remove_source_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::remove_source_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> </td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a source point for the shortest path queries. </p>
+<p>No change to the internal shortest paths data structure occurs until either <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a09ce4f3420206eca88e44a73677d18b6" title="Computes all pending changes to the internal sequence tree. ">Surface_mesh_shortest_path::build_sequence_tree()</a></code> or the first shortest path query is done. Behaviour is undefined if the source point <code>it</code> was already removed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>iterator to the source point to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a003a2cfa5608f68cbdb4b0a27ba137fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003a2cfa5608f68cbdb4b0a27ba137fc">◆ </a></span>shortest_distance_to_source_points() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_distance_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the shortest surface distance from a vertex to any source point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A vertex of the input face graph </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a4376ec72d504372df67c24cf341985f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4376ec72d504372df67c24cf341985f1">◆ </a></span>shortest_distance_to_source_points() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_distance_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td>
+          <td class="paramname"><em>location</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the shortest surface distance from any surface location to any source point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A face of the input face graph </td></tr>
+    <tr><td class="paramname">location</td><td>Barycentric coordinates of the query point on face <code>f</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a0c1ac61a70081dda2c83a0911e035c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c1ac61a70081dda2c83a0911e035c90">◆ </a></span>shortest_path_points_to_source_points() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_path_points_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>output</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the sequence of points in the shortest path along the surface of the input face graph from the given vertex to the closest source point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A vertex of the input face graph </td></tr>
+    <tr><td class="paramname">output</td><td>An <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> to receive the shortest path points as <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> objects </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a6c47fba8a554c0089876b11c7001c777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c47fba8a554c0089876b11c7001c777">◆ </a></span>shortest_path_points_to_source_points() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_path_points_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>output</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the sequence of points in the shortest path along the surface of the input face graph from the given query location to the closest source point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A face of on the input face graph </td></tr>
+    <tr><td class="paramname">location</td><td>The barycentric coordinates of the query point on face <code>f</code> </td></tr>
+    <tr><td class="paramname">output</td><td>An <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> to receive the shortest path points as <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> objects </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="ad5ee89ad6219c72e864e567268445920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ee89ad6219c72e864e567268445920">◆ </a></span>shortest_path_sequence_to_source_points() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class Visitor &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_path_sequence_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a2ab1434e14b0dabcf42b16816fa2add3">vertex_descriptor</a> </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp; </td>
+          <td class="paramname"><em>visitor</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visits the sequence of edges, vertices and faces traversed by the shortest path from a vertex to any source point. </p>
+<p>Visits simplices, starting from the query vertex, back to the nearest source point. If no shortest path could be found (for example, the surface is disconnected), then no calls to the visitor will be made (not even for the query vertex).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A vertex of the input face graph </td></tr>
+    <tr><td class="paramname">visitor</td><td>A model of <code><a class="el" href="classSurfaceMeshShortestPathVisitor.html" title="The concept SurfaceMeshShortestPathVisitor describes the requirements of the visitor type used to col...">SurfaceMeshShortestPathVisitor</a></code> to receive the shortest path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a239f60b82b271c361a95cd3fa665eae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239f60b82b271c361a95cd3fa665eae4">◆ </a></span>shortest_path_sequence_to_source_points() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+<div class="memtemplate">
+template&lt;class Visitor &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ad7d2e3a1d9c0ad919364e7bebe2afdfa">Shortest_path_result</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::shortest_path_sequence_to_source_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#aaccafcaf5163a924dc2527e230fab0c1">face_descriptor</a> </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ac464d9c545c334d290867be1f4b967a2">Barycentric_coordinates</a> </td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp; </td>
+          <td class="paramname"><em>visitor</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visits the sequence of edges, vertices and faces traversed by the shortest path from any surface location to any source point. </p>
+<p>Visits simplices, starting from the query point, back to the nearest source point. If no shortest path could be found (for example, the surface is disconnected), then no calls to the visitor will be made (not even for the query point).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A face of the input face graph </td></tr>
+    <tr><td class="paramname">location</td><td>Barycentric coordinates of the query point on face <code>f</code> </td></tr>
+    <tr><td class="paramname">visitor</td><td>A model of <code><a class="el" href="classSurfaceMeshShortestPathVisitor.html" title="The concept SurfaceMeshShortestPathVisitor describes the requirements of the visitor type used to col...">SurfaceMeshShortestPathVisitor</a></code> to receive the shortest path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair, containing the distance to the source point, and an iterator to the source point. If no source point was reachable (can occur when the graph is disconnected), the distance will be a negative value and the source point iterator will be equal to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a04fff3b98695f681fd9a50c4addf8dd3" title="Returns an iterator to one past the last source point location. ">source_points_end()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a6b678164ccd294d44a8f5564d4de7bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b678164ccd294d44a8f5564d4de7bc5">◆ </a></span>source_points_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::source_points_begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the first source point location. </p>
+<p>The elements will appear in the order they were inserted to the structure by calls to <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#ae314d28958487ee519b7f8e00ad7d514" title="Adds v as a source for the shortest path queries. ">add_source_point()</a></code> or <code><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html#a14cc9830c1585323ef0756ac6ba51a5f" title="Adds a range of points as sources for the shortest path queries. ">add_source_points()</a></code>. Deleted points will not appear in the sequence.</p>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the first of the stored source points. </dd></dl>
+
+</div>
+</div>
+<a id="a04fff3b98695f681fd9a50c4addf8dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04fff3b98695f681fd9a50c4addf8dd3">◆ </a></span>source_points_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits , class VIM  = Default, class HIM  = Default, class FIM  = Default, class VPM  = Default&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path_1_1Source__point__iterator.html">Source_point_iterator</a> <a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">CGAL::Surface_mesh_shortest_path</a>&lt; Traits, VIM, HIM, FIM, VPM &gt;::source_points_end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to one past the last source point location. </p>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to one past-the-end in the list of stored source points. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>CGAL</b></li><li class="navelem"><a class="el" href="classCGAL_1_1Surface__mesh__shortest__path.html">Surface_mesh_shortest_path</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:08 for CGAL 4.13 - Triangulated Surface Mesh Shortest Paths by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

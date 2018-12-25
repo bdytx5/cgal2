@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Generalized_map/classGeneralizedMap.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL  - Generalized Maps: GeneralizedMap Concept Reference</title><!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL  - Generalized Maps
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classGeneralizedMap.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classGeneralizedMap-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">GeneralizedMap Concept Reference<div class="ingroups"><a class="el" href="group__PkgGeneralizedMaps.html">Generalized Maps Reference</a> » <a class="el" href="group__PkgGeneralizedMapsConcepts.html">Concepts</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>The concept <code><a class="el" href="classGeneralizedMap.html" title="The concept GeneralizedMap defines a d-dimensional generalized map. ">GeneralizedMap</a></code> defines a <em>d</em>-dimensional generalized map. </p>
+  <dl class="refines"><dt><b><a class="el" href="refines.html#_refines000001">Refines:</a></b></dt><dd><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html">GenericMap</a></code></dd></dl>
+<dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000001">Has Models:</a></b></dt><dd><a class="el" href="classCGAL_1_1Generalized__map.html"><code>CGAL::Generalized_map&lt;d,Items,Alloc&gt;</code></a></dd></dl>
+<p>For a generalized map, the function <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a871e921eff665637dd5b30eb5169856a"><code>next</code></a> is equal to \( \alpha_1\circ\alpha_0\), <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a1df4fa8da65992fd9d0593f32d695285"><code>previous</code></a> is equal to \( \alpha_0\circ\alpha_1\) and the function <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a956fbbb8fb58f6d1e7813ca286d50012"><code>opposite&lt;i&gt;</code></a> is equal to \( \alpha_i\circ\alpha_0\). </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Access Member Functions</h2></td></tr>
+<tr class="memitem:a4920caebca0178bd59bae1fe8280dffb"><td class="memItemLeft" align="right" valign="top">Dart_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a4920caebca0178bd59bae1fe8280dffb">alpha</a> (Dart_handle dh, int i, int j)</td></tr>
+<tr class="memdesc:a4920caebca0178bd59bae1fe8280dffb"><td class="mdescLeft"> </td><td class="mdescRight">Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)).  <a href="#a4920caebca0178bd59bae1fe8280dffb">More...</a><br /></td></tr>
+<tr class="separator:a4920caebca0178bd59bae1fe8280dffb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad1af2f8c7648ae028be1c769de10bb18"><td class="memItemLeft" align="right" valign="top">Dart_const_handle </td><td class="memItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#ad1af2f8c7648ae028be1c769de10bb18">alpha</a> (Dart_const_handle dh, int i, int j) const</td></tr>
+<tr class="memdesc:ad1af2f8c7648ae028be1c769de10bb18"><td class="mdescLeft"> </td><td class="mdescRight">Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)).  <a href="#ad1af2f8c7648ae028be1c769de10bb18">More...</a><br /></td></tr>
+<tr class="separator:ad1af2f8c7648ae028be1c769de10bb18"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a25fc38ab3f3edd25974e4ad2664d10c0"><td class="memTemplParams" colspan="2">template&lt;int i, int j&gt; </td></tr>
+<tr class="memitem:a25fc38ab3f3edd25974e4ad2664d10c0"><td class="memTemplItemLeft" align="right" valign="top">Dart_handle </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a25fc38ab3f3edd25974e4ad2664d10c0">alpha</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:a25fc38ab3f3edd25974e4ad2664d10c0"><td class="mdescLeft"> </td><td class="mdescRight">Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)).  <a href="#a25fc38ab3f3edd25974e4ad2664d10c0">More...</a><br /></td></tr>
+<tr class="separator:a25fc38ab3f3edd25974e4ad2664d10c0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7d4daecd629685adbdb86bcd7cf3dfc7"><td class="memTemplParams" colspan="2">template&lt;int i, int j&gt; </td></tr>
+<tr class="memitem:a7d4daecd629685adbdb86bcd7cf3dfc7"><td class="memTemplItemLeft" align="right" valign="top">Dart_const_handle </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a7d4daecd629685adbdb86bcd7cf3dfc7">alpha</a> (Dart_const_handle dh) const</td></tr>
+<tr class="memdesc:a7d4daecd629685adbdb86bcd7cf3dfc7"><td class="mdescLeft"> </td><td class="mdescRight">Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)).  <a href="#a7d4daecd629685adbdb86bcd7cf3dfc7">More...</a><br /></td></tr>
+<tr class="separator:a7d4daecd629685adbdb86bcd7cf3dfc7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab8d321c182b8cfc669c438b101f3f6de"><td class="memItemLeft" align="right" valign="top"><a id="ab8d321c182b8cfc669c438b101f3f6de"></a>
+bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#ab8d321c182b8cfc669c438b101f3f6de">is_orientable</a> () const</td></tr>
+<tr class="memdesc:ab8d321c182b8cfc669c438b101f3f6de"><td class="mdescLeft"> </td><td class="mdescRight">Returns true iff the current generalized map is orientable. <br /></td></tr>
+<tr class="separator:ab8d321c182b8cfc669c438b101f3f6de"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a89e3d7e21cb5a7b7303e92e655a68f6b"><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a89e3d7e21cb5a7b7303e92e655a68f6b">is_valid</a> () const</td></tr>
+<tr class="memdesc:a89e3d7e21cb5a7b7303e92e655a68f6b"><td class="mdescLeft"> </td><td class="mdescRight">Returns true iff the generalized map is valid.  <a href="#a89e3d7e21cb5a7b7303e92e655a68f6b">More...</a><br /></td></tr>
+<tr class="separator:a89e3d7e21cb5a7b7303e92e655a68f6b"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Modifiers</h2></td></tr>
+<tr class="memitem:a6197c4b336eb5d16432ece30eccf95e4"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:a6197c4b336eb5d16432ece30eccf95e4"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a6197c4b336eb5d16432ece30eccf95e4">link_alpha</a> (Dart_handle dh1, Dart_handle dh2)</td></tr>
+<tr class="memdesc:a6197c4b336eb5d16432ece30eccf95e4"><td class="mdescLeft"> </td><td class="mdescRight">Links <code>*dh1</code> and <code>*dh2</code> by \( \alpha_i\).  <a href="#a6197c4b336eb5d16432ece30eccf95e4">More...</a><br /></td></tr>
+<tr class="separator:a6197c4b336eb5d16432ece30eccf95e4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a606ad087f9795771924794422bdae1bb"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:a606ad087f9795771924794422bdae1bb"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a606ad087f9795771924794422bdae1bb">unlink_alpha</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:a606ad087f9795771924794422bdae1bb"><td class="mdescLeft"> </td><td class="mdescRight">Unlinks <code>*dh</code> and \( \alpha_i\)(<code>*dh</code>) by \( \alpha_i\).  <a href="#a606ad087f9795771924794422bdae1bb">More...</a><br /></td></tr>
+<tr class="separator:a606ad087f9795771924794422bdae1bb"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr class="memitem:a149d20ef211f5c855ca8a024cffe4f41"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:a149d20ef211f5c855ca8a024cffe4f41"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a149d20ef211f5c855ca8a024cffe4f41">is_sewable</a> (Dart_const_handle dh1, Dart_const_handle dh2) const</td></tr>
+<tr class="memdesc:a149d20ef211f5c855ca8a024cffe4f41"><td class="mdescLeft"> </td><td class="mdescRight">Returns true iff <code>*dh1</code> can be <em>i</em>-sewn with <code>*dh2</code> by keeping the generic map valid.  <a href="#a149d20ef211f5c855ca8a024cffe4f41">More...</a><br /></td></tr>
+<tr class="separator:a149d20ef211f5c855ca8a024cffe4f41"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab521d38908d046c0883d324fb29ef670"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:ab521d38908d046c0883d324fb29ef670"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#ab521d38908d046c0883d324fb29ef670">sew</a> (Dart_handle dh1, Dart_handle dh2)</td></tr>
+<tr class="memdesc:ab521d38908d046c0883d324fb29ef670"><td class="mdescLeft"> </td><td class="mdescRight"><em>i</em>-sew darts <code>*dh1</code> and <code>*dh2</code>, by keeping the generic map valid.  <a href="#ab521d38908d046c0883d324fb29ef670">More...</a><br /></td></tr>
+<tr class="separator:ab521d38908d046c0883d324fb29ef670"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5bf1efadce33d43e4eb2e32844084591"><td class="memTemplParams" colspan="2">template&lt;unsigned int i&gt; </td></tr>
+<tr class="memitem:a5bf1efadce33d43e4eb2e32844084591"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGeneralizedMap.html#a5bf1efadce33d43e4eb2e32844084591">unsew</a> (Dart_handle dh)</td></tr>
+<tr class="memdesc:a5bf1efadce33d43e4eb2e32844084591"><td class="mdescLeft"> </td><td class="mdescRight"><em>i</em>-unsew darts <code>*dh</code> and <code>*opposite&lt;i&gt;(*dh)</code>, by keeping the generic map valid.  <a href="#a5bf1efadce33d43e4eb2e32844084591">More...</a><br /></td></tr>
+<tr class="separator:a5bf1efadce33d43e4eb2e32844084591"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4920caebca0178bd59bae1fe8280dffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4920caebca0178bd59bae1fe8280dffb">◆ </a></span>alpha() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle GeneralizedMap::alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>j</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)). </p>
+<p>Overloads of this member function are defined that take from one to nine integer as arguments. For each function, alphas are applied in the same order as their indices are given as parameters.</p>
+<p>For example <code>alpha(dh,1)</code>= \( \alpha_1\)(<code>*dh</code>), and <code>alpha(dh,1,2,3,0)</code>= \( \alpha_0\)( \( \alpha_3\)( \( \alpha_2\)( \( \alpha_1\)(<code>*dh</code>)))). </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, 0 \( \leq \) <em>j</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>. </dd></dl>
+
+</div>
+</div>
+<a id="ad1af2f8c7648ae028be1c769de10bb18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1af2f8c7648ae028be1c769de10bb18">◆ </a></span>alpha() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_const_handle GeneralizedMap::alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_const_handle </td>
+          <td class="paramname"><em>dh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>
+          <td class="paramname"><em>j</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)). </p>
+<p>Overloads of this member function are defined that take from one to nine integer as arguments. </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, 0 \( \leq \) <em>j</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>. </dd></dl>
+
+</div>
+</div>
+<a id="a25fc38ab3f3edd25974e4ad2664d10c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25fc38ab3f3edd25974e4ad2664d10c0">◆ </a></span>alpha() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int i, int j&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_handle GeneralizedMap::alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)). </p>
+<p>Overloads of this member function are defined that take from one to nine integer as template arguments. For each function, alphas are applied in the same order as their indices are given as template arguments.</p>
+<p>For example <code>alpha&lt;1&gt;(dh)</code>= \( \alpha_1\)(<code>*dh</code>), and <code>alpha&lt;1,2,3,0&gt;(dh)</code>= \( \alpha_0\)( \( \alpha_3\)( \( \alpha_2\)( \( \alpha_1\)(<code>*dh</code>)))). </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, 0 \( \leq \) <em>j</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>. </dd></dl>
+
+</div>
+</div>
+<a id="a7d4daecd629685adbdb86bcd7cf3dfc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d4daecd629685adbdb86bcd7cf3dfc7">◆ </a></span>alpha() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int i, int j&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Dart_const_handle GeneralizedMap::alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_const_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns \( \alpha_j\)( \( \alpha_i\)(<code>*dh</code>)). </p>
+<p>Overloads of this member function are defined that take from one to nine integer as template arguments. </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, 0 \( \leq \) <em>j</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> and <code>*dh</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>. </dd></dl>
+
+</div>
+</div>
+<a id="a149d20ef211f5c855ca8a024cffe4f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a149d20ef211f5c855ca8a024cffe4f41">◆ </a></span>is_sewable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GeneralizedMap::is_sewable </td>
+          <td>(</td>
+          <td class="paramtype">Dart_const_handle </td>
+          <td class="paramname"><em>dh1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dart_const_handle </td>
+          <td class="paramname"><em>dh2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true iff <code>*dh1</code> can be <em>i</em>-sewn with <code>*dh2</code> by keeping the generic map valid. </p>
+<p>This is true if there is a bijection <em>f</em> between all the darts of the orbit <em>D1</em>= \( \langle{}\) \( \alpha_0\), \( \ldots\), \( \alpha_{i-2}\), \( \alpha_{i+2}\), \( \ldots\), \( \alpha_d\) \( \rangle{}\)(<em>*dh1</em>) and <em>D2</em>= \( \langle{}\) \( \alpha_0\), \( \ldots\), \( \alpha_{i-2}\), \( \alpha_{i+2}\), \( \ldots\), \( \alpha_d\) \( \rangle{}\)(<em>*dh2</em>) satisfying:</p><ul>
+<li><em>f</em>(<em>*dh1</em>)=<em>*dh2</em>,</li>
+<li>\( \forall \) <em>e</em> \( \in\) <em>D1</em>, \( \forall \) <em>j</em> \( \in\) {1, \( \ldots\),<em>i</em>-2,<em>i</em>+2, \( \ldots\),<em>d</em>}, <em>f</em>( \( \alpha_j\)(<em>e</em>))= \( \alpha_j\)(<em>f</em>(<em>e</em>)).</li>
+</ul>
+<dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, <code>*dh1</code> \( \in \) <code>darts()</code>, and <code>*dh2</code> \( \in \) <code>darts()</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a89e3d7e21cb5a7b7303e92e655a68f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e3d7e21cb5a7b7303e92e655a68f6b">◆ </a></span>is_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GeneralizedMap::is_valid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true iff the generalized map is valid. </p>
+<p>A generalized map is valid (see Sections <a class="el" href="index.html#sec_definition_gmap">Mathematical Definitions</a> and <a class="el" href="index.html#ssecgenmapvalidity">Generalized Map Properties</a>) if for all its darts <code>d</code> \(\in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>:</p>
+<ul>
+<li>\( \forall \) <em>i</em>, 0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>: \( \alpha_i(\alpha_i(d))=d\);</li>
+<li>\( \forall \) <em>i</em>, \( \forall \) <em>j</em> such that 0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>-2 and <em>i</em>+2 \( \leq \) <em>j</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>: \( \alpha_j(\alpha_i(\alpha_j(\alpha_i(d))))=d\);</li>
+<li>\( \forall \) <em>i</em>, 0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a> such that <em>i</em>-attributes are non void:<ul>
+<li>\( \forall \) <em>d2</em> in the same <em>i</em>-cell than <em>d</em>: <em>d</em> and <em>d2</em> have the same <em>i</em>-attribute;</li>
+<li>\( \forall \) <em>d2</em> in a different <em>i</em>-cell than <em>d</em>: <em>d</em> and <em>d2</em> have different <em>i</em>-attributes. </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a6197c4b336eb5d16432ece30eccf95e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6197c4b336eb5d16432ece30eccf95e4">◆ </a></span>link_alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneralizedMap::link_alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Links <code>*dh1</code> and <code>*dh2</code> by \( \alpha_i\). </p>
+<p>The generalized map can be no longer valid after this operation. If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==true</code>, non void attributes of <code>*dh1</code> and <code>*dh2</code> are updated: if one dart has an attribute and the second dart not, the non null attribute is associated to the dart having a null attribute. If both darts have an attribute, the attribute of <code>*dh1</code> is associated to <code>*dh2</code>. </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, <code>*dh1</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>, <code>*dh2</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a> and (<em>i</em> \( &lt;\) 2 or <code>dh1</code> \( \neq\)<code>dh2</code>). </dd></dl>
+
+</div>
+</div>
+<a id="ab521d38908d046c0883d324fb29ef670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab521d38908d046c0883d324fb29ef670">◆ </a></span>sew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneralizedMap::sew </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh2</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em>i</em>-sew darts <code>*dh1</code> and <code>*dh2</code>, by keeping the generic map valid. </p>
+<p>Links by \( \alpha_i\) two by two all the darts of the orbit <em>D1</em>= \( \langle{}\) \( \alpha_0\), \( \ldots\), \( \alpha_{i-2}\), \( \alpha_{i+2}\), \( \ldots\), \( \alpha_d\) \( \rangle{}\)(<code>*dh1</code>) and <em>D2</em>= \( \langle{}\) \( \alpha_0\), \( \alpha_2\), \( \ldots\), \( \alpha_{i-2}\), \( \alpha_{i+2}\), \( \ldots\), \( \alpha_d\) \( \rangle{}\)(<code>*dh2</code>) such that <em>d2</em>=<em>f</em>(<em>d1</em>), where <em>f</em> is the bijection between <em>D1</em> and <em>D2</em> satisfying: <em>f</em>(<em>*dh1</em>)=<em>*dh2</em>, and for all <em>e</em> \( \in\) <em>D1</em>, for all <em>j</em> \( \in\) {1, \( \ldots\),<em>i</em>-2,<em>i</em>+2, \( \ldots\),<em>d</em>}, <em>f</em>( \( \alpha_j\)(<em>e</em>))= \( \alpha_j\)(<em>f</em>(<em>e</em>)).</p>
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==true</code>, when necessary, non void attributes are updated to ensure the validity of the generic map: for each <em>j</em>-cells <em>c1</em> and <em>c2</em> which are merged into one <em>j</em>-cell during the sew, the two associated attributes <em>attr1</em> and <em>attr2</em> are considered. If one attribute is NULL and the other not, the non NULL attribute is associated to all the darts of the resulting cell. When the two attributes are non NULL, functor <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classCellAttribute.html#a31081515f9da08876797a998f7199b27"><code>Attribute_type&lt;i&gt;::type::On_merge</code></a> is called on the two attributes <em>attr1</em> and <em>attr2</em>. If set, the dynamic onmerge function of <em>i</em>-attributes is also called on <em>attr1</em> and <em>attr2</em>. Then, the attribute <em>attr1</em> is associated to all darts of the resulting <em>j</em>-cell. Finally, attribute <em>attr2</em> is removed from the generic map. </p><dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="classGeneralizedMap.html#a149d20ef211f5c855ca8a024cffe4f41"><code>is_sewable&lt;i&gt;(dh1,dh2)</code></a>.</dd></dl>
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==false</code>, non void attributes are not updated; thus the generic map can be no more valid after this operation.  </p></div>  
+
+</div>
+</div>
+<a id="a606ad087f9795771924794422bdae1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a606ad087f9795771924794422bdae1bb">◆ </a></span>unlink_alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneralizedMap::unlink_alpha </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unlinks <code>*dh</code> and \( \alpha_i\)(<code>*dh</code>) by \( \alpha_i\). </p>
+<p>The generalized map can be no longer valid after this operation. Attributes of <code>*dh</code> and \( \alpha_i\)(<code>*dh</code>) are not modified. </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, <code>*dh</code> \( \in\) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#aebcaaf5b48b571d26a77c74c5583bc1c"><code>darts()</code></a>, and <code>*dh</code> is not <em>i</em>-free. </dd></dl>
+
+</div>
+</div>
+<a id="a5bf1efadce33d43e4eb2e32844084591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf1efadce33d43e4eb2e32844084591">◆ </a></span>unsew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneralizedMap::unsew </td>
+          <td>(</td>
+          <td class="paramtype">Dart_handle </td>
+          <td class="paramname"><em>dh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em>i</em>-unsew darts <code>*dh</code> and <code>*opposite&lt;i&gt;(*dh)</code>, by keeping the generic map valid. </p>
+<p>Unlinks by \( \alpha_i\) all the darts in the orbit \( \langle{}\) \( \alpha_0\), \( \ldots\), \( \alpha_{i-2}\), \( \alpha_{i+2}\), \( \ldots\), \( \alpha_d\) \( \rangle{}\)(<code>*dh</code>).</p>
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==true</code>, when necessary, non void attributes are updated to ensure the validity of the generic map: for each <em>j</em>-cell <em>c</em> split in two <em>j</em>-cells <em>c1</em> and <em>c2</em> by the operation, if <em>c</em> is associated to a <em>j</em>-attribute <em>attr1</em>, then this attribute is duplicated into <em>attr2</em>, and all the darts belonging to <em>c2</em> are associated with this new attribute. Finally, the functor <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classCellAttribute.html#a3b4b722747fa2e6f52331bf92ea4f92f"><code>Attribute_type&lt;i&gt;::type::On_split</code></a> is called on the two attributes <em>attr1</em> and <em>attr2</em>. If set, the dynamic onsplit function of <em>i</em>-attributes is also called on <em>attr1</em> and <em>attr2</em>. </p><dl class="section pre"><dt>Precondition</dt><dd>0 \( \leq \) <em>i</em> \( \leq \) <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a3480ee52e53430cd773cbc941d7ad9e8"><code>dimension</code></a>, <code>*dh</code> \( \in \) <code>darts()</code> and <code>*dh</code> is not <em>i</em>-free.</dd></dl>
+<p> </p><div class="CGALAdvanced"> <div>Advanced</div> 
+<p>If <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Combinatorial_map.tag:../Combinatorial_map/" href="../Combinatorial_map/classGenericMap.html#a27cd04b3ad17a37f09b390a3f2232ee5"><code>are_attributes_automatically_managed()</code></a><code>==false</code>, non void attributes are not updated thus the generic map can be no more valid after this operation.  </p></div>  
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classGeneralizedMap.html">GeneralizedMap</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:47 for CGAL  - Generalized Maps by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

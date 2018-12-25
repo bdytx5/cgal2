@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Boolean_set_operations_2/group__boolean__join.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Regularized Boolean Set-Operations: Union Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Regularized Boolean Set-Operations
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__boolean__join.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Union Functions<div class="ingroups"><a class="el" href="group__PkgBooleanSetOperations2.html">2D Regularized Boolean Set-Operations Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p><a class="anchor" id="ref_bso_union"></a> Each one of these functions computes the union of two given polygons <code>p1</code> and <code>p2</code>. If the two given polygons overlap, it returns <code>true</code>, and places the resulting polygon in <code>p</code>. Otherwise, it returns <code>false</code>.</p>
+<p>The signature of the function is </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code" href="group__boolean__join.html#gafca2f0759f989fe95d1c56b0428a0f16">join</a>(<span class="keyword">const</span> Type1 &amp; p1, <span class="keyword">const</span> Type2 &amp; p2, General_polygon_with_holes_2 &amp; res);</div></div><!-- fragment --><p><b>Parameters</b><br />
+</p>
+<p>The types of the paramters of the <code><a class="el" href="group__boolean__join.html#gafca2f0759f989fe95d1c56b0428a0f16" title="writes the union of the polygons p1 and p2 into the polygon with holes res. ">join()</a></code> function are any of the following combinations.</p>
+<div align="left"> <table cellpadding="3" border="1">
+<tr>
+<th>Type1</th><th>Type2 </th></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></td><td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a></td><td valign="center">polygon_with_holes_2 </td></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></td><td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a></td><td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="el" href="classCGAL_1_1General__polygon__2.html" title="The class General_polygon_2 models the concept GeneralPolygon_2. ">General_polygon_2</a></td><td valign="center"><a class="el" href="classCGAL_1_1General__polygon__2.html" title="The class General_polygon_2 models the concept GeneralPolygon_2. ">General_polygon_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="el" href="classCGAL_1_1General__polygon__2.html" title="The class General_polygon_2 models the concept GeneralPolygon_2. ">General_polygon_2</a></td><td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a></td><td valign="center"><a class="el" href="classCGAL_1_1General__polygon__2.html" title="The class General_polygon_2 models the concept GeneralPolygon_2. ">General_polygon_2</a> </td></tr>
+<tr>
+<td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a></td><td valign="center"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a> </td></tr>
+</table>
+</div><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__boolean__do__intersect.html"><code>CGAL::do_intersect()</code> </a> </dd>
+<dd>
+<a class="el" href="group__boolean__intersection.html"><code>CGAL::intersection()</code> </a> </dd>
+<dd>
+<a class="el" href="group__boolean__difference.html"><code>CGAL::difference()</code> </a> </dd>
+<dd>
+<a class="el" href="group__boolean__symmetric__difference.html"><code>CGAL::symmetric_difference()</code> </a> </dd></dl>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gafca2f0759f989fe95d1c56b0428a0f16"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:gafca2f0759f989fe95d1c56b0428a0f16"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#gafca2f0759f989fe95d1c56b0428a0f16">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p1, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p2, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:gafca2f0759f989fe95d1c56b0428a0f16"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#gafca2f0759f989fe95d1c56b0428a0f16">More...</a><br /></td></tr>
+<tr class="separator:gafca2f0759f989fe95d1c56b0428a0f16"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga1df2eef5f7926f6442569e3dd3b05a4a"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:ga1df2eef5f7926f6442569e3dd3b05a4a"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga1df2eef5f7926f6442569e3dd3b05a4a">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p1, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p2, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:ga1df2eef5f7926f6442569e3dd3b05a4a"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#ga1df2eef5f7926f6442569e3dd3b05a4a">More...</a><br /></td></tr>
+<tr class="separator:ga1df2eef5f7926f6442569e3dd3b05a4a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3c14658a45d7879aa9a0a2084c808d9d"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:ga3c14658a45d7879aa9a0a2084c808d9d"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga3c14658a45d7879aa9a0a2084c808d9d">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p2, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p1, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:ga3c14658a45d7879aa9a0a2084c808d9d"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#ga3c14658a45d7879aa9a0a2084c808d9d">More...</a><br /></td></tr>
+<tr class="separator:ga3c14658a45d7879aa9a0a2084c808d9d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3eff8f310586a602661a185053c69b14"><td class="memTemplParams" colspan="2">template&lt;class Kernel , class Container &gt; </td></tr>
+<tr class="memitem:ga3eff8f310586a602661a185053c69b14"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga3eff8f310586a602661a185053c69b14">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p2, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp;p1, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:ga3eff8f310586a602661a185053c69b14"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#ga3eff8f310586a602661a185053c69b14">More...</a><br /></td></tr>
+<tr class="separator:ga3eff8f310586a602661a185053c69b14"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga5f19df4bae6e381a2bcf29c8caec0a1c"><td class="memTemplParams" colspan="2">template&lt;class Traits &gt; </td></tr>
+<tr class="memitem:ga5f19df4bae6e381a2bcf29c8caec0a1c"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga5f19df4bae6e381a2bcf29c8caec0a1c">CGAL::join</a> (const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp;p1, const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp;p2, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:ga5f19df4bae6e381a2bcf29c8caec0a1c"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#ga5f19df4bae6e381a2bcf29c8caec0a1c">More...</a><br /></td></tr>
+<tr class="separator:ga5f19df4bae6e381a2bcf29c8caec0a1c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gab86e56edb1af1a5ff1e0d2a7b87f16b9"><td class="memTemplParams" colspan="2">template&lt;class Traits &gt; </td></tr>
+<tr class="memitem:gab86e56edb1af1a5ff1e0d2a7b87f16b9"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#gab86e56edb1af1a5ff1e0d2a7b87f16b9">CGAL::join</a> (const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp;p1, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp;p2, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:gab86e56edb1af1a5ff1e0d2a7b87f16b9"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#gab86e56edb1af1a5ff1e0d2a7b87f16b9">More...</a><br /></td></tr>
+<tr class="separator:gab86e56edb1af1a5ff1e0d2a7b87f16b9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa1f10f0f76107975905e347c1b2c99ea"><td class="memTemplParams" colspan="2">template&lt;class Traits &gt; </td></tr>
+<tr class="memitem:gaa1f10f0f76107975905e347c1b2c99ea"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#gaa1f10f0f76107975905e347c1b2c99ea">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp;p2, const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp;p1, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp;res)</td></tr>
+<tr class="memdesc:gaa1f10f0f76107975905e347c1b2c99ea"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#gaa1f10f0f76107975905e347c1b2c99ea">More...</a><br /></td></tr>
+<tr class="separator:gaa1f10f0f76107975905e347c1b2c99ea"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga298a74e0f020a5f61166f10202aae6e9"><td class="memTemplParams" colspan="2">template&lt;class Polygon &gt; </td></tr>
+<tr class="memitem:ga298a74e0f020a5f61166f10202aae6e9"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga298a74e0f020a5f61166f10202aae6e9">CGAL::join</a> (const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; Polygon &gt; &amp;p1, const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; Polygon &gt; &amp;p2, Traits::Polygon_with_holes_2 &amp;res)</td></tr>
+<tr class="memdesc:ga298a74e0f020a5f61166f10202aae6e9"><td class="mdescLeft"> </td><td class="mdescRight">writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>.  <a href="group__boolean__join.html#ga298a74e0f020a5f61166f10202aae6e9">More...</a><br /></td></tr>
+<tr class="separator:ga298a74e0f020a5f61166f10202aae6e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gad52000fb393e22aefbe29eb2842af527"><td class="memTemplParams" colspan="2">template&lt;class InputIterator , class OutputIterator &gt; </td></tr>
+<tr class="memitem:gad52000fb393e22aefbe29eb2842af527"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#gad52000fb393e22aefbe29eb2842af527">CGAL::join</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> begin, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> end, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> oi)</td></tr>
+<tr class="memdesc:gad52000fb393e22aefbe29eb2842af527"><td class="mdescLeft"> </td><td class="mdescRight">computes the union of the general polygons (or general polygons with holes) in the given range.  <a href="group__boolean__join.html#gad52000fb393e22aefbe29eb2842af527">More...</a><br /></td></tr>
+<tr class="separator:gad52000fb393e22aefbe29eb2842af527"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga7a554f42a12babcd36da05fb70123d35"><td class="memTemplParams" colspan="2">template&lt;class InputIterator1 , class InputIterator2 , class OutputIterator &gt; </td></tr>
+<tr class="memitem:ga7a554f42a12babcd36da05fb70123d35"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__boolean__join.html#ga7a554f42a12babcd36da05fb70123d35">CGAL::join</a> (InputIterator1 pgn_begin1, InputIterator1 pgn_end1, InputIterator2 pgn_begin2, InputIterator2 pgn_end2, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> oi)</td></tr>
+<tr class="memdesc:ga7a554f42a12babcd36da05fb70123d35"><td class="mdescLeft"> </td><td class="mdescRight">computes the union of the general polygons and general polygons with holes in the given two ranges.  <a href="group__boolean__join.html#ga7a554f42a12babcd36da05fb70123d35">More...</a><br /></td></tr>
+<tr class="separator:ga7a554f42a12babcd36da05fb70123d35"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gafca2f0759f989fe95d1c56b0428a0f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafca2f0759f989fe95d1c56b0428a0f16">◆ </a></span>join() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Boolean_set_operations_2_2set_union_8cpp-example.html#a6">Boolean_set_operations_2/set_union.cpp</a>, and <a class="el" href="Boolean_set_operations_2_2simple_join_intersect_8cpp-example.html#a4">Boolean_set_operations_2/simple_join_intersect.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga1df2eef5f7926f6442569e3dd3b05a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1df2eef5f7926f6442569e3dd3b05a4a">◆ </a></span>join() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="ga3c14658a45d7879aa9a0a2084c808d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3c14658a45d7879aa9a0a2084c808d9d">◆ </a></span>join() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="ga3eff8f310586a602661a185053c69b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3eff8f310586a602661a185053c69b14">◆ </a></span>join() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__with__holes__2.html">Polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1Polygon__2.html">Polygon_2</a>&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>, Container &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="ga5f19df4bae6e381a2bcf29c8caec0a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f19df4bae6e381a2bcf29c8caec0a1c">◆ </a></span>join() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="gab86e56edb1af1a5ff1e0d2a7b87f16b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab86e56edb1af1a5ff1e0d2a7b87f16b9">◆ </a></span>join() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="gaa1f10f0f76107975905e347c1b2c99ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa1f10f0f76107975905e347c1b2c99ea">◆ </a></span>join() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; <a class="el" href="classCGAL_1_1General__polygon__2.html">General_polygon_2</a>&lt; Traits &gt; &gt; &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="ga298a74e0f020a5f61166f10202aae6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga298a74e0f020a5f61166f10202aae6e9">◆ </a></span>join() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Polygon &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; Polygon &gt; &amp; </td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polygon.tag:../Polygon/" href="../Polygon/classCGAL_1_1General__polygon__with__holes__2.html">General_polygon_with_holes_2</a>&lt; Polygon &gt; &amp; </td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Traits::Polygon_with_holes_2 &amp; </td>
+          <td class="paramname"><em>res</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>writes the union of the general polygons <code>p1</code> and <code>p2</code> into the polygon with holes <code>res</code>. </p>
+<p>Returns <code>true</code> if the two given polygons overlap. </p>
+
+</div>
+</div>
+<a id="gad52000fb393e22aefbe29eb2842af527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad52000fb393e22aefbe29eb2842af527">◆ </a></span>join() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class InputIterator , class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>oi</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>computes the union of the general polygons (or general polygons with holes) in the given range. </p>
+<p>(The value type of the input iterator is used to distinguish between the two.) The result, represented by a set of general polygon with holes, is written into the output iterator <code>oi</code>. The output iterator is returned. The value type of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> is <code>Traits::Polygon_with_holes_2</code>. </p>
+
+</div>
+</div>
+<a id="ga7a554f42a12babcd36da05fb70123d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a554f42a12babcd36da05fb70123d35">◆ </a></span>join() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class InputIterator1 , class InputIterator2 , class OutputIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::join </td>
+          <td>(</td>
+          <td class="paramtype">InputIterator1 </td>
+          <td class="paramname"><em>pgn_begin1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InputIterator1 </td>
+          <td class="paramname"><em>pgn_end1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InputIterator2 </td>
+          <td class="paramname"><em>pgn_begin2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InputIterator2 </td>
+          <td class="paramname"><em>pgn_end2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>oi</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Boolean_set_operations_2.h&gt;</code></p>
+
+<p>computes the union of the general polygons and general polygons with holes in the given two ranges. </p>
+<p>The result, represented by a set of general polygon with holes, is written into the output iterator <code>oi</code>. The output iterator is returned. The value type of the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> is <code>Traits::Polygon_with_holes_2</code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:50 for CGAL 4.13 - 2D Regularized Boolean Set-Operations by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

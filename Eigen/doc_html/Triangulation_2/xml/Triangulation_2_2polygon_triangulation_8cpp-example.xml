@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Triangulation_2_2polygon_triangulation_8cpp-example" kind="example">
+    <compoundname>Triangulation_2/polygon_triangulation.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Constrained_Delaunay_triangulation_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Triangulation_face_base_with_info_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polygon_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">FaceInfo2</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FaceInfo2(){}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nesting_level;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>in_domain(){<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nesting_level%2<sp/>==<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CGAL::Exact_predicates_inexact_constructions_kernel<sp/><sp/><sp/><sp/><sp/><sp/><sp/>K;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Triangulation__vertex__base__2" kindref="compound">CGAL::Triangulation_vertex_base_2&lt;K&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vb;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Triangulation__face__base__with__info__2" kindref="compound">CGAL::Triangulation_face_base_with_info_2&lt;FaceInfo2,K&gt;</ref><sp/><sp/><sp/><sp/>Fbb;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Constrained__triangulation__face__base__2" kindref="compound">CGAL::Constrained_triangulation_face_base_2&lt;K,Fbb&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Fb;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Triangulation__data__structure__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/TDS_2.tag">CGAL::Triangulation_data_structure_2&lt;Vb,Fb&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TDS;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Exact__predicates__tag" kindref="compound">CGAL::Exact_predicates_tag</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Itag;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Constrained__Delaunay__triangulation__2" kindref="compound">CGAL::Constrained_Delaunay_triangulation_2&lt;K, TDS, Itag&gt;</ref><sp/><sp/>CDT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CDT::Point<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2&lt;K&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Polygon_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">mark_domains(CDT&amp;<sp/>ct,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CDT::Face_handle<sp/>start,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::list&lt;CDT::Edge&gt;&amp;<sp/>border<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(start-&gt;info().nesting_level<sp/>!=<sp/>-1){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::list&lt;CDT::Face_handle&gt;<sp/>queue;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>queue.push_back(start);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!<sp/>queue.empty()){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CDT::Face_handle<sp/>fh<sp/>=<sp/>queue.front();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>queue.pop_front();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fh-&gt;info().nesting_level<sp/>==<sp/>-1){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fh-&gt;info().nesting_level<sp/>=<sp/>index;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CDT::Edge<sp/>e(fh,i);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CDT::Face_handle<sp/>n<sp/>=<sp/>fh-&gt;neighbor(i);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n-&gt;info().nesting_level<sp/>==<sp/>-1){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ct.is_constrained(e))<sp/>border.push_back(e);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>queue.push_back(n);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//explore<sp/>set<sp/>of<sp/>facets<sp/>connected<sp/>with<sp/>non<sp/>constrained<sp/>edges,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//and<sp/>attribute<sp/>to<sp/>each<sp/>such<sp/>set<sp/>a<sp/>nesting<sp/>level.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//We<sp/>start<sp/>from<sp/>facets<sp/>incident<sp/>to<sp/>the<sp/>infinite<sp/>vertex,<sp/>with<sp/>a<sp/>nesting</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//level<sp/>of<sp/>0.<sp/>Then<sp/>we<sp/>recursively<sp/>consider<sp/>the<sp/>non-explored<sp/>facets<sp/>incident<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//to<sp/>constrained<sp/>edges<sp/>bounding<sp/>the<sp/>former<sp/>set<sp/>and<sp/>increase<sp/>the<sp/>nesting<sp/>level<sp/>by<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//Facets<sp/>in<sp/>the<sp/>domain<sp/>are<sp/>those<sp/>with<sp/>an<sp/>odd<sp/>nesting<sp/>level.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">mark_domains(CDT&amp;<sp/>cdt)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(CDT::All_faces_iterator<sp/>it<sp/>=<sp/>cdt.all_faces_begin();<sp/>it<sp/>!=<sp/>cdt.all_faces_end();<sp/>++it){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>it-&gt;info().nesting_level<sp/>=<sp/>-1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::list&lt;CDT::Edge&gt;<sp/>border;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>mark_domains(cdt,<sp/>cdt.infinite_face(),<sp/>0,<sp/>border);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!<sp/>border.empty()){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CDT::Edge<sp/>e<sp/>=<sp/>border.front();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>border.pop_front();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CDT::Face_handle<sp/>n<sp/>=<sp/>e.first-&gt;neighbor(e.second);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(n-&gt;info().nesting_level<sp/>==<sp/>-1){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mark_domains(cdt,<sp/>n,<sp/>e.first-&gt;info().nesting_level+1,<sp/>border);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//construct<sp/>two<sp/>non-intersecting<sp/>nested<sp/>polygons<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polygon_2<sp/>polygon1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon1.push_back(Point(0,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon1.push_back(Point(2,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon1.push_back(Point(2,2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon1.push_back(Point(0,2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Polygon_2<sp/>polygon2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon2.push_back(Point(0.5,0.5));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon2.push_back(Point(1.5,0.5));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon2.push_back(Point(1.5,1.5));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>polygon2.push_back(Point(0.5,1.5));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Insert<sp/>the<sp/>polygons<sp/>into<sp/>a<sp/>constrained<sp/>triangulation</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CDT<sp/>cdt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cdt.insert_constraint(polygon1.vertices_begin(),<sp/>polygon1.vertices_end(),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cdt.insert_constraint(polygon2.vertices_begin(),<sp/>polygon2.vertices_end(),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Mark<sp/>facets<sp/>that<sp/>are<sp/>inside<sp/>the<sp/>domain<sp/>bounded<sp/>by<sp/>the<sp/>polygon</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>mark_domains(cdt);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count=0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(CDT::Finite_faces_iterator<sp/>fit=cdt.finite_faces_begin();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fit!=cdt.finite_faces_end();++fit)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fit-&gt;info().in_domain()<sp/>)<sp/>++count;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;There<sp/>are<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>count<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>facets<sp/>in<sp/>the<sp/>domain.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

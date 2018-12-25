@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2overlay_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/overlay.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>A<sp/>simple<sp/>overlay<sp/>of<sp/>two<sp/>arrangements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Cartesian.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exact__rational_8h" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL/Exact_rational.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_segment_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_overlay_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_default_overlay_traits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Cartesian" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Cartesian&lt;CGAL::Exact_rational&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound">CGAL::Arr_segment_traits_2&lt;Kernel&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::X_monotone_curve_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Segment_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__default__overlay__traits" kindref="compound">CGAL::Arr_default_overlay_traits&lt;Arrangement_2&gt;</ref><sp/><sp/>Overlay_traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Construct<sp/>the<sp/>first<sp/>arrangement,<sp/>containing<sp/>a<sp/>square-shaped<sp/>face.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arr1;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>s1<sp/>(Point_2(2,<sp/>2),<sp/>Point_2(6,<sp/>2));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>s2<sp/>(Point_2(6,<sp/>2),<sp/>Point_2(6,<sp/>6));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>s3<sp/>(Point_2(6,<sp/>6),<sp/>Point_2(2,<sp/>6));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>s4<sp/>(Point_2(2,<sp/>6),<sp/>Point_2(2,<sp/>2));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr1,<sp/>s1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr1,<sp/>s2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr1,<sp/>s3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr1,<sp/>s4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Construct<sp/>the<sp/>second<sp/>arrangement,<sp/>containing<sp/>a<sp/>rhombus-shaped<sp/>face.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arr2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>t1<sp/>(Point_2(4,<sp/>1),<sp/>Point_2(7,<sp/>4));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>t2<sp/>(Point_2(7,<sp/>4),<sp/>Point_2(4,<sp/>7));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>t3<sp/>(Point_2(4,<sp/>7),<sp/>Point_2(1,<sp/>4));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/>t4<sp/>(Point_2(1,<sp/>4),<sp/>Point_2(4,<sp/>1));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr2,<sp/>t1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr2,<sp/>t2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr2,<sp/>t3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1gad453feb3ff2f60a9741bf9d2917bf225" kindref="member">insert_non_intersecting_curve</ref><sp/>(arr2,<sp/>t4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>overlay<sp/>of<sp/>the<sp/>two<sp/>arrangements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overlay_arr;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Overlay_traits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overlay_traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgArrangement2Funcs_1ga339cdba93f54001be303595689002396" kindref="member">overlay</ref><sp/>(arr1,<sp/>arr2,<sp/>overlay_arr,<sp/>overlay_traits);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>the<sp/>size<sp/>of<sp/>the<sp/>overlaid<sp/>arrangement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>overlaid<sp/>arrangement<sp/>size:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>V<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>overlay_arr.number_of_vertices()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/><sp/>E<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>overlay_arr.number_of_edges()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/><sp/>F<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>overlay_arr.number_of_faces()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

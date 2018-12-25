@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgPointSetProcessingIO" kind="group">
+    <compoundname>PkgPointSetProcessingIO</compoundname>
+    <title>IO (XYZ/OFF Formats)</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgPointSetProcessingIO_1ga1d0f58874ed1ddb2b00721f15ba362a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OutputIteratorValueType</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::read_off_points</definition>
+        <argsstring>(std::istream &amp;stream, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>read_off_points</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Reads points (positions + normals, if available) from a .off ASCII stream. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function expects for each point a line with the x y z position, optionally followed by the nx ny nz normal. Faces are ignored.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OutputIteratorValueType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of objects that can be put in <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput>. It is default to <computeroutput><ref refid="structCGAL_1_1value__type__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">value_type_traits</ref>&lt;<ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref>&gt;::type</computeroutput> and can be omitted when the default is fine. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over output points.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over points. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. If this parameter is omitted, normals in the input stream are ignored. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true on success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/read_off_points.h" line="79" column="1" bodyfile="CGAL/IO/read_off_points.h" bodystart="79" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingIO_1ga63d1f8f5933d843d8a179a1be4b0dd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::write_xyz_points</definition>
+        <argsstring>(std::ostream &amp;stream, const PointRange &amp;points, const NamedParameters &amp;np)</argsstring>
+        <name>write_xyz_points</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Saves the range of <computeroutput>points</computeroutput> (positions + normals, if available) to a .xyz ASCII stream. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function writes for each point a line with the x y z position followed by the nx ny nz normal (if available).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. If this parameter is omitted, normals are not written to the output stream. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true on success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/write_xyz_points.h" line="69" column="1" bodyfile="CGAL/IO/write_xyz_points.h" bodystart="69" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingIO_1ga5d99add98e7411c7d5bd27562d48603f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointRange</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::write_off_points</definition>
+        <argsstring>(std::ostream &amp;stream, const PointRange &amp;points, const NamedParameters &amp;np)</argsstring>
+        <name>write_off_points</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Saves the range of <computeroutput>points</computeroutput> (positions + normals, if available) to a .off ASCII stream. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function writes for each point a line with the x y z position followed by the nx ny nz normal (if available).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classConstRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">ConstRange</ref></computeroutput>. The value type of its iterator is the key type of the named parameter <computeroutput>point_map</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input point range. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. If this parameter is omitted, normals are not written to the output stream. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true on success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/write_off_points.h" line="66" column="1" bodyfile="CGAL/IO/write_off_points.h" bodystart="66" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OutputIteratorValueType</type>
+          </param>
+          <param>
+            <type>typename <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::read_xyz_points</definition>
+        <argsstring>(std::istream &amp;stream, OutputIterator output, const NamedParameters &amp;np)</argsstring>
+        <name>read_xyz_points</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>Reads points (positions + normals, if available) from a .xyz ASCII stream. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function expects for each point a line with the x y z position, optionally followed by the nx ny nz normal. The first line may contain the number of points in the file. Empty lines and comments starting by # character are allowed.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OutputIteratorValueType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of objects that can be put in <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput>. It is default to <computeroutput><ref refid="structCGAL_1_1value__type__traits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">value_type_traits</ref>&lt;<ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref>&gt;::type</computeroutput> and can be omitted when the default is fine. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over output points.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator over points. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__psp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="3" cols="2"><row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_point_map" kindref="member">point_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classWritablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">WritablePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Point_3</computeroutput>. If this parameter is omitted, <computeroutput><ref refid="structCGAL_1_1Identity__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Identity_property_map</ref>&lt;geom_traits::Point_3&gt;</computeroutput> is used. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_normal_map" kindref="member">normal_map</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with value type <computeroutput>geom_traits::Vector_3</computeroutput>. If this parameter is omitted, normals in the input stream are ignored. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__psp__namedparameters_1PSP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>true on success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/read_xyz_points.h" line="78" column="1" bodyfile="CGAL/IO/read_xyz_points.h" bodystart="78" bodyend="182"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Read and write points (with or without normal vectors) in XYZ and OFF formats. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

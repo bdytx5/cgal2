@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Barycentric_coordinates_2/Barycentric_coordinates_2_2Mean_value_coordinates_example_8cpp-example.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Generalized Barycentric Coordinates: Barycentric_coordinates_2/Mean_value_coordinates_example.cpp</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Generalized Barycentric Coordinates
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Barycentric_coordinates_2_2Mean_value_coordinates_example_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Barycentric_coordinates_2/Mean_value_coordinates_example.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;CGAL/Barycentric_coordinates_2/Mean_value_2.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Barycentric_coordinates_2/Generalized_barycentric_coordinates_2.h&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// Some convenient typedefs.</span></div><div class="line"><span class="keyword">typedef</span> <a name="_a0" id="_a0"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Exact__predicates__inexact__constructions__kernel.html">CGAL::Exact_predicates_inexact_constructions_kernel</a> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <a name="_a1" id="_a1"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Kernel::FT</a>      Scalar;</div><div class="line"><span class="keyword">typedef</span> <a name="_a2" id="_a2"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__2.html">Kernel::Point_2</a> Point;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> std::vector&lt;Scalar&gt; Scalar_vector;</div><div class="line"><span class="keyword">typedef</span> std::vector&lt;Point&gt;  Point_vector;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> std::back_insert_iterator&lt;Scalar_vector&gt; Vector_insert_iterator;</div><div class="line"><span class="keyword">typedef</span> boost::optional&lt;Vector_insert_iterator&gt; Output_type;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <a name="_a3" id="_a3"></a><a class="code" href="classCGAL_1_1Barycentric__coordinates_1_1Mean__value__2.html">CGAL::Barycentric_coordinates::Mean_value_2&lt;Kernel&gt;</a> Mean_value;</div><div class="line"><span class="keyword">typedef</span> <a name="_a4" id="_a4"></a><a class="code" href="classCGAL_1_1Barycentric__coordinates_1_1Generalized__barycentric__coordinates__2.html">CGAL::Barycentric_coordinates::Generalized_barycentric_coordinates_2&lt;Mean_value, Kernel&gt;</a> Mean_value_coordinates;</div><div class="line"></div><div class="line"><span class="keyword">using</span> std::cout; <span class="keyword">using</span> std::endl; <span class="keyword">using</span> std::string;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main()</div><div class="line">{    </div><div class="line">    <span class="comment">// Construct a star-shaped polygon.</span></div><div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_vertices = 10;</div><div class="line">    Point_vector vertices(number_of_vertices);</div><div class="line">    </div><div class="line">    vertices[0] = Point(0.0, 0.0); vertices[1] = Point(0.1, -0.8); vertices[2] = Point(0.3, 0.0); vertices[3] = Point(0.6, -0.5); vertices[4]  = Point(0.6 , 0.1);</div><div class="line">    vertices[5] = Point(1.1, 0.6); vertices[6] = Point(0.3,  0.2); vertices[7] = Point(0.1, 0.8); vertices[8] = Point(0.1,  0.2); vertices[9] = Point(-0.7, 0.0);</div><div class="line"></div><div class="line">    <span class="comment">// Create an std::vector to store coordinates.</span></div><div class="line">    Scalar_vector coordinates;</div><div class="line"></div><div class="line">    <span class="comment">// Instantiate the class with mean value coordinates for the polygon defined above.</span></div><div class="line">    Mean_value_coordinates mean_value_coordinates(vertices.begin(), vertices.end());</div><div class="line"></div><div class="line">    <span class="comment">// Print some information about the polygon and coordinates.</span></div><div class="line">    mean_value_coordinates.print_information();</div><div class="line"></div><div class="line">    <span class="comment">// Instantiate some interior points in the polygon.</span></div><div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_interior_points = 8;</div><div class="line">    <span class="keyword">const</span> Point interior_points[] = { Point(0.12, -0.45), Point(0.55, -0.3), Point(0.9 , 0.45),</div><div class="line">                                      Point(0.15,  0.35), Point(-0.4, 0.04), Point(0.11, 0.11),</div><div class="line">                                      Point(0.28,  0.12), <span class="comment">// the only point in the kernel of the star shaped polygon</span></div><div class="line">                                      Point(0.55,  0.11)</div><div class="line">                                    };</div><div class="line"></div><div class="line">    <span class="comment">// Compute mean value coordinates for all the defined interior points.</span></div><div class="line"></div><div class="line">    <span class="comment">// We speed up the computation using the O(n) algorithm called with the parameter CGAL::Barycentric_coordinates::FAST.</span></div><div class="line">    <span class="comment">// The default one is CGAL::Barycentric_coordinates::PRECISE.</span></div><div class="line">    <span class="keyword">const</span> <a class="code" href="namespaceCGAL_1_1Barycentric__coordinates.html#a5e5682512438422f23d6080edc49c05b">CGAL::Barycentric_coordinates::Type_of_algorithm</a> type_of_algorithm = <a name="a5" id="a5"></a><a class="code" href="namespaceCGAL_1_1Barycentric__coordinates.html#a5e5682512438422f23d6080edc49c05baa29350a20af70a27cca8f0715055118f">CGAL::Barycentric_coordinates::FAST</a>;</div><div class="line"></div><div class="line">    <span class="comment">// We also speed up the computation by using the parameter query_point_location = CGAL::Barycentric_coordinates::ON_BOUNDED_SIDE.</span></div><div class="line">    <span class="keyword">const</span> <a class="code" href="namespaceCGAL_1_1Barycentric__coordinates.html#aedeeb072a2024053a016afd15e591331">CGAL::Barycentric_coordinates::Query_point_location</a> query_point_location = <a name="a6" id="a6"></a><a class="code" href="namespaceCGAL_1_1Barycentric__coordinates.html#aedeeb072a2024053a016afd15e591331ae39bd08a2cdcb80b675b80d816742e6c">CGAL::Barycentric_coordinates::ON_BOUNDED_SIDE</a>;</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; number_of_interior_points; ++i) {</div><div class="line">        <span class="keyword">const</span> Output_type result = mean_value_coordinates(interior_points[i], std::back_inserter(coordinates), query_point_location, type_of_algorithm);</div><div class="line"></div><div class="line">        <span class="comment">// Output the coordinates for each point.</span></div><div class="line">        <span class="keyword">const</span> <span class="keywordtype">string</span> status = (result ? <span class="stringliteral">"SUCCESS."</span> : <span class="stringliteral">"FAILURE."</span>);</div><div class="line">        cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">"For the point "</span> &lt;&lt; i + 1 &lt;&lt; <span class="stringliteral">" status of the computation: "</span> &lt;&lt; status &lt;&lt; endl;</div><div class="line"></div><div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; number_of_vertices; ++j)</div><div class="line">            cout &lt;&lt; <span class="stringliteral">"Coordinate "</span> &lt;&lt; j + 1 &lt;&lt; <span class="stringliteral">" = "</span> &lt;&lt; coordinates[i * number_of_vertices + j] &lt;&lt; endl;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// If we need only the unnormalized weights for some point (lets take the last one), we can compute them as follows.</span></div><div class="line"></div><div class="line">    <span class="comment">// Instantiate an std::vector to store weights.</span></div><div class="line">    Scalar_vector weights;</div><div class="line"></div><div class="line">    <span class="comment">// Compute mean value weights.</span></div><div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> last_point_index = number_of_interior_points - 1;</div><div class="line">    <span class="keyword">const</span> Output_type result = mean_value_coordinates.compute_weights(interior_points[last_point_index], std::back_inserter(weights));</div><div class="line"></div><div class="line">    <span class="comment">// Compute their sum.</span></div><div class="line">    Scalar mv_denominator = Scalar(0);</div><div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; number_of_vertices; ++j) mv_denominator += weights[j];</div><div class="line"></div><div class="line">    <span class="comment">// Invert this sum.</span></div><div class="line">    <span class="keyword">const</span> Scalar mv_inverted_denominator = Scalar(1) / mv_denominator;</div><div class="line"></div><div class="line">    <span class="comment">// Output the mean value weights.</span></div><div class="line">    <span class="keyword">const</span> <span class="keywordtype">string</span> status = (result ? <span class="stringliteral">"SUCCESS."</span> : <span class="stringliteral">"FAILURE."</span>);</div><div class="line">    cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">"Status of the weights' computation for the point "</span> &lt;&lt; last_point_index + 1 &lt;&lt; <span class="stringliteral">": "</span> &lt;&lt; status &lt;&lt; endl;</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; number_of_vertices; ++j)</div><div class="line">        cout &lt;&lt; <span class="stringliteral">"Weight "</span> &lt;&lt; j + 1 &lt;&lt; <span class="stringliteral">" = "</span> &lt;&lt; weights[j] &lt;&lt; endl;</div><div class="line"></div><div class="line">    <span class="comment">// Now, if we normalize the weights, we recover values of the mean value coordinates for the last point computed earlier.</span></div><div class="line">    cout &lt;&lt; endl &lt;&lt; <span class="stringliteral">"After normalization, for the point "</span> &lt;&lt; last_point_index + 1 &lt;&lt; <span class="stringliteral">" mean value coordinates are "</span> &lt;&lt; endl;</div><div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; number_of_vertices; ++j)</div><div class="line">        cout &lt;&lt; <span class="stringliteral">"Coordinate "</span> &lt;&lt; j + 1 &lt;&lt; <span class="stringliteral">" = "</span> &lt;&lt; weights[j] * mv_inverted_denominator &lt;&lt; endl;</div><div class="line">    cout &lt;&lt; endl;</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div><div class="line">}</div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:54 for CGAL 4.13 - 2D Generalized Barycentric Coordinates by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

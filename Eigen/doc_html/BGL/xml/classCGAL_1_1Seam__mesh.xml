@@ -1,0 +1,841 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Seam__mesh" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Seam_mesh</compoundname>
+    <includes local="no">CGAL/boost/graph/Seam_mesh.h</includes>
+    <innerclass refid="classCGAL_1_1Seam__mesh_1_1edge__descriptor" prot="public">CGAL::Seam_mesh::edge_descriptor</innerclass>
+    <innerclass refid="classCGAL_1_1Seam__mesh_1_1halfedge__descriptor" prot="public">CGAL::Seam_mesh::halfedge_descriptor</innerclass>
+    <innerclass refid="classCGAL_1_1Seam__mesh_1_1vertex__descriptor" prot="public">CGAL::Seam_mesh::vertex_descriptor</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class TM</type>
+      </param>
+      <param>
+        <type>class SEM</type>
+      </param>
+      <param>
+        <type>class SVM</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Underlying mesh&apos;s descriptor and iterator typedefs</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1_1vertex__descriptor" kindref="compound">vertex_descriptor</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::vertex_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::TM_vertex_descriptor</definition>
+        <argsstring></argsstring>
+        <name>TM_vertex_descriptor</name>
+        <briefdescription>
+<para>The type for the objects used to identify vertices in the underlying mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="136" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1_1halfedge__descriptor" kindref="compound">halfedge_descriptor</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::TM_halfedge_descriptor</definition>
+        <argsstring></argsstring>
+        <name>TM_halfedge_descriptor</name>
+        <briefdescription>
+<para>The type for the objects used to identify halfedges in the underlying mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="139" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a18c491d5a3e51cc6b6f2c8f37085b586" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::halfedge_iterator</type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::halfedge_iterator CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::TM_halfedge_iterator</definition>
+        <argsstring></argsstring>
+        <name>TM_halfedge_iterator</name>
+        <briefdescription>
+<para>The type for the iterators that traverse through the complete halfedge set of the underlying mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="142" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a262560916f975ef799db0fe30cb0b33d" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1_1edge__descriptor" kindref="compound">edge_descriptor</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::edge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::TM_edge_descriptor</definition>
+        <argsstring></argsstring>
+        <name>TM_edge_descriptor</name>
+        <briefdescription>
+<para>The type for the objects used to identify edges in the underlying mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="145" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Size types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a742e105a8131a63557915badc1e4786a" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1a742e105a8131a63557915badc1e4786a" kindref="member">degree_size_type</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::degree_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::degree_size_type</definition>
+        <argsstring></argsstring>
+        <name>degree_size_type</name>
+        <briefdescription>
+<para>The unsigned integer type used for representing the degree of vertices in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="152" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a6a8680b26948b92e06448026b266a20e" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1a6a8680b26948b92e06448026b266a20e" kindref="member">vertices_size_type</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::vertices_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::vertices_size_type</definition>
+        <argsstring></argsstring>
+        <name>vertices_size_type</name>
+        <briefdescription>
+<para>The unsigned integer type used to represent the number of vertices in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="155" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" kindref="member">edges_size_type</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::edges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::edges_size_type</definition>
+        <argsstring></argsstring>
+        <name>edges_size_type</name>
+        <briefdescription>
+<para>The unsigned integer type used for representing the number of edges in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="158" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a30b80a167cf5c1a07d374831382c6183" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1a30b80a167cf5c1a07d374831382c6183" kindref="member">halfedges_size_type</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::halfedges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::halfedges_size_type</definition>
+        <argsstring></argsstring>
+        <name>halfedges_size_type</name>
+        <briefdescription>
+<para>The unsigned integer type used for representing the number of halfedges in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="161" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1ac81e17c02d209fa8f7177f8f2593fe67" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1ac81e17c02d209fa8f7177f8f2593fe67" kindref="member">faces_size_type</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::faces_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::faces_size_type</definition>
+        <argsstring></argsstring>
+        <name>faces_size_type</name>
+        <briefdescription>
+<para>The unsigned integer type used for representing the number of faces in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="164" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Seam query functions</header>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1ae8d7f4fa46f9a0687de1ee374461aad4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::has_on_seam</definition>
+        <argsstring>(TM_vertex_descriptor vd) const</argsstring>
+        <name>has_on_seam</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" kindref="member">TM_vertex_descriptor</ref></type>
+          <declname>vd</declname>
+        </param>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput> if the vertex is on the seam. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="560" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="560" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a538645c6588bd1758f346a764bd0be2c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::has_on_seam</definition>
+        <argsstring>(TM_edge_descriptor ed) const</argsstring>
+        <name>has_on_seam</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1a262560916f975ef799db0fe30cb0b33d" kindref="member">TM_edge_descriptor</ref></type>
+          <declname>ed</declname>
+        </param>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput> if the edge is on the seam. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="566" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="566" bodyend="569"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1ae242bfaba1e30dded1c93c0f0e6ed7ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::has_on_seam</definition>
+        <argsstring>(TM_halfedge_descriptor tmhd) const</argsstring>
+        <name>has_on_seam</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+          <declname>tmhd</declname>
+        </param>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput> if the halfedge is on the seam. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="572" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="572" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a92b2bbe116b25c2669758ff389278bcb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::has_on_seam</definition>
+        <argsstring>(const halfedge_descriptor &amp;hd) const</argsstring>
+        <name>has_on_seam</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Seam__mesh_1_1halfedge__descriptor" kindref="compound">halfedge_descriptor</ref> &amp;</type>
+          <declname>hd</declname>
+        </param>
+        <briefdescription>
+<para>Returns <computeroutput>true</computeroutput> if the halfedge is on the seam. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="578" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="578" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a981873898674185a6a0c27779042595e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" kindref="member">edges_size_type</ref></type>
+        <definition>edges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::number_of_seam_edges</definition>
+        <argsstring>() const</argsstring>
+        <name>number_of_seam_edges</name>
+        <briefdescription>
+<para>Return the number of seam edges in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="584" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="584" bodyend="587"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Range Types</header>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a8d5f6b58d14c149b4e5bd9ffd9d08a6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref>&lt; vertex_iterator &gt;</type>
+        <definition>Iterator_range&lt;vertex_iterator&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>vertices</name>
+        <briefdescription>
+<para>Returns the iterator range of the vertices of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="618" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="618" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a01fbd5b04ea371edef3c0b32c24adf3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref>&lt; halfedge_iterator &gt;</type>
+        <definition>Iterator_range&lt;halfedge_iterator&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::halfedges</definition>
+        <argsstring>() const</argsstring>
+        <name>halfedges</name>
+        <briefdescription>
+<para>Returns the iterator range of the halfedges of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="644" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="644" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a24a368539611a97e68d2f7d63ee8f08e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref>&lt; edge_iterator &gt;</type>
+        <definition>Iterator_range&lt;edge_iterator&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::edges</definition>
+        <argsstring>() const</argsstring>
+        <name>edges</name>
+        <briefdescription>
+<para>Returns the iterator range of the edges of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="669" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="669" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1ae11771b6b4172d94cf6290257c40381c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Iterator__range" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Iterator_range</ref>&lt; face_iterator &gt;</type>
+        <definition>Iterator_range&lt;face_iterator&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::faces</definition>
+        <argsstring>() const</argsstring>
+        <name>faces</name>
+        <briefdescription>
+<para>Returns the iterator range of the faces of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="692" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="692" bodyend="695"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Memory Management</header>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1ad17e2558d52311cc1c4ac48871afcea0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a6a8680b26948b92e06448026b266a20e" kindref="member">vertices_size_type</ref></type>
+        <definition>vertices_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::num_vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>num_vertices</name>
+        <briefdescription>
+<para>Returns the number of vertices in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="703" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="703" bodyend="710"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a7a4f5c11d24981744a3552e4467e7e9a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a30b80a167cf5c1a07d374831382c6183" kindref="member">halfedges_size_type</ref></type>
+        <definition>halfedges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::num_halfedges</definition>
+        <argsstring>() const</argsstring>
+        <name>num_halfedges</name>
+        <briefdescription>
+<para>Returns the number of halfedges in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="713" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="713" bodyend="716"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a89bc8248be856601c38801ef3a4d71d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a30b80a167cf5c1a07d374831382c6183" kindref="member">halfedges_size_type</ref></type>
+        <definition>halfedges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::num_edges</definition>
+        <argsstring>() const</argsstring>
+        <name>num_edges</name>
+        <briefdescription>
+<para>Returns the number of edges in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="719" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="719" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a1074cfb13d9f7bfd9df5b167857e0fc2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1ac81e17c02d209fa8f7177f8f2593fe67" kindref="member">faces_size_type</ref></type>
+        <definition>faces_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::num_faces</definition>
+        <argsstring>() const</argsstring>
+        <name>num_faces</name>
+        <briefdescription>
+<para>Returns the number of faces in the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="725" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="725" bodyend="728"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Degree Functions</header>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1af2509141190b24f4806551ee2158b222" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a742e105a8131a63557915badc1e4786a" kindref="member">degree_size_type</ref></type>
+        <definition>degree_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::degree</definition>
+        <argsstring>(vertex_descriptor v) const</argsstring>
+        <name>degree</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1_1vertex__descriptor" kindref="compound">vertex_descriptor</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of incident halfedges of vertex <computeroutput>v</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="736" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="736" bodyend="749"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Seam selection</header>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a27d5997959e6a348e7206e359a378d85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seam</definition>
+        <argsstring>(TM_vertex_descriptor tm_vd_s, TM_vertex_descriptor tm_vd_t)</argsstring>
+        <name>add_seam</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" kindref="member">TM_vertex_descriptor</ref></type>
+          <declname>tm_vd_s</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" kindref="member">TM_vertex_descriptor</ref></type>
+          <declname>tm_vd_t</declname>
+        </param>
+        <briefdescription>
+<para>Mark the edge of the underlying mesh that has extremities the vertices <computeroutput>tm_vd_s</computeroutput> and <computeroutput>tm_vd_s</computeroutput> as a seam edge. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>whether the edge was successfully marked or not. Marking will fail if:<itemizedlist>
+<listitem><para>No edge of the underlying mesh exist with extremities <computeroutput>tm_vd_s</computeroutput> and <computeroutput>tm_vd_s</computeroutput>,</para></listitem><listitem><para>the edge of the underlying mesh with extremities <computeroutput>tm_vd_s</computeroutput> and <computeroutput>tm_vd_s</computeroutput> is a border edge, or</para></listitem><listitem><para>the edge of the underlying mesh with extremities <computeroutput>tm_vd_s</computeroutput> and <computeroutput>tm_vd_s</computeroutput> is already a seam edge. </para></listitem></itemizedlist>
+</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="947" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="947" bodyend="977"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a38a1acc1778702eac340f131f106820c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+        <definition>TM_halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seams</definition>
+        <argsstring>(InputIterator first, InputIterator last)</argsstring>
+        <name>add_seams</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+<para>Create new seams. </para>        </briefdescription>
+        <detaileddescription>
+<para>The edges to be marked as seams are described by the range [first, last) of vertices of the underlying mesh. Each edge to be marked is described by two consecutive iterators.</para><para><simplesect kind="return"><para>one of the halfedges of the seam mesh that is on a seam.</para></simplesect>
+<simplesect kind="pre"><para><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref> must be a model of <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>The value type of <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> must be <computeroutput>boost::graph_traits&lt;TM&gt;::vertex_descriptor</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>There is an even number of vertices. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="991" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="991" bodyend="1012"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1af4c70c55463aa2f0aac83a5e804370e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VdContainer</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+        <definition>TM_halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seams</definition>
+        <argsstring>(std::ifstream &amp;in, const VdContainer &amp;tm_vds)</argsstring>
+        <name>add_seams</name>
+        <param>
+          <type>std::ifstream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>const VdContainer &amp;</type>
+          <declname>tm_vds</declname>
+        </param>
+        <briefdescription>
+<para>Create new seams. </para>        </briefdescription>
+        <detaileddescription>
+<para>A seam edge is described by a pair of integers. The integer index of a vertex of the underlying mesh is given by its position in the container <computeroutput>tm_vds</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VdContainer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <ulink url="http://en.cppreference.com/w/cpp/concept/SequenceContainer"><computeroutput>SequenceContainer</computeroutput></ulink> (that is, provide the functions: <computeroutput>operator[]</computeroutput> and <computeroutput>at()</computeroutput>).</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the halfedges of the seam mesh that is on a seam.</para></simplesect>
+<simplesect kind="pre"><para>The stream must contain an even number of values. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="1027" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="1027" bodyend="1038"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1af60fb4b1e870002621a91dcc223eddc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+        <definition>TM_halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seams</definition>
+        <argsstring>(std::ifstream &amp;in)</argsstring>
+        <name>add_seams</name>
+        <param>
+          <type>std::ifstream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Create new seams. </para>        </briefdescription>
+        <detaileddescription>
+<para>A seam edge is described by a pair of integers. The integer index of a vertex of the underlying mesh is defined as its position when iterating over the vertices of the underlying mesh with <computeroutput>boost::graph_traits&lt;TM&gt;::vertices()</computeroutput>.</para><para><simplesect kind="return"><para>one of the halfedges of the seam mesh that is on a seam.</para></simplesect>
+<simplesect kind="pre"><para>The stream must contain an even number of values. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="1050" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="1050" bodyend="1055"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a0d8dac794a4c1c334cbe657f7f218822" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VdContainer</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+        <definition>TM_halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seams</definition>
+        <argsstring>(const char *filename, const VdContainer &amp;tm_vds)</argsstring>
+        <name>add_seams</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const VdContainer &amp;</type>
+          <declname>tm_vds</declname>
+        </param>
+        <briefdescription>
+<para>Create new seams. </para>        </briefdescription>
+        <detaileddescription>
+<para>A seam edge is described by a pair of integers. The integer index of a vertex of the underlying mesh is given by its position in the container <computeroutput>tm_vds</computeroutput>.</para><para><simplesect kind="return"><para>one of the halfedges of the seam mesh that is on a seam.</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>VdContainer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <ulink url="http://en.cppreference.com/w/cpp/concept/SequenceContainer"><computeroutput>SequenceContainer</computeroutput></ulink> (that is, provide the functions: <computeroutput>operator[]</computeroutput> and <computeroutput>at()</computeroutput>).</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>filename should be the name of a CGAL selection file: edges are described by pairs of integers, on the third line of the file. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="1071" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="1071" bodyend="1099"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1aa58869c40c1e06a65bf8106582a901fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" kindref="member">TM_halfedge_descriptor</ref></type>
+        <definition>TM_halfedge_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::add_seams</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>add_seams</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Create new seams. </para>        </briefdescription>
+        <detaileddescription>
+<para>A seam edge is described by a pair of integers. The integer index of a vertex of the underlying mesh is defined as its position when iterating over the vertices of the underlying mesh with <computeroutput>boost::graph_traits&lt;TM&gt;::vertices()</computeroutput>.</para><para><simplesect kind="return"><para>one of the halfedges of the seam mesh that is on a seam.</para></simplesect>
+<simplesect kind="pre"><para>filename should be the name of a CGAL selection file: edges are described by pairs of integers, on the third line of the file. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="1112" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="1112" bodyend="1116"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a70a9952aee6128aee19c6292383e1489" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Seam__mesh" kindref="compound">Seam_mesh</ref>&lt; TM, SEM, SVM &gt;</type>
+        <definition>typedef Seam_mesh&lt;TM, SEM, SVM&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Self</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="126" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1aa6f5b751026db5b62f3eb604e86d9664" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Unique__hash__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">CGAL::Unique_hash_map</ref>&lt; <ref refid="classCGAL_1_1Seam__mesh_1a262560916f975ef799db0fe30cb0b33d" kindref="member">TM_edge_descriptor</ref>, bool &gt;</type>
+        <definition>typedef CGAL::Unique_hash_map&lt;TM_edge_descriptor, bool&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Seam_edge_uhm</definition>
+        <argsstring></argsstring>
+        <name>Seam_edge_uhm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="168" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a0212afa833d431e387fdc04ea01cc0c8" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Unique__hash__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">CGAL::Unique_hash_map</ref>&lt; <ref refid="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" kindref="member">TM_vertex_descriptor</ref>, bool &gt;</type>
+        <definition>typedef CGAL::Unique_hash_map&lt;TM_vertex_descriptor, bool&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Seam_vertex_uhm</definition>
+        <argsstring></argsstring>
+        <name>Seam_vertex_uhm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="169" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a8d3c443ce5f2edf5ba632f16518e251e" prot="private" static="no">
+        <type>boost::associative_property_map&lt; <ref refid="classCGAL_1_1Unique__hash__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Seam_edge_uhm</ref> &gt;</type>
+        <definition>typedef boost::associative_property_map&lt;Seam_edge_uhm&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Seam_edge_pmap</definition>
+        <argsstring></argsstring>
+        <name>Seam_edge_pmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="170" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1afcf148e41df317ad1d1cd58b45ddf668" prot="private" static="no">
+        <type>boost::associative_property_map&lt; <ref refid="classCGAL_1_1Unique__hash__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Seam_vertex_uhm</ref> &gt;</type>
+        <definition>typedef boost::associative_property_map&lt;Seam_vertex_uhm&gt; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Seam_vertex_pmap</definition>
+        <argsstring></argsstring>
+        <name>Seam_vertex_pmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="171" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1abbe2fdf18346d0eeafb4f6d77d0b41ae" prot="public" static="no">
+        <type>TM</type>
+        <definition>typedef TM CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::TriangleMesh</definition>
+        <argsstring></argsstring>
+        <name>TriangleMesh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="129" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Seam__mesh_1a1685be3946d66eb747da43f7cea27886" prot="public" static="no">
+        <type>boost::graph_traits&lt; TM &gt;::<ref refid="classCGAL_1_1Seam__mesh_1a1685be3946d66eb747da43f7cea27886" kindref="member">face_descriptor</ref></type>
+        <definition>typedef boost::graph_traits&lt;TM&gt;::face_descriptor CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::face_descriptor</definition>
+        <argsstring></argsstring>
+        <name>face_descriptor</name>
+        <briefdescription>
+<para>This class represents a face of the seam mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="models_1_models000033"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classDescriptor" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Descriptor</ref></computeroutput> </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="549" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="549" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Seam__mesh_1abf1775ea5e1e7e3eb0b58e68246c78c3" prot="private" static="no" mutable="no">
+        <type>const TM &amp;</type>
+        <definition>const TM&amp; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::tm</definition>
+        <argsstring></argsstring>
+        <name>tm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="174" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Seam__mesh_1a7e091cb128aba862ec5eaaef8f433ac2" prot="private" static="no" mutable="no">
+        <type>SEM</type>
+        <definition>SEM CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::sem</definition>
+        <argsstring></argsstring>
+        <name>sem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="177" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Seam__mesh_1abfe616b46168707992d3685700fd2998" prot="private" static="no" mutable="no">
+        <type>SVM</type>
+        <definition>SVM CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::svm</definition>
+        <argsstring></argsstring>
+        <name>svm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="178" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Seam__mesh_1a1d54334a25717e7175bd530b780091de" prot="private" static="no" mutable="yes">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" kindref="member">edges_size_type</ref></type>
+        <definition>edges_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::number_of_seams</definition>
+        <argsstring></argsstring>
+        <name>number_of_seams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="181" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Seam__mesh_1a9c098528ad02ac9b6bb8bc4fc52064cd" prot="private" static="no" mutable="yes">
+        <type><ref refid="classCGAL_1_1Seam__mesh_1a6a8680b26948b92e06448026b266a20e" kindref="member">vertices_size_type</ref></type>
+        <definition>vertices_size_type CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::number_of_vertices</definition>
+        <argsstring></argsstring>
+        <name>number_of_vertices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="182" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a09c917082a1202edd7735a24b4e4b6f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const TM &amp;</type>
+        <definition>const TM&amp; CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::mesh</definition>
+        <argsstring>() const</argsstring>
+        <name>mesh</name>
+        <briefdescription>
+<para>Returns the underlying mesh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="186" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1add720d4b47079d4a0f08ce8bfae04baf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::set_seam_edges_number</definition>
+        <argsstring>(const edges_size_type sn) const</argsstring>
+        <name>set_seam_edges_number</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" kindref="member">edges_size_type</ref></type>
+          <declname>sn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="591" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="591" bodyend="594"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Seam__mesh_1a6042bff5f91a335aee1bd2573b57a29f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Seam_mesh&lt; TM, SEM, SVM &gt;::Seam_mesh</definition>
+        <argsstring>(const TM &amp;tm, const SEM &amp;sem, const SVM svm)</argsstring>
+        <name>Seam_mesh</name>
+        <param>
+          <type>const TM &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>const SEM &amp;</type>
+          <declname>sem</declname>
+        </param>
+        <param>
+          <type>const SVM</type>
+          <declname>svm</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a seam mesh for a triangle mesh and an edge and vertex property map. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the underlying mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the edge property map with value <computeroutput>true</computeroutput> for seam edges </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>svm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertex property map with value <computeroutput>true</computeroutput> for seam vertices</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>the vertices must be exactly the vertices on the seam edges. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/boost/graph/Seam_mesh.h" line="1127" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="1127" bodyend="1131"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class is a data structure that takes a triangle mesh, further refered to as <computeroutput>underlying mesh</computeroutput> and turns some marked edges of that mesh into virtual boundary edges. </para>    </briefdescription>
+    <detaileddescription>
+<para>Note that a seam edge must be an edge of the underlying mesh that is not a border edge (that is, such that either halfedge or the edge have null_face() as incident face). Marking a border edge as seam will not do anything.</para><para><xrefsect id="models_1_models000029"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput> or <computeroutput><ref refid="classFaceListGraph" kindref="compound">FaceListGraph</ref></computeroutput>, depending on the underlying mesh <computeroutput>TM</computeroutput>.</para></xrefdescription></xrefsect></para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classFaceGraph" kindref="compound">FaceGraph</ref></computeroutput> or <computeroutput><ref refid="classFaceListGraph" kindref="compound">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TM&gt;::edge_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SVM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;TM&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__PkgBGLTraits_1BGLSeam_meshGT" kindref="member"><computeroutput>boost::graph_traits&lt;Seam_mesh&lt;TM&gt; &gt;</computeroutput> </ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="CGAL/boost/graph/Seam_mesh.h" line="125" column="1" bodyfile="CGAL/boost/graph/Seam_mesh.h" bodystart="124" bodyend="1132"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Seam__mesh_1a27d5997959e6a348e7206e359a378d85" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seam</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a38a1acc1778702eac340f131f106820c" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1af4c70c55463aa2f0aac83a5e804370e9" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1af60fb4b1e870002621a91dcc223eddc1" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a0d8dac794a4c1c334cbe657f7f218822" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1aa58869c40c1e06a65bf8106582a901fd" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>add_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1af2509141190b24f4806551ee2158b222" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>degree</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a742e105a8131a63557915badc1e4786a" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>degree_size_type</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a24a368539611a97e68d2f7d63ee8f08e" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>edges</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a6d7b18cd7aa8e79cef2cd817c1b592b5" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>edges_size_type</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a1685be3946d66eb747da43f7cea27886" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>face_descriptor</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1ae11771b6b4172d94cf6290257c40381c" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>faces</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1ac81e17c02d209fa8f7177f8f2593fe67" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>faces_size_type</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a01fbd5b04ea371edef3c0b32c24adf3c" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>halfedges</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a30b80a167cf5c1a07d374831382c6183" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>halfedges_size_type</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1ae8d7f4fa46f9a0687de1ee374461aad4" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>has_on_seam</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a538645c6588bd1758f346a764bd0be2c" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>has_on_seam</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1ae242bfaba1e30dded1c93c0f0e6ed7ed" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>has_on_seam</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a92b2bbe116b25c2669758ff389278bcb" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>has_on_seam</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a09c917082a1202edd7735a24b4e4b6f0" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>mesh</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a89bc8248be856601c38801ef3a4d71d0" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>num_edges</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a1074cfb13d9f7bfd9df5b167857e0fc2" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>num_faces</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a7a4f5c11d24981744a3552e4467e7e9a" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>num_halfedges</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1ad17e2558d52311cc1c4ac48871afcea0" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>num_vertices</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a981873898674185a6a0c27779042595e" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>number_of_seam_edges</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a1d54334a25717e7175bd530b780091de" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>number_of_seams</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a9c098528ad02ac9b6bb8bc4fc52064cd" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>number_of_vertices</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a8d3c443ce5f2edf5ba632f16518e251e" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Seam_edge_pmap</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1aa6f5b751026db5b62f3eb604e86d9664" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Seam_edge_uhm</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a6042bff5f91a335aee1bd2573b57a29f" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Seam_mesh</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1afcf148e41df317ad1d1cd58b45ddf668" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Seam_vertex_pmap</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a0212afa833d431e387fdc04ea01cc0c8" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Seam_vertex_uhm</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a70a9952aee6128aee19c6292383e1489" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>Self</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a7e091cb128aba862ec5eaaef8f433ac2" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>sem</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1add720d4b47079d4a0f08ce8bfae04baf" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>set_seam_edges_number</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1abfe616b46168707992d3685700fd2998" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>svm</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1abf1775ea5e1e7e3eb0b58e68246c78c3" prot="private" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>tm</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a262560916f975ef799db0fe30cb0b33d" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>TM_edge_descriptor</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a251a9f5e67ef5e5d988ce59f7b9a171b" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>TM_halfedge_descriptor</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a18c491d5a3e51cc6b6f2c8f37085b586" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>TM_halfedge_iterator</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1af23c272b8e2353bacee1ebd31ef340f3" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>TM_vertex_descriptor</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1abbe2fdf18346d0eeafb4f6d77d0b41ae" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>TriangleMesh</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a8d5f6b58d14c149b4e5bd9ffd9d08a6a" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>vertices</name></member>
+      <member refid="classCGAL_1_1Seam__mesh_1a6a8680b26948b92e06448026b266a20e" prot="public" virt="non-virtual"><scope>CGAL::Seam_mesh</scope><name>vertices_size_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

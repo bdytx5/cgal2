@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Output__rep" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Output_rep</compoundname>
+    <includes local="no">CGAL/IO/io.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+<para>The purpose of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> is to provide a way to control output formatting that works independently of the object&apos;s stream output operator. </para>    </briefdescription>
+    <detaileddescription>
+<para>If you dont specialize <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> for <computeroutput>T</computeroutput>, <computeroutput>T</computeroutput>&apos;s stream output operator is called from within <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>, by default. If you want another behaviour for your type <computeroutput>T</computeroutput>, you have to provide a specialization for that type. Furthermore, you can provide specializations with a second template parameter (a formatting tag). The second template parameter defaults to <computeroutput><ref refid="structCGAL_1_1Null__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Null_tag</ref></computeroutput> and means <emphasis>default behaviour</emphasis>.</para><para>Specializations of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> should provide the following features:</para><para><programlisting><codeline><highlight class="keyword">template</highlight><highlight class="normal">&lt;<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F<sp/>&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Output_rep&lt;<sp/>Some_type,<sp/>F<sp/>&gt;<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_specialized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Output_rep(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Some_type&amp;<sp/>t<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ostream&amp;<sp/>operator()(<sp/>std::ostream&amp;<sp/>out<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">};<sp/></highlight></codeline>
+</programlisting></para><para>You can also specialize for a formatting tag <computeroutput>F</computeroutput>.</para><para>The constant <computeroutput>is_specialized</computeroutput> can be tested by meta-programming tools to verify that a given type can be used with <computeroutput><ref refid="group__PkgIOstreams_1ga83bfd4dfd12efab9efbb2a77e8d1f3b4" kindref="member">oformat()</ref></computeroutput>. Its value has to be <computeroutput>true</computeroutput> in a specialization of <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput>. When there is no specialization for a type, the class template <computeroutput><ref refid="classCGAL_1_1Output__rep" kindref="compound">Output_rep</ref></computeroutput> defines <computeroutput>is_specialized</computeroutput> to the default value <computeroutput>false</computeroutput>. </para>    </detaileddescription>
+    <location file="CGAL/IO/io.h" line="169" column="1" bodyfile="CGAL/IO/io.h" bodystart="169" bodyend="170"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

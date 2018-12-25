@@ -1,0 +1,27 @@
+var annotated =
+[
+    [ "ArrTraits", "namespaceArrTraits.html", "namespaceArrTraits" ],
+    [ "CGAL", "namespaceCGAL.html", "namespaceCGAL" ],
+    [ "ArrangementApproximateTraits_2", "classArrangementApproximateTraits__2.html", "classArrangementApproximateTraits__2" ],
+    [ "ArrangementBasicTraits_2", "classArrangementBasicTraits__2.html", "classArrangementBasicTraits__2" ],
+    [ "ArrangementConstructXMonotoneCurveTraits_2", "classArrangementConstructXMonotoneCurveTraits__2.html", "classArrangementConstructXMonotoneCurveTraits__2" ],
+    [ "ArrangementDcel", "classArrangementDcel.html", "classArrangementDcel" ],
+    [ "ArrangementDcelFace", "classArrangementDcelFace.html", "classArrangementDcelFace" ],
+    [ "ArrangementDcelHalfedge", "classArrangementDcelHalfedge.html", "classArrangementDcelHalfedge" ],
+    [ "ArrangementDcelHole", "classArrangementDcelHole.html", "classArrangementDcelHole" ],
+    [ "ArrangementDcelIsolatedVertex", "classArrangementDcelIsolatedVertex.html", "classArrangementDcelIsolatedVertex" ],
+    [ "ArrangementDcelVertex", "classArrangementDcelVertex.html", "classArrangementDcelVertex" ],
+    [ "ArrangementDcelWithRebind", "classArrangementDcelWithRebind.html", "classArrangementDcelWithRebind" ],
+    [ "ArrangementInputFormatter", "classArrangementInputFormatter.html", "classArrangementInputFormatter" ],
+    [ "ArrangementLandmarkTraits_2", "classArrangementLandmarkTraits__2.html", null ],
+    [ "ArrangementOpenBoundaryTraits_2", "classArrangementOpenBoundaryTraits__2.html", "classArrangementOpenBoundaryTraits__2" ],
+    [ "ArrangementOutputFormatter", "classArrangementOutputFormatter.html", "classArrangementOutputFormatter" ],
+    [ "ArrangementPointLocation_2", "classArrangementPointLocation__2.html", "classArrangementPointLocation__2" ],
+    [ "ArrangementTraits_2", "classArrangementTraits__2.html", "classArrangementTraits__2" ],
+    [ "ArrangementVerticalRayShoot_2", "classArrangementVerticalRayShoot__2.html", "classArrangementVerticalRayShoot__2" ],
+    [ "ArrangementWithHistoryInputFormatter", "classArrangementWithHistoryInputFormatter.html", "classArrangementWithHistoryInputFormatter" ],
+    [ "ArrangementWithHistoryOutputFormatter", "classArrangementWithHistoryOutputFormatter.html", "classArrangementWithHistoryOutputFormatter" ],
+    [ "ArrangementXMonotoneTraits_2", "classArrangementXMonotoneTraits__2.html", "classArrangementXMonotoneTraits__2" ],
+    [ "ArrTrimTraits_2", "classArrTrimTraits__2.html", "classArrTrimTraits__2" ],
+    [ "OverlayTraits", "classOverlayTraits.html", "classOverlayTraits" ]
+];

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Classification/classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Classification: CGAL::Classification::ETHZ_random_forest_classifier Class Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Classification
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Classification::ETHZ_random_forest_classifier Class Reference<div class="ingroups"><a class="el" href="group__PkgClassification.html">Classification Reference</a> » <a class="el" href="group__PkgClassificationClassifiers.html">Classifiers</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Classification/ETHZ_random_forest_classifier.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>Classifier based on the ETH Zurich version of random forest algorithm <a class="el" href="citelist.html#CITEREF_cgal:w-erftl-14">[2]</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>This classifier is distributed under the MIT license.</dd></dl>
+<dl class="models"><dt><b><a class="el" href="models.html#_models000007">Is Model Of:</a></b></dt><dd><code><a class="el" href="classCGAL_1_1Classification_1_1Classifier.html" title="Concept describing a classifier used by classification functions (see CGAL::Classification::classify(...">CGAL::Classification::Classifier</a></code> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Constructor</h2></td></tr>
+<tr class="memitem:aded88281879ee75a212ffc42cc01e255"><td class="memItemLeft" align="right" valign="top"><a id="aded88281879ee75a212ffc42cc01e255"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#aded88281879ee75a212ffc42cc01e255">ETHZ_random_forest_classifier</a> (const <a class="el" href="classCGAL_1_1Classification_1_1Label__set.html">Label_set</a> &amp;labels, const <a class="el" href="classCGAL_1_1Classification_1_1Feature__set.html">Feature_set</a> &amp;features)</td></tr>
+<tr class="memdesc:aded88281879ee75a212ffc42cc01e255"><td class="mdescLeft"> </td><td class="mdescRight">Instantiate the classifier using the sets of <code>labels</code> and <code>features</code>. <br /></td></tr>
+<tr class="separator:aded88281879ee75a212ffc42cc01e255"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Training</h2></td></tr>
+<tr class="memitem:a5ab1605d9f7e92c1206c6ff456acd6d7"><td class="memTemplParams" colspan="2">template&lt;typename LabelIndexRange &gt; </td></tr>
+<tr class="memitem:a5ab1605d9f7e92c1206c6ff456acd6d7"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a5ab1605d9f7e92c1206c6ff456acd6d7">train</a> (const LabelIndexRange &amp;ground_truth, bool reset_trees=true, std::size_t num_trees=25, std::size_t max_depth=20)</td></tr>
+<tr class="memdesc:a5ab1605d9f7e92c1206c6ff456acd6d7"><td class="mdescLeft"> </td><td class="mdescRight">Runs the training algorithm.  <a href="#a5ab1605d9f7e92c1206c6ff456acd6d7">More...</a><br /></td></tr>
+<tr class="separator:a5ab1605d9f7e92c1206c6ff456acd6d7"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Input/Output</h2></td></tr>
+<tr class="memitem:a47b61175613f56651b24bf4445a52af9"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a47b61175613f56651b24bf4445a52af9">save_configuration</a> (std::ostream &amp;output)</td></tr>
+<tr class="memdesc:a47b61175613f56651b24bf4445a52af9"><td class="mdescLeft"> </td><td class="mdescRight">Saves the current configuration in the stream <code>output</code>.  <a href="#a47b61175613f56651b24bf4445a52af9">More...</a><br /></td></tr>
+<tr class="separator:a47b61175613f56651b24bf4445a52af9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4d238624ac9fd5d6cf14c85348ee2eaa"><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a4d238624ac9fd5d6cf14c85348ee2eaa">load_configuration</a> (std::istream &amp;input)</td></tr>
+<tr class="memdesc:a4d238624ac9fd5d6cf14c85348ee2eaa"><td class="mdescLeft"> </td><td class="mdescRight">Loads a configuration from the stream <code>input</code>.  <a href="#a4d238624ac9fd5d6cf14c85348ee2eaa">More...</a><br /></td></tr>
+<tr class="separator:a4d238624ac9fd5d6cf14c85348ee2eaa"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4d238624ac9fd5d6cf14c85348ee2eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d238624ac9fd5d6cf14c85348ee2eaa">◆ </a></span>load_configuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Classification::ETHZ_random_forest_classifier::load_configuration </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp; </td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads a configuration from the stream <code>input</code>. </p>
+<p>The input file should be a GZIP container written by the <code><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a47b61175613f56651b24bf4445a52af9" title="Saves the current configuration in the stream output. ">save_configuration()</a></code> method. The feature set of the classifier should contain the exact same features in the exact same order as the ones present when the file was generated using <code><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a47b61175613f56651b24bf4445a52af9" title="Saves the current configuration in the stream output. ">save_configuration()</a></code>. </p>
+
+</div>
+</div>
+<a id="a47b61175613f56651b24bf4445a52af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b61175613f56651b24bf4445a52af9">◆ </a></span>save_configuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Classification::ETHZ_random_forest_classifier::save_configuration </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp; </td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves the current configuration in the stream <code>output</code>. </p>
+<p>This allows to easily save and recover a specific classification configuration.</p>
+<p>The output file is written in an GZIP container that is readable by the <code><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html#a4d238624ac9fd5d6cf14c85348ee2eaa" title="Loads a configuration from the stream input. ">load_configuration()</a></code> method. </p>
+
+</div>
+</div>
+<a id="a5ab1605d9f7e92c1206c6ff456acd6d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ab1605d9f7e92c1206c6ff456acd6d7">◆ </a></span>train()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LabelIndexRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Classification::ETHZ_random_forest_classifier::train </td>
+          <td>(</td>
+          <td class="paramtype">const LabelIndexRange &amp; </td>
+          <td class="paramname"><em>ground_truth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em>reset_trees</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>num_trees</em> = <code>25</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t </td>
+          <td class="paramname"><em>max_depth</em> = <code>20</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs the training algorithm. </p>
+<p>From the set of provided ground truth, this algorithm estimates sets up the random trees that produce the most accurate result with respect to this ground truth.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>At least one ground truth item should be assigned to each label.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ground_truth</td><td>vector of label indices. It should contain for each input item, in the same order as the input set, the index of the corresponding label in the <code><a class="el" href="classCGAL_1_1Classification_1_1Label__set.html" title="Set of Label used as input by classification algorithms. ">Label_set</a></code> provided in the constructor. Input items that do not have a ground truth information should be given the value <code>-1</code>.</td></tr>
+    <tr><td class="paramname">reset_trees</td><td>should be set to <code>false</code> if the users wants to <em>add</em> new trees to the existing forest, and kept to <code>true</code> if the training should be recomputing from scratch (discarding the current forest).</td></tr>
+    <tr><td class="paramname">num_trees</td><td>number of trees generated by the training algorithm. Higher values may improve result at the cost of higher computation times (in general, using a few dozens of trees is enough).</td></tr>
+    <tr><td class="paramname">max_depth</td><td>maximum depth of the trees. Higher values will improve how the forest fits the training set. A overly low value will underfit the test data and conversely an overly high value will likely overfit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../Manual/namespaceCGAL.html">CGAL</a></li><li class="navelem"><a class="el" href="namespaceCGAL_1_1Classification.html">Classification</a></li><li class="navelem"><a class="el" href="classCGAL_1_1Classification_1_1ETHZ__random__forest__classifier.html">ETHZ_random_forest_classifier</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:57 for CGAL 4.13 - Classification by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

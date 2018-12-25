@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Convex_hull_3/group__PkgConvexHull3Functions.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Convex Hulls: Convex Hull Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Convex Hulls
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgConvexHull3Functions.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Convex Hull Functions<div class="ingroups"><a class="el" href="group__PkgConvexHull3.html">3D Convex Hulls Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>The function <code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">convex_hull_3()</a></code> computes the convex hull of a given set of three-dimensional points. </p>
+<p>Two versions of this function are available. The first can be used when it is known that the result will be a polyhedron and the second when a degenerate hull may also be possible. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gade99e8e830ff439ae242b7ab04de06c8"><td class="memTemplParams" colspan="2">template&lt;class PlaneIterator , class PolygonMesh &gt; </td></tr>
+<tr class="memitem:gade99e8e830ff439ae242b7ab04de06c8"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#gade99e8e830ff439ae242b7ab04de06c8">CGAL::halfspace_intersection_3</a> (PlaneIterator begin, PlaneIterator end, PolygonMesh &amp;pm, boost::optional&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">Kernel_traits</a>&lt; std::iterator_traits&lt; PlaneIterator &gt;::value_type &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> &gt; &gt; origin=boost::none)</td></tr>
+<tr class="memdesc:gade99e8e830ff439ae242b7ab04de06c8"><td class="mdescLeft"> </td><td class="mdescRight">computes robustly the intersection of the halfspaces defined by the planes contained in the range [<code>begin</code>, <code>end</code>) without constructing the dual points.  <a href="group__PkgConvexHull3Functions.html#gade99e8e830ff439ae242b7ab04de06c8">More...</a><br /></td></tr>
+<tr class="separator:gade99e8e830ff439ae242b7ab04de06c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga7517c4cbbef41338397eda273af75eb1"><td class="memTemplParams" colspan="2">template&lt;class PlaneIterator , class PolygonMesh , class Traits &gt; </td></tr>
+<tr class="memitem:ga7517c4cbbef41338397eda273af75eb1"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#ga7517c4cbbef41338397eda273af75eb1">CGAL::halfspace_intersection_with_constructions_3</a> (PlaneIterator pbegin, PlaneIterator pend, PolygonMesh &amp;pm, boost::optional&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">Kernel_traits</a>&lt; std::iterator_traits&lt; PlaneIterator &gt;::value_type &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> &gt; &gt; origin=boost::none, const Traits &amp;ch_traits=Default_traits)</td></tr>
+<tr class="memdesc:ga7517c4cbbef41338397eda273af75eb1"><td class="mdescLeft"> </td><td class="mdescRight">computes the intersection of the halfspaces defined by the planes contained in the range [<code>begin</code>, <code>end</code>).  <a href="group__PkgConvexHull3Functions.html#ga7517c4cbbef41338397eda273af75eb1">More...</a><br /></td></tr>
+<tr class="separator:ga7517c4cbbef41338397eda273af75eb1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gadc8318947c2133e56b2e56171b2ecd7d"><td class="memTemplParams" colspan="2">template&lt;class InputIterator , class PolygonMesh , class Traits &gt; </td></tr>
+<tr class="memitem:gadc8318947c2133e56b2e56171b2ecd7d"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d">CGAL::convex_hull_3</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> last, PolygonMesh &amp;pm, const Traits &amp;ch_traits=Default_traits)</td></tr>
+<tr class="memdesc:gadc8318947c2133e56b2e56171b2ecd7d"><td class="mdescLeft"> </td><td class="mdescRight">computes the convex hull of the set of points in the range [<code>first</code>, <code>last</code>).  <a href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d">More...</a><br /></td></tr>
+<tr class="separator:gadc8318947c2133e56b2e56171b2ecd7d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga189d9e14a897cace42f0952b0a698455"><td class="memTemplParams" colspan="2">template&lt;class InputIterator , class Traits &gt; </td></tr>
+<tr class="memitem:ga189d9e14a897cace42f0952b0a698455"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#ga189d9e14a897cace42f0952b0a698455">CGAL::convex_hull_3</a> (<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> first, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> last, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Object.html">Object</a> &amp;ch_object, const Traits &amp;ch_traits=Default_traits)</td></tr>
+<tr class="memdesc:ga189d9e14a897cace42f0952b0a698455"><td class="mdescLeft"> </td><td class="mdescRight">computes the convex hull of the set of points in the range [<code>first</code>, <code>last</code>).  <a href="group__PkgConvexHull3Functions.html#ga189d9e14a897cace42f0952b0a698455">More...</a><br /></td></tr>
+<tr class="separator:ga189d9e14a897cace42f0952b0a698455"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga3d3caeb206adf06814821c0a066f6a72"><td class="memTemplParams" colspan="2">template&lt;class InputRange , class OutputIterator , class Traits &gt; </td></tr>
+<tr class="memitem:ga3d3caeb206adf06814821c0a066f6a72"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#ga3d3caeb206adf06814821c0a066f6a72">CGAL::extreme_points_3</a> (InputRange range, <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> out, const Traits &amp;traits)</td></tr>
+<tr class="memdesc:ga3d3caeb206adf06814821c0a066f6a72"><td class="mdescLeft"> </td><td class="mdescRight">copies in <code>out</code> the points on the convex hull of the points in <code>range</code>.  <a href="group__PkgConvexHull3Functions.html#ga3d3caeb206adf06814821c0a066f6a72">More...</a><br /></td></tr>
+<tr class="separator:ga3d3caeb206adf06814821c0a066f6a72"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga2750f7f197588ed643679835c748c671"><td class="memTemplParams" colspan="2">template&lt;class Triangulation , class PolygonMesh &gt; </td></tr>
+<tr class="memitem:ga2750f7f197588ed643679835c748c671"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#ga2750f7f197588ed643679835c748c671">CGAL::convex_hull_3_to_face_graph</a> (const Triangulation &amp;T, PolygonMesh &amp;pm)</td></tr>
+<tr class="memdesc:ga2750f7f197588ed643679835c748c671"><td class="mdescLeft"> </td><td class="mdescRight">fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of <span style="font-variant: small-caps;">CGAL</span>.  <a href="group__PkgConvexHull3Functions.html#ga2750f7f197588ed643679835c748c671">More...</a><br /></td></tr>
+<tr class="separator:ga2750f7f197588ed643679835c748c671"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaa87070e950e63e3a7395a2fb14c7ea7c"><td class="memTemplParams" colspan="2">template&lt;class Triangulation , class Polyhedron &gt; </td></tr>
+<tr class="memitem:gaa87070e950e63e3a7395a2fb14c7ea7c"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#gaa87070e950e63e3a7395a2fb14c7ea7c">CGAL::convex_hull_3_to_polyhedron_3</a> (const Triangulation &amp;T, Polyhedron &amp;P)</td></tr>
+<tr class="memdesc:gaa87070e950e63e3a7395a2fb14c7ea7c"><td class="mdescLeft"> </td><td class="mdescRight">fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of <span style="font-variant: small-caps;">CGAL</span>.  <a href="group__PkgConvexHull3Functions.html#gaa87070e950e63e3a7395a2fb14c7ea7c">More...</a><br /></td></tr>
+<tr class="separator:gaa87070e950e63e3a7395a2fb14c7ea7c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gab8d15e7467c1c81f85df8e34efa6cda0"><td class="memTemplParams" colspan="2"><a id="gab8d15e7467c1c81f85df8e34efa6cda0"></a>
+template&lt;class PointPropertyMap , class Base_traits &gt; </td></tr>
+<tr class="memitem:gab8d15e7467c1c81f85df8e34efa6cda0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Extreme__points__traits__adapter__3.html">Extreme_points_traits_adapter_3</a>&lt; PointPropertyMap, Base_traits &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgConvexHull3Functions.html#gab8d15e7467c1c81f85df8e34efa6cda0">CGAL::make_extreme_points_traits_adapter</a> (const PointPropertyMap &amp;pmap, Base_traits traits)</td></tr>
+<tr class="memdesc:gab8d15e7467c1c81f85df8e34efa6cda0"><td class="mdescLeft"> </td><td class="mdescRight">Returns <code><a class="el" href="classCGAL_1_1Extreme__points__traits__adapter__3.html" title="The class Extreme_points_traits_adapter_3 serves as a traits class for the function extreme_points_3(...">Extreme_points_traits_adapter_3</a>&lt;PointPropertyMap, Base_traits&gt;(pmap, traits)</code>. <br /></td></tr>
+<tr class="separator:gab8d15e7467c1c81f85df8e34efa6cda0"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gadc8318947c2133e56b2e56171b2ecd7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc8318947c2133e56b2e56171b2ecd7d">◆ </a></span>convex_hull_3() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class InputIterator , class PolygonMesh , class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::convex_hull_3 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PolygonMesh &amp; </td>
+          <td class="paramname"><em>pm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>ch_traits</em> = <code>Default_traits</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/convex_hull_3.h&gt;</code></p>
+
+<p>computes the convex hull of the set of points in the range [<code>first</code>, <code>last</code>). </p>
+<p>The polyhedron <code>pm</code> is cleared, then the convex hull is stored in <code>pm</code>. Note that the convex hull will be triangulated, that is <code>pm</code> will contain only triangular facets. if the convex hull is a point or a segment, endpoints will be added in <code>pm</code> as isolated vertices.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></td><td>must be an input iterator with a value type equivalent to <code>Traits::Point_3</code>. </td></tr>
+    <tr><td class="paramname">PolygonMesh</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code>. </td></tr>
+    <tr><td class="paramname">Traits</td><td>must be a model of the concept <code><a class="el" href="classConvexHullTraits__3.html" title="Requirements of the traits class of the function CGAL::convex_hull_3(). ">ConvexHullTraits_3</a></code>. For the purposes of checking the postcondition that the convex hull is valid, <code>Traits</code> must also be a model of the concept <code><a class="el" href="classIsStronglyConvexTraits__3.html" title="Requirements of the traits class used by the function CGAL::is_strongly_convex_3(), which is used for postcondition checking by CGAL::convex_hull_3(). ">IsStronglyConvexTraits_3</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If the kernel <code>R</code> of the points determined by the value type of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code> is a kernel with exact predicates but inexact constructions (in practice we check <code>R::Has_filtered_predicates_tag</code> is <code>Tag_true</code> and <code>R::FT</code> is a floating point type), then the default traits class of <code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">convex_hull_3()</a></code> is <code><a class="el" href="classCGAL_1_1Convex__hull__traits__3.html" title="The class Convex_hull_traits_3 serves as a traits class for the function convex_hull_3(). ">Convex_hull_traits_3</a>&lt;R&gt;</code>, and <code>R</code> otherwise.</p>
+<dl class="section attention"><dt>Attention</dt><dd>The user must include the header file of the <code>Polygon_mesh</code> type.</dd></dl>
+<p><b>Implementation</b><br />
+</p>
+<p>The algorithm implemented by these functions is the quickhull algorithm of Barnard <em>et al.</em> <a class="el" href="citelist.html#CITEREF_bdh-qach-96">[1]</a>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Convex_hull_3_2quickhull_3_8cpp-example.html#a3">Convex_hull_3/quickhull_3.cpp</a>, <a class="el" href="Convex_hull_3_2quickhull_any_dim_3_8cpp-example.html#a3">Convex_hull_3/quickhull_any_dim_3.cpp</a>, and <a class="el" href="Convex_hull_3_2quickhull_OM_3_8cpp-example.html#a1">Convex_hull_3/quickhull_OM_3.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga189d9e14a897cace42f0952b0a698455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga189d9e14a897cace42f0952b0a698455">◆ </a></span>convex_hull_3() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class InputIterator , class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::convex_hull_3 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a> </td>
+          <td class="paramname"><em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Object.html">Object</a> &amp; </td>
+          <td class="paramname"><em>ch_object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>ch_traits</em> = <code>Default_traits</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/convex_hull_3.h&gt;</code></p>
+
+<p>computes the convex hull of the set of points in the range [<code>first</code>, <code>last</code>). </p>
+<p>The result, which may be a point, a segment, a triangle, or a polyhedron, is stored in <code>ch_object</code>. In the case the result is a polyhedron, the convex hull will be triangulated, that is the polyhedron will contain only triangular facets.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></td><td>must be an input iterator with a value type equivalent to <code>Traits::Point_3</code>. </td></tr>
+    <tr><td class="paramname">Traits</td><td>must be model of the concept <code><a class="el" href="classConvexHullTraits__3.html" title="Requirements of the traits class of the function CGAL::convex_hull_3(). ">ConvexHullTraits_3</a></code>. For the purposes of checking the postcondition that the convex hull is valid, <code>Traits</code> must also be a model of the concept <code><a class="el" href="classIsStronglyConvexTraits__3.html" title="Requirements of the traits class used by the function CGAL::is_strongly_convex_3(), which is used for postcondition checking by CGAL::convex_hull_3(). ">IsStronglyConvexTraits_3</a></code>. Furthermore, <code>Traits</code> must define a type <code>Polygon_mesh</code> that is a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If the kernel <code>R</code> of the points determined by the value type of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code> is a kernel with exact predicates but inexact constructions (in practice we check <code>R::Has_filtered_predicates_tag</code> is <code>Tag_true</code> and <code>R::FT</code> is a floating point type), then the default traits class of <code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">convex_hull_3()</a></code> is <code><a class="el" href="classCGAL_1_1Convex__hull__traits__3.html" title="The class Convex_hull_traits_3 serves as a traits class for the function convex_hull_3(). ">Convex_hull_traits_3</a>&lt;R&gt;</code>, and <code>R</code> otherwise.</p>
+<dl class="section attention"><dt>Attention</dt><dd>The user must include the header file of the <code>Polygon_mesh</code> type. </dd></dl>
+
+</div>
+</div>
+<a id="ga2750f7f197588ed643679835c748c671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2750f7f197588ed643679835c748c671">◆ </a></span>convex_hull_3_to_face_graph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Triangulation , class PolygonMesh &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::convex_hull_3_to_face_graph </td>
+          <td>(</td>
+          <td class="paramtype">const Triangulation &amp; </td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PolygonMesh &amp; </td>
+          <td class="paramname"><em>pm</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/convex_hull_3_to_face_graph.h&gt;</code></p>
+
+<p>fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of <span style="font-variant: small-caps;">CGAL</span>. </p>
+<p>The polyhedron <code>pm</code> is cleared and the convex hull of the set of 3D points is stored in <code>pm</code>.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><code>T.dimension()</code>==3.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Triangulation</td><td>must be a <span style="font-variant: small-caps;">CGAL</span> 3D triangulation </td></tr>
+    <tr><td class="paramname">PolygonMesh</td><td>must be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">convex_hull_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_3.tag:../Triangulation_3/" href="../Triangulation_3/group__PkgTriangulation3.html#gaf59573ae46967c944a7a7b0b5790e4e6">link_to_face_graph()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Convex_hull_3_2dynamic_hull_3_8cpp-example.html#a4">Convex_hull_3/dynamic_hull_3.cpp</a>, and <a class="el" href="Convex_hull_3_2dynamic_hull_OM_3_8cpp-example.html#a3">Convex_hull_3/dynamic_hull_OM_3.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gaa87070e950e63e3a7395a2fb14c7ea7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa87070e950e63e3a7395a2fb14c7ea7c">◆ </a></span>convex_hull_3_to_polyhedron_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Triangulation , class Polyhedron &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::convex_hull_3_to_polyhedron_3 </td>
+          <td>(</td>
+          <td class="paramtype">const Triangulation &amp; </td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Polyhedron &amp; </td>
+          <td class="paramname"><em>P</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/convex_hull_3_to_polyhedron_3.h&gt;</code></p>
+
+<p>fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of <span style="font-variant: small-caps;">CGAL</span>. </p>
+<p>The polyhedron <code>P</code> is cleared and the convex hull of the set of 3D points is stored in <code>P</code>.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>since <span style="font-variant: small-caps;">CGAL</span> 4.10. Use <code><a class="el" href="group__PkgConvexHull3Functions.html#ga2750f7f197588ed643679835c748c671" title="fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of CGAL...">convex_hull_3_to_face_graph()</a></code> instead.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>This function does not compute the plane equations of the faces of <code>P</code>.</dd>
+<dd>
+This function works only for <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a>&lt;Traits&gt;</code>, and users who want to generate a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesh.tag:../Surface_mesh/" href="../Surface_mesh/classCGAL_1_1Surface__mesh.html">Surface_mesh</a></code> or any other model of a <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classFaceGraph.html">FaceGraph</a></code> may use <code><a class="el" href="group__PkgConvexHull3Functions.html#ga2750f7f197588ed643679835c748c671" title="fills a polyhedron with the convex hull of a set of 3D points contained in a 3D triangulation of CGAL...">convex_hull_3_to_face_graph()</a></code> instead.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>T.dimension()</code>==3.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Triangulation</td><td>is a <span style="font-variant: small-caps;">CGAL</span> 3D triangulation. </td></tr>
+    <tr><td class="paramname">Polyhedron</td><td>is an instantiation of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a>&lt;Traits&gt;</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">convex_hull_3()</a></code> </dd>
+<dd>
+<code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Triangulation_3.tag:../Triangulation_3/" href="../Triangulation_3/group__PkgTriangulation3.html#gaf59573ae46967c944a7a7b0b5790e4e6">link_to_face_graph()</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="ga3d3caeb206adf06814821c0a066f6a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d3caeb206adf06814821c0a066f6a72">◆ </a></span>extreme_points_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class InputRange , class OutputIterator , class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> CGAL::extreme_points_3 </td>
+          <td>(</td>
+          <td class="paramtype">InputRange </td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a> </td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>traits</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/convex_hull_3.h&gt;</code></p>
+
+<p>copies in <code>out</code> the points on the convex hull of the points in <code>range</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">InputRange</td><td>a range of <code>Traits::Point_3</code>, model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classConstRange.html">ConstRange</a></code>. Its iterator type is <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code>. </td></tr>
+    <tr><td class="paramname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></td><td>must be an output iterator where points of type <code>Traits::Point_3</code> can be put. </td></tr>
+    <tr><td class="paramname">Traits</td><td>must be model of the concept <code><a class="el" href="classConvexHullTraits__3.html" title="Requirements of the traits class of the function CGAL::convex_hull_3(). ">ConvexHullTraits_3</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If the kernel <code>R</code> of the points from <code>InputRange</code> is a kernel with exact predicates but inexact constructions (in practice we check <code>R::Has_filtered_predicates_tag</code> is <code>Tag_true</code> and <code>R::FT</code> is a floating point type), then the default traits class used is <code><a class="el" href="classCGAL_1_1Convex__hull__traits__3.html" title="The class Convex_hull_traits_3 serves as a traits class for the function convex_hull_3(). ">Convex_hull_traits_3</a>&lt;R&gt;</code>, and <code>R</code> otherwise.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>the range of input points. </td></tr>
+    <tr><td class="paramname">out</td><td>an output iterator where the extreme points will be put. </td></tr>
+    <tr><td class="paramname">traits</td><td>an instance of <code>Traits</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Extreme__points__traits__adapter__3.html" title="The class Extreme_points_traits_adapter_3 serves as a traits class for the function extreme_points_3(...">CGAL::Extreme_points_traits_adapter_3</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Convex_hull_3_2extreme_indices_3_8cpp-example.html#a1">Convex_hull_3/extreme_indices_3.cpp</a>, and <a class="el" href="Convex_hull_3_2extreme_points_3_sm_8cpp-example.html#a2">Convex_hull_3/extreme_points_3_sm.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="gade99e8e830ff439ae242b7ab04de06c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade99e8e830ff439ae242b7ab04de06c8">◆ </a></span>halfspace_intersection_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PlaneIterator , class PolygonMesh &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::halfspace_intersection_3 </td>
+          <td>(</td>
+          <td class="paramtype">PlaneIterator </td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PlaneIterator </td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PolygonMesh &amp; </td>
+          <td class="paramname"><em>pm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::optional&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">Kernel_traits</a>&lt; std::iterator_traits&lt; PlaneIterator &gt;::value_type &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> &gt; </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">origin </td>
+          <td class="paramname"> = <code>boost::none</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Convex_hull_3/dual/halfspace_intersection_3.h&gt;</code></p>
+
+<p>computes robustly the intersection of the halfspaces defined by the planes contained in the range [<code>begin</code>, <code>end</code>) without constructing the dual points. </p>
+<p>The result is stored in the polyhedron <code>pm</code>. If <code>origin</code> is given then it must be a point strictly inside the polyhedron. If an interior point is not given then it is computed using a linear program and thus is slower.</p>
+<p>This version does not construct the dual points explicitely but uses a special traits class for the function <code><a class="el" href="group__PkgConvexHull3Functions.html#gadc8318947c2133e56b2e56171b2ecd7d" title="computes the convex hull of the set of points in the range [first, last). ">CGAL::convex_hull_3()</a></code> to handle predicates on dual points without constructing them.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Halfspaces are considered as lower halfspaces that is to say if the plane's equation is \( a\, x +b\, y +c\, z + d = 0 \) then the corresponding halfspace is defined by \( a\, x +b\, y +c\, z + d \le 0 \) . </dd>
+<dd>
+</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The point type of <code>origin</code> and the point type of the vertices of <code>PolygonMesh</code> must come from the same <span style="font-variant: small-caps;">CGAL</span> Kernel.</dd>
+<dd>
+if provided, <code>origin</code> is inside the intersection of halfspaces defined by the range <code>[begin, end)</code>. </dd>
+<dd>
+The computed intersection must be a bounded convex polyhedron.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PlaneIterator</td><td>must be an input iterator where the value type is a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Plane__3.html">Kernel::Plane_3</a></code> and this plane type must come from the same kernel as the point type.</td></tr>
+    <tr><td class="paramname">PolygonMesh</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgConvexHull3Functions.html#ga7517c4cbbef41338397eda273af75eb1" title="computes the intersection of the halfspaces defined by the planes contained in the range [begin...">halfspace_intersection_with_constructions_3()</a></code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Convex_hull_3_2halfspace_intersection_3_8cpp-example.html#a4">Convex_hull_3/halfspace_intersection_3.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga7517c4cbbef41338397eda273af75eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7517c4cbbef41338397eda273af75eb1">◆ </a></span>halfspace_intersection_with_constructions_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PlaneIterator , class PolygonMesh , class Traits &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::halfspace_intersection_with_constructions_3 </td>
+          <td>(</td>
+          <td class="paramtype">PlaneIterator </td>
+          <td class="paramname"><em>pbegin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PlaneIterator </td>
+          <td class="paramname"><em>pend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PolygonMesh &amp; </td>
+          <td class="paramname"><em>pm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::optional&lt; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Kernel__traits.html">Kernel_traits</a>&lt; std::iterator_traits&lt; PlaneIterator &gt;::value_type &gt;::<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> &gt; </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">origin </td>
+          <td class="paramname"> = <code>boost::none</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Traits &amp; </td>
+          <td class="paramname"><em>ch_traits</em> = <code>Default_traits</code> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Convex_hull_3/dual/halfspace_intersection_with_constructions_3.h&gt;</code></p>
+
+<p>computes the intersection of the halfspaces defined by the planes contained in the range [<code>begin</code>, <code>end</code>). </p>
+<p>The result is stored in the polyhedron <code>pm</code>. If <code>origin</code> is given then it must be a point strictly inside the polyhedron. If an interior point is not given then it is computed using a linear program and thus is slower. This version constructs explicitly the dual points using the convex hull algorithm parametrized with the given traits class.</p>
+<dl class="section attention"><dt>Attention</dt><dd>Halfspaces are considered as lower halfspaces that is to say if the plane's equation is \( a\, x +b\, y +c\, z + d = 0 \) then the corresponding halfspace is defined by \( a\, x +b\, y +c\, z + d \le 0 \) .</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The value type of <code>PlaneIterator</code> and the point type of <code>origin</code> must come from the same <span style="font-variant: small-caps;">CGAL</span> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>. </dd>
+<dd>
+if provided, <code>origin</code> is inside the intersection of halfspaces defined by the range <code>[begin, end)</code>. </dd>
+<dd>
+The computed intersection must be a bounded convex polyhedron.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PlaneIterator</td><td>must be an input iterator where the value type is a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Plane__3.html">Kernel::Plane_3</a></code> and this plane type must come from the same kernel as the point type. </td></tr>
+    <tr><td class="paramname">PolygonMesh</td><td>must be a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classMutableFaceGraph.html">MutableFaceGraph</a></code>. </td></tr>
+    <tr><td class="paramname">Traits</td><td>must be a model of the concept <code><a class="el" href="classConvexHullTraits__3.html" title="Requirements of the traits class of the function CGAL::convex_hull_3(). ">ConvexHullTraits_3</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgConvexHull3Functions.html#gade99e8e830ff439ae242b7ab04de06c8" title="computes robustly the intersection of the halfspaces defined by the planes contained in the range [be...">halfspace_intersection_3()</a></code> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:02 for CGAL 4.13 - 3D Convex Hulls by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

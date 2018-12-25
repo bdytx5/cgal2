@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Polyhedron/group__PkgPolyhedronIOFunc.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Polyhedral Surface: I/O Functions</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Polyhedral Surface
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgPolyhedronIOFunc.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">I/O Functions<div class="ingroups"><a class="el" href="group__PkgPolyhedron.html">3D Polyhedral Surface  Reference</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga9791a3720c7a3e9e32e43aed28cd9695"><td class="memTemplParams" colspan="2">template&lt;class PolyhedronTraits_3 &gt; </td></tr>
+<tr class="memitem:ga9791a3720c7a3e9e32e43aed28cd9695"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolyhedronIOFunc.html#ga9791a3720c7a3e9e32e43aed28cd9695">read_off</a> (std::istream &amp;in, <a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp;P)</td></tr>
+<tr class="separator:ga9791a3720c7a3e9e32e43aed28cd9695"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga9771632b8e6602c2c85454318f7fe5bd"><td class="memTemplParams" colspan="2">template&lt;class PolyhedronTraits_3 &gt; </td></tr>
+<tr class="memitem:ga9771632b8e6602c2c85454318f7fe5bd"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolyhedronIOFunc.html#ga9771632b8e6602c2c85454318f7fe5bd">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp;P)</td></tr>
+<tr class="separator:ga9771632b8e6602c2c85454318f7fe5bd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaf6c472230000452a586037b3d4f04561"><td class="memTemplParams" colspan="2">template&lt;class PolyhedronTraits_3 &gt; </td></tr>
+<tr class="memitem:gaf6c472230000452a586037b3d4f04561"><td class="memTemplItemLeft" align="right" valign="top">bool </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolyhedronIOFunc.html#gaf6c472230000452a586037b3d4f04561">write_off</a> (std::ostream &amp;out, <a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp;P)</td></tr>
+<tr class="separator:gaf6c472230000452a586037b3d4f04561"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga607e31b483259c882c6956f41c4b5529"><td class="memTemplParams" colspan="2">template&lt;class PolyhedronTraits_3 &gt; </td></tr>
+<tr class="memitem:ga607e31b483259c882c6956f41c4b5529"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolyhedronIOFunc.html#ga607e31b483259c882c6956f41c4b5529">operator&lt;&lt;</a> (std::ostream &amp;out, <a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp;P)</td></tr>
+<tr class="separator:ga607e31b483259c882c6956f41c4b5529"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga607e31b483259c882c6956f41c4b5529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga607e31b483259c882c6956f41c4b5529">◆ </a></span>operator
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PolyhedronTraits_3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp; </td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp; </td>
+          <td class="paramname"><em>P</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>calls <a class="el" href="group__PkgPolyhedronIOFunc.html#gaf6c472230000452a586037b3d4f04561"><code>write_off(out, P)</code> </a>. </p>
+
+</div>
+</div>
+<a id="ga9771632b8e6602c2c85454318f7fe5bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9771632b8e6602c2c85454318f7fe5bd">◆ </a></span>operator&gt;&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PolyhedronTraits_3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp; </td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp; </td>
+          <td class="paramname"><em>P</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>calls <a class="el" href="group__PkgPolyhedronIOFunc.html#ga9791a3720c7a3e9e32e43aed28cd9695"><code>read_off(in, P)</code> </a>. </p>
+
+</div>
+</div>
+<a id="ga9791a3720c7a3e9e32e43aed28cd9695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9791a3720c7a3e9e32e43aed28cd9695">◆ </a></span>read_off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PolyhedronTraits_3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool read_off </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp; </td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp; </td>
+          <td class="paramname"><em>P</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function reads a polyhedral surface in Object File Format, OFF, with file extension <code>.off</code>, which is also understood by Geomview <a class="el" href="citelist.html#CITEREF_cgal:p-gmgv16-96">[5]</a>, from the input stream <code>in</code> and appends it to the polyhedral surface \( P\). Only the point coordinates and facets from the input stream are used to build the polyhedral surface. Neither normal vectors nor color attributes are evaluated. If the stream <code>in</code> does not contain a permissible polyhedral surface the <code>ios::badbit</code> of the input stream <code>in</code> is set and \( P\) remains unchanged.</p>
+<p>For OFF an ASCII and a binary format exist. The stream detects the format automatically and can read both.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Polyhedron__3.html" title="A polyhedral surface Polyhedron_3 consists of vertices V, edges E, facets F and an incidence relation...">CGAL::Polyhedron_3</a>&lt;Traits&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Polyhedron__incremental__builder__3.html" title="The auxiliary class Polyhedron_incremental_builder_3 supports the incremental construction of polyhed...">CGAL::Polyhedron_incremental_builder_3</a>&lt;HDS&gt;</code> </dd>
+<dd>
+<a class="el" href="group__PkgPolyhedronIOFunc.html"><code>operator&lt;&lt;(std::ostream&amp;, Polyhedron_3&lt;PolyhedronTraits_3&gt;&amp;)</code></a></dd></dl>
+<p>This function overloads the generic function <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/group__PkgBGLIOFct.html"><code>read_off(std::istream&amp;,FaceGraph)</code></a>.</p>
+<p><b>Implementation</b><br />
+</p>
+<p>This operator is implemented using the modifier mechanism for polyhedral surfaces and the <code><a class="el" href="classCGAL_1_1Polyhedron__incremental__builder__3.html" title="The auxiliary class Polyhedron_incremental_builder_3 supports the incremental construction of polyhed...">Polyhedron_incremental_builder_3</a></code> class, which allows the construction in a single, efficient scan pass of the input and handles also all the possible flexibility of the polyhedral surface. </p>
+
+</div>
+</div>
+<a id="gaf6c472230000452a586037b3d4f04561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf6c472230000452a586037b3d4f04561">◆ </a></span>write_off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PolyhedronTraits_3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool write_off </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp; </td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Polyhedron__3.html">Polyhedron_3</a>&lt; <a class="el" href="classPolyhedronTraits__3.html">PolyhedronTraits_3</a> &gt; &amp; </td>
+          <td class="paramname"><em>P</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function writes the polyhedral surface \(P\) to the output stream <code>out</code> using the Object File Format, OFF, with file extension <code>.off</code>, which is also understood by GeomView <a class="el" href="citelist.html#CITEREF_cgal:p-gmgv16-96">[5]</a>. The output is in ASCII format. From the polyhedral surface, only the point coordinates and facets are written. Neither normal vectors nor color attributes are used.</p>
+<p>For OFF an ASCII and a binary format exist. The format can be selected with the <span style="font-variant: small-caps;">CGAL</span> modifiers for streams, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Stream_support.tag:../Stream_support/" href="../Stream_support/group__PkgIOstreams.html#ga62462cf829e614f6f2cd2cbec9a093d2">set_ascii_mode()</a></code> and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Stream_support.tag:../Stream_support/" href="../Stream_support/group__PkgIOstreams.html#gaf8eb8599079dfa427e0f34098bcc790b">set_binary_mode()</a></code> respectively. The modifier <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Stream_support.tag:../Stream_support/" href="../Stream_support/group__PkgIOstreams.html#ga2f2176255429973ea7bf156804a53857">set_pretty_mode()</a></code> can be used to allow for (a few) structuring comments in the output. Otherwise, the output would be free of comments. The default for writing is ASCII without comments.</p>
+<p>This function overloads the generic function <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/group__PkgBGLIOFct.html"><code>write_off(std::istream&amp;,FaceGraph)</code> </a>.</p>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="classCGAL_1_1Polyhedron__3.html" title="A polyhedral surface Polyhedron_3 consists of vertices V, edges E, facets F and an incidence relation...">CGAL::Polyhedron_3</a>&lt;Traits&gt;</code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Polyhedron__incremental__builder__3.html" title="The auxiliary class Polyhedron_incremental_builder_3 supports the incremental construction of polyhed...">CGAL::Polyhedron_incremental_builder_3</a>&lt;HDS&gt;</code> </dd>
+<dd>
+<a class="el" href="group__PkgPolyhedronIOFunc.html"><code>operator&gt;&gt;(std::istream&amp; in, Polyhedron_3&lt;PolyhedronTraits_3&gt;&amp; P)</code> </a> </dd></dl>
+
+</div>
+</div>
+</h2></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:00 for CGAL 4.13 - 3D Polyhedral Surface by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

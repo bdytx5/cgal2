@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Interpolation/Interpolation_2surface_neighbor_coordinates_3_8cpp-example.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D and Surface Function Interpolation: Interpolation/surface_neighbor_coordinates_3.cpp</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D and Surface Function Interpolation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Interpolation_2surface_neighbor_coordinates_3_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Interpolation/surface_neighbor_coordinates_3.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><span class="comment">// example with random points on a sphere</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/point_generators_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/algorithm.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Origin.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/surface_neighbor_coordinates_3.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;iterator&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <a name="_a0" id="_a0"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Exact__predicates__inexact__constructions__kernel.html">CGAL::Exact_predicates_inexact_constructions_kernel</a>  K;</div><div class="line"><span class="keyword">typedef</span> K::FT                                                Coord_type;</div><div class="line"><span class="keyword">typedef</span> K::Point_3                                           Point_3;</div><div class="line"><span class="keyword">typedef</span> K::Vector_3                                          Vector_3;</div><div class="line"><span class="keyword">typedef</span> std::vector&lt; std::pair&lt; Point_3, K::FT &gt; &gt;           Point_coordinate_vector;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main()</div><div class="line">{</div><div class="line">  <span class="keywordtype">int</span> n = 100;</div><div class="line">  std::vector&lt; Point_3&gt; points;</div><div class="line">  points.reserve(n);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Generate "</span> &lt;&lt; n &lt;&lt; <span class="stringliteral">" random points on a sphere."</span> &lt;&lt; std::endl;</div><div class="line">  CGAL::Random_points_on_sphere_3&lt;Point_3&gt; g(1);</div><div class="line">  <a name="a1" id="a1"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/group__STLAlgos.html#gadba21cc5c30a79519438dfe0f9264255">CGAL::cpp11::copy_n</a>(g, n, std::back_inserter(points));</div><div class="line"></div><div class="line">  Point_3 p(1, 0, 0);</div><div class="line">  Vector_3 <a name="a2" id="a2"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__normal__grp.html#ga49a712e57564602ad468a3888784e971">normal</a>(p - <a name="a3" id="a3"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga9d272a8e3a8080b851741b6d3a44afdc">CGAL::ORIGIN</a>);</div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Compute surface neighbor coordinates for "</span> &lt;&lt; p &lt;&lt; std::endl;</div><div class="line">  Point_coordinate_vector coords;</div><div class="line">  <a name="_a4" id="_a4"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Triple.html">CGAL::Triple&lt;std::back_insert_iterator&lt;Point_coordinate_vector&gt;</a>, K::FT, <span class="keywordtype">bool</span>&gt; result =</div><div class="line">    <a name="a5" id="a5"></a><a class="code" href="group__PkgInterpolationSurfaceNeighborCoordinates3.html#ga07c7f1c1efbbbe293fcb2835ca39ed0f">CGAL::surface_neighbor_coordinates_3</a>(points.begin(), points.end(),</div><div class="line">                                         p, <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__normal__grp.html#ga49a712e57564602ad468a3888784e971">normal</a>,</div><div class="line">                                         std::back_inserter(coords),</div><div class="line">                                         K());</div><div class="line">  <span class="keywordflow">if</span>(!result.<a name="a6" id="a6"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Triple.html#a259acf3abe5295dedc2f575236646339">third</a>)</div><div class="line">  {</div><div class="line">    <span class="comment">//Undersampling:</span></div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"The coordinate computation was not successful."</span> &lt;&lt; std::endl;</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">  }</div><div class="line"></div><div class="line">  K::FT norm = result.<a name="a7" id="a7"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classCGAL_1_1Triple.html#a6421bcd4889c6e4035ff5ac0ef330f09">second</a>;</div><div class="line"></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Testing the barycentric property "</span> &lt;&lt; std::endl;</div><div class="line">  Point_3 b(0, 0, 0);</div><div class="line">  <span class="keywordflow">for</span>(std::vector&lt; std::pair&lt; Point_3, Coord_type &gt; &gt;::const_iterator</div><div class="line">      it = coords.begin(); it!=coords.end(); ++it)</div><div class="line">    b = b + (it-&gt;second/norm) * (it-&gt;first - <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__kernel__enums.html#ga9d272a8e3a8080b851741b6d3a44afdc">CGAL::ORIGIN</a>);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"    weighted barycenter: "</span> &lt;&lt; b &lt;&lt;std::endl;</div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"    squared distance: "</span> &lt;&lt; <a name="a8" id="a8"></a><a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/group__squared__distance__grp.html#ga1ff73525660a052564d33fbdd61a4f71">CGAL::squared_distance</a>(p,b) &lt;&lt; std::endl;</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div><div class="line">}</div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:43 for CGAL 4.13 - 2D and Surface Function Interpolation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

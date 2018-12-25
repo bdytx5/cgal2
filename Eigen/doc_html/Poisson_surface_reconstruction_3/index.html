@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Poisson Surface Reconstruction: User Manual</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Poisson Surface Reconstruction
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">User Manual </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="Chapter_Poisson_Surface_Reconstruction"></a> </p><div id="autotoc" class="toc"></div> 
+<dl class="section author"><dt>Authors</dt><dd>Pierre Alliez, Laurent Saboret, Gaël Guennebaud</dd></dl>
+<h1><a class="anchor" id="Poisson_surface_reconstruction_3Introduction"></a>
+Introduction</h1>
+<p>This <span style="font-variant: small-caps;">CGAL</span> component implements a surface reconstruction method which takes as input point sets with oriented normals and computes an implicit function. We assume that the input points contain no outliers and little noise. The output surface mesh is generated by extracting an isosurface of this function with the <span style="font-variant: small-caps;">CGAL</span> Surface Mesh Generator <a class="el" href="citelist.html#CITEREF_cgal:ry-gsddrm-06">[4]</a> or potentially with any other surface contouring algorithm.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figintroduction"></a></p><div class="image">
+<img src="introduction.jpg" alt="introduction.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figintroduction">Figure 57.1</a> Poisson surface reconstruction.<br />
+Left: 17K points sampled on the statue of an elephant with a Minolta laser scanner. Right: reconstructed surface mesh.  </div>  <br />
+
+<p>More specifically, the core surface reconstruction algorithm consists of computing an implicit function which is an approximate indicator function of the inferred solid (Poisson Surface Reconstruction - referred to as Poisson). Poisson is a two steps process: it requires solving for the implicit function before function evaluation.</p>
+<h1><a class="anchor" id="Poisson_surface_reconstruction_3Common"></a>
+Common Reconstruction Pipeline</h1>
+<p>Surface reconstruction from point sets is often a sequential process with the following steps: 1) Scanning and scan alignment produce a set of points or points with normals; 2) Outlier removal; 3) Simplification to reduce the number of input points; 4) Smoothing to reduce noise in the input data; 5) Normal estimation and orientation when the normals are not already provided by the acquisition device; and 6) Surface reconstruction.</p>
+<p><span style="font-variant: small-caps;">CGAL</span> provides algorithms for all steps listed above except alignment.</p>
+<p>Chapter <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/index.html#chappoint_set_processing_3">Point Set Processing</a> describes algorithms to pre-process the point set before reconstruction with functions devoted to the simplification, outlier removal, smoothing, normal estimation and normal orientation.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figpipeline"></a></p><div class="image">
+<img src="pipeline.jpg" alt="pipeline.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figpipeline">Figure 57.2</a> Common surface reconstruction pipeline.  </div>  <br />
+
+<h1><a class="anchor" id="Poisson_surface_reconstruction_3Poisson"></a>
+Poisson</h1>
+<p>Given a set of 3D points with oriented normals (denoted oriented points in the sequel) sampled on the boundary of a 3D solid, the Poisson Surface Reconstruction method <a class="el" href="citelist.html#CITEREF_Kazhdan06">[2]</a> solves for an approximate indicator function of the inferred solid, whose gradient best matches the input normals. The output scalar function, represented in an adaptive octree, is then iso-contoured using an adaptive marching cubes.</p>
+<p><span style="font-variant: small-caps;">CGAL</span> implements a variant of this algorithm which solves for a piecewise linear function on a 3D Delaunay triangulation instead of an adaptive octree. The algorithm takes as input a set of 3D oriented points. It builds a 3D Delaunay triangulation from these points and refines it by Delaunay refinement so as to remove all badly shaped (non isotropic) tetrahedra and to tessellate a loose bounding box of the input oriented points. The normal of each Steiner point added during refinement is set to zero. It then solves for a scalar indicator function \( f\) represented as a piecewise linear function over the refined triangulation. More specifically, it solves for the Poisson equation \( \Delta f = div(\mathbf{n})\) at each vertex of the triangulation using a sparse linear solver. Eventually, the <span style="font-variant: small-caps;">CGAL</span> surface mesh generator extracts an isosurface with function value set by default to be the median value of \( f\) at all input points.</p>
+<h1><a class="anchor" id="Poisson_surface_reconstruction_3Function"></a>
+Reconstruction Function</h1>
+<p>A global function <code><a class="el" href="group__PkgPoissonSurfaceReconstruction.html#ga2470854cf03552ecee02f11c17024ddf" title="Performs surface reconstruction as follows: ">poisson_surface_reconstruction_delaunay()</a></code> is provided. It takes points with normals as input and handles the whole reconstruction pipeline :</p>
+<ul>
+<li>it computes the implicit function</li>
+<li>it reconstructs the surface with a given precision using the <span style="font-variant: small-caps;">CGAL</span> surface mesh generator based on Delaunay refinement <a class="el" href="citelist.html#CITEREF_cgal:ry-gsddrm-06">[4]</a> <a class="el" href="citelist.html#CITEREF_cgal:bo-pgsms-05">[1]</a></li>
+<li>it outputs the result in a polygon mesh.</li>
+</ul>
+<p>This function aims at providing a quick and user-friendly API for Poisson reconstruction. Advanced users may be interested in using the class (see <a class="el" href="index.html#Poisson_surface_reconstruction_3Class">Reconstruction Class</a>) which allows them, for example, to use another surface mesher or a different output structure.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3Example_function"></a>
+Example</h2>
+<p>The following example reads a point set and reconstructs a surface using Poisson reconstruction.</p>
+<p><br />
+<b>File</b> <a class="el" href="Poisson_surface_reconstruction_3_2poisson_reconstruction_function_8cpp-example.html">Poisson_surface_reconstruction_3/poisson_reconstruction_function.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Polyhedron_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/poisson_surface_reconstruction.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/IO/read_xyz_points.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// Types</span></div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Exact__predicates__inexact__constructions__kernel.html">CGAL::Exact_predicates_inexact_constructions_kernel</a> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> Point;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Vector__3.html">Kernel::Vector_3</a> Vector;</div><div class="line"><span class="keyword">typedef</span> std::pair&lt;Point, Vector&gt; Pwn;</div><div class="line"><span class="keyword">typedef</span> CGAL::Polyhedron_3&lt;Kernel&gt; Polyhedron;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">  std::vector&lt;Pwn&gt; points;</div><div class="line">  std::ifstream stream(<span class="stringliteral">"data/kitten.xyz"</span>);</div><div class="line">  <span class="keywordflow">if</span> (!stream ||</div><div class="line">      !<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingIO.html#ga2e8d677def85c5582ba1f01eda030628">CGAL::read_xyz_points</a>(</div><div class="line">           stream,</div><div class="line">           std::back_inserter(points),</div><div class="line">           CGAL::parameters::point_map(CGAL::First_of_pair_property_map&lt;Pwn&gt;()).</div><div class="line">           normal_map(CGAL::Second_of_pair_property_map&lt;Pwn&gt;())))</div><div class="line">    {</div><div class="line">      std::cerr &lt;&lt; <span class="stringliteral">"Error: cannot read file data/kitten.xyz"</span> &lt;&lt; std::endl;</div><div class="line">      <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line">    }</div><div class="line"></div><div class="line">  Polyhedron output_mesh;</div><div class="line">  </div><div class="line">  <span class="keywordtype">double</span> average_spacing = CGAL::compute_average_spacing&lt;CGAL::Sequential_tag&gt;</div><div class="line">    (points, 6, CGAL::parameters::point_map(CGAL::First_of_pair_property_map&lt;Pwn&gt;()));</div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (<a class="code" href="group__PkgPoissonSurfaceReconstruction.html#ga2470854cf03552ecee02f11c17024ddf">CGAL::poisson_surface_reconstruction_delaunay</a></div><div class="line">      (points.begin(), points.end(),</div><div class="line">       CGAL::First_of_pair_property_map&lt;Pwn&gt;(),</div><div class="line">       CGAL::Second_of_pair_property_map&lt;Pwn&gt;(),</div><div class="line">       output_mesh, average_spacing))</div><div class="line">    {</div><div class="line">        std::ofstream out(<span class="stringliteral">"kitten_poisson-20-30-0.375.off"</span>);</div><div class="line">        out &lt;&lt; output_mesh;</div><div class="line">    }</div><div class="line">  <span class="keywordflow">else</span></div><div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div><div class="line">}</div></div><!-- fragment --><h1><a class="anchor" id="Poisson_surface_reconstruction_3Class"></a>
+Reconstruction Class</h1>
+<p>The class template declaration is <code>template&lt;class Gt&gt; class <a class="el" href="classCGAL_1_1Poisson__reconstruction__function.html" title="Implementation of the Poisson Surface Reconstruction method. ">Poisson_reconstruction_function</a></code> where <code>Gt</code> is a geometric traits class.</p>
+<p>For details see: <code><a class="el" href="classCGAL_1_1Poisson__reconstruction__function.html" title="Implementation of the Poisson Surface Reconstruction method. ">Poisson_reconstruction_function</a>&lt;GeomTraits&gt;</code></p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3Example_class"></a>
+Example</h2>
+<p>The following example reads a point set, creates a Poisson implicit function and reconstructs a surface.</p>
+<p><br />
+<b>File</b> <a class="el" href="Poisson_surface_reconstruction_3_2poisson_reconstruction_example_8cpp-example.html">Poisson_surface_reconstruction_3/poisson_reconstruction_example.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;CGAL/trace.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Polyhedron_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Surface_mesh_default_triangulation_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/make_surface_mesh.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Implicit_surface_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/IO/facets_in_complex_2_to_triangle_mesh.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Poisson_reconstruction_function.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Point_with_normal_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/property_map.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/IO/read_xyz_points.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/compute_average_spacing.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Polygon_mesh_processing/distance.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// Types</span></div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Exact__predicates__inexact__constructions__kernel.html">CGAL::Exact_predicates_inexact_constructions_kernel</a> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">Kernel::FT</a> FT;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a> Point;</div><div class="line"><span class="keyword">typedef</span> CGAL::Point_with_normal_3&lt;Kernel&gt; Point_with_normal;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Sphere__3.html">Kernel::Sphere_3</a> Sphere;</div><div class="line"><span class="keyword">typedef</span> std::vector&lt;Point_with_normal&gt; PointList;</div><div class="line"><span class="keyword">typedef</span> CGAL::Polyhedron_3&lt;Kernel&gt; Polyhedron;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Poisson__reconstruction__function.html">CGAL::Poisson_reconstruction_function&lt;Kernel&gt;</a> Poisson_reconstruction_function;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classCGAL_1_1Surface__mesh__default__triangulation__3.html">CGAL::Surface_mesh_default_triangulation_3</a> STr;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classCGAL_1_1Surface__mesh__complex__2__in__triangulation__3.html">CGAL::Surface_mesh_complex_2_in_triangulation_3&lt;STr&gt;</a> C2t3;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classCGAL_1_1Implicit__surface__3.html">CGAL::Implicit_surface_3&lt;Kernel, Poisson_reconstruction_function&gt;</a> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classSurface__3.html">Surface_3</a>;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">// Poisson options</span></div><div class="line">    FT sm_angle = 20.0; <span class="comment">// Min triangle angle in degrees.</span></div><div class="line">    FT sm_radius = 30; <span class="comment">// Max triangle size w.r.t. point set average spacing.</span></div><div class="line">    FT sm_distance = 0.375; <span class="comment">// Surface Approximation error w.r.t. point set average spacing.</span></div><div class="line"></div><div class="line">    <span class="comment">// Reads the point set file in points[].</span></div><div class="line">    <span class="comment">// Note: read_xyz_points_and_normals() requires an iterator over points</span></div><div class="line">    <span class="comment">// + property maps to access each point's position and normal.</span></div><div class="line">    <span class="comment">// The position property map can be omitted here as we use iterators over Point_3 elements.</span></div><div class="line">    PointList points;</div><div class="line">    std::ifstream stream(<span class="stringliteral">"data/kitten.xyz"</span>);</div><div class="line">    <span class="keywordflow">if</span> (!stream ||</div><div class="line">        !<a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingIO.html#ga2e8d677def85c5582ba1f01eda030628">CGAL::read_xyz_points</a>(</div><div class="line">                              stream,</div><div class="line">                              std::back_inserter(points),</div><div class="line">                              CGAL::parameters::normal_map(CGAL::make_normal_of_point_with_normal_map(PointList::value_type()))))</div><div class="line">    {</div><div class="line">      std::cerr &lt;&lt; <span class="stringliteral">"Error: cannot read file data/kitten.xyz"</span> &lt;&lt; std::endl;</div><div class="line">      <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Creates implicit function from the read points using the default solver.</span></div><div class="line"></div><div class="line">    <span class="comment">// Note: this method requires an iterator over points</span></div><div class="line">    <span class="comment">// + property maps to access each point's position and normal.</span></div><div class="line">    <span class="comment">// The position property map can be omitted here as we use iterators over Point_3 elements.</span></div><div class="line">    Poisson_reconstruction_function <span class="keyword">function</span>(points.begin(), points.end(),</div><div class="line">                                             CGAL::make_normal_of_point_with_normal_map(PointList::value_type()) );</div><div class="line"></div><div class="line">    <span class="comment">// Computes the Poisson indicator function f()</span></div><div class="line">    <span class="comment">// at each vertex of the triangulation.</span></div><div class="line">    <span class="keywordflow">if</span> ( ! <span class="keyword">function</span>.compute_implicit_function() ) </div><div class="line">      <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line"></div><div class="line">    <span class="comment">// Computes average spacing</span></div><div class="line">    FT average_spacing = CGAL::compute_average_spacing&lt;CGAL::Sequential_tag&gt;(points, 6 <span class="comment">/* knn = 1 ring */</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Gets one point inside the implicit surface</span></div><div class="line">    <span class="comment">// and computes implicit function bounding sphere radius.</span></div><div class="line">    Point inner_point = <span class="keyword">function</span>.get_inner_point();</div><div class="line">    Sphere bsphere = <span class="keyword">function</span>.bounding_sphere();</div><div class="line">    FT radius = <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Algebraic_foundations.tag:../Algebraic_foundations/" href="../Algebraic_foundations/group__PkgAlgebraicFoundations.html#gab922269072ee9ee99ba8c541418b2e11">std::sqrt</a>(bsphere.squared_radius());</div><div class="line"></div><div class="line">    <span class="comment">// Defines the implicit surface: requires defining a</span></div><div class="line">    <span class="comment">// conservative bounding sphere centered at inner point.</span></div><div class="line">    FT sm_sphere_radius = 5.0 * radius;</div><div class="line">    FT sm_dichotomy_error = sm_distance*average_spacing/1000.0; <span class="comment">// Dichotomy error must be &lt;&lt; sm_distance</span></div><div class="line">    Surface_3 surface(<span class="keyword">function</span>,</div><div class="line">                      Sphere(inner_point,sm_sphere_radius*sm_sphere_radius),</div><div class="line">                      sm_dichotomy_error/sm_sphere_radius);</div><div class="line"></div><div class="line">    <span class="comment">// Defines surface mesh generation criteria</span></div><div class="line">    <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classCGAL_1_1Surface__mesh__default__criteria__3.html">CGAL::Surface_mesh_default_criteria_3&lt;STr&gt;</a> criteria(sm_angle,  <span class="comment">// Min triangle angle (degrees)</span></div><div class="line">                                                        sm_radius*average_spacing,  <span class="comment">// Max triangle size</span></div><div class="line">                                                        sm_distance*average_spacing); <span class="comment">// Approximation error</span></div><div class="line"></div><div class="line">    <span class="comment">// Generates surface mesh with manifold option</span></div><div class="line">    STr tr; <span class="comment">// 3D Delaunay triangulation for surface mesh generation</span></div><div class="line">    C2t3 c2t3(tr); <span class="comment">// 2D complex in 3D Delaunay triangulation</span></div><div class="line">    <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">CGAL::make_surface_mesh</a>(c2t3,                                 <span class="comment">// reconstructed mesh</span></div><div class="line">                            surface,                              <span class="comment">// implicit surface</span></div><div class="line">                            criteria,                             <span class="comment">// meshing criteria</span></div><div class="line">                            <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/structCGAL_1_1Manifold__with__boundary__tag.html">CGAL::Manifold_with_boundary_tag</a>());  <span class="comment">// require manifold mesh</span></div><div class="line"></div><div class="line">    <span class="keywordflow">if</span>(tr.number_of_vertices() == 0)</div><div class="line">      <span class="keywordflow">return</span> EXIT_FAILURE;</div><div class="line"></div><div class="line">    <span class="comment">// saves reconstructed surface mesh</span></div><div class="line">    std::ofstream out(<span class="stringliteral">"kitten_poisson-20-30-0.375.off"</span>);</div><div class="line">    Polyhedron output_mesh;</div><div class="line">    <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsIO.html#ga39a105bd1817a9200ec5df208888e8aa">CGAL::facets_in_complex_2_to_triangle_mesh</a>(c2t3, output_mesh);</div><div class="line">    out &lt;&lt; output_mesh;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// computes the approximation error of the reconstruction</span></div><div class="line">    <span class="keywordtype">double</span> max_dist =</div><div class="line">      CGAL::Polygon_mesh_processing::approximate_max_distance_to_point_set(output_mesh,</div><div class="line">                                                               points,</div><div class="line">                                                               4000);</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"Max distance to point_set: "</span> &lt;&lt; max_dist &lt;&lt; std::endl;</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="Poisson_surface_reconstruction_3Contouring"></a>
+Contouring</h2>
+<p>The computed implicit functions can be iso-contoured to reconstruct a surface by using the <span style="font-variant: small-caps;">CGAL</span> surface mesh generator <a class="el" href="citelist.html#CITEREF_cgal:ry-gsddrm-06">[4]</a> <a class="el" href="citelist.html#CITEREF_cgal:bo-pgsms-05">[1]</a> :</p>
+<p><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">make_surface_mesh()</a></code></p>
+<p>The parameter <code>Tag</code> affects the behavior of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">make_surface_mesh()</a></code>:</p><ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/structCGAL_1_1Manifold__tag.html">Manifold_tag</a></code>: the output mesh is guaranteed to be a manifold surface without boundary.</li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/structCGAL_1_1Manifold__with__boundary__tag.html">Manifold_with_boundary_tag</a></code>: the output mesh is guaranteed to be manifold and may have boundaries.</li>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/structCGAL_1_1Non__manifold__tag.html">Non_manifold_tag</a></code>: the output mesh has no guarantee and hence is outputted as a polygon soup.</li>
+</ul>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3Output"></a>
+Output</h2>
+<p>The surface reconstructed by <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">make_surface_mesh()</a></code> is required to be a model of the concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classSurfaceMeshComplex__2InTriangulation__3.html">SurfaceMeshComplex_2InTriangulation_3</a></code>, a data structure devised to represent a two dimensional complex embedded into a three dimensional triangulation.</p>
+<p><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classSurfaceMeshComplex__2InTriangulation__3.html">SurfaceMeshComplex_2InTriangulation_3</a></code> defines the methods to traverse the reconstructed surface, and e.g. convert it to a triangle soup.</p>
+<p>Other <span style="font-variant: small-caps;">CGAL</span> components provide functions to write the reconstructed surface mesh to the Object File Format (OFF) <a class="el" href="citelist.html#CITEREF_cgal:p-gmgv16-96">[3]</a> and to convert it to a polyhedron (when it is manifold):</p><ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsIO.html#ga7718d4e2047939882540d89fb5f28934">output_surface_facets_to_off()</a></code></li>
+<li><code>output_surface_facets_to_polyhedron()</code></li>
+</ul>
+<p>See <a class="el" href="Poisson_surface_reconstruction_3_2poisson_reconstruction_example_8cpp-example.html">poisson_reconstruction_example.cpp</a> example above.</p>
+<h1><a class="anchor" id="surface_reconstruction_section_case_studies"></a>
+Case Studies</h1>
+<p>The surface reconstruction problem being inherently ill-posed, the proposed algorithm does not pretend to reconstruct all kinds of surfaces with arbitrary sampling conditions. This section provides the user with some hints about the ideal sampling and contouring conditions, and depicts some failure cases when these conditions are not matched.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3IdealConditions"></a>
+Ideal Conditions</h2>
+<p>The user must keep in mind that the Poisson surface reconstruction algorithm comprises two phases (computing the implicit function from the input point set and contouring an iso-surface of this function). Both require some care in terms of sampling conditions and parameter tuning.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3PointSet"></a>
+Point Set</h2>
+<p>Ideally the current implementation of the Poisson surface reconstruction method expects a dense 3D oriented point set (typically matching the epsilon-sampling condition <a class="el" href="citelist.html#CITEREF_cgal:bo-pgsms-05">[1]</a>) and sampled over a closed, smooth surface. Oriented herein means that all 3D points must come with consistently oriented normals to the inferred surface. <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figbimba">Figure 57.3</a> and <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figeros">Figure 57.4</a> illustrate cases where these ideal conditions are met.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figbimba"></a></p><div class="image">
+<img src="bimba.jpg" alt="bimba.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figbimba">Figure 57.3</a> Poisson reconstruction. Left: 120K points sampled on a statue (Minolta laser scanner). Right: reconstructed surface mesh.  </div>  <br />
+
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figeros"></a></p><div class="image">
+<img src="eros.jpg" alt="eros.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figeros">Figure 57.4</a> Left: 120K points sampled on a statue (Minolta laser scanner). Right: reconstructed surface mesh.  </div>  <br />
+
+<p>The algorithm is fairly robust to anisotropic sampling and to noise. It is also robust to missing data through filling the corresponding holes as the algorithm is designed to reconstruct the indicator function of an inferred solid (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figholes_good">Figure 57.5</a>).</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figholes_good"></a></p><div class="image">
+<img src="holes_good.jpg" alt="holes_good.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figholes_good">Figure 57.5</a> Top left: 65K points sampled on a hand (Kreon laser scanner). Bottom left: the point set is highly anisotropic due to the scanning technology. Right: reconstructed surface mesh and closeup. The holes are properly closed.  </div>  <br />
+
+<p>The algorithm is in general not robust to outliers, although a few outliers do not always create a failure, see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figoutliers">Figure 57.6</a>.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figoutliers"></a></p><div class="image">
+<img src="outliers.jpg" alt="outliers.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figoutliers">Figure 57.6</a> Left: 70K points sampled on an elephant with few outliers emphasized with disks. Right: reconstructed surface mesh.  </div>  <br />
+
+<p>The algorithm works well even when the inferred surface is composed of several connected components, provided that both all normals are properly estimated and oriented (the current <span style="font-variant: small-caps;">CGAL</span> normal orienter algorithm may fail in some cases, see <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingAlgorithms.html#ga50c98d5c5ae5535bce6f32eddbd03f33">mst_orient_normals()</a></code>), and that the final contouring algorithm is properly seeded for each component. When the inferred surface is composed of several nested connected components care should be taken to orient the normals of each component in alternation (inward/outward) so that the final contouring stage picks a proper contouring value.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3ContouringP"></a>
+Contouring Parameters</h2>
+<p>Our implementation of the Poisson surface reconstruction algorithm computes an implicit function represented as a piecewise linear function over the tetrahedra of a 3D Delaunay triangulation constructed from the input points then refined through Delaunay refinement. For this reason, any iso-surface is also piecewise linear and hence may contain sharp creases. As the contouring algorithm <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">make_surface_mesh()</a></code> expects a smooth implicit function these sharp creases may create spurious clusters of vertices in the final reconstructed surface mesh when setting a small mesh sizing or surface approximation error parameter (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figcontouring_bad">Figure 57.7</a>).</p>
+<p>One way to avoid these spurious clusters consists of adjusting the mesh sizing and surface approximation parameters large enough compared to the average sampling density (obtained through <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingAlgorithms.html#gabb9a90622271869b3f2393314075fa0e">compute_average_spacing()</a></code>) so that the contouring algorithm <em>perceives</em> a smooth iso-surface. We recommend to use the following contouring parameters:</p>
+<ul>
+<li>Max triangle radius: at least 100 times the average spacing.</li>
+<li>Approximation distance: at least 0.25 times the average spacing.</li>
+</ul>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figcontouring_bad"></a></p><div class="image">
+<img src="contouring_bad.jpg" alt="contouring_bad.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figcontouring_bad">Figure 57.7</a> Left: surface reconstructed with approximation distance = 0.25 * average spacing. Right: surface reconstructed with approximation distance = 0.15 * average spacing. Notice the spurious cluster on the cheek.  </div>  <br />
+
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3DegradedConditions"></a>
+Degraded Conditions</h2>
+<p>The conditions listed above are rather restrictive and in practice not all of them are met in the applications. We now illustrates the behavior of the algorithm when the conditions are not met in terms of sampling, wrongly oriented normals, noise and sharp creases.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3SparseSampling"></a>
+Sparse Sampling</h2>
+<p>The reconstruction algorithm expects a sufficiently dense point set. Although there is no formal proof of correctness of the algorithm under certain density conditions due to its variational nature, our experiments show that the algorithm reconstructs well all thin features when the local spacing is at most one tenth of the local feature size (the distance to the medial axis, which captures altogether curvature, thickness and separation). When this condition is not met the reconstruction does not reconstruct the thin undersampled features (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figsampling">Figure 57.8</a>).</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figsampling"></a></p><div class="image">
+<img src="sampling.jpg" alt="sampling.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figsampling">Figure 57.8</a> Left: 50K points sampled on the Neptune trident. The reconstruction (not shown) is successful in this case. Right: point set simplified to 1K points then reconstructed (all input points are depicted with normals). The thin feature is not reconstructed.  </div>  <br />
+
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3LargeHoles"></a>
+Large Holes</h2>
+<p>The reconstruction is devised to solve for an implicit function which is an approximate indicator function of an inferred solid. For this reason the contouring algorithm always extracts a closed surface mesh and hence is able to fill the small holes where data are missing due, e.g., to occlusions during acquisition (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figholes_bad">Figure 57.9</a>).</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figholes_bad"></a></p><div class="image">
+<img src="holes_bad.jpg" alt="holes_bad.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figholes_bad">Figure 57.9</a> Left: 65K points sampled on a hand with no data captured at the wrist base. Right: reconstructed surface mesh. The surface is properly closed on the fingers and also closed at the wrist but in a less plausible manner.  </div>  <br />
+
+<p>In case of large holes the algorithm still closes them all but the resulting piecewise linear implicit function may exhibit large triangle patches and sharp creases as the 3D Delaunay triangulation used for solving is very coarse where the holes are filled. This can be avoided by a two pass approach. The first pass for a subset of the points serves to get an approximation of the surface at the holes. This surface then serves to compute a smoother 3D Delaunay triangulation for the second pass with the full set of points.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3-fig-two_passes"></a></p><div class="image">
+<img src="two-passes.png" alt="two-passes.png" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3-fig-two_passes">Figure 57.10</a> Left: The wrist. Middle: one pass. Right: two passes.  </div>  <br />
+
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3WronglyOriented"></a>
+Wrongly Oriented Normals</h2>
+<p>The Poisson surface reconstruction approaches solves for an implicit function whose gradient best matches a set of input normals. Because it solves this problem in the least squares sense, it is robust to few isolated wrongly oriented (flipped) normals. Nevertheless a cluster of wrongly oriented normals leads to an incorrect implicit function and hence to spurious geometric or even topological distortion (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figflipped_normals">Figure 57.11</a>).</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figflipped_normals"></a></p><div class="image">
+<img src="flipped_normals.jpg" alt="flipped_normals.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figflipped_normals">Figure 57.11</a> Left: points sampled on a sphere with a cluster of wrongly oriented normals. Right: reconstructed surface mesh with a spurious bump.  </div>  <br />
+
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3NoiseandOutliers"></a>
+Noise and Outliers</h2>
+<p>A large amount of noise inevitably impacts on the reconstruction (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3fignoise">Figure 57.12</a>, top) and the current implementation does not provide any mean to trade data fitting for smoothness. Nevertheless if the signal-to-noise ratio is sufficiently high and/or the surface approximation and sizing parameters set for contouring the iso-surface is large with respect to the noise level the output surface mesh will appear smooth (not shown). If the user wants to produce a smooth and detailed output surface mesh, we recommend to apply smoothing through <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingAlgorithms.html#ga549402c0a8a8b6b71875181e93961521">jet_smooth_point_set()</a></code> (see <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3fignoise">Figure 57.12</a>, bottom).</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3fignoise"></a></p><div class="image">
+<img src="noise.jpg" alt="noise.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3fignoise">Figure 57.12</a> Top-left: points sampled on a sphere and corrupted with a lot of noise. Top-right: reconstructed surface mesh. Bottom-left: smoothed point set. Bottom-right: reconstructed surface mesh.  </div>  <br />
+
+<p>For a large number of outliers the failure cases (not shown) translate into spurious small connected components and massive distortion near the inferred surface. In this case the outliers must be removed through <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Point_set_processing_3.tag:../Point_set_processing_3/" href="../Point_set_processing_3/group__PkgPointSetProcessingAlgorithms.html#gafd0b5a21ec5042e4bca09cb43f1847f9">remove_outliers()</a></code>.</p>
+<h2><a class="anchor" id="Poisson_surface_reconstruction_3SharpCreases"></a>
+Sharp Creases</h2>
+<p>The current reconstruction algorithm is not able to recover the sharp creases and corners present in the inferred surface. This translates into smoothed sharp creases.</p>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3figsharp_features"></a></p><div class="image">
+<img src="sharp_features.jpg" alt="sharp_features.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3figsharp_features">Figure 57.13</a> Left: 5K points sampled on a mechanical piece with sharp features (creases, darts and corners). Right: reconstructed surface mesh with smoothed creases.  </div>  <br />
+
+<h1><a class="anchor" id="SurfReconstPerformances"></a>
+Performances</h1>
+<p>We provide some performance numbers for scanning data. We measure the Poisson implicit function computation time, the contouring time for a range of approximation distances, the memory occupancy as well as the influence of the point set simplification. The machine used is a PC running Windows 7 64 bits with an Intel CPU Core 2 Duo processor clocked at 2.81 GHz and with 8 GB of RAM. The software is compiled with Visual <span style="font-variant: small-caps;">C++</span> 2010 (VC9) compiler with the 03 option which maximizes speed. All measurements were done using the <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/installation.html#thirdpartyEigen">Eigen</a> library.</p>
+<h2><a class="anchor" id="SurfReconstPerfPIF"></a>
+Poisson Implicit Function</h2>
+<p>The point set chosen for benchmarking the Poisson implicit function is the Bimba con Nastrino point set (1.6 million points) depicted by <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3-fig-contouring_bench">Figure 57.14</a>. We measure the Poisson implicit function computation (i.e., the call to <code><a class="el" href="classCGAL_1_1Poisson__reconstruction__function.html#a5b01f27b151690449f33c9eb421f7c97" title="This function must be called after the insertion of oriented points. ">Poisson_reconstruction_function::compute_implicit_function()</a></code> denoted by Poisson solve hereafter) for this point set as well as for simplified versions obtained through random simplification. The following table provides Poisson solve computation times in seconds for an increasing number of points.</p>
+<table cellspacing="5">
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER"><p class="starttd"></p>
+<p class="endtd">Number of points (x1000) </p>
+</td><td class="math" align="CENTER">Poisson solve duration (in s) </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">60 </td><td class="math" align="CENTER">15 </td></tr>
+<tr>
+<td class="math" align="CENTER">100 </td><td class="math" align="CENTER">25 </td></tr>
+<tr>
+<td class="math" align="CENTER">250 </td><td class="math" align="CENTER">96 </td></tr>
+<tr>
+<td class="math" align="CENTER">500 </td><td class="math" align="CENTER">150 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,000 </td><td class="math" align="CENTER">249 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,800 </td><td class="math" align="CENTER">478 </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+</table>
+<h2><a class="anchor" id="SurfReconstPerfCont"></a>
+Contouring</h2>
+<p>The point set chosen for benchmarking the contouring stage is the Bimba con Nastrino point set simplified to 100k points. We measure the contouring (i.e. the call to <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/group__PkgSurfaceMesher3FunctionsMakeMesh.html#ga7e188adef5bfadaafd08db82c8a25dc1">make_surface_mesh()</a></code>) duration and the reconstruction error for a range of approximation distances. The reconstruction error is expressed as the average distance from input points to the reconstructed surface in mm (the Bimba con Nastrino statue is 324 mm tall).</p>
+<table cellspacing="5">
+<tr>
+<td align="LEFT" colspan="3"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">Approx. distance (*average spacing) </td><td class="math" align="CENTER">Contouring duration (in s) </td><td class="math" align="CENTER">Reconstruction error (mm) </td></tr>
+<tr>
+<td align="LEFT" colspan="3"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">0.1 </td><td class="math" align="CENTER">19.2 </td><td class="math" align="CENTER">0.055 </td></tr>
+<tr>
+<td class="math" align="CENTER">0.25 </td><td class="math" align="CENTER">6.9 </td><td class="math" align="CENTER">0.106 </td></tr>
+<tr>
+<td class="math" align="CENTER">0.5 </td><td class="math" align="CENTER">3.2 </td><td class="math" align="CENTER">0.18 </td></tr>
+<tr>
+<td class="math" align="CENTER">1 </td><td class="math" align="CENTER">1.65 </td><td class="math" align="CENTER">0.36 </td></tr>
+<tr>
+<td class="math" align="CENTER">2 </td><td class="math" align="CENTER">0.8 </td><td class="math" align="CENTER">0.76 </td></tr>
+<tr>
+<td align="LEFT" colspan="3"><hr />
+ </td></tr>
+</table>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3-fig-contouring_bench"></a></p><div class="image">
+<img src="contouring_bench.jpg" alt="contouring_bench.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3-fig-contouring_bench">Figure 57.14</a> Contouring duration (in s) and reconstruction error (mm) against several approximation distance parameters for the Bimba con Nastrino point set simplified to 100k points.  </div>  <br />
+
+<h2><a class="anchor" id="SurfReconstPerfMem"></a>
+Memory</h2>
+<p>We measure the memory occupancy for the reconstruction of the full Bimba con Nastrino point set (1.8 millions points) as well as for simplified versions.<br />
+The Poisson implicit function computation has a memory peak when solving the Poisson linear system using the sparse linear solver.</p>
+<table cellspacing="5">
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">Number of points (x1000) </td><td class="math" align="CENTER">Memory occupancy (MBytes) </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">60 </td><td class="math" align="CENTER">180 </td></tr>
+<tr>
+<td class="math" align="CENTER">100 </td><td class="math" align="CENTER">270 </td></tr>
+<tr>
+<td class="math" align="CENTER">250 </td><td class="math" align="CENTER">790 </td></tr>
+<tr>
+<td class="math" align="CENTER">500 </td><td class="math" align="CENTER">1300 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,000 </td><td class="math" align="CENTER">2200 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,800 </td><td class="math" align="CENTER">3800 </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+</table>
+<h2><a class="anchor" id="SurfReconstPerfPSS"></a>
+Point Set Simplification</h2>
+<p>Due to the memory limitations described above, we recommend to simplify the point sets captured by laser scanners.<br />
+We measure the reconstruction error for the Bimba con Nastrino point set (1.6M points) as well as for simplified versions. All reconstructions use the recommended contouring parameter <code>approximation distance = 0.25 * the input point</code> set's average spacing. The reconstruction error is expressed as the average distance from input points to the reconstructed surface in mm (the Bimba con Nastrino statue is 324 mm tall).</p>
+<table cellspacing="5">
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">Number of points (x1000) </td><td class="math" align="CENTER">Reconstruction error (mm) </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+<tr>
+<td class="math" align="CENTER">60 </td><td class="math" align="CENTER">0.27 </td></tr>
+<tr>
+<td class="math" align="CENTER">120 </td><td class="math" align="CENTER">0.15 </td></tr>
+<tr>
+<td class="math" align="CENTER">250 </td><td class="math" align="CENTER">0.11 </td></tr>
+<tr>
+<td class="math" align="CENTER">500 </td><td class="math" align="CENTER">0.079 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,000 </td><td class="math" align="CENTER">0.066 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,500 </td><td class="math" align="CENTER">0.061 </td></tr>
+<tr>
+<td class="math" align="CENTER">1,600 </td><td class="math" align="CENTER">0.06 </td></tr>
+<tr>
+<td align="LEFT" colspan="2"><hr />
+ </td></tr>
+</table>
+<p><a class="anchor" id="fig__Poisson_surface_reconstruction_3-fig-simplification_bench"></a></p><div class="image">
+<img src="simplification_bench.jpg" alt="simplification_bench.jpg" />
+</div>
+   <div class="cgal_figure_caption">  <a class="el" href="index.html#fig__Poisson_surface_reconstruction_3-fig-simplification_bench">Figure 57.15</a> Reconstruction error (mm) against number of points for the Bimba con Nastrino point set with 1.6M points as well as for simplified versions.  </div>  <br />
+
+<h1><a class="anchor" id="SurfReconstDesignHistory"></a>
+Design and Implementation History</h1>
+<p>The initial implementation was essentially done by Laurent Saboret, guided by Pierre Alliez and Ga"el Guennebaud. For later releases of the package Andreas Fabri worked on performance improvements, and Laurent Rineau added the two passes for dealing with holes. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:52 for CGAL 4.13 - Poisson Surface Reconstruction by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+</html>

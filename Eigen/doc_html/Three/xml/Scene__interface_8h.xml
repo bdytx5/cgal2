@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Scene__interface_8h" kind="file" language="C++">
+    <compoundname>Scene_interface.h</compoundname>
+    <includes local="no">CGAL/license/Three.h</includes>
+    <includes local="no">QString</includes>
+    <includes local="no">QColor</includes>
+    <includes local="no">QList</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">CGAL/Bbox_3.h</includes>
+    <includedby refid="Scene__item_8h" local="no">CGAL/Three/Scene_item.h</includedby>
+    <includedby refid="TextRenderer_8h" local="no">CGAL/Three/TextRenderer.h</includedby>
+    <includedby refid="Polyhedron__demo__plugin__helper_8h" local="no">CGAL/Three/Polyhedron_demo_plugin_helper.h</includedby>
+    <includedby refid="Scene__group__item_8h" local="no">CGAL/Three/Scene_group_item.h</includedby>
+    <includedby refid="Three_8h" local="no">CGAL/Three/Three.h</includedby>
+    <includedby refid="Scene_8h" local="no">/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/demo/Polyhedron/Scene.h</includedby>
+    <incdepgraph>
+      <node id="94">
+        <label>CGAL/Bbox_3.h</label>
+      </node>
+      <node id="91">
+        <label>QList</label>
+      </node>
+      <node id="93">
+        <label>cmath</label>
+      </node>
+      <node id="88">
+        <label>CGAL/license/Three.h</label>
+      </node>
+      <node id="89">
+        <label>QString</label>
+      </node>
+      <node id="90">
+        <label>QColor</label>
+      </node>
+      <node id="87">
+        <label>CGAL/Three/Scene_interface.h</label>
+        <link refid="Scene__interface_8h"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCGAL_1_1Three_1_1Scene__interface" prot="public">CGAL::Three::Scene_interface</innerclass>
+    <innernamespace refid="namespaceCGAL">CGAL</innernamespace>
+    <innernamespace refid="namespaceCGAL_1_1Three">CGAL::Three</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__PkgThree_1ga87cafe63badc45546f2eb940f2a94d70" prot="public" static="no">
+        <name>RenderingMode</name>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a80122c867cbace07a127dcb7939d6612" prot="public">
+          <name>Points</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a536fec7f5876b64af8ac6279e5a87e5c" prot="public">
+          <name>PointsPlusNormals</name>
+          <briefdescription>
+<para>Renders only points without lighting. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70ab52e59f1399ba12c7599cc13b07da807" prot="public">
+          <name>Wireframe</name>
+          <briefdescription>
+<para>Renders points and normals. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a5a9e3347876551cd38b961213ff1ccde" prot="public">
+          <name>Flat</name>
+          <briefdescription>
+<para>Renders only edges. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a3fccfecf668de1083cd4389a40f0711c" prot="public">
+          <name>FlatPlusEdges</name>
+          <briefdescription>
+<para>Renders only faces, with a lighting per face. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a99f881823fa5adb7828dcded3b823cb3" prot="public">
+          <name>Gouraud</name>
+          <briefdescription>
+<para>Renders flat faces and edges. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a77d56acc0ac7d8d9929aea8a7939fa1a" prot="public">
+          <name>ShadedPoints</name>
+          <briefdescription>
+<para>Renders only faces, with a lighting per vertex. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__PkgThree_1gga87cafe63badc45546f2eb940f2a94d70a4e06bc34f0f63ff8729b8d4cd0472544" prot="public">
+          <name>NumberOfRenderingMode</name>
+          <briefdescription>
+<para>Renders only points with lighting. </para>          </briefdescription>
+          <detaileddescription>
+<para>Number of values in this enum. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The RenderingMode determines which of an item&apos;s primitives must be drawn. </para>        </briefdescription>
+        <detaileddescription>
+<para>It can be Points, PointsPlusNormals, Wireframe, Flat, FlatPlusEdges, or Gouraud.<itemizedlist>
+<listitem><para>Points, PointsPlusNormals, and Wireframe have no light model.</para></listitem><listitem><para>Flat and FlatPlusEdges use a basic light model with one normal per facet.</para></listitem><listitem><para>Gouraud uses the same light model but with one normal per vertex. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Scene_interface.h" line="37" column="1" bodyfile="CGAL/Three/Scene_interface.h" bodystart="36" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CGAL/Three/Scene_interface.h"/>
+  </compounddef>
+</doxygen>

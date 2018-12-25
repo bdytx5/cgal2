@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Mesh_3/group__PkgMesh__3.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Mesh Generation: 3D Mesh Generation Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Mesh Generation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgMesh__3.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle">
+<div class="title">3D Mesh Generation Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<div class="PkgImage"> <div class="image">
+<img src="multilabel_mesher_small.jpg" alt="multilabel_mesher_small.jpg" />
+</div>
+ </div> <div class="PkgSummary"> <div class="PkgAuthors">Pierre Alliez, Clément Jamin, Laurent Rineau, Stéphane Tayeb, Jane Tournois, Mariette Yvinec</div> <div class="PkgDescription">This package is devoted to the generation of isotropic simplicial meshes discretizing 3D domains. The domain to be meshed is a region of 3D space that has to be bounded. The region may be connected or composed of multiple components and/or subdivided in several subdomains. The domain is input as an oracle able to answer queries, of a few different types, on the domain. Boundary and subdivision surfaces are either smooth or piecewise smooth surfaces, formed with planar or curved surface patches. Surfaces may exhibit 1-dimensional features (e.g. crease edges) and 0-dimensional features (e.g. singular points as corners tips, cusps or darts), that have to be fairly approximated in the mesh. Optionally, the algorithms support multi-core shared-memory architectures to take advantage of available parallelism.</div><p> <br />
+ </p></div> <div class="PkgShortInfo"> <b>Introduced in:</b> <span style="font-variant: small-caps;">CGAL</span> 3.5<br />
+ <b>Depends on:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/packages.html#PkgTriangulation3Summary">3D Triangulations</a> and <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/installation.html#thirdpartyEigen">Eigen</a> <br />
+ <b>BibTeX:</b> <a href="../Manual/how_to_cite_cgal.html#cgal:rty-m3-18b">cgal:rty-m3-18b</a><br />
+ <b>License:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/preliminaries.html#licensesGPL">GPL</a> <br />
+ <b>Windows Demo:</b> <a href="https://www.cgal.org/demo/4.13/polyhedron_3.zip">Polyhedron demo</a><br />
+<b>Common Demo Dlls:</b> <a href="https://www.cgal.org/demo/4.13/CGAL-demoDLLs.zip">dlls</a><br />
+ </div><p> </p><h2 class="groupheader">Classified Reference Pages</h2> 
+<h2>Concepts</h2>
+<p>Here are the main concepts of this package:</p>
+<ul>
+<li><code><a class="el" href="classMeshTriangulationTraits__3.html" title="The concept MeshTriangulationTraits_3 describes the requirements for the geometric traits class of th...">MeshTriangulationTraits_3</a></code></li>
+<li><code><a class="el" href="classMeshComplex__3InTriangulation__3.html" title="The concept MeshComplex_3InTriangulation_3 describes a data structure to represent and maintain a 3D ...">MeshComplex_3InTriangulation_3</a></code></li>
+<li><code><a class="el" href="classMeshComplexWithFeatures__3InTriangulation__3.html" title="The concept MeshComplexWithFeatures_3InTriangulation_3 describes a data structure to represent and ma...">MeshComplexWithFeatures_3InTriangulation_3</a></code></li>
+<li><code><a class="el" href="classMeshDomain__3.html" title="The concept MeshDomain_3 describes the knowledge required on the object to be discretized. The concept MeshDomain_3 is the concept to be used when the input domain does not have  or -dimensional features that need to be accurately approximated by the mesh. In such a case, the queries issued by the meshing process concern only the faces of the input domain with dimension  and , that are respectively called subdomains and surface patches. ">MeshDomain_3</a></code></li>
+<li><code><a class="el" href="classMeshDomainWithFeatures__3.html" title="The concept MeshDomainWithFeatures_3 refines the concept MeshDomain_3. While the concept MeshDomain_3...">MeshDomainWithFeatures_3</a></code></li>
+<li><code><a class="el" href="classMeshCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCriteria_3</a></code></li>
+<li><code><a class="el" href="classMeshCriteriaWithFeatures__3.html" title="The concept MeshCriteriaWithFeatures_3 refines the concept MeshCriteria_3. The concept MeshCriteria_3...">MeshCriteriaWithFeatures_3</a></code></li>
+<li><code><a class="el" href="classMeshCellCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshCellCriteria_3</a></code></li>
+<li><code><a class="el" href="classMeshFacetCriteria__3.html" title="The Delaunay refinement process involved in the template functions make_mesh_3() and refine_mesh_3() ...">MeshFacetCriteria_3</a></code></li>
+<li><code><a class="el" href="classMeshEdgeCriteria__3.html" title="The function object concept MeshEdgeCriteria_3 is designed to drive the process which samples the 1-d...">MeshEdgeCriteria_3</a></code></li>
+</ul>
+<p>The following concepts are secondary concepts, related to the template parameters of some models of the main concepts:</p>
+<ul>
+<li><code><a class="el" href="classBisectionGeometricTraits__3.html" title="The concept BisectionGeometricTraits_3 describes a geometric traits class that provides the basic typ...">BisectionGeometricTraits_3</a></code></li>
+<li><code><a class="el" href="classIntersectionGeometricTraits__3.html" title="The concept IntersectionGeometricTraits_3 provides types and functors required to implement a model o...">IntersectionGeometricTraits_3</a></code></li>
+<li><code><a class="el" href="classMeshCellBase__3.html" title="The concept MeshCellBase_3 describes the requirements for the Cell type of the triangulation used in ...">MeshCellBase_3</a></code></li>
+<li><code><a class="el" href="classMeshVertexBase__3.html" title="The concept MeshVertexBase_3 describes the requirements for the Vertex type of the triangulation used...">MeshVertexBase_3</a></code></li>
+<li><code><a class="el" href="classMeshDomainField__3.html" title="The concept MeshDomainField_3 describes a scalar field which could be queried at any point of the spa...">MeshDomainField_3</a></code></li>
+<li><code><a class="el" href="classMeshPolyline__3.html" title="The concept MeshPolyline_3 implements a container of points designed to represent a polyline (i...">MeshPolyline_3</a></code></li>
+<li><code><a class="el" href="classTriangleAccessor__3.html" title="The concept TriangleAccessor_3 represents an accessor to a triangulated polyhedral surface...">TriangleAccessor_3</a></code></li>
+</ul>
+<h2>Classes</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Mesh__complex__3__in__triangulation__3.html" title="The class Mesh_complex_3_in_triangulation_3 implements a data structure to store the 3D restricted De...">CGAL::Mesh_complex_3_in_triangulation_3</a>&lt;Tr,CornerIndex,CurveIndex&gt;</code></li>
+<li><code><a class="el" href="structCGAL_1_1Mesh__triangulation__3.html" title="The class Mesh_triangulation_3 is a class template which provides the triangulation type to be used f...">CGAL::Mesh_triangulation_3</a>&lt;MD,Gt,Concurrency_tag,Vertex_base,Cell_base&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__vertex__base__3.html" title="The class Mesh_vertex_base_3 is a model of the concept MeshVertexBase_3. ">CGAL::Mesh_vertex_base_3</a>&lt;Gt,MD,Vb&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Compact__mesh__cell__base__3.html" title="The class Compact_mesh_cell_base_3&lt;Gt, MD&gt; is a model of the concept MeshCellBase_3. ">CGAL::Compact_mesh_cell_base_3</a>&lt;Gt,MD,Tds&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__cell__base__3.html" title="The class Mesh_cell_base_3&lt;Gt, MD, Cb&gt; is a model of the concept MeshCellBase_3. ">CGAL::Mesh_cell_base_3</a>&lt;Gt,MD,Cb&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__criteria__3.html" title="The class Mesh_criteria_3 is a model of both concepts MeshCriteria_3 and MeshCriteriaWithFeatures_3. ">CGAL::Mesh_criteria_3</a>&lt;Tr&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__cell__criteria__3.html" title="The class Mesh_cell_criteria_3 is a model of MeshCellCriteria_3. ">CGAL::Mesh_cell_criteria_3</a>&lt;Tr&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__facet__criteria__3.html" title="The class Mesh_facet_criteria_3 is a model of MeshFacetCriteria_3. ">CGAL::Mesh_facet_criteria_3</a>&lt;Tr&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__edge__criteria__3.html" title="The function object class Mesh_edge_criteria_3 is a model of MeshEdgeCriteria_3. ">CGAL::Mesh_edge_criteria_3</a>&lt;Tr&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__constant__domain__field__3.html" title="The class Mesh_constant_domain_field_3 is a model of concept MeshDomainField_3. ">CGAL::Mesh_constant_domain_field_3</a>&lt;Gt,Index&gt;</code></li>
+</ul>
+<p>The following classes are models of domain concepts and their associated classes:</p>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Labeled__mesh__domain__3.html" title="The class Labeled_mesh_domain_3 implements indexed domains. ">CGAL::Labeled_mesh_domain_3</a>&lt;LabelingFunction,BGT&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polyhedral__mesh__domain__3.html" title="The class Polyhedral_mesh_domain_3 implements a domain defined by a simplicial polyhedral surface...">CGAL::Polyhedral_mesh_domain_3</a>&lt;Polyhedron,IGT,TriangleAccessor&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polyhedral__mesh__domain__with__features__3.html" title="The class Polyhedral_mesh_domain_with_features_3 implements a domain whose boundary is a simplicial p...">CGAL::Polyhedral_mesh_domain_with_features_3</a>&lt;IGT&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Polyhedral__complex__mesh__domain__3.html" title="The class Polyhedral_complex_mesh_domain_3 implements a domain defined by a collection of polyhedral ...">CGAL::Polyhedral_complex_mesh_domain_3</a>&lt;IGT&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Mesh__domain__with__polyline__features__3.html" title="The class Mesh_domain_with_polyline_features_3 is designed to allow the user to add some 0- and 1-dim...">CGAL::Mesh_domain_with_polyline_features_3</a>&lt;<a class="el" href="classMeshDomain__3.html" title="The concept MeshDomain_3 describes the knowledge required on the object to be discretized. The concept MeshDomain_3 is the concept to be used when the input domain does not have  or -dimensional features that need to be accurately approximated by the mesh. In such a case, the queries issued by the meshing process concern only the faces of the input domain with dimension  and , that are respectively called subdomains and surface patches. ">MeshDomain_3</a>&gt;</code></li>
+<li><code><a class="el" href="structCGAL_1_1Mesh__polyhedron__3.html" title="The class Mesh_polyhedron_3 provides a customized Polyhedron_3 type. ">CGAL::Mesh_polyhedron_3</a>&lt;IGT&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Triangle__accessor__3.html" title="The class Triangle_accessor_3 is a model for the concept TriangleAccessor_3. ">CGAL::Triangle_accessor_3</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Polyhedron.tag:../Polyhedron/" href="../Polyhedron/classCGAL_1_1Polyhedron__3.html">CGAL::Polyhedron_3</a>&lt;K&gt;,K&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Implicit__multi__domain__to__labeling__function__wrapper.html" title="The class Implicit_multi_domain_to_labeling_function_wrapper is a helping class to get a function wit...">CGAL::Implicit_multi_domain_to_labeling_function_wrapper</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Surface_mesher.tag:../Surface_mesher/" href="../Surface_mesher/classImplicitFunction.html">ImplicitFunction</a>&gt;</code></li>
+<li><code><a class="el" href="classCGAL_1_1Implicit__mesh__domain__3.html">CGAL::Implicit_mesh_domain_3</a>&lt;Function,BGT&gt;</code> (deprecated)</li>
+<li><code><a class="el" href="classCGAL_1_1Labeled__image__mesh__domain__3.html">CGAL::Labeled_image_mesh_domain_3</a>&lt;Image,BGT&gt;</code> (deprecated)</li>
+<li><code><a class="el" href="classCGAL_1_1Gray__image__mesh__domain__3.html">CGAL::Gray_image_mesh_domain_3</a>&lt;Image,BGT,Image_word_type&gt;</code> (deprecated)</li>
+</ul>
+<h2>Function Templates</h2>
+<ul>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">CGAL::make_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">CGAL::refine_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#gabf09a95838226da018a742a631824af9" title="The function exude_mesh_3() performs a sliver exudation process on a Delaunay mesh. ">CGAL::exude_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#ga1663c4db53ad4fd91c889be96576842a" title="The function perturb_mesh_3() is a mesh optimizer that improves the quality of a Delaunay mesh by cha...">CGAL::perturb_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#gaa3a279f64022f2bc51935f946dd8a50e" title="The function lloyd_optimize_mesh_3() is a mesh optimization process based on the minimization of a gl...">CGAL::lloyd_optimize_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#ga66300c76c2400ed4c847db71ab9c7906" title="The function odt_optimize_mesh_3() is a mesh optimization process based on the minimization of a glob...">CGAL::odt_optimize_mesh_3()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Functions.html#ga68ca38989087644fb6b893eb566be9ea" title="builds a TriangleMesh from the surface facets, with a consistent orientation at the interface of two ...">CGAL::facets_in_complex_3_to_triangle_mesh()</a></code></li>
+</ul>
+<h2><a class="el" href="namespaceCGAL_1_1parameters.html">CGAL::parameters</a> Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga0a990b28d55157c62d4bfd2624d408af" title="The function parameters::features() provides a value of internal type Features to specify if 0 and 1-...">CGAL::parameters::features()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#gaa3eb2cb65200b0331ef9d5f14b4a0535" title="The function parameters::no_features() allows the user to prevent the handling of 0 and 1-dimensional...">CGAL::parameters::no_features()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga16694b09a2acc8ab3f26b7d57633ccb0" title="The function parameters::exude() allows the user to trigger a call to exude_mesh_3() in the make_mesh...">CGAL::parameters::exude()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga0b79c473082a4ec2a45ed1497f3ac873" title="The function parameters::no_exude() allows the user to tell the mesh generation functions make_mesh_3...">CGAL::parameters::no_exude()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#gaedf18f7f3c4647ec5fce5d67e435757a" title="The function parameters::perturb() allows the user to trigger a call to perturb_mesh_3() in make_mesh...">CGAL::parameters::perturb()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga5714d10decd9eecd30997572b785e03b" title="The function parameters::no_perturb() allows the user to tell mesh generation global functions make_m...">CGAL::parameters::no_perturb()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#gaa7254c80bba62400f43f1e49506b975a" title="The function parameters::lloyd() allows the user to trigger a call of lloyd_optimize_mesh_3() in the ...">CGAL::parameters::lloyd()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga6abfd3773eeb47d88ce6cffb91f14d2f" title="The function parameters::no_lloyd() allows the user to tell the mesh generation functions make_mesh_3...">CGAL::parameters::no_lloyd()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#gafbecfd22651a08e6812d8a5ad9b49852" title="The function parameters::odt() allows the user to trigger a call to CGAL::odt_optimize_mesh_3() in CG...">CGAL::parameters::odt()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga1d041e8dbde3860cde3c20107225ecb1" title="The function parameters::no_odt() allows the user to tell the mesh generation functions make_mesh_3()...">CGAL::parameters::no_odt()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga67c9c42cfafc22044cc74c704c29aa76" title="The function parameters::manifold() is used to drive the meshing algorithm for surfaces. ">CGAL::parameters::manifold()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#ga6477a80df03317315fc2b0f1a1125b50" title="The function parameters::manifold_with_boundary() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::manifold_with_boundary()</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Parameters.html#gae0004e99875f9294a4ff7c5b9d7b04af" title="The function parameters::non_manifold() is used to drive the meshing algorithm for surfaces...">CGAL::parameters::non_manifold()</a></code></li>
+</ul>
+<h2>Enumerations</h2>
+<ul>
+<li><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Mesh_2.tag:../Mesh_2/" href="../Mesh_2/group__PkgMesh2Enum.html#gab9fe60482a45120b3c061a8a4ec9018d">CGAL::Mesh_optimization_return_code</a></code></li>
+<li><code><a class="el" href="group__PkgMesh__3Enum.html#gaac682a581ddebf8daff681621911d1f3" title="The enum Mesh_facet_topology is designed to tell which constraints have to be checked on each surface...">CGAL::Mesh_facet_topology</a></code></li>
+</ul>
+<h2>Input/Output Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PkgMesh__3IOFunctions.html#ga2bae1cee3b149f4e9092195a1cd07232" title="Outputs a mesh complex to the medit (.mesh) file format. ">CGAL::output_to_medit()</a></code> </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups" id="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__PkgMesh__3Concepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Concepts.html">Main Concepts</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3Concepts"><td class="mdescLeft"> </td><td class="mdescRight">The main concepts of this package. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3SecondaryConcepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3SecondaryConcepts.html">Secondary Concepts</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3SecondaryConcepts"><td class="mdescLeft"> </td><td class="mdescRight">The concepts in this group are secondary concepts, related to the template parameters of some models of the main concept. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3MeshClasses"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3MeshClasses.html">Mesh Classes</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3MeshClasses"><td class="mdescLeft"> </td><td class="mdescRight">The classes in this group are the main classes involved in the mesh generation process. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3Domains"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Domains.html">Domain Classes</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3Domains"><td class="mdescLeft"> </td><td class="mdescRight">The classes in this group are models of domain concepts and their associated classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3Functions"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Functions.html">Mesh Generation Functions</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3Functions"><td class="mdescLeft"> </td><td class="mdescRight">The two main functions to generate a mesh are <code><a class="el" href="group__PkgMesh__3Functions.html#ga1ee73dc372985c6aeef85f2415fac0ba" title="The function make_mesh_3() is a 3D mesh generator. ">make_mesh_3()</a></code> and <code><a class="el" href="group__PkgMesh__3Functions.html#gac5a80764f9615b55c9dc60ab055e06ba" title="The function refine_mesh_3() is a 3D mesh generator. ">refine_mesh_3()</a></code>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3Parameters"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Parameters.html">Parameter Functions</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3Enum"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3Enum.html">Enumerations</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgMesh__3IOFunctions"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgMesh__3IOFunctions.html">Input/Output Functions</a></td></tr>
+<tr class="memdesc:group__PkgMesh__3IOFunctions"><td class="mdescLeft"> </td><td class="mdescRight">The free functions that can be used to read and write meshes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:49 for CGAL 4.13 - 3D Mesh Generation by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

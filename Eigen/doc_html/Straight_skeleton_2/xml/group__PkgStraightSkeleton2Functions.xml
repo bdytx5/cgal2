@@ -1,0 +1,1120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgStraightSkeleton2Functions" kind="group">
+    <compoundname>PkgStraightSkeleton2Functions</compoundname>
+    <title>Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gafc364113b39f15f5369fbaa495c8f7f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class K</type>
+          </param>
+          <param>
+            <type>class InputPolygonPtrIterator</type>
+          </param>
+          <param>
+            <type>class OutputPolygonWithHolesPtrIterator</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::arrange_offset_polygons_2</definition>
+        <argsstring>(InputPolygonPtrIterator begin, InputPolygonPtrIterator end, OutputPolygonWithHolesPtrIterator out, K const &amp;k)</argsstring>
+        <name>arrange_offset_polygons_2</name>
+        <param>
+          <type>InputPolygonPtrIterator</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>InputPolygonPtrIterator</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>OutputPolygonWithHolesPtrIterator</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gafc364113b39f15f5369fbaa495c8f7f6" kindref="member">arrange_offset_polygons_2()</ref></computeroutput> arranges the sequence of <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref></computeroutput> objects obtained by <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" kindref="member">create_offset_polygons_2()</ref></computeroutput> into <computeroutput><ref refid="classCGAL_1_1Polygon__with__holes__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_with_holes_2</ref></computeroutput> objects by determining geometric parent-hole relationships using a simple algorithm based on the particular characteristics of offset polygons. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function determines parent-hole relationships among the polygons given by <computeroutput>[begin,end]</computeroutput> creating <computeroutput>boost::shared_ptr&lt; <ref refid="classCGAL_1_1Polygon__with__holes__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_with_holes_2</ref>&lt;K&gt; &gt;</computeroutput> objects added to the output sequence given <computeroutput>out</computeroutput>. A <computeroutput>CLOCKWISE</computeroutput> oriented polygon <computeroutput>H</computeroutput> is a hole of a <computeroutput>COUNTERCLOCKWISE</computeroutput> polygon <computeroutput>P</computeroutput>, iff at least one vertex of <computeroutput>H</computeroutput> is <computeroutput>ON_BOUNDED_SIDE</computeroutput> of <computeroutput>P</computeroutput>.</para><para>This function should not be used to arrange arbitrary polygons into polygons with holes unless they meet the requirements specified below.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a CGAL kernel. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InputPolygonPtrIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an input iterator whose <computeroutput>value_type</computeroutput> is a smart pointer (such as <computeroutput>boost::shared_ptr</computeroutput>) whose <computeroutput>element_type</computeroutput> is <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref>&lt;K&gt;</computeroutput>. The input polygons must be simple. The set of input polygons are unique and interior disjoint. That is, given distinct polygons <computeroutput>P</computeroutput> and <computeroutput>Q</computeroutput>, there are vertices of <computeroutput>P</computeroutput> which are not on the boundary of <computeroutput>Q</computeroutput> and are all on the bounded or unbounded side of <computeroutput>Q</computeroutput> (but not both). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OutputPolygonWithHolesPtrIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be an output iterator whose <computeroutput>value_type</computeroutput> is a smart pointer (such as <computeroutput>boost::shared_ptr</computeroutput>) whose <computeroutput>element_type</computeroutput> is <computeroutput><ref refid="classCGAL_1_1Polygon__with__holes__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_with_holes_2</ref>&lt;K&gt;</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/arrange_offset_polygons_2.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga082ba1726ab0bc292bd56ef903326fa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+          <param>
+            <type>class Traits</type>
+          </param>
+        </templateparamlist>
+        <type>boost::optional&lt; typename Traits::FT &gt;</type>
+        <definition>boost::optional&lt; typename Traits::FT &gt; CGAL::compute_outer_frame_margin</definition>
+        <argsstring>(InputIterator first, InputIterator beyond, typename Traits::FT offset, Traits const &amp;traits=Default_traits)</argsstring>
+        <name>compute_outer_frame_margin</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>beyond</declname>
+        </param>
+        <param>
+          <type>typename Traits::FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>Traits const &amp;</type>
+          <declname>traits</declname>
+          <defval>Default_traits</defval>
+        </param>
+        <briefdescription>
+<para>Computes the separation required between a polygon and the outer frame used to obtain an exterior skeleton suitable for the computation of outer offset polygons at a given distance. </para>        </briefdescription>
+        <detaileddescription>
+<para>Given a non-degenerate strictly-simple 2D polygon whose vertices are passed in the range [<computeroutput>first</computeroutput>,<computeroutput>beyond</computeroutput>), calculates the largest euclidean distance <computeroutput>d</computeroutput> between each input vertex and its corresponding offset vertex at a distance <computeroutput>offset</computeroutput>.</para><para>If such a distance can be approximately computed, returns an <computeroutput>optional&lt;FT&gt;</computeroutput> with the value <computeroutput>d + (offset * 1.05)</computeroutput>. If the distance cannot be computed, not even approximately, due to overflow for instance, returns an empty <computeroutput>optional&lt;FT&gt;</computeroutput> (an <emphasis>absent result</emphasis>).</para><para>This result is the required separation between the input polygon and the rectangular frame used to construct an exterior offset contour at distance <computeroutput>offset</computeroutput> (which is done by placing the polygon as a hole of that frame).</para><para>Such a separation must be computed in this way because if the frame is too close to the polygon, the inward offset contour from the frame could collide with the outward offset contour of the polygon, resulting in a merged contour offset instead of two contour offsets, one of them corresponding to the frame.</para><para>Simply using <computeroutput>2*offset</computeroutput> as the separation is incorrect since <computeroutput>offset</computeroutput> is the distance between an offset line and its original, not between an offset vertex and its original. The later, which is calculated by this function and needed to place the frame sufficiently away from the polygon, can be thousands of times larger than <computeroutput>offset</computeroutput>.</para><para>If the result is <emphasis>absent</emphasis>, any attempt to construct an exterior offset polygon at distance <computeroutput>offset</computeroutput> will fail. This will occur whenever the polygon has a vertex with an internal angle approaching <computeroutput>0</computeroutput> (because the offset vertex of a vertex whose internal angle equals 0 is at <emphasis>infinity</emphasis> ).</para><para><simplesect kind="pre"><para><computeroutput>offset &gt; 0</computeroutput>. </para></simplesect>
+<simplesect kind="pre"><para>The range [<computeroutput>first</computeroutput>,<computeroutput>beyond</computeroutput>) contains the vertices of a non-degenerate strictly-simple 2D polygon.</para></simplesect>
+The default traits class <computeroutput>Default_traits</computeroutput> is an instance of the class <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;<ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref>&gt;</computeroutput> parameterized on the kernel in which the type <computeroutput>InputIterator::value_type</computeroutput> is defined.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must have a <computeroutput>value_type</computeroutput> equivalent to <computeroutput>Traits::Point_2</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Traits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model for <computeroutput><ref refid="classPolygonOffsetBuilderTraits__2" kindref="compound">PolygonOffsetBuilderTraits_2</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="classPolygonOffsetBuilderTraits__2" kindref="compound">PolygonOffsetBuilderTraits_2</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/compute_outer_frame_margin.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class StraightSkeleton</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt;Polygon&gt; &gt; CGAL::create_offset_polygons_2</definition>
+        <argsstring>(FT offset, StraightSkeleton const &amp;s,, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_offset_polygons_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>StraightSkeleton const &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a container with the offset polygons at distance <computeroutput>offset</computeroutput> obtained from the straight skeleton <computeroutput>s</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>If <computeroutput>s</computeroutput> is the inner skeleton of a polygon with holes, the offset polygons will be generated in its interior. If <computeroutput>s</computeroutput> is the outer skeleton of a polygon with holes, the offset polygons will be generated in its exterior.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL kernel. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>K::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>StraightSkeleton</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K2&gt;</computeroutput>. If <computeroutput>K != K2</computeroutput> the straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classVertexContainer__2" kindref="compound">VertexContainer_2</ref></computeroutput>. If this first template parameter is omitted, <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref></computeroutput> is used.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1ga8b32cf165e4fb19a2cf1a47d9005928d" kindref="member">create_interior_skeleton_and_offset_polygons_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaa05856f5b799ab5aed6e488212aa4f31" kindref="member">create_exterior_skeleton_and_offset_polygons_2()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_2.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gaa05856f5b799ab5aed6e488212aa4f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt;Polygon&gt; &gt; CGAL::create_exterior_skeleton_and_offset_polygons_2</definition>
+        <argsstring>(FT offset, Polygon const &amp;poly, OffsettingK ofk=Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_exterior_skeleton_and_offset_polygons_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>Polygon const &amp;</type>
+          <declname>poly</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the outer offset polygons at distance <computeroutput>offset</computeroutput> of the 2D polygon <computeroutput>poly</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>A temporary straight skeleton is constructed in the <computeroutput>limited exterior</computeroutput> of the input polygon to obtain the offsets. The construction of this skeleton is the most expensive operation, therefore, to construct offsets at more than one single distance, use the separate functions <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> and <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" kindref="member">create_offset_polygons_2()</ref></computeroutput> instead. The exterior skeleton is limited by an outer rectangular frame placed at a margin sufficiently large to allow the offset polygons to be constructed.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a CGAL kernel. It is used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a CGAL kernel. It is used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>.<orderedlist>
+<listitem><para><computeroutput>Straight_skeleton</computeroutput> is <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K2&gt;</computeroutput>. If <computeroutput>K != K2</computeroutput> the straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput>.</para></listitem></orderedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_2.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga8b32cf165e4fb19a2cf1a47d9005928d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class HoleIterator</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt;Polygon&gt; &gt; CGAL::create_interior_skeleton_and_offset_polygons_2</definition>
+        <argsstring>(FT offset, Polygon const &amp;outer_boundary, HoleIterator holes_begin, HoleIterator holes_end, OffsettingK ofk=CGAL::Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=CGAL::Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_skeleton_and_offset_polygons_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>Polygon const &amp;</type>
+          <declname>outer_boundary</declname>
+        </param>
+        <param>
+          <type>HoleIterator</type>
+          <declname>holes_begin</declname>
+        </param>
+        <param>
+          <type>HoleIterator</type>
+          <declname>holes_end</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the inner offset polygons at distance <computeroutput>offset</computeroutput> of the 2D polygon with holes whose outer boundary is <computeroutput>outer_boundary</computeroutput> and its holes are given by <computeroutput>[holes_begin,holes_end]</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>A temporary straight skeleton is constructed in the interior of the input polygon to obtain the offsets. The construction of this skeleton is the most expensive operation, therefore, to construct offsets at more than one single distance, use the separate functions <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> and <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" kindref="member">create_offset_polygons_2()</ref></computeroutput> instead.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Straight_skeleton</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K2&gt;</computeroutput>. If <computeroutput>K != K2</computeroutput> the straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HoleIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2</ref>&lt;OffsettingK&gt;</computeroutput> or a standard container of <computeroutput>OffsettingK::Point_2</computeroutput> elements </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2</ref>&lt;OffsettingK&gt;</computeroutput> or a standard container of <computeroutput>OffsettingK::Point_2</computeroutput> elements</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_2.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gac785d1b55fbb4fd1ab53fccdbecde836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt;Polygon&gt; &gt; CGAL::create_interior_skeleton_and_offset_polygons_2</definition>
+        <argsstring>(FT offset, Polygon const &amp;poly, OffsettingK ofk=CGAL::Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=CGAL::Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_skeleton_and_offset_polygons_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>Polygon const &amp;</type>
+          <declname>poly</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the inner offset polygons at distance <computeroutput>offset</computeroutput> of the 2D polygon <computeroutput>poly</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>A temporary straight skeleton is constructed in the interior of the input polygon to obtain the offsets. The construction of this skeleton is the most expensive operation, therefore, to construct offsets at more than one single distance, use the separate functions <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> and <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" kindref="member">create_offset_polygons_2()</ref></computeroutput> instead.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2</ref>&lt;OffsettingK&gt;</computeroutput> or a standard container of <computeroutput>OffsettingK::Point_2</computeroutput> elements</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_2.h" line="136" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga4050551e87259c87d2b93838ed1279b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+          <param>
+            <type>class C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt; OffsettingK, C &gt; &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt;OffsettingK,C&gt; &gt; &gt; CGAL::create_exterior_skeleton_and_offset_polygons_with_holes_2</definition>
+        <argsstring>(FT offset, CGAL::Polygon_2&lt; OffsettingK, C &gt; poly_with_holes, OffsettingK ofk=Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_exterior_skeleton_and_offset_polygons_with_holes_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2</ref>&lt; OffsettingK, C &gt;</type>
+          <declname>poly_with_holes</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the outer offset polygons <emphasis>with holes</emphasis> at distance <computeroutput>offset</computeroutput> of the 2D polygon <computeroutput>poly</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is equivalent to <computeroutput>arrange_offset_polygons_2(create_exterior_skeleton_and_offset_polygons_2(offset,poly,okk,ssk))</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_from_polygon_with_holes_2.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga3fd4f7c2453a525689badcfa70436575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+          <param>
+            <type>class C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon_2&lt; OffsettingK, C &gt; &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt; Polygon_2&lt;OffsettingK,C&gt; &gt; &gt; CGAL::create_interior_skeleton_and_offset_polygons_2</definition>
+        <argsstring>(FT offset, CGAL::Polygon_with_holes&lt; OffsettingK, C &gt; poly_with_holes, OffsettingK ofk=CGAL::Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=CGAL::Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_skeleton_and_offset_polygons_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>CGAL::Polygon_with_holes&lt; OffsettingK, C &gt;</type>
+          <declname>poly_with_holes</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the inner offset polygons at distance <computeroutput>offset</computeroutput> of the 2D polygon with holes <computeroutput>poly_with_holes</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>A temporary straight skeleton is constructed in the interior of the input polygon to obtain the offsets. The construction of this skeleton is the most expensive operation, therefore, to construct offsets at more than one single distance, use the separate functions <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> and <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaf85a09dc47cb9bb9e2ef28e00fc905ff" kindref="member">create_offset_polygons_2()</ref></computeroutput> instead.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the container of points in the polygons.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_from_polygon_with_holes_2.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gac7686e47d2573e95dcca775d2525d51c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+          <param>
+            <type>class C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt; OffsettingK, C &gt; &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt;OffsettingK,C&gt; &gt; &gt; CGAL::create_interior_skeleton_and_offset_polygons_with_holes_2</definition>
+        <argsstring>(FT offset, CGAL::Polygon_2&lt; OffsettingK, C &gt; poly, OffsettingK ofk=CGAL::Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=CGAL::Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_skeleton_and_offset_polygons_with_holes_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_2</ref>&lt; OffsettingK, C &gt;</type>
+          <declname>poly</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the inner offset polygons <emphasis>with holes</emphasis> at distance <computeroutput>offset</computeroutput> of the 2D polygon <computeroutput>poly</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is equivalent to <computeroutput>arrange_offset_polygons_2(create_interior_skeleton_and_offset_polygons_2(offset,poly,okk,ssk))</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the container of points in the polygons.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_from_polygon_with_holes_2.h" line="76" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga492d252da606cd3955ad520e2daa1097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class OffsettingK</type>
+          </param>
+          <param>
+            <type>class SkeletonK</type>
+          </param>
+          <param>
+            <type>class C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt; OffsettingK, C &gt; &gt; &gt;</type>
+        <definition>std::vector&lt; boost::shared_ptr&lt; Polygon_with_holes_2&lt;OffsettingK,C&gt; &gt; &gt; CGAL::create_interior_skeleton_and_offset_polygons_with_holes_2</definition>
+        <argsstring>(FT offset, CGAL::Polygon_with_holes_2&lt; OffsettingK, C &gt; poly_with_holes, OffsettingK ofk=CGAL::Exact_predicates_inexact_constructions_kernel, SkeletonK ssk=CGAL::Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_skeleton_and_offset_polygons_with_holes_2</name>
+        <param>
+          <type>FT</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type><ref refid="classCGAL_1_1Polygon__with__holes__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">CGAL::Polygon_with_holes_2</ref>&lt; OffsettingK, C &gt;</type>
+          <declname>poly_with_holes</declname>
+        </param>
+        <param>
+          <type>OffsettingK</type>
+          <declname>ofk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <param>
+          <type>SkeletonK</type>
+          <declname>ssk</declname>
+          <defval><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref></defval>
+        </param>
+        <briefdescription>
+<para>returns a container with all the inner offset polygons <emphasis>with holes</emphasis> at distance <computeroutput>offset</computeroutput> of the 2D polygon with holes <computeroutput>poly_with_holes</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is equivalent to <computeroutput>arrange_offset_polygons_2(create_interior_skeleton_and_offset_polygons_2(offset,poly_with_holes,okk,ssk))</computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OffsettingK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Polygon__offset__builder__traits__2" kindref="compound">Polygon_offset_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the offset polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SkeletonK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the CGAL kernel used to instantiate <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__traits__2" kindref="compound">Straight_skeleton_builder_traits_2</ref>&lt;K&gt;</computeroutput> for constructing the straight skeleton. If <computeroutput>SkeletonK != OffsettingK</computeroutput> the constructed straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;OffsettingK&gt;</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any number type implicitly convertible to <computeroutput>OffsettingK::FT</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the container of points in the polygons. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Straight_skeleton</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K2&gt;</computeroutput>. If <computeroutput>K != K2</computeroutput> the straight skeleton is converted to <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_offset_polygons_from_polygon_with_holes_2.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class PointIterator</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_exterior_straight_skeleton_2</definition>
+        <argsstring>(FT max_offset, PointIterator vertices_begin, PointIterator vertices_end, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_exterior_straight_skeleton_2</name>
+        <param>
+          <type>FT</type>
+          <declname>max_offset</declname>
+        </param>
+        <param>
+          <type>PointIterator</type>
+          <declname>vertices_begin</declname>
+        </param>
+        <param>
+          <type>PointIterator</type>
+          <declname>vertices_end</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> creates a straight skeleton in the exterior of a 2D polygon with holes. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the <emphasis>limited exterior</emphasis> of the 2D polygon <computeroutput>P</computeroutput> given by the point sequence <computeroutput>[vertices_begin,vertices_end]</computeroutput>. The skeleton in the <emphasis>limited exterior</emphasis> of <computeroutput>P</computeroutput> is the skeleton in the interior of a polygon <computeroutput>Q</computeroutput> with <computeroutput>P</computeroutput> as its hole and a rectangular frame <computeroutput>F</computeroutput> as outer boundary. The outer boundary <computeroutput>F</computeroutput> is constructed by enlarging the bounding box of <computeroutput>P</computeroutput> a distance <computeroutput>d</computeroutput>. <computeroutput>d</computeroutput> is a margin sufficiently large to allow an outer offset at distance <computeroutput>max_offset</computeroutput> to be obtained from this exterior skeleton, as computed by the function <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1ga082ba1726ab0bc292bd56ef903326fa8" kindref="member">compute_outer_frame_margin()</ref></computeroutput></para><para><bold>Requirements</bold><linebreak/>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a number type </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being equivalent to <computeroutput>K2::Point_2</computeroutput> <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> is used to convert from <computeroutput>K2::Point_2</computeroutput> to <computeroutput>K::Point_2</computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_2.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gab0ccdfc7bb05a3c7a6e7c57d67eb765a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class FT</type>
+          </param>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_exterior_straight_skeleton_2</definition>
+        <argsstring>(FT max_offset, Polygon P, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_exterior_straight_skeleton_2</name>
+        <param>
+          <type>FT</type>
+          <declname>max_offset</declname>
+        </param>
+        <param>
+          <type>Polygon</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> creates a straight skeleton in the exterior of a 2D polygon with holes. </para>        </briefdescription>
+        <detaileddescription>
+<para>The function returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the <emphasis>limited exterior</emphasis> of the 2D polygon <computeroutput>P</computeroutput>. The skeleton in the <emphasis>limited exterior</emphasis> of <computeroutput>P</computeroutput> is the skeleton in the interior of a polygon <computeroutput>Q</computeroutput> with <computeroutput>P</computeroutput> as its hole and a rectangular frame <computeroutput>F</computeroutput> as outer boundary. The outer boundary <computeroutput>F</computeroutput> is constructed by enlarging the bounding box of <computeroutput>P</computeroutput> a distance <computeroutput>d</computeroutput>. <computeroutput>d</computeroutput> is a margin sufficiently large to allow an outer offset at distance <computeroutput>max_offset</computeroutput> to be obtained from this exterior skeleton, as computed by the function <computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1ga082ba1726ab0bc292bd56ef903326fa8" kindref="member">compute_outer_frame_margin()</ref></computeroutput></para><para><bold>Requirements</bold><linebreak/>
+</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a number type </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL kernel. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref>&lt;K&gt;</computeroutput> or a standard container of <computeroutput>K::Point_2</computeroutput> elements.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" kindref="member">create_interior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_2.h" line="55" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gae7a94b0153c186417fc2df0cbc2cbbdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PointIterator</type>
+          </param>
+          <param>
+            <type>class HoleIterator</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_interior_straight_skeleton_2</definition>
+        <argsstring>(PointIterator outer_contour_vertices_begin, PointIterator outer_contour_vertices_end, HoleIterator holes_begin, HoleIterator holes_end, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_straight_skeleton_2</name>
+        <param>
+          <type>PointIterator</type>
+          <declname>outer_contour_vertices_begin</declname>
+        </param>
+        <param>
+          <type>PointIterator</type>
+          <declname>outer_contour_vertices_end</declname>
+        </param>
+        <param>
+          <type>HoleIterator</type>
+          <declname>holes_begin</declname>
+        </param>
+        <param>
+          <type>HoleIterator</type>
+          <declname>holes_end</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the interior of the 2D polygon with holes whose outer boundary is given by the point sequence <computeroutput>[outer_contour_vertices_begin,outer_contour_vertices_end]</computeroutput> and its holes given by <computeroutput>[holes_begin,holes_end]</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> begin equivalent to <computeroutput>K2::Point_2</computeroutput>. <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> is used to convert from <computeroutput>K2::Point_2</computeroutput> to <computeroutput>K::Point_2</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HoleIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref>&lt;K&gt;</computeroutput> or a standard container of <computeroutput>K2::Point_2</computeroutput> elements.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_2.h" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1gacf19d62187e4b3fb137ff1f9d236024f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class PointIterator</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_interior_straight_skeleton_2</definition>
+        <argsstring>(PointIterator outer_contour_vertices_begin, PointIterator outer_contour_vertices_end, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_straight_skeleton_2</name>
+        <param>
+          <type>PointIterator</type>
+          <declname>outer_contour_vertices_begin</declname>
+        </param>
+        <param>
+          <type>PointIterator</type>
+          <declname>outer_contour_vertices_end</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the interior of the 2D polygon whose outer boundary is given by the point sequence <computeroutput>[outer_contour_vertices_begin,outer_contour_vertices_end]</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> begin equivalent to <computeroutput>K2::Point_2</computeroutput>. <computeroutput><ref refid="classCGAL_1_1Cartesian__converter" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Cartesian_converter</ref></computeroutput> is used to convert from <computeroutput>K2::Point_2</computeroutput> to <computeroutput>K::Point_2</computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_2.h" line="105" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga079b0439f8f594fb1c46035031d90141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Polygon</type>
+          </param>
+          <param>
+            <type>class K</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_interior_straight_skeleton_2</definition>
+        <argsstring>(Polygon const &amp;outer_contour, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_straight_skeleton_2</name>
+        <param>
+          <type>Polygon const &amp;</type>
+          <declname>outer_contour</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the interior of the 2D polygon <computeroutput>outer_contour</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is any CGAL <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Polygon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> with <computeroutput>value_type</computeroutput> being <computeroutput><ref refid="classCGAL_1_1Polygon__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon.tag">Polygon_2</ref>&lt;K&gt;</computeroutput> or a standard container of <computeroutput>K2::Point_2</computeroutput> elements.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_2.h" line="126" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga6365cfd785c9e5b3ae97d64aef35ef33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class K</type>
+          </param>
+          <param>
+            <type>class C</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Straight_skeleton_2&lt; K &gt; &gt;</type>
+        <definition>boost::shared_ptr&lt; Straight_skeleton_2&lt;K&gt; &gt; CGAL::create_interior_straight_skeleton_2</definition>
+        <argsstring>(Polygon_with_holes&lt; K, C &gt; poly_with_holes, K const &amp;k=Exact_predicates_inexact_constructions_kernel)</argsstring>
+        <name>create_interior_straight_skeleton_2</name>
+        <param>
+          <type>Polygon_with_holes&lt; K, C &gt;</type>
+          <declname>poly_with_holes</declname>
+        </param>
+        <param>
+          <type>K const &amp;</type>
+          <declname>k</declname>
+          <defval>Exact_predicates_inexact_constructions_kernel</defval>
+        </param>
+        <briefdescription>
+<para>returns a new <computeroutput><ref refid="classCGAL_1_1Straight__skeleton__2" kindref="compound">Straight_skeleton_2</ref>&lt;K&gt;</computeroutput> in the interior of the 2D polygon with holes <computeroutput>poly_with_holes</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgStraightSkeleton2Functions_1gaccab04dfe659847c0c427a06a872f7b3" kindref="member">create_exterior_straight_skeleton_2()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Straight__skeleton__builder__2" kindref="compound">Straight_skeleton_builder_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/create_straight_skeleton_from_polygon_with_holes_2.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgStraightSkeleton2Functions_1ga5db640321394c163c89e050e9c69cfae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Target_skeleton</type>
+          </param>
+          <param>
+            <type>class Source_skeleton</type>
+          </param>
+          <param>
+            <type>class Items_converter</type>
+          </param>
+        </templateparamlist>
+        <type>boost::shared_ptr&lt; Target_skeleton, Source_skeleton, Items_converter &gt;</type>
+        <definition>boost::shared_ptr&lt;Target_skeleton, Source_skeleton, Items_converter&gt; CGAL::convert_straight_skeleton_2</definition>
+        <argsstring>(Source_skeleton const &amp;s, Items_converted const &amp;ic=Items_converter())</argsstring>
+        <name>convert_straight_skeleton_2</name>
+        <param>
+          <type>Source_skeleton const &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>Items_converted const &amp;</type>
+          <declname>ic</declname>
+          <defval>Items_converter()</defval>
+        </param>
+        <briefdescription>
+<para>Converts a straight skeleton instantiated using certain traits into another straight skeleton instantiated using a different traits. </para>        </briefdescription>
+        <detaileddescription>
+<para>returns a new straight skeleton data structure with the same combinatorial and geometric data as <computeroutput>s</computeroutput> using the items converter <computeroutput>ic</computeroutput> to convert the geometric embedding to the types of the target skeleton.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Target_skeleton</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the target straight skeleton </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Source_skeleton</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the source straight skeleton </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Items_converter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classStraightSkeletonItemsConverter__2" kindref="compound">StraightSkeletonItemsConverter_2</ref></computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput><ref refid="classStraightSkeletonItemsConverter__2" kindref="compound">StraightSkeletonItemsConverter_2</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="structCGAL_1_1Straight__skeleton__items__converter__2" kindref="compound">Straight_skeleton_items_converter_2</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="structCGAL_1_1Straight__skeleton__converter__2" kindref="compound">Straight_skeleton_converter_2</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Straight_skeleton_converter_2.h" line="20" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

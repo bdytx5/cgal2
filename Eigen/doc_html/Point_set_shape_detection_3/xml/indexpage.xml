@@ -1,0 +1,722 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>User Manual</title>
+    <detaileddescription>
+<para><anchor id="index_1Chapter_Point_Set_Shape_Detection"/></para><para><simplesect kind="authors"><para>Sven Oesau, Yannick Verdie, Clément Jamin, Pierre Alliez, Florent Lafarge, Simon Giraudot</para></simplesect>
+</para><sect1 id="index_1Point_set_shape_detection_3Introduction">
+<title>Introduction</title>
+<para>This CGAL component implements two algorithms for shape detection:</para><para><itemizedlist>
+<listitem><para>the efficient RANSAC method for shape detection, contributed by Schnabel et al. <ref refid="citelist_1CITEREF_schnabel2007efficient" kindref="member">[2]</ref>;</para></listitem><listitem><para>the region growing method, contributed by Lafarge and Mallet <ref refid="citelist_1CITEREF_cgal:lm-clscm-12" kindref="member">[1]</ref>.</para></listitem></itemizedlist>
+</para><para>From an unstructured point set with unoriented normals, these algorithms detect a set of shapes (see <ref refid="index_1fig__Point_set_shape_detection_3_overview" kindref="member">fig__Point_set_shape_detection_3_overview</ref>). Five types of primitive shapes are provided by this package: plane, sphere, cylinder, cone and torus. Other types of primitive shapes can also be added by the user.</para><para>Note that at the moment, region growing only detects planes.</para><para><anchor id="index_1fig__Point_set_shape_detection_3_overview"/><image type="html" name="overview2.png"></image>
+ <image type="latex" name="overview2.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_overview" kindref="member">fig__Point_set_shape_detection_3_overview</ref> (a) Input point set. (b) Point set depicted with one color per detected shape.  <linebreak/>
+</para></sect1>
+<sect1 id="index_1Point_set_shape_detection_3Method">
+<title>Methods</title>
+<para>Both methods take as input a point set with unoriented normals and provide as output a set of detected shapes with associated input points. The output of the shape detection algorithms is a set of detected shapes with assigned points and all remaining points not covered by these shapes. Each input point can be assigned to at most one detected shape.</para><sect2 id="index_1Point_set_shape_detection_3Method_RANSAC">
+<title>Efficient RANSAC</title>
+<para>The shapes are detected via a RANSAC-type approach, i.e., a random sample consensus. The basic RANSAC approach repeats the following steps: (1) Randomly select samples from the input points. (2) Fit a shape to the selected samples. (3) Count the number of inliers to the shape, inliers being within a user-specified error tolerance to the shape. Steps 1-3 are repeated for a prescribed number of iterations and the shape with highest number of inliers, referred to as largest shape, is kept.</para><para>In our context, the error between a point and a shape is defined by its distance and normal deviation to the shape. A random subset corresponds to the minimal number of points (with normals) required to uniquely define a primitive.</para><para>For very large point sets the basic RANSAC method is not practical when testing all possible shape candidates against the input data in order to find the largest shape. The main idea behind the efficient RANSAC method consists in testing shape candidates against <emphasis>subsets</emphasis> of the input data. Shape candidates are constructed until the probability to miss the largest candidate is lower than a user-specified parameter. The largest shape is repeatedly extracted until no more shapes, restricted to cover a minimum number of points, can be extracted. An additional gain in efficiency is achieved through exploiting the normal attributes during initial shape construction and enumeration of inliers.</para><para>The <emphasis>support</emphasis> of a shape refers to the footprint of the points covered by the primitive. To avoid generating shapes with fragmented support we enforce a connectivity constraint by considering only one connected component, referred to as cluster, selected as the one covering the largest number of inliers. See Section <ref refid="index_1Point_set_shape_detection_3Parameters" kindref="member">Parameters</ref> for more details.</para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3Method_region_growing">
+<title>Region Growing</title>
+<para>Planes are detected by growing planar regions from estimated planar seeds. First, points are sorted by a local planarity measure (the fitting quality returned by <computeroutput><ref refid="group__PkgPrincipalComponentAnalysisDLLSF3_1gadcf556c115c6bac30a54bf7fdd0d32e3" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Principal_component_analysis.tag">linear_least_squares_fitting_3()</ref></computeroutput>), such that points whose local neighborhood is the most planar are treated first.</para><para>The following steps are repeated: (1) Pick the next available point in the sorted list. (2) Initialize a plane tangent to this point and perpendicular to the normal vector of this point. (3) Compute the local neighborhood of the point with a user-specified radius. (4) Find inliers among these points, i.e. points that are within a user-specified error tolerance to the plane (and with a normal deviation within a user-specified tolerance to the normal of the plane). Steps 3-4 are repeated until no other inlier can be added. The plane is periodically reestimated by principal component analysis using all the inliers. If, after the growing, the plane has less inliers than a user-specified minimum number of points, it is discarded and the points are made available for other shapes to take once again.</para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3Method_comparison">
+<title>Comparisons</title>
+<para>The efficient RANSAC is a very quick method. Because it is based on randomness, it is not deterministic and some small shapes might be missed in the detection process.</para><para>Region growing usually takes longer than the efficient RANSAC but may provide better quality output in the presence of large scenes with numerous small details: as it iterates throughout all points of the scene, there are less chances of missing a shape. In addition, it is deterministic (for a given input and a given set of parameters, it always returns the same output, whereas as RANSAC uses randomness to detect shapes, the output of a RANSAC algorithm may vary). See figure <ref refid="index_1fig__Point_set_shape_detection_3Method_comparison_figure" kindref="member">fig__Point_set_shape_detection_3Method_comparison_figure</ref>.</para><para><anchor id="index_1fig__Point_set_shape_detection_3Method_comparison_figure"/><image type="html" name="comparison.png"></image>
+ <image type="latex" name="comparison.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3Method_comparison_figure" kindref="member">fig__Point_set_shape_detection_3Method_comparison_figure</ref> Comparison of efficient RANSAC and region growing. Top: input point set. Bottom left: output of efficient RANSAC, <formula id="0">$78\%$</formula> of the shapes correctly detected in 8 seconds. Bottom right: output of region growing, <formula id="1">$100\%$</formula> of the shapes detected in 15 seconds. Unassigned points are in black in both output images.  <linebreak/>
+</para></sect2>
+</sect1>
+<sect1 id="index_1Point_set_shape_detection_3Parameters">
+<title>Parameters</title>
+<para>The algorithms have four parameters that are common. They have the same effects on the output for both RANSAC and region growing.</para><para><itemizedlist>
+<listitem><para><computeroutput>epsilon</computeroutput> and <computeroutput>normal_threshold</computeroutput>: The error between a point-with-normal <formula id="2">$p$</formula> and a shape <formula id="3">$S$</formula> is defined by its Euclidean distance and normal deviation to <formula id="3">$S$</formula>. The normal deviation is computed between the normal at <formula id="2">$p$</formula> and the normal of <formula id="3">$S$</formula> at the closest projection of <formula id="2">$p$</formula> onto <formula id="3">$S$</formula>. Parameter <computeroutput>epsilon</computeroutput> defines the absolute maximum tolerance Euclidean distance between a point and a shape. A high value for <computeroutput>epsilon</computeroutput> leads to the detection of fewer large shapes and hence a less detailed detection. A low value for <computeroutput>epsilon</computeroutput> yields a more detailed detection, but may lead to either lower coverage or over-segmentation. Over-segmentation translates into detection of fragmented shapes when <computeroutput>epsilon</computeroutput> is within or below the noise level. When the input point set is made of free-form parts, a higher tolerance <computeroutput>epsilon</computeroutput> allows for detecting more primitive shapes that approximate some of the free-form surfaces. The impact of this parameter is depicted by Figure <ref refid="index_1fig__Point_set_shape_detection_3_parameter_epsilon_variation" kindref="member">fig__Point_set_shape_detection_3_parameter_epsilon_variation</ref>. Its impact on performance is evaluated in Section <ref refid="index_1Point_set_shape_detection_3Performance" kindref="member">Performances</ref>. <anchor id="index_1fig__Point_set_shape_detection_3_parameter_epsilon_variation"/><image type="html" name="epsilon_variation2.png"></image>
+ <image type="latex" name="epsilon_variation2.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_parameter_epsilon_variation" kindref="member">fig__Point_set_shape_detection_3_parameter_epsilon_variation</ref> Impact of epsilon over level of details of the detection. (a) Input point set. (b) Detection of planar shapes with epsilon set to 2.0 (one color per detected shape). Most details such as chimneys on the roof are not distinguished. (c) Detection with epsilon set to 0.5. The facades are correctly detected and some details of the roof are detected. (d) Setting epsilon to 0.25 yields a more detailed but slightly over-segmented detection.  <linebreak/>
+</para></listitem><listitem><para><computeroutput>cluster_epsilon</computeroutput>: The region growing algorithm uses <computeroutput>cluster_epsilon</computeroutput> to compute the neighborhood around points when growing the regions while the efficient RANSAC uses this parameter to cluster the points into connected components covered by a detected shape. For developable shapes that admit a trivial planar parameterization (plane, cylinder, cone) the points covered by a shape are mapped to a 2D parameter space chosen to minimize distortion and best preserve arc-length distances. This 2D parameter space is discretized using a regular grid, and a connected component search is performed to identify the largest cluster. Parameter <computeroutput>cluster_epsilon</computeroutput> defines the spacing between two cells of the regular grid, so that two points separated by a distance of at most <formula id="4">$2\sqrt{2}$</formula>, <computeroutput>cluster_epsilon</computeroutput> are considered adjacent. For non-developable shapes the connected components are identified by computing a neighboring graph in 3D and walking in the graph. The impact of parameter cluster_epsilon is depicted by Figure <ref refid="index_1fig__Point_set_shape_detection_3_parameter_connectivity" kindref="member">fig__Point_set_shape_detection_3_parameter_connectivity</ref>.</para></listitem></itemizedlist>
+</para><para><anchor id="index_1fig__Point_set_shape_detection_3_parameter_connectivity"/><image type="html" name="varying_connectivity.png"></image>
+ <image type="latex" name="varying_connectivity.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_parameter_connectivity" kindref="member">fig__Point_set_shape_detection_3_parameter_connectivity</ref> For efficient RANSAC, parameter cluster_epsilon controls the connectivity of the points covered by a detected shape. The input point set is sampled on four coplanar squares. (a) A large value for cluster_epsilon leads to detecting a single planar shape. (b) A moderate value for cluster_epsilon yields the detection of four squares. Notice that few points within the squares are not detected as not connected. (c) A small value for cluster_epsilon leads to over-segmentation.  <linebreak/>
+</para><para><itemizedlist>
+<listitem><para><computeroutput>min_points</computeroutput>: This minimum number of points controls the termination of the algorithm. The shape search is iterated until no further shapes can be found with a higher support. Note that for efficient RANSAC, this parameter is not strict: depending on the chosen probability, shapes may be extracted with a number of points lower than the specified parameter.</para></listitem></itemizedlist>
+</para><para>In addition, the efficient RANSAC has a fifth parameter:</para><para><itemizedlist>
+<listitem><para><computeroutput>probability</computeroutput>: This parameter defines the probability to miss the largest candidate shape. A lower probability provides a higher reliability and determinism at the cost of longer running times due to higher search endurance.</para></listitem></itemizedlist>
+</para></sect1>
+<sect1 id="index_1Point_set_shape_detection_3Usage">
+<title>Examples</title>
+<para>The main classes <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC" kindref="compound">Shape_detection_3::Efficient_RANSAC</ref></computeroutput> and <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing" kindref="compound">Shape_detection_3::Region_growing</ref></computeroutput> take a template parameter <computeroutput><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">Shape_detection_3::Shape_detection_traits</ref></computeroutput> that defines the geometric types and input format. Property maps provide a means to interface with user-specific data structures. The first parameter of the <computeroutput><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">Shape_detection_3::Shape_detection_traits</ref></computeroutput> class is the common <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref>. In order to match the constraints of property maps, an iterator type and two maps that map an iterator to a point and a normal are specified in the <computeroutput><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">Shape_detection_3::Shape_detection_traits</ref></computeroutput> class. The concept behind property maps is detailed in <ref refid="index_1chapterProperty_map" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL and Propery Maps</ref>.</para><para>Typical usage consists of five steps:</para><para><orderedlist>
+<listitem><para>Provide input data via a range iterator</para></listitem><listitem><para>Register shape factories</para></listitem><listitem><para>Choose parameters</para></listitem><listitem><para>Detect</para></listitem><listitem><para>Retrieve detected shapes</para></listitem></orderedlist>
+</para><sect2 id="index_1Point_set_shape_detection_3Usage_minimal">
+<title>Basic Planar Shape Detection</title>
+<para>The following minimal example reads a point set from a file and detects only planar shapes. The default parameters are used for detection.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2shape_detection_basic_8cpp-example" kindref="compound">Point_set_shape_detection_3/shape_detection_basic.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#if<sp/>defined<sp/>(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined<sp/>(_WIN64)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(disable:4244)<sp/>//<sp/>boost::number_distance::distance()</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>converts<sp/>64<sp/>to<sp/>32<sp/>bits<sp/>integers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/read_xyz_points.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Point_with_normal_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/property_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Type<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;Kernel::Point_3,<sp/>Kernel::Vector_3&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_with_normal;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Point_with_normal&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pwn_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1First__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::First_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/><sp/>Point_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Second__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Second_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/>Normal_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>In<sp/>Shape_detection_traits<sp/>the<sp/>basic<sp/>types,<sp/>i.e.,<sp/>Point<sp/>and<sp/>Vector<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>well<sp/>as<sp/>iterator<sp/>type<sp/>and<sp/>property<sp/>maps,<sp/>are<sp/>defined.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">CGAL::Shape_detection_3::Shape_detection_traits</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;Kernel,<sp/>Pwn_vector,<sp/>Point_map,<sp/>Normal_map&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC" kindref="compound">CGAL::Shape_detection_3::Efficient_RANSAC&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/>Efficient_ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing" kindref="compound">CGAL::Shape_detection_3::Region_growing&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/>Region_growing;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Plane;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>both<sp/>works<sp/>for<sp/>RANSAC<sp/>and<sp/>Region<sp/>Growing</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>ShapeDetection&gt;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>run(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Points<sp/>with<sp/>normals.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector<sp/>points;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Loads<sp/>point<sp/>set<sp/>from<sp/>a<sp/>file.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read_xyz_points_and_normals<sp/>takes<sp/>an<sp/>OutputIterator<sp/>for<sp/>storing<sp/>the<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>a<sp/>property<sp/>map<sp/>to<sp/>store<sp/>the<sp/>normal<sp/>vector<sp/>with<sp/>each<sp/>point.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(filename);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!stream<sp/>||<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>!<ref refid="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::read_xyz_points</ref>(stream,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::back_inserter(points),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::point_map(Point_map()).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>normal_map(Normal_map())))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>read<sp/>file<sp/>cube.pwn&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Instantiates<sp/>shape<sp/>detection<sp/>engine.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ShapeDetection<sp/>shape_detection;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Provides<sp/>the<sp/>input<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.set_input(points);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Registers<sp/>planar<sp/>shapes<sp/>via<sp/>template<sp/>method.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.template<sp/>add_shape_factory&lt;Plane&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Detects<sp/>registered<sp/>shapes<sp/>with<sp/>default<sp/>parameters.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.detect();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>number<sp/>of<sp/>detected<sp/>shapes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>shape_detection.shapes().end()<sp/>-<sp/>shape_detection.shapes().begin()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>shapes<sp/>detected.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc<sp/>&gt;<sp/>1<sp/>&amp;&amp;<sp/>std::string(argv[1])<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;-r&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Efficient<sp/>RANSAC&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>run&lt;Efficient_ransac&gt;<sp/>((argc<sp/>&gt;<sp/>2)<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Region<sp/>Growing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>run&lt;Region_growing&gt;<sp/>((argc<sp/>&gt;<sp/>1)<sp/>?<sp/>argv[1]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3Usage_callback">
+<title>Planar Shape Detection with Callback</title>
+<para>Both Region Growing and Efficient RANSAC provide a callback mechanism that enables the user to track the progress of the algorithms. It can be used, for example, to terminate the algorithm based on a timeout. In the following example, the algorithm stops if it takes more than half a second and prints out the progress made:</para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2shape_detection_with_callback_8cpp-example" kindref="compound">Point_set_shape_detection_3/shape_detection_with_callback.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#if<sp/>defined<sp/>(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined<sp/>(_WIN64)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(disable:4244)<sp/>//<sp/>boost::number_distance::distance()</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>converts<sp/>64<sp/>to<sp/>32<sp/>bits<sp/>integers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/read_xyz_points.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Point_with_normal_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/property_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Timer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Type<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;Kernel::Point_3,<sp/>Kernel::Vector_3&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_with_normal;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Point_with_normal&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pwn_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1First__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::First_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/><sp/>Point_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Second__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Second_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/>Normal_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>In<sp/>Shape_detection_traits<sp/>the<sp/>basic<sp/>types,<sp/>i.e.,<sp/>Point<sp/>and<sp/>Vector<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>well<sp/>as<sp/>iterator<sp/>type<sp/>and<sp/>property<sp/>maps,<sp/>are<sp/>defined.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">CGAL::Shape_detection_3::Shape_detection_traits</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;Kernel,<sp/>Pwn_vector,<sp/>Point_map,<sp/>Normal_map&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC" kindref="compound">CGAL::Shape_detection_3::Efficient_RANSAC&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/>Efficient_ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing" kindref="compound">CGAL::Shape_detection_3::Region_growing&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/>Region_growing;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Plane;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Timeout_callback</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>CGAL::Timer<sp/>timer;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>limit;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Timeout_callback(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>limit)<sp/>:<sp/>nb(0),<sp/>limit(limit)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>timer.start();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator()(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>advancement)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Avoid<sp/>calling<sp/>time()<sp/>at<sp/>every<sp/>single<sp/>iteration,<sp/>which<sp/>could</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>impact<sp/>performances<sp/>very<sp/>badly</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>++<sp/>nb;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb<sp/>%<sp/>1000<sp/>!=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>limit<sp/>is<sp/>reach,<sp/>interrupt<sp/>the<sp/>algorithm</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(timer.time()<sp/>&gt;<sp/>limit)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Algorithm<sp/>takes<sp/>too<sp/>long,<sp/>exiting<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>100.<sp/>*<sp/>advancement<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;%<sp/>done)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>both<sp/>works<sp/>for<sp/>RANSAC<sp/>and<sp/>Region<sp/>Growing</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>ShapeDetection&gt;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>run(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector<sp/>points;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(filename);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!stream<sp/>||<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>!<ref refid="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::read_xyz_points</ref>(stream,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::back_inserter(points),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::point_map(Point_map()).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>normal_map(Normal_map())))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>read<sp/>file<sp/>cube.pwn&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ShapeDetection<sp/>shape_detection;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.set_input(points);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.template<sp/>add_shape_factory&lt;Plane&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>callback<sp/>that<sp/>interrupts<sp/>the<sp/>algorithm<sp/>if<sp/>it<sp/>takes<sp/>more<sp/>than<sp/>half<sp/>a<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Timeout_callback<sp/>timeout_callback(0.5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Detects<sp/>registered<sp/>shapes<sp/>with<sp/>default<sp/>parameters.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape_detection.detect(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>ShapeDetection::Parameters(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>timeout_callback);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc<sp/>&gt;<sp/>1<sp/>&amp;&amp;<sp/>std::string(argv[1])<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;-r&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Efficient<sp/>RANSAC&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>run&lt;Efficient_ransac&gt;<sp/>((argc<sp/>&gt;<sp/>2)<sp/>?<sp/>argv[2]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Region<sp/>Growing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>run&lt;Region_growing&gt;<sp/>((argc<sp/>&gt;<sp/>1)<sp/>?<sp/>argv[1]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3Usage_parameters">
+<title>Setting Parameters and Using Different Types of Shape</title>
+<para>This example illustrates the user selection of parameters using the <computeroutput><ref refid="structCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC_1_1Parameters" kindref="compound">Shape_detection_3::Efficient_RANSAC::Parameters</ref></computeroutput> class. Shape detection is performed on five types of shapes (plane, cylinder, sphere, cone, torus). The input point set is sampled on a surface mostly composed of piece-wise planar and cylindrical parts, in addition to free-form parts.</para><para>Basic information of the detected shapes is written to the standard output: if the plane is either a plane or a cylinder, specific parameters are recovered, otherwise the general method <computeroutput>info()</computeroutput> is used to get the shape parameters in a string object. Note that specific parameters can be recovered for any of the provided shape.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2efficient_RANSAC_parameters_8cpp-example" kindref="compound">Point_set_shape_detection_3/efficient_RANSAC_parameters.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/read_xyz_points.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Point_with_normal_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/property_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Type<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Kernel::FT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;Kernel::Point_3,<sp/>Kernel::Vector_3&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_with_normal;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Point_with_normal&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pwn_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1First__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::First_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/><sp/>Point_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Second__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Second_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/>Normal_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>In<sp/>Shape_detection_traits<sp/>the<sp/>basic<sp/>types,<sp/>i.e.,<sp/>Point<sp/>and<sp/>Vector<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>well<sp/>as<sp/>iterator<sp/>type<sp/>and<sp/>property<sp/>maps,<sp/>are<sp/>defined.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">CGAL::Shape_detection_3::Shape_detection_traits</ref>&lt;Kernel,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector,<sp/>Point_map,<sp/>Normal_map&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC" kindref="compound">CGAL::Shape_detection_3::Efficient_RANSAC&lt;Traits&gt;</ref><sp/>Efficient_ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Cone" kindref="compound">CGAL::Shape_detection_3::Cone&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Cone;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Cylinder" kindref="compound">CGAL::Shape_detection_3::Cylinder&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Cylinder;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Plane;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Sphere" kindref="compound">CGAL::Shape_detection_3::Sphere&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Sphere;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Torus" kindref="compound">CGAL::Shape_detection_3::Torus&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Torus;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Points<sp/>with<sp/>normals.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector<sp/>points;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Loads<sp/>point<sp/>set<sp/>from<sp/>a<sp/>file.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read_xyz_points_and_normals<sp/>takes<sp/>an<sp/>OutputIterator<sp/>for<sp/>storing<sp/>the<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>a<sp/>property<sp/>map<sp/>to<sp/>store<sp/>the<sp/>normal<sp/>vector<sp/>with<sp/>each<sp/>point.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(</highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!stream<sp/>||</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>!<ref refid="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::read_xyz_points</ref>(stream,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::back_inserter(points),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::point_map(Point_map()).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>normal_map(Normal_map())))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>read<sp/>file<sp/>cube.pwn&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>points.size()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>points&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Instantiates<sp/>shape<sp/>detection<sp/>engine.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac<sp/>ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Provides<sp/>the<sp/>input<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.set_input(points);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Register<sp/>shapes<sp/>for<sp/>detection</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Plane&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Sphere&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Cylinder&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Cone&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Torus&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>parameters<sp/>for<sp/>shape<sp/>detection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac::Parameters<sp/>parameters;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>probability<sp/>to<sp/>miss<sp/>the<sp/>largest<sp/>primitive<sp/>at<sp/>each<sp/>iteration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parameters.probability<sp/>=<sp/>0.05;</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Detect<sp/>shapes<sp/>with<sp/>at<sp/>least<sp/>500<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parameters.min_points<sp/>=<sp/>200;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>maximum<sp/>Euclidean<sp/>distance<sp/>between<sp/>a<sp/>point<sp/>and<sp/>a<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parameters.epsilon<sp/>=<sp/>0.002;</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>maximum<sp/>Euclidean<sp/>distance<sp/>between<sp/>points<sp/>to<sp/>be<sp/>clustered.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parameters.cluster_epsilon<sp/>=<sp/>0.01;</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>maximum<sp/>normal<sp/>deviation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>0.9<sp/>&lt;<sp/>dot(surface_normal,<sp/>point_normal);<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parameters.normal_threshold<sp/>=<sp/>0.9;<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Detects<sp/>shapes</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.detect(parameters);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>number<sp/>of<sp/>detected<sp/>shapes<sp/>and<sp/>unassigned<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>ransac.shapes().end()<sp/>-<sp/>ransac.shapes().begin()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>detected<sp/>shapes,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>ransac.number_of_unassigned_points()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>unassigned<sp/>points.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Efficient_ransac::shapes()<sp/>provides</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>iterator<sp/>range<sp/>to<sp/>the<sp/>detected<sp/>shapes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac::Shape_range<sp/>shapes<sp/>=<sp/>ransac.shapes();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac::Shape_range::iterator<sp/>it<sp/>=<sp/>shapes.begin();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it<sp/>!=<sp/>shapes.end())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>specific<sp/>parameters<sp/>depending<sp/>on<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Plane*<sp/>plane<sp/>=<sp/>dynamic_cast&lt;Plane*&gt;(it-&gt;get()))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classKernel_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Vector_3</ref><sp/>normal<sp/>=<sp/>plane-&gt;plane_normal();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Plane<sp/>with<sp/>normal<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>normal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Plane<sp/>shape<sp/>can<sp/>also<sp/>be<sp/>converted<sp/>to<sp/>Kernel::Plane_3</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Kernel::Plane_3:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classKernel_1_1Plane__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Plane_3</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(*plane)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Cylinder*<sp/>cyl<sp/>=<sp/>dynamic_cast&lt;Cylinder*&gt;(it-&gt;get()))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classKernel_1_1Line__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Line_3</ref><sp/>axis<sp/>=<sp/>cyl-&gt;axis();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FT<sp/>radius<sp/>=<sp/>cyl-&gt;radius();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Cylinder<sp/>with<sp/>axis<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>axis</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>and<sp/>radius<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>radius</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>the<sp/>parameters<sp/>of<sp/>the<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>is<sp/>available<sp/>for<sp/>any<sp/>type<sp/>of<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>(*it)-&gt;info()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Proceeds<sp/>with<sp/>next<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>it++;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3Usage_point_access">
+<title>Retrieving Points Assigned to Shapes</title>
+<para>This example illustrates how to access the points assigned to each shape and compute the mean error. A timer measures the running performance.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2efficient_RANSAC_point_access_8cpp-example" kindref="compound">Point_set_shape_detection_3/efficient_RANSAC_point_access.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/read_xyz_points.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Point_with_normal_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/property_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Timer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/number_utils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Type<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Kernel::FT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;Kernel::Point_3,<sp/>Kernel::Vector_3&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_with_normal;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Point_with_normal&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pwn_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1First__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::First_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/><sp/>Point_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Second__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Second_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/>Normal_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>In<sp/>Shape_detection_traits<sp/>the<sp/>basic<sp/>types,<sp/>i.e.,<sp/>Point<sp/>and<sp/>Vector<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>well<sp/>as<sp/>iterator<sp/>type<sp/>and<sp/>property<sp/>maps,<sp/>are<sp/>defined.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">CGAL::Shape_detection_3::Shape_detection_traits</ref>&lt;Kernel,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector,<sp/>Point_map,<sp/>Normal_map&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Efficient__RANSAC" kindref="compound">CGAL::Shape_detection_3::Efficient_RANSAC&lt;Traits&gt;</ref><sp/><sp/><sp/>Efficient_ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Plane;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Points<sp/>with<sp/>normals.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector<sp/>points;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Loads<sp/>point<sp/>set<sp/>from<sp/>a<sp/>file.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read_xyz_points_and_normals<sp/>takes<sp/>an<sp/>OutputIterator<sp/>for<sp/>storing<sp/>the<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>a<sp/>property<sp/>map<sp/>to<sp/>store<sp/>the<sp/>normal<sp/>vector<sp/>with<sp/>each<sp/>point.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(</highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!stream<sp/>||</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>!<ref refid="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::read_xyz_points</ref>(stream,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::back_inserter(points),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::point_map(Point_map()).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>normal_map(Normal_map())))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>read<sp/>file<sp/>cube.pwn&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Instantiates<sp/>shape<sp/>detection<sp/>engine.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac<sp/>ransac;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Provides<sp/>the<sp/>input<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.set_input(points);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Registers<sp/>detection<sp/>of<sp/>planes</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.add_shape_factory&lt;Plane&gt;();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Measures<sp/>time<sp/>before<sp/>setting<sp/>up<sp/>the<sp/>shape<sp/>detection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL::Timer<sp/>time;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>time.start();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Build<sp/>internal<sp/>data<sp/>structures.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ransac.preprocess();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Measures<sp/>time<sp/>after<sp/>preprocessing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>time.stop();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;preprocessing<sp/>took:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>time.time()<sp/>*<sp/>1000<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ms&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>detection<sp/>several<sp/>times<sp/>and<sp/>choose<sp/>result<sp/>with<sp/>highest<sp/>coverage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac::Shape_range<sp/>shapes<sp/>=<sp/>ransac.shapes();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>best_coverage<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;i&lt;3;i++)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>timer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>time.reset();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>time.start();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Detects<sp/>shapes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ransac.detect();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Measures<sp/>time<sp/>after<sp/>detection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>time.stop();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>coverage,<sp/>i.e.<sp/>ratio<sp/>of<sp/>the<sp/>points<sp/>assigned<sp/>to<sp/>a<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>FT<sp/>coverage<sp/>=<sp/>FT(points.size()<sp/>-<sp/>ransac.number_of_unassigned_points())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/<sp/>FT(points.size());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>number<sp/>of<sp/>assigned<sp/>shapes<sp/>and<sp/>unsassigned<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;time:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>time.time()<sp/>*<sp/>1000<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ms&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>ransac.shapes().end()<sp/>-<sp/>ransac.shapes().begin()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>primitives,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>coverage<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>coverage&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Choose<sp/>result<sp/>with<sp/>highest<sp/>coverage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coverage<sp/>&gt;<sp/>best_coverage)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>best_coverage<sp/>=<sp/>coverage;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Efficient_ransac::shapes()<sp/>provides</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>iterator<sp/>range<sp/>to<sp/>the<sp/>detected<sp/>shapes.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>shapes<sp/>=<sp/>ransac.shapes();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Efficient_ransac::Shape_range::iterator<sp/>it<sp/>=<sp/>shapes.begin();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it<sp/>!=<sp/>shapes.end())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>boost::shared_ptr&lt;Efficient_ransac::Shape&gt;<sp/>shape<sp/>=<sp/>*it;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Using<sp/>Shape_base::info()<sp/>for<sp/>printing<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>parameters<sp/>of<sp/>the<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>(*it)-&gt;info();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Sums<sp/>distances<sp/>of<sp/>points<sp/>to<sp/>detected<sp/>shapes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>FT<sp/>sum_distances<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterates<sp/>through<sp/>point<sp/>indices<sp/>assigned<sp/>to<sp/>each<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::size_t&gt;::const_iterator</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>index_it<sp/>=<sp/>(*it)-&gt;indices_of_assigned_points().begin();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(index_it<sp/>!=<sp/>(*it)-&gt;indices_of_assigned_points().end())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Retrieves<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point_with_normal<sp/>&amp;p<sp/>=<sp/>*(points.begin()<sp/>+<sp/>(*index_it));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Adds<sp/>Euclidean<sp/>distance<sp/>between<sp/>point<sp/>and<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sum_distances<sp/>+=<sp/>CGAL::sqrt((*it)-&gt;squared_distance(p.first));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Proceeds<sp/>with<sp/>next<sp/>point.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>index_it++;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Computes<sp/>and<sp/>prints<sp/>average<sp/>distance.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>FT<sp/>average_distance<sp/>=<sp/>sum_distances<sp/>/<sp/>shape-&gt;indices_of_assigned_points().size();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>average<sp/>distance:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>average_distance<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Proceeds<sp/>with<sp/>next<sp/>detected<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>it++;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect2>
+</sect1>
+<sect1 id="index_1Point_set_shape_detection_3Arbitrary_shapes">
+<title>Adding More Shapes to RANSAC</title>
+<para>Other types of shapes can be detected by implementing a shape class derived from the class <computeroutput>Shape_base</computeroutput> and registering it to the shape detection factory of the efficient RANSAC object. This class must provide the following functions: construct a shape from a small set of given points, compute the squared distance from a query point and the shape and compute the normal deviation between a query point with normal and the normal to the shape at the closest point from the query. The used shape parameters are added as members to the derived class.</para><para>Note that the RANSAC approach is efficient for shapes that are uniquely defined by a small number of points, denoted by the number of required samples. The algorithm aims at detected the largest shape via many random samples, and the combinatorial complexity of possible samples increases rapidly with the number of required samples.</para><para>More specifically, the functions to be implemented are defined in the base class <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base" kindref="compound">Shape_detection_3::Shape_base</ref></computeroutput>:<itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ae466b029cfe3f4100c9b428ad1002fd4" kindref="member">Shape_detection_3::Shape_base::minimum_sample_size()</ref></computeroutput> const: Returns the minimal number of required samples.</para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ad0e66e63238d4351392cd4e74d994b61" kindref="member">Shape_detection_3::Shape_base::create_shape</ref>(const std::vector&lt;size_t&gt; &amp;indices)</computeroutput>: The randomly generated samples are provided via a vector of indices. <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">Shape_detection_3::Shape_base::point</ref></computeroutput><computeroutput>(size_t i)</computeroutput> and <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1af9fb14bacb0764bb33666b466b56b739" kindref="member">Shape_detection_3::Shape_base::normal</ref></computeroutput><computeroutput>(size_t i)</computeroutput> are used to retrieve the actual points and normals (see example below). The provided number of samples might actually be larger than the set minimal number of required samples, depending on the other types of shape types. If the provided samples are not sufficient to define a unique shape, e.g., in a degenerated case the shape is considered invalid.</para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a948956b8efb69599c6001f27a6a7bb78" kindref="member">Shape_detection_3::Shape_base::squared_distance</ref></computeroutput><computeroutput>(const Point &amp;p)</computeroutput> const: This function computes the squared distance from a query point to the shape. It is used for traversing the hierarchical spatial data structure.</para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a948956b8efb69599c6001f27a6a7bb78" kindref="member">Shape_detection_3::Shape_base::squared_distance</ref>(std::vector&lt;FT&gt; &amp;dists, const std::vector&lt;size_t&gt; &amp;indices)</computeroutput></para></listitem><listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a94d7c14a713335f4aa00e0b809570d23" kindref="member">Shape_detection_3::Shape_base::cos_to_normal</ref></computeroutput><computeroutput>(const std::vector&lt;size_t&gt; &amp;indice, sstd::vector&lt;FT&gt; &amp;angles)</computeroutput> const: These functions are used to determine the number of inlier points to the shape. They compute respectively the squared distance from a set of points to the shape, and the dot product between the point&apos;s normals and the normals at the shape for the closest points on the shape. The access to the actual point and normal data is carried out via <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1ac5899089794266f7ffae93b17e1068fe" kindref="member">Shape_detection_3::Shape_base::point</ref></computeroutput><computeroutput>(size_t i)</computeroutput> and <computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1af9fb14bacb0764bb33666b466b56b739" kindref="member">Shape_detection_3::Shape_base::normal</ref></computeroutput><computeroutput>(size_t i)</computeroutput> (see example below). The resulting squared distance/dot product is stored in the vector provided as the first argument.</para></listitem></itemizedlist>
+</para><para>By default the connected component is detected via the neighbor graph as mentioned above. However, for shapes that admit a faster approach to detect a connected component, the user can provide his/her own implementation to extract the connected component via:<itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1afdf3b49e7cfe369543e59c70e931443e" kindref="member">Shape_detection_3::Shape_base::connected_component</ref></computeroutput><computeroutput>(std::vector&lt;std::size_t&gt;&amp; indices, FT cluster_epsilon)</computeroutput>: The indices of all supporting points are stored in the vector <computeroutput>indices</computeroutput>. All points not belonging to the largest cluster of points are removed from the vector <computeroutput>indices</computeroutput>.</para></listitem></itemizedlist>
+</para><para>Another optional method can be implemented to provide a helper function providing the shape parameters written to a string:<itemizedlist>
+<listitem><para><computeroutput><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base_1a0fe9112a2d594b1e36ce1116b03b58c1" kindref="member">Shape_detection_3::Shape_base::info</ref></computeroutput><computeroutput>()</computeroutput>: This function returns a string suitable for printing the shape parameters into a log/console. The default solution provides an empty string.</para></listitem></itemizedlist>
+</para><para>The property maps are used to map the indices to the corresponding points and normals. The following example shows an implementation of a planar shape primitive, which is used by the example <ref refid="Point_set_shape_detection_3_2efficient_RANSAC_custom_shape_8cpp-example" kindref="compound">Point_set_shape_detection_3/efficient_RANSAC_custom_shape.cpp</ref>.</para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2efficient_RANSAC_custom_shape_8h-example" kindref="compound">Point_set_shape_detection_3/efficient_RANSAC_custom_shape.h</ref> <programlisting><codeline><highlight class="preprocessor">#ifndef<sp/>MY_PLANE_SHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MY_PLANE_SHAPE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/number_utils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment">My_Plane<sp/>derives<sp/>from<sp/>Shape_base.<sp/>The<sp/>plane<sp/>is<sp/>represented<sp/>by</highlight></codeline>
+<codeline><highlight class="comment">its<sp/>normal<sp/>vector<sp/>and<sp/>distance<sp/>to<sp/>the<sp/>origin.</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Traits&gt;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">My_Plane<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Shape__base" kindref="compound">CGAL::Shape_detection_3::Shape_base</ref>&lt;Traits&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::FT<sp/>FT;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::Point_3<sp/>Point;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Traits::Vector_3<sp/>Vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>My_Plane()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="namespaceCGAL" kindref="compound">CGAL</ref>::Shape_detection_3::Shape_base&lt;Traits&gt;()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>Computes<sp/>squared<sp/>Euclidean<sp/>distance<sp/>from<sp/>query<sp/>point<sp/>to<sp/>the<sp/>shape.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FT<sp/><ref refid="group__squared__distance__grp_1ga1ff73525660a052564d33fbdd61a4f71" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">squared_distance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>&amp;p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT<sp/>sd<sp/>=<sp/>(this-&gt;constr_vec(m_point_on_primitive,<sp/>p))<sp/>*<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sd<sp/>*<sp/>sd;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vector<sp/>plane_normal()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>d()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_d;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>string<sp/>with<sp/>shape<sp/>parameters.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/>info()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sstr;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sstr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Type:<sp/>plane<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;get_x(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;get_y(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;get_z(m_normal)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)x<sp/>-<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_d<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>=<sp/>0&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>#Pts:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;m_indices.size();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sstr.str();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructs<sp/>shape<sp/>based<sp/>on<sp/>minimal<sp/>set<sp/>of<sp/>samples<sp/>from<sp/>the<sp/>input<sp/>data.<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>create_shape(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p1<sp/>=<sp/>this-&gt;point(indices[0]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p2<sp/>=<sp/>this-&gt;point(indices[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point<sp/>p3<sp/>=<sp/>this-&gt;point(indices[2]);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_normal<sp/>=<sp/>this-&gt;cross_pdct(p1<sp/>-<sp/>p2,<sp/>p1<sp/>-<sp/>p3);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_normal<sp/>=<sp/>m_normal<sp/>*<sp/>(1.0<sp/>/<sp/>sqrt(this-&gt;sqlen(m_normal)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_d<sp/>=<sp/>-(p1[0]<sp/>*<sp/>m_normal[0]<sp/>+<sp/>p1[1]<sp/>*<sp/>m_normal[1]<sp/>+<sp/>p1[2]<sp/>*<sp/>m_normal[2]);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>m_point_on_primitive<sp/>=<sp/>p1;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;m_is_valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Computes<sp/>squared<sp/>Euclidean<sp/>distance<sp/>from<sp/>a<sp/>set<sp/>of<sp/>points.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__squared__distance__grp_1ga1ff73525660a052564d33fbdd61a4f71" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">squared_distance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FT&gt;<sp/>&amp;dists)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>indices.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT<sp/>sd<sp/>=<sp/>(this-&gt;point(indices[i])</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>m_point_on_primitive)<sp/>*<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dists[i]<sp/>=<sp/>sd<sp/>*<sp/>sd;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>Computes<sp/>the<sp/>normal<sp/>deviation<sp/>between<sp/>shape<sp/>and</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>a<sp/>set<sp/>of<sp/>points<sp/>with<sp/>normals.</highlight></codeline>
+<codeline><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cos_to_normal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::size_t&gt;<sp/>&amp;indices,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FT&gt;<sp/>&amp;angles)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>indices.size();<sp/>i++)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angles[i]<sp/>=<sp/>CGAL::abs(this-&gt;<ref refid="group__normal__grp_1ga49a712e57564602ad468a3888784e971" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">normal</ref>(indices[i])<sp/>*<sp/>m_normal);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>number<sp/>of<sp/>required<sp/>samples<sp/>for<sp/>construction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::size_t<sp/>minimum_sample_size()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point<sp/>m_point_on_primitive;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vector<sp/>m_normal;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FT<sp/>m_d;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+</programlisting></para></sect1>
+<sect1 id="index_1Point_set_shape_detection_3Plane_regularization">
+<title>Plane Regularization</title>
+<para>Shape detection applies to man-made scenes or objects such as urban scenes or scans of mechanical parts. Such scenes often contain a wide range of geometric regularities such as parallelism, orthogonality, or symmetry. This package offers a function to reinforce four types of regularities for planar shapes: <computeroutput><ref refid="group__PkgPointSetShapeDetection3_1ga57cdb2c265967f4a6a04b5db3e0828d2" kindref="member">CGAL::regularize_planes()</ref></computeroutput>:</para><para><itemizedlist>
+<listitem><para>Planes that are near <bold>parallel</bold> are made parallel: normal vectors of planes that form angles smaller than a user-defined threshold are made equal.</para></listitem><listitem><para>Parallel planes that are near <bold>coplanar</bold> are made coplanar.</para></listitem><listitem><para>Planes that are near <bold>orthogonal</bold> are made exactly orthogonal.</para></listitem><listitem><para>Planes that are near <bold>symmetrical</bold> with respect to a user-defined axis are made symmetrical.</para></listitem></itemizedlist>
+</para><para>The user can choose to only regularize one or several of these 4 properties (see <ref refid="group__PkgPointSetShapeDetection3_1ga57cdb2c265967f4a6a04b5db3e0828d2" kindref="member">reference manual</ref>)). The process is greedy and based on a hierarchical decomposition (coplanar clusters are subgroups of parallel clusters which are subgroups of axis-symmetric and orthogonal clusters) as described by Verdie et al. <ref refid="citelist_1CITEREF_cgal:vla-lod-15" kindref="member">[3]</ref></para><para><linebreak/>
+<bold>File</bold> <ref refid="Point_set_shape_detection_3_2plane_regularization_8cpp-example" kindref="compound">Point_set_shape_detection_3/plane_regularization.cpp</ref> <programlisting><codeline><highlight class="preprocessor">#if<sp/>defined<sp/>(_MSC_VER)<sp/>&amp;&amp;<sp/>!defined<sp/>(_WIN64)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(disable:4244)<sp/>//<sp/>boost::number_distance::distance()</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>converts<sp/>64<sp/>to<sp/>32<sp/>bits<sp/>integers</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_inexact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/read_xyz_points.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Point_with_normal_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/property_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Shape__detection__3_8h" kindref="compound">CGAL/Shape_detection_3.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="regularize__planes_8h" kindref="compound">CGAL/regularize_planes.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__inexact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_inexact_constructions_kernel</ref><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;Kernel::Point_3,<sp/>Kernel::Vector_3&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_with_normal;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Point_with_normal&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pwn_vector;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1First__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::First_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/><sp/>Point_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Second__of__pair__property__map" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Property_map.tag">CGAL::Second_of_pair_property_map&lt;Point_with_normal&gt;</ref><sp/>Normal_map;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structCGAL_1_1Shape__detection__3_1_1Shape__detection__traits" kindref="compound">CGAL::Shape_detection_3::Shape_detection_traits</ref></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;Kernel,<sp/>Pwn_vector,<sp/>Point_map,<sp/>Normal_map&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Region__growing" kindref="compound">CGAL::Shape_detection_3::Region_growing&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/>Region_growing;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane" kindref="compound">CGAL::Shape_detection_3::Plane&lt;Traits&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Plane;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv)<sp/></highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Pwn_vector<sp/>points;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(argc<sp/>&gt;<sp/>1<sp/>?<sp/>argv[1]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;data/cube.pwn&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!stream<sp/>||<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>!<ref refid="group__PkgPointSetProcessingIO_1ga2e8d677def85c5582ba1f01eda030628" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Point_set_processing_3.tag">CGAL::read_xyz_points</ref>(stream,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::back_inserter(points),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CGAL::parameters::point_map(Point_map()).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>normal_map(Normal_map())))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error:<sp/>cannot<sp/>read<sp/>file<sp/>cube.pwn&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_FAILURE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Call<sp/>RANSAC<sp/>shape<sp/>detection<sp/>with<sp/>planes</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Region_growing<sp/>region_growing;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>region_growing.set_input(points);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>region_growing.add_shape_factory&lt;Plane&gt;();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>region_growing.detect();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Region_growing::Plane_range<sp/>planes<sp/>=<sp/>region_growing.planes();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Regularize<sp/>detected<sp/>planes</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgPointSetShapeDetection3_1ga57cdb2c265967f4a6a04b5db3e0828d2" kindref="member">CGAL::regularize_planes</ref><sp/>(points,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_map(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>planes,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Plane__map" kindref="compound">CGAL::Shape_detection_3::Plane_map&lt;Traits&gt;</ref>(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCGAL_1_1Shape__detection__3_1_1Point__to__shape__index__map" kindref="compound">CGAL::Shape_detection_3::Point_to_shape_index_map&lt;Traits&gt;</ref>(points,<sp/>planes),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>Regularize<sp/>parallelism</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>Regularize<sp/>orthogonality</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>Do<sp/>not<sp/>regularize<sp/>coplanarity</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>Regularize<sp/>Z-symmetry<sp/>(default)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>10);<sp/></highlight><highlight class="comment">//<sp/>10<sp/>degrees<sp/>of<sp/>tolerance<sp/>for<sp/>parallelism/orthogonality</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_SUCCESS;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para></sect1>
+<sect1 id="index_1Point_set_shape_detection_3Performance">
+<title>Performances</title>
+<sect2 id="index_1Point_set_shape_detection_3PerformanceRANSAC">
+<title>Efficient RANSAC</title>
+<para>The running time and detection performance of the efficient RANSAC depend on the chosen parameters. A selective error tolerance parameter leads to higher running times and smaller shapes, as many shape candidates are generated to find the largest shape. We plot the detection performance against the epsilon error tolerance parameter for detecting planes in a complex scene with 5M points, see <ref refid="index_1fig__Point_set_shape_detection_3_performace_epsilon" kindref="member">fig__Point_set_shape_detection_3_performace_epsilon</ref>. The probability parameter controls the endurance when searching for the largest candidate at each iteration. It barely impacts the number of detected shapes, has a moderate impact on the size of the detected shapes and increases the running times. We plot the performance against the probability parameter, see <ref refid="index_1fig__Point_set_shape_detection_3_performace_probability" kindref="member">fig__Point_set_shape_detection_3_performace_probability</ref>.</para><para><anchor id="index_1fig__Point_set_shape_detection_3_performace_epsilon"/><image type="html" name="epsilon_graph.png"></image>
+ <image type="latex" name="epsilon_graph.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_performace_epsilon" kindref="member">fig__Point_set_shape_detection_3_performace_epsilon</ref> The graph depicts the number of detected shapes (purple) and the coverage (green), i.e., the ratio assignedPoints / totalPoints, against the epsilon tolerance parameter. A higher value for epsilon, i.e., a more tolerant error, leads to fewer but larger shapes and shorter running times.  <linebreak/>
+</para><para><anchor id="index_1fig__Point_set_shape_detection_3_performace_probability"/><image type="html" name="prob_graph.png"></image>
+ <image type="latex" name="prob_graph.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_performace_probability" kindref="member">fig__Point_set_shape_detection_3_performace_probability</ref> The graph depicts the time, coverage and number of detected primitives against the search endurance parameter, i.e., the probability to miss the largest shape at each iteration. The number of shapes is stable and the coverage increases when the probability is lowered. The running times increase significantly as many more candidates are generated during each iteration of the algorithm.  <linebreak/>
+</para></sect2>
+<sect2 id="index_1Point_set_shape_detection_3PerformanceRegionGrowing">
+<title>Region Growing</title>
+<para>Region growing iterates through every single point in the input, which makes it usually slower (although more robust). The main parameter that has an effect on running times is the epsilon used for clustering: internally, range queries are perform using spheres with radius cluster_epsilon. Using larger values means using larger spheres which are more computationally demanding.</para><para>We plot again the detection performance against the epsilon parameter for detecting planes, this time in a scene of 500k points, see figure <ref refid="index_1fig__Point_set_shape_detection_3_performace_epsilon_rg" kindref="member">fig__Point_set_shape_detection_3_performace_epsilon_rg</ref>.</para><para><anchor id="index_1fig__Point_set_shape_detection_3_performace_epsilon_rg"/><image type="html" name="epsilon_graph_2.png"></image>
+ <image type="latex" name="epsilon_graph_2.png" width="15cm"></image>
+  <ref refid="index_1fig__Point_set_shape_detection_3_performace_epsilon_rg" kindref="member">fig__Point_set_shape_detection_3_performace_epsilon_rg</ref> The graph depicts the number of detected shapes (purple) and the coverage (green), i.e., the ratio assignedPoints / totalPoints, against the epsilon parameter (for simplicity, we use the same value for epsilon and cluster_epsilon). A higher value for cluster_epsilon, i.e., larger neighborhood spheres, leads to longer computation and to larger shapes.  <linebreak/>
+</para></sect2>
+</sect1>
+<sect1 id="index_1Point_set_shape_detection_3History">
+<title>History</title>
+<para>The efficient RANSAC implementation was developed by Sven Oesau based on a prototype version by Yannick Verdie, with the help of Clément Jamin and under the supervision of Pierre Alliez. Plane regularization and region growing were added by Simon Giraudot based on prototype versions developed by Florent Lafarge. </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

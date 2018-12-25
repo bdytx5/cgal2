@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Partition_2/classOptimalConvexPartitionTraits__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Polygon Partitioning: OptimalConvexPartitionTraits_2 Concept Reference</title><!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Polygon Partitioning
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classOptimalConvexPartitionTraits__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classOptimalConvexPartitionTraits__2-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">OptimalConvexPartitionTraits_2 Concept Reference<div class="ingroups"><a class="el" href="group__PkgPolygonPartitioning2.html">2D Polygon Partitioning Reference</a> » <a class="el" href="group__PkgPolygonPartitioning2Concepts.html">Concepts</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>Requirements of a traits class to be used with the function <code><a class="el" href="group__PkgPolygonPartitioning2.html#ga3ca9fb1f363f9f792bfbbeca65ad5cc5" title="computes a partition of the polygon defined by the points in the range [first, beyond) into convex po...">optimal_convex_partition_2()</a></code> that computes an optimal convex partition of a polygon. </p>
+  <dl class="refines"><dt><b><a class="el" href="refines.html#_refines000001">Refines:</a></b></dt><dd><code><a class="el" href="classPartitionTraits__2.html" title="The polygon partitioning functions are each parameterized by a traits class that defines the primitiv...">PartitionTraits_2</a></code> </dd></dl>
+<dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000003">Has Models:</a></b></dt><dd><code><a class="el" href="classCGAL_1_1Partition__traits__2.html" title="Traits class that can be used with all the 2-dimensional polygon partitioning algorithms. ">CGAL::Partition_traits_2</a>&lt;R&gt;</code> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><code><a class="el" href="group__PkgPolygonPartitioning2.html#ga9d234240af69b14694923824fc8fca12" title="determines if the polygons in the range [poly_first, poly_beyond) define a valid convex partition of ...">CGAL::convex_partition_is_valid_2()</a></code> </dd>
+<dd>
+<code><a class="el" href="classCGAL_1_1Partition__is__valid__traits__2.html" title="Class that derives a traits class for partition_is_valid_2() from a given traits class by defining th...">CGAL::Partition_is_valid_traits_2</a>&lt;Traits, <a class="el" href="classPolygonIsValid.html" title="Function object that determines if a sequence of points represents a valid partition polygon or not...">PolygonIsValid</a>&gt;</code> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpf2d346b1bb7c1c85ab6f7f21e3666b9f"></a>In addition to the types listed with the concept <code><a class="el" href="classPartitionTraits__2.html" title="The polygon partitioning functions are each parameterized by a traits class that defines the primitiv...">PartitionTraits_2</a></code>, the following types are required: </p>
+</td></tr>
+<tr class="memitem:a973497b8e37d1889d5190d30d7fc1ebb"><td class="memItemLeft" align="right" valign="top"><a id="a973497b8e37d1889d5190d30d7fc1ebb"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#a973497b8e37d1889d5190d30d7fc1ebb">Segment_2</a></td></tr>
+<tr class="memdesc:a973497b8e37d1889d5190d30d7fc1ebb"><td class="mdescLeft"> </td><td class="mdescRight">A segment type. <br /></td></tr>
+<tr class="separator:a973497b8e37d1889d5190d30d7fc1ebb"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a26330d90af0d3b6e9c845fca52fb6fdf"><td class="memItemLeft" align="right" valign="top"><a id="a26330d90af0d3b6e9c845fca52fb6fdf"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#a26330d90af0d3b6e9c845fca52fb6fdf">Ray_2</a></td></tr>
+<tr class="memdesc:a26330d90af0d3b6e9c845fca52fb6fdf"><td class="mdescLeft"> </td><td class="mdescRight">A ray type. <br /></td></tr>
+<tr class="separator:a26330d90af0d3b6e9c845fca52fb6fdf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab18ae8a9a514695f9c46c3b1b76ae22d"><td class="memItemLeft" align="right" valign="top"><a id="ab18ae8a9a514695f9c46c3b1b76ae22d"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#ab18ae8a9a514695f9c46c3b1b76ae22d">Object_2</a></td></tr>
+<tr class="memdesc:ab18ae8a9a514695f9c46c3b1b76ae22d"><td class="mdescLeft"> </td><td class="mdescRight">A general object type that can be either a point or a segment. <br /></td></tr>
+<tr class="separator:ab18ae8a9a514695f9c46c3b1b76ae22d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aff8052721141982b32fef1c5d8c9e6e1"><td class="memItemLeft" align="right" valign="top"><a id="aff8052721141982b32fef1c5d8c9e6e1"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#aff8052721141982b32fef1c5d8c9e6e1">Construct_segment_2</a></td></tr>
+<tr class="memdesc:aff8052721141982b32fef1c5d8c9e6e1"><td class="mdescLeft"> </td><td class="mdescRight">Function object type that provides <code>Segment_2 operator()(Point_2 p, Point_2 q)</code>, which constructs and returns the segment defined by the points \( p\) and \( q\). <br /></td></tr>
+<tr class="separator:aff8052721141982b32fef1c5d8c9e6e1"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab127cd8c5137b9489616fae98d450526"><td class="memItemLeft" align="right" valign="top"><a id="ab127cd8c5137b9489616fae98d450526"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#ab127cd8c5137b9489616fae98d450526">Construct_ray_2</a></td></tr>
+<tr class="memdesc:ab127cd8c5137b9489616fae98d450526"><td class="mdescLeft"> </td><td class="mdescRight">Function object type that provides <code>Ray_2 operator()(Point_2 p, Point_2 q)</code>, which constructs and returns the ray from point \( p\) through point \( q\). <br /></td></tr>
+<tr class="separator:ab127cd8c5137b9489616fae98d450526"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5b40d02710e301d68c2f9d23af890d9e"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#a5b40d02710e301d68c2f9d23af890d9e">Collinear_are_ordered_along_line_2</a></td></tr>
+<tr class="memdesc:a5b40d02710e301d68c2f9d23af890d9e"><td class="mdescLeft"> </td><td class="mdescRight">Predicate object type that determines orderings of <a class="el" href="classPartitionTraits__2.html#a5bd41b29aafb9165cec4d11918e84eed"><code>Point_2</code> </a> 's on a line.  <a href="#a5b40d02710e301d68c2f9d23af890d9e">More...</a><br /></td></tr>
+<tr class="separator:a5b40d02710e301d68c2f9d23af890d9e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2435b1233b83e6b5ec1756155d25aaa8"><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#a2435b1233b83e6b5ec1756155d25aaa8">Are_stritcly_ordered_along_line_2</a></td></tr>
+<tr class="memdesc:a2435b1233b83e6b5ec1756155d25aaa8"><td class="mdescLeft"> </td><td class="mdescRight">Predicate object type that determines orderings of <a class="el" href="classPartitionTraits__2.html#a5bd41b29aafb9165cec4d11918e84eed"><code>Point_2</code> </a> 's.  <a href="#a2435b1233b83e6b5ec1756155d25aaa8">More...</a><br /></td></tr>
+<tr class="separator:a2435b1233b83e6b5ec1756155d25aaa8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a78da51823dcced817e1c2e1dc356f798"><td class="memItemLeft" align="right" valign="top"><a id="a78da51823dcced817e1c2e1dc356f798"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#a78da51823dcced817e1c2e1dc356f798">Intersect_2</a></td></tr>
+<tr class="memdesc:a78da51823dcced817e1c2e1dc356f798"><td class="mdescLeft"> </td><td class="mdescRight">Function object type that provides <code>Object_2 operator()(Segment_2 s1, Segment_2 s2)</code> that returns the intersection of two segments (which may be either a segment or a point). <br /></td></tr>
+<tr class="separator:a78da51823dcced817e1c2e1dc356f798"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac37381b1eb3d54d12d23caf9b4f2a0ef"><td class="memItemLeft" align="right" valign="top"><a id="ac37381b1eb3d54d12d23caf9b4f2a0ef"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#ac37381b1eb3d54d12d23caf9b4f2a0ef">Assign_2</a></td></tr>
+<tr class="memdesc:ac37381b1eb3d54d12d23caf9b4f2a0ef"><td class="mdescLeft"> </td><td class="mdescRight">Function object type that provides <code>bool operator()(Segment_2 s1, Object_2 o)</code> that returns <code>true</code> if <code>o</code> is a segment and assigns the value of <code>o</code> to <code>s1</code>; returns <code>false</code> otherwise. <br /></td></tr>
+<tr class="separator:ac37381b1eb3d54d12d23caf9b4f2a0ef"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Creation</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp67d5168b4f2b5424a3d118ea9ef99372"></a>Only a copy constructor is required. </p>
+</td></tr>
+<tr class="memitem:adc0341237509567de1295270332a90cd"><td class="memItemLeft" align="right" valign="top"><a id="adc0341237509567de1295270332a90cd"></a>
+ </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#adc0341237509567de1295270332a90cd">OptimalConvexPartitionTraits_2</a> (<a class="el" href="classOptimalConvexPartitionTraits__2.html">OptimalConvexPartitionTraits_2</a> tr)</td></tr>
+<tr class="separator:adc0341237509567de1295270332a90cd"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Operations</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp456d0deba6a86c9585590550c797502d"></a>In addition to the functions required by <code><a class="el" href="classPartitionTraits__2.html" title="The polygon partitioning functions are each parameterized by a traits class that defines the primitiv...">PartitionTraits_2</a></code>, the following functions that create instances of the above function object types must exist: </p>
+</td></tr>
+<tr class="memitem:af9ef731b161c61e91d5898d2d892a4ff"><td class="memItemLeft" align="right" valign="top"><a id="af9ef731b161c61e91d5898d2d892a4ff"></a>
+<a class="el" href="classOptimalConvexPartitionTraits__2.html#a5b40d02710e301d68c2f9d23af890d9e">Collinear_are_ordered_along_line_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#af9ef731b161c61e91d5898d2d892a4ff">collinear_are_ordered_along_line_2_object</a> () const</td></tr>
+<tr class="separator:af9ef731b161c61e91d5898d2d892a4ff"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aafd180f15bbbf8ee41dc51bc1521a0b6"><td class="memItemLeft" align="right" valign="top"><a id="aafd180f15bbbf8ee41dc51bc1521a0b6"></a>
+<a class="el" href="classOptimalConvexPartitionTraits__2.html#aff8052721141982b32fef1c5d8c9e6e1">Construct_segment_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#aafd180f15bbbf8ee41dc51bc1521a0b6">construct_segment_2_object</a> () const</td></tr>
+<tr class="separator:aafd180f15bbbf8ee41dc51bc1521a0b6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aac423b6dee52e8a764941d41ce472143"><td class="memItemLeft" align="right" valign="top"><a id="aac423b6dee52e8a764941d41ce472143"></a>
+<a class="el" href="classOptimalConvexPartitionTraits__2.html#ab127cd8c5137b9489616fae98d450526">Construct_ray_2</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#aac423b6dee52e8a764941d41ce472143">construct_ray_2_object</a> () const</td></tr>
+<tr class="separator:aac423b6dee52e8a764941d41ce472143"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afd0940e9cc9745efbbd81d04b44fa179"><td class="memItemLeft" align="right" valign="top"><a id="afd0940e9cc9745efbbd81d04b44fa179"></a>
+Are_strictly_ordered_along_line_2 </td><td class="memItemRight" valign="bottom"><a class="el" href="classOptimalConvexPartitionTraits__2.html#afd0940e9cc9745efbbd81d04b44fa179">are_strictly_ordered_along_line_2_object</a> () const</td></tr>
+<tr class="separator:afd0940e9cc9745efbbd81d04b44fa179"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2435b1233b83e6b5ec1756155d25aaa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2435b1233b83e6b5ec1756155d25aaa8">◆ </a></span>Are_stritcly_ordered_along_line_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classOptimalConvexPartitionTraits__2.html#a2435b1233b83e6b5ec1756155d25aaa8">OptimalConvexPartitionTraits_2::Are_stritcly_ordered_along_line_2</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Predicate object type that determines orderings of <a class="el" href="classPartitionTraits__2.html#a5bd41b29aafb9165cec4d11918e84eed"><code>Point_2</code> </a> 's. </p>
+<p>Must provide <code>bool operator()(Point_2 p, Point_2 q, Point_2 r)</code> that returns <code>true</code>, iff the three points are collinear and <code>q</code> lies strictly between <code>p</code> and <code>r</code>. Note that <code>false</code> should be returned if <code>q==p</code> or <code>q==r</code>. </p>
+
+</div>
+</div>
+<a id="a5b40d02710e301d68c2f9d23af890d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b40d02710e301d68c2f9d23af890d9e">◆ </a></span>Collinear_are_ordered_along_line_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> <a class="el" href="classOptimalConvexPartitionTraits__2.html#a5b40d02710e301d68c2f9d23af890d9e">OptimalConvexPartitionTraits_2::Collinear_are_ordered_along_line_2</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Predicate object type that determines orderings of <a class="el" href="classPartitionTraits__2.html#a5bd41b29aafb9165cec4d11918e84eed"><code>Point_2</code> </a> 's on a line. </p>
+<p>Must provide <code>bool operator()(Point_2 p, Point_2 q, Point_2 r)</code> that returns <code>true</code>, iff <code>q</code> lies between <code>p</code> and <code>r</code> and <code>p</code>, <code>q</code>, and <code>r</code> satisfy the precondition that they are collinear. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classOptimalConvexPartitionTraits__2.html">OptimalConvexPartitionTraits_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:11 for CGAL 4.13 - 2D Polygon Partitioning by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

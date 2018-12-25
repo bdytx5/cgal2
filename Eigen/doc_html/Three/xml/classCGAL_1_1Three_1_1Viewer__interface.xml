@@ -1,0 +1,1192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Three_1_1Viewer__interface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CGAL::Three::Viewer_interface</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QGLViewer</basecompoundref>
+    <includes local="no">CGAL/Three/Viewer_interface.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989" prot="public" static="no">
+        <name>OpenGL_program_IDs</name>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989aad19bf31340ffa2c70e888a3d85eeff6" prot="public">
+          <name>PROGRAM_WITH_LIGHT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989af16635fcee270428368456e7529d2f0e" prot="public">
+          <name>PROGRAM_WITHOUT_LIGHT</name>
+          <briefdescription>
+<para>Used to render a surface or an edge affected by the light. It uses a per fragment lighting model, and renders the selected item brighter. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a1c8273fc74dc142939ebc77c6cd49121" prot="public">
+          <name>PROGRAM_NO_SELECTION</name>
+          <briefdescription>
+<para>Used to render a polyhedron edge or points. It renders in a uniform color and is not affected by light. </para>          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="attention"><para>It renders the selected item in black. </para></simplesect>
+</para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989ab8a9e1854b9293a509a4738692ff9737" prot="public">
+          <name>PROGRAM_WITH_TEXTURE</name>
+          <briefdescription>
+<para>Used to render a polyline or a surface that is not affected by light, like a cutting plane. It renders in a uniform color that does not change with selection. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989ae6bf0cfc883aef227d079940e3a522cd" prot="public">
+          <name>PROGRAM_PLANE_TWO_FACES</name>
+          <briefdescription>
+<para>Used to render a textured polyhedron. Affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0fc3da51314f390c19fa2fbe9bd04482" prot="public">
+          <name>PROGRAM_WITH_TEXTURED_EDGES</name>
+          <briefdescription>
+<para>Used to render a two-faced plane. The two faces have a different color. Not affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a50df5d848e72145540970aae1abbabd6" prot="public">
+          <name>PROGRAM_INSTANCED</name>
+          <briefdescription>
+<para>Used to render the edges of a textured polyhedron. Not affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a811b45594355af17eb9379cdfadd0910" prot="public">
+          <name>PROGRAM_INSTANCED_WIRE</name>
+          <briefdescription>
+<para>Used to display instanced rendered spheres.Affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a083fe6a09223656dae365e30ae823df5" prot="public">
+          <name>PROGRAM_C3T3</name>
+          <briefdescription>
+<para>Used to display instanced rendered wired spheres. Not affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989aeb327945d9c9b3a82f23ace6512785f4" prot="public">
+          <name>PROGRAM_C3T3_EDGES</name>
+          <briefdescription>
+<para>Used to render a c3t3_item. It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989acddad23d8ba73ec484e7a32f769b9889" prot="public">
+          <name>PROGRAM_CUTPLANE_SPHERES</name>
+          <briefdescription>
+<para>Used to render the edges of a c3t3_item. It discards any fragment on a side of a plane, meaning that nothing is displayed on this side of the plane. Not affected by light. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a641bf23d5722b894519e362b969cdbd8" prot="public">
+          <name>PROGRAM_SPHERES</name>
+          <briefdescription>
+<para>Used to render the spheres of an item with a cut plane. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0e8c473dd303917b4a171bde19100ab1" prot="public">
+          <name>PROGRAM_FLAT</name>
+          <briefdescription>
+<para>Used to render one or several spheres. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989abc0c5728c37c3d3dfccd7f7515c7f60c" prot="public">
+          <name>PROGRAM_OLD_FLAT</name>
+          <briefdescription>
+<para>Used to render flat shading without pre computing normals. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a58c0ffcc307c06d5546163d0887132b9" prot="public">
+          <name>PROGRAM_SOLID_WIREFRAME</name>
+          <briefdescription>
+<para>Used to render flat shading without pre computing normals without geometry shader. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0aa60a2617dff8706a1ab242eab6d237" prot="public">
+          <name>NB_OF_PROGRAMS</name>
+          <briefdescription>
+<para>Used to render edges with width superior to 1. </para>          </briefdescription>
+          <detaileddescription>
+<para>Holds the number of different programs in this enum. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The OpenGL_program_IDs enum. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enum holds the OpenGL programs IDs that are given to <ref refid="classCGAL_1_1Three_1_1Viewer__interface_1af6026063af6b6bb25971b8742732f586" kindref="member">getShaderProgram()</ref> and <ref refid="classCGAL_1_1Three_1_1Viewer__interface_1ada6ce8b506615b4356c2f386b81d042b" kindref="member">attribBuffers()</ref>. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1af6026063af6b6bb25971b8742732f586" kindref="member">getShaderProgram</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1ada6ce8b506615b4356c2f386b81d042b" kindref="member">attribBuffers</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="64" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="63" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1ab4e6fa5ef01f30c8d95af396b13b67ba" prot="public" static="no">
+        <type>GLint</type>
+        <definition>typedef GLint CGAL::Three::Viewer_interface::first</definition>
+        <argsstring></argsstring>
+        <name>first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="179" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a9cb4b35e3214ed0ff79fca7aa7a22270" prot="public" static="no">
+        <type>GLint GLsizei</type>
+        <definition>typedef GLint GLsizei CGAL::Three::Viewer_interface::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="179" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a3a45584fb6177444f28ef1480bd637e3" prot="public" static="no">
+        <type>GLint GLsizei GLsizei</type>
+        <definition>typedef GLint GLsizei GLsizei CGAL::Three::Viewer_interface::primcount</definition>
+        <argsstring></argsstring>
+        <name>primcount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="179" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1ac820c09a68599581ee791382d771286e" prot="public" static="no">
+        <type>GLuint</type>
+        <definition>typedef GLuint CGAL::Three::Viewer_interface::divisor</definition>
+        <argsstring></argsstring>
+        <name>divisor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="181" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a4180adf091f09773399d82f506602686" prot="public" static="no">
+        <type>GLuint</type>
+        <definition>typedef GLuint CGAL::Three::Viewer_interface::attachment</definition>
+        <argsstring></argsstring>
+        <name>attachment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="183" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a0690a55a9a5cd259fb781420d83a5e4c" prot="public" static="no">
+        <type>GLuint GLuint</type>
+        <definition>typedef GLuint GLuint CGAL::Three::Viewer_interface::textarget</definition>
+        <argsstring></argsstring>
+        <name>textarget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="183" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a95e82840985ac8bd6ffeaacd81bc7493" prot="public" static="no">
+        <type>GLuint GLuint GLuint</type>
+        <definition>typedef GLuint GLuint GLuint CGAL::Three::Viewer_interface::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="183" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Three_1_1Viewer__interface_1a2c54b0e26b27fccec6eca224a1c04f56" prot="public" static="no">
+        <type>GLuint GLuint GLuint GLint</type>
+        <definition>typedef GLuint GLuint GLuint GLint CGAL::Three::Viewer_interface::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="183" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Viewer__interface_1a37ab0a3fbf78e0f05a9625e7b93eea65" prot="public" static="no" mutable="no">
+        <type>PFNGLDRAWARRAYSINSTANCEDARBPROC</type>
+        <definition>PFNGLDRAWARRAYSINSTANCEDARBPROC CGAL::Three::Viewer_interface::glDrawArraysInstanced</definition>
+        <argsstring></argsstring>
+        <name>glDrawArraysInstanced</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="185" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Viewer__interface_1ad907836df4d1e125bdc34e0d4e078a96" prot="public" static="no" mutable="no">
+        <type>PFNGLVERTEXATTRIBDIVISORARBPROC</type>
+        <definition>PFNGLVERTEXATTRIBDIVISORARBPROC CGAL::Three::Viewer_interface::glVertexAttribDivisor</definition>
+        <argsstring></argsstring>
+        <name>glVertexAttribDivisor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="186" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Three_1_1Viewer__interface_1af16b104753301eac53cc792db9daac01" prot="public" static="no" mutable="no">
+        <type>PFNGLFRAMEBUFFERTEXTURE2DEXTPROC</type>
+        <definition>PFNGLFRAMEBUFFERTEXTURE2DEXTPROC CGAL::Three::Viewer_interface::glFramebufferTexture2D</definition>
+        <argsstring></argsstring>
+        <name>glFramebufferTexture2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="187" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a3dacb0b18582a7c665152bbc74aecfbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>QPainter *</type>
+        <definition>virtual QPainter* CGAL::Three::Viewer_interface::getPainter</definition>
+        <argsstring>()=0</argsstring>
+        <name>getPainter</name>
+        <briefdescription>
+<para>The viewer&apos;s QPainter. </para>        </briefdescription>
+        <detaileddescription>
+<para>The painter is the element that draws everything on screen, but you should only need this if you want to draw 2D things on top of the scene, like a selection rectangle. See <ulink url="http://doc.qt.io/qt-5/qpainter.html">QPainter&apos;s documentation </ulink> for details. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a7a204b9dcf67cdd578db07d5ae4c38fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::testDisplayId</definition>
+        <argsstring>(double x, double y, double z)=0</argsstring>
+        <name>testDisplayId</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Tests if an id should be displayed or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+<parametername>y</parametername>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the coordinates of the id&apos;s position. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the ID should be displayed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="96" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a155a262dca122042af01e9c4b85704d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::updateIds</definition>
+        <argsstring>(CGAL::Three::Scene_item *)=0</argsstring>
+        <name>updateIds</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">CGAL::Three::Scene_item</ref> *</type>
+        </param>
+        <briefdescription>
+<para>Updates the item&apos;s displayed ids. </para>        </briefdescription>
+        <detaileddescription>
+<para>Call this after the mesh or its ids have changed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ac48cd08a1f7f0690cc4b4b2deb727fa5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::hasText</definition>
+        <argsstring>() const</argsstring>
+        <name>hasText</name>
+        <briefdescription>
+<para>Specifies if the items ids are being displayed. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the primitive ids are currently displayed </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="104" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a0936eb511db83e640466c12523442bed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Three::Viewer_interface::Viewer_interface</definition>
+        <argsstring>(QWidget *parent)</argsstring>
+        <name>Viewer_interface</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>Creates a valid context for OpenGL ES 2.0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parent widget. It usually is the MainWindow. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="109" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1aadcef71f78006400f1d7e84179a034aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual CGAL::Three::Viewer_interface::~Viewer_interface</definition>
+        <argsstring>()</argsstring>
+        <name>~Viewer_interface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="110" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a1baba5c0248e90265fa020c583fa2686" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setScene</definition>
+        <argsstring>(CGAL::Three::Scene_draw_interface *scene)=0</argsstring>
+        <name>setScene</name>
+        <param>
+          <type><ref refid="classCGAL_1_1Three_1_1Scene__draw__interface" kindref="compound">CGAL::Three::Scene_draw_interface</ref> *</type>
+          <declname>scene</declname>
+        </param>
+        <briefdescription>
+<para>Sets the scene for the viewer. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="113" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ad37d82f6da2d367a659c341b7510a841" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::antiAliasing</definition>
+        <argsstring>() const =0</argsstring>
+        <name>antiAliasing</name>
+        <briefdescription>
+<para>The antialiasing state. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the antialiasing is activated. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="117" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a6e1c4d9cceafa034490ef146cca487bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::inFastDrawing</definition>
+        <argsstring>() const =0</argsstring>
+        <name>inFastDrawing</name>
+        <briefdescription>
+<para>The fastDrawing state. </para>        </briefdescription>
+        <detaileddescription>
+<para>In fast drawing mode, some items will be simplified while the camera is moving to gain in performance. <simplesect kind="return"><para>the fastDrawing state. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a9ffdc55a536a5d6b41f99562c18c1f8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::inDrawWithNames</definition>
+        <argsstring>() const =0</argsstring>
+        <name>inDrawWithNames</name>
+        <briefdescription>
+<para>The drawWithNames state. </para>        </briefdescription>
+        <detaileddescription>
+<para>In draw with name mode, the scene is not displayed, but a <emphasis>name</emphasis> is given to each <ref refid="classCGAL_1_1Three_1_1Scene__item" kindref="compound">Scene_item</ref>. It is used for picking. <simplesect kind="return"><para>true if the viewer is drawing with names. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="145" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ada6ce8b506615b4356c2f386b81d042b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::attribBuffers</definition>
+        <argsstring>(int program_name) const =0</argsstring>
+        <name>attribBuffers</name>
+        <param>
+          <type>int</type>
+          <declname>program_name</declname>
+        </param>
+        <briefdescription>
+<para>Passes all the uniform data to the shaders. </para>        </briefdescription>
+        <detaileddescription>
+<para>According to program_name, this data may change. This should be called in every <ref refid="classCGAL_1_1Three_1_1Scene__item_1a884cc1ab209133f3a615ceda7e566a74" kindref="member">Scene_item::draw()</ref> call. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989" kindref="member">OpenGL_program_IDs</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="153" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a0af255b1effd733ae5fe7a68ef096bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::enableClippingBox</definition>
+        <argsstring>(QVector4D box[6])=0</argsstring>
+        <name>enableClippingBox</name>
+        <param>
+          <type>QVector4D</type>
+          <declname>box</declname>
+          <array>[6]</array>
+        </param>
+        <briefdescription>
+<para>Enables the clipping box. </para>        </briefdescription>
+        <detaileddescription>
+<para>Each Vector4 of <computeroutput>box</computeroutput> contains the equation of a plane of the clipping box. Everything that is located on the positive side of one of those planes will not be displayed. <simplesect kind="see"><para>disableCLippingBox() </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="158" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1aa0bb25d220129ba80594d36046cd8914" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::disableClippingBox</definition>
+        <argsstring>()=0</argsstring>
+        <name>disableClippingBox</name>
+        <briefdescription>
+<para>Disables the clipping box. </para>        </briefdescription>
+        <detaileddescription>
+<para>The six clipping planes will be ignored. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a0af255b1effd733ae5fe7a68ef096bef" kindref="member">enableClippingBox()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="164" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1af6026063af6b6bb25971b8742732f586" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>QOpenGLShaderProgram *</type>
+        <definition>virtual QOpenGLShaderProgram* CGAL::Three::Viewer_interface::getShaderProgram</definition>
+        <argsstring>(int name) const =0</argsstring>
+        <name>getShaderProgram</name>
+        <param>
+          <type>int</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Returns a program according to name. </para>        </briefdescription>
+        <detaileddescription>
+<para>If the program does not exist yet, it is created and stored in shader_programs. <simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989" kindref="member">OpenGL_program_IDs</ref> </para></simplesect>
+<simplesect kind="return"><para>a pointer to the corresponding program. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="171" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ad651b559e08793c9e47c0d84f10619f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classTextRenderer" kindref="compound">TextRenderer</ref> *</type>
+        <definition>virtual TextRenderer* CGAL::Three::Viewer_interface::textRenderer</definition>
+        <argsstring>()=0</argsstring>
+        <name>textRenderer</name>
+        <briefdescription>
+<para><ref refid="classTextRenderer" kindref="compound">TextRenderer</ref> is used to display text on the screen. </para>        </briefdescription>
+        <detaileddescription>
+<para>The textRenderer uses the painter to display 2D text over the 3D <ref refid="classScene" kindref="compound">Scene</ref>. <simplesect kind="return"><para>the viewer&apos;s TextRender </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="177" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>typedef</type>
+        <definition>typedef CGAL::Three::Viewer_interface::void</definition>
+        <argsstring>(APIENTRYP PFNGLDRAWARRAYSINSTANCEDARBPROC)(GLenum mode</argsstring>
+        <name>void</name>
+        <param>
+          <type>APIENTRYP</type>
+          <declname>PFNGLDRAWARRAYSINSTANCEDARBPROC</declname>
+        </param>
+        <briefdescription>
+<para>Allows OpenGL ES 2.0 context to get access to glDrawArraysInstanced. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="179" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1af3b42badad840f45b8fb0ec7b7297ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>typedef</type>
+        <definition>typedef CGAL::Three::Viewer_interface::void</definition>
+        <argsstring>(APIENTRYP PFNGLVERTEXATTRIBDIVISORARBPROC)(GLuint index</argsstring>
+        <name>void</name>
+        <param>
+          <type>APIENTRYP</type>
+          <declname>PFNGLVERTEXATTRIBDIVISORARBPROC</declname>
+        </param>
+        <briefdescription>
+<para>Allows OpenGL ES 2.0 context to get access to glVertexAttribDivisor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="181" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a2efc177b7aaa0ed98911771d8442f5ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>typedef</type>
+        <definition>typedef CGAL::Three::Viewer_interface::void</definition>
+        <argsstring>(APIENTRYP PFNGLFRAMEBUFFERTEXTURE2DEXTPROC)(GLuint target</argsstring>
+        <name>void</name>
+        <param>
+          <type>APIENTRYP</type>
+          <declname>PFNGLFRAMEBUFFERTEXTURE2DEXTPROC</declname>
+        </param>
+        <briefdescription>
+<para>Allows OpenGL ES 2.0 context to get access to glVertexAttribDivisor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="183" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1abd9bd1aa51144b3ae52f3f501df4df1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::isExtensionFound</definition>
+        <argsstring>()=0</argsstring>
+        <name>isExtensionFound</name>
+        <briefdescription>
+<para>Used by the items to avoid SEGFAULT. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if glVertexAttribDivisor, and glDrawArraysInstanced are found. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="191" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a9674e3bd6a269251e8366daa88a49af0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setBindingSelect</definition>
+        <argsstring>()=0</argsstring>
+        <name>setBindingSelect</name>
+        <briefdescription>
+<para>Allows to perform picking from the keyboard and mouse. </para>        </briefdescription>
+        <detaileddescription>
+<para>Sets the combination SHIFT+LEFT CLICK to perform a selection on the screen. This is used to perform picking. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="196" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1afe861aaaab2732fdaa75146e7d950668" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setNoBinding</definition>
+        <argsstring>()=0</argsstring>
+        <name>setNoBinding</name>
+        <briefdescription>
+<para>Disable the picking from the keyboard and mouse. </para>        </briefdescription>
+        <detaileddescription>
+<para>Unbinds the combination SHIFT+LEFT CLICK. It allows to avoid conflicts in the selection_tool, for example. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="201" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ac97c57aaa18c98533ca5d5f7e8f3cd48" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::set2DSelectionMode</definition>
+        <argsstring>(bool)=0</argsstring>
+        <name>set2DSelectionMode</name>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+<para>If this mode is ON, the viewer will display the content of <computeroutput><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a8cee9355f8bd7f862a1a367c04756947" kindref="member">staticImage()</ref></computeroutput> instead of drawing the cene. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is used when drawing 2D lines over the viewer. <simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a8cee9355f8bd7f862a1a367c04756947" kindref="member">staticImage()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1ac26fc9338ece0257882abf8f28e218f3" kindref="member">setStaticImage()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="208" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ac26fc9338ece0257882abf8f28e218f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setStaticImage</definition>
+        <argsstring>(QImage image)=0</argsstring>
+        <name>setStaticImage</name>
+        <param>
+          <type>QImage</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>Setter for the image to be displayed in 2D selection mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="213" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a8cee9355f8bd7f862a1a367c04756947" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const QImage &amp;</type>
+        <definition>virtual const QImage&amp; CGAL::Three::Viewer_interface::staticImage</definition>
+        <argsstring>() const =0</argsstring>
+        <name>staticImage</name>
+        <briefdescription>
+<para>Returns the static image to be displayed in 2D selection mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="216" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a0c5158393f43deae55734e8b6344d2b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>float</type>
+        <definition>virtual float CGAL::Three::Viewer_interface::total_pass</definition>
+        <argsstring>()=0</argsstring>
+        <name>total_pass</name>
+        <briefdescription>
+<para>The number of passes that are performed for the scene transparency. </para>        </briefdescription>
+        <detaileddescription>
+<para>Customizable from the MainWindow or the SubViewer menu. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="220" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1aa10823d4aae880f5f7773c4335553a1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>QOpenGLFunctions_4_3_Core *</type>
+        <definition>virtual QOpenGLFunctions_4_3_Core* CGAL::Three::Viewer_interface::openGL_4_3_functions</definition>
+        <argsstring>()=0</argsstring>
+        <name>openGL_4_3_functions</name>
+        <briefdescription>
+<para>Gives acces to recent openGL(4.3) features, allowing use of things like Geometry Shaders or Depth Textures. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a pointer to an initialized QOpenGLFunctions_4_3_Core if <computeroutput>isOpenGL_4_3()</computeroutput> is <computeroutput>true</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>NULL if <computeroutput>isOpenGL_4_3()</computeroutput> is <computeroutput>false</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="262" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a91b029fb5290ec3ba77fa573c34bcd97" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const GLfloat &amp;</type>
+        <definition>virtual const GLfloat&amp; CGAL::Three::Viewer_interface::getGlPointSize</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getGlPointSize</name>
+        <briefdescription>
+<para>getter for point size under old openGL context; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="264" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1af00d683676dc77c147988f36ca16b1a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setGlPointSize</definition>
+        <argsstring>(const GLfloat &amp;p)=0</argsstring>
+        <name>setGlPointSize</name>
+        <param>
+          <type>const GLfloat &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>setter for point size under old openGL context; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="266" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1adabca5499b2ab365c98963ec7eb0a081" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setCurrentPass</definition>
+        <argsstring>(int pass)=0</argsstring>
+        <name>setCurrentPass</name>
+        <param>
+          <type>int</type>
+          <declname>pass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="267" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a5e409c886a64f689029415176d20e64b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setDepthWriting</definition>
+        <argsstring>(bool writing_depth)=0</argsstring>
+        <name>setDepthWriting</name>
+        <param>
+          <type>bool</type>
+          <declname>writing_depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="268" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a84654bfc460722e91bbcfc6732adc46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setDepthPeelingFbo</definition>
+        <argsstring>(QOpenGLFramebufferObject *fbo)=0</argsstring>
+        <name>setDepthPeelingFbo</name>
+        <param>
+          <type>QOpenGLFramebufferObject *</type>
+          <declname>fbo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="269" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a9e630cf0166d2916041b7b4c6d0724ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int CGAL::Three::Viewer_interface::currentPass</definition>
+        <argsstring>() const =0</argsstring>
+        <name>currentPass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="271" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1abddfa4ca8399ab04dfe5e40e82d316f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::isDepthWriting</definition>
+        <argsstring>() const =0</argsstring>
+        <name>isDepthWriting</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="272" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ac5721d3ed62349542f3a37fe71512fd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>QOpenGLFramebufferObject *</type>
+        <definition>virtual QOpenGLFramebufferObject* CGAL::Three::Viewer_interface::depthPeelingFbo</definition>
+        <argsstring>()=0</argsstring>
+        <name>depthPeelingFbo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="273" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1ae03cae6d4879152fa62134c0932d8655" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool CGAL::Three::Viewer_interface::readFrame</definition>
+        <argsstring>(QString s, CGAL::qglviewer::Frame &amp;frame)</argsstring>
+        <name>readFrame</name>
+        <param>
+          <type>QString</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>CGAL::qglviewer::Frame &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Sets the position and orientation of a frame using a QString. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is usually gotten by <ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a98115a6d017cb648cd3e34b4d835f2c1" kindref="member">dumpFrame()</ref> and is of the form &quot;Px Py Pz O1 O2 O3 O4 &quot;, with<itemizedlist>
+<listitem><para>Px to Py : the new position coordinates,</para></listitem><listitem><para>O1 to O3 : axis coordinate *sin(angle/2)</para></listitem><listitem><para>O4 cos(angle/2). </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the frame that will be moved </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if it worked. </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a648ae54c87eb559494561e8d6a3f1778" kindref="member">moveCameraToCoordinates()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="128" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Three_1_1Viewer__interface_1a98115a6d017cb648cd3e34b4d835f2c1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>static QString CGAL::Three::Viewer_interface::dumpFrame</definition>
+        <argsstring>(const CGAL::qglviewer::Frame &amp;)</argsstring>
+        <name>dumpFrame</name>
+        <param>
+          <type>const CGAL::qglviewer::Frame &amp;</type>
+        </param>
+        <briefdescription>
+<para>Gives information about a frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1ae03cae6d4879152fa62134c0932d8655" kindref="member">readFrame</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a2323f7f35b58784be0eae1ff220c99ac" kindref="member">dumpCameraCoordinates()</ref> </para></simplesect>
+<simplesect kind="return"><para>a QString containing the position and orientation of a frame. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="133" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Viewer__interface_1ae67f2439b926b6a8f945482648a0d29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>void CGAL::Three::Viewer_interface::selected</definition>
+        <argsstring>(int id)</argsstring>
+        <name>selected</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Emit this to signal that the <computeroutput>id</computeroutput>th item has been picked. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="223" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Viewer__interface_1a5ea88b65f75c25b47b8f317cef2678be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>void CGAL::Three::Viewer_interface::requestContextMenu</definition>
+        <argsstring>(QPoint global_pos)</argsstring>
+        <name>requestContextMenu</name>
+        <param>
+          <type>QPoint</type>
+          <declname>global_pos</declname>
+        </param>
+        <briefdescription>
+<para>Emit this to require a contextual menu to appear at <computeroutput>global_pos</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="225" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Viewer__interface_1ae4f9fd4282a0bbc83e1251955e554d32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>void CGAL::Three::Viewer_interface::selectedPoint</definition>
+        <argsstring>(double x, double y, double z)</argsstring>
+        <name>selectedPoint</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Emit this to signal that the point at (<computeroutput>x</computeroutput>, <computeroutput>y</computeroutput>, <computeroutput>z</computeroutput>) has been picked. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="227" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCGAL_1_1Three_1_1Viewer__interface_1a177c9b90daa2140acff94a2823cb0959" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>void CGAL::Three::Viewer_interface::selectionRay</definition>
+        <argsstring>(double sx, double sy, double sz, double tx, double ty, double tz)</argsstring>
+        <name>selectionRay</name>
+        <param>
+          <type>double</type>
+          <declname>sx</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sy</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sz</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tx</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ty</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tz</declname>
+        </param>
+        <briefdescription>
+<para>Emit this to request the currently selected item to perform a selection based on an AABB_Tree and a raycasting. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="229" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1afe57582178a6590825e304dc9281cee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setAntiAliasing</definition>
+        <argsstring>(bool b)=0</argsstring>
+        <name>setAntiAliasing</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Sets the antialiasing to true or false. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1ad37d82f6da2d367a659c341b7510a841" kindref="member">antiAliasing()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="234" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1a746ed3ec188f48cf100b6ede2de606d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setTwoSides</definition>
+        <argsstring>(bool b)=0</argsstring>
+        <name>setTwoSides</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>If b is true, faces will be ligted from both internal and external side. </para>        </briefdescription>
+        <detaileddescription>
+<para>If b is false, only the side that is exposed to the light source will be lighted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="237" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1a225a4fe248fd9f06332580c39e994af1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::setFastDrawing</definition>
+        <argsstring>(bool b)=0</argsstring>
+        <name>setFastDrawing</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Sets the fast drawing mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a6e1c4d9cceafa034490ef146cca487bb" kindref="member">inFastDrawing()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="240" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1a21b31bff1c2d41ff8d817072ba32d3f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" kindref="member">void</ref></type>
+        <definition>virtual void CGAL::Three::Viewer_interface::turnCameraBy180Degres</definition>
+        <argsstring>()=0</argsstring>
+        <name>turnCameraBy180Degres</name>
+        <briefdescription>
+<para>Makes the camera turn around. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="242" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1a2323f7f35b58784be0eae1ff220c99ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>QString</type>
+        <definition>virtual QString CGAL::Three::Viewer_interface::dumpCameraCoordinates</definition>
+        <argsstring>()=0</argsstring>
+        <name>dumpCameraCoordinates</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a QString containing the position and orientation of the camera. </para></simplesect>
+<simplesect kind="see"><para><ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a98115a6d017cb648cd3e34b4d835f2c1" kindref="member">dumpFrame()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="245" column="1"/>
+      </memberdef>
+      <memberdef kind="slot" id="classCGAL_1_1Three_1_1Viewer__interface_1a648ae54c87eb559494561e8d6a3f1778" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool CGAL::Three::Viewer_interface::moveCameraToCoordinates</definition>
+        <argsstring>(QString target, float animation_duration=0.5f)=0</argsstring>
+        <name>moveCameraToCoordinates</name>
+        <param>
+          <type>QString</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>animation_duration</declname>
+          <defval>0.5f</defval>
+        </param>
+        <briefdescription>
+<para>Moves the camera to the new coordinates. </para>        </briefdescription>
+        <detaileddescription>
+<para>The movement is performed through an animation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is usually gotten by <ref refid="classCGAL_1_1Three_1_1Viewer__interface_1a2323f7f35b58784be0eae1ff220c99ac" kindref="member">dumpCameraCoordinates()</ref> and is of the form &quot;Px Py Pz O1 O2 O3 O4 &quot;, with<itemizedlist>
+<listitem><para>Px to Py : the new position coordinates,</para></listitem><listitem><para>O1 to O3 : axis coordinate *sin(angle/2)</para></listitem><listitem><para>O4 cos(angle/2). </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>animation_duration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the duration of the animation of the movement. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Three/Viewer_interface.h" line="254" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class to interact with the viewer from the plugins, the items and the scene. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CGAL/Three/Viewer_interface.h" line="51" column="1" bodyfile="CGAL/Three/Viewer_interface.h" bodystart="51" bodyend="274"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ad37d82f6da2d367a659c341b7510a841" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>antiAliasing</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a4180adf091f09773399d82f506602686" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>attachment</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ada6ce8b506615b4356c2f386b81d042b" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>attribBuffers</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a9cb4b35e3214ed0ff79fca7aa7a22270" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>count</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a9e630cf0166d2916041b7b4c6d0724ef" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>currentPass</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ac5721d3ed62349542f3a37fe71512fd2" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>depthPeelingFbo</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa0bb25d220129ba80594d36046cd8914" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>disableClippingBox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ac820c09a68599581ee791382d771286e" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>divisor</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a2323f7f35b58784be0eae1ff220c99ac" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>dumpCameraCoordinates</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a98115a6d017cb648cd3e34b4d835f2c1" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>dumpFrame</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a0af255b1effd733ae5fe7a68ef096bef" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>enableClippingBox</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ab4e6fa5ef01f30c8d95af396b13b67ba" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>first</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a91b029fb5290ec3ba77fa573c34bcd97" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>getGlPointSize</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a3dacb0b18582a7c665152bbc74aecfbe" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>getPainter</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1af6026063af6b6bb25971b8742732f586" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>getShaderProgram</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a37ab0a3fbf78e0f05a9625e7b93eea65" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>glDrawArraysInstanced</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1af16b104753301eac53cc792db9daac01" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>glFramebufferTexture2D</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ad907836df4d1e125bdc34e0d4e078a96" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>glVertexAttribDivisor</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ac48cd08a1f7f0690cc4b4b2deb727fa5" prot="public" virt="virtual"><scope>CGAL::Three::Viewer_interface</scope><name>hasText</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a9ffdc55a536a5d6b41f99562c18c1f8f" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>inDrawWithNames</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a6e1c4d9cceafa034490ef146cca487bb" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>inFastDrawing</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1abddfa4ca8399ab04dfe5e40e82d316f9" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>isDepthWriting</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1abd9bd1aa51144b3ae52f3f501df4df1c" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>isExtensionFound</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a2c54b0e26b27fccec6eca224a1c04f56" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>level</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a648ae54c87eb559494561e8d6a3f1778" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>moveCameraToCoordinates</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0aa60a2617dff8706a1ab242eab6d237" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>NB_OF_PROGRAMS</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa10823d4aae880f5f7773c4335553a1c" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>openGL_4_3_functions</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>OpenGL_program_IDs</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a3a45584fb6177444f28ef1480bd637e3" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>primcount</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a083fe6a09223656dae365e30ae823df5" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_C3T3</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989aeb327945d9c9b3a82f23ace6512785f4" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_C3T3_EDGES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989acddad23d8ba73ec484e7a32f769b9889" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_CUTPLANE_SPHERES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0e8c473dd303917b4a171bde19100ab1" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_FLAT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a50df5d848e72145540970aae1abbabd6" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_INSTANCED</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a811b45594355af17eb9379cdfadd0910" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_INSTANCED_WIRE</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a1c8273fc74dc142939ebc77c6cd49121" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_NO_SELECTION</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989abc0c5728c37c3d3dfccd7f7515c7f60c" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_OLD_FLAT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989ae6bf0cfc883aef227d079940e3a522cd" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_PLANE_TWO_FACES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a58c0ffcc307c06d5546163d0887132b9" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_SOLID_WIREFRAME</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a641bf23d5722b894519e362b969cdbd8" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_SPHERES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989aad19bf31340ffa2c70e888a3d85eeff6" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_WITH_LIGHT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989ab8a9e1854b9293a509a4738692ff9737" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_WITH_TEXTURE</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989a0fc3da51314f390c19fa2fbe9bd04482" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_WITH_TEXTURED_EDGES</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aa3c861c6990f0e0a98acce3221093989af16635fcee270428368456e7529d2f0e" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>PROGRAM_WITHOUT_LIGHT</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ae03cae6d4879152fa62134c0932d8655" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>readFrame</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a5ea88b65f75c25b47b8f317cef2678be" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>requestContextMenu</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ae67f2439b926b6a8f945482648a0d29b" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>selected</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ae4f9fd4282a0bbc83e1251955e554d32" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>selectedPoint</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a177c9b90daa2140acff94a2823cb0959" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>selectionRay</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ac97c57aaa18c98533ca5d5f7e8f3cd48" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>set2DSelectionMode</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1afe57582178a6590825e304dc9281cee0" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setAntiAliasing</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a9674e3bd6a269251e8366daa88a49af0" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setBindingSelect</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1adabca5499b2ab365c98963ec7eb0a081" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setCurrentPass</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a84654bfc460722e91bbcfc6732adc46f" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setDepthPeelingFbo</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a5e409c886a64f689029415176d20e64b" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setDepthWriting</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a225a4fe248fd9f06332580c39e994af1" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setFastDrawing</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1af00d683676dc77c147988f36ca16b1a1" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setGlPointSize</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1afe861aaaab2732fdaa75146e7d950668" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setNoBinding</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a1baba5c0248e90265fa020c583fa2686" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setScene</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ac26fc9338ece0257882abf8f28e218f3" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setStaticImage</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a746ed3ec188f48cf100b6ede2de606d7" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>setTwoSides</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a8cee9355f8bd7f862a1a367c04756947" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>staticImage</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a7a204b9dcf67cdd578db07d5ae4c38fd" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>testDisplayId</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a0690a55a9a5cd259fb781420d83a5e4c" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>textarget</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1ad651b559e08793c9e47c0d84f10619f9" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>textRenderer</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a95e82840985ac8bd6ffeaacd81bc7493" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>texture</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a0c5158393f43deae55734e8b6344d2b5" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>total_pass</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a21b31bff1c2d41ff8d817072ba32d3f3" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>turnCameraBy180Degres</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a155a262dca122042af01e9c4b85704d0" prot="public" virt="pure-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>updateIds</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a0936eb511db83e640466c12523442bed" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>Viewer_interface</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a19e7172d4f386e7b8636614bd5d37645" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>void</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1af3b42badad840f45b8fb0ec7b7297ac2" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>void</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1a2efc177b7aaa0ed98911771d8442f5ed" prot="public" virt="non-virtual"><scope>CGAL::Three::Viewer_interface</scope><name>void</name></member>
+      <member refid="classCGAL_1_1Three_1_1Viewer__interface_1aadcef71f78006400f1d7e84179a034aa" prot="public" virt="virtual"><scope>CGAL::Three::Viewer_interface</scope><name>~Viewer_interface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

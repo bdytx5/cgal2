@@ -1,0 +1,619 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PkgMesh__3Functions" kind="group">
+    <compoundname>PkgMesh_3Functions</compoundname>
+    <title>Mesh Generation Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C3T3</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">Mesh_optimization_return_code</ref></type>
+        <definition>Mesh_optimization_return_code CGAL::exude_mesh_3</definition>
+        <argsstring>(C3T3 &amp;c3t3, double parameters::time_limit=0, double parameters::sliver_bound=0)</argsstring>
+        <name>exude_mesh_3</name>
+        <param>
+          <type>C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>double parameters::time_limit</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double parameters::sliver_bound</type>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> performs a sliver exudation process on a Delaunay mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The sliver exudation process consists in optimizing the weights of vertices of the weighted Delaunay triangulation in such a way that slivers disappear and the quality of the mesh improves.</para><para><simplesect kind="warning"><para>This optimizer modifies the weight of vertices of the triangulation and, if called, must be the last optimizer to be called. If the mesh is refined after this optimization has been performed, all improvements will be lost.</para></simplesect>
+<simplesect kind="pre"><para><computeroutput>time_limit</computeroutput> <formula id="0">$ \geq$</formula> 0 and 0 <formula id="1">$ \leq$</formula> <computeroutput>sliver_bound</computeroutput> <formula id="1">$ \leq$</formula> 180</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. The argument <computeroutput>c3t3</computeroutput>, passed by reference, provides the initial mesh and is modified by the algorithm to represent the final optimized mesh.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+The function has two optional parameters which are named parameters (we use the Boost.Parameter library). Therefore, when calling the function, the parameters can be provided in any order provided that the names of the parameters are used (see example at the bottom of this page).</para><para><bold>Named Parameters</bold><linebreak/>
+<itemizedlist>
+<listitem><para><bold><computeroutput>parameters::time_limit</computeroutput></bold> is used to set up, in seconds, a CPU time limit after which the optimization process is stopped. This time is measured using the <computeroutput><ref refid="classCGAL_1_1Real__timer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Real_timer</ref></computeroutput> class. The default value is 0 and means that there is no time limit.</para></listitem><listitem><para><bold><computeroutput>parameters::sliver_bound</computeroutput></bold> is designed to give, in degrees, a targeted lower bound on dihedral angles of mesh cells. The exudation process considers in turn all the mesh cells that have a smallest dihedral angle less than <computeroutput>sliver_bound</computeroutput> and tries to make them disappear by weighting their vertices. The optimization process stops when every cell in the mesh achieves this quality. The default value is 0 and means that there is no targeted bound: the exuder then runs as long as it can improve the smallest dihedral angles of the set of cells incident to some vertices.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> returns a value of type <computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> which is: <itemizedlist>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da700b34635bba84023202ffb43ea072d6" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::BOUND_REACHED</ref></computeroutput> when the targeted bound for the smallest dihedral angle in the mesh is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dae51c3b06e2ee9b31f5b812cc86cbd229" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::TIME_LIMIT_REACHED</ref></computeroutput> when the time limit is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da9c7c2f09314491da054f3f5d7d7ab3b9" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CANT_IMPROVE_ANYMORE</ref></computeroutput> when exudation process stops because it can no longer improve the smallest dihedral angle of the set of cells incident to some vertex in the mesh. </para></listitem>
+</itemizedlist>
+</para></simplesect>
+<bold>Example</bold><linebreak/>
+</para><para><programlisting><codeline><highlight class="comment">//<sp/>Exude<sp/>without<sp/>sliver_bound,<sp/>using<sp/>at<sp/>most<sp/>10s<sp/>CPU<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3</ref>(c3t3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::time_limit=10);</highlight></codeline>
+</programlisting></para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">CGAL::refine_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">CGAL::perturb_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">CGAL::lloyd_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">CGAL::odt_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/exude_mesh_3.h" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1ga68ca38989087644fb6b893eb566be9ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class C3T3</type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::facets_in_complex_3_to_triangle_mesh</definition>
+        <argsstring>(const C3T3 &amp;c3t3, TriangleMesh &amp;graph)</argsstring>
+        <name>facets_in_complex_3_to_triangle_mesh</name>
+        <param>
+          <type>const C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>TriangleMesh &amp;</type>
+          <declname>graph</declname>
+        </param>
+        <briefdescription>
+<para>builds a <computeroutput>TriangleMesh</computeroutput> from the surface facets, with a consistent orientation at the interface of two subdomains. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function exports the surface as a <computeroutput>TriangleMesh</computeroutput> and appends it to <computeroutput>graph</computeroutput>, using <computeroutput><ref refid="group__PMP__orientation__grp_1gaadc5bac3072b11d2313e40043c729d0a" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Polygon_mesh_processing.tag">orient_polygon_soup()</ref></computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMeshComplexWithFeatures__3InTriangulation__3" kindref="compound">MeshComplexWithFeatures_3InTriangulation_3</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classMutableFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">MutableFaceGraph</ref></computeroutput> with an internal point property map. The point type should be compatible with the one used in <computeroutput>C3T3</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c3t3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an instance of <computeroutput>C3T3</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>graph</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an instance of <computeroutput>TriangleMesh</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/IO/facets_in_complex_3_to_triangle_mesh.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C3T3</type>
+          </param>
+          <param>
+            <type>typename MD</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">Mesh_optimization_return_code</ref></type>
+        <definition>Mesh_optimization_return_code CGAL::lloyd_optimize_mesh_3</definition>
+        <argsstring>(C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</argsstring>
+        <name>lloyd_optimize_mesh_3</name>
+        <param>
+          <type>C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>const MD &amp;</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>double parameters::time_limit</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>std::size_t parameters::max_iteration_number</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double parameters::convergence</type>
+          <defval>0.02</defval>
+        </param>
+        <param>
+          <type>double parameters::freeze_bound</type>
+          <defval>0.01</defval>
+        </param>
+        <param>
+          <type>bool parameters::do_freeze</type>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> is a mesh optimization process based on the minimization of a global energy function. </para>        </briefdescription>
+        <detaileddescription>
+<para>In <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput>, the minimized global energy may be interpreted as the <formula id="4">$ L^1$</formula>-norm of the error achieved when the function <formula id="5">$ x^2$</formula> is interpolated on the mesh domain using a piecewise linear function which is linear in each cell of the Voronoi diagram of the mesh vertices.</para><para>The optimizer <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> works in iterative steps. At each iteration, mesh vertices are moved into positions that bring to zero the energy gradient and the Delaunay triangulation is updated. Vertices on the mesh boundaries are handled in a special way so as to preserve an accurate representation of the domain boundaries.</para><para><simplesect kind="pre"><para><computeroutput>time_limit</computeroutput> <formula id="0">$ \geq$</formula> 0 and 0 <formula id="1">$ \leq$</formula> <computeroutput>convergence</computeroutput> <formula id="1">$ \leq$</formula> 1 and 0 <formula id="1">$ \leq$</formula> <computeroutput>freeze_bound</computeroutput> <formula id="1">$ \leq$</formula> 1</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. The argument <computeroutput>c3t3</computeroutput>, passed by reference, provides the initial mesh and is modified by the algorithm to represent the final optimized mesh.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>. The argument <computeroutput>domain</computeroutput> must be the <computeroutput>MD</computeroutput> object used to create the <computeroutput>c3t3</computeroutput> parameter.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+The function has four optional parameters which are named parameters (we use the Boost.Parameter library). Therefore, when calling the function, the parameters can be provided in any order provided that the names of the parameters are used (see example at the bottom of this page).</para><para><bold>Named Parameters</bold><linebreak/>
+</para><para><itemizedlist>
+<listitem><para><bold><computeroutput>parameters::time_limit</computeroutput></bold> is used to set up, in seconds, a CPU time limit after which the optimization process is stopped. This time is measured using <computeroutput><ref refid="classCGAL_1_1Real__timer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Real_timer</ref></computeroutput>. The default value is 0 and means that there is no time limit.</para></listitem><listitem><para><bold><computeroutput>parameters::max_iteration_number</computeroutput></bold> sets a limit on the number of performed iterations. The default value of 0 means that there is no limit on the number of performed iterations.</para></listitem><listitem><para><bold><computeroutput>parameters::convergence</computeroutput></bold> is a stopping criterion based on convergence: the optimization process is stopped, when at the last iteration, the displacement of any vertex is less than a given percentage of the length of the shortest edge incident to that vertex. The parameter <computeroutput>convergence</computeroutput> gives the threshold ratio.</para></listitem><listitem><para><bold><computeroutput>parameters::freeze_bound</computeroutput></bold> is designed to reduce running time of each optimization iteration. Any vertex that has a displacement less than a given percentage of the length (the of its shortest incident edge, is frozen (i.e. is not relocated). The parameter <computeroutput>freeze_bound</computeroutput> gives the threshold ratio.</para></listitem><listitem><para><bold><computeroutput>parameters::do_freeze</computeroutput></bold> completes the <computeroutput>freeze_bound</computeroutput> parameter. If it is set to <computeroutput>true</computeroutput> (default value), frozen vertices will not move anymore in next iterations. Otherwise, at each iteration, any vertex that moves, unfreezes all its incident vertices.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> returns a value of type <computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> which is: <itemizedlist>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dae51c3b06e2ee9b31f5b812cc86cbd229" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::TIME_LIMIT_REACHED</ref></computeroutput> when the time limit is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da058b57a483e13d1ed274217b75ca0afc" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::MAX_ITERATION_NUMBER_REACHED</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> stops because it has performed <computeroutput>max_iteration_number</computeroutput> iterations. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da19d4b9484d2ed90e8fec7e1194d25df2" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CONVERGENCE_REACHED</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> stops because the convergence criterion is achieved. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dab191e538b64f19bb21b00eadae3934b7" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::ALL_VERTICES_FROZEN</ref></computeroutput> when all vertices have been frozen, when the <computeroutput>do_freeze</computeroutput> parameter is set to true. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da9c7c2f09314491da054f3f5d7d7ab3b9" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CANT_IMPROVE_ANYMORE</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> stops because most vertices have been frozen, and no better convergence can be reached. </para></listitem>
+</itemizedlist>
+</para></simplesect>
+<bold>Example</bold><linebreak/>
+</para><para><programlisting><codeline><highlight class="comment">//<sp/>Lloyd-smoothing<sp/>until<sp/>convergence<sp/>reaches<sp/>0.01,<sp/>freezing<sp/>vertices<sp/>which</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>move<sp/>less<sp/>than<sp/>0.001*shortest_incident_edge_length</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3</ref>(c3t3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>domain,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::convergence=0.01,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::freeze_bound=0.001,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::do_freeze=</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting></para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">CGAL::refine_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">CGAL::exude_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">CGAL::perturb_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">CGAL::odt_optimize_mesh_3()</ref></computeroutput></para></simplesect>
+<simplesect kind="note"><para>This function requires the <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> library. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/lloyd_optimize_mesh_3.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class C3T3</type>
+          </param>
+          <param>
+            <type>class MD</type>
+          </param>
+          <param>
+            <type>class MC</type>
+          </param>
+        </templateparamlist>
+        <type>C3T3</type>
+        <definition>C3T3 CGAL::make_mesh_3</definition>
+        <argsstring>(const MD &amp;domain, const MC &amp;criteria, parameters::internal::Features_options features=parameters::features(domain), parameters::internal::Lloyd_options lloyd=parameters::no_lloyd(), parameters::internal::Odt_options odt=parameters::no_odt(), parameters::internal::Perturb_options perturb=parameters::perturb(), parameters::internal::Exude_options exude=parameters::exude(), parameters::internal::Manifold_options manifold=parameters::non_manifold())</argsstring>
+        <name>make_mesh_3</name>
+        <param>
+          <type>const MD &amp;</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>const MC &amp;</type>
+          <declname>criteria</declname>
+        </param>
+        <param>
+          <type>parameters::internal::Features_options</type>
+          <declname>features</declname>
+          <defval>parameters::features(domain)</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Lloyd_options</type>
+          <declname>lloyd</declname>
+          <defval>parameters::no_lloyd()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Odt_options</type>
+          <declname>odt</declname>
+          <defval>parameters::no_odt()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Perturb_options</type>
+          <declname>perturb</declname>
+          <defval>parameters::perturb()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Exude_options</type>
+          <declname>exude</declname>
+          <defval>parameters::exude()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Manifold_options</type>
+          <declname>manifold</declname>
+          <defval>parameters::non_manifold()</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">make_mesh_3()</ref></computeroutput> is a 3D mesh generator. </para>        </briefdescription>
+        <detaileddescription>
+<para>It produces simplicial meshes which discretize 3D domains.</para><para>The mesh generation algorithm is a Delaunay refinement process followed by an optimization phase. The criteria driving the Delaunay refinement process may be tuned to achieve the user needs with respect to the size of mesh elements, the accuracy of boundaries approximation, etc.</para><para>The optimization phase is a sequence of optimization processes, amongst the following available optimizers: an ODT-smoothing, a Lloyd-smoothing, a sliver perturber, and a sliver exuder. Each optimization process can be activated or not, according to the user requirements and available time. By default, only the perturber and the exuder are activated. Note that the benefits of the exuder will be lost if the mesh is further refined afterward, and that ODT-smoothing, Lloyd-smoothing, and sliver perturber should never be called after the sliver exuder. In the case of further refinement, only the sliver exuder can be used.</para><para>The function outputs the mesh to an object which provides iterators to traverse the resulting mesh data structure or can be written to a file (see <ref refid="index_1Mesh_3_section_examples" kindref="member">Examples</ref> ).</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. This is the return type. The type <computeroutput>C3T3</computeroutput> is in particular required to provide a nested type <computeroutput>C3T3::Triangulation</computeroutput> for the 3D triangulation embedding the mesh. The vertex and cell base classes of the triangulation <computeroutput>C3T3::Triangulation</computeroutput> are required to be models of the concepts <computeroutput><ref refid="classMeshVertexBase__3" kindref="compound">MeshVertexBase_3</ref></computeroutput> and <computeroutput><ref refid="classMeshCellBase__3" kindref="compound">MeshCellBase_3</ref></computeroutput> respectively.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>, or of the refined concept <computeroutput><ref refid="classMeshDomainWithFeatures__3" kindref="compound">MeshDomainWithFeatures_3</ref></computeroutput> if the domain has corners and curves that need to be accurately represented in the mesh. The argument <computeroutput>domain</computeroutput> is the sole link through which the domain to be discretized is known by the mesh generation algorithm.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>has to be a model of the concept <computeroutput><ref refid="classMeshCriteria__3" kindref="compound">MeshCriteria_3</ref></computeroutput>, or a model of the refined concept <computeroutput><ref refid="classMeshCriteriaWithFeatures__3" kindref="compound">MeshCriteriaWithFeatures_3</ref></computeroutput> if the domain has exposed features. The argument <computeroutput>criteria</computeroutput> of type <computeroutput>MC</computeroutput> specifies the size and shape requirements for mesh tetrahedra and surface facets. These criteria form the rules which drive the refinement process. All mesh elements satisfy those criteria at the end of the refinement process. In addition, if the domain has features, the argument <computeroutput>criteria</computeroutput> provides a sizing field to guide the discretization of 1-dimensional exposed features.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<bold>Named Parameters</bold><linebreak/>
+</para><para><itemizedlist>
+<listitem><para><bold><computeroutput>features</computeroutput></bold> allows the user to specify whether 0 and 1-dimensional features have to be taken into account or not when the domain is a model of <computeroutput><ref refid="classMeshDomainWithFeatures__3" kindref="compound">MeshDomainWithFeatures_3</ref></computeroutput>. The type <computeroutput>Features</computeroutput> of this parameter is an internal undescribed type. The library provides functions to construct appropriate values of that type. <itemizedlist>
+<listitem>
+<para><ref refid="group__PkgMesh__3Parameters_1ga0a990b28d55157c62d4bfd2624d408af" kindref="member"><computeroutput>parameters::features(domain)</computeroutput> </ref> sets <computeroutput>features</computeroutput> according to the domain, i.e. 0 and 1-dimensional features are taken into account if <computeroutput>domain</computeroutput> is a <computeroutput><ref refid="classMeshDomainWithFeatures__3" kindref="compound">MeshDomainWithFeatures_3</ref></computeroutput>. This is the default behavior if parameter <computeroutput>features</computeroutput> is not specified. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa3eb2cb65200b0331ef9d5f14b4a0535" kindref="member">parameters::no_features()</ref></computeroutput> prevents the representation of 0 and 1-dimensional features in the mesh. </para></listitem>
+</itemizedlist>
+</para></listitem><listitem><para><bold><computeroutput>manifold</computeroutput></bold> allows the user to drive the meshing algorithm, and ensure that the output mesh surface follows the given manifold criterion. It can be activated with <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga67c9c42cfafc22044cc74c704c29aa76" kindref="member">parameters::manifold()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6477a80df03317315fc2b0f1a1125b50" kindref="member">parameters::manifold_with_boundary()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1gae0004e99875f9294a4ff7c5b9d7b04af" kindref="member">parameters::non_manifold()</ref></computeroutput>. Note that the meshing algorithm cannot generate a manifold surface if the input surface is not manifold.</para></listitem></itemizedlist>
+</para><para>The four additional parameters are optimization parameters. They control which optimization processes are performed and allow the user to tune the parameters of the optimization processes. Individual optimization parameters are not described here as they are internal types (see instead the documentation page of each optimizer). For each optimization algorithm, there exist two global functions that allow to enable or disable the optimizer:</para><para><itemizedlist>
+<listitem><para><bold><computeroutput>lloyd</computeroutput></bold>: <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa7254c80bba62400f43f1e49506b975a" kindref="member">parameters::lloyd()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">parameters::no_lloyd()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> is used for this parameter.</para></listitem><listitem><para><bold><computeroutput>ODT</computeroutput></bold>: <computeroutput><ref refid="group__PkgMesh__3Parameters_1gafbecfd22651a08e6812d8a5ad9b49852" kindref="member">parameters::odt()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">parameters::no_odt()</ref></computeroutput> are designed to trigger or not a call to <computeroutput>odt_optimize_mesh_3</computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> is used for this parameter.</para></listitem><listitem><para><bold><computeroutput>perturb</computeroutput></bold>: <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">parameters::perturb()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga5714d10decd9eecd30997572b785e03b" kindref="member">parameters::no_perturb()</ref></computeroutput> are designed to trigger or not a call to <computeroutput>perturb_mesh_3</computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">CGAL::perturb_mesh_3</ref></computeroutput> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</para></listitem><listitem><para><bold><computeroutput>exude</computeroutput></bold>: <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">parameters::exude()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga0b79c473082a4ec2a45ed1497f3ac873" kindref="member">parameters::no_exude()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> function and to override to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</para></listitem></itemizedlist>
+</para><para>The optimization parameters can be passed in an arbitrary order. If one parameter is not passed, its default value is used. The default values are <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">no_lloyd()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">no_odt()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">perturb()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">exude()</ref></computeroutput>.</para><para>Note that whatever may be the optimization processes activated, they are always launched in the order that is a suborder of the following (see user manual for further details): <emphasis>ODT-smoother</emphasis>, <emphasis>Lloyd-smoother</emphasis>, <emphasis>perturber</emphasis>, and <emphasis>exuder</emphasis>.</para><para>Beware that optimization of the mesh is obtained by perturbing mesh vertices and modifying the mesh connectivity and that this has an impact on the strict compliance to the refinement criteria. Though a strict compliance to mesh criteria is guaranteed at the end of the Delaunay refinement, this may no longer be true after some optimization processes. Also beware that the default behavior does involve some optimization processes.</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">refine_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga0a990b28d55157c62d4bfd2624d408af" kindref="member">parameters::features()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa3eb2cb65200b0331ef9d5f14b4a0535" kindref="member">parameters::no_features()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga67c9c42cfafc22044cc74c704c29aa76" kindref="member">parameters::manifold()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6477a80df03317315fc2b0f1a1125b50" kindref="member">parameters::manifold_with_boundary()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gae0004e99875f9294a4ff7c5b9d7b04af" kindref="member">parameters::non_manifold()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">parameters::exude()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga0b79c473082a4ec2a45ed1497f3ac873" kindref="member">parameters::no_exude()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">parameters::perturb()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga5714d10decd9eecd30997572b785e03b" kindref="member">parameters::no_perturb()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa7254c80bba62400f43f1e49506b975a" kindref="member">parameters::lloyd()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">parameters::no_lloyd()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gafbecfd22651a08e6812d8a5ad9b49852" kindref="member">parameters::odt()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">parameters::no_odt()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/make_mesh_3.h" line="158" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C3T3</type>
+          </param>
+          <param>
+            <type>typename MD</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">Mesh_optimization_return_code</ref></type>
+        <definition>Mesh_optimization_return_code CGAL::odt_optimize_mesh_3</definition>
+        <argsstring>(C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, std::size_t parameters::max_iteration_number=0, double parameters::convergence=0.02, double parameters::freeze_bound=0.01, bool parameters::do_freeze=true)</argsstring>
+        <name>odt_optimize_mesh_3</name>
+        <param>
+          <type>C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>const MD &amp;</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>double parameters::time_limit</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>std::size_t parameters::max_iteration_number</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double parameters::convergence</type>
+          <defval>0.02</defval>
+        </param>
+        <param>
+          <type>double parameters::freeze_bound</type>
+          <defval>0.01</defval>
+        </param>
+        <param>
+          <type>bool parameters::do_freeze</type>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> is a mesh optimization process based on the minimization of a global energy function. </para>        </briefdescription>
+        <detaileddescription>
+<para>In <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput>, the minimized global energy may be interpreted as the <formula id="4">$ L^1$</formula>-norm of the error achieved when the function <formula id="5">$ x^2$</formula> is interpolated on the mesh domain using a piecewise linear function which is linear in each mesh cell.</para><para>The optimizer <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> works in iterative steps. At each iteration, mesh vertices are moved into positions that bring to zero the energy gradient and the Delaunay triangulation is updated. Vertices on the mesh boundaries are handled in a special way so as to preserve an accurate representation of the domain boundaries.</para><para><simplesect kind="pre"><para><computeroutput>time_limit</computeroutput> <formula id="0">$ \geq$</formula> 0 and 0 <formula id="1">$ \leq$</formula> <computeroutput>convergence</computeroutput> <formula id="1">$ \leq$</formula> 1 and 0 <formula id="1">$ \leq$</formula> <computeroutput>freeze_bound</computeroutput> <formula id="1">$ \leq$</formula> 1</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. The argument <computeroutput>c3t3</computeroutput>, passed by reference, provides the initial mesh and is modified by the algorithm to represent the final optimized mesh.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>. The argument <computeroutput>domain</computeroutput> must be the <computeroutput>MD</computeroutput> object used to create the <computeroutput>c3t3</computeroutput> parameter.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+The function has four optional parameters which are named parameters (we use the Boost.Parameter library). Therefore, when calling the function, the parameters can be provided in any order provided that the names of the parameters are used (see example at the bottom of this page).</para><para><bold>Named Parameters</bold><linebreak/>
+</para><para><itemizedlist>
+<listitem><para><bold><computeroutput>parameters::time_limit</computeroutput></bold> is used to set up, in seconds, a CPU time limit after which the optimization process is stopped. This time is measured using <computeroutput><ref refid="classCGAL_1_1Real__timer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Real_timer</ref></computeroutput>. The default value is 0 and means that there is no time limit.</para></listitem><listitem><para><bold><computeroutput>parameters::max_iteration_number</computeroutput></bold> sets a limit on the number of performed iterations. The default value of 0 means that there is no limit on the number of performed iterations.</para></listitem><listitem><para><bold><computeroutput>parameters::convergence</computeroutput></bold> is a stopping criterion based on convergence: the optimization process is stopped, when at the last iteration, the displacement of any vertex is less than a given percentage of the length the shortest edge incident to that vertex. The parameter <computeroutput>convergence</computeroutput> gives the threshold ratio.</para></listitem><listitem><para><bold><computeroutput>parameters::freeze_bound</computeroutput></bold> is designed to reduce running time of each optimization iteration. Any vertex that has a displacement less than a given percentage of the length (the of its shortest incident edge, is frozen (i.e. is not relocated). The parameter <computeroutput>freeze_bound</computeroutput> gives the threshold ratio.</para></listitem><listitem><para><bold><computeroutput>parameters::do_freeze</computeroutput></bold> completes the <computeroutput>freeze_bound</computeroutput> parameter. If it is set to <computeroutput>true</computeroutput> (default value), frozen vertices will not move anymore in next iterations. Otherwise, at each iteration, any vertex that moves, unfreezes all its incident vertices.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> returns a value of type <computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> which is: <itemizedlist>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dae51c3b06e2ee9b31f5b812cc86cbd229" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::TIME_LIMIT_REACHED</ref></computeroutput> when the time limit is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da058b57a483e13d1ed274217b75ca0afc" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::MAX_ITERATION_NUMBER_REACHED</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> stops because it has performed <computeroutput>max_iteration_number</computeroutput> iterations. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da19d4b9484d2ed90e8fec7e1194d25df2" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CONVERGENCE_REACHED</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> stops because the convergence criterion is achieved. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dab191e538b64f19bb21b00eadae3934b7" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::ALL_VERTICES_FROZEN</ref></computeroutput> when all vertices have been frozen, when the <computeroutput>do_freeze</computeroutput> parameter is set to true. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da9c7c2f09314491da054f3f5d7d7ab3b9" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CANT_IMPROVE_ANYMORE</ref></computeroutput> when <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> stops because most vertices have been frozen, and no better convergence can be reached. </para></listitem>
+</itemizedlist>
+</para></simplesect>
+<bold>Example</bold><linebreak/>
+</para><para><programlisting><codeline><highlight class="comment">//<sp/>100<sp/>iterations<sp/>of<sp/>ODT-smoothing</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3</ref>(c3t3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>domain,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::max_iteration_number<sp/>=<sp/>100,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::convergence<sp/>=<sp/>0);</highlight></codeline>
+</programlisting></para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">CGAL::refine_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">CGAL::exude_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">CGAL::perturb_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">CGAL::lloyd_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/odt_optimize_mesh_3.h" line="103" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C3T3</type>
+          </param>
+          <param>
+            <type>typename MD</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">Mesh_optimization_return_code</ref></type>
+        <definition>Mesh_optimization_return_code CGAL::perturb_mesh_3</definition>
+        <argsstring>(C3T3 &amp;c3t3, const MD &amp;domain, double parameters::time_limit=0, double parameters::sliver_bound=0)</argsstring>
+        <name>perturb_mesh_3</name>
+        <param>
+          <type>C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>const MD &amp;</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>double parameters::time_limit</type>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double parameters::sliver_bound</type>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> is a mesh optimizer that improves the quality of a Delaunay mesh by changing the positions of some vertices of the mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The perturber tries to improve the dihedral angles of the worst cells in the mesh degree by degree: the step number <computeroutput>n</computeroutput> is considered as successful if after this step the worst tetrahedron of the mesh has a minimal dihedral angle larger than <computeroutput>n</computeroutput> degrees. The perturber exits if this is not the case.</para><para><simplesect kind="pre"><para><computeroutput>time_limit</computeroutput> <formula id="0">$ \geq$</formula> 0 and 0 <formula id="1">$ \leq$</formula> <computeroutput>sliver_bound</computeroutput> <formula id="1">$ \leq$</formula> 180</para></simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. The argument <computeroutput>c3t3</computeroutput>, passed by reference, provides the initial mesh and is modified by the algorithm to represent the final optimized mesh.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput>. The argument <computeroutput>domain</computeroutput> must be the <computeroutput>MD</computeroutput> object used to create the <computeroutput>c3t3</computeroutput> parameter.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+The function has two optional parameters which are named parameters (we use the Boost.Parameter library). Therefore, when calling the function, the parameters can be provided in any order provided that the names of the parameters are used (see example at the bottom of this page).</para><para><bold>Named Parameters</bold><linebreak/>
+</para><para><itemizedlist>
+<listitem><para><bold><computeroutput>parameters::time_limit</computeroutput></bold> is used to set up, in seconds, a CPU time limit after which the optimization process is stopped. This time is measured using <computeroutput><ref refid="classCGAL_1_1Real__timer" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Miscellany.tag">Real_timer</ref></computeroutput>. The default value is 0 and means that there is no time limit.</para></listitem><listitem><para><bold><computeroutput>parameters::sliver_bound</computeroutput></bold> is designed to give, in degrees, a targeted lower bound on dihedral angles of mesh cells. The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> runs as long as steps are successful and step number <computeroutput>sliver_bound</computeroutput> (after which the worst tetrahedron in the mesh has a smallest angle larger than <computeroutput>sliver_bound</computeroutput> degrees) has not been reached. The default value is 0 and means that there is no targeted bound: the perturber then runs as long as steps are successful.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> returns a value of type <computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> which is: <itemizedlist>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da700b34635bba84023202ffb43ea072d6" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::BOUND_REACHED</ref></computeroutput> when the targeted bound for the smallest dihedral angle in the mesh is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018dae51c3b06e2ee9b31f5b812cc86cbd229" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::TIME_LIMIT_REACHED</ref></computeroutput> when the time limit is reached. </para></listitem>
+<listitem>
+<para><computeroutput><ref refid="group__PkgMesh2Enum_1ggab9fe60482a45120b3c061a8a4ec9018da9c7c2f09314491da054f3f5d7d7ab3b9" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::CANT_IMPROVE_ANYMORE</ref></computeroutput> when the perturbation process stops because the last step is unsuccessful. </para></listitem>
+</itemizedlist>
+</para></simplesect>
+<bold>Example</bold><linebreak/>
+</para><para><programlisting><codeline><highlight class="comment">//<sp/>Perturb<sp/>until<sp/>every<sp/>dihedral<sp/>angle<sp/>of<sp/>the<sp/>mesh<sp/>is<sp/>&gt;=<sp/>10<sp/>degrees</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>No<sp/>time<sp/>bound<sp/>is<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3</ref>(c3t3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>domain,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters::sliver_bound<sp/>=<sp/>10);</highlight></codeline>
+</programlisting></para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh2Enum_1gab9fe60482a45120b3c061a8a4ec9018d" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Mesh_2.tag">CGAL::Mesh_optimization_return_code</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">CGAL::refine_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">CGAL::exude_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">CGAL::lloyd_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">CGAL::odt_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/perturb_mesh_3.h" line="86" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class C3T3</type>
+          </param>
+          <param>
+            <type>class MD</type>
+          </param>
+          <param>
+            <type>class MC</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CGAL::refine_mesh_3</definition>
+        <argsstring>(C3T3 &amp;c3t3, const MD &amp;mesh_domain, const MC &amp;mesh_criteria, parameters::internal::Lloyd_options lloyd=parameters::no_lloyd(), parameters::internal::Odt_options odt=parameters::no_odt(), parameters::internal::Perturb_options perturb=parameters::perturb(), parameters::internal::Exude_options exude=parameters::exude(), parameters::internal::Manifold_options manifold=parameters::non_manifold())</argsstring>
+        <name>refine_mesh_3</name>
+        <param>
+          <type>C3T3 &amp;</type>
+          <declname>c3t3</declname>
+        </param>
+        <param>
+          <type>const MD &amp;</type>
+          <declname>mesh_domain</declname>
+        </param>
+        <param>
+          <type>const MC &amp;</type>
+          <declname>mesh_criteria</declname>
+        </param>
+        <param>
+          <type>parameters::internal::Lloyd_options</type>
+          <declname>lloyd</declname>
+          <defval>parameters::no_lloyd()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Odt_options</type>
+          <declname>odt</declname>
+          <defval>parameters::no_odt()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Perturb_options</type>
+          <declname>perturb</declname>
+          <defval>parameters::perturb()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Exude_options</type>
+          <declname>exude</declname>
+          <defval>parameters::exude()</defval>
+        </param>
+        <param>
+          <type>parameters::internal::Manifold_options</type>
+          <declname>manifold</declname>
+          <defval>parameters::non_manifold()</defval>
+        </param>
+        <briefdescription>
+<para>The function <computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">refine_mesh_3()</ref></computeroutput> is a 3D mesh generator. </para>        </briefdescription>
+        <detaileddescription>
+<para>It produces simplicial meshes which discretize 3D domains.</para><para>The mesh generation algorithm is a Delaunay refinement process followed by an optimization phase. The criteria driving the Delaunay refinement process may be tuned to achieve the user needs with respect to the size of mesh elements, the accuracy of boundaries approximation, etc.</para><para>The optimization phase is a sequence of optimization processes, amongst the following available optimizers: an ODT-smoothing, a Lloyd smoothing, a sliver perturber, and a sliver exuder. Each optimization process can be activated or not, according to the user requirements and available time. By default, only the perturber and the exuder are activated. Note that the benefits of the exuder will be lost if the mesh is further refined afterward.</para><para><simplesect kind="attention"><para>The function template <computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">refine_mesh_3()</ref></computeroutput> may be used to refine a previously computed mesh, e.g.: <programlisting><codeline><highlight class="normal">C3T3<sp/>c3t3<sp/>=<sp/>CGAL::make_mesh_3&lt;C3T3&gt;(domain,criteria);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">CGAL::refine_mesh_3</ref>(c3t3,<sp/>domain,<sp/>new_criteria);</highlight></codeline>
+</programlisting></para></simplesect>
+Please note that we guarantee the result if and only if the domain does not change from one refinement to the next one.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>C3T3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshComplex__3InTriangulation__3" kindref="compound">MeshComplex_3InTriangulation_3</ref></computeroutput>. The argument <computeroutput>c3t3</computeroutput> is passed by reference as this object is modified by the refinement process. As the refinement process only adds points to the triangulation, all vertices of the triangulation of <computeroutput>c3t3</computeroutput> remain in the mesh during the refinement process. <ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Object</ref> <computeroutput>c3t3</computeroutput> can be used to insert specific points in the domain to ensure that they will be contained in the final triangulation. The type <computeroutput>C3T3</computeroutput> is in particular required to provide a nested type <computeroutput>C3T3::Triangulation</computeroutput> for the 3D triangulation embedding the mesh. The vertex and cell base classes of the triangulation <computeroutput>C3T3::Triangulation</computeroutput> are required to be models of the concepts <computeroutput><ref refid="classMeshVertexBase__3" kindref="compound">MeshVertexBase_3</ref></computeroutput> and <computeroutput><ref refid="classMeshCellBase__3" kindref="compound">MeshCellBase_3</ref></computeroutput> respectively.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshDomain__3" kindref="compound">MeshDomain_3</ref></computeroutput> or of the refined concept <computeroutput><ref refid="classMeshDomainWithFeatures__3" kindref="compound">MeshDomainWithFeatures_3</ref></computeroutput> if 0 and 1-dimensional features of the input complex have to be accurately represented in the mesh. The argument <computeroutput>domain</computeroutput> is the sole link through which the domain to be discretized is known by the mesh generation algorithm.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is required to be a model of the concept <computeroutput><ref refid="classMeshCriteria__3" kindref="compound">MeshCriteria_3</ref></computeroutput>, or a model of the refined concept <computeroutput><ref refid="classMeshCriteriaWithFeatures__3" kindref="compound">MeshCriteriaWithFeatures_3</ref></computeroutput> if the domain has exposed features. The argument <computeroutput>criteria</computeroutput> of type <computeroutput>MC</computeroutput> specifies the size and shape requirements for mesh tetrahedra and surface facets. These criteria form the rules which drive the refinement process. All mesh elements satisfy those criteria at the end of the refinement process. In addition, if the domain has features, the argument <computeroutput>criteria</computeroutput> provides a sizing field to guide the discretization of 1-dimensional exposed features.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+The four additional parameters are optimization parameters. They control which optimization processes are performed and allow the user to tune the parameters of the optimization processes. Individual optimization parameters are not described here as they are internal types (see instead the documentation page of each optimizer). For each optimization algorithm, there exist two global functions that allow to enable or disable the optimizer:</para><para><bold>Named Parameters</bold><linebreak/>
+<itemizedlist>
+<listitem><para><bold><computeroutput>manifold</computeroutput></bold> allows the user to drive the meshing algorithm, and ensure that the output mesh surface follows the given manifold criterion. It can be activated with <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga67c9c42cfafc22044cc74c704c29aa76" kindref="member">parameters::manifold()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6477a80df03317315fc2b0f1a1125b50" kindref="member">parameters::manifold_with_boundary()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1gae0004e99875f9294a4ff7c5b9d7b04af" kindref="member">parameters::non_manifold()</ref></computeroutput>. Note that the meshing algorithm cannot generate a manifold surface if the input surface is not manifold.</para></listitem><listitem><para><bold><computeroutput>lloyd</computeroutput></bold> <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa7254c80bba62400f43f1e49506b975a" kindref="member">parameters::lloyd()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">parameters::no_lloyd()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">lloyd_optimize_mesh_3()</ref></computeroutput> is used for this parameter.</para></listitem><listitem><para><bold><computeroutput>ODT</computeroutput></bold> <computeroutput><ref refid="group__PkgMesh__3Parameters_1gafbecfd22651a08e6812d8a5ad9b49852" kindref="member">parameters::odt()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">parameters::no_odt()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">odt_optimize_mesh_3()</ref></computeroutput> is used for this parameter.</para></listitem><listitem><para><bold><computeroutput>perturb</computeroutput></bold> <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">parameters::perturb()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga5714d10decd9eecd30997572b785e03b" kindref="member">parameters::no_perturb()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> function and to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">perturb_mesh_3()</ref></computeroutput> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</para></listitem><listitem><para><bold><computeroutput>exude</computeroutput></bold> <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">parameters::exude()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga0b79c473082a4ec2a45ed1497f3ac873" kindref="member">parameters::no_exude()</ref></computeroutput> are designed to trigger or not a call to <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> function and to override to set the parameters of this optimizer. If one parameter is not set, the default value of <computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">exude_mesh_3()</ref></computeroutput> is used for this parameter, except for the time bound which is set to be equal to the refinement CPU time.</para></listitem></itemizedlist>
+</para><para>The optimization parameters can be passed in arbitrary order. If one parameter is not passed, its default value is used. The default values are <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">no_lloyd()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">no_odt()</ref></computeroutput>, <computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">perturb()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">exude()</ref></computeroutput>. Note that whatever may be the optimization processes activated, they are always launched in the order that is a suborder of the following (see user manual for further details): <emphasis>ODT-smoother</emphasis>, <emphasis>Lloyd-smoother</emphasis>, <emphasis>perturber</emphasis>, and <emphasis>exuder</emphasis>.</para><para>Beware that optimization of the mesh is obtained by perturbing mesh vertices and modifying the mesh connectivity and that this has an impact on the strict compliance to the refinement criteria. Though a strict compliance to mesh criteria is guaranteed at the end of the Delaunay refinement, this may no longer be true after some optimization processes. Also beware that the default behavior does involve some optimization processes.</para><para><simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">CGAL::make_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga67c9c42cfafc22044cc74c704c29aa76" kindref="member">CGAL::parameters::manifold</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6477a80df03317315fc2b0f1a1125b50" kindref="member">CGAL::parameters::manifold_with_boundary</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gae0004e99875f9294a4ff7c5b9d7b04af" kindref="member">CGAL::parameters::non_manifold</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gabf09a95838226da018a742a631824af9" kindref="member">CGAL::exude_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga1663c4db53ad4fd91c889be96576842a" kindref="member">CGAL::perturb_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1gaa3a279f64022f2bc51935f946dd8a50e" kindref="member">CGAL::lloyd_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Functions_1ga66300c76c2400ed4c847db71ab9c7906" kindref="member">CGAL::odt_optimize_mesh_3()</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga16694b09a2acc8ab3f26b7d57633ccb0" kindref="member">CGAL::parameters::exude</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga0b79c473082a4ec2a45ed1497f3ac873" kindref="member">CGAL::parameters::no_exude</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaedf18f7f3c4647ec5fce5d67e435757a" kindref="member">CGAL::parameters::perturb</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga5714d10decd9eecd30997572b785e03b" kindref="member">CGAL::parameters::no_perturb</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gaa7254c80bba62400f43f1e49506b975a" kindref="member">CGAL::parameters::lloyd</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga6abfd3773eeb47d88ce6cffb91f14d2f" kindref="member">CGAL::parameters::no_lloyd</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1gafbecfd22651a08e6812d8a5ad9b49852" kindref="member">CGAL::parameters::odt</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__PkgMesh__3Parameters_1ga1d041e8dbde3860cde3c20107225ecb1" kindref="member">CGAL::parameters::no_odt</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/refine_mesh_3.h" line="152" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The two main functions to generate a mesh are <computeroutput><ref refid="group__PkgMesh__3Functions_1ga1ee73dc372985c6aeef85f2415fac0ba" kindref="member">make_mesh_3()</ref></computeroutput> and <computeroutput><ref refid="group__PkgMesh__3Functions_1gac5a80764f9615b55c9dc60ab055e06ba" kindref="member">refine_mesh_3()</ref></computeroutput>. </para>    </briefdescription>
+    <detaileddescription>
+<para>The other functions allow to optimize an existing mesh. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

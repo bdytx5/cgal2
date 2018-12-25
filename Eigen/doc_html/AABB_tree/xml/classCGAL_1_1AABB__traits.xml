@@ -1,0 +1,704 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1AABB__traits" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::AABB_traits</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CGAL::internal::AABB_tree::AABB_traits_base&lt; AABBPrimitive &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">CGAL::internal::AABB_tree::AABB_traits_base_2&lt; GeomTraits &gt;</basecompoundref>
+    <includes local="no">CGAL/AABB_traits.h</includes>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Closest__point" prot="public">CGAL::AABB_traits::Closest_point</innerclass>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Compare__distance" prot="public">CGAL::AABB_traits::Compare_distance</innerclass>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Compute__bbox" prot="public">CGAL::AABB_traits::Compute_bbox</innerclass>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Do__intersect" prot="public">CGAL::AABB_traits::Do_intersect</innerclass>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Intersection" prot="public">CGAL::AABB_traits::Intersection</innerclass>
+    <innerclass refid="structCGAL_1_1AABB__traits_1_1Intersection__and__primitive__id" prot="public">CGAL::AABB_traits::Intersection_and_primitive_id</innerclass>
+    <innerclass refid="classCGAL_1_1AABB__traits_1_1Sort__primitives" prot="public">CGAL::AABB_traits::Sort_primitives</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename GeomTraits</type>
+      </param>
+      <param>
+        <type>typename <ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref></type>
+      </param>
+      <param>
+        <type>typename BboxMap</type>
+        <defval><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a4e022c85a880d031abf686a8dc59fda3" prot="public" static="no">
+        <type>GeomTraits::Point_3</type>
+        <definition>typedef GeomTraits::Point_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Point_3</definition>
+        <argsstring></argsstring>
+        <name>Point_3</name>
+        <briefdescription>
+<para>Point query type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="246" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a5c783003b2bdc9bf7eba176b8e2d349f" prot="public" static="no">
+        <type>GeomTraits::Iso_cuboid_3</type>
+        <definition>typedef GeomTraits::Iso_cuboid_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Iso_cuboid_3</definition>
+        <argsstring></argsstring>
+        <name>Iso_cuboid_3</name>
+        <briefdescription>
+<para>additionnal types for the search tree, required by the <ref refid="classRangeSearchTraits" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Spatial_searching.tag">RangeSearchTraits</ref> concept </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="250" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a46b02276d9eba62d964141fc1bfe7acc" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1Bbox__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Bbox_3</ref></type>
+        <definition>typedef CGAL::Bbox_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Bounding_box</definition>
+        <argsstring></argsstring>
+        <name>Bounding_box</name>
+        <briefdescription>
+<para>Bounding box type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="253" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455e" prot="private" static="no">
+        <name>Axis</name>
+        <enumvalue id="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea7ef161f02140a807d736735702439465" prot="private">
+          <name>CGAL_AXIS_X</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea92058e2a84543baa3cd8928beeaf2dbd" prot="private">
+          <name>CGAL_AXIS_Y</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea5952202df024ece4cf9f0c311801e56f" prot="private">
+          <name>CGAL_AXIS_Z</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="482" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="482" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1ab0fe9972a722be09a88fdc54b136866b" prot="private" static="no">
+        <type><ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">CGAL::Object</ref></type>
+        <definition>typedef CGAL::Object CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Object</definition>
+        <argsstring></argsstring>
+        <name>Object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="213" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a0cf68b8bc1962a49032bc247da265859" prot="public" static="no">
+        <type>GeomTraits</type>
+        <definition>typedef GeomTraits CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Geom_traits</definition>
+        <argsstring></argsstring>
+        <name>Geom_traits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="215" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a96348fed6cea1b42c7556e170c2d3ea4" prot="public" static="no">
+        <type><ref refid="classCGAL_1_1AABB__traits" kindref="compound">AABB_traits</ref>&lt; GeomTraits, <ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref>, BboxMap &gt;</type>
+        <definition>typedef AABB_traits&lt;GeomTraits, AABBPrimitive, BboxMap&gt; CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::AT</definition>
+        <argsstring></argsstring>
+        <name>AT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="217" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a5008761f9a2c296b602f703fe6f643fa" prot="public" static="no">
+        <type>GeomTraits::FT</type>
+        <definition>typedef GeomTraits::FT CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::FT</definition>
+        <argsstring></argsstring>
+        <name>FT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="219" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1af1b12a2fc4cead085f104d1b513ef7ef" prot="public" static="no">
+        <type><ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref></type>
+        <definition>typedef AABBPrimitive CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Primitive</definition>
+        <argsstring></argsstring>
+        <name>Primitive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="220" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1af85fa7dc9acbdc2268546c1db4ad3333" prot="public" static="no">
+        <type>std::pair&lt; <ref refid="classCGAL_1_1Object" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Object</ref>, typename <ref refid="classAABBPrimitive_1a28b56625c9c9d2e4d4b0120d260cee6d" kindref="member">Primitive::Id</ref> &gt;</type>
+        <definition>typedef std::pair&lt;Object,typename Primitive::Id&gt; CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Object_and_primitive_id</definition>
+        <argsstring></argsstring>
+        <name>Object_and_primitive_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="222" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a048c8bda3c6cd5c9a0ea3fd17325ccee" prot="public" static="no">
+        <type>std::pair&lt; typename GeomTraits::Point_3, typename <ref refid="classAABBPrimitive_1a28b56625c9c9d2e4d4b0120d260cee6d" kindref="member">Primitive::Id</ref> &gt;</type>
+        <definition>typedef std::pair&lt;typename GeomTraits::Point_3, typename Primitive::Id&gt; CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Point_and_primitive_id</definition>
+        <argsstring></argsstring>
+        <name>Point_and_primitive_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="224" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a39691adffb1cf4b08843fb974b4e3cef" prot="public" static="no">
+        <type>GeomTraits::Sphere_3</type>
+        <definition>typedef GeomTraits::Sphere_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Sphere_3</definition>
+        <argsstring></argsstring>
+        <name>Sphere_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="257" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1aa5b7207039e2e92626de343e5d6388f1" prot="public" static="no">
+        <type>GeomTraits::Cartesian_const_iterator_3</type>
+        <definition>typedef GeomTraits::Cartesian_const_iterator_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Cartesian_const_iterator_3</definition>
+        <argsstring></argsstring>
+        <name>Cartesian_const_iterator_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="258" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1adcfc4def8903c384869e6517251972a4" prot="public" static="no">
+        <type>GeomTraits::Construct_cartesian_const_iterator_3</type>
+        <definition>typedef GeomTraits::Construct_cartesian_const_iterator_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Construct_cartesian_const_iterator_3</definition>
+        <argsstring></argsstring>
+        <name>Construct_cartesian_const_iterator_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="259" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a89a4a99978332c682c2cace142f47645" prot="public" static="no">
+        <type>GeomTraits::Construct_center_3</type>
+        <definition>typedef GeomTraits::Construct_center_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Construct_center_3</definition>
+        <argsstring></argsstring>
+        <name>Construct_center_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="260" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a65378d7588c6c00eabebb2741e640a28" prot="public" static="no">
+        <type>GeomTraits::Compute_squared_radius_3</type>
+        <definition>typedef GeomTraits::Compute_squared_radius_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Compute_squared_radius_3</definition>
+        <argsstring></argsstring>
+        <name>Compute_squared_radius_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="261" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a615dd9a8e0b52796604c1704f7743eea" prot="public" static="no">
+        <type>GeomTraits::Construct_min_vertex_3</type>
+        <definition>typedef GeomTraits::Construct_min_vertex_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Construct_min_vertex_3</definition>
+        <argsstring></argsstring>
+        <name>Construct_min_vertex_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="262" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a025b4116001dda0cfd941131779cded3" prot="public" static="no">
+        <type>GeomTraits::Construct_max_vertex_3</type>
+        <definition>typedef GeomTraits::Construct_max_vertex_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Construct_max_vertex_3</definition>
+        <argsstring></argsstring>
+        <name>Construct_max_vertex_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="263" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a990ff2fbadb9eac41a8e6d02bb1f140b" prot="public" static="no">
+        <type>GeomTraits::Construct_iso_cuboid_3</type>
+        <definition>typedef GeomTraits::Construct_iso_cuboid_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Construct_iso_cuboid_3</definition>
+        <argsstring></argsstring>
+        <name>Construct_iso_cuboid_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="264" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1a9498e5d6e2508773bca96c0ed82db13d" prot="public" static="no">
+        <type>GeomTraits::Compute_squared_distance_3</type>
+        <definition>typedef GeomTraits::Compute_squared_distance_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Squared_distance</definition>
+        <argsstring></argsstring>
+        <name>Squared_distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="276" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1AABB__traits_1af98b0475ae09993dacdd722669b80b86" prot="public" static="no">
+        <type>GeomTraits::Equal_3</type>
+        <definition>typedef GeomTraits::Equal_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::Equal_3</definition>
+        <argsstring></argsstring>
+        <name>Equal_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="279" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1AABB__traits_1ac6fc0f89572c673d211968409a849a1c" prot="public" static="no" mutable="no">
+        <type>BboxMap</type>
+        <definition>BboxMap CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::bbm</definition>
+        <argsstring></argsstring>
+        <name>bbm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="266" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a545927d4569a149fc883f2dfbab9e3ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::AABB_traits</definition>
+        <argsstring>()</argsstring>
+        <name>AABB_traits</name>
+        <briefdescription>
+<para><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="269" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a9f65d8bb8398c10844a5099591217ff1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::AABB_traits</definition>
+        <argsstring>(BboxMap bbm)</argsstring>
+        <name>AABB_traits</name>
+        <param>
+          <type>BboxMap</type>
+          <declname>bbm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="271" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="271" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a2fd68578c558f00e38cff92d092be57a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Squared_distance</type>
+        <definition>Squared_distance CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::squared_distance_object</definition>
+        <argsstring>() const</argsstring>
+        <name>squared_distance_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="277" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="277" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1af38ef14da728a50713422575c76ef1e9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Equal_3</type>
+        <definition>Equal_3 CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::equal_3_object</definition>
+        <argsstring>() const</argsstring>
+        <name>equal_3_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="280" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="280" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1aaae8ce53eb75bb803d577e57fb05e6ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Sort_primitives</type>
+        <definition>Sort_primitives CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::sort_primitives_object</definition>
+        <argsstring>() const</argsstring>
+        <name>sort_primitives_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="323" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="323" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a85635272550d1404a2714c42fd6d24cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Compute_bbox</type>
+        <definition>Compute_bbox CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::compute_bbox_object</definition>
+        <argsstring>() const</argsstring>
+        <name>compute_bbox_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="352" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="352" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a4cc0151b43cdbe3c37ae0688daf60c9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Do_intersect</type>
+        <definition>Do_intersect CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::do_intersect_object</definition>
+        <argsstring>() const</argsstring>
+        <name>do_intersect_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="374" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="374" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a58f1b4a4889efd2c4742e5cf261895d7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Intersection</type>
+        <definition>Intersection CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::intersection_object</definition>
+        <argsstring>() const</argsstring>
+        <name>intersection_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="407" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="407" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a31d16b28a2d5c75ae174250a658a1e89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Closest_point</type>
+        <definition>Closest_point CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::closest_point_object</definition>
+        <argsstring>() const</argsstring>
+        <name>closest_point_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="460" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="460" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1aeb51f8a349e59fecc67149b4b82141d7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Compare_distance</type>
+        <definition>Compare_distance CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::compare_distance_object</definition>
+        <argsstring>() const</argsstring>
+        <name>compare_distance_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="461" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="461" bodyend="461"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a3ca08ef08be8aa10b109ec02bf77f906" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PM</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCGAL_1_1AABB__traits_1a46b02276d9eba62d964141fc1bfe7acc" kindref="member">Bounding_box</ref></type>
+        <definition>Bounding_box CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::compute_bbox</definition>
+        <argsstring>(const Primitive &amp;pr, const PM &amp;) const</argsstring>
+        <name>compute_bbox</name>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr</declname>
+        </param>
+        <param>
+          <type>const PM &amp;</type>
+        </param>
+        <briefdescription>
+<para>Computes bounding box of one primitive. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the primitive </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the bounding box of the primitive <computeroutput>pr</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="471" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="471" bodyend="474"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a011ba9080e74cc020396700cd9deb8ac" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCGAL_1_1AABB__traits_1a46b02276d9eba62d964141fc1bfe7acc" kindref="member">Bounding_box</ref></type>
+        <definition>Bounding_box CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::compute_bbox</definition>
+        <argsstring>(const Primitive &amp;pr, const Default &amp;) const</argsstring>
+        <name>compute_bbox</name>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="476" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="476" bodyend="479"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="group__PkgAABB__tree_1gafcd6dce0b11924c7ef8c1a32ce0c13da" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Axis</type>
+        <definition>AABB_traits&lt; GT, P, B &gt;::Axis CGAL::AABB_traits&lt; GT, P, B &gt;::longest_axis</definition>
+        <argsstring>(const Bounding_box &amp;bbox)</argsstring>
+        <name>longest_axis</name>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__traits_1a46b02276d9eba62d964141fc1bfe7acc" kindref="member">Bounding_box</ref> &amp;</type>
+          <declname>bbox</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="486" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="513" bodyend="541"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a87301381e717c90ab3084a1462276e8f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::less_x</definition>
+        <argsstring>(const Primitive &amp;pr1, const Primitive &amp;pr2, const AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt; &amp;traits)</argsstring>
+        <name>less_x</name>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__traits" kindref="compound">AABB_traits</ref>&lt; GeomTraits, <ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref>, BboxMap &gt; &amp;</type>
+          <declname>traits</declname>
+        </param>
+        <briefdescription>
+<para>Comparison functions. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="489" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="489" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1a8729d42b462b28afa8dcb1d5a5238dad" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::less_y</definition>
+        <argsstring>(const Primitive &amp;pr1, const Primitive &amp;pr2, const AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt; &amp;traits)</argsstring>
+        <name>less_y</name>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__traits" kindref="compound">AABB_traits</ref>&lt; GeomTraits, <ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref>, BboxMap &gt; &amp;</type>
+          <declname>traits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="494" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="494" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1AABB__traits_1ab40ff3dd4e76bd9f6abeeaa551896d5a" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool CGAL::AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt;::less_z</definition>
+        <argsstring>(const Primitive &amp;pr1, const Primitive &amp;pr2, const AABB_traits&lt; GeomTraits, AABBPrimitive, BboxMap &gt; &amp;traits)</argsstring>
+        <name>less_z</name>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAABBPrimitive" kindref="compound">Primitive</ref> &amp;</type>
+          <declname>pr2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCGAL_1_1AABB__traits" kindref="compound">AABB_traits</ref>&lt; GeomTraits, <ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref>, BboxMap &gt; &amp;</type>
+          <declname>traits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/AABB_traits.h" line="499" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="499" bodyend="503"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This traits class handles any type of 3D geometric primitives provided that the proper intersection tests and constructions are implemented. </para>    </briefdescription>
+    <detaileddescription>
+<para>It handles points, rays, lines and segments as query types for intersection detection and computations, and it handles points as query type for distance queries.</para><para><xrefsect id="models_1_models000003"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref> </para><para><ref refid="classAABBRayIntersectionTraits" kindref="compound">AABBRayIntersectionTraits</ref> </para></xrefdescription></xrefsect><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>GeomTraits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of the concept <ref refid="classAABBGeomTraits" kindref="compound">AABBGeomTraits</ref>, and provide the geometric types as well as the intersection tests and computations. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Primitive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>provide the type of primitives stored in the <ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref>. It is a model of the concept <computeroutput><ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref></computeroutput> or <computeroutput><ref refid="classAABBPrimitiveWithSharedData" kindref="compound">AABBPrimitiveWithSharedData</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>BboxMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> that has as key type a primitive id, and as value type a <computeroutput>Bounding_box</computeroutput>. If the type is <computeroutput><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref></computeroutput> the <computeroutput>Datum</computeroutput> must have the member function <computeroutput>bbox()</computeroutput> that returns the bounding box of the primitive.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If the argument <computeroutput>GeomTraits</computeroutput> is a model of the concept <ref refid="classAABBRayIntersectionGeomTraits" kindref="compound">AABBRayIntersectionGeomTraits</ref>, this class is also a model of <ref refid="classAABBRayIntersectionTraits" kindref="compound">AABBRayIntersectionTraits</ref>.</para><para><simplesect kind="see"><para><computeroutput><ref refid="classAABBTraits" kindref="compound">AABBTraits</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1AABB__tree" kindref="compound">AABB_tree</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classAABBPrimitive" kindref="compound">AABBPrimitive</ref></computeroutput> </para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="classAABBPrimitiveWithSharedData" kindref="compound">AABBPrimitiveWithSharedData</ref></computeroutput> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="CGAL/AABB_traits.h" line="212" column="1" bodyfile="CGAL/AABB_traits.h" bodystart="209" bodyend="505"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1AABB__traits_1a545927d4569a149fc883f2dfbab9e3ee" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>AABB_traits</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a9f65d8bb8398c10844a5099591217ff1" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>AABB_traits</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a96348fed6cea1b42c7556e170c2d3ea4" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>AT</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455e" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Axis</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1ac6fc0f89572c673d211968409a849a1c" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>bbm</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a46b02276d9eba62d964141fc1bfe7acc" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Bounding_box</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aa5b7207039e2e92626de343e5d6388f1" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Cartesian_const_iterator_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea7ef161f02140a807d736735702439465" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>CGAL_AXIS_X</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea92058e2a84543baa3cd8928beeaf2dbd" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>CGAL_AXIS_Y</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aab78c6522093d80ac68f410c85c6455ea5952202df024ece4cf9f0c311801e56f" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>CGAL_AXIS_Z</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a31d16b28a2d5c75ae174250a658a1e89" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>closest_point_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aeb51f8a349e59fecc67149b4b82141d7" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>compare_distance_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a3ca08ef08be8aa10b109ec02bf77f906" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>compute_bbox</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a011ba9080e74cc020396700cd9deb8ac" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>compute_bbox</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a85635272550d1404a2714c42fd6d24cb" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>compute_bbox_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a65378d7588c6c00eabebb2741e640a28" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Compute_squared_radius_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1adcfc4def8903c384869e6517251972a4" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Construct_cartesian_const_iterator_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a89a4a99978332c682c2cace142f47645" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Construct_center_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a990ff2fbadb9eac41a8e6d02bb1f140b" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Construct_iso_cuboid_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a025b4116001dda0cfd941131779cded3" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Construct_max_vertex_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a615dd9a8e0b52796604c1704f7743eea" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Construct_min_vertex_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a4cc0151b43cdbe3c37ae0688daf60c9b" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>do_intersect_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1af98b0475ae09993dacdd722669b80b86" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Equal_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1af38ef14da728a50713422575c76ef1e9" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>equal_3_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a5008761f9a2c296b602f703fe6f643fa" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>FT</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a0cf68b8bc1962a49032bc247da265859" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Geom_traits</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a58f1b4a4889efd2c4742e5cf261895d7" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>intersection_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a5c783003b2bdc9bf7eba176b8e2d349f" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Iso_cuboid_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a87301381e717c90ab3084a1462276e8f" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>less_x</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a8729d42b462b28afa8dcb1d5a5238dad" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>less_y</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1ab40ff3dd4e76bd9f6abeeaa551896d5a" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>less_z</name></member>
+      <member refid="group__PkgAABB__tree_1gafcd6dce0b11924c7ef8c1a32ce0c13da" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>longest_axis</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1ab0fe9972a722be09a88fdc54b136866b" prot="private" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1af85fa7dc9acbdc2268546c1db4ad3333" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Object_and_primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a4e022c85a880d031abf686a8dc59fda3" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Point_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a048c8bda3c6cd5c9a0ea3fd17325ccee" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Point_and_primitive_id</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1af1b12a2fc4cead085f104d1b513ef7ef" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Primitive</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1aaae8ce53eb75bb803d577e57fb05e6ac" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>sort_primitives_object</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a39691adffb1cf4b08843fb974b4e3cef" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Sphere_3</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a9498e5d6e2508773bca96c0ed82db13d" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>Squared_distance</name></member>
+      <member refid="classCGAL_1_1AABB__traits_1a2fd68578c558f00e38cff92d092be57a" prot="public" virt="non-virtual"><scope>CGAL::AABB_traits</scope><name>squared_distance_object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Nef_3_2transformation_8cpp-example" kind="example">
+    <compoundname>Nef_3/transformation.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exact__integer_8h" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Number_types.tag">CGAL/Exact_integer.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Extended_homogeneous.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Nef_polyhedron_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/IO/Nef_polyhedron_iostream_3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//instead<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//typedef<sp/>CGAL::Extended_homogeneous&lt;CGAL::Exact_integer&gt;<sp/><sp/>Kernel;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>workaround<sp/>for<sp/>VC++</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Kernel<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Extended__homogeneous" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Nef_2.tag">CGAL::Extended_homogeneous</ref>&lt;CGAL::Exact_integer&gt;<sp/>{};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Nef__polyhedron__3" kindref="compound">CGAL::Nef_polyhedron_3&lt;Kernel&gt;</ref><sp/><sp/>Nef_polyhedron;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Nef_polyhedron::Plane_3<sp/><sp/><ref refid="classKernel_1ac027cb2dbfb711e19826dc83b957033f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Plane_3</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Nef_polyhedron::Vector_3<sp/><sp/><ref refid="classKernel_1a39fb0222695ae5e7e32f4e570ea28225" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Vector_3</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Nef_polyhedron::Aff_transformation_3<sp/><sp/>Aff_transformation_3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Nef_polyhedron<sp/>N(<ref refid="classKernel_1ac027cb2dbfb711e19826dc83b957033f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Plane_3</ref>(0,1,0,0));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Aff_transformation_3<sp/>transl(CGAL::TRANSLATION,<sp/><ref refid="classKernel_1a39fb0222695ae5e7e32f4e570ea28225" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Vector_3</ref>(5,<sp/>7,<sp/>9));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Aff_transformation_3<sp/>rotx90(1,0,0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,0,-1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,1,0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Aff_transformation_3<sp/>scale(3,0,0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,3,0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,0,3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>N.transform(transl);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(N<sp/>==<sp/>Nef_polyhedron(<ref refid="classKernel_1ac027cb2dbfb711e19826dc83b957033f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Plane_3</ref>(0,1,0,-7)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>N.transform(rotx90);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(N<sp/>==<sp/>Nef_polyhedron(<ref refid="classKernel_1ac027cb2dbfb711e19826dc83b957033f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Plane_3</ref>(0,0,1,-7)));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>N.transform(scale);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CGAL_assertion(N<sp/>==<sp/>Nef_polyhedron(<ref refid="classKernel_1ac027cb2dbfb711e19826dc83b957033f" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Plane_3</ref>(0,0,2,-21)));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

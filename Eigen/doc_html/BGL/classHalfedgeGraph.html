@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/BGL/classHalfedgeGraph.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - CGAL and the Boost Graph Library: HalfedgeGraph Concept Reference</title><!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - CGAL and the Boost Graph Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classHalfedgeGraph.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classHalfedgeGraph-members.html">List of all members</a> |
+<a href="#related">Related Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">HalfedgeGraph Concept Reference<div class="ingroups"><a class="el" href="group__PkgBGL.html">CGAL and the Boost Graph Library Reference</a> » <a class="el" href="group__PkgBGLConcepts.html">Concepts</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>The concept <code><a class="el" href="classHalfedgeGraph.html" title="The concept HalfedgeGraph is a refinement of the Bgl concept IncidenceGraph and adds the notion of a ...">HalfedgeGraph</a></code> is a refinement of the <span style="font-variant: small-caps;">Bgl</span> concept <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classIncidenceGraph.html">IncidenceGraph</a></code> and adds the notion of a <em>halfedge</em>: Each edge is associated with two <em>opposite</em> halfedges with source and target vertices swapped. Furthermore, halfedges have a <em>successor</em> and <em>predecessor</em>, and form cycles we call <em>faces</em>. However, this concept does not introduce a face type. A <code><a class="el" href="classHalfedgeGraph.html" title="The concept HalfedgeGraph is a refinement of the Bgl concept IncidenceGraph and adds the notion of a ...">HalfedgeGraph</a></code> is undirected and does not allow parallel edges. </p>
+<p> Using the composition of the <em>successor</em> and <em>opposite</em> functions results in another cycle, namely the cycle of halfedges which are incident to the same vertex. We refer to <a class="el" href="group__PkgBGLIterators.html">Iterators and Circulators</a> for a description of iterators and circulators for these halfedge cycles.</p>
+<p>A partial specialization must be provided for <code>CGAL::graph_has_property</code> for each internal property map available.</p>
+<dl class="params">
+<dt>Associated Types</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname">boost::graph_traits&lt;HalfedgeGraph&gt;::vertex_descriptor</td><td><p class="starttd">A vertex descriptor corresponds to a unique vertex in an abstract graph instance. A vertex descriptor must be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classDefaultConstructible.html">DefaultConstructible</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAssignable.html">Assignable</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classEqualityComparable.html">EqualityComparable</a></code>, and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname">boost::graph_traits&lt;HalfedgeGraph&gt;::halfedge_descriptor</td><td><p class="starttd">A halfedge descriptor corresponds to a unique halfedge in an abstract graph instance. A halfedge descriptor must be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classDefaultConstructible.html">DefaultConstructible</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAssignable.html">Assignable</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classEqualityComparable.html">EqualityComparable</a></code>, and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr>
+<td class="paramname">boost::graph_traits&lt;HalfedgeGraph&gt;::edge_descriptor</td><td><p class="starttd">An edge descriptor corresponds to a unique edge in an abstract graph instance. An edge descriptor must be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classDefaultConstructible.html">DefaultConstructible</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classAssignable.html">Assignable</a></code>, <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classEqualityComparable.html">EqualityComparable</a></code>, and <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/STL_Extension.tag:../STL_Extension/" href="../STL_Extension/classHashable.html">Hashable</a></code>. </p>
+<p class="endtd"></p>
+</td></tr>
+</table>
+</dd>
+</dl>
+<dl class="refines"><dt><b><a class="el" href="refines.html#_refines000004">Refines:</a></b></dt><dd><p class="startdd"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classIncidenceGraph.html">IncidenceGraph</a></code> </p>
+<p class="enddd"><code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classPropertyGraph.html">PropertyGraph</a></code></p>
+</dd></dl>
+<p>A model of <code><a class="el" href="classHalfedgeGraph.html" title="The concept HalfedgeGraph is a refinement of the Bgl concept IncidenceGraph and adds the notion of a ...">HalfedgeGraph</a></code> must have the interior property <code>vertex_point</code> attached to its vertices.</p>
+<dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000004">Has Models:</a></b></dt><dd>See <a class="el" href="group__PkgBGLTraits.html">Boost Graph Traits Specializations </a></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__PkgBGLConcepts.html">Graph Concepts </a> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_polyhedron_3_2normals_8cpp-example.html#_a4">BGL_polyhedron_3/normals.cpp</a>.</dd>
+</dl></div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related" id="related"></a>
+Related Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
+</td></tr>
+<tr class="memitem:af91c1492c51f0f3d2589c68b67f646fe"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:af91c1492c51f0f3d2589c68b67f646fe"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::edge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#af91c1492c51f0f3d2589c68b67f646fe">edge</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:af91c1492c51f0f3d2589c68b67f646fe"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa6d5e0b5380b5b80bbc2ed90e3e707f7"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:aa6d5e0b5380b5b80bbc2ed90e3e707f7"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#aa6d5e0b5380b5b80bbc2ed90e3e707f7">halfedge</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::edge_descriptor f, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:aa6d5e0b5380b5b80bbc2ed90e3e707f7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a71d2d886a4fb2c56efefe5d912c3daaa"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a71d2d886a4fb2c56efefe5d912c3daaa"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a71d2d886a4fb2c56efefe5d912c3daaa">halfedge</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor v, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a71d2d886a4fb2c56efefe5d912c3daaa"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a965f1ed3f109080edd516222b273426c"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a965f1ed3f109080edd516222b273426c"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor, bool &gt; </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a965f1ed3f109080edd516222b273426c">halfedge</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor u, boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor v, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a965f1ed3f109080edd516222b273426c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:afe2f53c3740e4f4f701fc7989403bcdc"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:afe2f53c3740e4f4f701fc7989403bcdc"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#afe2f53c3740e4f4f701fc7989403bcdc">opposite</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:afe2f53c3740e4f4f701fc7989403bcdc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a982e9fb54ebba64fa58ce5ceb0c7e7ad"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a982e9fb54ebba64fa58ce5ceb0c7e7ad"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a982e9fb54ebba64fa58ce5ceb0c7e7ad">source</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a982e9fb54ebba64fa58ce5ceb0c7e7ad"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5c3056616f23757579426e9f50abab07"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a5c3056616f23757579426e9f50abab07"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a5c3056616f23757579426e9f50abab07">target</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a5c3056616f23757579426e9f50abab07"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a4a6f4b80283296be4c1040288fa663db"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a4a6f4b80283296be4c1040288fa663db"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a4a6f4b80283296be4c1040288fa663db">next</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a4a6f4b80283296be4c1040288fa663db"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0b869316f2ef7333ce826249d627a967"><td class="memTemplParams" colspan="2">template&lt;typename HalfedgeGraph &gt; </td></tr>
+<tr class="memitem:a0b869316f2ef7333ce826249d627a967"><td class="memTemplItemLeft" align="right" valign="top">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHalfedgeGraph.html#a0b869316f2ef7333ce826249d627a967">prev</a> (boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor h, const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp;g)</td></tr>
+<tr class="separator:a0b869316f2ef7333ce826249d627a967"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="af91c1492c51f0f3d2589c68b67f646fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91c1492c51f0f3d2589c68b67f646fe">◆ </a></span>edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::edge_descriptor edge </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the edge corresponding to halfedges <code>h</code> and <code>opposite(h,g)</code>, with the following invariant <code>halfedge(edge(h,g),g)==h</code>. </p>
+
+</div>
+</div>
+<a id="aa6d5e0b5380b5b80bbc2ed90e3e707f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d5e0b5380b5b80bbc2ed90e3e707f7">◆ </a></span>halfedge() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor halfedge </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::edge_descriptor </td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns one of the halfedges corresponding to <code>e</code>. </p>
+
+</div>
+</div>
+<a id="a71d2d886a4fb2c56efefe5d912c3daaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d2d886a4fb2c56efefe5d912c3daaa">◆ </a></span>halfedge() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor halfedge </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns a halfedge with target <code>v</code>. </p>
+
+</div>
+</div>
+<a id="a965f1ed3f109080edd516222b273426c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a965f1ed3f109080edd516222b273426c">◆ </a></span>halfedge() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor, bool &gt; halfedge </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor </td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor </td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the halfedge with source <code>u</code> and target <code>v</code>. The Boolean is <code>true</code>, iff this halfedge exists. </p>
+
+</div>
+</div>
+<a id="a4a6f4b80283296be4c1040288fa663db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6f4b80283296be4c1040288fa663db">◆ </a></span>next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor next </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the next halfedge around its face. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_polyhedron_3_2incident_vertices_8cpp-example.html#a7">BGL_polyhedron_3/incident_vertices.cpp</a>, <a class="el" href="BGL_polyhedron_3_2normals_8cpp-example.html#a9">BGL_polyhedron_3/normals.cpp</a>, and <a class="el" href="BGL_surface_mesh_2seam_mesh_8cpp-example.html#a7">BGL_surface_mesh/seam_mesh.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="afe2f53c3740e4f4f701fc7989403bcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe2f53c3740e4f4f701fc7989403bcdc">◆ </a></span>opposite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor opposite </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the halfedge with source and target swapped. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_polyhedron_3_2incident_vertices_8cpp-example.html#a6">BGL_polyhedron_3/incident_vertices.cpp</a>, and <a class="el" href="BGL_surface_mesh_2seam_mesh_8cpp-example.html#a8">BGL_surface_mesh/seam_mesh.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a0b869316f2ef7333ce826249d627a967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b869316f2ef7333ce826249d627a967">◆ </a></span>prev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor prev </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the previous halfedge around its face. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="BGL_surface_mesh_2seam_mesh_8cpp-example.html#a6">BGL_surface_mesh/seam_mesh.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="a982e9fb54ebba64fa58ce5ceb0c7e7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a982e9fb54ebba64fa58ce5ceb0c7e7ad">◆ </a></span>source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor source </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the source vertex of <code>h</code>. </p>
+
+</div>
+</div>
+<a id="a5c3056616f23757579426e9f50abab07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3056616f23757579426e9f50abab07">◆ </a></span>target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename HalfedgeGraph &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::vertex_descriptor target </td>
+          <td>(</td>
+          <td class="paramtype">boost::graph_traits&lt; <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &gt;::halfedge_descriptor </td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a> &amp; </td>
+          <td class="paramname"><em>g</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>returns the target vertex of <code>h</code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classHalfedgeGraph.html">HalfedgeGraph</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:59:01 for CGAL 4.13 - CGAL and the Boost Graph Library by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

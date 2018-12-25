@@ -1,0 +1,615 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Reconstruction__triangulation__3" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Reconstruction_triangulation_3</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Delaunay_triangulation_3&lt; Gt, Tds_ &gt;</basecompoundref>
+    <innerclass refid="classCGAL_1_1Reconstruction__triangulation__3_1_1Is__steiner__point" prot="private">CGAL::Reconstruction_triangulation_3::Is_steiner_point</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class BaseGt</type>
+      </param>
+      <param>
+        <type>class Gt</type>
+        <defval>Reconstruction_triangulation_default_geom_traits_3&lt;BaseGt&gt;</defval>
+      </param>
+      <param>
+        <type>class Tds_</type>
+        <defval>Triangulation_data_structure_3&lt;                         Reconstruction_vertex_base_3&lt;Gt&gt;,                         Delaunay_triangulation_cell_base_3&lt;                           Gt, Triangulation_cell_base_with_info_3&lt;int, Gt&gt; &gt; &gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61" prot="public" static="no">
+        <name>Point_type</name>
+        <enumvalue id="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61a0d9bc1636a446612389f22ba902fc7fd" prot="public">
+          <name>INPUT</name>
+          <initializer>=0</initializer>
+          <briefdescription>
+<para>Input point. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61a8fb082cbdc306fd7f8aaf1cec2b10045" prot="public">
+          <name>STEINER</name>
+          <initializer>=1</initializer>
+          <briefdescription>
+<para>Steiner point created by Delaunay refinement. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Point type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="248" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="248" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a34d6b4bc93064db3ed09caf3f8a0a5d3" prot="public" static="no">
+        <type>Gt</type>
+        <definition>typedef Gt CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Geom_traits</definition>
+        <argsstring></argsstring>
+        <name>Geom_traits</name>
+        <briefdescription>
+<para>Geometric traits class / <ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref> is a typedef to Point_with_normal_3&lt;BaseGt&gt;. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="206" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a023f24a06237df02e76fcc76850a1bc8" prot="public" static="no">
+        <type>Geom_traits::FT</type>
+        <definition>typedef Geom_traits::FT CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::FT</definition>
+        <argsstring></argsstring>
+        <name>FT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="240" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a9d8c83326903713145c21ea2a429a514" prot="public" static="no">
+        <type>Geom_traits::Vector_3</type>
+        <definition>typedef Geom_traits::Vector_3 CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+<para>typedef to Vector_3&lt;BaseGt&gt; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="241" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a5d3dce5cb9bde1ba863b9678afc48dc9" prot="public" static="no">
+        <type>Geom_traits::Point_3</type>
+        <definition>typedef Geom_traits::Point_3 CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+<para>typedef to Point_with_normal_3&lt;BaseGt&gt; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="242" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a8faf7ea7853098423758ee3d666d700c" prot="public" static="no">
+        <type>Geom_traits::Point_3</type>
+        <definition>typedef Geom_traits::Point_3 CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Point_with_normal</definition>
+        <argsstring></argsstring>
+        <name>Point_with_normal</name>
+        <briefdescription>
+<para>Point_with_normal_3&lt;BaseGt&gt; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="243" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1aff5ebfe0ef87301b4f45762e3ca6466d" prot="public" static="no">
+        <type>Geom_traits::Sphere_3</type>
+        <definition>typedef Geom_traits::Sphere_3 CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Sphere</definition>
+        <argsstring></argsstring>
+        <name>Sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="244" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1af0a71238fd706524838ec7e987a25b86" prot="public" static="no">
+        <type>Geom_traits::Iso_cuboid_3</type>
+        <definition>typedef Geom_traits::Iso_cuboid_3 CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Iso_cuboid</definition>
+        <argsstring></argsstring>
+        <name>Iso_cuboid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="245" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a594797e3e5fed5e2533799a4960f0f02" prot="public" static="no">
+        <type><ref refid="structCGAL_1_1Filter__iterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Filter_iterator</ref>&lt; Finite_vertices_iterator, Is_steiner_point &gt;</type>
+        <definition>typedef Filter_iterator&lt;Finite_vertices_iterator, Is_steiner_point&gt; CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Input_vertices_iterator</definition>
+        <argsstring></argsstring>
+        <name>Input_vertices_iterator</name>
+        <briefdescription>
+<para><ref refid="classIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Iterator</ref> over input vertices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="255" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1a95051ac18a9d16d520de1ff5f459d40e" prot="public" static="no">
+        <type>Iterator_project&lt; <ref refid="structCGAL_1_1Filter__iterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Input_vertices_iterator</ref>, <ref refid="structCGAL_1_1Project__point" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Project_point</ref>&lt; Vertex &gt; &gt;</type>
+        <definition>typedef Iterator_project&lt;Input_vertices_iterator, Project_point&lt;Vertex&gt; &gt; CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Input_point_iterator</definition>
+        <argsstring></argsstring>
+        <name>Input_point_iterator</name>
+        <briefdescription>
+<para><ref refid="classIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Iterator</ref> over input points. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="259" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCGAL_1_1Reconstruction__triangulation__3_1ac05126c28f72a1701ec6888d7bb068d5" prot="private" static="no">
+        <type>Delaunay_triangulation_3&lt; Gt, Tds_ &gt;</type>
+        <definition>typedef Delaunay_triangulation_3&lt;Gt,Tds_&gt; CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Base</definition>
+        <argsstring></argsstring>
+        <name>Base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="188" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classCGAL_1_1Reconstruction__triangulation__3_1a24235e90f9a07d753677e42081df93d0" prot="public" static="no" mutable="yes">
+        <type>Sphere</type>
+        <definition>Sphere CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::sphere</definition>
+        <argsstring></argsstring>
+        <name>sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="261" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Reconstruction__triangulation__3_1ac3b646cf815474ce53666d400eb25b4c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Point_with_normal &gt;</type>
+        <definition>std::vector&lt;Point_with_normal&gt; CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="262" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Reconstruction__triangulation__3_1aa8f702399f860252b2d0cbb23ee15c49" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::fraction</definition>
+        <argsstring></argsstring>
+        <name>fraction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="263" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Reconstruction__triangulation__3_1ace825d7f7bf0e2f9e6bcc518c36c119f" prot="public" static="no" mutable="no">
+        <type>std::list&lt; double &gt;</type>
+        <definition>std::list&lt;double&gt; CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::fractions</definition>
+        <argsstring></argsstring>
+        <name>fractions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="264" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCGAL_1_1Reconstruction__triangulation__3_1a09944f6da0f6ab31f0a59ea83a1d8219" prot="public" static="no" mutable="no">
+        <type>Vertex_handle</type>
+        <definition>Vertex_handle CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::constrained_vertex</definition>
+        <argsstring></argsstring>
+        <name>constrained_vertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="265" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a4eb5f224eff789edee1c214dc33792b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::Reconstruction_triangulation_3</definition>
+        <argsstring>()</argsstring>
+        <name>Reconstruction_triangulation_3</name>
+        <briefdescription>
+<para><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="271" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="271" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1aab0620b81cc2050ea89dd0cd3b72e0a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::~Reconstruction_triangulation_3</definition>
+        <argsstring>()</argsstring>
+        <name>~Reconstruction_triangulation_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="274" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="274" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a777d1c03ab70a3dc73eb657c77aa52aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structCGAL_1_1Filter__iterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Input_vertices_iterator</ref></type>
+        <definition>Input_vertices_iterator CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::input_vertices_begin</definition>
+        <argsstring>() const</argsstring>
+        <name>input_vertices_begin</name>
+        <briefdescription>
+<para>Gets first iterator over input vertices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="293" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="293" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1ad0f811c46e7ef02ea1db02a8421a2ac8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structCGAL_1_1Filter__iterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Input_vertices_iterator</ref></type>
+        <definition>Input_vertices_iterator CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::input_vertices_end</definition>
+        <argsstring>() const</argsstring>
+        <name>input_vertices_end</name>
+        <briefdescription>
+<para>Gets past-the-end iterator over input vertices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="299" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="299" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1af0df960410d575da541e74aaccf78109" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Input_point_iterator</type>
+        <definition>Input_point_iterator CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::input_points_begin</definition>
+        <argsstring>() const</argsstring>
+        <name>input_points_begin</name>
+        <briefdescription>
+<para>Gets iterator over the first input point. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="305" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="305" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1afae0797a536048eaa59e510412d04381" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Input_point_iterator</type>
+        <definition>Input_point_iterator CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::input_points_end</definition>
+        <argsstring>() const</argsstring>
+        <name>input_points_end</name>
+        <briefdescription>
+<para>Gets past-the-end iterator over the input points. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="310" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="310" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a50bb667b1e36b5770859c6aa02767622" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Sphere</type>
+        <definition>Sphere CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::bounding_sphere</definition>
+        <argsstring>() const</argsstring>
+        <name>bounding_sphere</name>
+        <briefdescription>
+<para>Gets the bounding sphere of input points. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="318" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="318" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a754399d4cfb9bc10d6d4d818283a507f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::initialize_bounding_sphere</definition>
+        <argsstring>() const</argsstring>
+        <name>initialize_bounding_sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="323" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="323" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1af0305260f7107c85cf64c00458d79048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Visitor</type>
+          </param>
+        </templateparamlist>
+        <type>Vertex_handle</type>
+        <definition>Vertex_handle CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::insert</definition>
+        <argsstring>(const Point_with_normal &amp;p, Point_type type, Cell_handle start, Visitor visitor)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const Point_with_normal &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Point_type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>Cell_handle</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>Visitor</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+<para>Insert point in the triangulation. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> type is INPUT. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="333" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="333" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1ac46962db003adc79a0909de0a8bdd253" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          </param>
+          <param>
+            <type>typename PointPMap</type>
+          </param>
+          <param>
+            <type>typename NormalPMap</type>
+          </param>
+          <param>
+            <type>typename Visitor</type>
+          </param>
+        </templateparamlist>
+        <type>int</type>
+        <definition>int CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::insert</definition>
+        <argsstring>(InputIterator first, InputIterator beyond, PointPMap point_pmap, NormalPMap normal_pmap, Visitor visitor)</argsstring>
+        <name>insert</name>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>first</declname>
+          <briefdescription><para>iterator over the first input point. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></type>
+          <declname>beyond</declname>
+          <briefdescription><para>past-the-end iterator over the input points. </para></briefdescription>
+        </param>
+        <param>
+          <type>PointPMap</type>
+          <declname>point_pmap</declname>
+          <briefdescription><para>property map: <computeroutput>value_type of <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> -&gt; <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput> (the position of an input point). </para></briefdescription>
+        </param>
+        <param>
+          <type>NormalPMap</type>
+          <declname>normal_pmap</declname>
+          <briefdescription><para>property map: <computeroutput>value_type of <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput> -&gt; <computeroutput><ref refid="classCGAL_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Vector_3</ref></computeroutput> (the <emphasis>oriented</emphasis> normal of an input point). </para></briefdescription>
+        </param>
+        <param>
+          <type>Visitor</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+<para>Insert the [first, beyond) range of points in the triangulation using a spatial sort. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="structCGAL_1_1Default" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Default</ref> type is INPUT.</para><para>Template Parameters: <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>iterator over input points. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PointPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with a value_type = <ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref>. It can be omitted if <ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref> value_type is convertible to <ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NormalPMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is a model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with a value_type = <ref refid="classCGAL_1_1Vector__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Vector_3</ref>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of inserted points. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="374" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="374" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a995761dd3a8e8a29ee71cf595235b629" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Visitor</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::insert_fraction</definition>
+        <argsstring>(Visitor visitor)</argsstring>
+        <name>insert_fraction</name>
+        <param>
+          <type>Visitor</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="417" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="417" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1a4f081e0e6d14ace99eb6bd6babfacdf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class CellIt</type>
+          </param>
+        </templateparamlist>
+        <type>Vertex_handle</type>
+        <definition>Vertex_handle CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::insert_in_hole</definition>
+        <argsstring>(const Point_with_normal &amp;p, CellIt cell_begin, CellIt cell_end, Cell_handle begin, int i, Point_type type=STEINER)</argsstring>
+        <name>insert_in_hole</name>
+        <param>
+          <type>const Point_with_normal &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>CellIt</type>
+          <declname>cell_begin</declname>
+        </param>
+        <param>
+          <type>CellIt</type>
+          <declname>cell_end</declname>
+        </param>
+        <param>
+          <type>Cell_handle</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>Point_type</type>
+          <declname>type</declname>
+          <defval>STEINER</defval>
+        </param>
+        <briefdescription>
+<para>Delaunay refinement callback: insert STEINER point in the triangulation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="466" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="466" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1afdcad3b6bebab013f6f9c8cae9673f78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::index_unconstrained_vertices</definition>
+        <argsstring>()</argsstring>
+        <name>index_unconstrained_vertices</name>
+        <briefdescription>
+<para><ref refid="classIndex" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Index</ref> unconstrained vertices following the order of Finite_vertices_iterator. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of unconstrained vertices. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="477" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="477" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1abcb556cd87c7494594d300710acab1d3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::is_constrained</definition>
+        <argsstring>(Vertex_handle v) const</argsstring>
+        <name>is_constrained</name>
+        <param>
+          <type>Vertex_handle</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Is vertex constrained, i.e. </para>        </briefdescription>
+        <detaileddescription>
+<para>does it contribute to the right or left member of the linear system? </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="494" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="494" bodyend="497"/>
+      </memberdef>
+      <memberdef kind="function" id="classCGAL_1_1Reconstruction__triangulation__3_1aef770178d78c866be4b842f8c4e31dd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CGAL::Reconstruction_triangulation_3&lt; BaseGt, Gt, Tds_ &gt;::constrain</definition>
+        <argsstring>(Vertex_handle v)</argsstring>
+        <name>constrain</name>
+        <param>
+          <type>Vertex_handle</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Reconstruction_triangulation_3.h" line="499" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="499" bodyend="502"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CGAL/Reconstruction_triangulation_3.h" line="183" column="1" bodyfile="CGAL/Reconstruction_triangulation_3.h" bodystart="181" bodyend="505"/>
+    <listofallmembers>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ac05126c28f72a1701ec6888d7bb068d5" prot="private" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Base</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a50bb667b1e36b5770859c6aa02767622" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>bounding_sphere</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1aef770178d78c866be4b842f8c4e31dd2" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>constrain</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a09944f6da0f6ab31f0a59ea83a1d8219" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>constrained_vertex</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1aa8f702399f860252b2d0cbb23ee15c49" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>fraction</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ace825d7f7bf0e2f9e6bcc518c36c119f" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>fractions</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a023f24a06237df02e76fcc76850a1bc8" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>FT</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a34d6b4bc93064db3ed09caf3f8a0a5d3" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Geom_traits</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1afdcad3b6bebab013f6f9c8cae9673f78" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>index_unconstrained_vertices</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a754399d4cfb9bc10d6d4d818283a507f" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>initialize_bounding_sphere</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61a0d9bc1636a446612389f22ba902fc7fd" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>INPUT</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a95051ac18a9d16d520de1ff5f459d40e" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Input_point_iterator</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1af0df960410d575da541e74aaccf78109" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>input_points_begin</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1afae0797a536048eaa59e510412d04381" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>input_points_end</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a777d1c03ab70a3dc73eb657c77aa52aa" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>input_vertices_begin</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ad0f811c46e7ef02ea1db02a8421a2ac8" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>input_vertices_end</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a594797e3e5fed5e2533799a4960f0f02" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Input_vertices_iterator</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1af0305260f7107c85cf64c00458d79048" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>insert</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ac46962db003adc79a0909de0a8bdd253" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>insert</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a995761dd3a8e8a29ee71cf595235b629" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>insert_fraction</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a4f081e0e6d14ace99eb6bd6babfacdf9" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>insert_in_hole</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1abcb556cd87c7494594d300710acab1d3" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>is_constrained</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1af0a71238fd706524838ec7e987a25b86" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Iso_cuboid</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a5d3dce5cb9bde1ba863b9678afc48dc9" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Point</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Point_type</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a8faf7ea7853098423758ee3d666d700c" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Point_with_normal</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ac3b646cf815474ce53666d400eb25b4c" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>points</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a4eb5f224eff789edee1c214dc33792b8" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Reconstruction_triangulation_3</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a24235e90f9a07d753677e42081df93d0" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>sphere</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1aff5ebfe0ef87301b4f45762e3ca6466d" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Sphere</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1ad3cda6b4c9ac0661e08c43e86df67c61a8fb082cbdc306fd7f8aaf1cec2b10045" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>STEINER</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1a9d8c83326903713145c21ea2a429a514" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>Vector</name></member>
+      <member refid="classCGAL_1_1Reconstruction__triangulation__3_1aab0620b81cc2050ea89dd0cd3b72e0a4" prot="public" virt="non-virtual"><scope>CGAL::Reconstruction_triangulation_3</scope><name>~Reconstruction_triangulation_3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

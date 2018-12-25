@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Envelope_3/index.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 3D Envelopes: User Manual</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 3D Envelopes
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">User Manual </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="Chapter_Envelopes_of_Surfaces_in_3D"></a> <a class="anchor" id="chapterEnvelope3"></a>  </p><div id="autotoc" class="toc"></div>  <dl class="section author"><dt>Authors</dt><dd>Dan Halperin, Michal Meyerovitch, Ron Wein, and Baruch Zukerman</dd></dl>
+<h1><a class="anchor" id="Envelope_3Introduction"></a>
+Introduction</h1>
+<p>A continuous surface \( S\) in \( {\mathbb R}^3\) is called <em> \( xy\)-monotone</em>, if every line parallel to the \( z\)-axis intersects it at a single point at most. For example, the sphere \( x^2 + y^2 + z^2 = 1\) is <em>not</em> \( xy\)-monotone as the \( z\)-axis intersects it at \( (0, 0, -1)\) and at \( (0, 0, 1)\); however, if we use the \( xy\)-plane to split it to an upper hemisphere and a lower hemisphere, these two hemispheres are \( xy\)-monotone.</p>
+<p>An \( xy\)-monotone surface can therefore be represented as a bivariate function \( z = S(x,y)\), defined over some continuous range \( R_S \subseteq {\mathbb R}^2\). Given a set \( {\cal S} = \{ S_1, S_2, \ldots, S_n \}\) of \( xy\)-monotone surfaces, their <em>lower envelope</em> is defined as the point-wise minimum of all surfaces. Namely, the lower envelope of the set \( {\cal S}\) can be defined as the following function: </p><p class="formulaDsp">
+\begin{eqnarray*} {\cal L}_{{\cal S}} (x,y) = \min_{1 \leq k \leq n}{\overline{S}_k (x,y)} \ , \end{eqnarray*}
+</p>
+<p> where we define \(\overline{S}_k(x,y) = S_k(x,y)\) for \((x,y) \in R_{S_k}\), and \(\overline{S}_k(x,y) = \infty\) otherwise.</p>
+<p>Similarly, the <em>upper envelope</em> of \({\cal S}\) is the point-wise maximum of the \(xy\)-monotone surfaces in the set: </p><p class="formulaDsp">
+\begin{eqnarray*} {\cal U}_{{\cal S}} (x,y) = \max_{1 \leq k \leq n}{\underline{S}_k (x,y)} \ , \end{eqnarray*}
+</p>
+<p> where in this case \( \underline{S}_k(x,y) = -\infty\) for \( (x,y) \not\in R_{S_k}\).</p>
+<p>Given a set of \( xy\)-monotone surfaces \( {\cal S}\), the <em>minimization diagram</em> of \( {\cal S}\) is a subdivision of the \( xy\)-plane into cells, such that the identity of the surfaces that induce the lower diagram over a specific cell of the subdivision (be it a face, an edge, or a vertex) is the same. In non-degenerate situation, a face is induced by a single surface (or by no surfaces at all, if there are no \( xy\)-monotone surfaces defined over it), an edge is induced by a single surface and corresponds to its projected boundary, or by two surfaces and corresponds to their projected intersection curve, and a vertex is induced by a single surface and corresponds to its projected boundary point, or by three surfaces and corresponds to their projected intersection point. The <em>maximization diagram</em> is symmetrically defined for upper envelopes. In the rest of this chapter, we refer to both these diagrams as <em>envelope diagrams</em>.</p>
+<p>It is easy to see that an envelope diagram is no more than a planar arrangement (see Chapter <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/index.html#chapterArrangement_on_surface_2">2D Arrangements</a>), represented using an extended <span style="font-variant: small-caps;">Dcel</span> structure, such that every <span style="font-variant: small-caps;">Dcel</span> record (namely each face, halfedge and vertex) stores an additional container of it originators: the \( xy\)-monotone surfaces that induce this feature.</p>
+<p>Lower and upper envelopes can be efficiently computed using a divide-and-conquer approach. First note that the envelope diagram for a single \( xy\)-monotone curve \( S_k\) is trivial to compute: we project the boundary of its range of definition \( R_{S_k}\) onto the \( xy\)-plane, and label the faces it induces accordingly. Given a set \( {\cal D}\) of (non necessarily \( xy\)-monotone) surfaces in \( {\mathbb R}^3\), we subdivide each surface into a finite number of weakly \( xy\)-monotone surfaces, <span class="footnote">We consider <em>vertical</em> surfaces, namely patches of planes that are perpendicular to the \( xy\)-plane, as <em>weakly</em> \( xy\)-monotone, to handle degenerate inputs properly.</span> and obtain the set \( {\cal S}\). Then, we split the set into two disjoint subsets \( {\cal S}_1\) and \( {\cal S}_2\), and we compute their envelope diagrams recursively. Finally, we merge the diagrams, and we do this by overlaying them and then applying some post-processing on the resulting diagram. The post-processing stage is non-trivial and involves the projection of intersection curves onto the \( xy\)-plane - see <a class="el" href="citelist.html#CITEREF_cgal:m-rgece-06">[1]</a> for more details.</p>
+<h1><a class="anchor" id="Envelope_3The"></a>
+The Envelope-Traits Concept</h1>
+<p>The implementation of the envelope-computation algorithm is generic and can handle arbitrary surfaces. It is parameterized with a traits class, which defines the geometry of surfaces it handles, and supports all the necessary functionality on these surfaces, and on their projections onto the \( xy\)-plane. The traits class must model the <code><a class="el" href="classEnvelopeTraits__3.html" title="This concept defines the minimal set of geometric predicates and operations needed to compute the env...">EnvelopeTraits_3</a></code> concept, the details of which are given below.</p>
+<p>As the representation of envelope diagrams is based on 2D arrangements, and the envelop-computation algorithm employs overlay of planar arrangements, the <code><a class="el" href="classEnvelopeTraits__3.html" title="This concept defines the minimal set of geometric predicates and operations needed to compute the env...">EnvelopeTraits_3</a></code> refines the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classArrangementXMonotoneTraits__2.html">ArrangementXMonotoneTraits_2</a></code> concept. Namely, a model of this concept must define the planar types <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__2.html">Point_2</a></code> and <code>X_monotone_curve_2</code> and support basic operations on them, as listed in Section <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/index.html#arr_sectraits">Traits Classes</a>. Moreover, it must define the spacial types <code>Surface_3</code> and <code>Xy_monotone_surface_3</code> (in practice, these two types may be the same). Any model of the envelope-traits concept must also support the following operations on these spacial types:</p>
+<p><a class="anchor" id="fig__env3_figcomp_over"></a></p><center> <table border="0">
+<tr>
+<td><div class="image">
+<img src="compare_over_point.png" alt="compare_over_point.png" />
+</div>
+   </td><td><div class="image">
+<img src="compare_over_curve.png" alt="compare_over_curve.png" />
+</div>
+    </td></tr>
+<tr align="center">
+<td>(a)</td><td>(b) </td></tr>
+</table>
+</center><p>  </p><div class="cgal_figure_caption">  <a class="el" href="index.html#fig__env3_figcomp_over">Figure 38.1</a> (a) The spheres \( S_1\) and \( S_2\) have only one two-dimensional point \( p\) in their common \( xy\)-definition range. They do not necessarily intersect over this point, and the envelope-construction algorithm needs to determine their relative \( z\)-order over \( p\). (b) The \( z\)-order of the surfaces \( S_1\) and \( S_2\) should be determined over the \( x\)-monotone curve \( c\). The comparison is performed over the <em>interior</em> of \( c\), excluding its endpoints.  </div>  <br />
+
+<ul>
+<li>
+Subdivide a given surface into continuous \( xy\)-monotone surfaces. It is possible to disregard \( xy\)-monotone surfaces that do not contribute to the surface envelope at this stage (for example, if we are given a sphere, it is possible to return just its lower hemisphere if we are interested in the lower envelope; the upper hemisphere is obviously redundant). </li>
+<li>
+<p class="startli">Given an \( xy\)-monotone surface \( S\), construct all planar curves that form the boundary of the vertical projection \( S\)'s boundary onto the \( xy\)-plane.</p>
+<p class="endli">This operation is used at the bottom of the recursion to build the minimization diagram of a single \( xy\)-monotone surface. </p>
+</li>
+<li>
+Construct all geometric entities that comprise the projection (onto the \( xy\)-plane) of the intersection between two \( xy\)-monotone surfaces \( S_1\) and \( S_2\). These entities may be: <ul>
+<li>
+A planar curve, which is the projection of an 3D intersection curve of \( S_1\) and \( S_2\) (for example, the intersection curve between two spheres is a 3D circle, which becomes an ellipse when projected onto the \( xy\)-plane). In many cases it is also possible to indicate the multiplicity of the intersection: if it is odd, the two surfaces intersect transversely and change their relative \( z\)-positions on either side of the intersection curve; if it the multiplicity is even, they maintain their relative \( z\)-position. Providing the multiplicity information is optional. When provided, it is used by the algorithm to determine the relative order of \( S_1\) and \( S_2\) on one side of their intersection curve when their order on the other side of that curve is known, thus improving the performance of the algorithm. </li>
+<li>
+A point, induces by the projection of a tangency point of \( S_1\) and \( S_2\), <em>or</em> by the projection of a vertical intersection curve onto the \( xy\)-plane. </li>
+</ul>
+Needless to say, the set of intersection entities may be empty in case \( S_1\) and \( S_2\) do not intersect. </li>
+<li>
+Given two \( xy\)-monotone surfaces \( S_1\) and \( S_2\), and a planar point \( p = (x_0,y_0)\) that lies in their common \( xy\)-definition range, determine the \( z\)-order of \( S_1\) and \( S_2\) over \( p\), namely compare \( S_1(x_0,y_0)\) and \( S_2(x_0,y_0)\). This operation is used only in degenerate situations, in order to determine the surface inducing the envelope over a vertex (see <a class="el" href="index.html#fig__env3_figcomp_over">Figure 38.1</a> (a) for an illustration of a situation when this operation is used). </li>
+<li>
+<p class="startli">Given two \( xy\)-monotone surfaces \( S_1\) and \( S_2\), and a planar \( x\)-monotone curve \( c\), which is a part of their projected intersection, determine the \( z\)-order of \( S_1\) and \( S_2\) immediately above (or, similarly, immediately below) the curve \( c\). Note that \( c\) is a planar \( x\)-monotone curve, and we refer to the region above (or below) it in the <em>plane</em>. If \( c\) is a vertical curve, we regard the region to its left as lying above it, and the region to its right as lying below it.</p>
+<p class="endli">This operation is used by the algorithm to determine the surface that induce the envelope over a face incident to \( c\). </p>
+</li>
+<li>
+<p class="startli">Given two \( xy\)-monotone surfaces \( S_1\) and \( S_2\), and a planar \( x\)-monotone curve \( c\), which fully lies in their common \( xy\)-definition range, and such that \( S_1\) and \( S_2\) do not intersect over the interior of \( c\), determine the relative \( z\)-order of \( s_1\) and \( s_2\) over the interior of \( c\). Namely, we compare \( S_1(x_0,y_0)\) and \( S_2(x_0,y_0)\) for some point \( (x_0, y_0)\) on \( c\).</p>
+<p class="endli">This operation is used by the algorithm to determine which surface induce the envelope over an edge associated with the \( x\)-monotone curve \( c\), or of a face incident to \( c\), in situations where the previous predicate cannot be used, as \( c\) is <em>not</em> an intersection curve of \( S_1\) and \( S_2\) (see <a class="el" href="index.html#fig__env3_figcomp_over">Figure 38.1</a> (b) for an illustration of a situation where this operation is used). </p>
+</li>
+</ul>
+<p>The package currently contains a traits class for named <code><a class="el" href="classCGAL_1_1Env__triangle__traits__3.html" title="The traits class Env_triangle_traits_3 models the EnvelopeTraits_3 concept, and is used for the const...">Env_triangle_traits_3</a>&lt;<a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a>&gt;</code> handling 3D triangles, and another named <code><a class="el" href="classCGAL_1_1Env__sphere__traits__3.html" title="The traits class Env_sphere_traits_3 models the EnvelopeTraits_3 concept, and is used for the constru...">Env_sphere_traits_3</a>&lt;ConicTraits&gt;</code> for 3D spheres, based on geometric operations on conic curves (ellipses). In addition, the package includes a traits-class decorator that enables users to attach external (non-geometric) data to surfaces. The usage of the various traits classes is demonstrated in the next section.</p>
+<h1><a class="anchor" id="Envelope_3Examples"></a>
+Examples</h1>
+<h2><a class="anchor" id="Envelope_3ExampleforEnvelopeofTriangles"></a>
+Example for Envelope of Triangles</h2>
+<p><a class="anchor" id="fig__env3_figex_tri"></a></p><center> <table border="0">
+<tr>
+<td><div class="image">
+<img src="ex_triangles.png" alt="ex_triangles.png" />
+</div>
+   </td><td><div class="image">
+<img src="ex_tri_le.png" alt="ex_tri_le.png" />
+</div>
+   </td><td><div class="image">
+<img src="ex_tri_ue.png" alt="ex_tri_ue.png" />
+</div>
+   </td></tr>
+<tr align="center">
+<td>(a)</td><td>(b)</td><td>(c) </td></tr>
+</table>
+</center><p>  </p><div class="cgal_figure_caption">  <a class="el" href="index.html#fig__env3_figex_tri">Figure 38.2</a> (a) Two triangles in \( {\mathbb R}^3\), as given in <code>envelope_triangles.cpp</code>. (b) Their lower envelope. (c) Their upper envelope.  </div>  <br />
+
+<p>The following example shows how to use the envelope-traits class for 3D triangles and how to traverse the envelope diagram. It constructs the lower and upper envelopes of the two triangles, as depicted in <a class="el" href="index.html#fig__env3_figex_tri">Figure 38.2</a> (a) and prints the triangles that induce each face and each edge in the output diagrams. For convenience, we use the traits-class decorator <code><a class="el" href="classCGAL_1_1Env__surface__data__traits__3.html" title="The class Env_surface_data_traits_3 is a model of the EnvelopeTraits_3 concept and serves as a decora...">Env_surface_data_traits_3</a></code> to label the triangles. When printing the diagrams, we just output the labels of the triangles:</p>
+<p><br />
+<b>File</b> <a class="el" href="Envelope_3_2envelope_triangles_8cpp-example.html">Envelope_3/envelope_triangles.cpp</a> </p><div class="fragment"><div class="line"><span class="comment">// Constructing the lower and the upper envelope of a set of triangles.</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_rational.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Cartesian.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Env_triangle_traits_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Env_surface_data_traits_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/envelope_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;list&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> CGAL::Exact_rational                             Number_type;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Cartesian.html">CGAL::Cartesian&lt;Number_type&gt;</a>                     <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Env__triangle__traits__3.html">CGAL::Env_triangle_traits_3&lt;Kernel&gt;</a>              Traits_3;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__3.html">Kernel::Point_3</a>                                  Point_3;</div><div class="line"><span class="keyword">typedef</span> Traits_3::Surface_3                              Triangle_3;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Env__surface__data__traits__3.html">CGAL::Env_surface_data_traits_3&lt;Traits_3, char&gt;</a>  Data_traits_3;</div><div class="line"><span class="keyword">typedef</span> Data_traits_3::Surface_3                         Data_triangle_3;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Envelope__diagram__2.html">CGAL::Envelope_diagram_2&lt;Data_traits_3&gt;</a>          Envelope_diagram_2;</div><div class="line"></div><div class="line"><span class="comment">/* Auxiliary function - print the features of the given envelope diagram. */</span></div><div class="line"><span class="keywordtype">void</span> print_diagram (<span class="keyword">const</span> Envelope_diagram_2&amp; diag)</div><div class="line">{</div><div class="line">  <span class="comment">// Go over all arrangement faces.</span></div><div class="line">  Envelope_diagram_2::Face_const_iterator            fit;</div><div class="line">  Envelope_diagram_2::Ccb_halfedge_const_circulator  ccb;</div><div class="line">  <a class="code" href="classCGAL_1_1Envelope__diagram__2.html#a8a2c4c2adcc103537b08f0a9475d4084">Envelope_diagram_2::Surface_const_iterator</a>         sit;</div><div class="line"></div><div class="line">  <span class="keywordflow">for</span> (fit = diag.faces_begin(); fit != diag.faces_end(); ++fit)</div><div class="line">  {</div><div class="line">    <span class="comment">// Print the face boundary.</span></div><div class="line">    <span class="keywordflow">if</span> (fit-&gt;is_unbounded())</div><div class="line">    {</div><div class="line">      std::cout &lt;&lt; <span class="stringliteral">"[Unbounded face]"</span>;</div><div class="line">    }</div><div class="line">    <span class="keywordflow">else</span></div><div class="line">    {</div><div class="line">      <span class="comment">// Print the vertices along the outer boundary of the face.</span></div><div class="line">      ccb = fit-&gt;outer_ccb();</div><div class="line">      std::cout &lt;&lt; <span class="stringliteral">"[Face]  "</span>;</div><div class="line">      <span class="keywordflow">do</span></div><div class="line">      {</div><div class="line">        std::cout &lt;&lt; <span class="charliteral">'('</span> &lt;&lt; ccb-&gt;target()-&gt;point() &lt;&lt; <span class="stringliteral">")  "</span>;</div><div class="line">        ++ccb;</div><div class="line">      } <span class="keywordflow">while</span> (ccb != fit-&gt;outer_ccb());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Print the labels of the triangles that induce the envelope on this face.</span></div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"--&gt;  "</span> &lt;&lt; fit-&gt;number_of_surfaces()</div><div class="line">              &lt;&lt; <span class="stringliteral">" triangles:"</span>;</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (sit = fit-&gt;surfaces_begin(); sit != fit-&gt;surfaces_end(); ++sit)</div><div class="line">      std::cout &lt;&lt; <span class="charliteral">' '</span> &lt;&lt; sit-&gt;data();</div><div class="line">    std::cout &lt;&lt; std::endl;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="comment">// Go over all arrangement edges.</span></div><div class="line">  Envelope_diagram_2::Edge_const_iterator            eit;</div><div class="line"></div><div class="line">  <span class="keywordflow">for</span> (eit = diag.edges_begin(); eit != diag.edges_end(); ++eit)</div><div class="line">  {</div><div class="line">    <span class="comment">// Print the labels of the triangles that induce the envelope on this edge.</span></div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"[Edge]  ("</span> &lt;&lt; eit-&gt;source()-&gt;point()</div><div class="line">              &lt;&lt; <span class="stringliteral">")  ("</span> &lt;&lt; eit-&gt;target()-&gt;point()</div><div class="line">              &lt;&lt; <span class="stringliteral">")  --&gt;  "</span> &lt;&lt; eit-&gt;number_of_surfaces()</div><div class="line">              &lt;&lt; <span class="stringliteral">" triangles:"</span>;</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (sit = eit-&gt;surfaces_begin(); sit != eit-&gt;surfaces_end(); ++sit)</div><div class="line">      std::cout &lt;&lt; <span class="charliteral">' '</span> &lt;&lt; sit-&gt;data();</div><div class="line">    std::cout &lt;&lt; std::endl;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/* The main program: */</span></div><div class="line"><span class="keywordtype">int</span> main ()</div><div class="line">{</div><div class="line">  <span class="comment">// Construct the input triangles, makred A and B.</span></div><div class="line">  std::list&lt;Data_triangle_3&gt;   triangles;</div><div class="line"></div><div class="line">  triangles.push_back (Data_triangle_3 (Triangle_3 (Point_3 (0, 0, 0),</div><div class="line">                                                    Point_3 (0, 6, 0),</div><div class="line">                                                    Point_3 (5, 3, 4)),</div><div class="line">                                        <span class="charliteral">'A'</span>));</div><div class="line">  triangles.push_back (Data_triangle_3 (Triangle_3 (Point_3 (6, 0, 0),</div><div class="line">                                                    Point_3 (6, 6, 0),</div><div class="line">                                                    Point_3 (1, 3, 4)),</div><div class="line">                                        <span class="charliteral">'B'</span>));</div><div class="line">  </div><div class="line">  <span class="comment">// Compute and print the minimization diagram.</span></div><div class="line">  Envelope_diagram_2      min_diag;</div><div class="line"></div><div class="line">  <a class="code" href="group__PkgEnvelope3.html#gafd8dc9fadb187466e4c567099ec1a443">CGAL::lower_envelope_3</a> (triangles.begin(), triangles.end(),</div><div class="line">                          min_diag);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">"The minimization diagram:"</span> &lt;&lt; std::endl;</div><div class="line">  print_diagram (min_diag);</div><div class="line"></div><div class="line">  <span class="comment">// Compute and print the maximization diagram.</span></div><div class="line">  Envelope_diagram_2      max_diag;</div><div class="line"></div><div class="line">  <a class="code" href="group__PkgEnvelope3.html#ga1fbbe89e27c3dc3404bbbb3b1f7ceea1">CGAL::upper_envelope_3</a> (triangles.begin(), triangles.end(),</div><div class="line">                          max_diag);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">"The maximization diagram:"</span> &lt;&lt; std::endl;</div><div class="line">  print_diagram (max_diag);</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> (0);</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="Envelope_3ExampleforEnvelopeofSpheres"></a>
+Example for Envelope of Spheres</h2>
+<p>The next example demonstrates how to instantiate and use the envelope-traits class for spheres, based on the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arr__conic__traits__2.html">Arr_conic_traits_2</a></code> class that handles the projected intersecion curves. The program reads a set of spheres from an input file and constructs their lower envelope:</p>
+<p><br />
+<b>File</b> <a class="el" href="Envelope_3_2envelope_spheres_8cpp-example.html">Envelope_3/envelope_spheres.cpp</a> </p><div class="fragment"><div class="line"><span class="comment">// Constructing the lower envelope of a set of spheres read from a file.</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/basic.h&gt;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#ifndef CGAL_USE_CORE</span></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="keywordtype">int</span> main()</div><div class="line">{</div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Sorry, this example needs CORE ..."</span> &lt;&lt; std::endl;</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"><span class="preprocessor">#else</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Cartesian.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/CORE_algebraic_number_traits.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Arr_conic_traits_2.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Env_sphere_traits_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/envelope_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Timer.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;list&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> CGAL::CORE_algebraic_number_traits            Nt_traits;</div><div class="line"><span class="keyword">typedef</span> Nt_traits::Rational                           Rational;</div><div class="line"><span class="keyword">typedef</span> Nt_traits::Algebraic                          Algebraic;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Cartesian.html">CGAL::Cartesian&lt;Rational&gt;</a>                     Rat_kernel;</div><div class="line"><span class="keyword">typedef</span> Rat_kernel::Point_3                           Rat_point_3;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Cartesian.html">CGAL::Cartesian&lt;Algebraic&gt;</a>                    Alg_kernel;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arr__conic__traits__2.html">CGAL::Arr_conic_traits_2&lt;Rat_kernel, Alg_kernel, Nt_traits&gt;</a></div><div class="line">                                                      Conic_traits_2;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Env__sphere__traits__3.html">CGAL::Env_sphere_traits_3&lt;Conic_traits_2&gt;</a>     Traits_3;</div><div class="line"><span class="keyword">typedef</span> Traits_3::Surface_3                           Sphere_3;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Envelope__diagram__2.html">CGAL::Envelope_diagram_2&lt;Traits_3&gt;</a>            Envelope_diagram_2;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div><div class="line">{</div><div class="line">  <span class="comment">// Get the name of the input file from the command line, or use the default</span></div><div class="line">  <span class="comment">// fan_grids.dat file if no command-line parameters are given.</span></div><div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span> * filename = (argc &gt; 1) ? argv[1] : <span class="stringliteral">"spheres.dat"</span>;</div><div class="line"></div><div class="line">  <span class="comment">// Open the input file.</span></div><div class="line">  std::ifstream     in_file(filename);</div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (! in_file.is_open())</div><div class="line">  {</div><div class="line">    std::cerr &lt;&lt; <span class="stringliteral">"Failed to open "</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">" ..."</span> &lt;&lt; std::endl;</div><div class="line">    <span class="keywordflow">return</span> 1;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="comment">// Read the spheres from the file.</span></div><div class="line">  <span class="comment">// The input file format should be (all coordinate values are integers):</span></div><div class="line">  <span class="comment">// &lt;n&gt;                           // number of spheres.</span></div><div class="line">  <span class="comment">// &lt;x_1&gt; &lt;y_1&gt; &lt;x_1&gt; &lt;R_1&gt;       // center and squared radious of sphere #1.</span></div><div class="line">  <span class="comment">// &lt;x_2&gt; &lt;y_2&gt; &lt;x_2&gt; &lt;R_2&gt;       // center and squared radious of sphere #2.</span></div><div class="line">  <span class="comment">//   :     :     :     :</span></div><div class="line">  <span class="comment">// &lt;x_n&gt; &lt;y_n&gt; &lt;x_n&gt; &lt;R_n&gt;       // center and squared radious of sphere #n.</span></div><div class="line">  <span class="keywordtype">int</span>                   n = 0;</div><div class="line">  std::list&lt;Sphere_3&gt;   spheres;</div><div class="line">  <span class="keywordtype">int</span>                   x = 0, y = 0, z = 0, sqr_r = 0;</div><div class="line">  <span class="keywordtype">int</span>                   i;</div><div class="line"></div><div class="line">  in_file &gt;&gt; n;</div><div class="line">  <span class="keywordflow">for</span> (i = 0; i &lt; n; ++i)</div><div class="line">  {</div><div class="line">    in_file &gt;&gt; x &gt;&gt; y &gt;&gt; z &gt;&gt; sqr_r;</div><div class="line">    spheres.push_back(Sphere_3(Rat_point_3(x, y, z), Rational(sqr_r)));</div><div class="line">  }</div><div class="line">  in_file.close();</div><div class="line"></div><div class="line">  <span class="comment">// Compute the lower envelope.</span></div><div class="line">  Envelope_diagram_2    min_diag;</div><div class="line">  CGAL::Timer           timer;</div><div class="line"></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Constructing the lower envelope of "</span></div><div class="line">            &lt;&lt; n &lt;&lt; <span class="stringliteral">" spheres."</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line">  timer.start();</div><div class="line">  <a class="code" href="group__PkgEnvelope3.html#gafd8dc9fadb187466e4c567099ec1a443">CGAL::lower_envelope_3</a>(spheres.begin(), spheres.end(), min_diag);</div><div class="line">  timer.stop();</div><div class="line"></div><div class="line">  <span class="comment">// Print the dimensions of the minimization diagram.</span></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"V = "</span> &lt;&lt; min_diag.number_of_vertices()</div><div class="line">        &lt;&lt; <span class="stringliteral">",  E = "</span> &lt;&lt; min_diag.number_of_edges()</div><div class="line">        &lt;&lt; <span class="stringliteral">",  F = "</span> &lt;&lt; min_diag.number_of_faces() &lt;&lt; std::endl;</div><div class="line"></div><div class="line">  std::cout &lt;&lt; <span class="stringliteral">"Construction took "</span> &lt;&lt; timer.time()</div><div class="line">        &lt;&lt; <span class="stringliteral">" seconds."</span> &lt;&lt; std::endl;</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="preprocessor">#endif</span></div></div><!-- fragment --><h2><a class="anchor" id="Envelope_3ExampleforEnvelopeofPlanes"></a>
+Example for Envelope of Planes</h2>
+<p>The next example demonstrates how to instantiate and use the envelope-traits class for planes, based on the <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Arrangement_on_surface_2.tag:../Arrangement_on_surface_2/" href="../Arrangement_on_surface_2/classCGAL_1_1Arr__linear__traits__2.html">Arr_linear_traits_2</a></code> class that handles infinite linear objects such as lines and rays.</p>
+<p><br />
+<b>File</b> <a class="el" href="Envelope_3_2envelope_planes_8cpp-example.html">Envelope_3/envelope_planes.cpp</a> </p><div class="fragment"><div class="line"><span class="comment">// Constructing the lower and the upper envelope of a set of planes.</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Exact_rational.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Cartesian.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/Env_plane_traits_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;CGAL/envelope_3.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;list&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> CGAL::Exact_rational                             Number_type;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/structCGAL_1_1Cartesian.html">CGAL::Cartesian&lt;Number_type&gt;</a>                     <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/namespaceKernel.html">Kernel</a>;</div><div class="line"><span class="keyword">typedef</span> <a class="codeRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Plane__3.html">Kernel::Plane_3</a>                                  Plane_3;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Env__plane__traits__3.html">CGAL::Env_plane_traits_3&lt;Kernel&gt;</a>                 Traits_3;</div><div class="line"><span class="keyword">typedef</span> Traits_3::Surface_3                              Surface_3;</div><div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Envelope__diagram__2.html">CGAL::Envelope_diagram_2&lt;Traits_3&gt;</a>               Envelope_diagram_2;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/* Auxiliary function - print the features of the given envelope diagram. */</span></div><div class="line"><span class="keywordtype">void</span> print_diagram (<span class="keyword">const</span> Envelope_diagram_2&amp; diag)</div><div class="line">{</div><div class="line">  <span class="comment">// Go over all arrangement faces.</span></div><div class="line">  Envelope_diagram_2::Face_const_iterator            fit;</div><div class="line">  Envelope_diagram_2::Ccb_halfedge_const_circulator  ccb;</div><div class="line">  <a class="code" href="classCGAL_1_1Envelope__diagram__2.html#a8a2c4c2adcc103537b08f0a9475d4084">Envelope_diagram_2::Surface_const_iterator</a>         sit;</div><div class="line"></div><div class="line">  <span class="keywordflow">for</span> (fit = diag.faces_begin(); fit != diag.faces_end(); ++fit)</div><div class="line">  {</div><div class="line">    <span class="comment">// Print the face boundary.</span></div><div class="line"></div><div class="line">    <span class="comment">// Print the vertices along the outer boundary of the face.</span></div><div class="line">    ccb = fit-&gt;outer_ccb();</div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"[Face]  "</span>;</div><div class="line">    <span class="keywordflow">do</span></div><div class="line">    {</div><div class="line">      <span class="keywordflow">if</span>(!ccb-&gt;is_fictitious())</div><div class="line">        std::cout &lt;&lt; <span class="charliteral">'('</span> &lt;&lt; ccb-&gt;curve() &lt;&lt; <span class="stringliteral">") "</span>;</div><div class="line">      ++ccb;</div><div class="line">    } <span class="keywordflow">while</span> (ccb != fit-&gt;outer_ccb());</div><div class="line"></div><div class="line">    <span class="comment">// Print the planes that induce the envelope on this face.</span></div><div class="line">    std::cout &lt;&lt; <span class="stringliteral">"--&gt;  "</span> &lt;&lt; fit-&gt;number_of_surfaces()</div><div class="line">              &lt;&lt; <span class="stringliteral">" planes:"</span>;</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (sit = fit-&gt;surfaces_begin(); sit != fit-&gt;surfaces_end(); ++sit)</div><div class="line">      std::cout &lt;&lt; <span class="charliteral">' '</span> &lt;&lt; sit-&gt;plane();</div><div class="line">    std::cout &lt;&lt; std::endl;</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/* The main program: */</span></div><div class="line"><span class="keywordtype">int</span> main ()</div><div class="line">{</div><div class="line">  <span class="comment">// Construct the input planes.</span></div><div class="line">  std::list&lt;Surface_3&gt;   planes;</div><div class="line"></div><div class="line">  planes.push_back (Surface_3(Plane_3(0, -1, 1, 0)));</div><div class="line">  planes.push_back (Surface_3(Plane_3(-1, 0, 1, 0)));</div><div class="line">  planes.push_back (Surface_3(Plane_3(0, 1 , 1, 0)));</div><div class="line">  planes.push_back (Surface_3(Plane_3(1, 0, 1,  0)));</div><div class="line"></div><div class="line">  <span class="comment">// Compute and print the minimization diagram.</span></div><div class="line">  Envelope_diagram_2      min_diag;</div><div class="line"></div><div class="line">  <a class="code" href="group__PkgEnvelope3.html#gafd8dc9fadb187466e4c567099ec1a443">CGAL::lower_envelope_3</a> (planes.begin(), planes.end(), min_diag);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">"The minimization diagram:"</span> &lt;&lt; std::endl;</div><div class="line">  print_diagram (min_diag);</div><div class="line"></div><div class="line">  <span class="comment">// Compute and print the maximization diagram.</span></div><div class="line">  Envelope_diagram_2      max_diag;</div><div class="line"></div><div class="line">  <a class="code" href="group__PkgEnvelope3.html#ga1fbbe89e27c3dc3404bbbb3b1f7ceea1">CGAL::upper_envelope_3</a> (planes.begin(), planes.end(), max_diag);</div><div class="line"></div><div class="line">  std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">"The maximization diagram:"</span> &lt;&lt; std::endl;</div><div class="line">  print_diagram (max_diag);</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> (0);</div><div class="line">}</div></div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:58 for CGAL 4.13 - 3D Envelopes by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+</html>

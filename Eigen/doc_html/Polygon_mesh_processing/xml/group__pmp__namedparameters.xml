@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__pmp__namedparameters" kind="group">
+    <compoundname>pmp_namedparameters</compoundname>
+    <title>Named Parameters for Polygon Mesh Processing</title>
+    <briefdescription>
+<para>In this package, all functions optional parameters are implemented as BGL optional named parameters (see <ref refid="index_1BGLNamedParameters" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">Named Parameters</ref> for more information on how to use them). </para>    </briefdescription>
+    <detaileddescription>
+<para>Since the parameters of the various polygon mesh processing functions defined in this package are redundant, their long descriptions are centralized below. The sequence of named parameters starts with <computeroutput>CGAL::parameters::</computeroutput>. <computeroutput><ref refid="polygon__mesh__processing_8h_1aee6e37c8d14cbf0847daa8a6bfeb69e6" kindref="member">CGAL::parameters::all_default()</ref></computeroutput> can be used to indicate that default values of optional named parameters shall be used.</para><para>In the following, we assume that the following types are provided as template parameters of polygon mesh processing functions and classes. Note that, for some of these functions, the type is more specific: <itemizedlist>
+<listitem>
+<para><computeroutput>PolygonMesh</computeroutput> is a model of the concept <computeroutput><ref refid="classFaceGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceGraph</ref></computeroutput>. </para></listitem>
+<listitem>
+<para><computeroutput>GeomTraits</computeroutput> a geometric traits class in which constructions are performed and predicates evaluated. Everywhere in this package, a CGAL <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> fulfills the requirements. </para></listitem>
+</itemizedlist>
+</para><para>The following named parameters, offered by the package <ref refid="packages_1PkgBGLSummary" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">CGAL and the Boost Graph Library</ref> (see <ref refid="group__bgl__namedparameters" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">BGL Named Parameters</ref>), are used in this package:</para><para><variablelist>
+<varlistentry><term></term></varlistentry>
+<listitem><para><table rows="4" cols="2"><row>
+<entry thead="no"><para>vertex_point_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_vertex_point_map"/>is the property map with the points associated to the vertices of the polygon mesh <computeroutput>pmesh</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>GeomTraits::Point_3</computeroutput> as value type. <linebreak/>
+<bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_point,<sp/>pmesh)<sp/></highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>vertex_index_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_vertex_index_map"/>is the property map containing the index of each vertex of the input polygon mesh.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and the value type <programlisting><codeline><highlight class="normal">typename<sp/>boost::property_traits&lt;typename<sp/>boost::property_map&lt;PolygonMesh,<sp/>CGAL::vertex_index_t&gt;::type&gt;::value_type<sp/></highlight></codeline>
+</programlisting> <bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_index,<sp/>pmesh)</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>face_index_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_face_index_map"/>is the property map containing the index of each face of the input polygon mesh.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadablePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadablePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> as key type and the value type: <programlisting><codeline><highlight class="normal">typename<sp/>boost::property_traits&lt;typename<sp/>boost::property_map&lt;PolygonMesh,<sp/>CGAL::face_index_t&gt;::type&gt;::value_type<sp/></highlight></codeline>
+</programlisting> <bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::face_index,<sp/>pmesh)</highlight></codeline>
+</programlisting> If this internal property map exists, its values must be initialized. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>edge_is_constrained_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_edge_is_constrained_map"/>is the property map containing information about edges of the input polygon mesh being marked or not. In <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput> and <computeroutput><ref refid="group__keep__connected__components__grp_1gabe2052b2281e1e628e68d8fea94be2d9" kindref="member">connected_components()</ref></computeroutput>, the marked edges are constrained.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::edge_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. It must be default constructible.<linebreak/>
+<bold>Default:</bold> a default property map where no edge is constrained  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para>In addition to these named parameters, this package offers the following named parameters:</para><para><variablelist>
+<varlistentry><term></term></varlistentry>
+<listitem><para><table rows="38" cols="2"><row>
+<entry thead="no"><para>geom_traits </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_geom_traits"/>is the geometric traits instance used for the mesh processing operation.<linebreak/>
+<bold>Type:</bold> a Geometric traits class.<linebreak/>
+<bold>Default</bold>: <programlisting><codeline><highlight class="normal">typename<sp/>CGAL::Kernel_traits&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typename<sp/>boost::property_traits&lt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typename<sp/>boost::property_map&lt;PolygonMesh,<sp/>CGAL::vertex_point_t&gt;::type&gt;::value_type&gt;::Kernel<sp/></highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>vertex_incident_patches_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_vertex_incident_patches_map"/>is the property map containing the surface patches incident to each vertex of the input polygon mesh.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classLvaluePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">LvaluePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type. Its value type must be a container of <computeroutput>boost::property_traits&lt;PatchIdMap&gt;::value_type</computeroutput> and have a function <computeroutput>insert()</computeroutput>. A <computeroutput>std::set</computeroutput> or a <computeroutput>boost::unordered_set</computeroutput> are recommended, as a patch index may be inserted several times.<linebreak/>
+<bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_incident_patches_t,<sp/>pmesh)</highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>vertex_feature_degree_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_vertex_feature_degree_map"/>is the property map containing the number of feature edges being incident to the vertices of the polygon mesh <computeroutput>pmesh</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>int</computeroutput> as value type. It must be default constructible.<linebreak/>
+<bold>Default:</bold><programlisting><codeline><highlight class="normal">boost::get(CGAL::vertex_feature_degree_t(),<sp/>pmesh)<sp/></highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>vertex_is_constrained_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_vertex_is_constrained_map"/>is the property map containing information about vertices of the input polygon mesh being constrained or not. Constrained vertices may be replaced by new vertices, but the number and location of vertices remain unchanged.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::vertex_descriptor</computeroutput> as key type and <computeroutput>bool</computeroutput> as value type. It must be default constructible.<linebreak/>
+<bold>Default:</bold> a default property map where no vertex is constrained is provided. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>face_patch_map </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_face_patch_map"/>is a property map containing information about faces. It is particularly well-suited for preserving surface patch IDs, or face colors. The edges at the interface between surface patches are treated similarly to the ones of <computeroutput>edge_is_constrained_map</computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classReadWritePropertyMap" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">ReadWritePropertyMap</ref></computeroutput> with <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput> as key type and the desired property, model of <computeroutput><ref refid="classCopyConstructible" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">CopyConstructible</ref></computeroutput> as value type.<linebreak/>
+<bold>Default:</bold> a default property map where each face is associated with the ID of the connected component it belongs to. Connected components are computed with respect to the constrained edges listed in the property map <computeroutput>edge_is_constrained_map</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>first_index </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_first_index"/>is the index of the first surface patch.<linebreak/>
+<bold>Type:</bold> <computeroutput>std::size_t</computeroutput><linebreak/>
+<bold>Default:</bold> 1 </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>density_control_factor </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_density_control_factor"/>controls the density of the mesh generated by refinement, with larger values causing denser refinements. The density of vertices in the refined region is this factor times higher than before refinement.<linebreak/>
+<bold>Type:</bold> floating scalar value<linebreak/>
+<bold>Default:</bold> <computeroutput>CGAL::sqrt(2)</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>fairing_continuity </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_fairing_continuity"/>controls the tangential continuity of the output surface in <computeroutput><ref refid="group__PMP__meshing__grp_1gaa091c8368920920eed87784107d68ecf" kindref="member">fair()</ref></computeroutput>. The possible values are 0, 1 and 2, refering to the C<superscript>0</superscript>, C<superscript>1</superscript> and C<superscript>2</superscript> continuity.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> between 0 and 2<linebreak/>
+<bold>Default:</bold> <computeroutput>1</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>sparse_linear_solver </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_sparse_linear_solver"/>is the solver used in <computeroutput><ref refid="group__PMP__meshing__grp_1gaa091c8368920920eed87784107d68ecf" kindref="member">fair()</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> a class model of <computeroutput><ref refid="classSparseLinearAlgebraWithFactorTraits__d" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Solver_interface.tag">SparseLinearAlgebraWithFactorTraits_d</ref></computeroutput>.<linebreak/>
+<bold>Default:</bold> if <ref refid="installation_1thirdpartyEigen" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">Eigen</ref> 3.2 (or greater) is available and <computeroutput>CGAL_EIGEN3_ENABLED</computeroutput> is defined, then the following overload of <computeroutput>Eigen_solver_traits</computeroutput> is provided as default value:<linebreak/>
+<programlisting><codeline><highlight class="normal">CGAL::Eigen_solver_traits&lt;Eigen::SparseLU&lt;CGAL::Eigen_sparse_matrix&lt;double&gt;::EigenType,<sp/>Eigen::COLAMDOrdering&lt;int&gt;<sp/>&gt;<sp/>&gt;<sp/></highlight></codeline>
+</programlisting> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_iterations </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_iterations"/>is the number of iterations of the sequence of iterations performed in <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput>.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>1</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>protect_constraints </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_protect_constraints"/>enables the protection of constraints listed by <ref refid="group__pmp__namedparameters_1PMP_edge_is_constrained_map" kindref="member">edge_is_constrained_map</ref> and boundary edges in <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput>. If <computeroutput>true</computeroutput>, constraint edges cannot be modified at all during the remeshing process.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>collapse_constraints </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_collapse_constraints"/>enables the collapse of constraints listed by <ref refid="group__pmp__namedparameters_1PMP_edge_is_constrained_map" kindref="member">edge_is_constrained_map</ref> and boundary edges in <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput>. If <computeroutput>false</computeroutput>, constraint edges cannot be collapsed during the remeshing process.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>relax_constraints </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_relax_constraints"/>enables the tangential relaxation step in <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput> to be performed on vertices that are endpoints of constraints listed by <ref refid="group__pmp__namedparameters_1PMP_edge_is_constrained_map" kindref="member">edge_is_constrained_map</ref>, and boundary edges. The vertices move along the constrained polylines they belong to. Corners (i.e. vertices incident to more than 2 constraints, and vertices listed in <ref refid="group__pmp__namedparameters_1PMP_vertex_is_constrained_map" kindref="member">vertex_is_constrained_map</ref>) are not allowed to move at all. If <ref refid="group__pmp__namedparameters_1PMP_protect_constraints" kindref="member">protect_constraints</ref> is set to <computeroutput>true</computeroutput>, this parameter is ignored.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_relaxation_steps </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_relaxation_steps"/>is the number of iterations of tangential relaxation that are performed at each iteration of <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput>. A larger number of relaxation steps lead to a more isotropic mesh.<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned</computeroutput> <computeroutput>int</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>1</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>use_delaunay_triangulation </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_use_delaunay_triangulation"/>enables the use of the Delaunay triangulation facet search space for hole filling functions.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>use_random_uniform_sampling </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_use_random_uniform_sampling"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate that the points are picked in a random uniform way.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>use_grid_sampling </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_use_grid_sampling"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate that the points are picked on a grid in each face.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>use_monte_carlo_sampling </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_use_monte_carlo_sampling"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate that the points are picked using a Monte-Carlo approach.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>sample_edges </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_sample_edges"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate if a dedicated sampling of edges is done.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>sample_vertices </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_sample_vertices"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate that triangle vertices are copied in the output iterator.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>sample_faces </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_sample_faces"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to indicate if the interior of faces is considered for the sampling.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_on_faces </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_on_faces"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points picked using the random uniform method on faces.<linebreak/>
+<bold>Type:</bold> <computeroutput>std::size_t</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_on_edges </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_on_edges"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points picked using the random uniform method on edges.<linebreak/>
+<bold>Type:</bold> <computeroutput>std::size_t</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_per_face </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_per_face"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points picked per face using the Monte-Carlo method.<linebreak/>
+<bold>Type:</bold> <computeroutput>std::size_t</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_per_edge </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_per_edge"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points picked per edge using the Monte-Carlo method.<linebreak/>
+<bold>Type:</bold> <computeroutput>std::size_t</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>grid_spacing </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_grid_spacing"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the grid spacing when using the grid sampling method.<linebreak/>
+<bold>Type:</bold> <computeroutput>double</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_per_area_unit </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_per_area_unit"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points per area unit to be picked up in faces for the random uniform sampling and Monte-Carlo methods.<linebreak/>
+<bold>Type:</bold> <computeroutput>double</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>number_of_points_per_distance_unit </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_number_of_points_per_distance_unit"/>is a parameter used in <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> to set the number of points per distance unit to be picked up on edges for the random uniform sampling and Monte-Carlo methods.<linebreak/>
+<bold>Type:</bold> <computeroutput>double</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>0</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>do_project </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_do_project"/>is a parameter used in <computeroutput><ref refid="group__PMP__meshing__grp_1ga028a80dc84395650f67714fa7618ec53" kindref="member">random_perturbation()</ref></computeroutput> to set whether vertices are re-projected to the input surface after their geometric perturbation.<linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>random_seed </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_random_seed"/>is a parameter used in <computeroutput><ref refid="group__PMP__meshing__grp_1ga028a80dc84395650f67714fa7618ec53" kindref="member">random_perturbation()</ref></computeroutput> to choose a seed to initialize the random number generator <computeroutput><ref refid="classCGAL_1_1Random" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Generator.tag">CGAL::Random()</ref></computeroutput>. If this parameter is not provided, the perturbation is not deterministic (i.e. not reproducible from one run to the other).<linebreak/>
+<bold>Type:</bold> <computeroutput>unsigned int</computeroutput> <linebreak/>
+<bold>Default:</bold> the random number generator is initialized with <computeroutput><ref refid="classCGAL_1_1Random" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Generator.tag">CGAL::Random()</ref></computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>outward_orientation </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_outward_orientation"/>Parameter used in orientation functions to choose between an outward or inward orientation. <linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>true</computeroutput></para><para></para></entry></row>
+<row>
+<entry thead="no"><para>do_overlap_test_of_bounded_sides </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_do_overlap_test_of_bounded_sides"/>Parameter used in intersection test functions to indicate whether overlapping tests of bounded sides of close meshes are done in addition to surface intersection tests. <linebreak/>
+<bold>Type:</bold> <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default:</bold> <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>projection_functor </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_projection_functor"/>Parameter used in <computeroutput><ref refid="group__PMP__meshing__grp_1gad3d03890515ae8103bd32a30a3486412" kindref="member">isotropic_remeshing()</ref></computeroutput> to specify an alternative vertex projection method. <linebreak/>
+<bold>Type:</bold> Unary function object with vertex descriptor as argument type. <linebreak/>
+<bold>Default:</bold> A function object projecting vertices on the input surface. </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>apply_per_connected_component </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_apply_per_connected_component"/>Parameter used to indicate whether an algorithm should consider each connected component of a mesh independently.<linebreak/>
+<bold>Type</bold> : <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default</bold> value is <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>visitor </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_visitor"/>Parameter used to pass a visitor class to a function. Its type and behavior depend on the visited function. <linebreak/>
+<bold>Type</bold> : <computeroutput>A class</computeroutput> <linebreak/>
+<bold>Default</bold> Specific to the function visited </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>throw_on_self_intersection </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_throw_on_self_intersection"/>Parameter used in corefinement-related functions to make the functions throw an exception in case some faces involved in the intersection of the input are self-intersecting and make the operation impossible with the current version of the code. <linebreak/>
+<bold>Type</bold> : <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default</bold> value is <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>clip_volume </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_clip_volume"/>Parameter used in <computeroutput><ref refid="group__PMP__corefinement__grp_1ga30082762ba2d947cba304e2884d96a99" kindref="member">clip()</ref></computeroutput> functions to clip a volume rather than a surface. <linebreak/>
+<bold>Type</bold> : <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default</bold> value is <computeroutput>false</computeroutput> </para><para></para></entry></row>
+<row>
+<entry thead="no"><para>use_compact_clipper </para></entry><entry thead="no"><para><anchor id="group__pmp__namedparameters_1PMP_use_compact_clipper"/>Parameter used in <computeroutput><ref refid="group__PMP__corefinement__grp_1ga30082762ba2d947cba304e2884d96a99" kindref="member">clip()</ref></computeroutput> functions to indicate whether the boundary of the clipper should be considered as part of the clipping volume or not. <linebreak/>
+<bold>Type</bold> : <computeroutput>bool</computeroutput> <linebreak/>
+<bold>Default</bold> value is <computeroutput>true</computeroutput> </para><para></para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

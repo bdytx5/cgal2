@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Env__triangle__traits__3" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Env_triangle_traits_3</compoundname>
+    <basecompoundref refid="classCGAL_1_1Arr__segment__traits__2" prot="public" virt="non-virtual">CGAL::Arr_segment_traits_2&lt; Kernel &gt;</basecompoundref>
+    <includes local="no">CGAL/Env_triangle_traits_3.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename <ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+<para>The traits class <computeroutput><ref refid="classCGAL_1_1Env__triangle__traits__3" kindref="compound">Env_triangle_traits_3</ref></computeroutput> models the <computeroutput><ref refid="classEnvelopeTraits__3" kindref="compound">EnvelopeTraits_3</ref></computeroutput> concept, and is used for the construction of lower and upper envelopes of triangles in the space. </para>    </briefdescription>
+    <detaileddescription>
+<para>It is parameterized by a CGAL-kernel, which is parameterized in turn by a number type. The number type should support exact rational arithmetic, to avoid numerical errors and robustness problems. In particular, the number type should support the arithmetic operations <formula id="0">$ +$</formula>, <formula id="1">$ -$</formula>, <formula id="2">$ \times$</formula>, and <formula id="3">$ \div$</formula> without loss of precision. For optimal performance, we recommend instantiating the traits class with the predefined <computeroutput><ref refid="classCGAL_1_1Exact__predicates__exact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Exact_predicates_exact_constructions_kernel</ref></computeroutput> provided by CGAL. Using this kernel guarantees exactness and robustness, while it incurs only a minor overhead (in comparison to working with a fast, inexact number type) for most inputs.</para><para>Note that when we project the boundary of a triangle, or the intersection of two triangles, onto the <formula id="4">$ xy$</formula>-plane, we obtain line segments. Indeed, <computeroutput><ref refid="classCGAL_1_1Env__triangle__traits__3" kindref="compound">Env_triangle_traits_3</ref></computeroutput> inherits from the <computeroutput><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Arrangement_on_surface_2.tag">Arr_segment_traits_2</ref>&lt;<ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref>&gt;</computeroutput> traits class, and extends it by adding operations on 3D objects, namely spacial triangles. Note that the traits class does <emphasis>not</emphasis> define <computeroutput><ref refid="classKernel_1_1Triangle__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Triangle_3</ref></computeroutput> as its surface (and <formula id="4">$ xy$</formula>-monotone surface) type, as one may expect. This is because the traits class needs to store extra data with the triangles in order to efficiently operate on them. Nevertheless, the nested <computeroutput>Xy_monotone_surface_3</computeroutput> and <computeroutput>Surface_3</computeroutput> types are however constructible from a <computeroutput><ref refid="classKernel_1_1Triangle__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Triangle_3</ref></computeroutput> instance and are also convertible to a <computeroutput><ref refid="classKernel_1_1Triangle__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::Triangle_3</ref></computeroutput> object. Both types, <computeroutput>Xy_monotone_surface_3</computeroutput> and <computeroutput>Surface_3</computeroutput>, refer to the same class, as <emphasis>every</emphasis> triangle is (weakly) <formula id="4">$ xy$</formula>-monotone).</para><para><xrefsect id="models_1_models000004"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classEnvelopeTraits__3" kindref="compound">EnvelopeTraits_3</ref></computeroutput></para></xrefdescription></xrefsect></para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="22">
+        <label>CGAL::Env_triangle_traits_3&lt; Kernel &gt;</label>
+        <link refid="classCGAL_1_1Env__triangle__traits__3"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>CGAL::Arr_segment_traits_2&lt; Kernel &gt;</label>
+        <link refid="classCGAL_1_1Arr__segment__traits__2" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Arrangement_on_surface_2.tag"/>
+        <childnode refid="24" relation="template-instance">
+          <edgelabel>&lt; Kernel &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>CGAL::Arr_segment_traits_2&lt; class &gt;</label>
+        <link refid="classCGAL_1_1Arr__segment__traits__2" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Arrangement_on_surface_2.tag"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="25">
+        <label>CGAL::Env_triangle_traits_3&lt; Kernel &gt;</label>
+        <link refid="classCGAL_1_1Env__triangle__traits__3"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>CGAL::Arr_segment_traits_2&lt; Kernel &gt;</label>
+        <link refid="classCGAL_1_1Arr__segment__traits__2" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Arrangement_on_surface_2.tag"/>
+        <childnode refid="27" relation="template-instance">
+          <edgelabel>&lt; Kernel &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>CGAL::Arr_segment_traits_2&lt; class &gt;</label>
+        <link refid="classCGAL_1_1Arr__segment__traits__2" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Arrangement_on_surface_2.tag"/>
+      </node>
+    </collaborationgraph>
+    <location file="CGAL/Env_triangle_traits_3.h" line="38" column="1" bodyfile="CGAL/Env_triangle_traits_3.h" bodystart="38" bodyend="43"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

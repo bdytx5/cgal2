@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__measure__grp" kind="group">
+    <compoundname>measure_grp</compoundname>
+    <title>Geometric Measure Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__measure__grp_1gae1674775d9fecada7f25710f425cff3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::edge_length</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor h, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>edge_length</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the length of an edge of a given polygon mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para>The edge is given by one of its halfedges, or the edge itself.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>one halfedge of the edge to compute the length </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to which <computeroutput>h</computeroutput> belongs </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the length of <computeroutput>h</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>pmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput>FT</computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately.</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__measure__grp_1ga8e778962db8e41dc145d70c5c4790e41" kindref="member">face_border_length()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="98" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="98" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga8e778962db8e41dc145d70c5c4790e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::face_border_length</definition>
+        <argsstring>(typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor h, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>face_border_length</name>
+        <param>
+          <type>typename boost::graph_traits&lt; PolygonMesh &gt;::halfedge_descriptor</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the length of the border polyline that contains a given halfedge. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a halfedge of the border polyline of which the length is computed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh to which <computeroutput>h</computeroutput> belongs </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the length of the sequence of border edges of <computeroutput>face(h, pmesh)</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>pmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately.</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__measure__grp_1gae1674775d9fecada7f25710f425cff3a" kindref="member">edge_length()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="180" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="180" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga766d9244b959bc25e419edb8b7c24842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PolygonMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; halfedge_descriptor, FT &gt;</type>
+        <definition>std::pair&lt;halfedge_descriptor, FT&gt; CGAL::Polygon_mesh_processing::longest_border</definition>
+        <argsstring>(const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</argsstring>
+        <name>longest_border</name>
+        <param>
+          <type>const PolygonMesh &amp;</type>
+          <declname>pmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>finds the longest border of a given triangulated surface and returns a halfedge that is part of this border and the length of this border. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PolygonMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the polygon mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>PolygonMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>a pair composed of two members:<itemizedlist>
+<listitem><para><computeroutput>first</computeroutput>: a halfedge on the longest border. The return type <computeroutput>halfedge_descriptor</computeroutput> is a halfedge descriptor. It is deduced from the graph traits corresponding to the type <computeroutput>PolygonMesh</computeroutput>.</para></listitem><listitem><para><computeroutput>second</computeroutput>: the length of the longest border The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>pmesh</computeroutput> </para></listitem></itemizedlist>
+</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="243" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="243" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga6a1d7a825c09490b1e6613295343482b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::face_area</definition>
+        <argsstring>(typename boost::graph_traits&lt; TriangleMesh &gt;::face_descriptor f, const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>face_area</name>
+        <param>
+          <type>typename boost::graph_traits&lt; TriangleMesh &gt;::face_descriptor</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the area of a face of a given triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the face of which the area is computed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to which <computeroutput>f</computeroutput> belongs </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="pre"><para><computeroutput>f != boost::graph_traits&lt;TriangleMesh&gt;::null_face()</computeroutput></para></simplesect>
+<simplesect kind="return"><para>the area of <computeroutput>f</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>tmesh</computeroutput>.</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__area__grp_1gad5b975e731751609655f88d287f7385a" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">area()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="317" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="317" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga5f88e84a8dc21da40b194b8c05ed3b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename FaceRange</type>
+          </param>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::area</definition>
+        <argsstring>(FaceRange face_range, const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>area</name>
+        <param>
+          <type>FaceRange</type>
+          <declname>face_range</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the area of a range of faces of a given triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>FaceRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>range of <computeroutput>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. Its iterator type is <computeroutput><ref refid="classInputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">InputIterator</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>face_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of faces of which the area is computed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh to which the faces of <computeroutput>face_range</computeroutput> belong </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput>  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>sum of face areas of <computeroutput>faces</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>tmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately.</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__measure__grp_1ga6a1d7a825c09490b1e6613295343482b" kindref="member">face_area()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="394" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="394" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga7e6384810b305b9df283bbf94fd9fd20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::area</definition>
+        <argsstring>(const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>area</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the surface area of a triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangulated surface mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the surface area of <computeroutput>tmesh</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>tmesh</computeroutput>.</para></simplesect>
+<simplesect kind="warning"><para>This function involves a square root computation. If <computeroutput><ref refid="classKernel_1a55e83f5a9f8ca43588b02ae8256a8fbd" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel::FT</ref></computeroutput> does not have a <computeroutput><ref refid="group__PkgAlgebraicFoundations_1gab922269072ee9ee99ba8c541418b2e11" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Algebraic_foundations.tag">sqrt()</ref></computeroutput> operation, the square root computation will be done approximately.</para></simplesect>
+<simplesect kind="see"><para><computeroutput><ref refid="group__measure__grp_1ga6a1d7a825c09490b1e6613295343482b" kindref="member">face_area()</ref></computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="452" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="452" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="group__measure__grp_1ga85cebf8fbc7cb8930fd16aeee2878c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TriangleMesh</type>
+          </param>
+          <param>
+            <type>typename NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>FT</type>
+        <definition>FT CGAL::Polygon_mesh_processing::volume</definition>
+        <argsstring>(const TriangleMesh &amp;tmesh, const NamedParameters &amp;np)</argsstring>
+        <name>volume</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tmesh</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>computes the volume of the domain bounded by a closed triangulated surface mesh. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classHalfedgeGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">HalfedgeGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the closed triangulated surface mesh bounding the volume </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>tmesh</computeroutput> is closed</para></simplesect>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>pmesh</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classKernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Kernel</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para><para><simplesect kind="return"><para>the volume bounded by <computeroutput>tmesh</computeroutput>. The return type <computeroutput>FT</computeroutput> is a number type. It is either deduced from the <computeroutput>geom_traits</computeroutput> <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> if provided, or the geometric traits class deduced from the point property map of <computeroutput>tmesh</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/measure.h" line="499" column="1" bodyfile="CGAL/Polygon_mesh_processing/measure.h" bodystart="499" bodyend="528"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to compute lengths of edges and borders, areas of faces and patches, as well as volumes of closed meshes. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

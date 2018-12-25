@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCGAL_1_1Arr__extended__dcel" kind="class" language="C++" prot="public">
+    <compoundname>CGAL::Arr_extended_dcel</compoundname>
+    <basecompoundref refid="classCGAL_1_1Arr__dcel__base" prot="public" virt="non-virtual">CGAL::Arr_dcel_base&lt; Arr_extended_vertex&lt; V, VData &gt;, Arr_extended_halfedge&lt; H, HData &gt;, Arr_extended_face&lt; F, FData &gt; &gt;</basecompoundref>
+    <includes local="no">CGAL/Arr_extended_dcel.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Traits</type>
+      </param>
+      <param>
+        <type>typename VData</type>
+      </param>
+      <param>
+        <type>typename HData</type>
+      </param>
+      <param>
+        <type>typename FData</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+      <param>
+        <type>typename H</type>
+      </param>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+<para>The <computeroutput><ref refid="classCGAL_1_1Arr__extended__dcel" kindref="compound">Arr_extended_dcel</ref></computeroutput> class-template extends the topological-features of the Dcel namely the vertex, halfedge, and face types. </para>    </briefdescription>
+    <detaileddescription>
+<para>While it is possible to maintain extra (non-geometric) data with the curves or points of the arrangement by extending their types respectively, it is also possible to extend the vertex, halfedge, or face types of the Dcel through inheritance. As the technique to extend these types is somewhat cumbersome and difficult for inexperienced users, the <computeroutput><ref refid="classCGAL_1_1Arr__extended__dcel" kindref="compound">Arr_extended_dcel</ref></computeroutput> class-template provides a convenient way to do that. Each one of the three features is extended with a corresponding data type provided as parameters. This class template is also parameterized with a traits class used to extract default values for the vertex, halfedge, and face base classes, which are the remaining three template parameters respectively. The default values follow:</para><para><table rows="3" cols="2"><row>
+<entry thead="no"><para></para><para><computeroutput>V</computeroutput> = </para></entry><entry thead="no"><para><computeroutput>Arr_vertex_base&lt;typename Traits::Point_2&gt;</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><computeroutput>H</computeroutput> = </para></entry><entry thead="no"><para><computeroutput>Arr_halfedge_base&lt;typename Traits::X_monotone_curve_2&gt;</computeroutput> </para></entry></row>
+<row>
+<entry thead="no"><para><computeroutput>F</computeroutput> = </para></entry><entry thead="no"><para><computeroutput>Arr_face_base</computeroutput></para><para></para></entry></row>
+</table>
+</para><para><xrefsect id="models_1_models000016"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classArrangementDcelWithRebind" kindref="compound">ArrangementDcelWithRebind</ref></computeroutput></para></xrefdescription></xrefsect></para><para><simplesect kind="see"><para><computeroutput><ref refid="classCGAL_1_1Arr__dcel__base" kindref="compound">Arr_dcel_base</ref>&lt;V,H,F&gt;</computeroutput> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="182">
+        <label>CGAL::Arr_dcel_base&lt; V, H, F &gt;</label>
+        <link refid="classCGAL_1_1Arr__dcel__base"/>
+      </node>
+      <node id="180">
+        <label>CGAL::Arr_extended_dcel&lt; Traits, VData, HData, FData, V, H, F &gt;</label>
+        <link refid="classCGAL_1_1Arr__extended__dcel"/>
+        <childnode refid="181" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>CGAL::Arr_dcel_base&lt; Arr_extended_vertex&lt; V, VData &gt;, Arr_extended_halfedge&lt; H, HData &gt;, Arr_extended_face&lt; F, FData &gt; &gt;</label>
+        <link refid="classCGAL_1_1Arr__dcel__base"/>
+        <childnode refid="182" relation="template-instance">
+          <edgelabel>&lt; Arr_extended_vertex&lt; V, VData &gt;, Arr_extended_halfedge&lt; H, HData &gt;, Arr_extended_face&lt; F, FData &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="185">
+        <label>CGAL::Arr_dcel_base&lt; V, H, F &gt;</label>
+        <link refid="classCGAL_1_1Arr__dcel__base"/>
+      </node>
+      <node id="183">
+        <label>CGAL::Arr_extended_dcel&lt; Traits, VData, HData, FData, V, H, F &gt;</label>
+        <link refid="classCGAL_1_1Arr__extended__dcel"/>
+        <childnode refid="184" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="184">
+        <label>CGAL::Arr_dcel_base&lt; Arr_extended_vertex&lt; V, VData &gt;, Arr_extended_halfedge&lt; H, HData &gt;, Arr_extended_face&lt; F, FData &gt; &gt;</label>
+        <link refid="classCGAL_1_1Arr__dcel__base"/>
+        <childnode refid="185" relation="template-instance">
+          <edgelabel>&lt; Arr_extended_vertex&lt; V, VData &gt;, Arr_extended_halfedge&lt; H, HData &gt;, Arr_extended_face&lt; F, FData &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="CGAL/Arr_extended_dcel.h" line="46" column="1" bodyfile="CGAL/Arr_extended_dcel.h" bodystart="42" bodyend="48"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

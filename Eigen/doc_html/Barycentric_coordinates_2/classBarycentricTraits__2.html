@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Barycentric_coordinates_2/classBarycentricTraits__2.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - 2D Generalized Barycentric Coordinates: BarycentricTraits_2 Concept Reference</title><!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - 2D Generalized Barycentric Coordinates
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classBarycentricTraits__2.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classBarycentricTraits__2-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">BarycentricTraits_2 Concept Reference<div class="ingroups"><a class="el" href="group__PkgBarycentric__coordinates__2.html">2D Generalized Barycentric Coordinates Reference</a> » <a class="el" href="group__PkgBarycentric__coordinates__2Concepts.html">Concepts</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><p>Requirements of the template parameter <code>Traits</code> for all the classes with two-dimensional barycentric coordinates from the namespace <code><a class="el" href="namespaceCGAL_1_1Barycentric__coordinates.html" title="The namespace Barycentric_coordinates contains implementations of all generalized barycentric coordin...">CGAL::Barycentric_coordinates</a></code>. </p>
+  <dl class="hasModels"><dt><b><a class="el" href="hasModels.html#_hasModels000002">Has Models:</a></b></dt><dd>All models of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel.html">Kernel</a></code></dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a46aeeb3cc781249ab2ecea0787d5a740"><td class="memItemLeft" align="right" valign="top"><a id="a46aeeb3cc781249ab2ecea0787d5a740"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#a46aeeb3cc781249ab2ecea0787d5a740">FT</a></td></tr>
+<tr class="memdesc:a46aeeb3cc781249ab2ecea0787d5a740"><td class="mdescLeft"> </td><td class="mdescRight">A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Algebraic_foundations.tag:../Algebraic_foundations/" href="../Algebraic_foundations/classFieldNumberType.html">FieldNumberType</a></code>. <br /></td></tr>
+<tr class="separator:a46aeeb3cc781249ab2ecea0787d5a740"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Two-dimensional Geometric Objects</h2></td></tr>
+<tr class="memitem:a2b44cabd78162f1aaeb13029b192dc72"><td class="memItemLeft" align="right" valign="top"><a id="a2b44cabd78162f1aaeb13029b192dc72"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#a2b44cabd78162f1aaeb13029b192dc72">Point_2</a></td></tr>
+<tr class="memdesc:a2b44cabd78162f1aaeb13029b192dc72"><td class="mdescLeft"> </td><td class="mdescRight">A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Point__2.html">Kernel::Point_2</a></code>. <br /></td></tr>
+<tr class="separator:a2b44cabd78162f1aaeb13029b192dc72"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab061441e8171ea6f39cf0a057298ac69"><td class="memItemLeft" align="right" valign="top"><a id="ab061441e8171ea6f39cf0a057298ac69"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#ab061441e8171ea6f39cf0a057298ac69">Vector_2</a></td></tr>
+<tr class="memdesc:ab061441e8171ea6f39cf0a057298ac69"><td class="mdescLeft"> </td><td class="mdescRight">A model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classKernel_1_1Vector__2.html">Kernel::Vector_2</a></code>. <br /></td></tr>
+<tr class="separator:ab061441e8171ea6f39cf0a057298ac69"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Two-dimensional Constructions</h2></td></tr>
+<tr class="memitem:a4b0faa7dcd91159f9dfdf185275e0512"><td class="memItemLeft" align="right" valign="top"><a id="a4b0faa7dcd91159f9dfdf185275e0512"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#a4b0faa7dcd91159f9dfdf185275e0512">Compute_area_2</a></td></tr>
+<tr class="memdesc:a4b0faa7dcd91159f9dfdf185275e0512"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide an FT operator(const Point_2 &amp;p, const Point_2 &amp;q, const Point_2 &amp;r) that returns the signed area of the triangle defined by the points p, q, and r. <br /></td></tr>
+<tr class="separator:a4b0faa7dcd91159f9dfdf185275e0512"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:affa17b8360994b178515a1d51f56caac"><td class="memItemLeft" align="right" valign="top"><a id="affa17b8360994b178515a1d51f56caac"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#affa17b8360994b178515a1d51f56caac">Compute_squared_distance_2</a></td></tr>
+<tr class="memdesc:affa17b8360994b178515a1d51f56caac"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide an FT operator(const Point_2 &amp;p, const Point_2 &amp;q) that returns the squared Euclidean distance between the points p and q. <br /></td></tr>
+<tr class="separator:affa17b8360994b178515a1d51f56caac"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a21559e321ccf62b323f375044d5ab838"><td class="memItemLeft" align="right" valign="top"><a id="a21559e321ccf62b323f375044d5ab838"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#a21559e321ccf62b323f375044d5ab838">Compute_squared_length_2</a></td></tr>
+<tr class="memdesc:a21559e321ccf62b323f375044d5ab838"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide an FT operator(const Vector_2 &amp;p) that returns the squared length of the vector p. <br /></td></tr>
+<tr class="separator:a21559e321ccf62b323f375044d5ab838"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa42d735808aeac59b359d8dd5340ac43"><td class="memItemLeft" align="right" valign="top"><a id="aa42d735808aeac59b359d8dd5340ac43"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#aa42d735808aeac59b359d8dd5340ac43">Compute_scalar_product_2</a></td></tr>
+<tr class="memdesc:aa42d735808aeac59b359d8dd5340ac43"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide an FT operator(const Vector_2 &amp;p, const Vector_2 &amp;q) that returns the scalar product between the vectors p and q. <br /></td></tr>
+<tr class="separator:aa42d735808aeac59b359d8dd5340ac43"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group" id="member-group"></a>
+Two-dimensional Generalized Predicates</h2></td></tr>
+<tr class="memitem:aedc8b5892926aa9ca3f56f9796a2dabf"><td class="memItemLeft" align="right" valign="top"><a id="aedc8b5892926aa9ca3f56f9796a2dabf"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#aedc8b5892926aa9ca3f56f9796a2dabf">Equal_2</a></td></tr>
+<tr class="memdesc:aedc8b5892926aa9ca3f56f9796a2dabf"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide a bool operator(const Point_2 &amp;p, const Point_2 &amp;q) that returns true if p = q and false otherwise. <br /></td></tr>
+<tr class="separator:aedc8b5892926aa9ca3f56f9796a2dabf"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adf647beb117df671cbd3238f5b6c8904"><td class="memItemLeft" align="right" valign="top"><a id="adf647beb117df671cbd3238f5b6c8904"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#adf647beb117df671cbd3238f5b6c8904">Collinear_2</a></td></tr>
+<tr class="memdesc:adf647beb117df671cbd3238f5b6c8904"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide a bool operator(const Point_2 &amp;p, const Point_2 &amp;q, const Point_2 &amp;r) that returns true if the points p, q, and r are collinear and false otherwise. <br /></td></tr>
+<tr class="separator:adf647beb117df671cbd3238f5b6c8904"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a07f474653f7e255e8aea6572e6ae1258"><td class="memItemLeft" align="right" valign="top"><a id="a07f474653f7e255e8aea6572e6ae1258"></a>
+typedef <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classunspecified__type.html">unspecified_type</a> </td><td class="memItemRight" valign="bottom"><a class="el" href="classBarycentricTraits__2.html#a07f474653f7e255e8aea6572e6ae1258">Collinear_are_ordered_along_line_2</a></td></tr>
+<tr class="memdesc:a07f474653f7e255e8aea6572e6ae1258"><td class="mdescLeft"> </td><td class="mdescRight">A model of this concept must provide a bool operator(const Point_2 &amp;p, const Point_2 &amp;q, const Point_2 &amp;r) that returns true if the point q lies between the points p and r and all three points are collinear. <br /></td></tr>
+<tr class="separator:a07f474653f7e255e8aea6572e6ae1258"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classBarycentricTraits__2.html">BarycentricTraits_2</a></li>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:54 for CGAL 4.13 - 2D Generalized Barycentric Coordinates by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+
+
+</html>

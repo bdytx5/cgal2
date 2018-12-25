@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structCGAL_1_1Filtered__kernel" kind="struct" language="C++" prot="public">
+    <compoundname>CGAL::Filtered_kernel</compoundname>
+    <includes local="no">CGAL/Filtered_kernel.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename CK</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Types</header>
+      <memberdef kind="typedef" id="structCGAL_1_1Filtered__kernel_1a4534bc400ce6b5f46a01b77e2833aa8c" prot="public" static="no">
+        <type>EK</type>
+        <definition>typedef EK CGAL::Filtered_kernel&lt; CK &gt;::Exact_kernel</definition>
+        <argsstring></argsstring>
+        <name>Exact_kernel</name>
+        <briefdescription>
+<para>The type of the exact kernel. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Filtered_kernel.h" line="108" column="1" bodyfile="CGAL/Filtered_kernel.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structCGAL_1_1Filtered__kernel_1a12bfea68b2a93842fd576c914f8aaf1c" prot="public" static="no">
+        <type>FK</type>
+        <definition>typedef FK CGAL::Filtered_kernel&lt; CK &gt;::Approximate_kernel</definition>
+        <argsstring></argsstring>
+        <name>Approximate_kernel</name>
+        <briefdescription>
+<para>The type of the approximate &quot;filtering&quot; kernel. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Filtered_kernel.h" line="113" column="1" bodyfile="CGAL/Filtered_kernel.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Constants</header>
+      <memberdef kind="variable" id="structCGAL_1_1Filtered__kernel_1a6f6e789aad4b399ad96c3b2b47ef5621" prot="public" static="yes" mutable="no">
+        <type>const bool</type>
+        <definition>const bool CGAL::Filtered_kernel&lt; CK &gt;::Has_static_filters</definition>
+        <argsstring></argsstring>
+        <name>Has_static_filters</name>
+        <briefdescription>
+<para>A Boolean value corresponding to the second template argument. </para>        </briefdescription>
+        <detaileddescription>
+<para>Tells whether static filters are provided. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Filtered_kernel.h" line="124" column="1" bodyfile="CGAL/Filtered_kernel.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><computeroutput><ref refid="structCGAL_1_1Filtered__kernel" kindref="compound">Filtered_kernel</ref></computeroutput> is a kernel that uses a filtering technique based on interval arithmetic form to achieve exact and efficient predicates. </para>    </briefdescription>
+    <detaileddescription>
+<para>It is based on <ref refid="citelist_1CITEREF_cgal:bbp-iayed-01" kindref="member">[1]</ref>. In addition, a few selected important predicates are implemented using the formally proved, semi-static, filtering techniques from <ref refid="citelist_1CITEREF_cgal:mp-fcafg-05" kindref="member">[4]</ref>.</para><para>The geometric constructions are exactly those of the kernel <computeroutput>CK</computeroutput>, which means that they are not necessarily exact.</para><para><bold>Parameters</bold><linebreak/>
+</para><para>The first parameter, <computeroutput>CK</computeroutput>, is the &quot;Construction Kernel&quot;, namely the kernel from which are taken the types of the geometric objects as well as the geometric constructions.</para><para>The second parameter, <computeroutput>UseStaticFilters</computeroutput>, is a Boolean value which activates or not an additional layer of semi-static filters. It defaults to <computeroutput>true</computeroutput> (activated), unless the <computeroutput>CGAL_NO_STATIC_FILTERS</computeroutput> macro is defined. This option is mostly for debugging and testing, there should be no production use for deactivating static filters.</para><para><xrefsect id="models_1_models000012"><xreftitle>Is Model Of</xreftitle><xrefdescription><para><computeroutput><ref refid="classKernel" kindref="compound">Kernel</ref></computeroutput></para></xrefdescription></xrefsect></para><para><bold>Example</bold><linebreak/>
+</para><para>The following example shows how to produce a kernel whose geometric objects and constructions are those of <computeroutput><ref refid="structCGAL_1_1Simple__cartesian" kindref="compound">Simple_cartesian</ref>&lt;double&gt;</computeroutput> but the predicates are exact.</para><para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;CGAL/Simple_cartesian.h&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;CGAL/Filtered_kernel.h&gt;<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">typedef<sp/>CGAL::Simple_cartesian&lt;double&gt;<sp/>CK;<sp/></highlight></codeline>
+<codeline><highlight class="normal">typedef<sp/>CGAL::Filtered_kernel&lt;CK&gt;<sp/>K;<sp/></highlight></codeline>
+</programlisting></para><para><bold>Implementation</bold><linebreak/>
+</para><para>The implementation uses <computeroutput><ref refid="classCGAL_1_1Filtered__predicate" kindref="compound">CGAL::Filtered_predicate</ref>&lt;EP, FP, C2E, C2F&gt;</computeroutput> over each predicate of the kernel traits interface. Additionally, faster static filters may be used for a few selected critical predicates. </para>    </detaileddescription>
+    <location file="CGAL/Filtered_kernel.h" line="100" column="1" bodyfile="CGAL/Filtered_kernel.h" bodystart="100" bodyend="128"/>
+    <listofallmembers>
+      <member refid="structCGAL_1_1Filtered__kernel_1a12bfea68b2a93842fd576c914f8aaf1c" prot="public" virt="non-virtual"><scope>CGAL::Filtered_kernel</scope><name>Approximate_kernel</name></member>
+      <member refid="structCGAL_1_1Filtered__kernel_1a4534bc400ce6b5f46a01b77e2833aa8c" prot="public" virt="non-virtual"><scope>CGAL::Filtered_kernel</scope><name>Exact_kernel</name></member>
+      <member refid="structCGAL_1_1Filtered__kernel_1a6f6e789aad4b399ad96c3b2b47ef5621" prot="public" virt="non-virtual"><scope>CGAL::Filtered_kernel</scope><name>Has_static_filters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

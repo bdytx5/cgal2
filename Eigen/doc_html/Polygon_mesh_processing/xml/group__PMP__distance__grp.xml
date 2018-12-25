@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__PMP__distance__grp" kind="group">
+    <compoundname>PMP_distance_grp</compoundname>
+    <title>Distance Functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+        <definition>OutputIterator CGAL::Polygon_mesh_processing::sample_triangle_mesh</definition>
+        <argsstring>(const TriangleMesh &amp;tm, OutputIterator out, NamedParameters np)</argsstring>
+        <name>sample_triangle_mesh</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>NamedParameters</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>generates points taken on <computeroutput>tm</computeroutput> and outputs them to <computeroutput>out</computeroutput>, the sampling method is selected using named parameters. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of <computeroutput><ref refid="classOutputIterator" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">OutputIterator</ref></computeroutput> holding objects of the same point type as the value type of the internal vertex point map of <computeroutput>tm</computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh that will be sampled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output iterator to be filled with sampled points </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="15" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available for <computeroutput>TriangleMesh</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>a model of <computeroutput><ref refid="classPMPDistanceTraits" kindref="compound">PMPDistanceTraits</ref></computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_random_uniform_sampling" kindref="member">use_random_uniform_sampling</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed (the default), points are generated in a random and uniform way on the surface of <computeroutput>tm</computeroutput>, and/or on edges of <computeroutput>tm</computeroutput>. For faces, the number of sample points is the value passed to the named parameter <computeroutput>number_of_points_on_faces()</computeroutput>. If not set, the value passed to the named parameter <computeroutput>number_of_points_per_area_unit()</computeroutput> is multiplied by the area of <computeroutput>tm</computeroutput> to get the number of sample points. If none of these parameters is set, the number of points sampled is <computeroutput>num_vertices(tm)</computeroutput>. For edges, the number of the number of sample points is the value passed to the named parameter <computeroutput>number_of_points_on_edges()</computeroutput>. If not set, the value passed to the named parameter <computeroutput>number_of_points_per_distance_unit()</computeroutput> is multiplied by the sum of the length of edges of <computeroutput>tm</computeroutput> to get the number of sample points. If none of these parameters is set, the number of points sampled is <computeroutput>num_vertices(tm)</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_grid_sampling" kindref="member">use_grid_sampling</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed, points are generated on a grid in each triangle, with a minimum of one point per triangle. The distance between two consecutive points in the grid is that of the length of the smallest non-null edge of <computeroutput>tm</computeroutput> or the value passed to the named parameter <computeroutput>grid_spacing()</computeroutput>. Edges are also split using the same distance, if requested.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_use_monte_carlo_sampling" kindref="member">use_monte_carlo_sampling</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed, points are generated randomly in each triangle and/or on each edge. For faces, the number of points per triangle is the value passed to the named parameter <computeroutput>number_of_points_per_face()</computeroutput>. If not set, the value passed to the named parameter <computeroutput>number_of_points_per_area_unit()</computeroutput> is used to pick a number of points per face proportional to the triangle area with a minimum of one point per face. If none of these parameters is set, 2 divided by the square of the length of the smallest non-null edge of <computeroutput>tm</computeroutput> is used as if it was passed to <computeroutput>number_of_points_per_area_unit()</computeroutput>. For edges, the number of points per edge is the value passed to the named parameter <computeroutput>number_of_points_per_edge()</computeroutput>. If not set, the value passed to the named parameter <computeroutput>number_of_points_per_distance_unit()</computeroutput> is used to pick a number of points per edge proportional to the length of the edge with a minimum of one point per face. If none of these parameters is set, 1 divided by the length of the smallest non-null edge of <computeroutput>tm</computeroutput> is used as if it was passed to <computeroutput>number_of_points_per_distance_unit()</computeroutput>.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_sample_vertices" kindref="member">sample_vertices</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed (default value), vertices of <computeroutput>tm</computeroutput> are put into <computeroutput>out</computeroutput>. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_sample_edges" kindref="member">sample_edges</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed (default value), edges of <computeroutput>tm</computeroutput> are sampled. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_sample_faces" kindref="member">sample_faces</ref></para></entry><entry thead="no"><para>if <computeroutput>true</computeroutput> is passed (default value), faces of <computeroutput>tm</computeroutput> are sampled. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_grid_spacing" kindref="member">grid_spacing</ref></para></entry><entry thead="no"><para>a double value used as the grid spacing for the grid sampling method.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_on_edges" kindref="member">number_of_points_on_edges</ref></para></entry><entry thead="no"><para>an unsigned integral value used for the random sampling method as the number of points to pick exclusively on edges.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_on_faces" kindref="member">number_of_points_on_faces</ref></para></entry><entry thead="no"><para>an unsigned integral value used for the random sampling method as the number of points to pick on the surface.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_per_distance_unit" kindref="member">number_of_points_per_distance_unit</ref></para></entry><entry thead="no"><para>a double value used for the random sampling and the Monte Carlo sampling methods to repectively determine the total number of points on edges and the number of points per edge.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_per_edge" kindref="member">number_of_points_per_edge</ref></para></entry><entry thead="no"><para>an unsigned integral value used by the Monte-Carlo sampling method as the number of points per edge to pick.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_per_face" kindref="member">number_of_points_per_face</ref></para></entry><entry thead="no"><para>an unsigned integral value used by the Monte-Carlo sampling method as the number of points per face to pick.  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_number_of_points_per_area_unit" kindref="member">number_of_points_per_area_unit</ref></para></entry><entry thead="no"><para>a double value used for the random sampling and the Monte Carlo sampling methods to repectively determine the total number of points inside faces and the number of points per face.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/distance.h" line="329" column="1" bodyfile="CGAL/Polygon_mesh_processing/distance.h" bodystart="329" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__distance__grp_1ga2b28867dc150931b2f12d17b77d15266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Concurrency_tag</type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters1</type>
+          </param>
+          <param>
+            <type>class NamedParameters2</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CGAL::Polygon_mesh_processing::approximate_Hausdorff_distance</definition>
+        <argsstring>(const TriangleMesh &amp;tm1, const TriangleMesh &amp;tm2, const NamedParameters1 &amp;np1, const NamedParameters2 &amp;np2)</argsstring>
+        <name>approximate_Hausdorff_distance</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm1</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm2</declname>
+        </param>
+        <param>
+          <type>const NamedParameters1 &amp;</type>
+          <declname>np1</declname>
+        </param>
+        <param>
+          <type>const NamedParameters2 &amp;</type>
+          <declname>np2</declname>
+        </param>
+        <briefdescription>
+<para>computes the approximate Hausdorff distance from <computeroutput>tm1</computeroutput> to <computeroutput>tm2</computeroutput> by returning the distance of the farthest point from <computeroutput>tm2</computeroutput> amongst a sampling of <computeroutput>tm1</computeroutput> generated with the function <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput> with <computeroutput>tm1</computeroutput> and <computeroutput>np1</computeroutput> as parameter. </para>        </briefdescription>
+        <detaileddescription>
+<para>A parallel version is provided and requires the executable to be linked against the <ulink url="http://www.threadingbuildingblocks.org">Intel TBB library</ulink>. To control the number of threads used, the user may use the <computeroutput>tbb::task_scheduler_init</computeroutput> class. See the <ulink url="http://www.threadingbuildingblocks.org/documentation">TBB documentation</ulink> for more details.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Concurrency_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enables sequential versus parallel algorithm. Possible values are <computeroutput><ref refid="structCGAL_1_1Sequential__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Sequential_tag</ref></computeroutput> and <computeroutput><ref refid="structCGAL_1_1Parallel__tag" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/STL_Extension.tag">Parallel_tag</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>tm1</computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>tm2</computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh that will be sampled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tm2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh to compute the distance to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>tm1</computeroutput> passed to <computeroutput><ref refid="group__PMP__distance__grp_1ga7874c0f16badf7b7939039cf979ad16d" kindref="member">sample_triangle_mesh()</ref></computeroutput>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> for <computeroutput>tm2</computeroutput> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="1" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm2</computeroutput> If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available in <computeroutput>TriangleMesh</computeroutput> and in all places where <computeroutput>vertex_point_map</computeroutput> is used.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+The function <computeroutput><ref refid="polygon__mesh__processing_8h_1aee6e37c8d14cbf0847daa8a6bfeb69e6" kindref="member">CGAL::parameters::all_default()</ref></computeroutput> can be used to indicate to use the default values for <computeroutput>np1</computeroutput> and specify custom values for <computeroutput>np2</computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/distance.h" line="625" column="1" bodyfile="CGAL/Polygon_mesh_processing/distance.h" bodystart="625" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__distance__grp_1gaa5c83a2d9e8c1251e1ca3f2cdd59785c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Concurrency_tag</type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class NamedParameters1</type>
+          </param>
+          <param>
+            <type>class NamedParameters2</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CGAL::Polygon_mesh_processing::approximate_symmetric_Hausdorff_distance</definition>
+        <argsstring>(const TriangleMesh &amp;tm1, const TriangleMesh &amp;tm2, const NamedParameters1 &amp;np1, const NamedParameters2 &amp;np2)</argsstring>
+        <name>approximate_symmetric_Hausdorff_distance</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm1</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm2</declname>
+        </param>
+        <param>
+          <type>const NamedParameters1 &amp;</type>
+          <declname>np1</declname>
+        </param>
+        <param>
+          <type>const NamedParameters2 &amp;</type>
+          <declname>np2</declname>
+        </param>
+        <briefdescription>
+<para>computes the approximate symmetric Hausdorff distance between <computeroutput>tm1</computeroutput> and <computeroutput>tm2</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>It returns the maximum of <computeroutput>approximate_Hausdorff_distance(tm1, tm2, np1, np2)</computeroutput> and <computeroutput>approximate_Hausdorff_distance(tm2, tm1, np2, np1)</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/distance.h" line="648" column="1" bodyfile="CGAL/Polygon_mesh_processing/distance.h" bodystart="648" bodyend="658"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__distance__grp_1ga44609a1b94f1ede1c87b2cfdc441d966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Concurrency_tag</type>
+          </param>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class PointRange</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CGAL::Polygon_mesh_processing::max_distance_to_triangle_mesh</definition>
+        <argsstring>(const PointRange &amp;points, const TriangleMesh &amp;tm, const NamedParameters &amp;np)</argsstring>
+        <name>max_distance_to_triangle_mesh</name>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>returns the distance to <computeroutput>tm</computeroutput> of the point from <computeroutput>points</computeroutput> that is the furthest from <computeroutput>tm</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the range of points of interest </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the triangle mesh to compute the distance to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available for the vertices of <computeroutput>tm</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classPMPDistanceTraits" kindref="compound">PMPDistanceTraits</ref></computeroutput> </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/distance.h" line="683" column="1" bodyfile="CGAL/Polygon_mesh_processing/distance.h" bodystart="683" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PMP__distance__grp_1ga349ddbf7a4a44e820794dbe4680d0026" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TriangleMesh</type>
+          </param>
+          <param>
+            <type>class PointRange</type>
+          </param>
+          <param>
+            <type>class NamedParameters</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CGAL::Polygon_mesh_processing::approximate_max_distance_to_point_set</definition>
+        <argsstring>(const TriangleMesh &amp;tm, const PointRange &amp;points, const double precision, const NamedParameters &amp;np)</argsstring>
+        <name>approximate_max_distance_to_point_set</name>
+        <param>
+          <type>const TriangleMesh &amp;</type>
+          <declname>tm</declname>
+        </param>
+        <param>
+          <type>const PointRange &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>precision</declname>
+        </param>
+        <param>
+          <type>const NamedParameters &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+<para>returns an approximation of the distance between <computeroutput>points</computeroutput> and the point lying on <computeroutput>tm</computeroutput> that is the farthest from <computeroutput>points</computeroutput> </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>PointRange</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of <computeroutput><ref refid="classCGAL_1_1Point__3" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">Point_3</ref></computeroutput>, model of <computeroutput><ref refid="classRange" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Circulator.tag">Range</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TriangleMesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a model of the concept <computeroutput><ref refid="classFaceListGraph" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/BGL.tag">FaceListGraph</ref></computeroutput> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NamedParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a triangle mesh </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a range of points </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>precision</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for each triangle of <computeroutput>tm</computeroutput>, the distance of its farthest point from <computeroutput>points</computeroutput> is bounded. A triangle is subdivided into sub-triangles so that the difference of its distance bounds is smaller than <computeroutput>precision</computeroutput>. <computeroutput>precision</computeroutput> must be strictly positive to avoid infinite loops. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>np</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional sequence of <ref refid="group__pmp__namedparameters" kindref="compound">Named Parameters</ref> among the ones listed below</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<variablelist>
+<varlistentry><term>Named Parameters</term></varlistentry>
+<listitem><para><table rows="2" cols="2"><row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_vertex_point_map" kindref="member">vertex_point_map</ref></para></entry><entry thead="no"><para>the property map with the points associated to the vertices of <computeroutput>tm</computeroutput>. If this parameter is omitted, an internal property map for <computeroutput>CGAL::vertex_point_t</computeroutput> must be available for the vertices of <computeroutput>tm</computeroutput>  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="group__pmp__namedparameters_1PMP_geom_traits" kindref="member">geom_traits</ref></para></entry><entry thead="no"><para>an instance of a geometric traits class, model of <computeroutput><ref refid="classPMPDistanceTraits" kindref="compound">PMPDistanceTraits</ref></computeroutput>.  </para></entry></row>
+</table>
+</para></listitem>
+</variablelist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CGAL/Polygon_mesh_processing/distance.h" line="719" column="1" bodyfile="CGAL/Polygon_mesh_processing/distance.h" bodystart="719" bodyend="746"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to compute the distance between meshes, between a mesh and a point set and between a point set and a mesh. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

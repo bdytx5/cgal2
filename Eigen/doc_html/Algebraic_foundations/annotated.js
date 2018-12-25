@@ -1,0 +1,26 @@
+var annotated =
+[
+    [ "AlgebraicStructureTraits_", "namespaceAlgebraicStructureTraits__.html", "namespaceAlgebraicStructureTraits__" ],
+    [ "CGAL", "namespaceCGAL.html", "namespaceCGAL" ],
+    [ "FractionTraits_", "namespaceFractionTraits__.html", "namespaceFractionTraits__" ],
+    [ "RealEmbeddableTraits_", "namespaceRealEmbeddableTraits__.html", "namespaceRealEmbeddableTraits__" ],
+    [ "AlgebraicStructureTraits", "classAlgebraicStructureTraits.html", "classAlgebraicStructureTraits" ],
+    [ "EuclideanRing", "classEuclideanRing.html", null ],
+    [ "ExplicitInteroperable", "classExplicitInteroperable.html", null ],
+    [ "Field", "classField.html", "classField" ],
+    [ "FieldNumberType", "classFieldNumberType.html", null ],
+    [ "FieldWithKthRoot", "classFieldWithKthRoot.html", null ],
+    [ "FieldWithRootOf", "classFieldWithRootOf.html", null ],
+    [ "FieldWithSqrt", "classFieldWithSqrt.html", null ],
+    [ "Fraction", "classFraction.html", null ],
+    [ "FractionTraits", "classFractionTraits.html", "classFractionTraits" ],
+    [ "FromDoubleConstructible", "classFromDoubleConstructible.html", "classFromDoubleConstructible" ],
+    [ "FromIntConstructible", "classFromIntConstructible.html", "classFromIntConstructible" ],
+    [ "ImplicitInteroperable", "classImplicitInteroperable.html", null ],
+    [ "IntegralDomain", "classIntegralDomain.html", null ],
+    [ "IntegralDomainWithoutDivision", "classIntegralDomainWithoutDivision.html", "classIntegralDomainWithoutDivision" ],
+    [ "RealEmbeddable", "classRealEmbeddable.html", "classRealEmbeddable" ],
+    [ "RealEmbeddableTraits", "classRealEmbeddableTraits.html", "classRealEmbeddableTraits" ],
+    [ "RingNumberType", "classRingNumberType.html", null ],
+    [ "UniqueFactorizationDomain", "classUniqueFactorizationDomain.html", null ]
+];

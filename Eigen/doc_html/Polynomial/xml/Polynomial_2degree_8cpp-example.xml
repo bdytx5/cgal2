@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Polynomial_2degree_8cpp-example" kind="example">
+    <compoundname>Polynomial/degree.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polynomial.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polynomial_traits_d.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Polynomial_type_generator.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="group__PkgIOstreams_1ga2f2176255429973ea7bf156804a53857" kindref="member" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Stream_support.tag">CGAL::set_pretty_mode</ref>(std::cout);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classunspecified__type" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Manual.tag">CGAL::Polynomial_type_generator&lt;int,2&gt;::Type</ref><sp/>Poly_2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Polynomial__traits__d" kindref="compound">CGAL::Polynomial_traits_d&lt;Poly_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PT_2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//construction<sp/>using<sp/>shift<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Poly_2<sp/>x<sp/>=<sp/>PT_2::Shift()(Poly_2(1),1,0);<sp/></highlight><highlight class="comment">//<sp/>x_0^1</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Poly_2<sp/>y<sp/>=<sp/>PT_2::Shift()(Poly_2(1),1,1);<sp/></highlight><highlight class="comment">//<sp/>x_1^1</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Poly_2<sp/>F<sp/></highlight><highlight class="comment">//<sp/>=<sp/>(11*x^2<sp/>+<sp/>5*x)*y^4<sp/>+<sp/>(7*x^2)*y^3</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>=<sp/>11<sp/>*<sp/>CGAL::ipower(y,4)<sp/>*<sp/>CGAL::ipower(x,2)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>+<sp/>5<sp/>*<sp/>CGAL::ipower(y,4)<sp/><sp/>*<sp/>CGAL::ipower(x,1)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>+<sp/>7<sp/>*<sp/>CGAL::ipower(y,3)<sp/><sp/>*<sp/>CGAL::ipower(x,2);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>bivariate<sp/>polynomial<sp/>F:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>F<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PT_2::Degree<sp/><ref refid="group__PkgPolynomialFunctions_1gaa84566608255db58148c67fec626aa1f" kindref="member">degree</ref>;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PT_2::Total_degree<sp/><ref refid="group__PkgPolynomialFunctions_1ga240791d9e31b77bbd8f4b0cae54520dd" kindref="member">total_degree</ref>;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PT_2::Degree_vector<sp/><ref refid="group__PkgPolynomialFunctions_1gaf3368de315ff982392d6fe5afdde8830" kindref="member">degree_vector</ref>;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>degree<sp/>of<sp/>F<sp/>with<sp/>respect<sp/>to<sp/>y:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/><ref refid="group__PkgPolynomialFunctions_1gaa84566608255db58148c67fec626aa1f" kindref="member">degree</ref>(F)<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=<sp/>4<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>degree<sp/>of<sp/>F<sp/>with<sp/>respect<sp/>to<sp/>x:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/><ref refid="group__PkgPolynomialFunctions_1gaa84566608255db58148c67fec626aa1f" kindref="member">degree</ref>(F,0)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=<sp/>2<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>total<sp/>degree<sp/>of<sp/>F<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/><ref refid="group__PkgPolynomialFunctions_1ga240791d9e31b77bbd8f4b0cae54520dd" kindref="member">total_degree</ref>(F)<sp/></highlight><highlight class="comment">//<sp/>=<sp/>6<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>degree<sp/>vector<sp/>of<sp/>F<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/><ref refid="group__PkgPolynomialFunctions_1gaf3368de315ff982392d6fe5afdde8830" kindref="member">degree_vector</ref>(F)</highlight><highlight class="comment">//<sp/>=<sp/>(2,4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

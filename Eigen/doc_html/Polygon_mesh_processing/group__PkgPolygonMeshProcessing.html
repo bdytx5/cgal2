@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="canonical" href="https://doc.cgal.org/latest/Polygon_mesh_processing/group__PkgPolygonMeshProcessing.html"/>
+
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="generator" content="Doxygen 1.8.13" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CGAL 4.13 - Polygon Mesh Processing: Polygon Mesh Processing Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Custom mathjax -->
+<!-- TODO: Remove this with MATHJAX_CODEFILE -->
+<span style="display:none">\( \newcommand{\E}{\mathrm{E}} \) \( \newcommand{\A}{\mathrm{A}} \)
+\( \newcommand{\R}{\mathrm{R}} \) \( \newcommand{\N}{\mathrm{N}} \) \( \newcommand{\Q}{\mathrm{Q}} \) \( \newcommand{\Z}{\mathrm{Z}} \)
+\(
+\def\ccSum #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}
+\def\ccProd #1#2#3{
+  \sum_{#1}^{#2}{#3}
+}\)
+</span>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="" />
+      <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)" />
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt="" /></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 4.13 - Polygon Mesh Processing
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync" style="display: none"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__PkgPolygonMeshProcessing.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> |
+<a href="#files">Files</a> |
+<a href="#nested-classes">Classes</a> |
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">Polygon Mesh Processing Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<div class="PkgImage"> <div class="image">
+<img src="hole_filling_ico.png" alt="hole_filling_ico.png" />
+</div>
+ </div><div class="PkgSummary"> <div class="PkgAuthors">Sébastien Loriot, Jane Tournois, Ilker O. Yaz</div> <div class="PkgDescription">This package provides a collection of methods and classes for polygon mesh processing, ranging from basic operations on simplices, to complex geometry processing algorithms.</div><p> <br />
+ </p></div><div class="PkgShortInfo"> <b>Introduced in:</b> <span style="font-variant: small-caps;">CGAL</span> 4.7<br />
+ <b>Depends on:</b> documented for each function; <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/packages.html#PkgSolverSummary">CGAL and Solvers</a> <br />
+ <b>BibTeX:</b> <a href="../Manual/how_to_cite_cgal.html#cgal:lty-pmp-18b">cgal:lty-pmp-18b</a><br />
+ <b>License:</b> <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/preliminaries.html#licensesGPL">GPL</a> <br />
+ <b>Windows Demo:</b> <a href="https://www.cgal.org/demo/4.13/polyhedron_3.zip">Polyhedron demo</a><br />
+<b>Common Demo Dlls:</b> <a href="https://www.cgal.org/demo/4.13/CGAL-demoDLLs.zip">dlls</a><br />
+ </div><p> </p><h2 class="groupheader">Classified Reference Pages</h2> 
+<h2>Parameters</h2>
+<p>Optional parameters of the functions of this package are implemented as <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/index.html#BGLNamedParameters">Named Parameters</a>. The page <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> describes their usage and provides a list of the parameters that are used in this package.</p>
+<h2>Meshing Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#gaa091c8368920920eed87784107d68ecf" title="fairs a region on a triangle mesh. ">CGAL::Polygon_mesh_processing::fair()</a></code></li>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#gad0449d8e1021fc46507074cd6db65ef4" title="refines a region of a triangle mesh ">CGAL::Polygon_mesh_processing::refine()</a></code></li>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#ga70d65044f8c7309c24ade88fa280124a" title="triangulates a single face of a polygon mesh. ">CGAL::Polygon_mesh_processing::triangulate_face()</a></code></li>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#gacaaff4d520500c530d9c3d5ebe2a0760" title="triangulates given faces of a polygon mesh. ">CGAL::Polygon_mesh_processing::triangulate_faces()</a></code></li>
+<li><a class="el" href="group__PMP__meshing__grp.html"><code>CGAL::Polygon_mesh_processing::isotropic_remeshing()</code> </a></li>
+<li><a class="el" href="group__PMP__meshing__grp.html"><code>CGAL::Polygon_mesh_processing::split_long_edges()</code> </a></li>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#ga028a80dc84395650f67714fa7618ec53" title="randomly perturbs the locations of vertices of a triangulated surface mesh. ">CGAL::Polygon_mesh_processing::random_perturbation()</a></code></li>
+<li><code><a class="el" href="group__PMP__meshing__grp.html#ga102e1ba5d709c5e53e013160792e4d08" title="performs a generalized extrusion of input and puts it in output. ">CGAL::Polygon_mesh_processing::extrude_mesh()</a></code></li>
+</ul>
+<h2>Hole Filling Functions</h2>
+<ul>
+<li><code><a class="el" href="group__hole__filling__grp.html#ga4aacaa46c800a53ca0a0e5fd518a7b20" title="triangulates a hole in a polygon mesh. ">CGAL::Polygon_mesh_processing::triangulate_hole()</a></code></li>
+<li><code><a class="el" href="group__hole__filling__grp.html#gaaa1bfaf9a57dea8b6c71168a18f9b6eb" title="triangulates and refines a hole in a polygon mesh. ">CGAL::Polygon_mesh_processing::triangulate_and_refine_hole()</a></code></li>
+<li><code><a class="el" href="group__hole__filling__grp.html#ga87655fb8d54a8d85e7eec7a21e5c0058" title="triangulates, refines and fairs a hole in a polygon mesh. ">CGAL::Polygon_mesh_processing::triangulate_refine_and_fair_hole()</a></code></li>
+<li><code><a class="el" href="group__hole__filling__grp.html#ga8508fd49a2482ec7dcb3e1799234696a" title="creates triangles to fill the hole defined by points in the range points. ">CGAL::Polygon_mesh_processing::triangulate_hole_polyline()</a></code></li>
+</ul>
+<h2>Predicate Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__intersection__grp.html#ga0beba25d03a16010b20e2c9b6771cd12" title="tests if a triangulated surface mesh self-intersects. ">CGAL::Polygon_mesh_processing::does_self_intersect()</a></code></li>
+<li><code><a class="el" href="group__PMP__intersection__grp.html#ga0afb9e365a2f16f0591255b8df468885" title="detects and records self-intersections of a triangulated surface mesh. ">CGAL::Polygon_mesh_processing::self_intersections()</a></code></li>
+<li><a class="el" href="group__PMP__predicates__grp.html"><code>CGAL::Polygon_mesh_processing::do_intersect()</code> </a></li>
+<li><code><a class="el" href="group__PMP__predicates__grp.html#ga1ff63ec6e762d45ea5775bf7b49f9270" title="detects and reports all the pairs of meshes intersecting in a range of triangulated surface meshes...">CGAL::Polygon_mesh_processing::intersecting_meshes()</a></code></li>
+</ul>
+<h2>Orientation Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__orientation__grp.html#gad71360b56f0d5340bf3006febd49286c" title="tests whether a closed polygon mesh has a positive orientation. ">CGAL::Polygon_mesh_processing::is_outward_oriented()</a></code></li>
+<li><code><a class="el" href="group__PMP__orientation__grp.html#gad8a3439883e3e76651f96d15ba58b2bc" title="reverses for each face the order of the vertices along the face boundary. ">CGAL::Polygon_mesh_processing::reverse_face_orientations()</a></code></li>
+<li><code><a class="el" href="group__PMP__orientation__grp.html#gaadc5bac3072b11d2313e40043c729d0a" title="tries to consistently orient a soup of polygons in 3D space. ">CGAL::Polygon_mesh_processing::orient_polygon_soup()</a></code></li>
+<li><code><a class="el" href="group__PMP__orientation__grp.html#gafe035adcc4ff061b4438cc9dae591d00" title="makes each connected component of a closed triangulated surface mesh inward or outward oriented...">CGAL::Polygon_mesh_processing::orient()</a></code></li>
+<li><code><a class="el" href="group__PMP__orientation__grp.html#gafdbc256d06536f6aca2558bc1a0156e2" title="orients the connected components of tm to make it bound a volume. ">CGAL::Polygon_mesh_processing::orient_to_bound_a_volume()</a></code></li>
+</ul>
+<h2>Combinatorial Repairing Functions</h2>
+<ul>
+<li><a class="el" href="group__PMP__repairing__grp.html"><code>CGAL::Polygon_mesh_processing::stitch_borders()</code> </a></li>
+<li><code><a class="el" href="group__PMP__repairing__grp.html#ga8b9d12d817b5cc76f5a42d74eac75bf3" title="returns true if the soup of polygons defines a valid polygon mesh that can be handled by CGAL::Polygo...">CGAL::Polygon_mesh_processing::is_polygon_soup_a_polygon_mesh()</a></code></li>
+<li><code><a class="el" href="group__PMP__repairing__grp.html#gac8fe80db9800265922ce469c36d97baa" title="builds a polygon mesh from a soup of polygons. ">CGAL::Polygon_mesh_processing::polygon_soup_to_polygon_mesh()</a></code></li>
+<li><code><a class="el" href="group__PMP__repairing__grp.html#ga91c02ef57e638faf2622eae93e7a25e2" title="removes the isolated vertices from any polygon mesh. ">CGAL::Polygon_mesh_processing::remove_isolated_vertices()</a></code></li>
+</ul>
+<h2>Normal Computation Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__normal__grp.html#gaa76c6d307b9d3e48cafacd7b77b2c043" title="computes the outward unit vector normal to face f. ">CGAL::Polygon_mesh_processing::compute_face_normal()</a></code></li>
+<li><code><a class="el" href="group__PMP__normal__grp.html#ga129c8fb278c5f12158253cc488fdf6d4" title="computes the outward unit vector normal for all faces of the polygon mesh. ">CGAL::Polygon_mesh_processing::compute_face_normals()</a></code></li>
+<li><code><a class="el" href="group__PMP__normal__grp.html#ga240ed0a1f5efbea472f998fada07e112" title="computes the unit normal at vertex v as the average of the normals of incident faces. ">CGAL::Polygon_mesh_processing::compute_vertex_normal()</a></code></li>
+<li><code><a class="el" href="group__PMP__normal__grp.html#gad46aaf003999b2939f3f9e4f6fa58d0e" title="computes the outward unit vector normal for all vertices of the polygon mesh. ">CGAL::Polygon_mesh_processing::compute_vertex_normals()</a></code></li>
+<li><code><a class="el" href="group__PMP__normal__grp.html#ga14a7730a996879ba6e7589dfeaccff82" title="computes the outward unit vector normal for all vertices and faces of the polygon mesh...">CGAL::Polygon_mesh_processing::compute_normals()</a></code></li>
+</ul>
+<h2>Connected Components</h2>
+<ul>
+<li><code><a class="el" href="group__keep__connected__components__grp.html#gad2546bc14c00bac66d87161a4044f871" title="discovers all the faces in the same connected component as seed_face and records them in out...">CGAL::Polygon_mesh_processing::connected_component()</a></code></li>
+<li><code><a class="el" href="group__keep__connected__components__grp.html#gabe2052b2281e1e628e68d8fea94be2d9" title="computes for each face the index of the corresponding connected component. ">CGAL::Polygon_mesh_processing::connected_components()</a></code></li>
+<li><code><a class="el" href="group__keep__connected__components__grp.html#ga6de4710f16947ea7817a0365c2fb72f1" title="removes connected components with less than a given number of faces. ">CGAL::Polygon_mesh_processing::keep_large_connected_components()</a></code></li>
+<li><code><a class="el" href="group__keep__connected__components__grp.html#ga68c6c29dfc6a26a6a2f8befe6944f19d" title="removes the small connected components and all isolated vertices. ">CGAL::Polygon_mesh_processing::keep_largest_connected_components()</a></code></li>
+<li><a class="el" href="group__keep__connected__components__grp.html"><code>CGAL::Polygon_mesh_processing::keep_connected_components()</code> </a></li>
+<li><a class="el" href="group__keep__connected__components__grp.html"><code>CGAL::Polygon_mesh_processing::remove_connected_components()</code> </a></li>
+</ul>
+<h2>Corefinement and Boolean Operation Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#gad7e1741a7ce41a5846cf86494982ca8b" title="corefines  tm1 and tm2 and puts in tm_out a triangulated surface mesh bounding  the union of the volu...">CGAL::Polygon_mesh_processing::corefine_and_compute_union()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#gac5a853c33c4b0a9da9403c9b191caa44" title="corefines  tm1 and tm2 and puts in tm_out a triangulated surface mesh bounding  the volume bounded by...">CGAL::Polygon_mesh_processing::corefine_and_compute_difference()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga240e5df984c7d44741a7031e38203dc3" title="corefines  tm1 and tm2 and puts in tm_out a triangulated surface mesh bounding  the intersection of t...">CGAL::Polygon_mesh_processing::corefine_and_compute_intersection()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga3e7f0215600d9280d9ac90565504228c" title="corefines  tm1 and tm2 and for each triangle mesh tm_out passed as an optional in output different fr...">CGAL::Polygon_mesh_processing::corefine_and_compute_boolean_operations()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga6447dee822aaf92016f34512ce0b3456" title="corefines  tm1 and tm2. ">CGAL::Polygon_mesh_processing::corefine()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga09e9c6524834aebd2b2dcd5c0031d1d4" title="computes the intersection of triangles of tm1 and tm2. ">CGAL::Polygon_mesh_processing::surface_intersection()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga30082762ba2d947cba304e2884d96a99" title="clips tm by keeping the part that is inside the volume bounded  by clipper. ">CGAL::Polygon_mesh_processing::clip()</a></code></li>
+<li><code><a class="el" href="group__PMP__corefinement__grp.html#ga808a0177bf30833d2c1e390e533fec7f" title="indicates if tm bounds a volume. ">CGAL::Polygon_mesh_processing::does_bound_a_volume()</a></code></li>
+</ul>
+<h2>Geometric Measure Functions</h2>
+<ul>
+<li><a class="el" href="group__measure__grp.html"><code>CGAL::Polygon_mesh_processing::face_area()</code> </a></li>
+<li><a class="el" href="group__measure__grp.html"><code>CGAL::Polygon_mesh_processing::area()</code> </a></li>
+<li><a class="el" href="group__measure__grp.html"><code>CGAL::Polygon_mesh_processing::volume()</code> </a></li>
+<li><a class="el" href="group__measure__grp.html"><code>CGAL::Polygon_mesh_processing::edge_length()</code> </a></li>
+<li><a class="el" href="group__measure__grp.html"><code>CGAL::Polygon_mesh_processing::face_border_length()</code> </a></li>
+</ul>
+<h2>Distance Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__distance__grp.html#ga2b28867dc150931b2f12d17b77d15266" title="computes the approximate Hausdorff distance from tm1 to tm2 by returning the distance of the farthest...">CGAL::Polygon_mesh_processing::approximate_Hausdorff_distance()</a></code></li>
+<li><code><a class="el" href="group__PMP__distance__grp.html#gaa5c83a2d9e8c1251e1ca3f2cdd59785c" title="computes the approximate symmetric Hausdorff distance between tm1 and tm2. ">CGAL::Polygon_mesh_processing::approximate_symmetric_Hausdorff_distance()</a></code></li>
+<li><code><a class="el" href="group__PMP__distance__grp.html#ga349ddbf7a4a44e820794dbe4680d0026" title="returns an approximation of the distance between points and the point lying on tm that is the farthes...">CGAL::Polygon_mesh_processing::approximate_max_distance_to_point_set()</a></code></li>
+<li><code><a class="el" href="group__PMP__distance__grp.html#ga44609a1b94f1ede1c87b2cfdc441d966" title="returns the distance to tm of the point from points that is the furthest from tm. ...">CGAL::Polygon_mesh_processing::max_distance_to_triangle_mesh()</a></code></li>
+<li><code><a class="el" href="group__PMP__distance__grp.html#ga7874c0f16badf7b7939039cf979ad16d" title="generates points taken on tm and outputs them to out, the sampling method is selected using named par...">CGAL::Polygon_mesh_processing::sample_triangle_mesh()</a></code></li>
+</ul>
+<h2>Feature Detection Functions</h2>
+<ul>
+<li><code><a class="el" href="group__PMP__detect__features__grp.html#ga1daa8515d6867e977c470a53dfb93838" title="This function calls successively CGAL::Polygon_mesh_processing::detect_sharp_edges(), CGAL::Polygon_mesh_processing::connected_components() and CGAL::Polygon_mesh_processing::detect_vertex_incident_patches() ">CGAL::Polygon_mesh_processing::sharp_edges_segmentation()</a></code></li>
+<li><code><a class="el" href="group__PMP__detect__features__grp.html#ga1e5e8ae3b4b8fc06270a50a48d92036d" title="detects and marks the edges that are considered to be sharp with respect to the given angle bound...">CGAL::Polygon_mesh_processing::detect_sharp_edges()</a></code></li>
+<li><code><a class="el" href="group__PMP__detect__features__grp.html#gaf42fe09f2b613c78bba5dd8d8a71b58f" title="collects the surface patches of the faces incident to each vertex of the input polygon mesh...">CGAL::Polygon_mesh_processing::detect_vertex_incident_patches()</a></code></li>
+</ul>
+<h2>Miscellaneous</h2>
+<ul>
+<li><code><a class="el" href="classCGAL_1_1Polygon__mesh__slicer.html" title="Function object that computes the intersection of a plane with a triangulated surface mesh...">CGAL::Polygon_mesh_slicer</a></code></li>
+<li><code><a class="el" href="classCGAL_1_1Side__of__triangle__mesh.html" title="This class provides an efficient point location functionality with respect to a domain bounded by one...">CGAL::Side_of_triangle_mesh</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga0ce79f6c567ba2a4266c0ec636acc8b9" title="computes a bounding box of a polygon mesh. ">CGAL::Polygon_mesh_processing::bbox()</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga0129863dcd7c851cf3587652e28c6eed" title="computes a bounding box of a vertex of a polygon mesh. ">CGAL::Polygon_mesh_processing::vertex_bbox()</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga57266ab008442edbfa30ade3e1e6088e" title="computes a bounding box of an edge of a polygon mesh. ">CGAL::Polygon_mesh_processing::edge_bbox()</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga478dd7562282bc4cf94dfad779385f72" title="computes a bounding box of a face of a polygon mesh. ">CGAL::Polygon_mesh_processing::face_bbox()</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#gaf5f5eb322811f24573aa9158e6df8070" title="collects the border halfedges of a surface patch defined as a face range. ">CGAL::Polygon_mesh_processing::border_halfedges()</a></code></li>
+<li><code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga6a0a99788b1f8014d38fd9ef8fe7d746" title="applies a transformation to every vertex of a PolygonMesh. ">CGAL::Polygon_mesh_processing::transform()</a></code> </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups" id="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__pmp__namedparameters"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__pmp__namedparameters.html">Named Parameters for Polygon Mesh Processing</a></td></tr>
+<tr class="memdesc:group__pmp__namedparameters"><td class="mdescLeft"> </td><td class="mdescRight">In this package, all functions optional parameters are implemented as BGL optional named parameters (see <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/index.html#BGLNamedParameters">Named Parameters</a> for more information on how to use them). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PkgPolygonMeshProcessingConcepts"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessingConcepts.html">Concepts</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__keep__connected__components__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__keep__connected__components__grp.html">Connected Components</a></td></tr>
+<tr class="memdesc:group__keep__connected__components__grp"><td class="mdescLeft"> </td><td class="mdescRight">Two faces are in the same <em>connected component</em> if there is a path of adjacent faces such that all edges between two consecutive faces of the path are not marked as constrained. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__hole__filling__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__hole__filling__grp.html">Hole Filling</a></td></tr>
+<tr class="memdesc:group__hole__filling__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to fill holes given as a range of halfedges or as range of points. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__meshing__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__meshing__grp.html">Meshing</a></td></tr>
+<tr class="memdesc:group__PMP__meshing__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to triangulate faces, and to refine and fair regions of a polygon mesh. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__normal__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__normal__grp.html">Normal Computation</a></td></tr>
+<tr class="memdesc:group__PMP__normal__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to compute unit normals for individual/all vertices or faces. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__measure__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__measure__grp.html">Geometric Measure Functions</a></td></tr>
+<tr class="memdesc:group__measure__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to compute lengths of edges and borders, areas of faces and patches, as well as volumes of closed meshes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__orientation__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__orientation__grp.html">Orientation Functions</a></td></tr>
+<tr class="memdesc:group__PMP__orientation__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to compute or change the orientation of faces and surfaces. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__intersection__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__intersection__grp.html">Intersection Functions</a></td></tr>
+<tr class="memdesc:group__PMP__intersection__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to test if there are self intersections, and to report faces that do intersect. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__repairing__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__repairing__grp.html">Combinatorial Repairing</a></td></tr>
+<tr class="memdesc:group__PMP__repairing__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to orient polygon soups and to stitch geometrically identical boundaries. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__distance__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__distance__grp.html">Distance Functions</a></td></tr>
+<tr class="memdesc:group__PMP__distance__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to compute the distance between meshes, between a mesh and a point set and between a point set and a mesh. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__corefinement__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__corefinement__grp.html">Corefinement and Boolean Operations</a></td></tr>
+<tr class="memdesc:group__PMP__corefinement__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to corefine triangulated surface meshes and compute triangulated surface meshes of the union, difference and intersection of the bounded volumes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__detect__features__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__detect__features__grp.html">Feature Detection Functions</a></td></tr>
+<tr class="memdesc:group__PMP__detect__features__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to detect sharp edges and surface patches of polygon meshes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:group__PMP__predicates__grp"><td class="memItemLeft" align="right" valign="top"> </td><td class="memItemRight" valign="bottom"><a class="el" href="group__PMP__predicates__grp.html">Intersection Detection Functions</a></td></tr>
+<tr class="memdesc:group__PMP__predicates__grp"><td class="mdescLeft"> </td><td class="mdescRight">Functions to detect intersections. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files" id="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:polygon__mesh__processing_8h"><td class="memItemLeft" align="right" valign="top">file  </td><td class="memItemRight" valign="bottom"><a class="el" href="polygon__mesh__processing_8h.html">polygon_mesh_processing.h</a></td></tr>
+<tr class="memdesc:polygon__mesh__processing_8h"><td class="mdescLeft"> </td><td class="mdescRight">Convenience header file including the headers for all the free functions of this package. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes" id="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Side__of__triangle__mesh.html">CGAL::Side_of_triangle_mesh&lt; TriangleMesh, GeomTraits, VertexPointMap &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">This class provides an efficient point location functionality with respect to a domain bounded by one or several disjoint closed triangle meshes.  <a href="classCGAL_1_1Side__of__triangle__mesh.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class  </td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Polygon__mesh__slicer.html">CGAL::Polygon_mesh_slicer&lt; TriangleMesh, Traits, VertexPointMap, AABBTree, UseParallelPlaneOptimization &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft"> </td><td class="mdescRight">Function object that computes the intersection of a plane with a triangulated surface mesh.  <a href="classCGAL_1_1Polygon__mesh__slicer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0ce79f6c567ba2a4266c0ec636acc8b9"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename CGAL_PMP_NP_TEMPLATE_PARAMETERS &gt; </td></tr>
+<tr class="memitem:ga0ce79f6c567ba2a4266c0ec636acc8b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga0ce79f6c567ba2a4266c0ec636acc8b9">CGAL::Polygon_mesh_processing::bbox</a> (const PolygonMesh &amp;pmesh, const CGAL_PMP_NP_CLASS &amp;np)</td></tr>
+<tr class="memdesc:ga0ce79f6c567ba2a4266c0ec636acc8b9"><td class="mdescLeft"> </td><td class="mdescRight">computes a bounding box of a polygon mesh.  <a href="group__PkgPolygonMeshProcessing.html#ga0ce79f6c567ba2a4266c0ec636acc8b9">More...</a><br /></td></tr>
+<tr class="separator:ga0ce79f6c567ba2a4266c0ec636acc8b9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga0129863dcd7c851cf3587652e28c6eed"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename NamedParameters &gt; </td></tr>
+<tr class="memitem:ga0129863dcd7c851cf3587652e28c6eed"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga0129863dcd7c851cf3587652e28c6eed">CGAL::Polygon_mesh_processing::vertex_bbox</a> (typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor vd, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:ga0129863dcd7c851cf3587652e28c6eed"><td class="mdescLeft"> </td><td class="mdescRight">computes a bounding box of a vertex of a polygon mesh.  <a href="group__PkgPolygonMeshProcessing.html#ga0129863dcd7c851cf3587652e28c6eed">More...</a><br /></td></tr>
+<tr class="separator:ga0129863dcd7c851cf3587652e28c6eed"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga57266ab008442edbfa30ade3e1e6088e"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename NamedParameters &gt; </td></tr>
+<tr class="memitem:ga57266ab008442edbfa30ade3e1e6088e"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga57266ab008442edbfa30ade3e1e6088e">CGAL::Polygon_mesh_processing::edge_bbox</a> (typename boost::graph_traits&lt; PolygonMesh &gt;::edge_descriptor ed, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:ga57266ab008442edbfa30ade3e1e6088e"><td class="mdescLeft"> </td><td class="mdescRight">computes a bounding box of an edge of a polygon mesh.  <a href="group__PkgPolygonMeshProcessing.html#ga57266ab008442edbfa30ade3e1e6088e">More...</a><br /></td></tr>
+<tr class="separator:ga57266ab008442edbfa30ade3e1e6088e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga478dd7562282bc4cf94dfad779385f72"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename NamedParameters &gt; </td></tr>
+<tr class="memitem:ga478dd7562282bc4cf94dfad779385f72"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga478dd7562282bc4cf94dfad779385f72">CGAL::Polygon_mesh_processing::face_bbox</a> (typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor fd, const PolygonMesh &amp;pmesh, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:ga478dd7562282bc4cf94dfad779385f72"><td class="mdescLeft"> </td><td class="mdescRight">computes a bounding box of a face of a polygon mesh.  <a href="group__PkgPolygonMeshProcessing.html#ga478dd7562282bc4cf94dfad779385f72">More...</a><br /></td></tr>
+<tr class="separator:ga478dd7562282bc4cf94dfad779385f72"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga09a4fe88fd2a7487679346301624e18a"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename CGAL_PMP_NP_TEMPLATE_PARAMETERS &gt; </td></tr>
+<tr class="memitem:ga09a4fe88fd2a7487679346301624e18a"><td class="memTemplItemLeft" align="right" valign="top">CGAL_DEPRECATED <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga09a4fe88fd2a7487679346301624e18a">CGAL::Polygon_mesh_processing::bbox_3</a> (const PolygonMesh &amp;pmesh, const CGAL_PMP_NP_CLASS &amp;np)</td></tr>
+<tr class="separator:ga09a4fe88fd2a7487679346301624e18a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ga6a0a99788b1f8014d38fd9ef8fe7d746"><td class="memTemplParams" colspan="2">template&lt;class Transformation , class PolygonMesh , class NamedParameters &gt; </td></tr>
+<tr class="memitem:ga6a0a99788b1f8014d38fd9ef8fe7d746"><td class="memTemplItemLeft" align="right" valign="top">void </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#ga6a0a99788b1f8014d38fd9ef8fe7d746">CGAL::Polygon_mesh_processing::transform</a> (const Transformation &amp;transformation, PolygonMesh &amp;mesh, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:ga6a0a99788b1f8014d38fd9ef8fe7d746"><td class="mdescLeft"> </td><td class="mdescRight">applies a transformation to every vertex of a <code>PolygonMesh</code>.  <a href="group__PkgPolygonMeshProcessing.html#ga6a0a99788b1f8014d38fd9ef8fe7d746">More...</a><br /></td></tr>
+<tr class="separator:ga6a0a99788b1f8014d38fd9ef8fe7d746"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:gaf5f5eb322811f24573aa9158e6df8070"><td class="memTemplParams" colspan="2">template&lt;typename PolygonMesh , typename FaceRange , typename HalfedgeOutputIterator , typename NamedParameters &gt; </td></tr>
+<tr class="memitem:gaf5f5eb322811f24573aa9158e6df8070"><td class="memTemplItemLeft" align="right" valign="top">HalfedgeOutputIterator </td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__PkgPolygonMeshProcessing.html#gaf5f5eb322811f24573aa9158e6df8070">CGAL::Polygon_mesh_processing::border_halfedges</a> (const FaceRange &amp;faces, const PolygonMesh &amp;pmesh, HalfedgeOutputIterator out, const NamedParameters &amp;np)</td></tr>
+<tr class="memdesc:gaf5f5eb322811f24573aa9158e6df8070"><td class="mdescLeft"> </td><td class="mdescRight">collects the border halfedges of a surface patch defined as a face range.  <a href="group__PkgPolygonMeshProcessing.html#gaf5f5eb322811f24573aa9158e6df8070">More...</a><br /></td></tr>
+<tr class="separator:gaf5f5eb322811f24573aa9158e6df8070"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga0ce79f6c567ba2a4266c0ec636acc8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ce79f6c567ba2a4266c0ec636acc8b9">◆ </a></span>bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename CGAL_PMP_NP_TEMPLATE_PARAMETERS &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> CGAL::Polygon_mesh_processing::bbox </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CGAL_PMP_NP_CLASS &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/bbox.h&gt;</code></p>
+
+<p>computes a bounding box of a polygon mesh. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonMesh</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeListGraph.html">HalfedgeListGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pmesh</td><td>a polygon mesh </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>pmesh</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> must be available in <code>PolygonMesh</code> </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_geom_traits">geom_traits</a></td><td>an instance of a geometric traits class, providing the functor <code>Construct_bbox_3</code> and the function <code>Construct_bbox_3 construct_bbox_3_object()</code>. <code>Construct_bbox_3</code> must provide <code>BBox_3 operator()(Point_3)</code> where <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> is the value type of the vertex point map.  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a bounding box of <code>pmesh</code> </dd></dl>
+
+</div>
+</div>
+<a id="ga09a4fe88fd2a7487679346301624e18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09a4fe88fd2a7487679346301624e18a">◆ </a></span>bbox_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename CGAL_PMP_NP_TEMPLATE_PARAMETERS &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CGAL_DEPRECATED <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> CGAL::Polygon_mesh_processing::bbox_3 </td>
+          <td>(</td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CGAL_PMP_NP_CLASS &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/bbox.h&gt;</code></p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This function is deprecated since <span style="font-variant: small-caps;">CGAL</span> 4.10, <code><a class="el" href="group__PkgPolygonMeshProcessing.html#ga0ce79f6c567ba2a4266c0ec636acc8b9" title="computes a bounding box of a polygon mesh. ">CGAL::Polygon_mesh_processing::bbox()</a></code> should be used instead.</dd></dl>
+
+</div>
+</div>
+<a id="gaf5f5eb322811f24573aa9158e6df8070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf5f5eb322811f24573aa9158e6df8070">◆ </a></span>border_halfedges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename FaceRange , typename HalfedgeOutputIterator , typename NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">HalfedgeOutputIterator CGAL::Polygon_mesh_processing::border_halfedges </td>
+          <td>(</td>
+          <td class="paramtype">const FaceRange &amp; </td>
+          <td class="paramname"><em>faces</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HalfedgeOutputIterator </td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/border.h&gt;</code></p>
+
+<p>collects the border halfedges of a surface patch defined as a face range. </p>
+<p>For each returned halfedge <code>h</code>, <code>opposite(h, pmesh)</code> belongs to a face of the patch, but <code>face(h, pmesh)</code> does not belong to the patch.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonMesh</td><td>model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeGraph.html">HalfedgeGraph</a></code>. If <code>PolygonMesh</code> has an internal property map for <code>CGAL::face_index_t</code> and no <code>face_index_map</code> is given as a named parameter, then the internal one must be initialized </td></tr>
+    <tr><td class="paramname">FaceRange</td><td>range of <code>boost::graph_traits&lt;PolygonMesh&gt;::face_descriptor</code>, model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Circulator.tag:../Circulator/" href="../Circulator/classRange.html">Range</a></code>. Its iterator type is <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classInputIterator.html">InputIterator</a></code>. </td></tr>
+    <tr><td class="paramname">HalfedgeOutputIterator</td><td>model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Manual.tag:../Manual/" href="../Manual/classOutputIterator.html">OutputIterator</a></code> holding <code>boost::graph_traits&lt;PolygonMesh&gt;::halfedge_descriptor</code> for patch border </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pmesh</td><td>the polygon mesh to which <code>faces</code> belong </td></tr>
+    <tr><td class="paramname">faces</td><td>the range of faces defining the patch whose border halfedges are collected </td></tr>
+    <tr><td class="paramname">out</td><td>the output iterator that collects the border halfedges of the patch, seen from outside. </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_face_index_map">face_index_map</a></td><td>a property map containing the index of each face of <code>pmesh</code>  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>out</code> </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Polygon_mesh_processing_2isotropic_remeshing_example_8cpp-example.html#a3">Polygon_mesh_processing/isotropic_remeshing_example.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a id="ga57266ab008442edbfa30ade3e1e6088e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57266ab008442edbfa30ade3e1e6088e">◆ </a></span>edge_bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> CGAL::Polygon_mesh_processing::edge_bbox </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; PolygonMesh &gt;::edge_descriptor </td>
+          <td class="paramname"><em>ed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/bbox.h&gt;</code></p>
+
+<p>computes a bounding box of an edge of a polygon mesh. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonMesh</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeGraph.html">HalfedgeGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ed</td><td>a descriptor of an edge in <code>pmesh</code> </td></tr>
+    <tr><td class="paramname">pmesh</td><td>a polygon mesh </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>pmesh</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> must be available in <code>PolygonMesh</code> </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_geom_traits">geom_traits</a></td><td>an instance of a geometric traits class, providing the functor <code>Construct_bbox_3</code> and the function <code>Construct_bbox_3 construct_bbox_3_object()</code>. <code>Construct_bbox_3</code> must provide <code>BBox_3 operator()(Point_3)</code> where <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> is the value type of the vertex point map.  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a bounding box of <code>pmesh</code> </dd></dl>
+
+</div>
+</div>
+<a id="ga478dd7562282bc4cf94dfad779385f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga478dd7562282bc4cf94dfad779385f72">◆ </a></span>face_bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> CGAL::Polygon_mesh_processing::face_bbox </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; PolygonMesh &gt;::face_descriptor </td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/bbox.h&gt;</code></p>
+
+<p>computes a bounding box of a face of a polygon mesh. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonMesh</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeGraph.html">HalfedgeGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>a descriptor of a face in <code>pmesh</code> </td></tr>
+    <tr><td class="paramname">pmesh</td><td>a polygon mesh </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>pmesh</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> must be available in <code>PolygonMesh</code> </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_geom_traits">geom_traits</a></td><td>an instance of a geometric traits class, providing the functor <code>Construct_bbox_3</code> and the function <code>Construct_bbox_3 construct_bbox_3_object()</code>. <code>Construct_bbox_3</code> must provide <code>BBox_3 operator()(Point_3)</code> where <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> is the value type of the vertex point map.  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a bounding box of <code>pmesh</code> </dd></dl>
+
+</div>
+</div>
+<a id="ga6a0a99788b1f8014d38fd9ef8fe7d746"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a0a99788b1f8014d38fd9ef8fe7d746">◆ </a></span>transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Transformation , class PolygonMesh , class NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGAL::Polygon_mesh_processing::transform </td>
+          <td>(</td>
+          <td class="paramtype">const Transformation &amp; </td>
+          <td class="paramname"><em>transformation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PolygonMesh &amp; </td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/transform.h&gt;</code></p>
+
+<p>applies a transformation to every vertex of a <code>PolygonMesh</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Transformation</td><td>a functor that has an <code>operator()(Point_3)</code>, with <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> the <code>value_type</code> of <code>vertex_point_map</code> (see below). Such a functor can be <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Aff__transformation__3.html">CGAL::Aff_transformation_3</a></code> for example. </td></tr>
+    <tr><td class="paramname">PolygonMesh</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classVertexListGraph.html">VertexListGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transformation</td><td>the transformation functor to apply to the points of <code>mesh</code>. </td></tr>
+    <tr><td class="paramname">mesh</td><td>the <code>PolygonMesh</code> to transform. </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters for Polygon Mesh Processing</a> for <code>mesh</code>, among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<ul>
+<li><dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>mesh</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> must be available in <code>PolygonMesh</code> </td></tr>
+</table>
+</dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="ga0129863dcd7c851cf3587652e28c6eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0129863dcd7c851cf3587652e28c6eed">◆ </a></span>vertex_bbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolygonMesh , typename NamedParameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Bbox__3.html">CGAL::Bbox_3</a> CGAL::Polygon_mesh_processing::vertex_bbox </td>
+          <td>(</td>
+          <td class="paramtype">typename boost::graph_traits&lt; PolygonMesh &gt;::vertex_descriptor </td>
+          <td class="paramname"><em>vd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PolygonMesh &amp; </td>
+          <td class="paramname"><em>pmesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NamedParameters &amp; </td>
+          <td class="paramname"><em>np</em> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;CGAL/Polygon_mesh_processing/bbox.h&gt;</code></p>
+
+<p>computes a bounding box of a vertex of a polygon mesh. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">PolygonMesh</td><td>a model of <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/BGL.tag:../BGL/" href="../BGL/classHalfedgeGraph.html">HalfedgeGraph</a></code> </td></tr>
+    <tr><td class="paramname">NamedParameters</td><td>a sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vd</td><td>a descriptor of a vertex in <code>pmesh</code> </td></tr>
+    <tr><td class="paramname">pmesh</td><td>a polygon mesh </td></tr>
+    <tr><td class="paramname">np</td><td>optional sequence of <a class="el" href="group__pmp__namedparameters.html">Named Parameters</a> among the ones listed below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params">
+<dt>Named Parameters</dt>
+<dd><table class="params">
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_vertex_point_map">vertex_point_map</a></td><td>the property map with the points associated to the vertices of <code>pmesh</code>. If this parameter is omitted, an internal property map for <code>CGAL::vertex_point_t</code> must be available in <code>PolygonMesh</code> </td></tr>
+<tr>
+<td class="paramname"><a class="el" href="group__pmp__namedparameters.html#PMP_geom_traits">geom_traits</a></td><td>an instance of a geometric traits class, providing the functor <code>Construct_bbox_3</code> and the function <code>Construct_bbox_3 construct_bbox_3_object()</code>. <code>Construct_bbox_3</code> must provide <code>BBox_3 operator()(Point_3)</code> where <code><a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/doc_1_8_13/doc_tags/Kernel_23.tag:../Kernel_23/" href="../Kernel_23/classCGAL_1_1Point__3.html">Point_3</a></code> is the value type of the vertex point map.  </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a bounding box of <code>pmesh</code> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Oct 1 2018 11:58:43 for CGAL 4.13 - Polygon Mesh Processing by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen" /></a> 1.8.13 </li>
+  </ul>
+</div>
+</div>
+</body>
+
+</html>

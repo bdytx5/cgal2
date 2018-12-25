@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="Arrangement_on_surface_2_2edge_manipulation_8cpp-example" kind="example">
+    <compoundname>Arrangement_on_surface_2/edge_manipulation.cpp</compoundname>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Using<sp/>the<sp/>edge-manipulation<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/basic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Exact_predicates_exact_constructions_kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arr_segment_traits_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CGAL/Arrangement_2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;arr_print.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Exact__predicates__exact__constructions__kernel" kindref="compound" external="/home/cgal-testsuite/cgal_doc_build/CGAL-4.13-I-128/doc/scripts/build_doc/doc_tags/Kernel_23.tag">CGAL::Exact_predicates_exact_constructions_kernel</ref><sp/><sp/><sp/>Kernel;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arr__segment__traits__2" kindref="compound">CGAL::Arr_segment_traits_2&lt;Kernel&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Traits_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Traits_2::X_monotone_curve_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Segment_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classCGAL_1_1Arrangement__2" kindref="compound">CGAL::Arrangement_2&lt;Traits_2&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrangement_2;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Arrangement_2::Vertex_handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vertex_handle;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Arrangement_2::Halfedge_handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Halfedge_handle;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Step(a)<sp/>-<sp/>construct<sp/>a<sp/>triangular<sp/>face.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Arrangement_2<sp/><sp/><sp/>arr;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s1(Point_2(667,<sp/>1000),<sp/>Point_2(4000,<sp/>5000));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s2(Point_2(4000,<sp/>0),<sp/>Point_2(4000,<sp/>5000));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3(Point_2(667,<sp/>1000),<sp/>Point_2(4000,<sp/>0));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e1<sp/>=<sp/>arr.insert_in_face_interior(s1,<sp/>arr.unbounded_face());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v1<sp/>=<sp/>e1-&gt;source();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v2<sp/>=<sp/>e1-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e2<sp/>=<sp/>arr.insert_from_right_vertex(s2,<sp/>v2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v3<sp/>=<sp/>e2-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s3,<sp/>v3,<sp/>v1);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Step<sp/>(b)<sp/>-<sp/>create<sp/>additional<sp/>two<sp/>faces<sp/>inside<sp/>the<sp/>triangle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Point_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p1(4000,<sp/>3666),<sp/>p2(4000,<sp/>1000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s4(Point_2(4000,<sp/>5000),<sp/>p1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s5(p1,<sp/>p2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s6(Point_2(4000,<sp/>0),<sp/>p2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e4<sp/>=<sp/>arr.split_edge(e2,<sp/>s4,<sp/>Segment_2(Point_2(4000,<sp/>0),<sp/>p1));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>w1<sp/>=<sp/>e4-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e5<sp/>=<sp/>arr.split_edge(e4-&gt;next(),<sp/>s5,<sp/>s6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>w2<sp/>=<sp/>e5-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e6<sp/>=<sp/>e5-&gt;next();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s7(p1,<sp/>Point_2(3000,<sp/>2666));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s8(p2,<sp/>Point_2(3000,<sp/>1333));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s9(Point_2(3000,<sp/>2666),<sp/>Point_2(2000,<sp/>1666));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s10(Point_2(3000,<sp/>1333),<sp/>Point_2(2000,<sp/>1666));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Segment_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>s11(Point_2(3000,<sp/>1333),<sp/>Point_2(3000,<sp/>2666));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e7<sp/>=<sp/>arr.insert_from_right_vertex(s7,<sp/>w1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v4<sp/>=<sp/>e7-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Halfedge_handle<sp/>e8<sp/>=<sp/>arr.insert_from_right_vertex(s8,<sp/>w2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v5<sp/>=<sp/>e8-&gt;target();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Vertex_handle<sp/><sp/><sp/>v6<sp/>=</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>arr.insert_in_face_interior(Point_2(2000,<sp/>1666),<sp/>e8-&gt;face());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s9,<sp/>v4,<sp/>v6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s10,<sp/>v5,<sp/>v6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.insert_at_vertices(s11,<sp/>v4,<sp/>v5);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Step(c)<sp/>-<sp/>remove<sp/>and<sp/>merge<sp/>faces<sp/>to<sp/>form<sp/>a<sp/>single<sp/>hole<sp/>in<sp/>the<sp/>traingle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.remove_edge(e7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>arr.remove_edge(e8);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>e5<sp/>=<sp/>arr.merge_edge(e5,<sp/>e6,<sp/>Segment_2(e5-&gt;source()-&gt;point(),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e6-&gt;target()-&gt;point()));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>e2<sp/>=<sp/>arr.merge_edge(e4,<sp/>e5,<sp/>s2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>print_arrangement(arr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>
