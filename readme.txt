@@ -6,9 +6,11 @@ Surface Reconstruction of ply file using CGAL
 https://doc.cgal.org/latest/Point_set_3/group__PkgPointSet3IO.html#ga7555e1eebd0e6a1a852a065de94c9a46
 
 
-2) point_set.remove(CGAL::grid_simplify_point_set(point_set3.0),point_set.end())
+2) point_set.remove(CGAL::grid_simplify_point_set(point_set, 3.0),point_set.end())
 
 	- grid_simplify_point_set is a recursive function, that reorders the pointset to push all of the unwanted points to the back-half of the point_set. The function ultimately returns an interator to the point in the point_set where the unwanted points begin. The remove function essentially removes the part of the point_set from where the unwanted points begin, to the end of the point_set. 
+	- 3.0 is the cell size that will merge all points in each corresponding cell in the grid. 
+	- this leads to a simplification from 3402917 points to 286157 points.
 
 https://doc.cgal.org/latest/Point_set_processing_3/group__PkgPointSetProcessingAlgorithms.html#gac7c81cc8a2986e3972e86612e4f847a1
 

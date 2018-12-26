@@ -119,6 +119,9 @@ int main(int argc, char*argv[])
         std::cerr << "Properties:" << std::endl;
         for (std::size_t i = 0; i < properties.size(); ++ i)
         std::cerr << " * " << properties[i] << std::endl;
+    
+    
+    std::cerr << "size before simplification"<<point_set.points().size();
 
     // simplify point set, while maintaining color
         point_set.remove(CGAL::grid_simplify_point_set(point_set, 3.0),point_set.end());
@@ -127,7 +130,7 @@ int main(int argc, char*argv[])
         CGAL::write_ply_point_set (fi, point_set);
 
 
-        std::cerr << "done: " << point_set.points().size() << " points." << std::endl;
+        std::cerr << "done: " << point_set.points().size() << " points after simplification." << std::endl;
         std::cerr << "Reconstruction ";
         CGAL::Timer t;
         t.start();
