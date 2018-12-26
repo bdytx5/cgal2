@@ -27,7 +27,7 @@ https://doc.cgal.org/latest/Point_set_3/group__PkgPointSet3IO.html#ga91b012b0c03
    reconstruct.reconstruct_surface();
 
 	- do mesh reconstruction. increase_scale is for smoothing.  
-	- tell the reconstruction class 
+	- tell the reconstruction class to do the reconstruction
 
 
 
